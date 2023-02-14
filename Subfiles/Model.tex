@@ -1,0 +1,96 @@
+\input{./econtexRoot.texinput}
+\documentclass[\econtexRoot/HAFiscal]{subfiles}
+\onlyinsubfile{\externaldocument{\econtexRoot/HAFiscal}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
+
+\begin{document}
+\notinsubfile{\renewcommand{\econtexRoot}{.}}
+
+\hypertarget{model}{}\par\section{Model}
+\notinsubfile{\label{sec:model}}
+
+Consumers differ by their level of education and, within education group, by subjective discount factors (calibrated to match the within-group distribution of wealth). We first describe each kind of consumer's problem, given an income process with permanent and transitory shocks calibrated to their type, as well as type-specific shocks to employment. The next step describes the arrival of a recession and the policies we study as potential fiscal policy responses. The last section discusses an extension incorporating aggregate demand effects that induce feedback from aggregate consumption to income and (via the marginal propensity to consume) back to consumption, amplifying the effect of a recession when it occurs. 
+
+A consumer $i$ has education $e(i)$ and a subjective discount factor $\beta_i$. The consumer faces a stochastic income stream, $y_{i,t}$, and chooses to consume some of that income when it arrives (the `splurge') and then to optimize consumption with what is left over. Therefore, consumption each period for consumer $i$ can be written as
+\begin{verbatimwrite}{\EqDir/splurge.tex}
+\begin{align}
+  c_{i,t} &= c_{sp,i,t} + c_{opt,i,t}, \notinsubfile{\label{sec:model}}
+\end{align}
+\end{verbatimwrite}
+\input{\EqDir/splurge}
+where $c_{i,t}$ is total consumption, $c_{sp,i,t}$ is the splurge consumption, and $c_{opt,i,t}$ is the consumer's optimal choice of consumption after splurging. Splurge consumption is simply a fraction of income:
+\begin{align}
+  c_{sp,i,t} = \varsigma y_{i,t},
+\end{align}
+while the optimized portion of consumption is chosen to maximize the perpetual-youth lifetime expected-utility-maximizing consumption, where $D$ is the end-of-life probability:
+\begin{align}
+  \sum_{t=0}^{\infty}\beta_i^t (1-D)^t \mathbb{E}_0 u(c_{opt,i,t}).
+\end{align}
+We use a standard CRRA (constant relative risk aversion) utility function, so $u(c) = c^{1-\gamma}/(1-\gamma)$ for $\gamma \neq 1$ and $u(c) = \log(c)$ for $\gamma=1$, where $\gamma$ is the coefficient of relative risk aversion. The optimization is subject to the budget constraint, given existing market resources $m_{i,t}$ and income state, and a no-borrowing constraint: 
+\begin{align}
+  a_{i,t} &= m_{i,t} - c_{i,t}, \notag \\ 
+  m_{i,t+1} &= (R/\hat{\Gamma}_{i,t+1}) a_{i,t} + (1-\varsigma) y_{i,t+1}, \\
+  a_{i,t} &\geq 0,   \notag
+\end{align}
+where $R$ is the gross interest factor for accumulated assets $a_{i,t}$ and $\hat{\Gamma}_{i,t+1}$ is the realized growth rate of permanent income from period $t$ to $t+1$, discussed further later.
+
+\hypertarget{the-income-process}{}\par\subsection{The income process}
+
+Consumers face a stochastic income process with permanent and transitory shocks to income, along with unemployment shocks. In normal times, consumers who become unemployed receive unemployment benefits for two quarters. Permanent income evolves according to:
+\begin{align}
+  p_{i,t+1} = \psi_{i,t+1}\Gamma_{e(i)}p_{i,t},
+\end{align}
+where $\psi_{i,t+1}$ is the shock to permanent income and $\Gamma_{e(i)}$ is the average growth rate of income for the consumer's education group $e(i)$.\footnote{We model the rate of growth for permanent income for each education group and keep this rate unchanged during periods of unemployment. There is evidence, e.g.\ in \cite{davis_recessions_2011}, that unemployment, especially in a recession, leads to permanent income loss. This finding could be added to the model---see \citet{carroll2020modeling} for an example---but is not material to the evaluation of stimulus payments here so we have chosen to keep the model simple.  } The realized growth rate of permanent income for consumer $i$ is thus $\hat{\Gamma}_{i,t+1} = \psi_{i,t+1} \Gamma_{e(i)}$. The shock to permanent income is normally distributed with variance $\sigma_{\psi}^2$.
+
+The actual income a consumer receives will be subject to the individual's employment status as well as transitory shocks, $\xi_{i,t}$:
+\begin{align}
+  y_{i,t} =   \begin{cases}
+    \xi_{i,t}p_{i,t}, & \text{if employed} \\
+    \rho_b p_{i,t}, & \text{if unemployed with benefits} \\
+    \rho_{nb} p_{i,t}, & \text{if unemployed without benefits} 
+  \end{cases}
+\end{align}
+where $\xi_{i,t}$ is normally distributed with variance $\sigma_{\xi}^2$, and $\rho_b$ and $\rho_{nb}$ are the replacement rates for an unemployed consumer who is or is not eligible for unemployment benefits, respectively. 
+
+A Markov transition matrix $\Pi$ generates the unemployment dynamics where the number of states is given by $2$ plus the number of periods that unemployment benefits last. An employed consumer can continue being employed or move to being unemployed with benefits.\footnote{That is, as long as we assume that there is at least one period of unemployment benefits.} The first row of $\Pi$ is thus given by $[1-\pi_{eu}^{e(i)}, \pi_{eu}^{e(i)}, \mathbf{0}]$, where $\pi_{eu}^{e(i)}$ indicates the probability of becoming unemployed from an employed state and $\mathbf{0}$ is a vector of zeros of the appropriate length. Note that we allow this probability to depend on the education group of consumer $i$ and will calibrate this parameter to match the average unemployment rate for each education group. Upon becoming unemployed, all consumers face a probability $\pi_{ue}$ of transitioning back into employment and a probability $1-\pi_{ue}$ of remaining unemployed with one less period of remaining benefits. After transitioning into the unemployment state where the consumer is no longer eligible for benefits, the consumer will remain in this state until becoming employed again. The probability of becoming employed is thus the same for each of the unemployment states and education groups. 	
+
+\hypertarget{recessions-and-policies}{}\par\subsection{Recessions and policies}
+\notinsubfile{\label{sec:recessions}}
+We model the arrival of a recession, and the government policy response to it, as an unpredictable event---an MIT shock. We have four types of shocks: one representing a recession and one for each of the three different policy responses we consider. The policy responses are usually modeled as in addition to the recession, but we also consider a counterfactual in which the policy response occurs without a recession in order to understand the welfare effects of the policy.
+
+\paragraph{Recession.} At the onset of a recession, several changes occur. First, the unemployment rate for each education group doubles: Those who would have been unemployed in the absence of a recession are still unemployed, and an additional number of consumers move from employment to unemployment. Second, conditional on the recession continuing, the employment transition matrix is adjusted so that unemployment remains at the new high level and the expected length of time for an unemployment spell increases. In our baseline calibration, discussed in detail in section~\ref{sec:calib}, we set the expected length of an unemployment spell to one and a half quarters in normal times, and this length increases to four quarters in a recession. Third, the end of the recession occurs as a Bernoulli process calibrated for an average length of recession of six quarters. Finally, at the end of a recession, the employment transition matrix switches back to its original probabilities, and, as a result, the unemployment rate trends down over time, back to its steady-state level.
+
+\paragraph{Stimulus check.} In this policy response, the government sends money to every consumer that directly increases the individual's market resources. The checks are means-tested depending on permanent income. A check for \$1,200 is sent to every consumer with permanent income less than \$100,000, and this amount is then linearly reduced to zero for consumers with a permanent income greater than \$150,000.
+
+\paragraph{Extended unemployment benefits.} In this policy response, unemployment benefits are extended from two quarters to four quarters. That is, those who become unemployed at the start of the recession, or who were already unemployed, will receive unemployment benefits for up to four quarters (including quarters leading up to the recession). Those who become unemployed one quarter into the recession will receive up to three quarters of unemployment benefits. These extended unemployment benefits will occur regardless of whether the recession ends, and no further extensions are granted if the recession continues.
+
+\paragraph{Payroll tax cut.} In this policy response, employee-side payroll taxes are reduced for a period of eight quarters.\footnote{Although payroll taxes are paid by both the employer and the employee, the payroll tax cuts in the U.S. have been applied only the employee side.} During this period, which continues irrespective of whether the recession continues or ends, employed consumers' income is increased by 2 percent. The income of unemployed consumers is unchanged by this policy. Consumers also believe there is a 50-50 chance that the tax cut will be extended by another two years if the recession has not ended when the first tax cut expires.\footnote{The belief that the payroll tax cut may be extended makes little difference to the results.}
+
+\paragraph{Financing the policies.} Some work in the HA macro literature has shown that if taxes are raised immediately to offset any fiscal stimulus, results can be very different than they would be if, as occurs in reality, recessionary policies are debt financed.  Typical fiscal rules assume that any increase in debt gets financed over a long interval.  Since much of our analysis effectively normalizes our policies' size so that the total cost of each policy (and therefore the associated debt) is the same, almost all of the effects of any particular fiscal rule should be very similar for each of our policies so long as the great majority of the debt is repaid after the short recessionary period that is our main focus.
+
+To keep our analysis as simple as possible, we assume that our policies are debt financed and that none of the policy-induced government debt is repaid during that short period.  Any of a variety of fiscal rules could be imposed for the period following our short period of interest, but we did not want to choose any particular fiscal rule in order to avoid making a choice that should have little consequence for our key question. Advocates of alternative fiscal rules likely already have intuitions about how such rules' economic consequences differ, but under our approach, those consequences should be nearly the same for all three policies we consider.  Alternative choices of fiscal rules should therefore not affect the ranking of policies that is our principal concern. 
+
+
+\hypertarget{aggregate-demand-effects}{}\par\subsection{Aggregate demand effects}
+\notinsubfile{\label{sec:ADeffects}}
+
+Our baseline model is a partial equilibrium model that does not include any feedback from aggregate consumption to income. In an extension to the model, we add aggregate demand effects during the recession. With this extension, any changes in consumption away from the steady-state consumption level feed back into labor income. Aggregate demand effects are evaluated as
+\begin{align}
+  AD(C_t) =   \begin{cases}
+    \Big(\frac{C_t}{\tilde{C}}\Big)^\kappa, & \text{if in a recession} \\
+    1, & \text{otherwise} ,
+  \end{cases}
+\end{align}
+where $\tilde{C}$ is the level of consumption in the steady state. Idiosyncratic income in the aggregate demand extension is multiplied by $AD(C_t)$:
+\begin{align}
+  y_{AD,i,t} = AD(C_t)y_{i,t}.
+\end{align}
+The series $y_{AD,i,t}$ is then used for each consumer's budget constraint.
+
+\onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}
+
+\ifthenelse{\boolean{Web}}{}{
+  \onlyinsubfile{\captionsetup[figure]{list=no}}
+  \onlyinsubfile{\captionsetup[table]{list=no}}
+  \end{document}	\endinput
+}
+

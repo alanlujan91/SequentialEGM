@@ -1,0 +1,54 @@
+% Define a few objects that are unique to the BST paper
+\input{\ResourcesDir/owner} % Owned by llorracc (draft) or econ-ark (published) ?
+
+\usepackage{footmisc,datetime2,refcount,xr-hyper,hhline,rotating,makecell,subfiles}
+\usepackage{\econark}
+\usepackage{\packages/subfiles}
+
+\provideboolean{showPageHead}
+\setboolean{showPageHead}{false}
+% \usepackage{econtexSetup} sets boolean Web=true if compilation type is dvi
+\ifthenelse{\boolean{Web}}{}{   % 
+  \setboolean{showPageHead}{true}
+  \usepackage{scrlayer-scrpage} % Package for page headers if PDF
+  \usepackage{caption} % allow suppression of appendix figures in NoAppendix PDF
+}
+
+
+% Allow different actions depending on whether document is being processed as
+% subfile or being process as standalone
+\providecommand{\onlyinsubfile}{}\renewcommand{\onlyinsubfile}[1]{#1}
+\providecommand{\notinsubfile}{}\renewcommand{\notinsubfile}[1]{}
+
+% Commands unique to paper
+\provideboolean{CDCEdits}\setboolean{CDCEdits}{true}
+\setboolean{CDCEdits}{false}
+\setboolean{CDCEdits}{true}
+\providecommand{\ifCDC}{\ifthenelse{\boolean{CDCEdits}}}
+
+%% added packages
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage[font=small,format=plain,labelfont=bf,textfont=normal,justification=justified,singlelinecheck=false]{caption}
+%\usepackage[round, authoryear]{natbib}
+\usepackage[super]{nth}
+\usepackage{dcolumn}
+\usepackage{subcaption}
+\usepackage{color} 
+\usepackage{afterpage}
+\usepackage{\LaTeXInputs/pdfsuppressruntime}
+
+%% added commands
+\newcommand{\myred}[1]{\textcolor{red}{#1}}
+\newcommand{\myblue}[1]{\textcolor{blue}{#1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+
+% Terms unique to paper
+

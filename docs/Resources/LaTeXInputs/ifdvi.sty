@@ -1,0 +1,5 @@
+% Defines \ifdvi to be true if being compiled as dvi document
+\newif\ifdvi\dvitrue
+\makeatletter
+\@ifundefined{pdfoutput}{}{\ifnum\pdfoutput>0 \dvifalse\fi}
+\makeatother

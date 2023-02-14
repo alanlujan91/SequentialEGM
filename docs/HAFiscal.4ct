@@ -1,0 +1,63 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-1000}{QQ2-1-1}{}}{3}\relax 
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-20001}{QQ2-1-2}{Introduction}}{1}\relax 
+\doTocEntry\tocsubsection{1.1}{\csname a:TocLink\endcsname{1}{x1-30001.1}{QQ2-1-3}{Related literature}}{5}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-40002}{QQ2-1-4}{Model}}{7}\relax 
+\doTocEntry\tocsubsection{2.1}{\csname a:TocLink\endcsname{1}{x1-50002.1}{QQ2-1-5}{The income process}}{8}\relax 
+\doTocEntry\tocsubsection{2.2}{\csname a:TocLink\endcsname{1}{x1-60002.2}{QQ2-1-6}{Recessions and policies}}{9}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-70002.2}{QQ2-1-7}{Recession.}}{9}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-80002.2}{QQ2-1-8}{Stimulus check.}}{10}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-90002.2}{QQ2-1-9}{Extended unemployment benefits.}}{10}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-100002.2}{QQ2-1-10}{Payroll tax cut.}}{10}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-110002.2}{QQ2-1-11}{Financing the policies.}}{11}\relax 
+\doTocEntry\tocsubsection{2.3}{\csname a:TocLink\endcsname{1}{x1-120002.3}{QQ2-1-12}{Aggregate demand effects}}{11}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-130003}{QQ2-1-13}{Parameterizing the model}}{12}\relax 
+\doTocEntry\tocsubsection{3.1}{\csname a:TocLink\endcsname{1}{x1-140003.1}{QQ2-1-14}{Estimation of the splurge factor}}{12}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-14006}{}{\numberline {1}{\ignorespaces Targets and model moments from the estimation\relax }}}{15}\relax 
+\doTocEntry\tocsubsection{3.2}{\csname a:TocLink\endcsname{1}{x1-150003.2}{QQ2-1-15}{Data on permanent income, liquid wealth, and education}}{17}\relax 
+\doTocEntry\tocsubsection{3.3}{\csname a:TocLink\endcsname{1}{x1-160003.3}{QQ2-1-16}{Calibrated parameters}}{17}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-16002}{}{\numberline {1}{\ignorespaces Panel (A) shows parameters calibrated the same for all types. Panel (B) shows parameters calibrated for each education group. Panel (C) shows the numbers describing how we model a recession and the three policies we consider. ``PI'' refers to permanent income.\relax }}}{22}\relax 
+\doTocEntry\tocsubsection{3.4}{\csname a:TocLink\endcsname{1}{x1-170003.4}{QQ2-1-17}{Estimating the discount factor distributions}}{25}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-17002}{}{\numberline {2}{\ignorespaces Estimated discount factor distributions, estimation targets, and non-targeted moments\relax }}}{28}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-17004}{}{\numberline {2}{\ignorespaces Distributions of liquid wealth within each educational group and for the whole population from the 2004 Survey of Consumer Finances and from the estimated model\relax }}}{31}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-180004}{QQ2-1-18}{Comparing fiscal stimulus policies}}{32}\relax 
+\doTocEntry\tocsubsection{4.1}{\csname a:TocLink\endcsname{1}{x1-190004.1}{QQ2-1-19}{Impulse responses}}{33}\relax 
+\doTocEntry\tocsubsubsection{4.1.1}{\csname a:TocLink\endcsname{1}{x1-200004.1.1}{QQ2-1-20}{Stimulus check}}{34}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-20002}{}{\numberline {3}{\ignorespaces Impulse responses of aggregate income and consumption to a \textbf {stimulus check} during recessions with and without aggregate demand effects\relax }}}{36}\relax 
+\doTocEntry\tocsubsubsection{4.1.2}{\csname a:TocLink\endcsname{1}{x1-210004.1.2}{QQ2-1-21}{UI extension}}{37}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-21002}{}{\numberline {4}{\ignorespaces Impulse responses of aggregate income and consumption to a \textbf {UI extension} during recessions with and without aggregate demand effects\relax }}}{39}\relax 
+\doTocEntry\tocsubsubsection{4.1.3}{\csname a:TocLink\endcsname{1}{x1-220004.1.3}{QQ2-1-22}{Payroll tax cut}}{40}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-22002}{}{\numberline {5}{\ignorespaces Impulse responses of aggregate income and consumption to a \textbf {payroll tax cut} lasting eight quarters during recessions with and without aggregate demand effects\relax }}}{42}\relax 
+\doTocEntry\tocsubsection{4.2}{\csname a:TocLink\endcsname{1}{x1-230004.2}{QQ2-1-23}{Multipliers}}{43}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-23002}{}{\numberline {6}{\ignorespaces Cumulative multiplier as a function of the horizon for the three policies. Note: Policies are implemented during a recession with AD effect active.\relax }}}{46}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-23004}{}{\numberline {3}{\ignorespaces Long-run cumulative multipliers as well as the share of the policy occurring during the recession\relax }}}{49}\relax 
+\doTocEntry\tocsubsection{4.3}{\csname a:TocLink\endcsname{1}{x1-240004.3}{QQ2-1-24}{Welfare}}{50}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-24016}{}{\numberline {4}{\ignorespaces Consumption-equivalent welfare gains in basis points, calculated for policies implemented in a recession with and without aggregate demand effects\relax }}}{55}\relax 
+\doTocEntry\tocsubsection{4.4}{\csname a:TocLink\endcsname{1}{x1-250004.4}{QQ2-1-25}{Comparing the policies}}{56}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-260005}{QQ2-1-26}{Robustness}}{56}\relax 
+\doTocEntry\tocsubsection{5.1}{\csname a:TocLink\endcsname{1}{x1-270005.1}{QQ2-1-27}{Changing the interest rate}}{57}\relax 
+\doTocEntry\tocsubsubsection{5.1.1}{\csname a:TocLink\endcsname{1}{x1-280005.1.1}{QQ2-1-28}{Discount factor distributions with different interest rates}}{57}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-28002}{}{\numberline {5}{\ignorespaces Estimates of the splurge and $(\beta ,\nabla )$ for each education group for different values of the interest rate $R$\relax }}}{59}\relax 
+\doTocEntry\tocsubsubsection{5.1.2}{\csname a:TocLink\endcsname{1}{x1-290005.1.2}{QQ2-1-29}{Results with different interest rates}}{60}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-29003}{}{\numberline {6}{\ignorespaces Consumption-equivalent welfare gains in basis points, calculated for policies implemented in a recession with and without aggregate demand effects, for different values of the interest rate $R$\relax }}}{62}\relax 
+\doTocEntry\tocsubsection{5.2}{\csname a:TocLink\endcsname{1}{x1-300005.2}{QQ2-1-30}{Changing risk aversion}}{63}\relax 
+\doTocEntry\tocsubsubsection{5.2.1}{\csname a:TocLink\endcsname{1}{x1-310005.2.1}{QQ2-1-31}{Discount factor distributions with different risk aversion}}{63}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-31002}{}{\numberline {7}{\ignorespaces Estimates of the splurge and $(\beta ,\nabla )$ for each education group for different values of risk aversion, $\gamma $\relax }}}{65}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-31005}{}{\numberline {8}{\ignorespaces Median liquid-wealth-to-permanent-income ratios\relax }}}{68}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-31007}{}{\numberline {7}{\ignorespaces Distributions of liquid wealth within each educational group and for the whole population from the 2004 Survey of Consumer Finances and from the estimated model for different values of risk aversion, $\gamma $\relax }}}{71}\relax 
+\doTocEntry\tocsubsubsection{5.2.2}{\csname a:TocLink\endcsname{1}{x1-320005.2.2}{QQ2-1-32}{Results with different risk aversion}}{72}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-32003}{}{\numberline {9}{\ignorespaces Consumption-equivalent welfare gains in basis points, calculated for policies implemented in a recession with and without aggregate demand effects, for different values of risk aversion, $\gamma $\relax }}}{75}\relax 
+\doTocEntry\tocsubsection{5.3}{\csname a:TocLink\endcsname{1}{x1-330005.3}{QQ2-1-33}{Changing benefits}}{76}\relax 
+\doTocEntry\tocsubsubsection{5.3.1}{\csname a:TocLink\endcsname{1}{x1-340005.3.1}{QQ2-1-34}{Discount factor distributions with different benefits}}{76}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-34002}{}{\numberline {10}{\ignorespaces Estimates of the Splurge and $(\beta ,\nabla )$ for each education group for the baseline replacement rates $\rho _{b}$ and $\rho _{nb}$ and an alternative calibration\relax }}}{78}\relax 
+\doTocEntry\tocsubsubsection{5.3.2}{\csname a:TocLink\endcsname{1}{x1-350005.3.2}{QQ2-1-35}{Results with different benefits}}{79}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-35002}{}{\numberline {11}{\ignorespaces Consumption equivalent welfare gains in basis points, calculated for policies implemented in a recession with and without aggregate demand effects, for different unemployment benefit rates\relax }}}{81}\relax 
+\doTocEntry\tocsubsection{5.4}{\csname a:TocLink\endcsname{1}{x1-360005.4}{QQ2-1-36}{Changing the properties of the recession}}{82}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-36002}{}{\numberline {12}{\ignorespaces Consumption-equivalent welfare gains in basis points, calculated for policies implemented in a recession with and without aggregate demand effects, for different properties of the recession\relax }}}{84}\relax 
+\doTocEntry\tocsubsection{5.5}{\csname a:TocLink\endcsname{1}{x1-370005.5}{QQ2-1-37}{Summary of robustness exercises}}{85}\relax 
+\doTocEntry\tocsection{6}{\csname a:TocLink\endcsname{1}{x1-380006}{QQ2-1-38}{Conclusion}}{85}\relax 
+\doTocEntry\tocsection{}{\csname a:TocLink\endcsname{1}{Q1-1-39}{}{Appendices}}{87}\relax 
+\doTocEntry\tocsection{A}{\csname a:TocLink\endcsname{1}{x1-39000A}{QQ2-1-40}{Estimating discount factor distributions for different interest rates}}{87}\relax 
+\doTocEntry\toclof{}{\csname a:TocLink\endcsname{1}{x1-39002}{}{\numberline {8}{\ignorespaces Distributions of liquid wealth within each educational group and for the whole population from the 2004 Survey of Consumer Finance and from the estimated model for different values of the interest rate, $R$.\relax }}}{89}\relax 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-40000A}{QQ2-1-41}{References}}{91}\relax 
+\par 

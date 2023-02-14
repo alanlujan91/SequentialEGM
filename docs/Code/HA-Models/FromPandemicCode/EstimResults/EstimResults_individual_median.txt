@@ -1,0 +1,55 @@
+
+DROPOUTS:
+
+Optimization terminated successfully.
+         Current function value: 0.026424
+         Iterations: 50
+         Function evaluations: 93
+Time to estimate is 18434.835327386856 seconds.
+Finished estimating. Optimal beta and spread are:
+[0.87509113 0.13891492]
+Median LW/PI-ratio for group e = 0.00 is: 4.64
+Lorenz shares - Dropouts:
+[0.         0.02525812 0.6209938  3.5757608 ]
+Distance = 0.03
+Non-targeted moments:
+Average LW/PI-ratios for group e = 0.00 is: 76.90
+Lorenz shares - all:
+[0.14905729 0.8491313  2.64273649 7.59153599]
+
+
+HIGHSCHOOL: 
+Optimization terminated successfully.
+         Current function value: 1.315967
+         Iterations: 32
+         Function evaluations: 62
+Time to estimate is 12512.923310279846 seconds.
+Finished estimating. Optimal beta and spread are:
+[0.96597689 0.03307152]
+Median LW/PI-ratio for group e = 1.00 is: 30.17
+Lorenz shares - Highschool:
+[ 0.25367985  1.34902445  3.95931011 11.13396985]
+Distance = 1.32
+Non-targeted moments:
+Average LW/PI-ratios for group e = 1.00 is: 98.33
+Lorenz shares - all:
+[0.10774889 0.58335251 2.04135675 6.48259543]
+
+
+COLLEGE:
+Optimization terminated successfully.
+         Current function value: 1.167086
+         Iterations: 32
+         Function evaluations: 64
+Time to estimate is 13322.42956161499 seconds.
+Finished estimating. Optimal beta and spread are:
+[0.9886787  0.00772621]
+Median LW/PI-ratio for group e = 2.00 is: 112.80
+Lorenz shares - College:
+[0.46655505 1.63829805 3.98693659 9.81842224]
+Distance = 1.17
+Non-targeted moments:
+Average LW/PI-ratios for group e = 2.00 is: 293.79
+Lorenz shares - all:
+[0.00578233 0.02358162 0.06560172 0.2017303 ]
+

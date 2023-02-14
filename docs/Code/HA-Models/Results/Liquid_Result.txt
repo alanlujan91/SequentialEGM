@@ -1,0 +1,169 @@
+Beginning an estimation with the specification name PYbetaDistIndNetWorth...
+C:\Users\ifr\Documents\GitHub\HAFiscal-Latest\Code\HA-Models\BetaDistEstimation_wealth.py:183: DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+  t_start = clock()
+getKYratioDifference tried center = 0.95 and got -9.047401201678817
+getKYratioDifference tried center = 0.995 and got 84.25366541823159
+getKYratioDifference tried center = 0.9543636484428857 and got -9.029933916289432
+getKYratioDifference tried center = 0.9746818242214428 and got -8.853508314223609
+getKYratioDifference tried center = 0.9848409121107213 and got -7.474608897953282
+getKYratioDifference tried center = 0.9899204560553607 and got 9.154538500509894
+getKYratioDifference tried center = 0.9871241082034841 and got -3.4426405302481786
+getKYratioDifference tried center = 0.9885408180997384 and got 1.5468043725775775
+getKYratioDifference tried center = 0.9881016163238135 and got -0.26035602882028286
+getKYratioDifference tried center = 0.9881648917420566 and got -0.015702108116705915
+getKYratioDifference tried center = 0.9881689120041931 and got 7.267180686554298e-06
+getKYratioDifference tried center = 0.9881684120041927 and got -0.0019476481421651926
+findLorenzDistanceAtTargetKY tried spread = 0.004 and got 13.84303921459694
+getKYratioDifference tried center = 0.95 and got -9.046289675318127
+getKYratioDifference tried center = 0.995 and got 150.88699388232203
+getKYratioDifference tried center = 0.9525453303173295 and got -9.036283669401747
+getKYratioDifference tried center = 0.9737726651586647 and got -8.85286733136417
+getKYratioDifference tried center = 0.9843863325793323 and got -4.0161207828695265
+getKYratioDifference tried center = 0.9896931662896662 and got 23.378359505427195
+getKYratioDifference tried center = 0.9851643318306782 and got -2.1786298427686557
+getKYratioDifference tried center = 0.986008136184231 and got 0.41267536951124306
+getKYratioDifference tried center = 0.9858737570799296 and got -0.04552995164760176
+getKYratioDifference tried center = 0.985887109771046 and got -0.0007908706132191412
+getKYratioDifference tried center = 0.9858876097710464 and got 0.0008865960994359767
+findLorenzDistanceAtTargetKY tried spread = 0.008 and got 1.7925990734843218
+getKYratioDifference tried center = 0.95 and got -9.042742368779129
+getKYratioDifference tried center = 0.995 and got 461.91865751255426
+getKYratioDifference tried center = 0.9508640270873527 and got -9.039245916489048
+getKYratioDifference tried center = 0.9729320135436763 and got -8.77987479794717
+getKYratioDifference tried center = 0.9839660067718381 and got 12.634589245031066
+getKYratioDifference tried center = 0.977455922191132 and got -6.832387435840438
+getKYratioDifference tried center = 0.9807109644814851 and got -1.4192329261130459
+getKYratioDifference tried center = 0.9813802223744367 and got 0.5217492760420956
+getKYratioDifference tried center = 0.9812003212806785 and got -0.03385762117996549
+getKYratioDifference tried center = 0.9812112841090969 and got -0.0007385665911971984
+getKYratioDifference tried center = 0.9812117841090973 and got 0.0007726816884741083
+findLorenzDistanceAtTargetKY tried spread = 0.014472136 and got 9.933169057485024
+getKYratioDifference tried center = 0.95 and got -9.046289675318127
+getKYratioDifference tried center = 0.995 and got 150.88699388232203
+getKYratioDifference tried center = 0.9525453303173295 and got -9.036283669401747
+getKYratioDifference tried center = 0.9737726651586647 and got -8.85286733136417
+getKYratioDifference tried center = 0.9843863325793323 and got -4.0161207828695265
+getKYratioDifference tried center = 0.9896931662896662 and got 23.378359505427195
+getKYratioDifference tried center = 0.9851643318306782 and got -2.1786298427686557
+getKYratioDifference tried center = 0.986008136184231 and got 0.41267536951124306
+getKYratioDifference tried center = 0.9858737570799296 and got -0.04552995164760176
+getKYratioDifference tried center = 0.985887109771046 and got -0.0007908706132191412
+getKYratioDifference tried center = 0.9858876097710464 and got 0.0008865960994359767
+findLorenzDistanceAtTargetKY tried spread = 0.008 and got 1.7925990734843218
+getKYratioDifference tried center = 0.95 and got -9.045206773571513
+getKYratioDifference tried center = 0.995 and got 242.56238023381883
+getKYratioDifference tried center = 0.9516177346226 and got -9.038846285110665
+getKYratioDifference tried center = 0.9733088673113 and got -8.84313476558006
+getKYratioDifference tried center = 0.98415443365565 and got -0.1437223324693626
+getKYratioDifference tried center = 0.9843275357648253 and got 0.41166836868908874
+getKYratioDifference tried center = 0.984199228497973 and got -0.002982441541016456
+getKYratioDifference tried center = 0.9842001709249776 and got -1.4326446908796697e-06
+getKYratioDifference tried center = 0.984200670924978 and got 0.0016106538114115665
+findLorenzDistanceAtTargetKY tried spread = 0.010472135899376001 and got 6.1251550517288065
+getKYratioDifference tried center = 0.95 and got -9.046804872061456
+getKYratioDifference tried center = 0.995 and got 117.01751675045287
+getKYratioDifference tried center = 0.9532293531905228 and got -9.034045512466662
+getKYratioDifference tried center = 0.9741146765952614 and got -8.854654596905698
+getKYratioDifference tried center = 0.9845573382976307 and got -5.658691842261961
+getKYratioDifference tried center = 0.9897786691488153 and got 16.35152497676361
+getKYratioDifference tried center = 0.9858997104576273 and got -2.8654960655458206
+getKYratioDifference tried center = 0.9870714836895502 and got 0.80346550408529
+getKYratioDifference tried center = 0.9868148771940629 and got -0.11548574818698576
+getKYratioDifference tried center = 0.9868471252518872 and got -0.003938390367531852
+getKYratioDifference tried center = 0.9868482582767301 and got -1.504275868313698e-06
+getKYratioDifference tried center = 0.9868487582767305 and got 0.0017362648091303612
+findLorenzDistanceAtTargetKY tried spread = 0.006472136 and got 3.4516376506541944
+getKYratioDifference tried center = 0.95 and got -9.046259570854772
+getKYratioDifference tried center = 0.995 and got 153.04681507348286
+getKYratioDifference tried center = 0.9525114069899758 and got -9.036388623686287
+getKYratioDifference tried center = 0.973755703494988 and got -8.852699228649886
+getKYratioDifference tried center = 0.9843778517474939 and got -3.917077769269473
+getKYratioDifference tried center = 0.9896889258737469 and got 23.815661892649462
+getKYratioDifference tried center = 0.985128008084174 and got -2.1319265540388743
+getKYratioDifference tried center = 0.9859502785020523 and got 0.39255811874316926
+getKYratioDifference tried center = 0.9858224152070914 and got -0.042510439366665764
+getKYratioDifference tried center = 0.9858349086974766 and got -0.0007155793267212829
+getKYratioDifference tried center = 0.985835408697477 and got 0.000986490652634231
+findLorenzDistanceAtTargetKY tried spread = 0.00808000001 and got 1.8962635370613887
+getKYratioDifference tried center = 0.95 and got -9.046434493616125
+getKYratioDifference tried center = 0.995 and got 140.78089719514978
+getKYratioDifference tried center = 0.952717058013543 and got -9.035743103271049
+getKYratioDifference tried center = 0.9738585290067715 and got -8.853585145260606
+getKYratioDifference tried center = 0.9844292645033857 and got -4.487385820798108
+getKYratioDifference tried center = 0.9897146322516929 and got 21.31665666511943
+getKYratioDifference tried center = 0.9853484028246159 and got -2.393384457973692
+getKYratioDifference tried center = 0.9862929054358661 and got 0.5134254973835315
+getKYratioDifference tried center = 0.9861260793514613 and got -0.06136668492755959
+getKYratioDifference tried center = 0.9861438902474241 and got -0.0013130804209815494
+getKYratioDifference tried center = 0.9861443902474245 and got 0.00037631552808825575
+findLorenzDistanceAtTargetKY tried spread = 0.007602599453677272 and got 1.5289948652108514
+getKYratioDifference tried center = 0.95 and got -9.04658302519632
+getKYratioDifference tried center = 0.995 and got 130.8912109088124
+getKYratioDifference tried center = 0.9529091228658771 and got -9.035120753341872
+getKYratioDifference tried center = 0.9739545614329386 and got -8.854152808359492
+getKYratioDifference tried center = 0.9844772807164692 and got -4.962820044592946
+getKYratioDifference tried center = 0.9897386403582347 and got 19.27214221322707
+getKYratioDifference tried center = 0.9855546985731255 and got -2.5963663544664266
+getKYratioDifference tried center = 0.9865964472516714 and got 0.6235666326504283
+getKYratioDifference tried center = 0.9863947040110053 and got -0.08028259676517635
+getKYratioDifference tried center = 0.9864177152903583 and got -0.002048544110788697
+getKYratioDifference tried center = 0.9864183158634207 and got -1.5959390839981324e-06
+getKYratioDifference tried center = 0.9864188158634211 and got 0.0017028388247233295
+findLorenzDistanceAtTargetKY tried spread = 0.007170800850129979 and got 1.8890839530483532
+getKYratioDifference tried center = 0.95 and got -9.046407369329474
+getKYratioDifference tried center = 0.995 and got 142.6366441292761
+getKYratioDifference tried center = 0.9526838089529308 and got -9.035848934516027
+getKYratioDifference tried center = 0.9738419044764655 and got -8.853462584007215
+getKYratioDifference tried center = 0.9844209522382328 and got -4.399805962568421
+getKYratioDifference tried center = 0.9897104761191164 and got 21.69718097684916
+getKYratioDifference tried center = 0.9853127363650473 and got -2.354436455918276
+getKYratioDifference tried center = 0.9862387853473931 and got 0.4940571368360942
+getKYratioDifference tried center = 0.9860781667278 and got -0.05824294105871708
+getKYratioDifference tried center = 0.9860951048039805 and got -0.0011904550539743042
+getKYratioDifference tried center = 0.986095604803981 and got 0.0004965322958714324
+findLorenzDistanceAtTargetKY tried spread = 0.0076786254582140445 and got 1.5385519685481979
+getKYratioDifference tried center = 0.95 and got -9.046461341641397
+getKYratioDifference tried center = 0.995 and got 138.9603267345082
+getKYratioDifference tried center = 0.9527504870936353 and got -9.035636092958347
+getKYratioDifference tried center = 0.9738752435468176 and got -8.85370066269467
+getKYratioDifference tried center = 0.9844376217734088 and got -4.573766932118209
+getKYratioDifference tried center = 0.9897188108867043 and got 20.94241009123383
+getKYratioDifference tried center = 0.9853842733077098 and got -2.4313282531104656
+getKYratioDifference tried center = 0.9863468244663877 and got 0.5327639239256499
+getKYratioDifference tried center = 0.9861738161718921 and got -0.06452495995727148
+getKYratioDifference tried center = 0.9861925062121321 and got -0.0014129841458601078
+getKYratioDifference tried center = 0.9861930062121325 and got 0.00027898064604769957
+findLorenzDistanceAtTargetKY tried spread = 0.007526573449140499 and got 1.5421149022821277
+C:\Users\ifr\Documents\GitHub\HAFiscal-Latest\Code\HA-Models\BetaDistEstimation_wealth.py:186: DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+  t_end = clock()
+C:\Users\ifr\.conda\envs\econ-ark\lib\site-packages\HARK\cstwMPC\cstwMPC.py:208: RuntimeWarning: invalid value encountered in double_scalars
+  self.MPCunemployed = np.sum(MPCannual[unemployed]*CohortWeight[unemployed])/np.sum(CohortWeight[unemployed])
+C:\Users\ifr\.conda\envs\econ-ark\lib\site-packages\HARK\cstwMPC\cstwMPC.py:210: RuntimeWarning: invalid value encountered in double_scalars
+  self.MPCretired    = np.sum(MPCannual[retired]*CohortWeight[retired])/np.sum(CohortWeight[retired])
+Estimate is center=0.9861930062121325, spread=0.007602599453677272, took 3231.224161700011 seconds.
+Estimate is center=0.9861930062121325, spread=0.007602599453677272
+Lorenz distance is 1.5618747927055003
+Average MPC for all consumers is 0.249
+Average MPC in the top percentile of W/Y is 0.054
+Average MPC in the top decile of W/Y is 0.059
+Average MPC in the top quintile of W/Y is 0.062
+Average MPC in the second quintile of W/Y is 0.077
+Average MPC in the middle quintile of W/Y is 0.177
+Average MPC in the fourth quintile of W/Y is 0.328
+Average MPC in the bottom quintile of W/Y is 0.603
+Average MPC in the top percentile of y is 0.223
+Average MPC in the top decile of y is 0.222
+Average MPC in the top quintile of y is 0.225
+Average MPC in the second quintile of y is 0.251
+Average MPC in the middle quintile of y is 0.270
+Average MPC in the fourth quintile of y is 0.258
+Average MPC in the bottom quintile of y is 0.242
+Average MPC for the employed is 0.243
+Average MPC for the unemployed is 0.335
+Average MPC for the retired is nan
+Of the population with the 1/3 highest MPCs...
+55.534% are in the bottom wealth quintile,
+35.056% are in the second wealth quintile,
+8.927% are in the third wealth quintile,
+0.481% are in the fourth wealth quintile,
+and 0.002% are in the top wealth quintile.

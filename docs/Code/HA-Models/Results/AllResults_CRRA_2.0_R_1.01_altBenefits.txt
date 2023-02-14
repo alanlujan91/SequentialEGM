@@ -1,0 +1,28 @@
+Results for CRRA = 2.0 and R = 1.01
+
+Education group = 0.00: beta = 0.5989, nabla = 0.6869
+	Median LW/PI-ratio = 4.65
+	Lorenz Points = [0.0, 0.0, 0.1186, 3.1582]
+	Approximation to beta distribution: betaMin = 0.01014, betaMax = 1.18768
+	GIC satisfied = False
+	Imposed GIC-consistent maximum beta = 0.99465
+
+Education group = 1.00: beta = 0.8522, nabla = 0.1592
+	Median LW/PI-ratio = 30.20
+	Lorenz Points = [0.0673, 1.0216, 3.7834, 11.2846]
+	Approximation to beta distribution: betaMin = 0.71571, betaMax = 0.98859
+	GIC satisfied = True
+	Imposed GIC-consistent maximum beta = 0.99659
+
+Education group = 2.00: beta = 0.9676, nabla = 0.0276
+	Median LW/PI-ratio = 112.80
+	Lorenz Points = [0.3651, 1.5763, 4.1009, 9.7893]
+	Approximation to beta distribution: betaMin = 0.94399, betaMax = 0.99124
+	GIC satisfied = True
+	Imposed GIC-consistent maximum beta = 0.99732
+
+Population calculations:
+	Median LW/PI-ratios = [4.65, 30.23, 112.71]
+	Lorenz Points = [0.0498, 0.6744, 2.6916, 8.6359]
+	Wealth shares = [ 8.47543392 19.88847614 71.63608994]
+	Average MPCs (incl. splurge) = [0.7980752409206671, 0.8023137674209333, 0.5732325398004315, 0.7148675572055568]

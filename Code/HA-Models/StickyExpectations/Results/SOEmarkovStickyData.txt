@@ -1,0 +1,1 @@
+time_period	DeltaLogC_me	DeltaLogC	DeltaLogY	A	BigTheta	Delta8LogC	Delta8LogY	Delta8LogC_me	Measurement_Error	MrkvState
