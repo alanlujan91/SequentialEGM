@@ -122,14 +122,15 @@
   *{package}{atveryend-ltx}{2020/08/19 v1.0a}
   *{package}{rerunfilecheck}{2019/12/05 v1.9}
   *{package}{uniquecounter}{2019/12/15 v1.4}
+  *{package}{./Resources/texmf-local/tex/latex/econark}{0000/00/00 v0.0}
+  *{package}{subfiles}    {2020/11/14 v2.2}
+  *{package}{import}      {2020/04/01 v6.2}
+  *{package}{./Resources/texmf-local/tex/latex/econtexShortcuts}{0000/00/00 v0.0}
   *{package}{./Resources/LaTeXInputs/HAFiscal}{0000/00/00 v0.0}
   *{file}   {./Resources/owner}{0000/00/00 v0.0}
   *{package}{xr-hyper}    {2021-06-07 v7.00m}
   *{package}{rotating}    {2016/08/11 v2.16d}
   *{package}{makecell}    {2009/08/03 v0.1e}
-  *{package}{subfiles}    {2020/11/14 v2.2}
-  *{package}{import}      {2020/04/01 v6.2}
-  *{package}{./Resources/texmf-local/tex/latex/econark}{0000/00/00 v0.0}
   *{package}{scrlayer-scrpage}{2021/11/13 v3.35}
   *{package}{scrlayer}    {2021/11/13 v3.35}
   *{package}{caption}     {2020/10/26 v3.5g}
@@ -148,6 +149,8 @@
   *{file}   {ulasy.fd}    {1998/08/17 v2.2e}
   *{file}   {uwasy.fd}    {2020/01/19 v2.4}
   *{file}   {t1cmtt.fd}   {2019/12/16 v2.5j}
+  *{file}   {ubbmss.fd}   {1999/03/15 v1.2}
+  *{file}   {ueuf.fd}     {2013/01/14 v3.01}
   *{-------}{Document-specific files:}{----}
   *{file}   {translations-basic-dictionary-english.trsl}{(english v0.0}
   *{file}   {supp-pdf.mkii}{0000/00/00 v0.0}

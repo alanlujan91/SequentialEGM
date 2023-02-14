@@ -7,9 +7,10 @@
 % Attempted to make all lines used for Web version contain {Web} (or version with only single curly brace at end) so can be removed with sed
 \ifthenelse{\boolean{Web}}{\renewcommand{\versn}{Web}}{}  % {Web}
 
-\title{Welfare and Spending Effects \\ of Consumption Stimulus Policies}
+\title{EGM$^N$: The Sequential Endogenous Grid Method}
+\subtitle{Solving Micro DSOPS using Unstructured Multivariate Interpolation}
 
-\author{Christopher D. Carroll\authNum \and Edmund Crawley\authNum \and Ivan Frankovic\authNum \and H{\aa}kon Tretvoll\authNum}
+\author{Alan Lujan}
 
 \keywords{}
 
@@ -23,7 +24,18 @@
 \maketitle
 \hypertarget{abstract}{}
 \begin{verbatimwrite}{\econtexRoot/Subfiles/Abstract.texinput}
-  Using a heterogeneous agent model calibrated to match measured spending dynamics over four years following an income shock (\cite{fagereng_mpc_2021}), we assess the effectiveness of three fiscal stimulus policies employed during recent recessions.  Unemployment insurance (UI) extensions are the clear ``bang for the buck'' winner, especially when effectiveness is measured in utility terms.  Stimulus checks are second best and have the advantage (over UI) of being scalable to any desired size.  A temporary (two-year) cut in the rate of wage taxation is considerably less effective than the other policies and has negligible effects in the version of our model without a multiplier.
+  This paper describes a method for solving heterogeneous agent models
+  with many decision choices. It extends the method proposed by (G2EGM)
+  and
+  complements recent work by (NEGM) on how to nest such models. I suggest
+  first
+  solving the pure consumption problem (inner loop) using a standard EGM
+  step.
+  Then, the outer loop is solved using an appropriately designed
+  sequential EGM
+  step. Finally, I used the method for curvilinear or "wraped grid"
+  interpolation
+  as in White (2015).
 \end{verbatimwrite}
 \input{\econtexRoot/Subfiles/Abstract.texinput}
 
@@ -33,26 +45,23 @@
 \newcommand{\REMARK}{\href{https://github.com/econ-ark/REMARK}{REMARK}}
 \begin{footnotesize}
   \parbox{0.9\textwidth}{
-  \begin{center}
-    \begin{tabbing}
-      \texttt{~~~~~~~~~~~} \= \=  \\ 
-%      \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/hafiscal}} \\ 
-%      \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/hafiscal}{Click `Launch Dashboard' Button}} \\
-      \texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/HAFiscal/}{https://\owner.github.io/HAFiscal/}} \\ % Owner is defined in Resources/owner.tex
-      \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal/blob/master/HAFiscal.pdf}{HAFiscal.pdf}} \\ 
-%      \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal/blob/master/HAFiscal-Slides.pdf}{HAFiscal-Slides.pdf}} \\
-      \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal}{https://github.com/\owner/HAFiscal}} \\
-    \end{tabbing}
-  \end{center}
-} % end \parbox{\textwidth}
+    \begin{center}
+      \begin{tabbing}
+        \texttt{~~~~~~~~~~~} \= \=  \\
+        %      \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/hafiscal}} \\ 
+        %      \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/hafiscal}{Click `Launch Dashboard' Button}} \\
+        \texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/HAFiscal/}{https://\owner.github.io/HAFiscal/}} \\ % Owner is defined in Resources/owner.tex
+        \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal/blob/master/HAFiscal.pdf}{HAFiscal.pdf}} \\
+        %      \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal/blob/master/HAFiscal-Slides.pdf}{HAFiscal-Slides.pdf}} \\
+        \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/HAFiscal}{https://github.com/\owner/HAFiscal}} \\
+      \end{tabbing}
+    \end{center}
+  } % end \parbox{\textwidth}
 \end{footnotesize}
 
 
 \begin{authorsinfo}
-  \noindent \name{\href{https://www.econ2.jhu.edu/people/ccarroll}{Carroll: Department of Economics, Johns Hopkins University}, \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, and \href{https://nber.org}{NBER}}. \newline
-  \name{Crawley: Federal Reserve Board, \href{mailto:edmund.s.crawley@frb.gov}{\texttt{edmund.s.crawley@frb.gov}} } \newline
-  \name{Frankovic: Deutsche Bundesbank, \href{mailto:ivan.frankovic@bundesbank.de}{\texttt{ivan.frankovic@bundesbank.de}}} \newline
-  \name{Tretvoll: Statistics Norway, \href{mailto:Hakon.Tretvoll@ssb.no}{\texttt{Hakon.Tretvoll@ssb.no}}}
+  \noindent \name{\href{https://quantmacro.org}{Department of Economics, The Ohio State University}, \href{mailto:alujan@quantmacro.org}{\texttt{alujan91@quantmacro.org}}}.
 \end{authorsinfo}
 
 \pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page

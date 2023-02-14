@@ -1,1 +1,12 @@
-  Using a heterogeneous agent model calibrated to match measured spending dynamics over four years following an income shock (\cite{fagereng_mpc_2021}), we assess the effectiveness of three fiscal stimulus policies employed during recent recessions.  Unemployment insurance (UI) extensions are the clear ``bang for the buck'' winner, especially when effectiveness is measured in utility terms.  Stimulus checks are second best and have the advantage (over UI) of being scalable to any desired size.  A temporary (two-year) cut in the rate of wage taxation is considerably less effective than the other policies and has negligible effects in the version of our model without a multiplier.
+  This paper describes a method for solving heterogeneous agent models
+  with many decision choices. It extends the method proposed by (G2EGM)
+  and
+  complements recent work by (NEGM) on how to nest such models. I suggest
+  first
+  solving the pure consumption problem (inner loop) using a standard EGM
+  step.
+  Then, the outer loop is solved using an appropriately designed
+  sequential EGM
+  step. Finally, I used the method for curvilinear or "wraped grid"
+  interpolation
+  as in White (2015).
