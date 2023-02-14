@@ -2,8 +2,13 @@
   *{application}{pdfTeX}  {0000/00/00 v1.40.23}
   *{format} {LaTeX2e}     {2021-11-15 v2.e}
   *{file}   {./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {./Resources/econtexPaths}{0000/00/00 v0.0}
-  *{class}  {./Resources/texmf-local/tex/latex/econtex}{2017/08/01 v0.0}
+  *{file}   {../Resources/econtexPaths}{0000/00/00 v0.0}
+  *{class}  {subfiles}    {2020/11/14 v2.2}
+  *{package}{import}      {2020/04/01 v6.2}
+  *{file}   {../HAFiscal} {0000/00/00 v0.0}
+  *{file}   {./econtexRoot.texinput}{0000/00/00 v0.0}
+  *{file}   {../Resources/econtexPaths}{0000/00/00 v0.0}
+  *{class}  {../Resources/texmf-local/tex/latex/econtex}{2017/08/01 v0.0}
   *{package}{snapshot}    {2020/06/17 v2.14}
   *{package}{ifthen}      {2020/11/24 v1.1c}
   *{package}{changepage}  {2009/10/20 v1.0c}
@@ -75,7 +80,7 @@
   *{package}{manyfoot}    {2019/08/03 v1.11}
   *{package}{nccfoots}    {2005/02/03 v1.2}
   *{package}{perpage}     {2014/10/25 v2.0}
-  *{package}{./Resources/texmf-local/tex/latex/econtexSetup}{0000/00/00 v0.0}
+  *{package}{../Resources/texmf-local/tex/latex/econtexSetup}{0000/00/00 v0.0}
   *{package}{wasysym}     {2020/01/19 v2.4}
   *{package}{psibycus}    {2004/10/18 v4.5}
   *{file}   {ibycus4.map} {0000/00/00 v0.0}
@@ -122,14 +127,13 @@
   *{package}{atveryend-ltx}{2020/08/19 v1.0a}
   *{package}{rerunfilecheck}{2019/12/05 v1.9}
   *{package}{uniquecounter}{2019/12/15 v1.4}
-  *{package}{./Resources/LaTeXInputs/HAFiscal}{0000/00/00 v0.0}
-  *{file}   {./Resources/owner}{0000/00/00 v0.0}
+  *{package}{../Resources/LaTeXInputs/HAFiscal}{0000/00/00 v0.0}
+  *{file}   {../Resources/owner}{0000/00/00 v0.0}
   *{package}{xr-hyper}    {2021-06-07 v7.00m}
   *{package}{rotating}    {2016/08/11 v2.16d}
   *{package}{makecell}    {2009/08/03 v0.1e}
   *{package}{subfiles}    {2020/11/14 v2.2}
-  *{package}{import}      {2020/04/01 v6.2}
-  *{package}{./Resources/texmf-local/tex/latex/econark}{0000/00/00 v0.0}
+  *{package}{../Resources/texmf-local/tex/latex/econark}{0000/00/00 v0.0}
   *{package}{scrlayer-scrpage}{2021/11/13 v3.35}
   *{package}{scrlayer}    {2021/11/13 v3.35}
   *{package}{caption}     {2020/10/26 v3.5g}
@@ -141,13 +145,8 @@
   *{package}{placeins}    {2005/04/18 v2.2}
   *{package}{nth}         {2002/02/27 v0.0}
   *{package}{subcaption}  {2020/10/07 v1.3j}
-  *{package}{./Resources/LaTeXInputs/pdfsuppressruntime}{0000/00/00 v0.0}
+  *{package}{../Resources/LaTeXInputs/pdfsuppressruntime}{0000/00/00 v0.0}
   *{file}   {t3cmr.fd}    {2001/12/31 v0.0}
-  *{file}   {umsa.fd}     {2013/01/14 v3.01}
-  *{file}   {umsb.fd}     {2013/01/14 v3.01}
-  *{file}   {ulasy.fd}    {1998/08/17 v2.2e}
-  *{file}   {uwasy.fd}    {2020/01/19 v2.4}
-  *{file}   {t1cmtt.fd}   {2019/12/16 v2.5j}
   *{-------}{Document-specific files:}{----}
   *{file}   {translations-basic-dictionary-english.trsl}{(english v0.0}
   *{file}   {supp-pdf.mkii}{0000/00/00 v0.0}
@@ -157,39 +156,9 @@
   *{package}{soul}        {2003/11/17 v2.4}
   *{package}{nameref}     {2021-04-02 v2.47}
   *{package}{gettitlestring}{2019/12/15 v1.6}
-  *{file}   {HAFiscal.out}{0000/00/00 v0.0}
-  *{file}   {HAFiscal.out}{0000/00/00 v0.0}
+  *{file}   {Appendix.out}{0000/00/00 v0.0}
+  *{file}   {Appendix.out}{0000/00/00 v0.0}
   *{package}{bookmark}    {2020-11-06 v1.29}
   *{file}   {bkm-pdftex.def}{2020-11-06 v1.29}
-  *{file}   {./Resources/LaTeXInputs/econtex_notinsubfile}{0000/00/00 v0.0}
-  *{file}   {HAFiscal-titlepage}{0000/00/00 v0.0}
-  *{file}   {./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {./Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {./Subfiles/Abstract.texinput}{0000/00/00 v0.0}
-  *{file}   {HAFiscal-contents.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles/Intro}{0000/00/00 v0.0}
-  *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {Subfiles/Model}{0000/00/00 v0.0}
-  *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {Subfiles/Parameterization}{0000/00/00 v0.0}
-  *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {Subfiles/Comparing-policies}{0000/00/00 v0.0}
-  *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {Subfiles/Robustness}{0000/00/00 v0.0}
-  *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {Subfiles/Conclusion}{0000/00/00 v0.0}
-  *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {Subfiles/Appendix}{0000/00/00 v0.0}
-  *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
-  *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
-  *{file}   {./Resources/LaTeXInputs/bibliography_blend}{0000/00/00 v0.0}
-  *{file}   {HAFiscal.bbl}{0000/00/00 v0.0}
-  *{file}   {HAFiscal.upa}{0000/00/00 v0.0}
+  *{file}   {Appendix.upa}{0000/00/00 v0.0}
 }

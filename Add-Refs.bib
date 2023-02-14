@@ -1,0 +1,859 @@
+
+@article{Barillas2007-uh,
+  abstract  = {This paper extends Carroll's [2005. The method of endogenous
+               gridpoints for solving dynamic stochastic optimization problems.
+               National Bureau of Economic Research Technical Working Paper
+               309]. endogenous grid method to perform value function iteration
+               in models with more than one control variable. We propose to mix
+               the endogenous grid method with standard value function
+               iteration to achieve higher efficiency. We illustrate the method
+               using the stochastic neoclassical growth model with and without
+               labor--leisure choice. We report important gains in efficiency
+               that make value function iteration an attractive computational
+               method in terms of both computing time and accuracy.},
+  author    = {Barillas, Francisco and Fern{\'a}ndez-Villaverde, Jes{\'u}s},
+  doi       = {10.1016/j.jedc.2006.08.005},
+  issn      = {0165-1889, 1879-1743},
+  journal   = {Journal of economic dynamics \& control},
+  language  = {en},
+  month     = aug,
+  number    = 8,
+  pages     = {2698--2712},
+  publisher = {Elsevier BV},
+  title     = {A generalization of the endogenous grid method},
+  volume    = 31,
+  year      = 2007
+}
+
+@techreport{Carroll2005-kf,
+  author      = {Carroll, Christopher},
+  institution = {working paper / working paper},
+  publisher   = {working paper},
+  title       = {The Method of Endogenous Grid Points for Solving Dynamics
+                 Optimization Problems},
+  year        = 2005
+}
+
+@article{Carroll2006-wq,
+  abstract  = {This paper introduces a solution method for numerical dynamic
+               stochastic optimization problems that avoids rootfinding
+               operations. The idea is applicable to many microeconomic and
+               macroeconomic problems, including life cycle, buffer-stock, and
+               stochastic growth problems. Software is provided.},
+  author    = {Carroll, Christopher D},
+  doi       = {10.1016/j.econlet.2005.09.013},
+  issn      = {0165-1765, 1873-7374},
+  journal   = {Economics letters},
+  language  = {en},
+  month     = jun,
+  number    = 3,
+  pages     = {312--320},
+  publisher = {Elsevier BV},
+  title     = {The method of endogenous gridpoints for solving dynamic
+               stochastic optimization problems},
+  volume    = 91,
+  year      = 2006
+}
+
+@article{Clausen2020-zo,
+  abstract  = {Nested optimization problems arise when an agent must take into
+               account the effect of their decisions on their own future
+               behaviour, or the behaviour of others. In these problems,
+               calculating marginal costs and benefits involves differentiating
+               the solutions to nested problems. But are these solutions
+               differentiable functions? We develop a tool called Reverse
+               Calculus, and establish first-order conditions for (i) a
+               Stackelberg leader considering the follower's best response
+               function, (ii) a sovereign borrower considering its own future
+               default policy, and (iii) non-convex dynamic programming
+               problems.},
+  author    = {Clausen, Andrew and Strub, Carlo},
+  doi       = {10.1016/j.jet.2020.105019},
+  issn      = {0022-0531, 1095-7235},
+  journal   = {Journal of economic theory},
+  language  = {en},
+  month     = may,
+  number    = 105019,
+  pages     = {105019},
+  publisher = {Elsevier BV},
+  title     = {Reverse calculus and nested optimization},
+  volume    = 187,
+  year      = 2020
+}
+
+@techreport{Druedahl2017-lt,
+  author      = {Druedahl, Jeppe},
+  institution = {Working Paper},
+  title       = {A Fast Nested Endogenous Grid Method for Solving General
+                 {{Consumption-Saving}} Models},
+  year        = 2017
+}
+
+@article{Druedahl2017-vn,
+  abstract  = {The endogenous grid method (EGM) significantly speeds up the
+               solution of stochastic dynamic programming problems by
+               simplifying or completely eliminating root-finding. We propose a
+               general and parsimonious EGM extended to handle (1) multiple
+               continuous states and choices, (2) multiple occasionally binding
+               constraints, and (3) non-convexities such as discrete choices.
+               Our method enjoys the speed gains of the original
+               one-dimensional EGM, while avoiding expensive interpolation on
+               multi-dimensional irregular endogenous grids. We explicitly
+               define a broad class of models for which our solution method is
+               applicable, and illustrate its speed and accuracy using a
+               consumption--saving model with both liquid assets and illiquid
+               pension assets and a discrete retirement choice.},
+  author    = {Druedahl, Jeppe and J{\o}rgensen, Thomas H{\o}gholm},
+  doi       = {10.1016/j.jedc.2016.11.005},
+  issn      = {0165-1889},
+  journal   = {Journal of economic dynamics \& control},
+  month     = jan,
+  pages     = {87--107},
+  publisher = {North-Holland},
+  title     = {A general endogenous grid method for multi-dimensional models
+               with non-convexities and constraints},
+  volume    = 74,
+  year      = 2017
+}
+
+@article{Druedahl2021-wl,
+  abstract  = {Consumption-saving models with adjustment costs or discrete
+               choices are typically hard to solve numerically due to the
+               presence of non-convexities. This paper provides a number of
+               tools to speed up the solution of such models. Firstly, I use
+               that many consumption models have a nesting structure implying
+               that the continuation value can be efficiently pre-computed and
+               the consumption choice solved separately before the remaining
+               choices. Secondly, I use that an endogenous grid method extended
+               with an upper envelope step can be used to solve efficiently for
+               the consumption choice. Thirdly, I use that the required
+               pre-computations can be optimized by a novel loop reordering
+               when interpolating the next-period value function. As an
+               illustrative example, I solve a model with non-durable
+               consumption and durable consumption subject to adjustment costs.
+               Combining the provided tools, the model is solved almost 50
+               times faster than with standard value function iteration for a
+               given level of accuracy. Software is provided in both Python and
+               C++.},
+  author    = {Druedahl, Jeppe},
+  doi       = {10.1007/s10614-020-10045-x},
+  issn      = {0927-7099},
+  journal   = {Computational Economics},
+  month     = oct,
+  number    = 3,
+  pages     = {747--775},
+  publisher = {Springer US},
+  title     = {A Guide on Solving Non-convex {Consumption-Saving} Models},
+  volume    = 58,
+  year      = 2021
+}
+
+@unpublished{Fella2011-dc,
+  abstract = {This paper extends Carroll's (2006) endogenous grid method and
+              its combination with value function iteration by Barillas and
+              Fernandez-Villaverde (2007) to non-concave problems. The method
+              is illustrated using a consumer problem in which consumers choose
+              both durable and non-durable consumption. The durable choice is
+              discrete and subject to non-convex adjustment costs. The
+              algorithm yields substantial gains in accuracy and computational
+              time relative to value function iteration, the standard solution
+              choice for non-concave problems.},
+  author   = {Fella, Giulio},
+  language = {en},
+  month    = apr,
+  title    = {A Generalized Endogenous Grid Method for {{Non-Concave}} Problems},
+  year     = 2011
+}
+
+@article{Fella2011-ro,
+  abstract  = {Downloadable! Extensive Fortran code replicate the metod
+               discussed in the paper.},
+  author    = {Fella, Giulio},
+  journal   = {QM\&RBC Codes},
+  publisher = {Quantitative Macroeconomics \& Real Business Cycles},
+  title     = {Code for ``{{A}} Generalized Endogenous Grid Method for
+               {Non-Concave} Problems''},
+  year      = 2011
+}
+
+@article{Fella2011-tw,
+  abstract  = {Downloadable! Extensive Fortran code replicate the metod
+               discussed in the paper.},
+  author    = {Fella, Giulio},
+  journal   = {QM\&RBC Codes},
+  publisher = {Quantitative Macroeconomics \& Real Business Cycles},
+  title     = {Code for ``A generalized endogenous grid method for non-concave
+               problems''},
+  year      = 2011
+}
+
+@article{Fella2014-my,
+  abstract  = {This paper extends Carroll's (2006) endogenous grid method and
+               its combination with value function iteration by Barillas and
+               Fern{\'a}ndez-Villaverde (2007) to a class of dynamic
+               programming problems, such as problems with both discrete and
+               continuous choices, in which the value function is non-smooth
+               and non-concave. The method is illustrated using a consumer
+               problem in which the consumer chooses both durable and
+               non-durable consumption subject to a borrowing constraint. The
+               durable choice is discrete and subject to non-convex adjustment
+               costs. The algorithm yields substantial gains in accuracy and
+               computational time relative to value function iteration, the
+               standard solution choice for problems in which the value
+               function is non-smooth or non-concave.},
+  author    = {Fella, Giulio},
+  doi       = {10.1016/j.red.2013.07.001},
+  issn      = {1094-2025},
+  journal   = {Review of economic dynamics},
+  month     = apr,
+  number    = 2,
+  pages     = {329--344},
+  publisher = {Elsevier Inc.},
+  title     = {A generalized endogenous grid method for non-smooth and
+               non-concave problems},
+  volume    = 17,
+  year      = 2014
+}
+
+@article{Hintermaier2010-io,
+  abstract  = {We show how the method of endogenous gridpoints can be extended
+               to solve models with occasionally binding constraints among
+               endogenous variables very efficiently. We present the method for
+               a consumer problem with occasionally binding collateral
+               constraints and non-separable utility in durable and non-durable
+               consumption. This problem allows for a joint analysis of durable
+               and non-durable consumption in models with uninsurable income
+               risk which is important to understand patterns of consumption,
+               saving and collateralized debt. We illustrate the algorithm and
+               its efficiency by calibrating the model to US data.},
+  author    = {Hintermaier, Thomas and Koeniger, Winfried},
+  doi       = {10.1016/j.jedc.2010.05.002},
+  issn      = {0165-1889},
+  journal   = {Journal of economic dynamics \& control},
+  month     = oct,
+  number    = 10,
+  pages     = {2074--2088},
+  publisher = {Elsevier},
+  title     = {The method of endogenous gridpoints with occasionally binding
+               constraints among endogenous variables},
+  volume    = 34,
+  year      = 2010
+}
+
+@article{Ishakov2012-jm,
+  author  = {{Ishakov} and {Rust} and {Schjerning}},
+  journal = {Manu\% script},
+  title   = {Extending Endogenous Grid Method for Solving Discrete Continuous
+             Sequential Decision Problems},
+  year    = 2012
+}
+
+@article{Iskhakov2012-rt,
+  author  = {Iskhakov, Fedor and Rust, John and Schjerning, Bertel},
+  journal = {University of Technology Sydney mimeo},
+  title   = {A Generalized Endogenous Grid Method for {Discrete-Continuous}
+             Choice},
+  year    = 2012
+}
+
+@article{Iskhakov2015-jy,
+  abstract  = {This paper defines the class of triangular dynamic stochastic
+               optimization problems with multiple continuous choices which can
+               be solved by the multidimensional generalization of the method
+               of endogenous gridpoints without costly root-finding operations.
+               The typical member of this class is a model of multiple asset
+               dynamics, with potential applications in wealth, health and
+               human capital accumulation, portfolio problems, multisector
+               growth models, etc.},
+  author    = {Iskhakov, Fedor},
+  doi       = {10.1016/j.econlet.2015.07.033},
+  issn      = {0165-1765},
+  journal   = {Economics letters},
+  month     = oct,
+  pages     = {72--76},
+  publisher = {Elsevier},
+  title     = {Multidimensional endogenous gridpoint method: Solving triangular
+               dynamic stochastic optimization problems without root-finding
+               operations},
+  volume    = 135,
+  year      = 2015
+}
+
+@unpublished{Iskhakov2015-xw,
+  abstract = {We present a fast and accurate computational method for solving
+              and estimating a class of dynamic programming models with
+              discrete and continuous choice variables. The solution method we
+              develop for structural estimation extends the endogenous
+              gridpoint method (EGM) to discrete-continuous (DC) problems.
+              Discrete choices can lead to kinks in the value functions and
+              discontinuities in the optimal policy rules, greatly complicating
+              the solution of the model. We show how these problems are
+              ameliorated in the presence of additive choice-specific IID
+              extreme value taste shocks. We present Monte Carlo experiments
+              that demonstrate the reliability and efficiency of the DC-EGM and
+              the associated Maximum Likelihood estimator for structural
+              estimation of a life cycle model of consumption with discrete
+              retirement decisions.},
+  author   = {Iskhakov, Fedor and J{\o}rgensen, Thomas and Rust, John and
+              Schjerning, Bertel},
+  language = {en},
+  month    = nov,
+  title    = {Estimating {{Discrete-Continuous}} Choice Models: {{The}}
+              Endogenous Grid Method with Taste Shocks},
+  year     = 2015
+}
+
+@misc{Iskhakov2016-if,
+  abstract  = {\textbackslashldots stochastic optimization problems with
+               certain structure can be solved with the multidimensional
+               version of the endogenous grid point method without any
+               root-finding operations. \textbackslashldots},
+  author    = {Iskhakov, Fedor},
+  publisher = {openresearch-repository.anu.edu.au},
+  title     = {Erratum: {{Corrigendum}} to`` {{Multidimensional}} Endogenous
+               Gridpoint Method: {{Solving}} Triangular Dynamic Stochastic
+               Optimization Problems without {Root-Finding} Operations
+               \textbackslashldots},
+  year      = 2016
+}
+
+@misc{Iskhakov2016-wb,
+  abstract     = {… stochastic optimization problems with certain structure can
+                  be solved with the multidimensional version of the endogenous
+                  grid point method without any root-finding operations. …},
+  author       = {Iskhakov, Fedor},
+  howpublished = {\url{https://openresearch-repository.anu.edu.au/bitstream/1885/212449/1/01_Iskhakov_Multidimensional_endogenous_2017.pdf}},
+  note         = {Accessed: 2022-9-9},
+  publisher    = {openresearch-repository.anu.edu.au},
+  title        = {Erratum: Corrigendum to`` Multidimensional endogenous
+                  gridpoint method: Solving triangular dynamic stochastic
+                  optimization problems without root-finding operations …},
+  year         = 2016
+}
+
+@article{Iskhakov2016-xb,
+  author = {Iskhakov, Fedor and J{\o}rgensen, Thomas H and Rust, John and
+            Schjerning, Bertel},
+  title  = {Online {{Appendix}} to: {{The Endogenous Grid Method}} for
+            {{{Discrete-Continuous} Dynamic Choice Models}} with (or without)
+            {{Taste Shocks}}},
+  year   = 2016
+}
+
+@misc{Iskhakov2017-do,
+  author = {Iskhakov, F and J{\o}rgensen, T H and Rust, J and Schjerning, B},
+  title  = {The endogenous grid method for discrete-continuous dynamic choice
+            models with (or without) taste shocks. Quantitative Economics, 8
+            (2), 317--365},
+  year   = 2017
+}
+
+@article{Iskhakov2017-my,
+  abstract    = {We present a fast and accurate computational method for
+                 solving and estimating a class of dynamic programming models
+                 with discrete and continuous choice variables. The solution
+                 method we develop for structural estimation extends the
+                 endogenous grid-point method (EGM) to discrete-continuous (DC)
+                 problems. Discrete choices can lead to kinks in the value
+                 functions and discontinuities in the optimal policy rules,
+                 greatly complicating the solution of the model. We show how
+                 these problems are ameliorated in the presence of additive
+                 choice-specific independent and identically distributed
+                 extreme value taste shocks that are typically interpreted as
+                 ?unobserved state variables? in structural econometric
+                 applications, or serve as ?random noise? to smooth out kinks
+                 in the value functions in numerical applications. We present
+                 Monte Carlo experiments that demonstrate the reliability and
+                 efficiency of the DC-EGM algorithm and the associated maximum
+                 likelihood estimator for structural estimation of a life-cycle
+                 model of consumption with discrete retirement decisions.},
+  affiliation = {Research School of Economics; Australian National University;
+                 ARC Centre of Excellence in Population Ageing Research;
+                 University of New South Wales; Department of Economics;
+                 University of Copenhagen; Department of Economics; Georgetown
+                 University},
+  author      = {Iskhakov, Fedor and J{\o}rgensen, Thomas H and Rust, John and
+                 Schjerning, Bertel},
+  copyright   = {http://creativecommons.org/licenses/by-nc/4.0/},
+  doi         = {10.3982/QE643},
+  issn        = {1759-7323, 1759-7331},
+  journal     = {Quantitative economics},
+  language    = {en},
+  month       = jul,
+  number      = 2,
+  pages       = {317--365},
+  publisher   = {John Wiley \& Sons, Ltd},
+  title       = {The endogenous grid method for discrete-continuous dynamic
+                 choice models with (or without) taste shocks},
+  volume      = 8,
+  year        = 2017
+}
+
+@article{Iskhakov2017-mz,
+  author    = {Iskhakov, Fedor and {Others}},
+  publisher = {Elsevier},
+  title     = {Erratum: {{Corrigendum}} to`` {{Multidimensional}} Endogenous
+               Gridpoint Method: {{Solving}} Triangular Dynamic Stochastic
+               Optimization Problems without {{{Root-Finding}
+               {Operations}}''({{Vol}}} 135, Pg 72, 2015)},
+  year      = 2017
+}
+
+@misc{Iskhakov2017-pf,
+  author = {Iskhakov, F and J{\o}rgensen, T H and Rust, J and Schjerning, B},
+  title  = {The Endogenous Grid Method for {Discrete-Continuous} Dynamic Choice
+            Models with (or without) Taste Shocks. {{Quantitative Economics}},
+            8 (2), 317\textbackslashtextendash 365},
+  year   = 2017
+}
+
+@article{Iskhakov2017-uf,
+  author    = {Iskhakov, Fedor and {Others}},
+  publisher = {Elsevier},
+  title     = {Erratum: {{Corrigendum}} to`` {{Multidimensional}} Endogenous
+               Gridpoint Method: {{Solving}} Triangular Dynamic Stochastic
+               Optimization Problems without {Root-Finding} {Operations''(Vol}
+               135, Pg 72, 2015)},
+  year      = 2017
+}
+
+@techreport{Jang2018-lz,
+  author      = {Jang, Youngsoo and Lee, Soyoung},
+  institution = {Working Paper / Working Paper},
+  publisher   = {Working Paper},
+  title       = {Generalized Endogenous Grid Method for Models with a Default
+                 Option},
+  year        = 2018
+}
+
+@article{Jang2019-da,
+  abstract  = {We develop an endogenous grid method for models with the option
+               to default in which price schedules are endogenously determined
+               in equilibrium and depend on individuals' states. The algorithm
+               has noticeable computational benefits in efficiency and
+               accuracy. We obtain these computational benefits by combining
+               Fella's (2014) identification for non-concave regions with our
+               algorithm that numerically searches for risky borrowing limits.
+               These two procedures identify the region of solution sets to
+               which Carroll's (2006) endogenous grid method is applicable. To
+               demonstrate the method, we apply our method to Nakajima and
+               Rios-Rull's(2014) model. In terms of computation time, this
+               method is seven to twenty-seven times faster than the
+               conventional grid search method. Moreover, various types of
+               accuracy tests indicate that our method yields more accurate
+               results than the grid search method.},
+  author    = {Jang, Youngsoo and Lee, Soyoung},
+  language  = {en},
+  month     = aug,
+  publisher = {mpra.ub.uni-muenchen.de},
+  title     = {A Generalized Endogenous Grid Method for Models with the Option
+               to Default},
+  year      = 2019
+}
+
+@unpublished{Jang2021-wu,
+  abstract = {Default risk models have been widely employed to assess the
+              ability of households and sovereigns to insure themselves against
+              shocks. Grid search has often been used to solve these models
+              because the complexity of the problem prevents the use of faster
+              but less general methods. In this paper, we propose an extension
+              of the endogenous grid method for default risk models, which is
+              faster and more accurate than grid search. In particular, we find
+              that our solution method leads to a more accurate bond price
+              function, thus making substantial differences in the model's main
+              predictions. When applied to Arellano's (2008) model, our
+              approach predicts a standard deviation of the interest rate
+              spread one-third lower and defaults 3 to 5 times less frequently
+              than does the conventional approach. On top of that, our method
+              is efficient. It is approximately 4 to 7 times faster than grid
+              search when applied to a canonical model of Arellano (2008) and
+              19 to 27 times faster than grid search when applied to the richer
+              model of Nakajima and R{\i} os-Rull (2014). Finally, we show that
+              our method is applicable to a broad class of default risk models
+              by characterizing sufficient conditions.},
+  author   = {Jang, Youngsoo and Lee, Soyoung},
+  month    = mar,
+  title    = {A {{Generalized Endogenous Grid Method}} for {{Default Risk
+              Models}}},
+  year     = 2021
+}
+
+@article{Jorgensen2013-du,
+  abstract = {In this paper, I evaluate the performance of two recently
+              proposed approaches to solving and estimating structural models:
+              The Endogenous Grid Method (EGM) and Mathematical Programming
+              with Equilibrium Constraints (MPEC). Monte Carlo simulations
+              confirm that both the EGM and MPEC have advantages relative to
+              standard methods. The EGM proved particularly robust, fast and
+              straightforward to implement. Approaches trying to avoid solving
+              the model numerically, therefore, seem to be dominated by these
+              approaches.},
+  author   = {J{\o}rgensen, Thomas H},
+  doi      = {10.1016/j.econlet.2013.02.027},
+  issn     = {0165-1765},
+  journal  = {Economics letters},
+  month    = jun,
+  number   = 3,
+  pages    = {287--290},
+  title    = {Structural estimation of continuous choice models: Evaluating the
+              {EGM} and {MPEC}},
+  volume   = 119,
+  year     = 2013
+}
+
+@unpublished{Judd2010-of,
+  abstract = {We develop a projection method that can solve dynamic economic
+              models with a large number of state variables. A distinctive
+              feature of our method is that it operates on the ergodic set
+              realized in equilibrium: we simulate a model, distinguish
+              clusters on simulated series and use the clusters' centers as a
+              grid for projections. Making the grid endogenous to the model
+              allows us to avoid costs associated with finding a solution in
+              areas of state space that are never visited in equilibrium. On a
+              standard desktop computer, we calculate linear and quadratic
+              solutions to a multi-country growth model with up to 400 and 80
+              state variables, respectively. Our solutions are global, and
+              their accuracy does not rapidly decline away from steady state.},
+  author   = {Judd, Kenneth L and Maliar, Lilia and Maliar, Serguei},
+  month    = may,
+  number   = 15965,
+  title    = {A {{{Cluster-Grid} Projection Method}}: {{Solving Problems}} with
+              {{High Dimensionality}}},
+  year     = 2010
+}
+
+@unpublished{Ludwig2016-tq,
+  abstract = {This paper investigates extensions of the method of endogenous
+              gridpoints (ENDGM) introduced by Carroll (2006) to higher
+              dimensions with more than one continuous endogenous state
+              variable. We compare three different categories of algorithms:
+              (i) the conventional method with exogenous grids (EXOGM), (ii)
+              the pure method of endogenous gridpoints (ENDGM) and (iii) a
+              hybrid method (HYBGM). ENDGM comes along with Delaunay
+              interpolation on irregular grids. Comparison of methods is done
+              by evaluating speed and accuracy by using a specific model with
+              two endogenous state variables. We find that HYBGM and ENDGM both
+              dominate EXOGM. In an infinite horizon model, ENDGM also always
+              dominates HYBGM. In a finite horizon model, the choice between
+              HYBGM and ENDGM depends on the number of gridpoints in each
+              dimension. With less than 150 gridpoints in each dimension ENDGM
+              is faster than HYBGM, and vice versa. For a standard choice of 25
+              to 50 gridpoints in each dimension, ENDGM is 1:4 to 1:7 times
+              faster than HYBGM in the finite horizon version and 2:4 to 2:5
+              times faster in the infinite horizon version of the model.},
+  author   = {Ludwig, Alexander and Schoen, Matthias},
+  month    = apr,
+  title    = {Endogenous {{Grids}} in {{Higher Dimensions}}: {{Delaunay
+              Interpolation}} and {{Hybrid Methods}}},
+  year     = 2016
+}
+
+@article{Ludwig2018-uz,
+  abstract  = {This paper investigates extensions of the method of endogenous
+               gridpoints (ENDGM) introduced by Carroll (Econ Lett
+               91(3):312--320, 2006) to higher dimensions with more than one
+               continuous endogenous state variable. We compare three different
+               categories of algorithms: (i) the conventional method with
+               exogenous grids (EXOGM), (ii) the pure method of endogenous
+               gridpoints (ENDGM) and (iii) a hybrid method (HYBGM). ENDGM
+               comes along with Delaunay interpolation on irregular grids.
+               Comparison of methods is done by evaluating speed and accuracy
+               by using a specific model with two endogenous state variables.
+               We find that HYBGM and ENDGM both dominate EXOGM. In an infinite
+               horizon model, ENDGM also always dominates HYBGM. In a finite
+               horizon model, the choice between HYBGM and ENDGM depends on the
+               number of gridpoints in each dimension. With less than 150
+               gridpoints in each dimension ENDGM is faster than HYBGM, and
+               vice versa. For a standard choice of 25--50 gridpoints in each
+               dimension, ENDGM is 1.4--1.7 times faster than HYBGM in the
+               finite horizon version and 2.4--2.5 times faster in the infinite
+               horizon version of the model.},
+  author    = {Ludwig, Alexander and Sch{\"o}n, Matthias},
+  doi       = {10.1007/s10614-016-9611-2},
+  issn      = {0927-7099},
+  journal   = {Computational Economics},
+  language  = {en},
+  month     = mar,
+  number    = 3,
+  pages     = {463--492},
+  publisher = {Springer Science and Business Media LLC},
+  title     = {Endogenous Grids in Higher Dimensions: {{Delaunay}}
+               Interpolation and Hybrid Methods},
+  volume    = 51,
+  year      = 2018
+}
+
+@article{Maliar2011-dj,
+  abstract  = {We use the stochastic simulation algorithm, described in Judd et
+               al. (2009), and the cluster-grid algorithm, developed in Judd et
+               al. (2010a), to solve a collection of multi-country real
+               business cycle models. The following ingredients help us reduce
+               the cost in high-dimensional problems: an endogenous grid
+               enclosing the ergodic set, linear approximation methods,
+               fixed-point iteration and efficient integration methods, such as
+               non-product monomial rules and Monte Carlo integration combined
+               with regression. We show that high accuracy in intratemporal
+               choice is crucial for the overall accuracy of solutions and
+               offer two approaches, precomputation and
+               iteration-on-allocation, that can solve for intratemporal choice
+               both accurately and quickly. We also implement a hybrid solution
+               algorithm that combines the perturbation and accurate
+               intratemporal-choice methods.},
+  author    = {Maliar, Serguei and Maliar, Lilia and Judd, Kenneth},
+  doi       = {10.1016/j.jedc.2010.09.014},
+  issn      = {0165-1889},
+  journal   = {Journal of economic dynamics \& control},
+  month     = feb,
+  number    = 2,
+  pages     = {207--228},
+  publisher = {Elsevier},
+  title     = {Solving the multi-country real business cycle model using
+               ergodic set methods},
+  volume    = 35,
+  year      = 2011
+}
+
+@article{Maliar2013-kl,
+  author    = {Maliar, Lilia and Maliar, Serguei and {Others}},
+  journal   = {QM\&RBC Codes},
+  publisher = {Quantitative Macroeconomics \& Real Business Cycles},
+  title     = {Envelope {{Condition Method}} and {{Endogenous Grid Method}}
+               ({{{EGM}}}) for the Neoclassical Growth Model with Elastic Labor
+               Supply in`` {{Envelope Condition Method}} versus {{Endogenous
+               Grid Method}} for {{Solving Dynamic Programming Problems}}''},
+  year      = 2013
+}
+
+@article{Maliar2013-lo,
+  abstract  = {Downloadable! We introduce an envelope condition method (ECM)
+               for solving dynamic programming problems. The ECM method is
+               simple to implement, dominates conventional value function
+               iteration and is comparable in accuracy and cost to Carroll's
+               (2005) endogenous grid method. Codes are available.(This
+               abstract was borrowed from another version of this item.)},
+  author    = {Maliar, Lilia and Maliar, Serguei},
+  journal   = {QM\&RBC Codes},
+  publisher = {Quantitative Macroeconomics \& Real Business Cycles},
+  title     = {Envelope Condition Method and Endogenous Grid Method ({EGM}) for
+               the neoclassical growth model with elastic labor supply in
+               ``Envelope Condition Method versus Endogenous Grid Method for
+               Solving Dynamic Programming Problems''},
+  year      = 2013
+}
+
+@article{Maliar2013-sv,
+  abstract  = {We introduce an envelope condition method (ECM) for solving
+               dynamic programming problems. The ECM method is simple to
+               implement, dominates conventional value function iteration and
+               is comparable in accuracy and cost to Carroll's (2005)
+               endogenous grid method. Codes are available.},
+  author    = {Maliar, Lilia and Maliar, Serguei},
+  doi       = {10.1016/j.econlet.2013.04.031},
+  issn      = {0165-1765},
+  journal   = {Economics letters},
+  month     = aug,
+  number    = 2,
+  pages     = {262--266},
+  publisher = {North-Holland},
+  title     = {Envelope condition method versus endogenous grid method for
+               solving dynamic programming problems},
+  volume    = 120,
+  year      = 2013
+}
+
+@article{Maliar2013-ys,
+  abstract  = {Downloadable! We introduce an envelope condition method (ECM)
+               for solving dynamic programming problems. The ECM method is
+               simple to implement, dominates conventional value function
+               iteration and is comparable in accuracy and cost to Carroll's
+               (2005) endogenous grid method. Codes are available.(This
+               abstract was borrowed from another version of this item.)},
+  author    = {Maliar, Lilia and Maliar, Serguei and {Others}},
+  journal   = {QM\&RBC Codes},
+  publisher = {Quantitative Macroeconomics \& Real Business Cycles},
+  title     = {Envelope {{Condition Method}} and {{Endogenous Grid Method}}
+               ({{{EGM}}}) for the Neoclassical Growth Model with Elastic Labor
+               Supply in`` {{Envelope Condition Method}} versus {{Endogenous
+               Grid Method}} for {{Solving Dynamic Programming Problems}}''},
+  year      = 2013
+}
+
+@incollection{Maliar2014-qj,
+  abstract  = {We survey numerical methods that are tractable in dynamic
+               economic models with a finite, large number of continuous state
+               variables. (Examples of such models are new Keynesian models,
+               life-cycle models, heterogeneous-agents models, asset-pricing
+               models, multisector models, multicountry models, and climate
+               change models.) First, we describe the ingredients that help us
+               to reduce the cost of global solution methods. These are
+               efficient nonproduct techniques for interpolating and
+               approximating functions (Smolyak, stochastic simulation, and
+               $\epsilon$-distinguishable set grids), accurate low-cost
+               monomial integration formulas, derivative-free solvers, and
+               numerically stable regression methods. Second, we discuss
+               endogenous grid and envelope condition methods that reduce the
+               cost and increase accuracy of value function iteration. Third,
+               we show precomputation techniques that construct solution
+               manifolds for some models' variables outside the main iterative
+               cycle. Fourth, we review techniques that increase the accuracy
+               of perturbation methods: a change of variables and a hybrid of
+               local and global solutions. Finally, we show examples of
+               parallel computation using multiple CPUs and GPUs including
+               applications on a supercomputer. We illustrate the performance
+               of the surveyed methods using a multiagent model. Many codes are
+               publicly available.},
+  author    = {Maliar, Lilia and Maliar, Serguei},
+  booktitle = {Handbook of Computational Economics},
+  doi       = {10.1016/B978-0-444-52980-0.00007-4},
+  editor    = {Schmedders, Karl and Judd, Kenneth L},
+  isbn      = {9780444529800},
+  issn      = {1574-0021, 1875-5658},
+  month     = jan,
+  pages     = {325--477},
+  publisher = {Elsevier},
+  series    = {Handbook of Computational Economics},
+  title     = {Chapter 7 - Numerical Methods for {{Large-Scale}} Dynamic
+               Economic Models},
+  volume    = 3,
+  year      = 2014
+}
+
+@article{Mendoza2020-jd,
+  abstract  = {We propose a simple and fast fixed-point iteration algorithm
+               (FiPIt) to obtain the global, non-linear solution of macro
+               models with two endogenous state variables and occasionally
+               binding constraints. This method uses fixed-point iteration on
+               Euler equations to avoid solving two simultaneous non-linear
+               equations (as with the time iteration method) or creating
+               modified state variables requiring irregular interpolation (as
+               with the endogenous grids method). In the small-open-economy RBC
+               and Sudden Stops models provided as examples, FiPIt is much
+               faster than time iteration and various hybrid methods.},
+  author    = {Mendoza, Enrique G and Villalvazo, Sergio},
+  doi       = {10.1016/j.red.2020.01.001},
+  issn      = {1094-2025},
+  journal   = {Review of economic dynamics},
+  month     = jul,
+  pages     = {81--102},
+  publisher = {Academic Press},
+  title     = {{FiPIt}: A simple, fast global method for solving models with
+               two endogenous states \& occasionally binding constraints},
+  volume    = 37,
+  year      = 2020
+}
+
+@inproceedings{Rust2012-vm,
+  author      = {Rust, John and Schjerning, Bertel and Iskhakov, Fedor and
+                 {Others}},
+  booktitle   = {2012 {{Meeting Papers}}},
+  institution = {Society for Economic Dynamics},
+  publisher   = {Society for Economic Dynamics / Society for Economic Dynamics},
+  title       = {A Generalized Endogenous Grid Method for {Discrete-Continuous}
+                 Choice},
+  year        = 2012
+}
+
+@article{Rust2012-yx,
+  abstract  = {This paper extends Carroll's endogenous grid method (2006 ``The
+               method of endogenous gridpoints for solving dynamic stochastic
+               optimization problems'', Economic Letters) for models with
+               sequential discrete and continuous choice. Unlike existing
+               generalizations, we propose solution algorithm that inherits
+               both advantages of the original method, namely it avoids all
+               root finding operations, and also efficiently deals with
+               restrictions on the continuous decision variable. To further
+               speed up the solution, we perform the inevitable optimization
+               across discrete decisions as more efficient computation of upper
+               envelope of a set of piece-wise linear functions. We formulate
+               the algorithm relying as little as possible on a particular
+               model specification, and precisely define the class of dynamic
+               stochastic optimal control problems it can be applied to. We
+               illustrate our algorithm using finite horizon discrete sector
+               choice model with consumption-savings decisions and borrowing
+               constraints, and show that in comparison to the traditional
+               approach the proposed method runs at least an order of magnitude
+               faster to deliver the same precision of the solution. To
+               implement the method we develop a generic software package that
+               includes pseudo-language for easy model specification and
+               computational modules which support both shared memory and
+               cluster parallelization. The package is wrapped in a Matlab
+               class and incurs low start-up cost to the user. The software
+               package is accessible in public domain.},
+  author    = {Rust, John and Schjerning, Bertel and Iskhakov, Fedor},
+  journal   = {2012 Meeting Papers},
+  publisher = {Society for Economic Dynamics},
+  title     = {A generalized endogenous grid method for discrete-continuous
+               choice},
+  year      = 2012
+}
+
+@article{Schon_undated-jf,
+  abstract  = {\textbackslashldots Against this background, we compare three
+               numerical methods: The standard exogenous grid method (EXOGM),
+               the method of endogenous gridpoints (ENDGM), and a hybrid method
+               (\textbackslashldots},
+  author    = {Sch{\"o}n, Alexander Ludwig-Matthias},
+  journal   = {Citeseer},
+  publisher = {Citeseer},
+  title     = {Endogenous Grids in Higher Dimensions: {{Delaunay}}
+               Interpolation and Hybrid Methods}
+}
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@article{Villemot2012-np,
+  author  = {Villemot, S{\'e}bastien and {Others}},
+  journal = {Dynare Working Papers Series},
+  title   = {Accelerating the Resolution of Sovereign Debt Models Using an
+             Endogenous Grid Method},
+  year    = 2012
+}
+
+@article{Villemot2012-tk,
+  author    = {{Villemot}},
+  journal   = {Dynare Working Papers Series},
+  publisher = {Citeseer},
+  title     = {Accelerating the Resolution of Sovereign Debt Models Using an
+               Endogenous Grid Method},
+  year      = 2012
+}
+
+@book{White2014-ng,
+  abstract  = {\textbackslashldots solvable by the method of endogenous grid
+               points (discussed in a theoretical paper written as this work's
+               companion), the only additional condition for non-linear grid
+               interpolation to be \textbackslashldots},
+  author    = {White, Matthew N and {Others}},
+  publisher = {Citeseer},
+  title     = {Endogenous Gridpoints in Multiple Dimensions: {{Interpolation}}
+               on {{Non-Linear}} Grids},
+  year      = 2014
+}
+
+@article{White2015-fg,
+  abstract  = {The method of endogenous gridpoints (ENDG) significantly speeds
+               up the solution to dynamic stochastic optimization problems with
+               continuous state and control variables by avoiding repeated
+               computations of expected outcomes while searching for optimal
+               policy functions. I provide an interpolation technique for
+               non-rectilinear grids that allow ENDG to be used in
+               n-dimensional problems in an intuitive and computationally
+               efficient way: the acceleration of ENDG with non-linear grid
+               interpolation is nearly constant in the density of the grid.
+               Further, ENDG has only been shown by example and has never been
+               formally characterized. Using a theoretical framework for
+               dynamic stochastic optimization problems, I formalize the method
+               of endogenous gridpoints and present conditions for the class of
+               models for which it can be used.},
+  author    = {White, Matthew N},
+  doi       = {10.1016/j.jedc.2015.08.001},
+  issn      = {0165-1889, 1879-1743},
+  journal   = {Journal of economic dynamics \& control},
+  language  = {en},
+  month     = nov,
+  pages     = {26--41},
+  publisher = {Elsevier BV},
+  title     = {The method of endogenous gridpoints in theory and practice},
+  volume    = 60,
+  year      = 2015
+}
