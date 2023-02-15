@@ -4,4 +4,3 @@
 \let\LaTeXStandardContentsName\contentsname
 \renewcommand{\contentsname}{}
 \tableofcontents
-

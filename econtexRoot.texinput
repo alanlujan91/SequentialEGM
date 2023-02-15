@@ -1,4 +1,4 @@
-% -*- mode: LaTeX; TeX-PDF-mode: t; -*- 
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
 % LaTeX path to the root directory of the current project
 % from the directory in which this file resides
 % and path to econtexPaths which defines the rest of the paths like \FigDir

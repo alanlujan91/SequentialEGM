@@ -5,7 +5,7 @@
 \documentclass[titlepage, headings=optiontotocandhead]{\econtex} % \econtex: see ./econtexRoot
 
 % Include the Appendix and Table of Contents?
-% Change {true} to {false} to exclude 
+% Change {true} to {false} to exclude
 \provideboolean{Appendix}\setboolean{Appendix}{true}
 \provideboolean{TOC}\setboolean{TOC}{true}
 
@@ -21,7 +21,7 @@
 \ifthenelse{\boolean{Web}}{\hypersetup{destlabel=true}}{}
 
 % Custom author (year) bib style
-\bibliographystyle{\econtexBibStyle} 
+\bibliographystyle{\econtexBibStyle}
 
 \begin{document}
 
@@ -46,7 +46,7 @@
 \end{document}
 
 % Lines below help configure AucTeX if that is your editor
-% 
+%
 % Local Variables:
 % TeX-master-file: t
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))

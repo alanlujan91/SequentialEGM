@@ -8,7 +8,7 @@ and then add ECONTEXMF to the front of your $TEXMF path.  So, for example, if yo
 
 TEXMF =            {$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFMAIN,!!$TEXMFLOCAL,!!$TEXMFDIST}
 
-it should now be changed to 
+it should now be changed to
 
 TEXMF = {$ECONTEXMF,$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFMAIN,!!$TEXMFLOCAL,!!$TEXMFDIST}
 

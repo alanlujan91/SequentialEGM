@@ -1,30 +1,30 @@
 This file contains results of estimations conducted after calibrating the
-differences between the three education groups. 
+differences between the three education groups.
 ----------------------------------------------------------------------
 
-Potential estimation targets in the data: 
-Lorenz Pts from the whole population: 
+Potential estimation targets in the data:
+Lorenz Pts from the whole population:
 data_LorenzPtsAll = [0.03, 0.35, 1.84, 7.42]
 
 Lorenz Pts by education group:
-data_LorenzPts_d = [0, 0.01, 0.60, 3.58] 
-data_LorenzPts_h = [0.06, 0.63, 2.98, 11.6] 
-data_LorenzPts_c = [0.15, 0.92, 3.27, 10.3] 
+data_LorenzPts_d = [0, 0.01, 0.60, 3.58]
+data_LorenzPts_h = [0.06, 0.63, 2.98, 11.6]
+data_LorenzPts_c = [0.15, 0.92, 3.27, 10.3]
 
-Weighted average of liquid wealth to PI ratios for each education group: 
-data_avgLWPI = [15.7, 47.7, 111]*4 = [62.8, 190.8, 444] 
+Weighted average of liquid wealth to PI ratios for each education group:
+data_avgLWPI = [15.7, 47.7, 111]*4 = [62.8, 190.8, 444]
 
-data_medianLWPI = [1.16, 7.55, 28.2 ]*4 = [ 4.64,  30.2 , 112.8 ] 
+data_medianLWPI = [1.16, 7.55, 28.2 ]*4 = [ 4.64,  30.2 , 112.8 ]
 
 Total liquid wealth / total PI for each education group:
 data_LWoPI = [28.1, 59.6, 162]*4 = [112.4, 238.4, 648]
 
-Wealth shares of each education group: 
-data_WealthShares = [0.8, 17.9, 81.2] 
+Wealth shares of each education group:
+data_WealthShares = [0.8, 17.9, 81.2]
 ----------------------------------------------------------------------
-Estimation 1: Targets are sqrt(10)*data_avgLWPI and data_LorenzPtsAll 
+Estimation 1: Targets are sqrt(10)*data_avgLWPI and data_LorenzPtsAll
 
-Estimation output: 
+Estimation output:
 Optimization terminated successfully.
          Current function value: 4.746567
          Iterations: 151
@@ -41,7 +41,7 @@ Lorenz shares (for all agents):
 Distance = 4.75
 Total LW/Total PI (not targeted): D = 64.47 H = 279.01 C = 764.31
 Wealth Shares (not targeted): D = 0.35 H = 20.94 C = 78.71
-Lorenz Pts by education groups (not targeted): 
+Lorenz Pts by education groups (not targeted):
 Lorenz shares - Dropouts:
 [ 1.87401853  6.87258716 16.06083381 33.33123142]
 Lorenz shares - Highschool:
@@ -52,7 +52,7 @@ Lorenz shares - College:
 ----------------------------------------------------------------------
 Estimation 2: Targets are data_avgLWPI and 10*data_LorenzPts_all
 
-Estimation output: 
+Estimation output:
 Optimization terminated successfully.
          Current function value: 13.893983
          Iterations: 221
@@ -79,18 +79,18 @@ Wealth Shares: D = 0.38 H = 19.60 C = 80.02
 
 ----------------------------------------------------------------------
 Data:
-Lorenz Pts from the whole population: 
+Lorenz Pts from the whole population:
 data_LorenzPtsAll = [0.03, 0.35, 1.84, 7.42]
 
 Lorenz Pts by education group:
-data_LorenzPts_d = [0, 0.01, 0.60, 3.58] 
-data_LorenzPts_h = [0.06, 0.63, 2.98, 11.6] 
-data_LorenzPts_c = [0.15, 0.92, 3.27, 10.3] 
+data_LorenzPts_d = [0, 0.01, 0.60, 3.58]
+data_LorenzPts_h = [0.06, 0.63, 2.98, 11.6]
+data_LorenzPts_c = [0.15, 0.92, 3.27, 10.3]
 
-Weighted average of liquid wealth to PI ratios for each education group: 
-data_avgLWPI = [15.7, 47.7, 111]*4 = [62.8, 190.8, 444] 
+Weighted average of liquid wealth to PI ratios for each education group:
+data_avgLWPI = [15.7, 47.7, 111]*4 = [62.8, 190.8, 444]
 
-data_medianLWPI = [1.16, 7.55, 28.2 ]*4 = [ 4.64,  30.2 , 112.8 ] 
+data_medianLWPI = [1.16, 7.55, 28.2 ]*4 = [ 4.64,  30.2 , 112.8 ]
 
 
 
@@ -106,10 +106,10 @@ data_medianLWPI = [1.16, 7.55, 28.2 ]*4 = [ 4.64,  30.2 , 112.8 ]
 
 
 ----------------------------------------------------------------------
-Estimation 3: Targets are data_avgLWPI 
+Estimation 3: Targets are data_avgLWPI
 			  and 10*data_LorenzPts_d, 10*data_LorenzPts_h, 10*data_LorenzPts_c
 			  (allow for separate spreads for each education group)
-Estimation output: 
+Estimation output:
 
 Optimization terminated successfully.
          Current function value: 93.201104
@@ -137,7 +137,7 @@ Wealth Shares: D = 0.47 H = 20.36 C = 79.17
 Out[99]: 93.20110373505669
 
 ----------------------------------------------------------------------
-Estimation 4a: Targets are data_avgLWPI[2] 
+Estimation 4a: Targets are data_avgLWPI[2]
 			   and 10*data_LorenzPts_c (only estimate for college educated)
 
 Optimization terminated successfully.
@@ -155,7 +155,7 @@ Lorenz shares - College:
 [0.45002467 1.58197966 3.89252479 9.91781714]
 Distance = 10.31
 
-Estimation 4b: Targets are data_avgLWPI[1] 
+Estimation 4b: Targets are data_avgLWPI[1]
 			   and 10*data_LorenzPts_h (only estimate for highschoolers)
 
 Optimization terminated successfully.
@@ -173,7 +173,7 @@ Lorenz shares - Highschool:
 [ 0.46124083  1.74052482  4.32158451 10.68601345]
 Distance = 20.09
 
-Estimation 4c: Targets are data_avgLWPI[0] 
+Estimation 4c: Targets are data_avgLWPI[0]
 			   and 10*data_LorenzPts_d (only estimate for dropouts)
 
 Optimization terminated successfully.
@@ -250,7 +250,7 @@ Wealth Shares: D = 2.71 H = 39.78 C = 57.50
 
 
 ----------------------------------------------------------------------
-Some trial and error: 
+Some trial and error:
 
 testVals = [0.88, 0.963, 0.988, 0.01]
 betasObjFunc(testVals[0:3], 3*[testVals[3]], target_option = 2, print_mode=True)
@@ -268,8 +268,3 @@ Distance = 224.70
 Average LW/PI-ratios: D = 5.86 H = 27.05 C = 583.27
 Total LW/Total PI: D = 5.91 H = 27.43 C = 987.35
 Wealth Shares: D = 0.03 H = 1.98 C = 97.99
-
-
-
-
-

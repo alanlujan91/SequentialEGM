@@ -18,7 +18,7 @@ Lorenz shares - all:
 [0.14905729 0.8491313  2.64273649 7.59153599]
 
 
-HIGHSCHOOL: 
+HIGHSCHOOL:
 Optimization terminated successfully.
          Current function value: 1.315967
          Iterations: 32
@@ -52,4 +52,3 @@ Non-targeted moments:
 Average LW/PI-ratios for group e = 2.00 is: 293.79
 Lorenz shares - all:
 [0.00578233 0.02358162 0.06560172 0.2017303 ]
-

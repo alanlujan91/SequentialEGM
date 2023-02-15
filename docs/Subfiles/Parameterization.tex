@@ -1,7 +1,7 @@
 \input{./econtexRoot.texinput}
 \documentclass[\econtexRoot/EGMN]{subfiles}
 
-% \onlyinsubfile{\renewcommand{\econtexRoot}{..}} % 
+% \onlyinsubfile{\renewcommand{\econtexRoot}{..}} %
 \onlyinsubfile{\externaldocument{\econtexRoot/EGMN}} % Get xrefs -- esp to apndx -- from main file; only works if main file
 \begin{document}
 
@@ -132,24 +132,24 @@ All households are assumed to have a coefficient of relative risk aversion equal
 
 % \begin{table}[th]
 %   \begin{center}
-%     \begin{tabular}{lcd{3}} 
+%     \begin{tabular}{lcd{3}}
 %         \toprule
-%         Parameter & Notation & $\text{Value}$ \\ \midrule 
-%         Risk aversion & $\gamma$ & 1.0 \\ 
-%         Splurge & $\varsigma$ & 0.32 \\ 
+%         Parameter & Notation & $\text{Value}$ \\ \midrule
+%         Risk aversion & $\gamma$ & 1.0 \\
+%         Splurge & $\varsigma$ & 0.32 \\
 %         Survival probability, quarterly & $1-D$ & 0.994 \\
-%         Risk free interest rate, quarterly (gross) & $R$ & 1.01 \\ 
+%         Risk free interest rate, quarterly (gross) & $R$ & 1.01 \\
 %         Standard deviation of transitory shock & $\sigma_\xi$ & 0.346 \\
-%         Standard deviation of permanent shock & $\sigma_\psi$ & 0.0548 \\ 
-%         Unemployment benefits replacement rate (share of PI) & $\rho_b$ & 0.3 \\ 
-%         Unemployment income w/o benefits (share of PI) & $\rho_{nb}$ & 0.05 \\ 
+%         Standard deviation of permanent shock & $\sigma_\psi$ & 0.0548 \\
+%         Unemployment benefits replacement rate (share of PI) & $\rho_b$ & 0.3 \\
+%         Unemployment income w/o benefits (share of PI) & $\rho_{nb}$ & 0.05 \\
 %         Avg. duration of unemp. spell in normal times (quarters) & & 1.5 \\
-%         Avg. duration of unemp. benefits in normal times (quarters) & & 2 
-%         \\ \bottomrule 
+%         Avg. duration of unemp. benefits in normal times (quarters) & & 2
+%         \\ \bottomrule
 %       \end{tabular}
 %         \caption{Calibrated parameters that apply to all types. ``PI'' refers to permanent income.}
 %         \notinsubfile{\label{tab:calibAll}}
-%         \end{center}	
+%         \end{center}
 %         \end{table}
 
 When consumers are born, they receive an initial level of permanent income. This initial value is drawn from a log-normal distribution that depends on the education level the household is born with. For each education group, the parameters of the distribution are determined by the mean and standard deviation of log-permanent income for households of age 25 in that education group in the SCF 2004. For the Dropout group, the mean initial value of quarterly permanent income is \$6,200; for the Highschool group, it is \$11,100; and for the College group, it is \$14,500. The standard deviations of the log-normal distributions for each group are, respectively, $0.32$, $0.42$, and $0.53$.
@@ -157,15 +157,15 @@ When consumers are born, they receive an initial level of permanent income. This
 %         \begin{table}[th]
 %         \begin{center}
 %         \begin{tabular}{lccc}
-%         \toprule 
-%         \multicolumn{4}{l}{Parameters calibrated for each education group} \\ 
+%         \toprule
+%         \multicolumn{4}{l}{Parameters calibrated for each education group} \\
 %                             & Dropout & Highschool & College \\ \midrule
-%         Percent of population & \phantom{0}9.3 & 52.7 & 38.0 \\ 
+%         Percent of population & \phantom{0}9.3 & 52.7 & 38.0 \\
 %         Avg. quarterly PI of ``newborn'' agent (\$1000) & \phantom{0}6.2 & 11.1 & 14.5 \\
 %         Std. dev. of $\log($PI$)$ of ``newborn'' agent & 0.32 & 0.42 & 0.53 \\
 %         Avg. quarterly gross growth rate of PI & 1.0036 & 1.0045 & 1.0049 \\
-%         Unemployment rate in normal times (percent) & \phantom{0}8.5 & \phantom{0}4.4 & \phantom{0}2.7  			
-%         \\ \bottomrule 
+%         Unemployment rate in normal times (percent) & \phantom{0}8.5 & \phantom{0}4.4 & \phantom{0}2.7
+%         \\ \bottomrule
 %       \end{tabular}
 %         \caption{Parameters calibrated for each education group. ``PI'' refers to permanent income.}
 %         \notinsubfile{\label{tab:calibEd}}

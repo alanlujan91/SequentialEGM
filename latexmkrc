@@ -1,7 +1,7 @@
 # -*- mode: sh; sh-shell: bash; -*-
 # Google 'latexmk latexmkrc' for explanation of this config file
 # or see https://mg.readthedocs.io/latexmk.html
-# 
+#
 # latexmk at unix command line will compile the paper
 $do_cd = 1;
 $clean_ext = "bbl nav out snm dvi idv mk4 css cfg tmp xref 4tc out aux log fls fdb_latexmk synctex.gz toc svg png html 4ct ps out.ps upa upb lg yml css";

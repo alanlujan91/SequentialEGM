@@ -2,8 +2,8 @@
 title: "Welfare and Spending Effects of Consumption Stimulus Policies"
 author: "Christopher Carroll, Edmund Crawley, Ivan Fancovic, Hakon Tretvoll"
 date: 2022/12/18
-
 ---
+
 # Welfare and Spending Effects of Consumption Stimulus Policies
 
 ## Abstract

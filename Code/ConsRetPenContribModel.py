@@ -2,29 +2,28 @@ from copy import deepcopy
 from dataclasses import dataclass
 
 import numpy as np
-from scipy.interpolate import CloughTocher2DInterpolator
-
 from HARK.ConsumptionSaving.ConsIndShockModel import (
     IndShockConsumerType,
     utility,
     utility_inv,
-    utilityP,
     utility_invP,
+    utilityP,
     utilityP_inv,
 )
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
 from HARK.core import MetricObject, make_one_period_oo_solver
-from HARK.distribution import calc_expectation, DiscreteDistribution
-from HARK.fast import LinearInterpFast, BilinearInterpFast
+from HARK.distribution import DiscreteDistribution, calc_expectation
+from HARK.fast import BilinearInterpFast, LinearInterpFast
 from HARK.interpolation import (
+    ConstantFunction,
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
     ValueFuncCRRA,
     calc_log_sum_choice_probs,
-    ConstantFunction,
 )
 from HARK.utilities import NullFunc, make_grid_exp_mult
+from scipy.interpolate import CloughTocher2DInterpolator
 
 
 @dataclass
@@ -269,7 +268,6 @@ class PensionContribSolver(MetricObject):
         self.gPinv = lambda x: self.TaxDedct / x - 1
 
     def solve_retired_problem(self, retired_solution_next):
-
         vPfunc_next = retired_solution_next.vPfunc
         vFunc_next = retired_solution_next.vFunc
 
@@ -317,7 +315,6 @@ class PensionContribSolver(MetricObject):
         return retired_solution
 
     def solve_retiring_problem(self, retired_solution):
-
         cFunc_retired = retired_solution.cFunc
         vFunc_retired = retired_solution.vFunc
         vPfunc_retired = retired_solution.vPfunc
@@ -356,7 +353,6 @@ class PensionContribSolver(MetricObject):
         return worker_retiring_solution
 
     def solve_post_decision_stage(self, deposit_stage_next):
-
         dvdmFunc_next = deposit_stage_next.dvdmFunc
         dvdnFunc_next = deposit_stage_next.dvdnFunc
         vFunc_next = deposit_stage_next.vFunc
@@ -420,7 +416,6 @@ class PensionContribSolver(MetricObject):
         return post_decision_stage
 
     def solve_consumption_stage(self, post_decision_stage):
-
         dvdaNvrs_next = post_decision_stage.dvdaNvrs
         dvdbNvrs_next = post_decision_stage.dvdbNvrs
         value_next = post_decision_stage.value
@@ -478,7 +473,6 @@ class PensionContribSolver(MetricObject):
         return consumption_stage
 
     def solve_deposit_stage(self, consumption_stage):
-
         cFunc_next = consumption_stage.cFunc
         vFunc_next = consumption_stage.vFunc
         dvdlFunc_next = consumption_stage.dvdlFunc
@@ -557,7 +551,6 @@ class PensionContribSolver(MetricObject):
         return deposit_stage
 
     def solve_working_problem(self, worker_solution_next):
-
         deposit_stage_next = worker_solution_next.deposit_stage
 
         post_decision_stage = self.solve_post_decision_stage(deposit_stage_next)
@@ -573,7 +566,6 @@ class PensionContribSolver(MetricObject):
         return working_solution
 
     def solve_worker_problem(self, working_solution, retiring_solution):
-
         vOutrFunc = working_solution.deposit_stage.vFunc
         cOutrFunc = working_solution.deposit_stage.cFunc
         dOutrFunc = working_solution.deposit_stage.dFunc
@@ -660,7 +652,6 @@ class PensionContribSolver(MetricObject):
         return worker_solution
 
     def solve(self):
-
         retired_solution_next = self.solution_next.retired_solution
         worker_solution_next = self.solution_next.worker_solution
 
