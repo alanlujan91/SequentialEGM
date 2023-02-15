@@ -4,12 +4,11 @@ sticky expectations model with a tax cut experiment embedded in the Markov
 set up
 '''
 from __future__ import division
-from builtins import range
 #from past.utils import old_div
 import os
 import numpy as np
 from copy import copy
-from HARK.distribution import Lognormal, MeanOneLogNormal, Uniform, combineIndepDstns, DiscreteDistribution
+from HARK.distribution import Uniform
 
 # Choose directory paths relative to the StickyE files
 # See: https://stackoverflow.com/questions/918154/relative-paths-in-python

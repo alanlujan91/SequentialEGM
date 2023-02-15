@@ -1,6 +1,4 @@
 # Import python tools
-import sys
-import os
 import numpy as np
 import random
 from copy import deepcopy
@@ -285,7 +283,8 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
 
 #%% Conduct the estimation for beta, dist and splurge
 
-f_temp = lambda x : FagerengObjFunc(x[0],x[1],x[2])
+def f_temp(x):
+    return FagerengObjFunc(x[0], x[1], x[2])
 opt = minimizeNelderMead(f_temp, guess_splurge_beta_nabla, verbose=True)
 print('Finished estimating')
 print('Optimal splurge is ' + str(opt[0]) )
@@ -324,7 +323,6 @@ plt.show()
 
 #%% Plot Surface
 
-from mpl_toolkits import mplot3d
 
 mesh_size = 4
 

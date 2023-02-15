@@ -28,7 +28,8 @@ def Output_Results(saved_results_dir,fig_dir,table_dir,Parametrization='Baseline
     import numpy as np
     import matplotlib.pyplot as plt
     from OtherFunctions import getSimulationDiff, getSimulationPercentDiff, getNPVMultiplier, loadPickle
-    mystr = lambda x : '{:.2f}'.format(x)
+    def mystr(x):
+        return '{:.2f}'.format(x)
     
     
     [max_recession_duration, Rspell, Rfree_base]  = returnParameters(Parametrization=Parametrization,OutputFor='_Output_Results.py')

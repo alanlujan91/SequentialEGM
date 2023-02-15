@@ -14,7 +14,6 @@ from copy import copy, deepcopy
 from time import time
 from HARK.distribution import approxMeanOneLognormal, combineIndepDstns, approxUniform, approxLognormal
 from HARK.utilities import getPercentiles, getLorenzShares, calcSubpopAvg
-from HARK.distribution import DiscreteDistribution
 from HARK import Market
 import SetupParamsCSTW as Params
 import HARK.ConsumptionSaving.ConsIndShockModel as Model
@@ -22,7 +21,8 @@ from HARK.ConsumptionSaving.ConsAggShockModel import CobbDouglasEconomy, AggShoc
 from scipy.optimize import golden, brentq
 import matplotlib.pyplot as plt
 
-mystr = lambda number : "{:.3f}".format(number)
+def mystr(number):
+    return '{:.3f}'.format(number)
 
 Params.do_agg_shocks = False
 if Params.do_agg_shocks:
@@ -446,12 +446,8 @@ def findLorenzDistanceAtTargetKY(Economy,param_name,param_count,center_range,spr
         Sum of squared distances between simulated and target Lorenz points for this economy (sqrt).
     '''
     # Define the function to search for the correct value of center, then find its zero
-    intermediateObjective = lambda center : getKYratioDifference(Economy = Economy,
-                                                                 param_name = param_name,
-                                                                 param_count = param_count,
-                                                                 center = center,
-                                                                 spread = spread,
-                                                                 dist_type = dist_type)
+    def intermediateObjective(center):
+        return getKYratioDifference(Economy=Economy, param_name=param_name, param_count=param_count, center=center, spread=spread, dist_type=dist_type)
     optimal_center = brentq(intermediateObjective,center_range[0],center_range[1],xtol=10**(-6))
     Economy.center_save = optimal_center
 
@@ -583,25 +579,16 @@ def main():
 
         if Params.do_param_dist:
             # Run the param-dist estimation
-            paramDistObjective = lambda spread : findLorenzDistanceAtTargetKY(
-                                                            Economy = EstimationEconomy,
-                                                            param_name = Params.param_name,
-                                                            param_count = Params.pref_type_count,
-                                                            center_range = param_range,
-                                                            spread = spread,
-                                                            dist_type = Params.dist_type)
+            def paramDistObjective(spread):
+                return findLorenzDistanceAtTargetKY(Economy=EstimationEconomy, param_name=Params.param_name, param_count=Params.pref_type_count, center_range=param_range, spread=spread, dist_type=Params.dist_type)
             t_start = time()
             spread_estimate = golden(paramDistObjective,brack=spread_range,tol=1e-4)
             center_estimate = EstimationEconomy.center_save
             t_end = time()
         else:
             # Run the param-point estimation only
-            paramPointObjective = lambda center : getKYratioDifference(Economy = EstimationEconomy,
-                                                 param_name = Params.param_name,
-                                                 param_count = Params.pref_type_count,
-                                                 center = center,
-                                                 spread = 0.0,
-                                                 dist_type = Params.dist_type)
+            def paramPointObjective(center):
+                return getKYratioDifference(Economy=EstimationEconomy, param_name=Params.param_name, param_count=Params.pref_type_count, center=center, spread=0.0, dist_type=Params.dist_type)
             t_start = time()
             center_estimate = brentq(paramPointObjective,param_range[0],param_range[1],xtol=1e-6)
             spread_estimate = 0.0

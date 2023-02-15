@@ -3,13 +3,12 @@ This file has an extension of MarkovConsumerType that is used for the Fiscal pro
 '''
 import warnings
 import numpy as np
-from HARK.distribution import DiscreteDistribution, Bernoulli, Uniform
+from HARK.distribution import DiscreteDistribution, Uniform
 from HARK.ConsumptionSaving.ConsMarkovModel import MarkovConsumerType
 from HARK.ConsumptionSaving.ConsIndShockModel import MargValueFunc, ConsumerSolution
 from HARK.interpolation import LinearInterp, LowerEnvelope
 from HARK.core import distanceMetric
 from Parameters import makeMacroMrkvArray, makeCondMrkvArrays, makeFullMrkvArray, T_sim
-import matplotlib.pyplot as plt
 from copy import copy
 
 # Define a modified MarkovConsumerType

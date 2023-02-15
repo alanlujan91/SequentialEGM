@@ -14,7 +14,8 @@ import matplotlib.pyplot as plt
 import StickyEparams as Params
 from StickyEtools import runParkerExperiment, runTaxCutExperiment
 
-mystr = lambda number : "{:.3f}".format(number)
+def mystr(number):
+    return '{:.3f}'.format(number)
 results_dir = Params.results_dir
 
 # Run models and save output if this module is called from main

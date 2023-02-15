@@ -1,7 +1,6 @@
 '''
 This is the main script for estimating the discount factor distributions.
 '''
-from time import time
 import sys 
 import os 
 from importlib import reload 
@@ -9,10 +8,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 from collections import namedtuple 
-import pickle
-import random 
 from HARK.distribution import DiscreteDistribution, Uniform
-from HARK import multiThreadCommands, multiThreadCommandsFake
+from HARK import multiThreadCommandsFake
 from HARK.utilities import getPercentiles, getLorenzShares
 from HARK.estimation import minimizeNelderMead
 
@@ -34,12 +31,13 @@ reload(ep)  # Force reload in case the code is running from commandline for diff
 
 from EstimParameters import init_dropout, init_highschool, init_college, init_ADEconomy, DiscFacDstns,\
      DiscFacCount, CRRA, Splurge, IncUnemp, IncUnempNoBenefits, AgentCountTotal, base_dict, \
-     UBspell_normal, data_LorenzPts, data_LorenzPtsAll, data_avgLWPI, data_LWoPI, \
-     data_medianLWPI, data_EducShares, data_WealthShares, Rfree_base, \
+     UBspell_normal, data_LorenzPts, data_LorenzPtsAll, data_avgLWPI, data_medianLWPI, data_EducShares, Rfree_base, \
      GICmaxBetas, GICfactor, minBeta
 from AggFiscalModel import AggFiscalType, AggregateDemandEconomy
-mystr = lambda x : '{:.2f}'.format(x)
-mystr4 = lambda x : '{:.4f}'.format(x)
+def mystr(x):
+    return '{:.2f}'.format(x)
+def mystr4(x):
+    return '{:.4f}'.format(x)
 
 # -----------------------------------------------------------------------------
 def calcEstimStats(Agents):
@@ -589,7 +587,8 @@ else:
     df_resFileStr = res_dir+'/DiscFacEstim_CRRA_'+str(CRRA)+'_R_'+str(Rfree_base[0])+'_altBenefits.txt'
     
 for edType in [0,1,2]:
-    f_temp = lambda x : betasObjFuncEduc(x[0],x[1], educ_type=edType)
+    def f_temp(x):
+        return betasObjFuncEduc(x[0], x[1], educ_type=edType)
     if edType == 0:
         initValues = [0.69, 0.54]       # Dropouts
     elif edType == 1:

@@ -1,14 +1,13 @@
 '''
 This file has major functions that are used by GiveItAwayMAIN.py
 '''
-import warnings
 import numpy as np
-import matplotlib.pyplot as plt
-from copy import deepcopy
-from HARK import multiThreadCommands, multiThreadCommandsFake
+from HARK import multiThreadCommandsFake
 
-mystr = lambda x : '{:.2f}'.format(x)
-mystr2 = lambda x : '{:.3f}'.format(x)
+def mystr(x):
+    return '{:.2f}'.format(x)
+def mystr2(x):
+    return '{:.3f}'.format(x)
 
 def runExperiment(agents,RecessionShock = False,TaxCutShock = False, \
                   ExtendedUIShock =False, UpdatePrb = 1.0, Splurge = 0.0):

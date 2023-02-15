@@ -4,23 +4,13 @@ This module holds some data tools used in the cAndCwithStickyE project.
 from __future__ import division
 from __future__ import absolute_import
 
-from builtins import str
 from builtins import range
 #from past.utils import old_div
 
-import os
-import csv
 import numpy as np
-import pandas as pd
-import statsmodels.api as sm
-import statsmodels.sandbox.regression.gmm as smsrg
-import matplotlib.pyplot as plt
 from copy import deepcopy
-import subprocess
-from HARK.utilities import CRRAutility
-from HARK.interpolation import LinearInterp
 from HARK.distribution import Uniform
-from StickyEparams import results_dir, tables_dir, figures_dir, UpdatePrb, PermShkAggVar
+from StickyEparams import results_dir, UpdatePrb, PermShkAggVar
 UpdatePrbBase = UpdatePrb
 PermShkAggVarBase = PermShkAggVar
    

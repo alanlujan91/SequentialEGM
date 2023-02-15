@@ -2,13 +2,12 @@
 This is the main script for the paper
 '''
 #$$$$$$$$$$ represents places in the code that need to be adjusted when the markov state space is changed
-from Parameters import T_sim, init_infhorizon, DiscFacDstns,\
-     AgentCountTotal, TypeShares, base_dict, recession_changes, sticky_e_changes,\
-     UI_changes, recession_UI_changes, TaxCut_changes, recession_TaxCut_changes,\
+from Parameters import init_infhorizon, DiscFacDstns,\
+     AgentCountTotal, TypeShares, base_dict, recession_changes, UI_changes, recession_UI_changes, TaxCut_changes, recession_TaxCut_changes,\
      figs_dir
 from FiscalModel import FiscalType
 from FiscalTools import runExperiment
-from HARK import multiThreadCommands, multiThreadCommandsFake
+from HARK import multiThreadCommandsFake
 from HARK.distribution import DiscreteDistribution
 from time import time
 import numpy as np
@@ -18,7 +17,8 @@ from copy import deepcopy
 #%%
 if __name__ == '__main__':
     
-    mystr = lambda x : '{:.2f}'.format(x)
+    def mystr(x):
+        return '{:.2f}'.format(x)
     t_start = time()
 
     # Make baseline types - for now only one type, might add more

@@ -1,6 +1,4 @@
 # Import python tools
-import sys
-import os
 import numpy as np
 import random
 from copy import deepcopy
@@ -306,7 +304,8 @@ plt.show()
 #%% Conduct the estimation for beta, dist and splurge
 
 guess_splurge_beta_nabla = [0.4,0.986,0.0076]
-f_temp = lambda x : FagerengObjFunc(x[0],x[1],x[2])
+def f_temp(x):
+    return FagerengObjFunc(x[0], x[1], x[2])
 opt = minimizeNelderMead(f_temp, guess_splurge_beta_nabla, verbose=True)
 print('Finished estimating')
 print('Optimal splurge is ' + str(opt[0]) )
@@ -344,7 +343,8 @@ def Outer_Loop(splurge):
     
 def Inner_Loop(splurge):
     global current_beta_nabla
-    f_inner_temp = lambda x : FagerengObjFunc(splurge,x[0],x[1],target='AGG_MPC_234')
+    def f_inner_temp(x):
+        return FagerengObjFunc(splurge, x[0], x[1], target='AGG_MPC_234')
     print('\n' + 'Estimating optimal beta and nabla for splurge factor = ', splurge, '\n')
     opt_current_beta_nabla = minimizeNelderMead(f_inner_temp, current_beta_nabla, xtol=1e-3, ftol=1e-3, verbose=True)
     current_beta_nabla = opt_current_beta_nabla
@@ -352,7 +352,8 @@ def Inner_Loop(splurge):
     
     
 
-f_outer_temp = lambda x : Outer_Loop(x)
+def f_outer_temp(x):
+    return Outer_Loop(x)
 opt = minimizeNelderMead(f_outer_temp, guess_splurge_factor, verbose=True, xtol=1e-3, ftol=1e-3)
 
 

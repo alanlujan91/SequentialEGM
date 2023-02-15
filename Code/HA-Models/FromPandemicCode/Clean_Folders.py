@@ -1,5 +1,4 @@
 import os
-import sys
 
 
 dirs_to_delete = ['./Figures/CRRA1/','./Figures/CRRA1_PVSame/',

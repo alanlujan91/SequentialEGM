@@ -778,7 +778,7 @@ class AggregateDemandEconomy(Market):
         # Get initial Markov states
         Mrkv_init = np.concatenate([ThisType.history['MrkvNow'][0,:] for ThisType in self.agents])
         
-        if Full_Output==True:
+        if Full_Output is True:
             return_dict = {'cNrm_all' :     cNrm_all,
                            'TranShk_all' :  TranShk_all,
                            'cLvl_all' :     cLvl_all,
@@ -906,13 +906,13 @@ class AggregateDemandEconomy(Market):
                 DiffIntercepts[i,j] = abs(New_Cfunc[i][j].intercept - Old_Cfunc[i][j].intercept)
         Slopes_Diff                         = np.linalg.norm(DiffSlopes)
         [i,j]                               = np.unravel_index(DiffSlopes.argmax(),DiffSlopes.shape)
-        FromMrkState_Slopes_Largest_Diff    = int(np.floor(i/self.num_base_MrkvStates))
-        ToMrkState_Slopes_Largest_Diff      = int(np.floor(j/self.num_base_MrkvStates))
+        int(np.floor(i/self.num_base_MrkvStates))
+        int(np.floor(j/self.num_base_MrkvStates))
         
         Intercept_Diff                      = np.linalg.norm(DiffIntercepts)
         [i,j]                               = np.unravel_index(DiffIntercepts.argmax(),DiffIntercepts.shape)
-        FromMrkState_Intercept_Largest_Diff = int(np.floor(i/self.num_base_MrkvStates))
-        ToMrkState_Intercept_Largest_Diff   = int(np.floor(j/self.num_base_MrkvStates))
+        int(np.floor(i/self.num_base_MrkvStates))
+        int(np.floor(j/self.num_base_MrkvStates))
         
         Total_Diff          = (Slopes_Diff**2 + Intercept_Diff**2)**0.5
         # print('Diff in Slopes in CFunc: ', Slopes_Diff)
@@ -989,7 +989,7 @@ class AggregateDemandEconomy(Market):
             else:                    
                 print("Convergence criterion not reached.")
                 
-        if name != None:
+        if name is not None:
             self.storeADsolution(name)
             
             

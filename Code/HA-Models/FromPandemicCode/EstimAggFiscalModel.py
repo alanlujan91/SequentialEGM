@@ -13,7 +13,6 @@ from HARK import Market
 from HARK.core import distanceMetric, HARKobject
 from EstimParameters import makeFullMrkvArray, T_sim, makeCondMrkvArrays_base
 from copy import copy, deepcopy
-import matplotlib.pyplot as plt
 
 # Define a modified MarkovConsumerType
 class AggFiscalType(MarkovConsumerType):
@@ -878,13 +877,13 @@ class AggregateDemandEconomy(Market):
                 DiffIntercepts[i,j] = abs(New_Cfunc[i][j].intercept - Old_Cfunc[i][j].intercept)
         Slopes_Diff                         = np.linalg.norm(DiffSlopes)
         [i,j]                               = np.unravel_index(DiffSlopes.argmax(),DiffSlopes.shape)
-        FromMrkState_Slopes_Largest_Diff    = int(np.floor(i/self.num_base_MrkvStates))
-        ToMrkState_Slopes_Largest_Diff      = int(np.floor(j/self.num_base_MrkvStates))
+        int(np.floor(i/self.num_base_MrkvStates))
+        int(np.floor(j/self.num_base_MrkvStates))
         
         Intercept_Diff                      = np.linalg.norm(DiffIntercepts)
         [i,j]                               = np.unravel_index(DiffIntercepts.argmax(),DiffIntercepts.shape)
-        FromMrkState_Intercept_Largest_Diff = int(np.floor(i/self.num_base_MrkvStates))
-        ToMrkState_Intercept_Largest_Diff   = int(np.floor(j/self.num_base_MrkvStates))
+        int(np.floor(i/self.num_base_MrkvStates))
+        int(np.floor(j/self.num_base_MrkvStates))
         
         Total_Diff          = (Slopes_Diff**2 + Intercept_Diff**2)**0.5
         # print('Diff in Slopes in CFunc: ', Slopes_Diff)

@@ -1,6 +1,5 @@
-from EstimParameters import T_sim, init_dropout, init_highschool, init_college, init_ADEconomy, DiscFacDstns,\
-     AgentCountTotal, EducShares, base_dict, figs_dir, num_max_iterations_solvingAD,\
-     convergence_tol_solvingAD, UBspell_normal, num_base_MrkvStates
+from EstimParameters import init_dropout, init_highschool, init_college, init_ADEconomy, DiscFacDstns,\
+     AgentCountTotal, EducShares, base_dict, UBspell_normal
 from EstimAggFiscalModel import AggFiscalType, AggregateDemandEconomy
 from HARK.distribution import DiscreteDistribution
 import numpy as np

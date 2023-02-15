@@ -1,5 +1,4 @@
 # Import python tools
-import sys
 import os
 import numpy as np
 import random
@@ -177,7 +176,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
     WealthNow = np.concatenate([ThisType.aLvlNow for ThisType in EstTypeList])
     
     
-    if estimation_mode==False:
+    if estimation_mode is False:
         # Get wealth quartile cutoffs and distribute them to each consumer type
         quartile_cuts = getPercentiles(WealthNow,percentiles=[0.25,0.50,0.75])
         for ThisType in EstTypeList:
@@ -310,7 +309,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
                 
                 
         
-        if estimation_mode==False:        
+        if estimation_mode is False:        
             # Sort the MPCs into the proper MPC sets
             for q in range(4):
                 these = ThisType.WealthQ == q
@@ -322,7 +321,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
         for y in range(N_Year_Sim):
             MPC_List_Add_Lottery_Bin[y].append(MPC_this_type[:,4,y])
     
-    if estimation_mode==False:     
+    if estimation_mode is False:     
         # Calculate average within each MPC set
         simulated_MPC_means = np.zeros((N_Lottery_Win_Sizes-1,4,N_Year_Sim))
         for k in range(4):
@@ -339,7 +338,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
             
     # Calculate Euclidean distance between simulated MPC averages and Table 9 targets
     
-    if estimation_mode==False:     
+    if estimation_mode is False:     
         diff_MPC = simulated_MPC_means[:,:,0] - MPC_target
         if drop_corner:
             diff_MPC[0,0] = 0.0
@@ -369,7 +368,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
         distance = distance_Agg_MPC + distance_lorenz + 0*distance_KY
         if EstTypeList[7].GPFInd > 1:
             distance = distance + 2
-        if estimation_mode==False:   
+        if estimation_mode is False:   
             print(distance_Agg_MPC,distance_lorenz,distance_KY)
         
         
@@ -390,7 +389,8 @@ def find_Opt_splurge_beta_nabla():
 
     guess_splurge_beta_nabla = [0.314,0.983,0.0174]
     
-    f_temp = lambda x : FagerengObjFunc(x[0],x[1],x[2],target='AGG_MPC_plus_Liqu_Wealth')
+    def f_temp(x):
+        return FagerengObjFunc(x[0], x[1], x[2], target='AGG_MPC_plus_Liqu_Wealth')
     opt = minimizeNelderMead(f_temp, guess_splurge_beta_nabla, verbose=True,  maxiter=100)
     print('Finished estimating')
     print('Optimal splurge is ' + str(opt[0]) )

@@ -1,6 +1,4 @@
 # Import python tools
-import sys
-import os
 import numpy as np
 import random
 from copy import deepcopy
@@ -315,13 +313,15 @@ start_nabla = 0.02
 
 def f_beta(splurge,beta,nabla):
     print('Finding optimal nabla for beta = ', beta, ' and splurge = ', splurge)
-    f_nabla    = lambda x : FagerengObjFunc(splurge,beta,x,target='AGG_MPC_plus_Liqu_Wealth')
+    def f_nabla(x):
+        return FagerengObjFunc(splurge, beta, x, target='AGG_MPC_plus_Liqu_Wealth')
     opt_nabla  = minimizeNelderMead(f_nabla, np.array([start_nabla]), verbose=True, xtol=1e-3, ftol=1e-3)  
     print('Found optimal nabla = ', opt_nabla, ' for beta = ', beta, ' and splurge = ', splurge)
     distance = FagerengObjFunc(splurge,beta,opt_nabla,target='AGG_MPC_plus_Liqu_Wealth')
     return distance
     
-f_temp      = lambda x : f_beta(splurge,x,np.array([start_nabla]))
+def f_temp(x):
+    return f_beta(splurge, x, np.array([start_nabla]))
 opt_beta = minimizeNelderMead(f_temp, np.array([start_beta]), verbose=True, xtol=1e-3, ftol=1e-3) 
 
 
@@ -333,7 +333,8 @@ start_beta_nabla  = np.array([0.98, 0.03])
 
 def f_splurge(splurge,beta,nabla):
     print('Finding optimal beta and nabla for splurge = ', splurge)
-    f_beta_nabla    = lambda x : FagerengObjFunc(splurge,x[0],x[1],target='AGG_MPC_plus_Liqu_Wealth')
+    def f_beta_nabla(x):
+        return FagerengObjFunc(splurge, x[0], x[1], target='AGG_MPC_plus_Liqu_Wealth')
     start_beta_nabla = np.array([beta,nabla])
     opt_beta_nabla  = minimizeNelderMead(f_beta_nabla, start_beta_nabla, verbose=True, xtol=1e-3, ftol=1e-3)  
     start_beta_nabla    = opt_beta_nabla
@@ -341,7 +342,8 @@ def f_splurge(splurge,beta,nabla):
     distance = FagerengObjFunc(splurge,start_beta_nabla[0],start_beta_nabla[1],target='AGG_MPC_plus_Liqu_Wealth')
     return distance
     
-f_temp      = lambda x : f_splurge(x,start_beta_nabla[0],start_beta_nabla[1])
+def f_temp(x):
+    return f_splurge(x, start_beta_nabla[0], start_beta_nabla[1])
 opt_splurge = minimizeNelderMead(f_temp, start_splurge, verbose=True, xtol=1e-3, ftol=1e-3) 
 
 #%%
@@ -381,7 +383,8 @@ plt.show()
     
 #%% Conduct the estimation for beta, dist and splurge
 
-f_temp = lambda x : FagerengObjFunc(x[0],x[1],x[2],target='AGG_MPC_plus_Liqu_Wealth')
+def f_temp(x):
+    return FagerengObjFunc(x[0], x[1], x[2], target='AGG_MPC_plus_Liqu_Wealth')
 opt = minimizeNelderMead(f_temp, guess_splurge_beta_nabla, verbose=True)
 print('Finished estimating')
 print('Optimal splurge is ' + str(opt[0]) )
@@ -423,7 +426,6 @@ plt.show()
 
 #%% Plot Surface
 
-from mpl_toolkits import mplot3d
 
 mesh_size_beta = 8
 mesh_size_nabla = 15
@@ -455,7 +457,6 @@ plt.show()
 
 #%% Plot Surface special splurge
 
-from mpl_toolkits import mplot3d
 
 mesh_size_beta    = 8
 mesh_size_nabla   = 15
@@ -489,7 +490,6 @@ plt.show()
 
 #%% Plot Surface (special)
 
-from mpl_toolkits import mplot3d
 
 mesh_size_beta = 20
 mesh_size_nabla = 40

@@ -1,6 +1,4 @@
 # Import python tools
-import sys
-import os
 import numpy as np
 import random
 from copy import deepcopy
@@ -283,7 +281,8 @@ plt.show()
 #%% Conduct the estimation
 
 beta_dist_estimate = [0.9868607230094457,0.006068381572212068]
-f_temp = lambda x : FagerengObjFunc(x,beta_dist_estimate[0],beta_dist_estimate[1])
+def f_temp(x):
+    return FagerengObjFunc(x, beta_dist_estimate[0], beta_dist_estimate[1])
 SplurgeEstimateStart = np.array([0.7])
 opt_splurge = minimizeNelderMead(f_temp, SplurgeEstimateStart, verbose=True)
 print('Finished estimating for scaling factor of ' + str(AdjFactor) + ' and (beta,nabla) of ' + str(beta_dist_estimate))

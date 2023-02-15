@@ -1,6 +1,4 @@
 # Import python tools
-import sys
-import os
 import numpy as np
 import random
 from copy import deepcopy
@@ -158,7 +156,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
     WealthNow = np.concatenate([ThisType.aLvlNow for ThisType in EstTypeList])
     
     
-    if estimation_mode==False:
+    if estimation_mode is False:
         # Get wealth quartile cutoffs and distribute them to each consumer type
         quartile_cuts = getPercentiles(WealthNow,percentiles=[0.25,0.50,0.75])
         for ThisType in EstTypeList:
@@ -292,7 +290,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
                 
                 
         
-        if estimation_mode==False:        
+        if estimation_mode is False:        
             # Sort the MPCs into the proper MPC sets
             for q in range(4):
                 these = ThisType.WealthQ == q
@@ -304,7 +302,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
         for y in range(N_Year_Sim):
             MPC_List_Add_Lottery_Bin[y].append(MPC_this_type[:,4,y])
     
-    if estimation_mode==False:     
+    if estimation_mode is False:     
         # Calculate average within each MPC set
         simulated_MPC_means = np.zeros((N_Lottery_Win_Sizes-1,4,N_Year_Sim))
         for k in range(4):
@@ -321,7 +319,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
             
     # Calculate Euclidean distance between simulated MPC averages and Table 9 targets
     
-    if estimation_mode==False:     
+    if estimation_mode is False:     
         diff_MPC = simulated_MPC_means[:,:,0] - MPC_target
         if drop_corner:
             diff_MPC[0,0] = 0.0
@@ -351,7 +349,7 @@ def FagerengObjFunc(SplurgeEstimate,center,spread,verbose=False,estimation_mode=
         distance = distance_Agg_MPC + distance_lorenz + 0*distance_KY
         if EstTypeList[7].GPFInd > 1:
             distance = distance + 2
-        if estimation_mode==False:   
+        if estimation_mode is False:   
             print(distance_Agg_MPC,distance_lorenz,distance_KY)
         
         
@@ -412,7 +410,6 @@ plt.show()
 
 #%% Plot Surface
 
-from mpl_toolkits import mplot3d
 
 mesh_size_beta = 20
 mesh_size_nabla = 20
@@ -452,7 +449,8 @@ plt.show()
 
 guess_splurge_beta_nabla = [0.31,0.982,0.017]
 
-f_temp = lambda x : FagerengObjFunc(x[0],x[1],x[2],target='AGG_MPC_plus_Liqu_Wealth')
+def f_temp(x):
+    return FagerengObjFunc(x[0], x[1], x[2], target='AGG_MPC_plus_Liqu_Wealth')
 opt = minimizeNelderMead(f_temp, guess_splurge_beta_nabla, verbose=True)
 print('Finished estimating')
 print('Optimal splurge is ' + str(opt[0]) )
@@ -536,13 +534,15 @@ start_nabla = 0.02
 
 def f_beta(splurge,beta,nabla):
     print('Finding optimal nabla for beta = ', str(beta), ' and splurge = ', splurge)
-    f_nabla    = lambda x : FagerengObjFunc(splurge,beta,x,target='AGG_MPC_plus_Liqu_Wealth')
+    def f_nabla(x):
+        return FagerengObjFunc(splurge, beta, x, target='AGG_MPC_plus_Liqu_Wealth')
     opt_nabla  = minimizeNelderMead(f_nabla, np.array([start_nabla]), verbose=True, xtol=1e-3, ftol=1e-3)  
     print('Found optimal nabla = ', opt_nabla, ' for beta = ', beta, ' and splurge = ', splurge)
     distance = FagerengObjFunc(splurge,beta,opt_nabla,target='AGG_MPC_plus_Liqu_Wealth')
     return distance
     
-f_temp      = lambda x : f_beta(splurge,x,start_nabla)
+def f_temp(x):
+    return f_beta(splurge, x, start_nabla)
 opt_beta = minimizeNelderMead(f_temp, np.array([start_beta]), verbose=True, xtol=1e-3,ftol=1e-3) 
 
 
@@ -554,7 +554,8 @@ start_beta_nabla  = np.array([0.98, 0.02])
 
 def f_splurge(splurge,beta,nabla):
     print('Finding optimal beta and nabla for splurge = ', splurge)
-    f_beta_nabla    = lambda x : FagerengObjFunc(splurge,x[0],x[1],target='AGG_MPC_plus_Liqu_Wealth')
+    def f_beta_nabla(x):
+        return FagerengObjFunc(splurge, x[0], x[1], target='AGG_MPC_plus_Liqu_Wealth')
     start_beta_nabla = np.array([beta,nabla])
     opt_beta_nabla  = minimizeNelderMead(f_beta_nabla, start_beta_nabla, verbose=True)  
     start_beta_nabla    = opt_beta_nabla
@@ -562,7 +563,8 @@ def f_splurge(splurge,beta,nabla):
     distance = FagerengObjFunc(splurge,start_beta_nabla[0],start_beta_nabla[1],target='AGG_MPC_plus_Liqu_Wealth')
     return distance
     
-f_temp      = lambda x : f_splurge(x,start_beta_nabla[0],start_beta_nabla[1])
+def f_temp(x):
+    return f_splurge(x, start_beta_nabla[0], start_beta_nabla[1])
 opt_splurge = minimizeNelderMead(f_temp, start_splurge, verbose=True) 
 
 
@@ -571,7 +573,6 @@ opt_splurge = minimizeNelderMead(f_temp, start_splurge, verbose=True)
 
 #%% Plot Surface special splurge
 
-from mpl_toolkits import mplot3d
 
 mesh_size_beta    = 8
 mesh_size_nabla   = 15
@@ -605,7 +606,6 @@ plt.show()
 
 #%% Plot Surface (special)
 
-from mpl_toolkits import mplot3d
 
 mesh_size_beta = 20
 mesh_size_nabla = 40

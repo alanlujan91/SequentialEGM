@@ -19,13 +19,11 @@ Calibrated parameters for each type are found in StickyEparams.
 from __future__ import division, print_function
 from __future__ import absolute_import
 
-from builtins import range, str
+from builtins import range
 
 import numpy as np
-from copy import deepcopy
 from HARK.ConsumptionSaving.ConsAggShockModel import AggShockConsumerType, AggShockMarkovConsumerType,\
-                CobbDouglasEconomy, CobbDouglasMarkovEconomy, SmallOpenMarkovEconomy
-from HARK.ConsumptionSaving.ConsRepAgentModel import RepAgentConsumerType, RepAgentMarkovConsumerType
+                SmallOpenMarkovEconomy
 
 # Make an extension of the base type for the heterogeneous agents versions
 class StickyEconsumerType(AggShockConsumerType):

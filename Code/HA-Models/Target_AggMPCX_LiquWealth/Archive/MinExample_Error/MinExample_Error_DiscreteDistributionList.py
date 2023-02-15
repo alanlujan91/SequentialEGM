@@ -1,4 +1,3 @@
-import os
 import numpy as np
 from cstwMPC_Adjusted import cstwMPCagent 
 # in cstwMPC I made changes to cstwMPC.py in the HARK library to adjust for the fact,

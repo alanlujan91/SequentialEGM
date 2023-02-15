@@ -1,6 +1,4 @@
 # Import python tools
-import sys
-import os
 import numpy as np
 import random
 from copy import deepcopy
@@ -331,7 +329,8 @@ plt.show()
 #%% Conduct the estimation for splurge
 
 beta_dist_estimate = [0.986,0.0076]
-f_temp = lambda x : FagerengObjFunc(x,beta_dist_estimate[0],beta_dist_estimate[1])
+def f_temp(x):
+    return FagerengObjFunc(x, beta_dist_estimate[0], beta_dist_estimate[1])
 SplurgeEstimateStart = np.array([0.4])
 opt_splurge = minimizeNelderMead(f_temp, SplurgeEstimateStart, verbose=True)
 print('Finished estimating for scaling factor of ' + str(AdjFactor) + ' and (beta,nabla) of ' + str(beta_dist_estimate))
@@ -354,7 +353,8 @@ plt.show()
 #%% Conduct the estimation for beta, dist and splurge
 
 guess_splurge_beta_nabla = [0.4,0.986,0.0076]
-f_temp = lambda x : FagerengObjFunc(x[0],x[1],x[2])
+def f_temp(x):
+    return FagerengObjFunc(x[0], x[1], x[2])
 opt = minimizeNelderMead(f_temp, guess_splurge_beta_nabla, verbose=True)
 print('Finished estimating')
 print('Optimal splurge is ' + str(opt[0]) )
@@ -379,7 +379,8 @@ plt.show()
 
 guess = [0.986,0.0076]
 Splurge = 0.4
-f_temp = lambda x : FagerengObjFunc(Splurge,x[0],x[1])
+def f_temp(x):
+    return FagerengObjFunc(Splurge, x[0], x[1])
 opt_params = minimizeNelderMead(f_temp, guess, verbose=True, xtol=1e-3, ftol=1e-3)
 print('Finished estimating for scaling factor of ' + str(AdjFactor) + ' and "splurge amount" of $' + str(1000*Splurge))
 print('Optimal (beta,nabla) is ' + str(opt_params) + ', simulated MPCs are:')

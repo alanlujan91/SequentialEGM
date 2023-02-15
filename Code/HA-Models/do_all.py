@@ -1,8 +1,6 @@
 # filename: do_all.py
 
 # Import the exec function
-from builtins import exec
-import sys 
 import os
 
 #%%

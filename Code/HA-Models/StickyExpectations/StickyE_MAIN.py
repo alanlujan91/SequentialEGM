@@ -67,15 +67,18 @@ periods_to_sim_micro = Params.periods_to_sim_micro # To save memory, micro regre
 AgentCount_micro = Params.AgentCount_micro # To save memory, micro regressions are run on a smaller sample
 my_counts = [interval_size,interval_count]
 long_counts = [interval_size*interval_count,1]
-mystr = lambda number : "{:.3f}".format(number)
+def mystr(number):
+    return '{:.3f}'.format(number)
 results_dir = Params.results_dir
 empirical_dir = Params.empirical_dir
 
 # Define the function to run macroeconomic regressions, depending on whether Stata is used
 if use_stata:
-    runRegressions = lambda a,b,c,d,e : runStickyEregressionsInStata(a,b,c,d,e,stata_exe)
+    def runRegressions(a, b, c, d, e):
+        return runStickyEregressionsInStata(a, b, c, d, e, stata_exe)
 else:
-    runRegressions = lambda a,b,c,d,e : runStickyEregressions(a,b,c,d,e)
+    def runRegressions(a, b, c, d, e):
+        return runStickyEregressions(a, b, c, d, e)
 
 
 

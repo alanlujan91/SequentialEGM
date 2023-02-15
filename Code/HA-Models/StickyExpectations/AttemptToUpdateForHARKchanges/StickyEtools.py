@@ -4,23 +4,14 @@ This module holds some data tools used in the cAndCwithStickyE project.
 from __future__ import division
 from __future__ import absolute_import
 
-from builtins import str
 from builtins import range
 #from past.utils import old_div
 
-import os
-import csv
 import numpy as np
-import pandas as pd
-import statsmodels.api as sm
-import statsmodels.sandbox.regression.gmm as smsrg
 import matplotlib.pyplot as plt
 from copy import deepcopy
-import subprocess
-from HARK.utilities import CRRAutility
-from HARK.interpolation import LinearInterp
 from HARK.distribution import Uniform
-from StickyEparams import results_dir, tables_dir, figures_dir, UpdatePrb, PermShkAggVar
+from StickyEparams import results_dir, UpdatePrb, PermShkAggVar
 UpdatePrbBase = UpdatePrb
 PermShkAggVarBase = PermShkAggVar
    
@@ -199,8 +190,8 @@ def runTaxCutExperiment(BaseEconomy,T_after,num_agg_sims = 20):
     cLvl_StickyNone = np.zeros(T_after)
     cLvl_FrictionlessTaxCut = np.zeros(T_after)
     cLvl_FrictionlessNone = np.zeros(T_after)
-    pLvlend = np.zeros((4,T_after))
-    mrkvend = np.zeros((4,T_after))
+    np.zeros((4,T_after))
+    np.zeros((4,T_after))
     for agent in BaseEconomy.agents:
         agent.pLvlNow_start = agent.pLvlNow
         agent.pLvlTrue_start = agent.pLvlTrue

@@ -19,7 +19,8 @@ def Simulate(Run_Dict,figs_dir,Parametrization='Baseline'):
     TaxCut_changes, recession_TaxCut_changes, Check_changes, recession_Check_changes] = returnParameters(Parametrization=Parametrization,OutputFor='_Main.py')
               
     
-    mystr = lambda x : '{:.2f}'.format(x)
+    def mystr(x):
+        return '{:.2f}'.format(x)
     
     ## Which experiments to run / plots to show
     Run_Baseline            = Run_Dict['Run_Baseline']

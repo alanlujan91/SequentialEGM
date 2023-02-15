@@ -37,29 +37,22 @@ from __future__ import absolute_import
 from builtins import str
 from builtins import range
 
-import os
 
 import numpy as np
 from copy import copy, deepcopy
 from time import clock
 
 # new way of loading modules
-from HARK.distribution import approxMeanOneLognormal, combineIndepDstns, approxUniform, approxLognormal
-from HARK.utilities import getPercentiles, getLorenzShares, calcSubpopAvg
-from HARK.distribution import DiscreteDistribution
 
-from HARK import Market
-import HARK.ConsumptionSaving.ConsIndShockModel as Model
-from HARK.ConsumptionSaving.ConsAggShockModel import CobbDouglasEconomy, AggShockConsumerType
-from cstwMPC_Adjusted import cstwMPCagent, cstwMPCmarket, getKYratioDifference, findLorenzDistanceAtTargetKY, calcStationaryAgeDstn
+from cstwMPC_Adjusted import cstwMPCagent, cstwMPCmarket, getKYratioDifference, findLorenzDistanceAtTargetKY
 from scipy.optimize import brentq, minimize_scalar
 import matplotlib.pyplot as plt
 
-from IPython import get_ipython # Needed to test whether being run from command line or interactively
 
 import SetupParamsCSTW as Params
 
-mystr = lambda number : "{:.3f}".format(number)
+def mystr(number):
+    return '{:.3f}'.format(number)
 
 
 
@@ -175,25 +168,16 @@ if run_estimation:
 
     if do_param_dist:
         # Run the param-dist estimation
-        paramDistObjective = lambda spread : findLorenzDistanceAtTargetKY(
-                                                        Economy = EstimationEconomy,
-                                                        param_name = param_name,
-                                                        param_count = pref_type_count,
-                                                        center_range = param_range,
-                                                        spread = spread,
-                                                        dist_type = dist_type)
+        def paramDistObjective(spread):
+            return findLorenzDistanceAtTargetKY(Economy=EstimationEconomy, param_name=param_name, param_count=pref_type_count, center_range=param_range, spread=spread, dist_type=dist_type)
         t_start = clock()
         spread_estimate = (minimize_scalar(paramDistObjective,bracket=spread_range,tol=1e-2,method='brent')).x
         center_estimate = EstimationEconomy.center_save
         t_end = clock()
     else:
         # Run the param-point estimation only
-        paramPointObjective = lambda center : getKYratioDifference(Economy = EstimationEconomy,
-                                             param_name = param_name,
-                                             param_count = pref_type_count,
-                                             center = center,
-                                             spread = 0.0,
-                                             dist_type = dist_type)
+        def paramPointObjective(center):
+            return getKYratioDifference(Economy=EstimationEconomy, param_name=param_name, param_count=pref_type_count, center=center, spread=0.0, dist_type=dist_type)
         t_start = clock()
         center_estimate = brentq(paramPointObjective,param_range[0],param_range[1],xtol=1e-2)
         spread_estimate = 0.0
