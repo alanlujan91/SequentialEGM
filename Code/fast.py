@@ -1,18 +1,15 @@
 import numpy as np
-from interpolation.splines import CGrid
-from interpolation.splines import eval_linear
-
-from HARK.interpolation import (
-    HARKinterpolator2D,
-    HARKinterpolator1D,
-)
+from HARK.interpolation import HARKinterpolator1D, HARKinterpolator2D
+from interpolation.splines import CGrid, eval_linear
 
 
 class LinearInterpFast(HARKinterpolator1D):
     distance_criteria = ["x_list", "y_list"]
 
     def __init__(
-        self, x_list, y_list,
+        self,
+        x_list,
+        y_list,
     ):
         self.x_list = CGrid(x_list)
         self.y_list = y_list
@@ -262,7 +259,7 @@ class Curvilinear2DInterp(HARKinterpolator2D):
         zeta = a - x + c * tau
         eta = b + c * mu + d * tau
         theta = d * mu
-        alpha = (-eta + polarity * np.sqrt(eta ** 2.0 - 4.0 * zeta * theta)) / (
+        alpha = (-eta + polarity * np.sqrt(eta**2.0 - 4.0 * zeta * theta)) / (
             2.0 * theta
         )
         beta = mu * alpha + tau

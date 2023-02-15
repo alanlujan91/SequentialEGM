@@ -1,8 +1,10 @@
+from collections import namedtuple
 from copy import deepcopy
 from dataclasses import dataclass
 
 import estimagic as em
 import numpy as np
+from fast import BilinearInterpFast, Curvilinear2DInterp, LinearInterpFast
 from HARK.ConsumptionSaving.ConsIndShockModel import (
     ConsIndShockSolver,
     IndShockConsumerType,
@@ -14,8 +16,7 @@ from HARK.ConsumptionSaving.ConsIndShockModel import (
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
 from HARK.core import MetricObject, make_one_period_oo_solver
-from HARK.distribution import DiscreteDistribution, DiscreteDistributionXRA, expected
-from HARK.fast import BilinearInterpFast, Curvilinear2DInterp, LinearInterpFast
+from HARK.distribution import DiscreteDistribution, DiscreteDistributionLabeled
 from HARK.interpolation import (
     BilinearInterp,
     ConstantFunction,
@@ -23,7 +24,7 @@ from HARK.interpolation import (
     MargValueFuncCRRA,
     ValueFuncCRRA,
 )
-from HARK.utilities import NullFunc, make_grid_exp_mult
+from HARK.utilities import NullFunc, construct_assets_grid, make_grid_exp_mult
 from scipy.interpolate import CloughTocher2DInterpolator
 from scipy.optimize import Bounds, LinearConstraint, minimize
 
@@ -119,30 +120,50 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
     def update_grids(self):
         # retirement
 
-        self.mRetGrid = make_grid_exp_mult(
-            0.0, self.mRetMax, self.mRetCount, self.mRetNestFac
+        GridParameters = namedtuple(
+            "GridParameters",
+            ["aXtraMin", "aXtraMax", "aXtraCount", "aXtraNestFac", "aXtraExtra"],
+            defaults=[[]],
         )
-        self.aRetGrid = make_grid_exp_mult(
-            0.0, self.aRetMax, self.aRetCount, self.aRetNestFac
+
+        self.mRetGrid = construct_assets_grid(
+            GridParameters(0.0, self.mRetMax, self.mRetCount, self.mRetNestFac)
+        )
+
+        self.mRetGrid = construct_assets_grid(
+            GridParameters(0.0, self.mRetMax, self.mRetCount, self.mRetNestFac)
+        )
+
+        self.aRetGrid = construct_assets_grid(
+            GridParameters(0.0, self.aRetMax, self.aRetCount, self.aRetNestFac)
         )
 
         # worker grids
-        self.mGrid = make_grid_exp_mult(
-            self.epsilon, self.mMax, self.mCount, self.mNestFac
+        self.mGrid = construct_assets_grid(
+            GridParameters(self.epsilon, self.mMax, self.mCount, self.mNestFac)
         )
-        self.nGrid = make_grid_exp_mult(0.0, self.nMax, self.nCount, self.nNestFac)
+
+        self.nGrid = construct_assets_grid(
+            GridParameters(0.0, self.nMax, self.nCount, self.nNestFac)
+        )
         self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
 
         # pure consumption grids
-        self.aGrid = make_grid_exp_mult(0.0, self.aMax, self.aCount, self.aNestFac)
-        self.bGrid = make_grid_exp_mult(0.0, self.bMax, self.bCount, self.bNestFac)
+        self.aGrid = construct_assets_grid(
+            GridParameters(0.0, self.aMax, self.aCount, self.aNestFac)
+        )
+        self.bGrid = construct_assets_grid(
+            GridParameters(0.0, self.bMax, self.bCount, self.bNestFac)
+        )
         self.aMat, self.bMat = np.meshgrid(self.aGrid, self.bGrid, indexing="ij")
 
         # pension deposit grids
-        self.lGrid = make_grid_exp_mult(
-            self.epsilon, self.lMax, self.lCount, self.lNestFac
+        self.lGrid = construct_assets_grid(
+            GridParameters(self.epsilon, self.lMax, self.lCount, self.lNestFac)
         )
-        self.b2Grid = make_grid_exp_mult(0.0, self.b2Max, self.b2Count, self.b2NestFac)
+        self.b2Grid = construct_assets_grid(
+            GridParameters(0.0, self.b2Max, self.b2Count, self.b2NestFac)
+        )
         self.lMat, self.b2Mat = np.meshgrid(self.lGrid, self.b2Grid, indexing="ij")
 
         self.add_to_time_inv(
@@ -163,16 +184,21 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         )
 
     def update_distributions(self):
-        for i in range(len(self.ShockDstn)):
+        # update income process
+        ShockDstn = []
+
+        for i in range(len(self.ShockDstn.dstns)):
             dstn = self.ShockDstn[i]
-            labeled_dstn = DiscreteDistributionXRA(
-                dstn.pmf,
-                dstn.X,
+            labeled_dstn = DiscreteDistributionLabeled(
+                dstn.pmv,
+                dstn.atoms,
                 name="Joint Distribution of shocks to income and risky asset",
                 var_names=["perm", "tran", "risky"],
             )
 
-            self.ShockDstn[i] = labeled_dstn
+            ShockDstn.append(labeled_dstn)
+
+        self.ShockDstn = ShockDstn
 
 
 @dataclass
@@ -186,7 +212,7 @@ class PensionContribSolver(MetricObject):
     TranShkDstn: DiscreteDistribution
     IncUnempRet: DiscreteDistribution
     TasteShkStd: DiscreteDistribution
-    ShockDstn: DiscreteDistributionXRA
+    ShockDstn: DiscreteDistributionLabeled
     mRetGrid: np.array
     aRetGrid: np.array
     mGrid: np.array
@@ -245,12 +271,7 @@ class PensionContribSolver(MetricObject):
         dvda_end_of_prd = (
             self.DiscFac
             * self.Rfree
-            * expected(
-                func=dvda_func,
-                dist=self.ShockDstn,
-                args=(self.aMat, self.bMat),
-                labels=True,
-            )
+            * self.ShockDstn.expected(dvda_func, self.aMat, self.bMat)
         )
 
         dvda_end_of_prd_nvrs = self.mu_inv(dvda_end_of_prd)
@@ -269,11 +290,8 @@ class PensionContribSolver(MetricObject):
                 * dvdn_func_next(mnrm_next, nnrm_next)
             )
 
-        dvdb_end_of_prd = self.DiscFac * expected(
-            func=dvdb_func,
-            dist=self.ShockDstn,
-            args=(self.aMat, self.bMat),
-            labels=True,
+        dvdb_end_of_prd = self.DiscFac * self.ShockDstn.expected(
+            dvdb_func, self.aMat, self.bMat
         )
 
         dvdb_end_of_prd_nvrs = self.mu_inv(dvdb_end_of_prd)
@@ -290,11 +308,8 @@ class PensionContribSolver(MetricObject):
             nnrm_next = bbal * shock["risky"] / psi
             return psi ** (1 - self.CRRA) * v_func_next(mnrm_next, nnrm_next)
 
-        v_end_of_prd = self.DiscFac * expected(
-            func=v_func,
-            dist=self.ShockDstn,
-            args=(self.aMat, self.bMat),
-            labels=True,
+        v_end_of_prd = self.DiscFac * self.ShockDstn.expected(
+            v_func, self.aMat, self.bMat
         )
 
         # value transformed through inverse utility
