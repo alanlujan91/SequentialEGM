@@ -148,12 +148,6 @@
   *{package}{subcaption}  {2020/10/07 v1.3j}
   *{package}{../Resources/LaTeXInputs/pdfsuppressruntime}{0000/00/00 v0.0}
   *{file}   {t3cmr.fd}    {2001/12/31 v0.0}
-  *{file}   {umsa.fd}     {2013/01/14 v3.01}
-  *{file}   {umsb.fd}     {2013/01/14 v3.01}
-  *{file}   {ulasy.fd}    {1998/08/17 v2.2e}
-  *{file}   {uwasy.fd}    {2020/01/19 v2.4}
-  *{file}   {ubbmss.fd}   {1999/03/15 v1.2}
-  *{file}   {ueuf.fd}     {2013/01/14 v3.01}
   *{-------}{Document-specific files:}{----}
   *{file}   {translations-basic-dictionary-english.trsl}{(english v0.0}
   *{file}   {supp-pdf.mkii}{0000/00/00 v0.0}
@@ -163,11 +157,9 @@
   *{package}{soul}        {2003/11/17 v2.4}
   *{package}{nameref}     {2021-04-02 v2.47}
   *{package}{gettitlestring}{2019/12/15 v1.6}
-  *{file}   {Model.out}   {0000/00/00 v0.0}
-  *{file}   {Model.out}   {0000/00/00 v0.0}
+  *{file}   {Conclusion.out}{0000/00/00 v0.0}
+  *{file}   {Conclusion.out}{0000/00/00 v0.0}
   *{package}{bookmark}    {2020-11-06 v1.29}
   *{file}   {bkm-pdftex.def}{2020-11-06 v1.29}
-  *{file}   {../Resources/LaTeXInputs/bibliography_blend}{0000/00/00 v0.0}
-  *{file}   {Model.bbl}   {0000/00/00 v0.0}
-  *{file}   {Model.upa}   {0000/00/00 v0.0}
+  *{file}   {Conclusion.upa}{0000/00/00 v0.0}
 }
