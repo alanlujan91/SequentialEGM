@@ -10,3 +10,21 @@
   step. Finally, I used the method for curvilinear or "wraped grid"
   interpolation
   as in White (2015).
+
+  ---
+
+  Heterogeneous agent models with many decision choices are often solved using inefficient
+  grid search methods that require a large number of points and are often very slow.
+  This paper provides a method for solving such models using a novel extension of the
+  endogenous grid method (EGM) that uses Gaussian Process Regression (GPR) to interpolate
+  functions on unstructured grids. First, separating models into smaller, sequential problems
+  allows for more tractable and digestable problems. Second, using an exogenous grid of
+  post-decision states and solving for an endogenous grid of pre-decision states that obey
+  a first order condition greatly speeds up the solution process. Third, as the resulting
+  endogenous grid can often be curvilinear at best and unstructured at worst, GPR provides
+  an efficient and accurate method for interpolating value, marginal value, and policy functions.
+  Applied sequentially to each smaller problem, the method is able to solve heterogeneous agent
+  models with many decision choices in a fraction of the time required by standard grid search methods.
+  The method is applied to a number of increasingly complex models for demonstration purposes.
+  Software is provided in the form of a Python module under the `HARK` package.
+

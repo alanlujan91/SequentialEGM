@@ -160,8 +160,6 @@
   *{package}{soul}        {2003/11/17 v2.4}
   *{package}{nameref}     {2021-04-02 v2.47}
   *{package}{gettitlestring}{2019/12/15 v1.6}
-  *{file}   {HAFiscal.out}{0000/00/00 v0.0}
-  *{file}   {HAFiscal.out}{0000/00/00 v0.0}
   *{package}{bookmark}    {2020-11-06 v1.29}
   *{file}   {bkm-pdftex.def}{2020-11-06 v1.29}
   *{file}   {./Resources/LaTeXInputs/econtex_notinsubfile}{0000/00/00 v0.0}
@@ -195,6 +193,4 @@
   *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
   *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
   *{file}   {./Resources/LaTeXInputs/bibliography_blend}{0000/00/00 v0.0}
-  *{file}   {HAFiscal.bbl}{0000/00/00 v0.0}
-  *{file}   {HAFiscal.upa}{0000/00/00 v0.0}
 }
