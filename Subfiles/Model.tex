@@ -10,9 +10,9 @@
 \hypertarget{model}{}\par\section{The Sequential Endogenous Grid Method}
 \notinsubfile{\label{sec:model}}
 
-\subsection{A basic model}
+% \subsection{A basic model}
 
-The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^N$) is a discrete time version of Bodie, Merton, and Samuelson (1992) where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. Their objective consists of maximizing their present discounted lifetime utility of consumption and leisure.
+The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^N$) is a discrete time version of \cite{Bodie1992-yp} where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. Their objective consists of maximizing their present discounted lifetime utility of consumption and leisure.
 
 \begin{equation}
     \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
@@ -24,11 +24,11 @@ In particular, this methodology makes use of a utility function that is based on
     \utilFunc(\CLev, \Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
-where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in Mertens and Ravn (2011).
+where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in \cite{Mertens2011-ap}.
 
 This model represents a consumer who begins the period with a level of bank balances $\bRat_{t}$ and a given wage offer $\tShkEmp_{t}$. Subsequently, they are able to choose consumption, labor intensity, and a risky portfolio share with the objective of maximizing their utility of consumption and leisure, as well as their future value of wealth.
 
-The problem can be written in normalized recursive form as
+The problem can be written in normalized recursive form\footnote{As in \cite{Carroll2009-zq}.} as
 
 \begin{equation}
     \begin{split}
@@ -63,7 +63,7 @@ in which $\labor_{t}$ is the time supplied to labor net of leisure, $\mRat_{t}$ 
 % 	\end{split}
 % \end{equation}
 
-\subsection{EGM$^N$}
+\subsection{Solving the problem sequentially}
 
 We can make a few choices to create a nested problem as follows. First, the
 agent decides their labor-leisure trade-off and receives a wage. Their wage
@@ -107,7 +107,7 @@ And finally, the labor-leisure problem is:
     \end{split}
 \end{equation}
 
-This sequential approach is explicitly modeled after the nested approach explored in (NEGM paper). However, I will offer additional mechanisms that expand on NEGM. An important observation is that now, every single choice is self contained to a sub-problem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last sub-problem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
+This sequential approach is explicitly modeled after the nested approach explored in \cite{Druedahl2017-lt}. However, I will offer additional mechanisms that expand on NEGM. An important observation is that now, every single choice is self contained to a sub-problem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last sub-problem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
 
 
 
@@ -355,4 +355,3 @@ The marginal utility of leisure and it's inverse are
 \onlyinsubfile{\captionsetup[table]{list=no}}
 \end{document}	\endinput
 }
-
