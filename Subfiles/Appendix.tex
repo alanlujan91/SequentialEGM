@@ -1,6 +1,6 @@
 \input{./econtexRoot.texinput}
-\documentclass[\econtexRoot/HAFiscal]{subfiles}
-\onlyinsubfile{\externaldocument{\econtexRoot/HAFiscal}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
+\documentclass[\econtexRoot/EGMN]{subfiles}
+\onlyinsubfile{\externaldocument{\econtexRoot/EGMN}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
 
 \begin{document}
 
@@ -8,8 +8,8 @@
 
 \hypertarget{Appendices}{} % Allows link to [url-of-paper]#Appendices
 \ifthenelse{\boolean{Web}}{}{% Web version has no page headers
-  \chead[Appendices]{Appendices}      % but PDF version does
-  \appendixpage % Reset formatting for appendices
+    \chead[Appendices]{Appendices}      % but PDF version does
+    \appendixpage % Reset formatting for appendices
 }
 
 \hypertarget{Estimating-discount-factor-distributions-for-different-interest-rates}{}\par\section{Estimating discount factor distributions for different interest rates}

@@ -1,5 +1,5 @@
 Beginning an estimation with the specification name PYbetaDistIndNetWorth...
-C:\Users\ifr\Documents\GitHub\HAFiscal-Latest\Code\HA-Models\BetaDistEstimation_wealth.py:182: DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+C:\Users\ifr\Documents\GitHub\EGMN-Latest\Code\HA-Models\BetaDistEstimation_wealth.py:182: DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
   t_start = clock()
 getKYratioDifference tried center = 0.95 and got -9.927078744959807
 getKYratioDifference tried center = 0.995 and got 84.14363324076612
@@ -142,7 +142,7 @@ getKYratioDifference tried center = 0.9880005297900946 and got -0.00982251246871
 getKYratioDifference tried center = 0.9880030957543756 and got 2.0679541309576166e-05
 getKYratioDifference tried center = 0.9880025957543752 and got -0.0018940207850324242
 findLorenzDistanceAtTargetKY tried spread = 0.004306014428033225 and got 6.407145022861912
-C:\Users\ifr\Documents\GitHub\HAFiscal-Latest\Code\HA-Models\BetaDistEstimation_wealth.py:185: DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+C:\Users\ifr\Documents\GitHub\EGMN-Latest\Code\HA-Models\BetaDistEstimation_wealth.py:185: DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
   t_end = clock()
 C:\Users\ifr\.conda\envs\econ-ark\lib\site-packages\HARK\cstwMPC\cstwMPC.py:208: RuntimeWarning: invalid value encountered in double_scalars
   self.MPCunemployed = np.sum(MPCannual[unemployed]*CohortWeight[unemployed])/np.sum(CohortWeight[unemployed])

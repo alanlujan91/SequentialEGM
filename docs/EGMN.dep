@@ -114,7 +114,7 @@
   *{package}{nameref}     {2021-04-02 v2.47}
   *{package}{refcount}    {2019/12/15 v3.6}
   *{package}{gettitlestring}{2019/12/15 v1.6}
-  *{package}{./Resources/LaTeXInputs/HAFiscal}{0000/00/00 v0.0}
+  *{package}{./Resources/LaTeXInputs/EGMN}{0000/00/00 v0.0}
   *{file}   {./Resources/owner.tex}{0000/00/00 v0.0}
   *{package}{datetime2}   {2021/03/21 v1.5.7}
   *{package}{tracklang}   {2020/06/30 v1.5}
@@ -193,7 +193,7 @@
   *{file}   {bkm-dvips.def}{2020-11-06 v1.29}
   *{file}   {bkm-dvips.def}{2020-11-06 v1.29}
   *{file}   {./Resources/LaTeXInputs/econtex_notinsubfile.tex}{0000/00/00 v0.0}
-  *{file}   {HAFiscal-titlepage.tex}{0000/00/00 v0.0}
+  *{file}   {EGMN-titlepage.tex}{0000/00/00 v0.0}
   *{file}   {./econtexRoot.texinput}{0000/00/00 v0.0}
   *{file}   {./Resources/econtexPaths.tex}{0000/00/00 v0.0}
   *{file}   {umsa.fd}     {2013/01/14 v3.01}
@@ -207,7 +207,7 @@
   *{file}   {./Subfiles/Abstract.texinput}{0000/00/00 v0.0}
   *{file}   {t1cmtt.fd}   {2019/12/16 v2.5j}
   *{file}   {t1cmtt.fd}   {2019/12/16 v2.5j}
-  *{file}   {HAFiscal-contents.texinput}{0000/00/00 v0.0}
+  *{file}   {EGMN-contents.texinput}{0000/00/00 v0.0}
   *{file}   {Subfiles.texinput}{0000/00/00 v0.0}
   *{file}   {Subfiles/Intro.tex}{0000/00/00 v0.0}
   *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
@@ -234,5 +234,5 @@
   *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
   *{file}   {Subfiles/../Resources/econtexPaths.tex}{0000/00/00 v0.0}
   *{file}   {./Resources/LaTeXInputs/bibliography_blend.tex}{0000/00/00 v0.0}
-  *{file}   {HAFiscal.bbl}{0000/00/00 v0.0}
+  *{file}   {EGMN.bbl}{0000/00/00 v0.0}
 }

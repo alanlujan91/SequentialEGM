@@ -5,7 +5,7 @@
   *{file}   {./Resources/econtexPaths}{0000/00/00 v0.0}
   *{class}  {subfiles}    {2020/11/14 v2.2}
   *{package}{import}      {2020/04/01 v6.2}
-  *{file}   {HAFiscal}    {0000/00/00 v0.0}
+  *{file}   {EGMN}    {0000/00/00 v0.0}
   *{file}   {./econtexRoot.texinput}{0000/00/00 v0.0}
   *{file}   {./Resources/econtexPaths}{0000/00/00 v0.0}
   *{class}  {./Resources/texmf-local/tex/latex/econtex}{2017/08/01 v0.0}
@@ -127,7 +127,7 @@
   *{package}{atveryend-ltx}{2020/08/19 v1.0a}
   *{package}{rerunfilecheck}{2019/12/05 v1.9}
   *{package}{uniquecounter}{2019/12/15 v1.4}
-  *{package}{./Resources/LaTeXInputs/HAFiscal}{0000/00/00 v0.0}
+  *{package}{./Resources/LaTeXInputs/EGMN}{0000/00/00 v0.0}
   *{file}   {./Resources/owner}{0000/00/00 v0.0}
   *{package}{xr-hyper}    {2021-06-07 v7.00m}
   *{package}{rotating}    {2016/08/11 v2.16d}
@@ -162,8 +162,8 @@
   *{package}{soul}        {2003/11/17 v2.4}
   *{package}{nameref}     {2021-04-02 v2.47}
   *{package}{gettitlestring}{2019/12/15 v1.6}
-  *{file}   {HAFiscal-titlepage.out}{0000/00/00 v0.0}
-  *{file}   {HAFiscal-titlepage.out}{0000/00/00 v0.0}
+  *{file}   {EGMN-titlepage.out}{0000/00/00 v0.0}
+  *{file}   {EGMN-titlepage.out}{0000/00/00 v0.0}
   *{package}{bookmark}    {2020-11-06 v1.29}
   *{file}   {bkm-pdftex.def}{2020-11-06 v1.29}
   *{file}   {./Subfiles/Abstract.texinput}{0000/00/00 v0.0}

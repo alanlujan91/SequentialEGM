@@ -5,7 +5,7 @@
   *{file}   {../Resources/econtexPaths}{0000/00/00 v0.0}
   *{class}  {subfiles}    {2020/11/14 v2.2}
   *{package}{import}      {2020/04/01 v6.2}
-  *{file}   {../HAFiscal} {0000/00/00 v0.0}
+  *{file}   {../EGMN} {0000/00/00 v0.0}
   *{file}   {./econtexRoot.texinput}{0000/00/00 v0.0}
   *{file}   {../Resources/econtexPaths}{0000/00/00 v0.0}
   *{class}  {../Resources/texmf-local/tex/latex/econtex}{2017/08/01 v0.0}
@@ -130,7 +130,7 @@
   *{package}{../Resources/texmf-local/tex/latex/econark}{0000/00/00 v0.0}
   *{package}{subfiles}    {2020/11/14 v2.2}
   *{package}{../Resources/texmf-local/tex/latex/econtexShortcuts}{0000/00/00 v0.0}
-  *{package}{../Resources/LaTeXInputs/HAFiscal}{0000/00/00 v0.0}
+  *{package}{../Resources/LaTeXInputs/EGMN}{0000/00/00 v0.0}
   *{file}   {../Resources/owner}{0000/00/00 v0.0}
   *{package}{xr-hyper}    {2021-06-07 v7.00m}
   *{package}{rotating}    {2016/08/11 v2.16d}

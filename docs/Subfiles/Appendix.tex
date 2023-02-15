@@ -1,6 +1,6 @@
 \input{./econtexRoot.texinput}
-\documentclass[\econtexRoot/HAFiscal]{subfiles}
-\onlyinsubfile{\externaldocument{\econtexRoot/HAFiscal}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
+\documentclass[\econtexRoot/EGMN]{subfiles}
+\onlyinsubfile{\externaldocument{\econtexRoot/EGMN}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
 
 \begin{document}
 
@@ -8,34 +8,34 @@
 
 \hypertarget{Appendices}{} % Allows link to [url-of-paper]#Appendices
 \ifthenelse{\boolean{Web}}{}{% Web version has no page headers
-  \chead[Appendices]{Appendices}      % but PDF version does
-  \appendixpage % Reset formatting for appendices
-} 
+    \chead[Appendices]{Appendices}      % but PDF version does
+    \appendixpage % Reset formatting for appendices
+}
 
 \hypertarget{Estimating-discount-factor-distributions-for-different-interest-rates}{}\par\section{Estimating discount factor distributions for different interest rates}
 \notinsubfile{\label{app:DF_R}}
 
-Figure~\ref{fig:LorenzPtsrobustnessR} shows the fit of the liquid wealth distribution for interest rates of $0.5$ percent and $1.5$ percent per quarter. In both cases, the estimation exactly matches the median liquid wealth to permanent income ratios for each education group listed in Panel~B of Table~\ref{tab:estimBetas}. 
+Figure~\ref{fig:LorenzPtsrobustnessR} shows the fit of the liquid wealth distribution for interest rates of $0.5$ percent and $1.5$ percent per quarter. In both cases, the estimation exactly matches the median liquid wealth to permanent income ratios for each education group listed in Panel~B of Table~\ref{tab:estimBetas}.
 
 % \begin{table}{th}
 %   \begin{center}
 %     \begin{tabular}{lccc}
-        %         \multicolumn{4}{l}{Panel (B) Estimation targets} \\ \midrule
-        %         & Dropout & Highschool & College \\ \midrule
-        %         Median LW/PI (data) & 4.64 & 30.2 & 112.8 \\ 
-        %         Median LW/PI (model, $R = 1.005$) & 4.64 & 30.2 & 112.8 \\	
-        %         Median LW/PI (model, $R = 1.01$) & 4.64 & 30.2 & 112.8 \\
-        %         Median LW/PI (model, $R = 1.015$) & 4.64 & 30.2 & 112.8 \\ \bottomrule
-        %       \end{tabular} \\ \\ 
-        %         \end{center}	
-        %         \end{table}
+%         \multicolumn{4}{l}{Panel (B) Estimation targets} \\ \midrule
+%         & Dropout & Highschool & College \\ \midrule
+%         Median LW/PI (data) & 4.64 & 30.2 & 112.8 \\ 
+%         Median LW/PI (model, $R = 1.005$) & 4.64 & 30.2 & 112.8 \\	
+%         Median LW/PI (model, $R = 1.01$) & 4.64 & 30.2 & 112.8 \\
+%         Median LW/PI (model, $R = 1.015$) & 4.64 & 30.2 & 112.8 \\ \bottomrule
+%       \end{tabular} \\ \\ 
+%         \end{center}	
+%         \end{table}
 
 \begin{figure}[th]
-  \begin{center}
-    \includegraphics[width=.9\textwidth]{\econtexRoot/Figures/LorenzPoints_robustness_R.pdf}
-    \caption{Distributions of liquid wealth within each educational group and for the whole population from the 2004 Survey of Consumer Finance and from the estimated model for different values of the interest rate, $R$.}
-    \notinsubfile{\label{fig:LorenzPtsrobustnessR}}
-  \end{center}
+    \begin{center}
+        \includegraphics[width=.9\textwidth]{\econtexRoot/Figures/LorenzPoints_robustness_R.pdf}
+        \caption{Distributions of liquid wealth within each educational group and for the whole population from the 2004 Survey of Consumer Finance and from the estimated model for different values of the interest rate, $R$.}
+        \notinsubfile{\label{fig:LorenzPtsrobustnessR}}
+    \end{center}
 \end{figure}
 
 \ifthenelse{\boolean{Web}}{}{

@@ -1,0 +1,145 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./econtexRoot.texinput}\documentclass[EGMN]{subfiles}
+\externaldocument{\econtexRoot/EGMN}
+\input{\econtexRoot/Resources/owner}
+
+\begin{document}
+% Attempted to make all lines used for Web version contain {Web} (or version with only single curly brace at end) so can be removed with sed
+\ifthenelse{\boolean{Web}}{\renewcommand{\versn}{Web}}{}  % {Web}
+
+\title{EGM$^N$: The Sequential Endogenous Grid Method}
+\subtitle{Solving Micro DSOPS using Unstructured Multivariate Interpolation}
+
+\author{Alan Lujan}
+
+\keywords{}
+
+\jelclass{D..,E.. \par
+    \href{https://econ-ark.org}{\includegraphics{\ResourcesDir/PoweredByEconARK}}
+}
+
+% \date{\today}
+\renewcommand{\forcedate}{December 20, 2022}\date{\forcedate}
+
+\maketitle
+\hypertarget{abstract}{}
+\begin{verbatimwrite}{\econtexRoot/Subfiles/Abstract.texinput}
+    This paper describes a method for solving heterogeneous agent models
+    with many decision choices. It extends the method proposed by (G2EGM)
+    and
+    complements recent work by (NEGM) on how to nest such models. I suggest
+    first
+    solving the pure consumption problem (inner loop) using a standard EGM
+    step.
+    Then, the outer loop is solved using an appropriately designed
+    sequential EGM
+    step. Finally, I used the method for curvilinear or "wraped grid"
+    interpolation
+    as in White (2015).
+
+    ---
+
+    Heterogeneous agent models with many decision choices are often solved using inefficient
+    grid search methods that require a large number of points and are often very slow.
+    This paper provides a method for solving such models using a novel extension of the
+    endogenous grid method (EGM) that uses Gaussian Process Regression (GPR) to interpolate
+    functions on unstructured grids. First, separating models into smaller, sequential problems
+    allows for more tractable and digestable problems. Second, using an exogenous grid of
+    post-decision states and solving for an endogenous grid of pre-decision states that obey
+    a first order condition greatly speeds up the solution process. Third, as the resulting
+    endogenous grid can often be curvilinear at best and unstructured at worst, GPR provides
+    an efficient and accurate method for interpolating value, marginal value, and policy functions.
+    Applied sequentially to each smaller problem, the method is able to solve heterogeneous agent
+    models with many decision choices in a fraction of the time required by standard grid search methods.
+    The method is applied to a number of increasingly complex models for demonstration purposes.
+    Software is provided in the form of a Python module under the `HARK` package.
+
+\end{verbatimwrite}
+\input{\econtexRoot/Subfiles/Abstract.texinput}
+
+% Various resources
+\hypertarget{links}{}
+
+\newcommand{\REMARK}{\href{https://github.com/econ-ark/REMARK}{REMARK}}
+\begin{footnotesize}
+    \parbox{0.9\textwidth}{
+        \begin{center}
+            \begin{tabbing}
+                \texttt{~~~~~~~~~~~} \= \=  \\
+                %      \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/egmn}} \\ 
+                %      \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/egmn}{Click `Launch Dashboard' Button}} \\
+                \texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/EGMN/}{https://\owner.github.io/EGMN/}} \\ % Owner is defined in Resources/owner.tex
+                \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/EGMN/blob/master/EGMN.pdf}{EGMN.pdf}} \\
+                %      \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/EGMN/blob/master/EGMN-Slides.pdf}{EGMN-Slides.pdf}} \\
+                \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/EGMN}{https://github.com/\owner/EGMN}} \\
+            \end{tabbing}
+        \end{center}
+    } % end \parbox{\textwidth}
+\end{footnotesize}
+
+
+\begin{authorsinfo}
+    \noindent \name{\href{https://quantmacro.org}{Department of Economics, The Ohio State University}, \href{mailto:alujan@quantmacro.org}{\texttt{alujan91@quantmacro.org}}}.
+\end{authorsinfo}
+
+\pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page
+
+
+\ifthenelse{\boolean{Web}}{
+}{
+    \begin{minipage}{0.9\textwidth}
+        \footnotesize The views expressed in this paper are those of the authors and do not necessarily represent those of the Federal Reserve Board, the Deutsche Bundesbank and the Eurosystem, or Statistics Norway. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No. 851891).
+    \end{minipage}
+
+}
+\titlepagefinish
+
+\end{document}
+\endinput
+
+% \medskip\medskip
+% \begin{minipage}{0.9\textwidth}
+%   \listoffigures 
+% \end{minipage}
+% 
+% \medskip\medskip
+% \begin{minipage}{0.9\textwidth}
+%   \listoftables
+% \end{minipage}
+} % {Web}
+
+%\input{\LaTeXInputs/bibliography_blend}
+% Do not include appendix figures and tables in ToC unless for Web version
+\ifthenelse{\boolean{Web}}{}{
+    \onlyinsubfile{\captionsetup[figure]{list=no}}
+    \onlyinsubfile{\captionsetup[table]{list=no}}
+}
+
+% \bibliography{Add-Refs,economics}
+% \input{\LaTeXInputs/bibliography_blend}
+
+\onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}
+
+\end{document}
+
+\endinput
+
+% If you are editing in Emacs-AucTeX, modify the lines below for your system (otherwise ignore)
+% Local Variables:
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin")    (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

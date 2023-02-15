@@ -10,11 +10,10 @@
 \provideboolean{TOC}\setboolean{TOC}{true}
 
 % Keyname for paper (optional)
-\newcommand{\texname}{HAFiscal}
+\newcommand{\texname}{EGMN}
 
 % Standard useful packages for economics
-\usepackage{\econtexSetup} % Gets, configures often-used packages
-
+\usepackage{\econtexSetup,\econark,\econtexShortcuts} % Gets, configures often-used packages
 % Definitions unique to this paper (`\texname` defined above)
 \usepackage{\LaTeXInputs/\texname} % processes \texname.sty
 
@@ -29,10 +28,10 @@
 % Tell subfiles they are not being compiled as standalone files
 \input{\LaTeXInputs/econtex_notinsubfile} % instead are part of a larger document
 
-\subfile{HAFiscal-titlepage}\pagebreak
+\subfile{EGMN-titlepage}\pagebreak
 
 % Table of contents
-\ifthenelse{\boolean{TOC}}{\subfile{HAFiscal-contents.texinput}\pagebreak }{}
+\ifthenelse{\boolean{TOC}}{\subfile{EGMN-contents.texinput}\pagebreak }{}
 \input{Subfiles.texinput} % Paper is composed of subfiles enumerated here
 
 \pagebreak
