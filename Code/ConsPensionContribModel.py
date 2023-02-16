@@ -8,10 +8,6 @@ from fast import BilinearInterpFast, Curvilinear2DInterp, LinearInterpFast
 from HARK.ConsumptionSaving.ConsIndShockModel import (
     ConsIndShockSolver,
     IndShockConsumerType,
-    utility,
-    utility_inv,
-    utilityP,
-    utilityP_inv,
 )
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
@@ -24,7 +20,8 @@ from HARK.interpolation import (
     MargValueFuncCRRA,
     ValueFuncCRRA,
 )
-from HARK.utilities import NullFunc, construct_assets_grid, make_grid_exp_mult
+from HARK.rewards import UtilityFuncCRRA, UtilityFunction
+from HARK.utilities import NullFunc, construct_assets_grid
 from scipy.interpolate import CloughTocher2DInterpolator
 from scipy.optimize import Bounds, LinearConstraint, minimize
 
@@ -57,6 +54,13 @@ class PensionContribSolution(MetricObject):
     post_decision_stage: PostDecisionStage = PostDecisionStage()
     deposit_stage: DepositStage = DepositStage()
     consumption_stage: ConsumptionStage = ConsumptionStage()
+
+
+GridParameters = namedtuple(
+    "GridParameters",
+    "aXtraMin, aXtraMax, aXtraCount, aXtraNestFac, aXtraExtra",
+    defaults=[[]],
+)
 
 
 class PensionContribConsumerType(RiskyAssetConsumerType):
@@ -119,12 +123,6 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
 
     def update_grids(self):
         # retirement
-
-        GridParameters = namedtuple(
-            "GridParameters",
-            ["aXtraMin", "aXtraMax", "aXtraCount", "aXtraNestFac", "aXtraExtra"],
-            defaults=[[]],
-        )
 
         self.mRetGrid = construct_assets_grid(
             GridParameters(0.0, self.mRetMax, self.mRetCount, self.mRetNestFac)
@@ -232,17 +230,16 @@ class PensionContribSolver(MetricObject):
         self.def_utility_funcs()
 
     def def_utility_funcs(self):
-        self.u = lambda x: utility(x, self.CRRA)
-        self.u_inv = lambda x: utility_inv(x, self.CRRA)
-        self.mu = lambda x: utilityP(x, self.CRRA)
-        self.mu_inv = lambda x: utilityP_inv(x, self.CRRA)
+        self.u = UtilityFuncCRRA(self.CRRA)
 
         # pension deposit function: tax deduction from pension deposits
         # which is gradually decreasing in the level of deposits
 
-        self.g = lambda x: self.TaxDeduct * np.log(1 + x)
-        self.gp = lambda x: self.TaxDeduct / (1 + x)
-        self.gp_inv = lambda x: self.TaxDeduct / x - 1
+        g = lambda x: self.TaxDeduct * np.log(1 + x)
+        gp = lambda x: self.TaxDeduct / (1 + x)
+        gp_inv = lambda x: self.TaxDeduct / x - 1
+
+        self.g = UtilityFunction(g, gp, gp_inv)
 
     def solve_post_decision(self, deposit_stage_next):
         if hasattr(deposit_stage_next, "vPfunc"):
@@ -274,7 +271,7 @@ class PensionContribSolver(MetricObject):
             * self.ShockDstn.expected(dvda_func, self.aMat, self.bMat)
         )
 
-        dvda_end_of_prd_nvrs = self.mu_inv(dvda_end_of_prd)
+        dvda_end_of_prd_nvrs = self.u.derinv(dvda_end_of_prd)
         dvda_end_of_prd_nvrs_func = BilinearInterpFast(
             dvda_end_of_prd_nvrs, self.aGrid, self.bGrid
         )
@@ -294,7 +291,7 @@ class PensionContribSolver(MetricObject):
             dvdb_func, self.aMat, self.bMat
         )
 
-        dvdb_end_of_prd_nvrs = self.mu_inv(dvdb_end_of_prd)
+        dvdb_end_of_prd_nvrs = self.u.derinv(dvdb_end_of_prd)
         dvdb_end_of_prd_nvrs_func = BilinearInterpFast(
             dvdb_end_of_prd_nvrs, self.aGrid, self.bGrid
         )
@@ -313,7 +310,7 @@ class PensionContribSolver(MetricObject):
         )
 
         # value transformed through inverse utility
-        v_end_of_prd_nvrs = self.u_inv(v_end_of_prd)
+        v_end_of_prd_nvrs = self.u.inv(v_end_of_prd)
         v_end_of_prd_nvrs_func = BilinearInterpFast(
             v_end_of_prd_nvrs, self.aGrid, self.bGrid
         )
@@ -376,7 +373,7 @@ class PensionContribSolver(MetricObject):
 
         # make value function
         v_innr = self.u(cmat) - self.DisutilLabor + v_end_of_prd
-        v_innr_nvrs = self.u_inv(v_innr)
+        v_innr_nvrs = self.u.inv(v_innr)
         v_now_nvrs_temp = np.insert(v_innr_nvrs, 0, 0.0, axis=0)
 
         # bmat is regular grid so we can use LinearInterpOnInterp1D
@@ -408,7 +405,7 @@ class PensionContribSolver(MetricObject):
         dvdb_innr = dvdb_func_next(self.lMat, self.b2Mat)
 
         # endogenous grid method, again
-        dmat = self.gp_inv(dvdl_innr / dvdb_innr - 1.0)
+        dmat = self.g.inv(dvdl_innr / dvdb_innr - 1.0)
 
         mmat = self.lMat + dmat
         nmat = self.b2Mat - dmat - self.g(dmat)
@@ -458,7 +455,7 @@ class PensionContribSolver(MetricObject):
 
         dvdb_innr = dvdb_func_next(lmat, b2mat)
 
-        dvdn_outr_nvrs = self.mu_inv(dvdb_innr)
+        dvdn_outr_nvrs = self.u.derinv(dvdb_innr)
         dvdn_outr_nvrs_temp = np.insert(dvdn_outr_nvrs, 0, dvdn_outr_nvrs[0], axis=0)
         dvdn_outr_nvrs_func = BilinearInterpFast(
             dvdn_outr_nvrs_temp, mGrid_temp, self.nGrid
@@ -467,7 +464,7 @@ class PensionContribSolver(MetricObject):
 
         # make value function
         v_outr = v_func_next(lmat, b2mat)
-        v_outr_nvrs = self.u_inv(v_outr)
+        v_outr_nvrs = self.u.inv(v_outr)
         # insert value of 0 at m = 0
         v_outr_nvrs_temp = np.insert(v_outr_nvrs, 0, 0.0, axis=0)
         # mmat and nmat are irregular grids so we need Curvilinear2DInterp
@@ -566,7 +563,7 @@ class PensionContribSolver(MetricObject):
             dvdl = dvdl_func_next(l_nrm, b_nrm)
             dvdb = dvdb_func_next(l_nrm, b_nrm)
 
-            return -dvdl + dvdb * (1 + self.gp(d_nrm))
+            return -dvdl + dvdb * (1 + self.g.der(d_nrm))
 
         dmat = np.empty_like(self.mMat)
 
