@@ -16,7 +16,6 @@
   \date[\today]{September 12, 2019  \\ \medskip \medskip \medskip \href{https://econ-ark.org/}{\small Powered By} \\ \includegraphics[width=0.5in]{\econtexRoot/Resources/econ-ark-logo-small.png}}
 }{}
 
-
 \title[Stimulus]{Welfare and Spending Effects of Consumption Stimulus Policies}
 \author{
   Christopher D. Carroll
@@ -32,55 +31,48 @@
   \date[\today]{September 12, 2019  \\ \medskip \medskip \medskip \href{https://econ-ark.org/}{\small Powered By} \\ \includegraphics[width=0.5in]{\econtexRoot/Resources/econ-ark-logo-small.png}}
 }{}
 
-
 \begin{document}\bibliographystyle{\econtexBibStyle}
 
 \begin{frame}[plain]
-    \titlepage
+  \titlepage
 \end{frame}
-
 
 % _____________ 1st section  ____________
 
 \ifbool{buffstk}{
-    \section{Introduction}
-    \subsection{Motivation}
+  \section{Introduction}
+  \subsection{Motivation}
 
-    \begin{frame}
-        \frametitle{Drawbacks of Numerical Solutions}
+  \begin{frame}
+    \frametitle{Drawbacks of Numerical Solutions}
 
+    \pause A Black Box \pause
+    \begin{itemize}
+      \item Can Construct Solution to Model Without Really Understanding It
+      \item Hard Even To Be Sure Your Numerical Solution Is {\it Right}
+      \item Little Intuition for How Results Might Change With
+            \begin{itemize}
+              \item Calibration
+              \item Structure
+            \end{itemize}
+      \item {\it Very} Hard To Teach!
+    \end{itemize}
 
-        \pause A Black Box \pause
-        \begin{itemize}
-            \item Can Construct Solution to Model Without Really Understanding It
-            \item Hard Even To Be Sure Your Numerical Solution Is {\it Right}
-            \item Little Intuition for How Results Might Change With
-                  \begin{itemize}
-                      \item Calibration
-                      \item Structure
-                  \end{itemize}
-            \item {\it Very} Hard To Teach!
-        \end{itemize}
+    \medskip\medskip
+    \pause I Am A {\it Big} Fan Of Numerical Methods
+    \begin{itemize}
+      \item Have Done A Good Deal Of Work With Them Myself
+      \item But As A Result, Have Felt All These Drawbacks Keenly
+    \end{itemize}
 
-        \medskip\medskip
-        \pause I Am A {\it Big} Fan Of Numerical Methods
-        \begin{itemize}
-            \item Have Done A Good Deal Of Work With Them Myself
-            \item But As A Result, Have Felt All These Drawbacks Keenly
-        \end{itemize}
-
-
-
-    \end{frame}
-
+  \end{frame}
 
 }{}
 
-
 \subsection{Lorenz}
 \begin{frame}
-    \frametitle{The Lorenz Figure}
-    \centerline{\includegraphics[width=4in]{\FigDir/LorenzPoints.pdf}}
+  \frametitle{The Lorenz Figure}
+  \centerline{\includegraphics[width=4in]{\FigDir/LorenzPoints.pdf}}
 \end{frame}
 
 \end{document}

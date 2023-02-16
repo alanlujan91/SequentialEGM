@@ -20,6 +20,7 @@ from HARK.interpolation import (
     MargValueFuncCRRA,
     ValueFuncCRRA,
 )
+from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
 from HARK.rewards import UtilityFuncCRRA, UtilityFunction
 from HARK.utilities import NullFunc, construct_assets_grid
 from scipy.interpolate import CloughTocher2DInterpolator
@@ -72,12 +73,12 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         "TaxDeduct",
     ]
 
-    def __init__(self, verbose=False, quiet=False, **kwds):
+    def __init__(self, **kwds):
         params = init_pension_contrib.copy()
         params.update(kwds)
 
         # Initialize a basic AgentType
-        RiskyAssetConsumerType.__init__(self, verbose=verbose, quiet=quiet, **params)
+        RiskyAssetConsumerType.__init__(self, **params)
 
         # Add consumer-type specific objects, copying to create independent versions
         self.solve_one_period = make_one_period_oo_solver(PensionContribSolver)
@@ -435,6 +436,13 @@ class PensionContribSolver(MetricObject):
 
         # create interpolator
         linear_interp = CloughTocher2DInterpolator(list(zip(m, n)), d)
+        # linear_interp = GeneralizedRegressionUnstructuredInterp(
+        #     dmat,
+        #     [mmat, nmat],
+        #     model="gaussian-process",
+        #     feature="poly",
+        #     std=True,
+        # )
 
         # evaluate d on common grid
         dmat = np.nan_to_num(linear_interp(self.mMat, self.nMat))
@@ -679,37 +687,37 @@ init_pension_contrib["TasteShkStd"] = 0.10
 
 init_pension_contrib["epsilon"] = 1e-6
 
-init_pension_contrib["mRetCount"] = 50
+init_pension_contrib["mRetCount"] = 100
 init_pension_contrib["mRetMax"] = 100
-init_pension_contrib["mRetNestFac"] = -1
+init_pension_contrib["mRetNestFac"] = 2
 
-init_pension_contrib["aRetCount"] = 50
+init_pension_contrib["aRetCount"] = 100
 init_pension_contrib["aRetMax"] = 50
-init_pension_contrib["aRetNestFac"] = -1
+init_pension_contrib["aRetNestFac"] = 2
 
-init_pension_contrib["mCount"] = 50
+init_pension_contrib["mCount"] = 100
 init_pension_contrib["mMax"] = 50
-init_pension_contrib["mNestFac"] = -1
+init_pension_contrib["mNestFac"] = 2
 
-init_pension_contrib["nCount"] = 50
+init_pension_contrib["nCount"] = 100
 init_pension_contrib["nMax"] = 50
-init_pension_contrib["nNestFac"] = -1
+init_pension_contrib["nNestFac"] = 2
 
-init_pension_contrib["lCount"] = 50
+init_pension_contrib["lCount"] = 100
 init_pension_contrib["lMax"] = 50
-init_pension_contrib["lNestFac"] = -1
+init_pension_contrib["lNestFac"] = 2
 
-init_pension_contrib["b2Count"] = 50
+init_pension_contrib["b2Count"] = 100
 init_pension_contrib["b2Max"] = 50
-init_pension_contrib["b2NestFac"] = -1
+init_pension_contrib["b2NestFac"] = 2
 
-init_pension_contrib["aCount"] = 50
+init_pension_contrib["aCount"] = 100
 init_pension_contrib["aMax"] = 50
-init_pension_contrib["aNestFac"] = -1
+init_pension_contrib["aNestFac"] = 2
 
-init_pension_contrib["bCount"] = 50
+init_pension_contrib["bCount"] = 100
 init_pension_contrib["bMax"] = 50
-init_pension_contrib["bNestFac"] = -1
+init_pension_contrib["bNestFac"] = 2
 
 
 class PensionRetirementConsumerType(PensionContribConsumerType):

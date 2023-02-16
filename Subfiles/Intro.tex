@@ -9,8 +9,6 @@
 \hypertarget{introduction}{}\par\section{Introduction}\notinsubfile{\label{sec:intro}}
 \setcounter{page}{0}\pagenumbering{arabic}
 
-\cite{Ludwig2018-uz,Barillas2007-uh,Carroll2005-kf,Carroll2006-wq,Druedahl2017-vn,Druedahl2017-lt,Druedahl2021-wl,Fella2011-dc,Fella2014-my,Hintermaier2010-io,Ishakov2012-jm,Iskhakov2012-rt,Iskhakov2015-xw,Iskhakov2015-jy,Iskhakov2016-xb,Iskhakov2017-my,Jang2018-lz,Jang2019-da,Jang2021-wu,Jorgensen2013-du,Judd2010-of,Ludwig2016-tq,Maliar2011-dj,Maliar2013-sv,Maliar2013-ys,Maliar2014-qj,Mendoza2020-jd,Rust2012-yx,Rust2012-vm,Schon_undated-jf,Villemot2012-tk,Villemot2012-np,White2014-ng,White2015-fg,Iskhakov2017-mz,Iskhakov2017-pf,Iskhakov2016-if,Fella2011-ro,Clausen2020-zo,Maliar2013-kl,Iskhakov2017-uf,Iskhakov2016-wb,Maliar2013-lo,Fella2011-tw,Iskhakov2017-do}
-
 \subsection{Background} % Introduce the topic by providing a brief overview of the issue and why it is important to study it.
 
 % Identify the research question: Clearly state the research question or problem being addressed in the current study.
@@ -23,44 +21,47 @@
 % around, be overly broad, or use prior literature to motivate it (the question is not important
 % because so many papers looked at this issue before!).
 
-% Then use the second paragraph for a summary of the most relevant literature
-% (not a full section!). Hint: use present tense, to be consistent. "Smith (1986) presents a similar model, ..."
-
-% Next, while still on page one, the third paragraph must begin: "The purpose of this paper is ...",
-% and summarize what you actually do. (Paragraphs 2 and 3 could be reversed.)
-
-% That sets you up for the fourth paragraph, which lists "The contributions of
-% this work" – relative to that prior literature. Clarify what you do that's different
-
-% The fifth paragraph then summarizes your results. Tell the answer, so they know what to expect,
-% and how to think about each step along the way, what's driving your results.
-
-% In the sixth and final paragraph, as an aid to the reader, plot the course for the rest of the paper.
-% "The first section below presentsa theoretical model that can be used to generate specific
-% hypotheses. Then section 2 presen ts the econometric model, ..."
-
-The endogenous grid method (EGM) developed by (Carroll, 1997) has allowed the solving of dynamic optimization problems to be done in a computationally efficient and fast manner. Many problems that before took hours to solve became much more easier to solve and allowed us to focus on estimation and simulation.
+The endogenous grid method (EGM) developed by \cite{Carroll2005-kf} has allowed the solving of dynamic optimization problems to be done in a computationally efficient and fast manner. Many problems that before took hours to solve became much more easier to solve and allowed us to focus on estimation and simulation.
 However, the engodenous grid method is limited to a few class of problems. Recently, the class of problems to which EGM can be applied has been expanded by (cite a few papers), but with every new method comes a new set of limitations.
 This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM$^N$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
 
 \subsection{Literature Review} % Summarize the existing literature on the topic and highlight any gaps or limitations in the current research.
 
+% Then use the second paragraph for a summary of the most relevant literature
+% (not a full section!). Hint: use present tense, to be consistent. "Smith (1986) presents a similar model, ..."
+
 The literature review should cite the following:
-
-
 
 \cite{Druedahl2021-wl,Ludwig2018-uz,Ludwig2016-tq,Iskhakov2015-jy,Maliar2013-sv,Carroll2006-wq,Jorgensen2013-du,Maliar2011-dj,White2015-fg,Hintermaier2010-io,Barillas2007-uh,Druedahl2017-vn,Iskhakov2017-my,Mendoza2020-jd,Fella2014-my}
 
-
-
-
+\cite{Ludwig2018-uz,Barillas2007-uh,Carroll2005-kf,Carroll2006-wq,Druedahl2017-vn,Druedahl2017-lt,Druedahl2021-wl,Fella2011-dc,Fella2014-my,Hintermaier2010-io,Ishakov2012-jm,Iskhakov2012-rt,Iskhakov2015-xw,Iskhakov2015-jy,Iskhakov2016-xb,Iskhakov2017-my,Jang2018-lz,Jang2019-da,Jang2021-wu,Jorgensen2013-du,Judd2010-of,Ludwig2016-tq,Maliar2011-dj,Maliar2013-sv,Maliar2013-ys,Maliar2014-qj,Mendoza2020-jd,Rust2012-yx,Rust2012-vm,Schon_undated-jf,Villemot2012-tk,Villemot2012-np,White2014-ng,White2015-fg,Iskhakov2017-mz,Iskhakov2017-pf,Iskhakov2016-if,Fella2011-ro,Clausen2020-zo,Maliar2013-kl,Iskhakov2017-uf,Iskhakov2016-wb,Maliar2013-lo,Fella2011-tw,Iskhakov2017-do}
 \subsection{Research Question} % Clearly state the research question or problem being addressed in the current study.
+
+% Next, while still on page one, the third paragraph must begin: "The purpose of this paper is ...",
+% and summarize what you actually do. (Paragraphs 2 and 3 could be reversed.)
+
+The purpose of this paper is to develop a new method for solving dynamic optimization problems efficiently and accurately while avoiding convex optimization and grid search methods with the use of the endogenous grid method and first order conditions. The method is called Sequential EGM (or EGM$^N$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
 
 \subsection{Methodology} % Briefly describe the research methodology used in the study, including any data sources, econometric techniques, or other methods used.
 
+The sequential endogenous grid method consists of 3 major parts: First, the problem to be solved should be broken up into a sequence of smaller problems that themselves don't add any additional state variables or introduce asynchronous dynamics with respect to the uncertainty. If the problem is broken up in such a way that uncertainty can happen in more than one period, then the solution of this sequence of problems might be different from the aggregate problem due to giving the agent additional information about the future by realizing some uncertainty. Second, I evaluate each of the smaller problems to see if they can be solved using the endogenous grid method. This evaluation is of greater scope than the traditional endogenous grid method, as it allows for the resulting exogenous grid to be non-regular. If the sub-problem can not be solved with EGM, then convex optimization is used. Third, if the exogenous grid generated by the EGM is non-regular, then I use a multidimensional interpolation method that takes advantage of machine learning methods to generate an interpolating function. Solving each subproblem in this way, the sequential endogenous grid method is capable of solving complex problems that are not solvable with the traditional endogenous grid method and are difficult and time consuming to solve with convex optimization and grid search methods.
+
 \subsection{Contributions} %  Discuss how the current study contributes to the existing literature and what new insights it provides.
 
+% That sets you up for the fourth paragraph, which lists "The contributions of
+% this work" – relative to that prior literature. Clarify what you do that's different
+
+The Sequential Endogenous Grid Method is capable of solving multivariate dynamic optimization problems in an efficient and fast manner by avoiding grid search. This should allow researchers and practitioners to solve more complex problems that were previously not easily accessible to them. By using advancements in machine learning techniques such as Gaussian Process Regression, the Sequential Endogenous Grid Method is capable of solving problems that were not previously able to be solved using the traditional endogenous grid method. Additionally, the Sequential Endogenous Grid Method often sheds insights into the problem by breaking it down into a sequence of simpler problems that were not previously apparent. This is because intermediary steps in the solution process generate value and marginal value functions of different pre- and post-decision states that can be used to understand the problem better.
+
+% The fifth paragraph then summarizes your results. Tell the answer, so they know what to expect,
+% and how to think about each step along the way, what's driving your results.
+
 \subsection{Outline} %  Provide a brief overview of the results and conclusions that will be presented in the article.
+% In the sixth and final paragraph, as an aid to the reader, plot the course for the rest of the paper.
+% "The first section below presentsa theoretical model that can be used to generate specific
+% hypotheses. Then section 2 presents the econometric model, ..."
+
+The first section below presents a basic model that illustrates the sequential endogenous grid method in 1 dimension. Then section 2 introduces a more complex method with 2 state variables to demonstrate the use of machine learning methods to generate an interpolating function. In section 3 I present the unstructured interpolation methos using machine learning in more detail. Section 4 discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, section 5 concludes with some limitations and future work.
 
 \onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}
 

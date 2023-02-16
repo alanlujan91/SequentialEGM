@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 import estimagic as em
 import numpy as np
+from fast import BilinearInterpFast, Curvilinear2DInterp, LinearInterpFast
 from HARK.ConsumptionSaving.ConsIndShockModel import (
     utility,
     utility_inv,
@@ -12,8 +13,11 @@ from HARK.ConsumptionSaving.ConsIndShockModel import (
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
 from HARK.core import MetricObject, make_one_period_oo_solver
-from HARK.distribution import DiscreteDistribution, DiscreteDistributionXRA, expected
-from HARK.fast import BilinearInterpFast, Curvilinear2DInterp, LinearInterpFast
+from HARK.distribution import (
+    DiscreteDistribution,
+    DiscreteDistributionlabeled,
+    expected,
+)
 from HARK.interpolation import (
     BilinearInterp,
     ConstantFunction,
@@ -170,7 +174,7 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
     def update_distributions(self):
         for i in range(len(self.ShockDstn)):
             dstn = self.ShockDstn[i]
-            labeled_dstn = DiscreteDistributionXRA(
+            labeled_dstn = DiscreteDistributionlabeled(
                 dstn.pmf,
                 dstn.X,
                 name="Joint Distribution of shocks to income and risky asset",
@@ -191,7 +195,7 @@ class PensionContribSolver(MetricObject):
     TranShkDstn: DiscreteDistribution
     IncUnempRet: DiscreteDistribution
     TasteShkStd: DiscreteDistribution
-    ShockDstn: DiscreteDistributionXRA
+    ShockDstn: DiscreteDistributionlabeled
     mRetGrid: np.array
     aRetGrid: np.array
     m_grid: np.array
