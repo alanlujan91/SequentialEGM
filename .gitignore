@@ -11,6 +11,7 @@
 *.cb
 *.cb2
 .*.lb
+*.dep
 
 ## Intermediate documents:
 *.dvi
@@ -593,4 +594,3 @@ spyproject
 .spyproject
 
 
-.dep
