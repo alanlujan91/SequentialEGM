@@ -1,7 +1,7 @@
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
-\subfile{Subfiles/Intro}
-\subfile{Subfiles/Model}
-\subfile{Subfiles/Parameterization}
-\subfile{Subfiles/Comparing-policies}
-\subfile{Subfiles/Robustness}
-\subfile{Subfiles/Conclusion}
+\subfile{Subfiles/1Intro}
+\subfile{Subfiles/2Model}
+\subfile{Subfiles/3Parameterization}
+\subfile{Subfiles/4Comparing-policies}
+\subfile{Subfiles/5Robustness}
+\subfile{Subfiles/6Conclusion}
