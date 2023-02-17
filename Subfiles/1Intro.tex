@@ -22,7 +22,7 @@
 % because so many papers looked at this issue before!).
 
 Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, requiring strong underlying assumptions to be made, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is to use a grid search method to solve the model. The endogenous grid method (EGM) developed by \cite{Carroll2006-wq} allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to solve became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation.
-However, the engodenous grid method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied has been expanded\footnote{\cite{Fella2014-my,Druedahl2017-vn,Iskhakov2017-my}, among others.}, but with every new method comes a new set of limitations.
+However, the engodenous grid method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied has been expanded\footnote{\cite{Barillas2007-uh, Maliar2013-sv, Fella2014-my, White2015-fg, Iskhakov2017-my}, among others.}, but with every new method comes a new set of limitations.
 This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM$^n$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
 
 \subsection{Literature Review} % Summarize the existing literature on the topic and highlight any gaps or limitations in the current research.
@@ -32,15 +32,19 @@ This paper introduces a new approach to EGM in a multivariate setting. The metho
 
 The literature review should cite the following:
 
-\cite{Druedahl2021-wl,Ludwig2018-uz,Ludwig2016-tq,Iskhakov2015-jy,Maliar2013-sv,Carroll2006-wq,Jorgensen2013-du,Maliar2014-qj,Scheidegger2019-xf,Bodie1992-yp,Maliar2011-dj,White2015-fg,Hintermaier2010-io,Barillas2007-uh,Druedahl2017-vn,Clausen2020-zo,Carroll2009-zq,Iskhakov2017-my,Mendoza2020-jd,Fella2014-my}
 
-The first papers are \cite{Carroll2006-wq} and \cite{Barillas2007-uh}, \cite{Hintermaier2010-io}.
+
+The first papers are \cite{Carroll2006-wq} and \cite{Barillas2007-uh},
+
+What do these do? \cite{Hintermaier2010-io} and \cite{Jorgensen2013-du}.
+
+Alternative ECM \cite{Maliar2013-sv}.
 
 Then came \cite{White2015-fg}, \cite{Iskhakov2015-jy}, \cite{Ludwig2018-uz},  with multidimensions.
 
-For non-concave problems \cite{Fella2014-my}, \cite{Druedahl2017-vn}, \cite{Iskhakov2017-my}.
+For non-concave problems \cite{Fella2014-my},  \cite{Iskhakov2017-my}, \cite{Druedahl2017-vn}.
 
-\cite{Druedahl2021-wl} is the most recent paper on the topic.
+\cite{Clausen2020-zo},  \cite{Druedahl2021-wl} do nested problems.
 
 
 
