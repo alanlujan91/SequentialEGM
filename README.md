@@ -1,14 +1,14 @@
 ---
-title: "Welfare and Spending Effects of Consumption Stimulus Policies"
-author: "Christopher Carroll, Edmund Crawley, Ivan Fancovic, Hakon Tretvoll"
-date: 2022/12/18
+title: "EGM$^n$: The Sequential Endogenous Grid Method"
+author: "Alan Lujan"
+date: 2023/02/15
 ---
 
-# Welfare and Spending Effects of Consumption Stimulus Policies
+# EGM$^n$: The Sequential Endogenous Grid Method
 
 ## Abstract
 
-Using a heterogeneous agent model calibrated to match measured spending dynamics over four years following an income shock (Fagereng, Holm, and Natvik (2021)), we assess the effectiveness of three fiscal stimulus policies employed during recent recessions. Unemployment insurance (UI) extensions are the clear “bang for the buck” winner, especially when effectiveness is measured in utility terms. Stimulus checks are second best and have the advantage (over UI) of being scalable to any desired size. A temporary (two-year) cut in the rate of wage taxation is considerably less effective than the other policies and has negligible effects in the version of our model without a multiplier.
+Heterogeneous agent models with multiple decision choices are often solved using inefficient grid search methods that require a large number of points and are time intensive. This paper provides a novel method for solving such models using an extension of the endogenous grid method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids. First, separating models into smaller, sequential problems allows the problems to be more tractable and easily analyzed. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be curvilinear at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and policy functions. Applied sequentially to each decision within the overarching problem, the method is able to solve heterogeneous agent models with multiple decision choices in a fraction of the time and with less computational resources than are required by standard grid search methods currently used. This paper also illustrates how this method can be applied to a number of increasingly complex models. Software is provided in the form of a Python module under the \texttt{HARK} package.
 
 ## Replication from a unix (macOS/linux) command line
 
