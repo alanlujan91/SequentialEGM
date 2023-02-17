@@ -1,8 +1,8 @@
 \input{./econtexRoot.texinput}
-\documentclass[\econtexRoot/EGMN]{subfiles}
+\documentclass[\econtexRoot/SequentialEGM]{subfiles}
 \onlyinsubfile{\providecommand{\econtexRoot}}
 \onlyinsubfile{\renewcommand{\econtexRoot}{..}}
-\onlyinsubfile{\externaldocument{\econtexRoot/EGMN}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
+\onlyinsubfile{\externaldocument{\econtexRoot/SequentialEGM}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
 
 \usepackage{\econtexSetup,\econark,\econtexShortcuts}
 
@@ -12,7 +12,7 @@
 \hypertarget{comparing-fiscal-stimulus-policies}{}\par\section{Comparing fiscal stimulus policies}
 \notinsubfile{\label{sec:comparing}}
 
-\section{Solving the illustrative G2EGM model with EGM$^N$}
+\section{Solving the illustrative G2EGM model with EGM$^n$}
 
 \subsection{The problem for a reitired household}
 
@@ -106,7 +106,7 @@ Then redefine the working agent's problem as
 Clearly, the structure of the problem remains the same, and this is the problem
 that G2EGM solves. We've only moved some
 of the stochastic mechanics out of the problem. Now, we can apply the
-sequential EGM$^N$ method. Let the agent first decide $\dRat_{t}$, the deposit
+sequential EGM$^n$ method. Let the agent first decide $\dRat_{t}$, the deposit
 amount into their retirement; we will call this the deposit problem, or outer loop. Thereafter, the
 agent will have net liquid assets
 of $\lRat_{t}$ and pension assets of $\bRat_{t}$.
@@ -354,7 +354,7 @@ the first order conditions are therefore
   \Decision)
 \end{equation}
 
-\section{When can EGM$^N$ be used?}
+\section{When can EGM$^n$ be used?}
 
 \ifthenelse{\boolean{Web}}{}{
 \end{document} \endinput

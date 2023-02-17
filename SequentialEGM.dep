@@ -126,7 +126,7 @@
   *{package}{subfiles}    {2020/11/14 v2.2}
   *{package}{import}      {2020/04/01 v6.2}
   *{package}{./Resources/texmf-local/tex/latex/econtexShortcuts}{0000/00/00 v0.0}
-  *{package}{./Resources/LaTeXInputs/EGMN}{0000/00/00 v0.0}
+  *{package}{./Resources/LaTeXInputs/SequentialEGM}{0000/00/00 v0.0}
   *{file}   {./Resources/owner}{0000/00/00 v0.0}
   *{package}{xr-hyper}    {2021-06-07 v7.00m}
   *{package}{rotating}    {2016/08/11 v2.16d}
@@ -160,16 +160,16 @@
   *{package}{soul}        {2003/11/17 v2.4}
   *{package}{nameref}     {2021-04-02 v2.47}
   *{package}{gettitlestring}{2019/12/15 v1.6}
-  *{file}   {EGMN.out}    {0000/00/00 v0.0}
-  *{file}   {EGMN.out}    {0000/00/00 v0.0}
+  *{file}   {SequentialEGM.out}{0000/00/00 v0.0}
+  *{file}   {SequentialEGM.out}{0000/00/00 v0.0}
   *{package}{bookmark}    {2020-11-06 v1.29}
   *{file}   {bkm-pdftex.def}{2020-11-06 v1.29}
   *{file}   {./Resources/LaTeXInputs/econtex_notinsubfile}{0000/00/00 v0.0}
-  *{file}   {EGMN-titlepage}{0000/00/00 v0.0}
+  *{file}   {SequentialEGM-titlepage}{0000/00/00 v0.0}
   *{file}   {./econtexRoot.texinput}{0000/00/00 v0.0}
   *{file}   {./Resources/econtexPaths}{0000/00/00 v0.0}
   *{file}   {./Subfiles/Abstract.texinput}{0000/00/00 v0.0}
-  *{file}   {EGMN-contents.texinput}{0000/00/00 v0.0}
+  *{file}   {SequentialEGM-contents.texinput}{0000/00/00 v0.0}
   *{file}   {Subfiles.texinput}{0000/00/00 v0.0}
   *{file}   {Subfiles/1Intro}{0000/00/00 v0.0}
   *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
@@ -195,6 +195,6 @@
   *{file}   {Subfiles/./econtexRoot.texinput}{0000/00/00 v0.0}
   *{file}   {Subfiles//../Resources/econtexPaths}{0000/00/00 v0.0}
   *{file}   {./Resources/LaTeXInputs/bibliography_blend}{0000/00/00 v0.0}
-  *{file}   {EGMN.bbl}    {0000/00/00 v0.0}
-  *{file}   {EGMN.upa}    {0000/00/00 v0.0}
+  *{file}   {SequentialEGM.bbl}{0000/00/00 v0.0}
+  *{file}   {SequentialEGM.upa}{0000/00/00 v0.0}
 }

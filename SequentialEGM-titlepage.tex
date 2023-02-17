@@ -1,6 +1,6 @@
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
-\input{./econtexRoot.texinput}\documentclass[EGMN]{subfiles}
-\externaldocument{\econtexRoot/EGMN}
+\input{./econtexRoot.texinput}\documentclass[SequentialEGM]{subfiles}
+\externaldocument{\econtexRoot/SequentialEGM}
 \input{\econtexRoot/Resources/owner}
 
 \usepackage{\econtexSetup,\econark,\econtexShortcuts}
@@ -9,7 +9,7 @@
 % Attempted to make all lines used for Web version contain {Web} (or version with only single curly brace at end) so can be removed with sed
 \ifthenelse{\boolean{Web}}{\renewcommand{\versn}{Web}}{}  % {Web}
 
-\title{EGM$^N$: The Sequential Endogenous Grid Method}
+\title{EGM$^n$: The Sequential Endogenous Grid Method}
 \subtitle{Solving Micro DSOPS using Unstructured Multivariate Interpolation}
 
 \author{Alan Lujan\authNum}
@@ -62,12 +62,12 @@
     \begin{center}
       \begin{tabbing}
         \texttt{~~~~~~~~~~~} \= \=  \\
-        %      \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/egmn}} \\
-        %      \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/egmn}{Click `Launch Dashboard' Button}} \\
-        \texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/EGMN/}{https://\owner.github.io/EGMN/}} \\ % Owner is defined in Resources/owner.tex
-        \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/EGMN/blob/master/EGMN.pdf}{EGMN.pdf}} \\
-        %      \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/EGMN/blob/master/EGMN-Slides.pdf}{EGMN-Slides.pdf}} \\
-        \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/EGMN}{https://github.com/\owner/EGMN}} \\
+        %      \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/SequentialEGM}} \\
+        %      \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/SequentialEGM}{Click `Launch Dashboard' Button}} \\
+        \texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/SequentialEGM/}{https://\owner.github.io/SequentialEGM/}} \\ % Owner is defined in Resources/owner.tex
+        \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM/blob/master/SequentialEGM.pdf}{SequentialEGM.pdf}} \\
+        %      \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM/blob/master/SequentialEGM-Slides.pdf}{SequentialEGM-Slides.pdf}} \\
+        \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM}{https://github.com/\owner/SequentialEGM}} \\
       \end{tabbing}
     \end{center}
   } % end \parbox{\textwidth}

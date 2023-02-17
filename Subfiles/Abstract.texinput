@@ -20,3 +20,4 @@
   Third, since the resulting endogenous grid can often be curvilinear at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and policy functions.
   Applied sequentially to each decision within the overarching problem, the method is able to solve heterogeneous agent models with multiple decision choices in a fraction of the time and with less computational resources than are required by standard grid search methods currently used.
   This paper also illustrates how this method can be applied to a number of increasingly complex models. Software is provided in the form of a Python module under the \texttt{HARK} package.
+

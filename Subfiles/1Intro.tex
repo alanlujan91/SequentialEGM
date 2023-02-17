@@ -1,6 +1,6 @@
 \input{./econtexRoot.texinput}
-\documentclass[\econtexRoot/EGMN]{subfiles}
-\onlyinsubfile{\externaldocument{\econtexRoot/EGMN}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
+\documentclass[\econtexRoot/SequentialEGM]{subfiles}
+\onlyinsubfile{\externaldocument{\econtexRoot/SequentialEGM}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
 
 \usepackage{\econtexSetup,\econark,\econtexShortcuts}
 
@@ -23,7 +23,7 @@
 
 Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, requiring strong underlying assumptions to be made, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is to use a grid search method to solve the model. The endogenous grid method (EGM) developed by \cite{Carroll2006-wq} allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to solve became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation.
 However, the engodenous grid method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied has been expanded\footnote{\cite{Fella2014-my,Druedahl2017-vn,Iskhakov2017-my}, among others.}, but with every new method comes a new set of limitations.
-This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM$^N$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
+This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM$^n$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
 
 \subsection{Literature Review} % Summarize the existing literature on the topic and highlight any gaps or limitations in the current research.
 
@@ -39,7 +39,7 @@ The literature review should cite the following:
 % Next, while still on page one, the third paragraph must begin: "The purpose of this paper is ...",
 % and summarize what you actually do. (Paragraphs 2 and 3 could be reversed.)
 
-The purpose of this paper is to describe a new method for solving dynamic optimization problems efficiently and accurately while avoiding convex optimization and grid search methods with the use of the endogenous grid method and first order conditions. The method is called Sequential EGM (or EGM$^N$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems. This paper also illustrates an example of how Sequential EGM can be used to solve a dynamic optimization problem in a multivariate setting.
+The purpose of this paper is to describe a new method for solving dynamic optimization problems efficiently and accurately while avoiding convex optimization and grid search methods with the use of the endogenous grid method and first order conditions. The method is called Sequential EGM (or EGM$^n$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems. This paper also illustrates an example of how Sequential EGM can be used to solve a dynamic optimization problem in a multivariate setting.
 
 \subsection{Methodology} % Briefly describe the research methodology used in the study, including any data sources, econometric techniques, or other methods used.
 

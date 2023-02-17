@@ -10,7 +10,7 @@
 \provideboolean{TOC}\setboolean{TOC}{true}
 
 % Keyname for paper (optional)
-\newcommand{\texname}{EGMN}
+\newcommand{\texname}{SequentialEGM}
 
 % Standard useful packages for economics
 \usepackage{\econtexSetup,\econark,\econtexShortcuts} % Gets, configures often-used packages
@@ -28,10 +28,10 @@
 % Tell subfiles they are not being compiled as standalone files
 \input{\LaTeXInputs/econtex_notinsubfile} % instead are part of a larger document
 
-\subfile{EGMN-titlepage}\pagebreak
+\subfile{SequentialEGM-titlepage}\pagebreak
 
 % Table of contents
-\ifthenelse{\boolean{TOC}}{\subfile{EGMN-contents.texinput}\pagebreak }{}
+\ifthenelse{\boolean{TOC}}{\subfile{SequentialEGM-contents.texinput}\pagebreak }{}
 \input{Subfiles.texinput} % Paper is composed of subfiles enumerated here
 
 \pagebreak

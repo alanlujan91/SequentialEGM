@@ -1,8 +1,8 @@
 \input{./econtexRoot.texinput}
-\documentclass[\econtexRoot/EGMN]{subfiles}
+\documentclass[\econtexRoot/SequentialEGM]{subfiles}
 
 % \onlyinsubfile{\renewcommand{\econtexRoot}{..}} %
-\onlyinsubfile{\externaldocument{\econtexRoot/EGMN}} % Get xrefs -- esp to apndx -- from main file; only works if main file
+\onlyinsubfile{\externaldocument{\econtexRoot/SequentialEGM}} % Get xrefs -- esp to apndx -- from main file; only works if main file
 
 \usepackage{\econtexSetup,\econark,\econtexShortcuts}
 
@@ -10,11 +10,11 @@
 
 \hypertarget{parameterizing-the-model}{}\par\section{Parameterizing the model}
 
-\section{The EGM$^N$ in Higher Dimmensions}
+\section{The EGM$^n$ in Higher Dimmensions}
 
 \subsection{A more complex problem}
 
-The problem above demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only 1 state variable and 1 post-decision state variable per stage. Can EGM$^N$ be used to solve higher dimmensional problems? In short, yes, but it requires additional thought on interpolation.
+The problem above demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only 1 state variable and 1 post-decision state variable per stage. Can EGM$^n$ be used to solve higher dimmensional problems? In short, yes, but it requires additional thought on interpolation.
 
 For a demonstration, we now turn to the problem of a worker saving up for retirement. This worker must consume, save, and deposit resources into a tax-advantaged account that can not be liquidated until retirement. In the recursive problem, the worker begins a new period with a liquid account of market resources $\mRat$ and an illiquid account of retirement savings $\nRat$. The worker maximizes their utility by choosing consumption $\cRat$ and pension deposit $\dRat$. The pension deposit is set aside on a retirement account that is exposed to a risky return, while their post-consumption liquid assets accrue risk-free interest every period. The worker additionally receives an income which faces a permanent ($\PGro$) and a transitory ($\tShkEmp$) shock every period. At the age of 65, the worker is retired and their assets are liquidated, at which point the state reduces to one liquid account of market resources. The worker's recursive problem is:
 
