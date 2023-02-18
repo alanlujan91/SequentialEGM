@@ -994,8 +994,6 @@ FUNCTION {miscnoyear} % Defined by CDC 09/09/03, purpose being to allow insertio
   fin.entry
 }
 
-
-
 FUNCTION {default.type} { misc }
 
 MACRO {jan} {"January"}
@@ -1021,7 +1019,6 @@ MACRO {oct} {"October"}
 MACRO {nov} {"November"}
 
 MACRO {dec} {"December"}
-
 
 MACRO {acmcs} {"ACM Computing Surveys"}
 
