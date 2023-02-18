@@ -15,13 +15,13 @@
 The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^n$) is a discrete time version of \cite{Bodie1992-yp} where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. Their objective consists of maximizing their present discounted lifetime utility of consumption and leisure.
 
 \begin{equation}
-  \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
+        \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
 \end{equation}
 
 In particular, this methodology makes use of a utility function that is based on Example 1 in the paper, which is that of additively separable utility of labor and leisure as
 
 \begin{equation}
-  \utilFunc(\CLev, \Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
+        \utilFunc(\CLev, \Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
 where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in \cite{Mertens2011-ap}.
@@ -31,21 +31,21 @@ This model represents a consumer who begins the period with a level of bank bala
 The problem can be written in normalized recursive form\footnote{As in \cite{Carroll2009-zq}.} as
 
 \begin{equation}
-  \begin{split}
-    \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{\{\cRat_{t},
-      \leisure_{t}, \riskyshare_{t}\}} \util(\cRat_{t}) +
-    \vNum(\leisure_{t}) +
-    \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
-      \vFunc_{t+1} (\bRat_{t+1},
-      \tShkEmp_{t+1}) \right] \\
-    & \text{s.t.} \\
-    \labor_{t} & = 1 - \leisure_{t} \\
-    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
-    \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
-    \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
-    \riskyshare_{t} \\
-    \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
-  \end{split}
+        \begin{split}
+                \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{\{\cRat_{t},
+                        \leisure_{t}, \riskyshare_{t}\}} \util(\cRat_{t}) +
+                \vNum(\leisure_{t}) +
+                \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
+                        \vFunc_{t+1} (\bRat_{t+1},
+                        \tShkEmp_{t+1}) \right] \\
+                & \text{s.t.} \\
+                \labor_{t} & = 1 - \leisure_{t} \\
+                \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
+                \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
+                \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
+                \riskyshare_{t} \\
+                \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
+        \end{split}
 \end{equation}
 
 in which $\labor_{t}$ is the time supplied to labor net of leisure, $\mRat_{t}$ is the market resources totaling bank balances and labor income, $\aRat_{t}$ is the amount of saving assets held by the consumer, and $\riskyshare_{t}$ is the risky share of assets, which induce a $\Rport_{t+1}$ return on portfolio that results in next period's bank balances $\bRat_{t+1}$ normalized by next period's permanent income $\PGro_{t+1}$.
@@ -73,38 +73,38 @@ market resources, the agent makes a pure consumption-saving decision. Finally, g
 Starting from the end of the period, we can define the risky share decision problem as
 
 \begin{equation}
-  \begin{split}
-    \vEnd_{t}(\aRat_{t}) & = \max_{\riskyshare_{t}} \DiscFac
-    \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
-      \vFunc_{t+1}(\bRat_{t+1},
-      \tShkEmp_{t+1}) \right] \\
-    & \text{s.t.} \\
-    \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
-    \riskyshare_{t} \\
-    \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
-  \end{split}
+        \begin{split}
+                \vEnd_{t}(\aRat_{t}) & = \max_{\riskyshare_{t}} \DiscFac
+                \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
+                        \vFunc_{t+1}(\bRat_{t+1},
+                        \tShkEmp_{t+1}) \right] \\
+                & \text{s.t.} \\
+                \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
+                \riskyshare_{t} \\
+                \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
+        \end{split}
 \end{equation}
 
 The pure consumption problem is then
 
 \begin{equation}
-  \begin{split}
-    \vOpt_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \vEnd_{t}(\aRat_{t}) \\
-    & \text{s.t.} \\
-    \aRat_{t} & = \mRat_{t} - \cRat_{t}
-  \end{split}
+        \begin{split}
+                \vOpt_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \vEnd_{t}(\aRat_{t}) \\
+                & \text{s.t.} \\
+                \aRat_{t} & = \mRat_{t} - \cRat_{t}
+        \end{split}
 \end{equation}
 
 And finally, the labor-leisure problem is:
 
 \begin{equation}
-  \begin{split}
-    \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{ \leisure_{t}}
-    \vNum(\leisure_{t}) + \vOpt_{t} (\mRat_{t}) \\
-    & \text{s.t.} \\
-    \labor_{t} & = 1 - \leisure_{t} \\
-    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
-  \end{split}
+        \begin{split}
+                \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{ \leisure_{t}}
+                \vNum(\leisure_{t}) + \vOpt_{t} (\mRat_{t}) \\
+                & \text{s.t.} \\
+                \labor_{t} & = 1 - \leisure_{t} \\
+                \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
+        \end{split}
 \end{equation}
 
 This sequential approach is explicitly modeled after the nested approach explored in \cite{Druedahl2021-wl}. However, I will offer additional mechanisms that expand on NEGM. An important observation is that now, every single choice is self contained to a sub-problem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last sub-problem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
@@ -136,22 +136,22 @@ The consumption-saving EGM step should be familiar but I will cover it for expos
 We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
 
 \begin{equation}
-  \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
-  \vEnd_{t}(\mRat_{t}-\cRat_{t})
+        \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
+        \vEnd_{t}(\mRat_{t}-\cRat_{t})
 \end{equation}
 
 To solve, we derive the first order condition with respect to $\cRat_{t}$ which gives the familiar Euler equation:
 
 \begin{equation}
-  \util'(\cRat_t) = \vEnd_{t}'(\mRat_{t} - \cRat_{t}) =
-  \vEnd_{t}'(\aRat_{t})
+        \util'(\cRat_t) = \vEnd_{t}'(\mRat_{t} - \cRat_{t}) =
+        \vEnd_{t}'(\aRat_{t})
 \end{equation}
 
 Inverting the above equation is the (first) EGM step.
 
 \begin{equation}
-  \cEndFunc_{t}(\aRat_{t}) = \util'^{-1}\left( \vEnd_{t}'(\aRat_{t})
-  \right)
+        \cEndFunc_{t}(\aRat_{t}) = \util'^{-1}\left( \vEnd_{t}'(\aRat_{t})
+        \right)
 \end{equation}
 
 Carroll (cite year) demonstrates that by using an exogenous grid of $[\aRat]$ points we can find the unique
@@ -159,10 +159,9 @@ $\cEndFunc_{t}([\aRat])$ that optimizes the consumption-saving problem, since th
 Further, using the market resources constraint, we can recover the exact amount
 of market resources that is consistent with this consumption-saving decision as
 
-\providecommand{\mEndFunc}{\ensuremath{\mathfrak{m}}}
 
 \begin{equation}
-  \mEndFunc_{t}([\aRat]) = \cEndFunc_{t}([\aRat]) + [\aRat]
+        \mEndFunc_{t}([\aRat]) = \cEndFunc_{t}([\aRat]) + [\aRat]
 \end{equation}
 
 This $\mEndFunc_{t}([\aRat])$ is the ``endogenous`` grid that is consistent
@@ -175,7 +174,7 @@ The envelope condition will be useful in the next section, but for completeness
 is defined here.
 
 \begin{equation}
-  \vOpt_{t}'(\mRat_{t}) = \vEnd_{t}'(\aRat_{t}) = \util'(\cRat_{t})
+        \vOpt_{t}'(\mRat_{t}) = \vEnd_{t}'(\aRat_{t}) = \util'(\cRat_{t})
 \end{equation}
 
 \subsection{Labor-Leisure}
@@ -183,44 +182,42 @@ is defined here.
 The labor-leisure sub-problem can also be restated more compactly as:
 
 \begin{equation}
-  \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
-  \vNum(\leisure_{t}) + \vOpt_{t}(\bRat_{t} +
-  \tShkEmp_{t}(1-\leisure_{t}))
+        \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
+        \vNum(\leisure_{t}) + \vOpt_{t}(\bRat_{t} +
+        \tShkEmp_{t}(1-\leisure_{t}))
 \end{equation}
 
 The first order condition with respect to leisure implies the labor-leisure Euler equation
 
 \begin{equation}
-  \vNum'(\leisure_{t}) =	\vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
+        \vNum'(\leisure_{t}) =	\vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
 \end{equation}
 
 For now, let's assume that $\vNum'(\leisure_{t})$ exists and invertible. Using
 an exogenous grid of $[\mRat_{t}]$ and $[\tShkEmp_{t}]$, we can find leisure as
 
-\providecommand{\zEndFunc}{\ensuremath{\mathfrak{z}}}
 
 \begin{equation}
-  \zEndFunc_{t}([\mRat_{t}], [\tShkEmp_{t}]) = \vNum'^{-1}\left(
-  \vOpt_{t}'([\mRat_{t}]) [\tShkEmp_{t}] \right)
+        \zEndFunc_{t}([\mRat_{t}], [\tShkEmp_{t}]) = \vNum'^{-1}\left(
+        \vOpt_{t}'([\mRat_{t}]) [\tShkEmp_{t}] \right)
 \end{equation}
 
 In this case, it's important to note that there are conditions on leisure itself. An agent with a small level of market resources $\mRat$ might want to work more than their available time endowment, especially at higher levels of income $\tShkEmp$, if the utility of leisure is not enough to compensate for their low wealth. In these situations, the optimal unconstrained leisure might be negative, so we must impose a constraint on the optimal leisure function. This is similar to the treatment of an artificial borrowing constraint in the pure consumption sub-problem. From now on, let's call this constrained optimal function $\hat{\zEndFunc}_{t}([\mRat_{t}], [\tShkEmp_{t}])$.
 
-\providecommand{\lEndFunc}{\ensuremath{\mathfrak{l}}}
-\providecommand{\bEndFunc}{\ensuremath{\mathfrak{b}}}
+
 
 Then, we derive labor as $\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = 1 -
-  \hat{\zEndFunc}_{t}(\mRat_{t}, \tShkEmp_{t})$. Finally, for each
+        \hat{\zEndFunc}_{t}(\mRat_{t}, \tShkEmp_{t})$. Finally, for each
 $\tShkEmp_{t}$ and
 $\mRat_{t}$ as an exogenous grid, we can find the endogenous grid of bank
 balances as $\bEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = \mRat_{t} -
-  \tShkEmp_{t}\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t})$.
+        \tShkEmp_{t}\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t})$.
 
 The envelope condition is simply
 
 \begin{equation}
-  \vFunc_{t}^{b}(\bRat_{t}, \tShkEmp_{t}) = \vOpt_{t}'(\mRat_{t}) =
-  \vNum'(\leisure_{t})/\tShkEmp_{t}
+        \vFunc_{t}^{b}(\bRat_{t}, \tShkEmp_{t}) = \vOpt_{t}'(\mRat_{t}) =
+        \vNum'(\leisure_{t})/\tShkEmp_{t}
 \end{equation}
 
 \subsection{The portfolio decision problem}
@@ -232,15 +229,15 @@ In reorganizing the labor-portfolio problem into subproblems, we assigned the ut
 Restating the problem in compact form:
 
 \begin{equation}
-  \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
-  \vFunc_{t+1}\left(\aRat_{t}(\Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}), \tShkEmp_{t+1}\right)
-  \right]
+        \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
+        \vFunc_{t+1}\left(\aRat_{t}(\Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}), \tShkEmp_{t+1}\right)
+        \right]
 \end{equation}
 
 The first order condition with respect to the risky portfolio share is:
 
 \begin{equation}
-  \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t}(\Risky_{t+1} - \Rfree)  \right] = 0
+        \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t}(\Risky_{t+1} - \Rfree)  \right] = 0
 \end{equation}
 
 Finding the optimal risky share requires numerical optimization and root-solving.
@@ -248,7 +245,7 @@ Finding the optimal risky share requires numerical optimization and root-solving
 To close out the problem, we can calculate the envelope condition as:
 
 \begin{equation}
-  \vEnd_{t}'(\aRat_{t}) = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right]
+        \vEnd_{t}'(\aRat_{t}) = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right]
 \end{equation}
 
 \subsection{A note on avoiding taking expectations more than once.}
@@ -256,38 +253,38 @@ To close out the problem, we can calculate the envelope condition as:
 We could instead define the portfolio choice sub-problem as:
 
 \begin{equation}
-  \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
+        \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
 \end{equation}
 
 where
 
 \begin{equation}
-  \begin{split}
-    \vOptAlt_{t}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right)   \right] \\
-    \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t} \\
-    \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
-  \end{split}
+        \begin{split}
+                \vOptAlt_{t}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right)   \right] \\
+                \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t} \\
+                \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
+        \end{split}
 \end{equation}
 
 In this case, the process is similar. The only difference is that we don't have to take expectations more than once. Given the next period's solution, we can calculate the marginal value functions as:
 
 \begin{equation}
-  \begin{split}
-    \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}   \right] \\
-    \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
-  \end{split}
+        \begin{split}
+                \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}   \right] \\
+                \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
+        \end{split}
 \end{equation}
 
 If we are clever, we can calculate both of these in one step. Now, The optimal risky share can be found by the first order condition:
 
 \begin{equation}
-  \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*})  = 0
+        \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*})  = 0
 \end{equation}
 
 and the envelope condition is
 
 \begin{equation}
-  \vEnd_{t}^{\aRat}(\aRat_{t}) = \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})
+        \vEnd_{t}^{\aRat}(\aRat_{t}) = \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})
 \end{equation}
 
 evaluated at the optimal risky share.
@@ -297,27 +294,27 @@ evaluated at the optimal risky share.
 Assume
 
 \begin{equation}
-  \util(\cRat) = \frac{\cRat^{1-\CRRA}}{1-\CRRA}
+        \util(\cRat) = \frac{\cRat^{1-\CRRA}}{1-\CRRA}
 \end{equation}
 
 and
 
 \begin{equation}
-  \vNum(\leisure) = \leiShare \frac{\leisure^{1-\labShare}}{1-\labShare}
+        \vNum(\leisure) = \leiShare \frac{\leisure^{1-\labShare}}{1-\labShare}
 \end{equation}
 
 The marginal utility of consumption and its inverse are
 
 \begin{equation}
-  \util'(\cRat) = \cRat^{-\CRRA} \qquad \util'^{-1}(\xRat) =
-  \xRat^{-1/\CRRA}
+        \util'(\cRat) = \cRat^{-\CRRA} \qquad \util'^{-1}(\xRat) =
+        \xRat^{-1/\CRRA}
 \end{equation}
 
 The marginal utility of leisure and it's inverse are
 
 \begin{equation}
-  \vNum'(\leisure) = \leiShare\leisure^{-\labShare} \qquad
-  \vNum'^{-1}(\xRat) = (\xRat/\leiShare)^{-1/\labShare}
+        \vNum'(\leisure) = \leiShare\leisure^{-\labShare} \qquad
+        \vNum'^{-1}(\xRat) = (\xRat/\leiShare)^{-1/\labShare}
 \end{equation}
 
 Evidently, both utility functions are invertible and we can proceed with the
@@ -329,21 +326,21 @@ An alternative formulation for the utility of leisure is to state it in terms
 of the disutility of labor as in (references)
 
 \begin{equation}
-  \vNum(\labor) = - \leiShare \frac{\labor^{1+\labShare}}{1+\labShare}
+        \vNum(\labor) = - \leiShare \frac{\labor^{1+\labShare}}{1+\labShare}
 \end{equation}
 
 In this case, we can restate the problem as
 
 \begin{equation}
-  \vNum(\leisure) = - \leiShare
-  \frac{(1-\leisure)^{1+\labShare}}{1+\labShare}
+        \vNum(\leisure) = - \leiShare
+        \frac{(1-\leisure)^{1+\labShare}}{1+\labShare}
 \end{equation}
 
 The marginal utility of leisure and it's inverse are
 
 \begin{equation}
-  \vNum'(\leisure) = \leiShare(1-\leisure)^{\labShare} \qquad
-  \vNum'^{-1}(\xRat) = 1 - (\xRat/\leiShare)^{1/\labShare}
+        \vNum'(\leisure) = \leiShare(1-\leisure)^{\labShare} \qquad
+        \vNum'^{-1}(\xRat) = 1 - (\xRat/\leiShare)^{1/\labShare}
 \end{equation}
 
 \onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}
