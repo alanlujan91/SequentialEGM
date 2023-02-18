@@ -28,7 +28,6 @@ econtex.bst
 handout.bst
 unsrtnatTitlesFirst.bst
 
-
 ./tex:
 .gitkeep
 latex

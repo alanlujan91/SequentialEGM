@@ -1,4 +1,37 @@
 
+@article{Arellano2016-wh,
+  abstract  = {We develop an envelope condition method (ECM) for dynamic
+               programming problems -- a tractable alternative to expensive
+               conventional value function iteration (VFI). ECM has two novel
+               features: first, to reduce the cost of iteration on Bellman
+               equation, ECM constructs policy functions using envelope
+               conditions which are simpler to analyze numerically than
+               first-order conditions. Second, to increase the accuracy of
+               solutions, ECM solves for derivatives of value function jointly
+               with value function itself. We complement ECM with other
+               computational techniques that are suitable for high-dimensional
+               problems, such as simulation-based grids, monomial integration
+               rules and derivative-free solvers. The resulting value-iterative
+               ECM method can accurately solve models with at least up to 20
+               state variables and can successfully compete in accuracy and
+               speed with state-of-the-art Euler equation methods. We also use
+               ECM to solve a challenging default risk model with a kink in
+               value and policy functions.},
+  author    = {Arellano, Cristina and Maliar, Lilia and Maliar, Serguei and
+               Tsyrennikov, Viktor},
+  doi       = {10.1016/j.jedc.2016.05.016},
+  issn      = {0165-1889, 1879-1743},
+  journal   = {Journal of economic dynamics \& control},
+  language  = {en},
+  month     = aug,
+  pages     = {436--459},
+  publisher = {Elsevier BV},
+  title     = {Envelope condition method with an application to default risk
+               models},
+  volume    = 69,
+  year      = 2016
+}
+
 @article{Barillas2007-uh,
   abstract  = {This paper extends Carroll's [2005. The method of endogenous
                gridpoints for solving dynamic stochastic optimization problems.
@@ -323,6 +356,7 @@
   year     = 2013
 }
 
+
 @unpublished{Ludwig2016-tq,
   abstract = {This paper investigates extensions of the method of endogenous
               gridpoints (ENDGM) introduced by Carroll (2006) to higher
@@ -414,6 +448,36 @@
   year      = 2011
 }
 
+@article{Maliar2011-dj,
+  abstract  = {We use the stochastic simulation algorithm, described in Judd et
+               al. (2009), and the cluster-grid algorithm, developed in Judd et
+               al. (2010a), to solve a collection of multi-country real
+               business cycle models. The following ingredients help us reduce
+               the cost in high-dimensional problems: an endogenous grid
+               enclosing the ergodic set, linear approximation methods,
+               fixed-point iteration and efficient integration methods, such as
+               non-product monomial rules and Monte Carlo integration combined
+               with regression. We show that high accuracy in intratemporal
+               choice is crucial for the overall accuracy of solutions and
+               offer two approaches, precomputation and
+               iteration-on-allocation, that can solve for intratemporal choice
+               both accurately and quickly. We also implement a hybrid solution
+               algorithm that combines the perturbation and accurate
+               intratemporal-choice methods.},
+  author    = {Maliar, Serguei and Maliar, Lilia and Judd, Kenneth},
+  doi       = {10.1016/j.jedc.2010.09.014},
+  issn      = {0165-1889},
+  journal   = {Journal of economic dynamics \& control},
+  month     = feb,
+  number    = 2,
+  pages     = {207--228},
+  publisher = {Elsevier},
+  title     = {Solving the multi-country real business cycle model using
+               ergodic set methods},
+  volume    = 35,
+  year      = 2011
+}
+
 @article{Maliar2013-sv,
   abstract  = {We introduce an envelope condition method (ECM) for solving
                dynamic programming problems. The ECM method is simple to
@@ -432,6 +496,36 @@
                solving dynamic programming problems},
   volume    = 120,
   year      = 2013
+}
+
+@article{Maliar2013-sv,
+  abstract  = {We introduce an envelope condition method (ECM) for solving
+               dynamic programming problems. The ECM method is simple to
+               implement, dominates conventional value function iteration and
+               is comparable in accuracy and cost to Carroll's (2005)
+               endogenous grid method. Codes are available.},
+  author    = {Maliar, Lilia and Maliar, Serguei},
+  doi       = {10.1016/j.econlet.2013.04.031},
+  issn      = {0165-1765},
+  journal   = {Economics letters},
+  month     = aug,
+  number    = 2,
+  pages     = {262--266},
+  publisher = {North-Holland},
+  title     = {Envelope condition method versus endogenous grid method for
+               solving dynamic programming problems},
+  volume    = 120,
+  year      = 2013
+}
+
+@incollection{Maliar2014-jz,
+  author    = {Maliar, Lilia and Maliar, Serguei},
+  booktitle = {Handbook of computational economics},
+  pages     = {325--477},
+  publisher = {Elsevier},
+  title     = {Numerical methods for large-scale dynamic economic models},
+  volume    = 3,
+  year      = 2014
 }
 
 @incollection{Maliar2014-qj,
@@ -524,7 +618,6 @@
   volume    = 14,
   year      = 2011
 }
-
 
 @article{Scheidegger2019-xf,
   abstract  = {We present a novel computational framework that can compute

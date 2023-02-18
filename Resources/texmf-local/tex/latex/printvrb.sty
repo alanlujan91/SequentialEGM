@@ -30,7 +30,6 @@
 %% when LaTeX is run on the file twice (like the \tableofcontents
 %% and cross-references).
 
-
 %%% \begin{writetofile}{name}{your text}\end{writetofile}
 %%% Notice that there are curly brackets surrounding the
 %%% text you enter. These are necessary.
@@ -51,38 +50,38 @@
 \def\namesinmargin{\global\namesinmargintrue}
 
 \def\writetofile#1{%
-\vskip1sp
-\ifnum\definitionnumber=0
-\expandafter\openin1 \jobname.vrb
-\ifeof1
-\else
-\input \jobname.vrb
-\fi%% to get the previous definitions
-\immediate\openout\verbatimout=\jobname.vrb
-\fi
-%%
-\global\advance\definitionnumber by 1
-\gdef\currname{#1}%
-\ifnamesinmargin
-\vskip1sp\noindent\llap{\vtop to 0pt{\hbox{\tt\csname currname\endcsname\hskip4pt==>\ }\vss}}%
-\fi%
-%%
-\immediate\write\verbatimout{^^J^^J\string\expandafter\string\gdef\string\csname\space
-\currname\string\endcsname}
- \@bsphack
- \let\do\@makeother\dospecials
- \catcode`\^^M\active \catcode`\^^I=12
- \def\verbatim@processline{%
- \immediate\write\verbatimout
- {\the\verbatim@line}}%
+    \vskip1sp
+    \ifnum\definitionnumber=0
+        \expandafter\openin1 \jobname.vrb
+        \ifeof1
+        \else
+            \input \jobname.vrb
+        \fi%% to get the previous definitions
+        \immediate\openout\verbatimout=\jobname.vrb
+    \fi
+    %%
+    \global\advance\definitionnumber by 1
+    \gdef\currname{#1}%
+    \ifnamesinmargin
+        \vskip1sp\noindent\llap{\vtop to 0pt{\hbox{\tt\csname currname\endcsname\hskip4pt==>\ }\vss}}%
+    \fi%
+    %%
+    \immediate\write\verbatimout{^^J^^J\string\expandafter\string\gdef\string\csname\space
+    \currname\string\endcsname}
+\@bsphack
+\let\do\@makeother\dospecials
+\catcode`\^^M\active \catcode`\^^I=12
+\def\verbatim@processline{%
+    \immediate\write\verbatimout
+    {\the\verbatim@line}}%
 \verbatim@start}
 
 \def\endwritetofile{%
- \@esphack
-\expandafter\ifx\csname \currname\endcsname\relax Please run LaTeX on
-file one more time!\else
-\ifnamesinmargin\vskip-\baselineskip\fi
-\noindent\expandafter\csname \currname\endcsname\relax\fi
+    \@esphack
+    \expandafter\ifx\csname \currname\endcsname\relax Please run LaTeX on
+        file one more time!\else
+        \ifnamesinmargin\vskip-\baselineskip\fi
+        \noindent\expandafter\csname \currname\endcsname\relax\fi
 }
 
 \makeatother
@@ -104,9 +103,9 @@ file one more time!\else
 %%% \csname ...\endcsname, and will check to see if fragment is defined
 
 \def\printfrag#1{\expandafter\ifx\csname #1\endcsname\relax\vskip12pt
-\noindent(!! There is
-no fragment {\tt ==> #1 <==} maybe run LaTeX on source file again?)\vskip12pt\else
-\ifnamesinmargin
-\vskip1sp\noindent\llap{\vtop to 0pt{\hbox{\tt #1\hskip4pt==>\ }\vss}}\fi%
-\csname #1\endcsname\fi
+        \noindent(!! There is
+        no fragment {\tt ==> #1 <==} maybe run LaTeX on source file again?)\vskip12pt\else
+        \ifnamesinmargin
+            \vskip1sp\noindent\llap{\vtop to 0pt{\hbox{\tt #1\hskip4pt==>\ }\vss}}\fi%
+        \csname #1\endcsname\fi
 }

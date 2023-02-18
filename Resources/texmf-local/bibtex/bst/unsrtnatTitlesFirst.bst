@@ -937,14 +937,12 @@ FUNCTION {format.date.nocolon}
    before.all 'output.state :=		%%%KCB:
 }
 
-
 FUNCTION {format.key}
 { empty$
     { key field.or.null }
     { "" }
   if$
 }
-
 
 FUNCTION {bookreview}
 { output.bibitem
@@ -985,7 +983,6 @@ FUNCTION {inprogress}
   fin.entry
 }
 
-
 FUNCTION {miscnoyear} % Defined by CDC 09/09/03, purpose being to allow insertion of text in a bibliography
 { output.bibitem
 %  format.title output
@@ -999,9 +996,7 @@ FUNCTION {miscnoyear} % Defined by CDC 09/09/03, purpose being to allow insertio
 
 
 
-
 FUNCTION {default.type} { misc }
-
 
 MACRO {jan} {"January"}
 
@@ -1026,7 +1021,6 @@ MACRO {oct} {"October"}
 MACRO {nov} {"November"}
 
 MACRO {dec} {"December"}
-
 
 
 MACRO {acmcs} {"ACM Computing Surveys"}
@@ -1069,7 +1063,6 @@ MACRO {toois} {"ACM Transactions on Office Information Systems"}
 MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 
 MACRO {tcs} {"Theoretical Computer Science"}
-
 
 READ
 

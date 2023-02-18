@@ -2,9 +2,9 @@
 % https://tex.stackexchange.com/questions/463699/proper-reference-numbers-with-subfiles
 \newcommand\labelprefix{}
 \newcommand\localorexternallabel[1]{% Removing this comment breaks the command
-  \expandafter\ifx\csname r@#1\endcsname\relax
-  \labelprefix
-  \fi #1% Removing this comment breaks the command
+    \expandafter\ifx\csname r@#1\endcsname\relax
+        \labelprefix
+    \fi #1% Removing this comment breaks the command
 }
 
 % Suppress useless warning "PDF inclusion: multiple PDFs with page group"
@@ -277,7 +277,6 @@
 \providecommand{\GPRte}{\text{\thorn}_{\PermGroRte}}
 \providecommand{\APRte}{\text{\thorn}}
 
-
 \providecommand{\EPermShkInv}{\Ex[\PermShk^{-1}]}  % Formerly EpShkInv
 \providecommand{\InvEPermShkInv}{\underline{\PermShk}} % Formerly InvEpShkInv
 \providecommand{\uInvEuPermShk}{\underline{\underline{\PermShk}}} % Formerly {\uInvEpShkuInv}
@@ -296,7 +295,6 @@
 
 \providecommand{\pNotZero}{(1-\pZero)}
 
-
 \providecommand{\CARA}{{\alpha}}
 \providecommand{\CRRA}{{\rho}}
 \providecommand{\diePrb}{\ensuremath{\mathsf{d}}} % Continuous time death rate
@@ -313,7 +311,6 @@
 \providecommand{\rsave}{\ensuremath{\underline{\rfree}}}
 \providecommand{\RBoro}{\ensuremath{\bar{\Rfree}}}
 \providecommand{\rboro}{\ensuremath{\bar{\rfree}}}
-
 
 \providecommand{\Risky}{\ensuremath{\mathbf{R}}}    % The return on the risky asset
 \providecommand{\risky}{\ensuremath{\mathbf{r}}}  % The net return on the risky asset annual rate

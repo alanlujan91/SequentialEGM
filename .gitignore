@@ -559,7 +559,6 @@ TSWLatexianTemp
 # Files for initializing subfolders
 # Filename.md
 
-
 # Version that generates html
 Web
 
@@ -592,5 +591,4 @@ settings.json
 .spyderproject
 spyproject
 .spyproject
-
 

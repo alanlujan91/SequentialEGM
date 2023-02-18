@@ -1,7 +1,7 @@
 \RequirePackage{wasysym
-,psibycus % Greek language package, including koppa
-,ushort
-%,lscape % Pages in landscape mode go inside \begin{landscape}\end{landscape} % CONFLICTS WITH EPSTOPDF
+    ,psibycus % Greek language package, including koppa
+    ,ushort
+    %,lscape % Pages in landscape mode go inside \begin{landscape}\end{landscape} % CONFLICTS WITH EPSTOPDF
 }
 
 \newenvironment{CDCPrivate} % Environment for extra material not wanted in the public document
@@ -24,25 +24,25 @@
 
 % Options to set if being run from the shell (so autocompiled)
 \opt{FromShell}{
-\setboolean{bigPrint}{false}
-\setboolean{wideMargins}{false}
-\setboolean{BigAndWide}{false}
+    \setboolean{bigPrint}{false}
+    \setboolean{wideMargins}{false}
+    \setboolean{BigAndWide}{false}
 }
 
 \opt{bigWide}{
-\setboolean{bigPrint}{true}
-\setboolean{wideMargins}{true}
-\setboolean{BigAndWide}{true}
-\providecommand{\textSizeDefault}{\large}
-\providecommand{\abstractSizeDefault}{\large}
+    \setboolean{bigPrint}{true}
+    \setboolean{wideMargins}{true}
+    \setboolean{BigAndWide}{true}
+    \providecommand{\textSizeDefault}{\large}
+    \providecommand{\abstractSizeDefault}{\large}
 }
 
 \opt{Aquamacs}{
-%\setboolean{bigPrint}{true}
-%\setboolean{wideMargins}{true}
-%\setboolean{BigAndWide}{true}
-%\providecommand{\textSizeDefault}{\large}
-%\providecommand{\abstractSizeDefault}{\large}
+    %\setboolean{bigPrint}{true}
+    %\setboolean{wideMargins}{true}
+    %\setboolean{BigAndWide}{true}
+    %\providecommand{\textSizeDefault}{\large}
+    %\providecommand{\abstractSizeDefault}{\large}
 }
 
 \provideboolean{KoppaOn}
@@ -50,13 +50,13 @@
 %\setboolean{KoppaOn}{false}
 
 \ifthenelse{\boolean{KoppaOn}}{
-\providecommand{\koppa}{\text{\greek{k+}}}
-\providecommand{\Koppa}{\text{\greek{K+}}}
-\providecommand{\sampi}{\text{\greek{s+}}}
-\providecommand{\cigma}{\text{\greek{c+}}}
-\providecommand{\Cigma}{\text{\greek{C+}}}
+    \providecommand{\koppa}{\text{\greek{k+}}}
+    \providecommand{\Koppa}{\text{\greek{K+}}}
+    \providecommand{\sampi}{\text{\greek{s+}}}
+    \providecommand{\cigma}{\text{\greek{c+}}}
+    \providecommand{\Cigma}{\text{\greek{C+}}}
 }{
-\def\koppa{\mathbf{q}}\providecommand{\koppa}{$\mathbf{q}$}\providecommand{\Koppa}{$\mathbf{Q}$}
+    \def\koppa{\mathbf{q}}\providecommand{\koppa}{$\mathbf{q}$}\providecommand{\Koppa}{$\mathbf{Q}$}
 }
 
 % Keep the elements in the argument #1 together on the same page
@@ -90,50 +90,50 @@
     \let\footnoterule\relax
     \makeatletter
     \renewenvironment{abstract}{%
-       \begin{spacing}{0.9}
-       \noindent {\tiny \phantom{.}} \\ % Trick to get proper spacing in html
-       \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
-       \vspace*{5mm}
-       \noindent \textbf{Abstract}\\
-       \indent \abstractSizeDefault
-        }{%
-           \noindent {\tiny \phantom{.}} \\  % Trick to get proper spacing in html
-%           \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
-       \vspace*{3mm}
-       \ifthenelse{ \isundefined\@keywords }{
-       \ClassWarningNoLine{bejournal}{No keywords specified.
-          Please use the command \protect\keywords}
-       }{
-       }
-       \end{spacing}
-    \begin{quote}
-    \begin{Description}
-    \item[\textbf{~~~~~~~~~~~~Keywords~}] \@keywords
-    \ifthenelse{ \isundefined\@jelclass }{
-    \ClassWarningNoLine{bejournal}{No JEL classification specified.
-       Please use the command \protect\jelclass}
-    }{
-    \item[\textbf{~~~~~~~~~~~~JEL codes~}] \@jelclass
-    \end{Description}
-    }
-    \end{quote}
-    \makeatother
+        \begin{spacing}{0.9}
+            \noindent {\tiny \phantom{.}} \\ % Trick to get proper spacing in html
+            \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
+            \vspace*{5mm}
+            \noindent \textbf{Abstract}\\
+            \indent \abstractSizeDefault
+            }{%
+            \noindent {\tiny \phantom{.}} \\  % Trick to get proper spacing in html
+            %           \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
+            \vspace*{3mm}
+            \ifthenelse{ \isundefined\@keywords }{
+                \ClassWarningNoLine{bejournal}{No keywords specified.
+                    Please use the command \protect\keywords}
+            }{
+            }
+        \end{spacing}
+        \begin{quote}
+            \begin{Description}
+                \item[\textbf{~~~~~~~~~~~~Keywords~}] \@keywords
+                \ifthenelse{ \isundefined\@jelclass }{
+                \ClassWarningNoLine{bejournal}{No JEL classification specified.
+                    Please use the command \protect\jelclass}
+                }{
+                \item[\textbf{~~~~~~~~~~~~JEL codes~}] \@jelclass
+            \end{Description}
+            }
+        \end{quote}
+        \makeatother
     }
 \else
-% \RequirePackage[pdftex]{graphicx}
+    % \RequirePackage[pdftex]{graphicx}
     \RequirePackage{graphicx} % requiring [pdftex] seems to interfere with Pandemic build
-%    \RequirePackage[plainpages=false,hypertexnames=false,verbose,unicode=true,unicode=true,unicode=true]{hyperref}
+    %    \RequirePackage[plainpages=false,hypertexnames=false,verbose,unicode=true,unicode=true,unicode=true]{hyperref}
     \usepackage{pdfcomment}
-%    \RequirePackage[hypertexnames=false,verbose,unicode=true,unicode=true,unicode=true]{hyperref} % plainpages seems to mess up BST
+    %    \RequirePackage[hypertexnames=false,verbose,unicode=true,unicode=true,unicode=true]{hyperref} % plainpages seems to mess up BST
     % Automatically create tooltips for sections
     \hypersetup{
-      hypertexnames=false,
-      unicode=true,
-       pdffitwindow = false,     % Don't rescale to fit size of window
-       pdfpagemode=UseThumbs,
-       pdfstartview=FitH,
-       pdfnewwindow = true,       % Links open in new window
-       pdfproducer = {pdfLaTeX with hyperref}
+        hypertexnames=false,
+        unicode=true,
+        pdffitwindow = false,     % Don't rescale to fit size of window
+        pdfpagemode=UseThumbs,
+        pdfstartview=FitH,
+        pdfnewwindow = true,       % Links open in new window
+        pdfproducer = {pdfLaTeX with hyperref}
     }
     \providecommand{\wideMargins}{\usepackage[twoside,marginparwidth=0in,left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}\usepackage{layouts}}
     \ifthenelse{\boolean{wideMargins}}{\wideMargins}{}
@@ -148,12 +148,12 @@
 \definecolor{darkblue}{rgb}{0.1,0.094,0.3}
 \definecolor{darkred}{rgb}{0.3,0,0}
 \hypersetup{colorlinks=true,           % put a box around links
-   linkbordercolor = {1 0 0}, % the box will be red
-   pdfborder = {1 0 0},       %
-%   bookmarks=true,            % PDF will contain an index on the RHS
-   urlcolor=darkred,
-   citecolor=darkblue,
-   linkcolor=darkred
+    linkbordercolor = {1 0 0}, % the box will be red
+    pdfborder = {1 0 0},       %
+    %   bookmarks=true,            % PDF will contain an index on the RHS
+    urlcolor=darkred,
+    citecolor=darkblue,
+    linkcolor=darkred
 }
 
 %% Define the title table as different from the regular table
@@ -177,15 +177,14 @@
 \renewcommand{\handoutM}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/MathFacts/MathFactsList/}{\texttt{#1}}}
 \newcommand{\Aggregation}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/MathFacts/Aggregation.pdf}{\texttt{Aggregation}}}
 
-
 % If doing a web version, renewcommands link to the html versions of handouts
 \ifdvi
-\renewcommand{\handoutC}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/consumption/#1}{\texttt{#1}}}
-\renewcommand{\handoutA}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/AssetPricing/#1}{\texttt{#1}}}
-\renewcommand{\handoutI}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/Investment/#1}{\texttt{#1}}}
-\renewcommand{\handoutG}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/Growth/#1}{\texttt{#1}}}
-\renewcommand{\handoutD}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/DSGEModels/#1}{\texttt{#1}}}
-\renewcommand{\handoutM}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/MathFactsList/#1}{\texttt{#1}}}
+    \renewcommand{\handoutC}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/consumption/#1}{\texttt{#1}}}
+    \renewcommand{\handoutA}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/AssetPricing/#1}{\texttt{#1}}}
+    \renewcommand{\handoutI}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/Investment/#1}{\texttt{#1}}}
+    \renewcommand{\handoutG}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/Growth/#1}{\texttt{#1}}}
+    \renewcommand{\handoutD}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/DSGEModels/#1}{\texttt{#1}}}
+    \renewcommand{\handoutM}[1]{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/MathFactsList/#1}{\texttt{#1}}}
 \fi
 \renewcommand{\MathFactsList}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/MathFacts/MathFactsList/}{\texttt{MathFacts}}}
 \renewcommand{\Aggregation}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/MathFacts/Aggregation/}{\texttt{Aggregation}}}
@@ -219,7 +218,6 @@
 
 \provideboolean{AnswersTF}\setboolean{AnswersTF}{false} % Default is no answers; run with \UseOption{Answers} from shell to generate answers
 
-
 \provideboolean{ExamQ}
 \setboolean{ExamQ}{false}
 \newcommand{\ifExamQuestion}{\ifthenelse{\boolean{ExamQ}}}
@@ -233,9 +231,9 @@
 \newcommand{\ifAnswers}{\ifthenelse{\boolean{AnswersTF}}}
 \newcommand{\answer}[2]{\ifthenelse{\boolean{AnswersTF}}{
 
-{\it Answer:}
-\begin{quote}
-#1
-\end{quote}
-}
-{#2}}
+        {\it Answer:}
+        \begin{quote}
+            #1
+        \end{quote}
+    }
+    {#2}}

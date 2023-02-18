@@ -64,19 +64,19 @@
 
 % spacing around formulas
 \AtBeginDocument{
-  \setlength{\abovedisplayshortskip}{6pt}
-  \setlength{\belowdisplayshortskip}{6pt}
-  \setlength{\abovedisplayskip}{6pt}
-  \setlength{\belowdisplayskip}{6pt}
-  \allowdisplaybreaks % Permits LaTeX to break long formulas across pages (?)
+    \setlength{\abovedisplayshortskip}{6pt}
+    \setlength{\belowdisplayshortskip}{6pt}
+    \setlength{\abovedisplayskip}{6pt}
+    \setlength{\belowdisplayskip}{6pt}
+    \allowdisplaybreaks % Permits LaTeX to break long formulas across pages (?)
 }
 
 %% Added the above info to the definition of normalsize
 \def\normalsize{\@setfontsize \normalsize \@xiipt {14.5}
-  \abovedisplayskip 6\p@ \@plus 3\p@ \@minus 3\p@
-  \belowdisplayskip \abovedisplayskip
-  \abovedisplayshortskip 6pt \belowdisplayshortskip 6pt
-  \let \@listi \@listI}
+    \abovedisplayskip 6\p@ \@plus 3\p@ \@minus 3\p@
+    \belowdisplayskip \abovedisplayskip
+    \abovedisplayshortskip 6pt \belowdisplayshortskip 6pt
+    \let \@listi \@listI}
 \normalsize
 
 % Don't indent the second and later lines of footnotes
@@ -93,26 +93,26 @@
 
 \newenvironment{Description}
 {\begin{list}{}{\let\makelabel\Descriptionlabel
-      \setlength\labelwidth{75pt}
-      \setlength\labelsep{0pt}
-      \setlength\leftmargin{75pt}
-      \setlength\itemindent{0pt}
-    }}
-  {\end{list}}
+            \setlength\labelwidth{75pt}
+            \setlength\labelsep{0pt}
+            \setlength\leftmargin{75pt}
+            \setlength\itemindent{0pt}
+        }}
+        {\end{list}}
 \newcommand*\Descriptionlabel[1]{\textbf{#1}\hfil}
 
 \RequirePackage{cancel,verbatim,
-  amsmath,amssymb,amsfonts,amsthm
-  ,threeparttable,dcolumn,multicol,multirow,booktabs % table environment extensions
-  ,latexsym
-  ,afterpage
-  ,enotez
-  ,moreverb
-  ,hhline    % Allow double hlines
-  ,tipa      % Define more characters, in particular the \textthorn character
-  ,xcolor    % Superceded color, which is WAY out of date
-  ,accents
-  ,appendix
+    amsmath,amssymb,amsfonts,amsthm
+    ,threeparttable,dcolumn,multicol,multirow,booktabs % table environment extensions
+    ,latexsym
+    ,afterpage
+    ,enotez
+    ,moreverb
+    ,hhline    % Allow double hlines
+    ,tipa      % Define more characters, in particular the \textthorn character
+    ,xcolor    % Superceded color, which is WAY out of date
+    ,accents
+    ,appendix
 }
 
 \newtheorem{definition}{Definition}
@@ -121,7 +121,7 @@
 
 \DeclareInstance{enotez-list}{superscriptednotes}{paragraph}
 {
-  number = \textsuperscript{#1}
+    number = \textsuperscript{#1}
 }
 % to get endnotes with superscripts, use \printendnotes[superscriptednotes]
 
@@ -159,7 +159,6 @@
 
 % --------------------------------------------------------
 
-
 \RequirePackage[mathscr]{eucal}
 \RequirePackage[normalem]{ulem}
 \providecommand\bmmax{0} % Prevent boldmath package from using up too much memory
@@ -175,15 +174,15 @@
 
 % page format, margins if PrintGeom option is invoked
 \opt{PrintGeom}{
-  \RequirePackage{geometry}
-  \geometry{letterpaper, tmargin=1.4in, bmargin=1.4in, lmargin=1.25in,
-    rmargin=1.25in, headheight=0in, headsep=0in, footskip=0.5in }
+    \RequirePackage{geometry}
+    \geometry{letterpaper, tmargin=1.4in, bmargin=1.4in, lmargin=1.25in,
+        rmargin=1.25in, headheight=0in, headsep=0in, footskip=0.5in }
 }
 
 \opt{JournalFormatting}{ % BEJM requires 1.5 inch margins
-  \RequirePackage{geometry}
-  \geometry{letterpaper, tmargin=1.5in, bmargin=1.5in, lmargin=1.5in,
-    rmargin=1.5in, headheight=0in, headsep=0in, footskip=0.5in }
+    \RequirePackage{geometry}
+    \geometry{letterpaper, tmargin=1.5in, bmargin=1.5in, lmargin=1.5in,
+        rmargin=1.5in, headheight=0in, headsep=0in, footskip=0.5in }
 }
 
 \providecommand{\textSizeDefault}{\normalsize}
@@ -200,13 +199,13 @@
 % citations and bibliography
 \RequirePackage[authoryear]{natbib}
 \AtBeginDocument{\renewcommand{\refname}{References}
-  \renewcommand\@makefnmark
-  {\mbox{\textsuperscript{\tiny\@thefnmark}}} % Restore footnote defn after titlepage redefines it
-  \ifdvi
-  \else
-  \providecommand{\ushort}{}
-  \renewcommand{\ushort}{\underline} % ushort seems to not work properly for tex4ht (which compiles using dvi)
-  \fi
+    \renewcommand\@makefnmark
+    {\mbox{\textsuperscript{\tiny\@thefnmark}}} % Restore footnote defn after titlepage redefines it
+    \ifdvi
+    \else
+        \providecommand{\ushort}{}
+        \renewcommand{\ushort}{\underline} % ushort seems to not work properly for tex4ht (which compiles using dvi)
+    \fi
 }
 
 % captions of figures and tables
@@ -221,60 +220,58 @@
 % titlepage with title, author(s), and date
 
 \renewcommand{\maketitle}{
-  \ifthenelse{\equal{\theIncludeTitlePage}{1}}{
-    \let\footnotesize\scriptsize
-    \thispagestyle{empty}
-    \vspace*{0mm}
-    \enlargethispage{0.4in}
-  }{}
-  \begin{center}
-    \begin{LARGE}
-      \begin{spacing}{1.00}
-        \textbf{\@title}
-      \end{spacing}
-    \end{LARGE}\medskip\medskip\medskip
-    {\normalsize \@date \par}
-    {\tiny{~}\par}
     \ifthenelse{\equal{\theIncludeTitlePage}{1}}{
-      \vspace*{3mm}
-      {\large
-        \lineskip .75em%
-        \begin{tabular}[t]{c}%
-          \@author
-        \end{tabular}\par}%
+        \let\footnotesize\scriptsize
+        \thispagestyle{empty}
+        \vspace*{0mm}
+        \enlargethispage{0.4in}
     }{}
-  \end{center}
+    \begin{center}
+        \begin{LARGE}
+            \begin{spacing}{1.00}
+                \textbf{\@title}
+            \end{spacing}
+        \end{LARGE}\medskip\medskip\medskip
+        {\normalsize \@date \par}
+        {\tiny{~}\par}
+        \ifthenelse{\equal{\theIncludeTitlePage}{1}}{
+            \vspace*{3mm}
+            {\large
+                \lineskip .75em%
+                \begin{tabular}[t]{c}%
+                    \@author
+                \end{tabular}\par}%
+        }{}
+    \end{center}
 }
-
 
 \newcommand{\maketitleWithForcedDate}[1]{
-  \ClassWarningNoLine{econtex}{\protect\maketitleWithForcedDate{} is deprecated.  To set a date different from the current one, just use the \protect\date{(string desired to signify paper date)}}
+    \ClassWarningNoLine{econtex}{\protect\maketitleWithForcedDate{} is deprecated.  To set a date different from the current one, just use the \protect\date{(string desired to signify paper date)}}
 
-  \ifthenelse{\equal{\theIncludeTitlePage}{1}}{
-    \let\footnotesize\scriptsize
-    \thispagestyle{empty}
-    \vspace*{0mm}
-    \enlargethispage{0.4in}
-  }{}
-  \begin{center}
-    \begin{LARGE}
-      \begin{spacing}{1.00}
-        \textbf{\@title}
-      \end{spacing}
-    \end{LARGE}\medskip\medskip\medskip
-    {\normalsize #1 \par}
-    {\tiny{~}\par}
     \ifthenelse{\equal{\theIncludeTitlePage}{1}}{
-      \vspace*{3mm}
-      {\large
-        \lineskip .75em%
-        \begin{tabular}[t]{c}%
-          \@author
-        \end{tabular}\par}%
+        \let\footnotesize\scriptsize
+        \thispagestyle{empty}
+        \vspace*{0mm}
+        \enlargethispage{0.4in}
     }{}
-  \end{center}
+    \begin{center}
+        \begin{LARGE}
+            \begin{spacing}{1.00}
+                \textbf{\@title}
+            \end{spacing}
+        \end{LARGE}\medskip\medskip\medskip
+        {\normalsize #1 \par}
+        {\tiny{~}\par}
+        \ifthenelse{\equal{\theIncludeTitlePage}{1}}{
+            \vspace*{3mm}
+            {\large
+                \lineskip .75em%
+                \begin{tabular}[t]{c}%
+                    \@author
+                \end{tabular}\par}%
+        }{}
+    \end{center}
 }
-
 
 % abstract, keywords, JEL classification
 \newcommand{\keywords}[1]{\newcommand{\@keywords}{#1}}
@@ -282,47 +279,47 @@
 \newcommand{\aspublished}[1]{\newcommand{\@aspublished}{#1}}
 
 \renewenvironment{abstract}{%
-%  \begin{spacing}{0.9}
-%    \noindent {\tiny \phantom{.}} \\ % Trick to get proper spacing in html
+    %  \begin{spacing}{0.9}
+    %    \noindent {\tiny \phantom{.}} \\ % Trick to get proper spacing in html
     \ifdvi
     \else % horizontal rule works well for PDF, not for html
-%    \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
+        %    \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
     \fi
     \vspace*{4mm}
     \abstractSizeDefault
     \noindent \textbf{Abstract}\\
     \indent
-  }{%
-%    \noindent {\tiny \phantom{.}} \\  % Trick to get proper spacing in html
+}{%
+    %    \noindent {\tiny \phantom{.}} \\  % Trick to get proper spacing in html
     \ifdvi
     \else
-%    \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
+        %    \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
     \fi
     \vspace*{0mm}
     \ifthenelse{ \isundefined\@keywords }{
-      \ClassWarningNoLine{econtex}{No keywords specified.
-        Please use the command \protect\keywords}
+        \ClassWarningNoLine{econtex}{No keywords specified.
+            Please use the command \protect\keywords}
     }{
     }
-%  \end{spacing}
+    %  \end{spacing}
 
-  \begin{quote}
-    \begin{Description}
-    \item[\textbf{Keywords~}] \@keywords
-      \ifthenelse{ \isundefined\@jelclass }{
-        \ClassWarningNoLine{econtex}{No JEL classification specified.
-          Please use the command \protect\jelclass}
-      }{
-      \item[\textbf{JEL codes~}] \@jelclass
-      }
+    \begin{quote}
+        \begin{Description}
+            \item[\textbf{Keywords~}] \@keywords
+            \ifthenelse{ \isundefined\@jelclass }{
+                \ClassWarningNoLine{econtex}{No JEL classification specified.
+                    Please use the command \protect\jelclass}
+            }{
+                \item[\textbf{JEL codes~}] \@jelclass
+            }
 
-    \end{Description}
-    \ifthenelse{ \isundefined\@aspublished }{
-    }{
-      {
+        \end{Description}
+        \ifthenelse{ \isundefined\@aspublished }{
+        }{
+            {
 
-        \vspace{0.1in}\@aspublished}
-    }\end{quote}
+                    \vspace{0.1in}\@aspublished}
+        }\end{quote}
 }
 
 \setcounter{footnote}{0}%
@@ -339,15 +336,13 @@
 % increase stretchability of the spaces (avoid overfull hboxes)
 \setlength{\emergencystretch}{3em}
 
-
 \pagestyle{plain}
 \thispagestyle{empty}
 
 \newcommand{\titlepagefinish}{\newpage
-  \renewcommand\@makefnmark
-  {\mbox{\textsuperscript{\tiny\@thefnmark}}}
+    \renewcommand\@makefnmark
+    {\mbox{\textsuperscript{\tiny\@thefnmark}}}
 }
-
 
 \RequirePackage[multiple]{footmisc}
 \RequirePackage{manyfoot}
@@ -396,11 +391,11 @@
 
 \newcounter{bottomauthor}
 \def\authorsinfo{\global\c@bottomauthor=0\setbox0=\vbox\bgroup\footnotesize
-  \let\\ \relax
+    \let\\ \relax
 }
 
 \def\endauthorsinfo{\egroup
-  \footnoteB{\unvbox0}
+    \footnoteB{\unvbox0}
 }
 
 \def\name#1{\global\advance\c@bottomauthor by 1\textsuperscript{\tiny \the\c@bottomauthor}{#1}{~~~~}}

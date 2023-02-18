@@ -142,7 +142,6 @@ FUNCTION {init.state.consts}
 
 STRINGS { s t }
 
-
 %%%KCB: revise to use new output state
 FUNCTION {output.nonnull}
 { 's :=
@@ -331,7 +330,6 @@ FUNCTION {compare.names}
 %%%
 %%%KCB:  End of new routine.
 
-
 FUNCTION {format.names}
 { 's :=
   #1 'nameptr :=
@@ -362,7 +360,6 @@ FUNCTION {format.names}
     }
   while$
 }
-
 
 FUNCTION {format.names.ed}
 { 's :=
@@ -975,7 +972,6 @@ FUNCTION {chop.word}
     's
   if$
 }
-
 
 %%%KCB:  Change format of labels:
 FUNCTION {format.lab.names}

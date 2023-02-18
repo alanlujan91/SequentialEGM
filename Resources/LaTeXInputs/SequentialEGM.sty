@@ -9,11 +9,10 @@
 \setboolean{showPageHead}{false}
 % \usepackage{econtexSetup} sets boolean Web=true if compilation type is dvi
 \ifthenelse{\boolean{Web}}{}{   %
-  \setboolean{showPageHead}{true}
-  \usepackage{scrlayer-scrpage} % Package for page headers if PDF
-  \usepackage{caption} % allow suppression of appendix figures in NoAppendix PDF
+    \setboolean{showPageHead}{true}
+    \usepackage{scrlayer-scrpage} % Package for page headers if PDF
+    \usepackage{caption} % allow suppression of appendix figures in NoAppendix PDF
 }
-
 
 % Allow different actions depending on whether document is being processed as
 % subfile or being process as standalone
@@ -48,6 +47,5 @@
 \newcommand{\myred}[1]{\textcolor{red}{#1}}
 \newcommand{\myblue}[1]{\textcolor{blue}{#1}}
 \newcolumntype{d}[1]{D{.}{.}{#1}}
-
 
 % Terms unique to paper
