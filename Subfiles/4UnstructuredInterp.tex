@@ -1,16 +1,13 @@
 \input{./econtexRoot.texinput}
 \documentclass[\econtexRoot/SequentialEGM]{subfiles}
-\onlyinsubfile{\providecommand{\econtexRoot}}
-\onlyinsubfile{\renewcommand{\econtexRoot}{..}}
-\onlyinsubfile{\externaldocument{\econtexRoot/SequentialEGM}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
-
+\onlyinsubfile{\externaldocument{\econtexRoot/SequentialEGM}}
 \usepackage{\econtexSetup,\econark,\econtexShortcuts}
 
 \begin{document}
 
-\FloatBarrier
-\hypertarget{comparing-fiscal-stimulus-policies}{}\par\section{Machine Learning for Unstructured Data Interpolation}
-\notinsubfile{\label{sec:comparing}}
+\hypertarget{machine-learning}{}
+\par\section{Machine Learning for Unstructured Data Interpolation}
+\notinsubfile{\label{sec:gpr}}
 
 \ifthenelse{\boolean{Web}}{}{
 \end{document} \endinput

@@ -1,13 +1,12 @@
 \input{./econtexRoot.texinput}
 \documentclass[\econtexRoot/SequentialEGM]{subfiles}
-\onlyinsubfile{\externaldocument{\econtexRoot/SequentialEGM}} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
-
+\onlyinsubfile{\externaldocument{\econtexRoot/SequentialEGM}}
 \usepackage{\econtexSetup,\econark,\econtexShortcuts}
 
 \begin{document}
-\notinsubfile{\renewcommand{\econtexRoot}{.}}
 
-\hypertarget{method}{}\par\section{The Sequential Endogenous Grid Method}
+\hypertarget{method}{}
+\par\section{The Sequential Endogenous Grid Method}
 \notinsubfile{\label{sec:method}}
 
 % \subsection{A basic model}
