@@ -12,6 +12,7 @@
 *.cb2
 .*.lb
 *.dep
+*.ps
 
 ## Intermediate documents:
 *.dvi
@@ -591,4 +592,3 @@ settings.json
 .spyderproject
 spyproject
 .spyproject
-
