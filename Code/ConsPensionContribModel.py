@@ -4,7 +4,6 @@ from dataclasses import dataclass
 
 import estimagic as em
 import numpy as np
-from fast import BilinearInterpFast, Curvilinear2DInterp, LinearInterpFast
 from HARK.ConsumptionSaving.ConsIndShockModel import (
     ConsIndShockSolver,
     IndShockConsumerType,
@@ -14,8 +13,8 @@ from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
 from HARK.core import MetricObject, make_one_period_oo_solver
 from HARK.distribution import DiscreteDistribution, DiscreteDistributionLabeled
 from HARK.interpolation import (
-    BilinearInterp,
     ConstantFunction,
+    LinearFast,
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
     ValueFuncCRRA,
@@ -36,7 +35,7 @@ class PostDecisionStage(MetricObject):
 
 @dataclass
 class ConsumptionStage(MetricObject):
-    c_func: BilinearInterp = NullFunc()
+    c_func: LinearFast = NullFunc()
     v_func: ValueFuncCRRA = NullFunc()
     dvdl_func: MargValueFuncCRRA = NullFunc()
     dvdb_func: MargValueFuncCRRA = NullFunc()
@@ -44,7 +43,7 @@ class ConsumptionStage(MetricObject):
 
 @dataclass
 class DepositStage(MetricObject):
-    d_func: BilinearInterp = NullFunc()
+    d_func: LinearFast = NullFunc()
     v_func: ValueFuncCRRA = NullFunc()
     dvdm_func: MargValueFuncCRRA = NullFunc()
     dvdn_func: MargValueFuncCRRA = NullFunc()
@@ -93,10 +92,10 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         # self.update_solution_terminal()
 
     def update_solution_terminal(self):
-        cmat = self.mMat + self.nMat  # consume everything
-        cmat_temp = np.insert(cmat, 0, 0.0, axis=0)
-        c_func_terminal = BilinearInterpFast(
-            cmat_temp, np.append(0.0, self.mGrid), self.nGrid
+        cMat = self.mMat + self.nMat  # consume everything
+        cMat_temp = np.insert(cMat, 0, 0.0, axis=0)
+        c_func_terminal = LinearFast(
+            cMat_temp, [np.append(0.0, self.mGrid), self.nGrid]
         )
         vp_func_terminal = MargValueFuncCRRA(c_func_terminal, self.CRRA)
         v_func_terminal = ValueFuncCRRA(c_func_terminal, self.CRRA)
@@ -243,16 +242,16 @@ class PensionContribSolver(MetricObject):
         self.g = UtilityFunction(g, gp, gp_inv)
 
     def solve_post_decision(self, deposit_stage_next):
-        if hasattr(deposit_stage_next, "vPfunc"):
+        if hasattr(deposit_stage_next, "vp_func"):
 
             def dvdm_func_next(m, n):
-                return deposit_stage_next.vPfunc(m + n)
+                return deposit_stage_next.vp_func(m + n)
 
             def dvdn_func_next(m, n):
-                return deposit_stage_next.vPfunc(m + n)
+                return deposit_stage_next.vp_func(m + n)
 
             def v_func_next(m, n):
-                return deposit_stage_next.vFunc(m + n)
+                return deposit_stage_next.v_func(m + n)
 
         else:
             dvdm_func_next = deposit_stage_next.dvdm_func
@@ -260,11 +259,11 @@ class PensionContribSolver(MetricObject):
             v_func_next = deposit_stage_next.v_func
 
         # First calculate marginal value functions
-        def dvda_func(shock, abal, bbal):
+        def dvda_func(shock, aBal, bBal):
             psi = shock["perm"]
-            mnrm_next = abal * self.Rfree / psi + shock["tran"]
-            nnrm_next = bbal * shock["risky"] / psi
-            return psi ** (-self.CRRA) * dvdm_func_next(mnrm_next, nnrm_next)
+            mNrm_next = aBal * self.Rfree / psi + shock["tran"]
+            nNrm_next = bBal * shock["risky"] / psi
+            return psi ** (-self.CRRA) * dvdm_func_next(mNrm_next, nNrm_next)
 
         dvda_end_of_prd = (
             self.DiscFac
@@ -273,19 +272,19 @@ class PensionContribSolver(MetricObject):
         )
 
         dvda_end_of_prd_nvrs = self.u.derinv(dvda_end_of_prd)
-        dvda_end_of_prd_nvrs_func = BilinearInterpFast(
-            dvda_end_of_prd_nvrs, self.aGrid, self.bGrid
+        dvda_end_of_prd_nvrs_func = LinearFast(
+            dvda_end_of_prd_nvrs, [self.aGrid, self.bGrid]
         )
         dvda_end_of_prd_func = MargValueFuncCRRA(dvda_end_of_prd_nvrs_func, self.CRRA)
 
-        def dvdb_func(shock, abal, bbal):
+        def dvdb_func(shock, aBal, bBal):
             psi = shock["perm"]
-            mnrm_next = abal * self.Rfree / psi + shock["tran"]
-            nnrm_next = bbal * shock["risky"] / psi
+            mNrm_next = aBal * self.Rfree / psi + shock["tran"]
+            nNrm_next = bBal * shock["risky"] / psi
             return (
                 psi ** (-self.CRRA)
                 * shock["risky"]
-                * dvdn_func_next(mnrm_next, nnrm_next)
+                * dvdn_func_next(mNrm_next, nNrm_next)
             )
 
         dvdb_end_of_prd = self.DiscFac * self.ShockDstn.expected(
@@ -293,18 +292,18 @@ class PensionContribSolver(MetricObject):
         )
 
         dvdb_end_of_prd_nvrs = self.u.derinv(dvdb_end_of_prd)
-        dvdb_end_of_prd_nvrs_func = BilinearInterpFast(
-            dvdb_end_of_prd_nvrs, self.aGrid, self.bGrid
+        dvdb_end_of_prd_nvrs_func = LinearFast(
+            dvdb_end_of_prd_nvrs, [self.aGrid, self.bGrid]
         )
         dvdb_end_of_prd_func = MargValueFuncCRRA(dvdb_end_of_prd_nvrs_func, self.CRRA)
 
         # also calculate end of period value function
 
-        def v_func(shock, abal, bbal):
+        def v_func(shock, aBal, bBal):
             psi = shock["perm"]
-            mnrm_next = abal * self.Rfree / psi + shock["tran"]
-            nnrm_next = bbal * shock["risky"] / psi
-            return psi ** (1 - self.CRRA) * v_func_next(mnrm_next, nnrm_next)
+            mNrm_next = aBal * self.Rfree / psi + shock["tran"]
+            nNrm_next = bBal * shock["risky"] / psi
+            return psi ** (1 - self.CRRA) * v_func_next(mNrm_next, nNrm_next)
 
         v_end_of_prd = self.DiscFac * self.ShockDstn.expected(
             v_func, self.aMat, self.bMat
@@ -312,9 +311,7 @@ class PensionContribSolver(MetricObject):
 
         # value transformed through inverse utility
         v_end_of_prd_nvrs = self.u.inv(v_end_of_prd)
-        v_end_of_prd_nvrs_func = BilinearInterpFast(
-            v_end_of_prd_nvrs, self.aGrid, self.bGrid
-        )
+        v_end_of_prd_nvrs_func = LinearFast(v_end_of_prd_nvrs, [self.aGrid, self.bGrid])
         v_end_of_prd_func = ValueFuncCRRA(v_end_of_prd_nvrs_func, self.CRRA)
 
         post_decision_stage = PostDecisionStage(
@@ -333,24 +330,19 @@ class PensionContribSolver(MetricObject):
         dvdb_end_of_prd_nvrs = post_decision_stage.dvdb_nvrs
         v_end_of_prd = post_decision_stage.vals
 
-        cmat = dvda_end_of_prd_nvrs  # endogenous grid method
-        lmat = cmat + self.aMat
+        cMat = dvda_end_of_prd_nvrs  # endogenous grid method
+        lMat = cMat + self.aMat
 
         # at l = 0, c = 0 so we need to add this limit
-        lmat_temp = np.insert(lmat, 0, 0.0, axis=0)
-        cmat_temp = np.insert(cmat, 0, 0.0, axis=0)
+        lMat_temp = np.insert(lMat, 0, 0.0, axis=0)
+        cMat_temp = np.insert(cMat, 0, 0.0, axis=0)
 
-        # bmat is a regular grid, lmat is not so we'll need to use LinearInterpOnInterp1D
-        c_innr_func_by_bbal = []
+        # bMatis a regular grid, lMatis not so we'll need to use LinearInterpOnInterp1D
+        c_innr_func_by_bBal = []
         for bi in range(self.bGrid.size):
-            c_innr_func_by_bbal.append(
-                LinearInterpFast(
-                    lmat_temp[:, bi],
-                    cmat_temp[:, bi],
-                )
-            )
+            c_innr_func_by_bBal.append(LinearFast(cMat_temp[:, bi], [lMat_temp[:, bi]]))
 
-        c_innr_func = LinearInterpOnInterp1D(c_innr_func_by_bbal, self.bGrid)
+        c_innr_func = LinearInterpOnInterp1D(c_innr_func_by_bBal, self.bGrid)
         dvdl_innr_func = MargValueFuncCRRA(c_innr_func, self.CRRA)
 
         # again, at l = 0, c = 0 and a = 0, so repeat dvdb[0]
@@ -359,32 +351,29 @@ class PensionContribSolver(MetricObject):
             dvdb_end_of_prd_nvrs, 0, dvdb_end_of_prd_nvrs[0], axis=0
         )
 
-        dvdb_innr_nvrs_func_by_bbal = []
+        dvdb_innr_nvrs_func_by_bBal = []
         for bi in range(self.bGrid.size):
-            dvdb_innr_nvrs_func_by_bbal.append(
-                LinearInterpFast(
-                    lmat_temp[:, bi],
-                    dvdb_end_of_prd_nvrs_temp[:, bi],
-                )
+            dvdb_innr_nvrs_func_by_bBal.append(
+                LinearFast(dvdb_end_of_prd_nvrs_temp[:, bi], [lMat_temp[:, bi]])
             )
 
         dvdb_innr_func = MargValueFuncCRRA(
-            LinearInterpOnInterp1D(dvdb_innr_nvrs_func_by_bbal, self.bGrid), self.CRRA
+            LinearInterpOnInterp1D(dvdb_innr_nvrs_func_by_bBal, self.bGrid), self.CRRA
         )
 
         # make value function
-        v_innr = self.u(cmat) - self.DisutilLabor + v_end_of_prd
+        v_innr = self.u(cMat) - self.DisutilLabor + v_end_of_prd
         v_innr_nvrs = self.u.inv(v_innr)
         v_now_nvrs_temp = np.insert(v_innr_nvrs, 0, 0.0, axis=0)
 
-        # bmat is regular grid so we can use LinearInterpOnInterp1D
-        v_innr_nvrs_func_by_bbal = []
+        # bMatis regular grid so we can use LinearInterpOnInterp1D
+        v_innr_nvrs_func_by_bBal = []
         for bi in range(self.bGrid.size):
-            v_innr_nvrs_func_by_bbal.append(
-                LinearInterpFast(lmat_temp[:, bi], v_now_nvrs_temp[:, bi])
+            v_innr_nvrs_func_by_bBal.append(
+                LinearFast(v_now_nvrs_temp[:, bi], [lMat_temp[:, bi]])
             )
 
-        v_innr_nvrs_func = LinearInterpOnInterp1D(v_innr_nvrs_func_by_bbal, self.bGrid)
+        v_innr_nvrs_func = LinearInterpOnInterp1D(v_innr_nvrs_func_by_bBal, self.bGrid)
         v_innr_func = ValueFuncCRRA(v_innr_nvrs_func, self.CRRA)
 
         consumption_stage = ConsumptionStage(
@@ -406,27 +395,27 @@ class PensionContribSolver(MetricObject):
         dvdb_innr = dvdb_func_next(self.lMat, self.b2Mat)
 
         # endogenous grid method, again
-        dmat = self.g.inv(dvdl_innr / dvdb_innr - 1.0)
+        dMat = self.g.inv(dvdl_innr / dvdb_innr - 1.0)
 
-        mmat = self.lMat + dmat
-        nmat = self.b2Mat - dmat - self.g(dmat)
+        mMat = self.lMat + dMat
+        nMat = self.b2Mat - dMat - self.g(dMat)
 
         consumption_stage.grids_before_cleanup = {
-            "dmat": dmat,
-            "mmat": mmat,
-            "nmat": nmat,
-            "lmat": self.lMat,
-            "b2mat": self.b2Mat,
+            "dMat": dMat,
+            "mMat": mMat,
+            "nMat": nMat,
+            "lMat": self.lMat,
+            "b2Mat": self.b2Mat,
         }
 
-        curvilinear_interp = Curvilinear2DInterp(dmat, mmat, nmat)
+        # curvilinear_interp = Curvilinear2DInterp(dMat, mMat, nMat)
 
         # remove non finite values
         # curvilinear_interp would not work with non-finite values
-        idx = np.isfinite(nmat)
-        d = dmat[idx]
-        m = mmat[idx]
-        n = nmat[idx]
+        idx = np.isfinite(nMat)
+        d = dMat[idx]
+        m = mMat[idx]
+        n = nMat[idx]
 
         # remove values that are too negative since we can't have negative deposits
         idx = np.logical_or(n < -5, m < -5)
@@ -437,46 +426,44 @@ class PensionContribSolver(MetricObject):
         # create interpolator
         linear_interp = CloughTocher2DInterpolator(list(zip(m, n)), d)
         # linear_interp = GeneralizedRegressionUnstructuredInterp(
-        #     dmat,
-        #     [mmat, nmat],
+        #     dMat,
+        #     [mMat, nMat],
         #     model="gaussian-process",
         #     feature="poly",
         #     std=True,
         # )
 
         # evaluate d on common grid
-        dmat = np.nan_to_num(linear_interp(self.mMat, self.nMat))
-        dmat = np.maximum(0.0, dmat)
-        lmat = self.mMat - dmat
-        b2mat = self.nMat + dmat + self.g(dmat)
+        dMat = np.nan_to_num(linear_interp(self.mMat, self.nMat))
+        dMat = np.maximum(0.0, dMat)
+        lMat = self.mMat - dMat
+        b2Mat = self.nMat + dMat + self.g(dMat)
 
         # evaluate c on common grid
-        cmat = c_func_next(lmat, b2mat)
+        cMat = c_func_next(lMat, b2Mat)
         # there is no consumption or deposit when there is no cash on hand
         mGrid_temp = np.append(0.0, self.mGrid)
-        dmat_temp = np.insert(dmat, 0, 0.0, axis=0)
-        cmat_temp = np.insert(cmat, 0, 0.0, axis=0)
+        dMat_temp = np.insert(dMat, 0, 0.0, axis=0)
+        cMat_temp = np.insert(cMat, 0, 0.0, axis=0)
 
-        d_outr_func = BilinearInterpFast(dmat_temp, mGrid_temp, self.nGrid)
-        c_outr_func = BilinearInterpFast(cmat_temp, mGrid_temp, self.nGrid)
+        d_outr_func = LinearFast(dMat_temp, [mGrid_temp, self.nGrid])
+        c_outr_func = LinearFast(cMat_temp, [mGrid_temp, self.nGrid])
         dvdm_outr_func = MargValueFuncCRRA(c_outr_func, self.CRRA)
 
-        dvdb_innr = dvdb_func_next(lmat, b2mat)
+        dvdb_innr = dvdb_func_next(lMat, b2Mat)
 
         dvdn_outr_nvrs = self.u.derinv(dvdb_innr)
         dvdn_outr_nvrs_temp = np.insert(dvdn_outr_nvrs, 0, dvdn_outr_nvrs[0], axis=0)
-        dvdn_outr_nvrs_func = BilinearInterpFast(
-            dvdn_outr_nvrs_temp, mGrid_temp, self.nGrid
-        )
+        dvdn_outr_nvrs_func = LinearFast(dvdn_outr_nvrs_temp, [mGrid_temp, self.nGrid])
         dvdn_outr_func = MargValueFuncCRRA(dvdn_outr_nvrs_func, self.CRRA)
 
         # make value function
-        v_outr = v_func_next(lmat, b2mat)
+        v_outr = v_func_next(lMat, b2Mat)
         v_outr_nvrs = self.u.inv(v_outr)
         # insert value of 0 at m = 0
         v_outr_nvrs_temp = np.insert(v_outr_nvrs, 0, 0.0, axis=0)
-        # mmat and nmat are irregular grids so we need Curvilinear2DInterp
-        v_now_nvrs_func = BilinearInterpFast(v_outr_nvrs_temp, mGrid_temp, self.nGrid)
+        # mMatand nMatare irregular grids so we need Curvilinear2DInterp
+        v_now_nvrs_func = LinearFast(v_outr_nvrs_temp, [mGrid_temp, self.nGrid])
         v_outr_func = ValueFuncCRRA(v_now_nvrs_func, self.CRRA)
 
         deposit_stage = DepositStage(
@@ -488,7 +475,7 @@ class PensionContribSolver(MetricObject):
 
         deposit_stage.c_func = c_outr_func
         deposit_stage.linear_interp = linear_interp
-        deposit_stage.curvilinear_interp = curvilinear_interp
+        # deposit_stage.curvilinear_interp = curvilinear_interp
 
         return deposit_stage
 
@@ -519,7 +506,7 @@ class PensionContribSolver(MetricObject):
             upper_bounds=self.mMat,
         )
 
-        dmat = res.params
+        dMat = res.params
 
         # for mi in range(self.mGrid.size):
         #     for ni in range(self.nGrid.size):
@@ -534,18 +521,18 @@ class PensionContribSolver(MetricObject):
         #             bounds=(0, m_nrm),
         #             method="bounded",
         #         )
-        #         dmat[mi, ni] = res.x
+        #         dMat[mi, ni] = res.x
 
         # add d = 0 when no liquid cash
-        dmat_temp = np.insert(dmat, 0, 0.0, axis=0)
+        dMat_temp = np.insert(dMat, 0, 0.0, axis=0)
 
-        d_func = BilinearInterpFast(dmat_temp, np.append(0.0, self.mGrid), self.nGrid)
+        d_func = LinearFast(dMat_temp, [np.append(0.0, self.mGrid), self.nGrid])
 
         deposit_stage = DepositStage(
             d_func=d_func,
         )
         deposit_stage.extras = {
-            "d_nrm": dmat,
+            "d_nrm": dMat,
             "m_nrm": self.mMat,
             "n_nrm": self.nMat,
             "res": res,
@@ -573,7 +560,7 @@ class PensionContribSolver(MetricObject):
 
             return -dvdl + dvdb * (1 + self.g.der(d_nrm))
 
-        dmat = np.empty_like(self.mMat)
+        dMat = np.empty_like(self.mMat)
 
         for mi in range(self.mGrid.size):
             for ni in range(self.nGrid.size):
@@ -589,12 +576,12 @@ class PensionContribSolver(MetricObject):
                     ),
                     bounds=[(0, m_nrm)],
                 )
-                dmat[mi, ni] = res.x
+                dMat[mi, ni] = res.x
 
         # add d = 0 when no liquid cash
-        dmat_temp = np.insert(dmat, 0, 0.0, axis=0)
+        dMat_temp = np.insert(dMat, 0, 0.0, axis=0)
 
-        d_func = BilinearInterpFast(dmat_temp, np.append(0.0, self.mGrid), self.nGrid)
+        d_func = LinearFast(dMat_temp, [np.append(0.0, self.mGrid), self.nGrid])
 
         deposit_stage = DepositStage(
             d_func=d_func,
