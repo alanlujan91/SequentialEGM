@@ -23,7 +23,7 @@ from IPython import get_ipython
 figures_path = "../Figures/"
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-agent = PensionContribConsumerType()
+agent = PensionContribConsumerType(cycles=1)
 
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
@@ -233,7 +233,7 @@ gauss_interp = GeneralizedRegressionUnstructuredInterp(
 
 # %%
 get_ipython().run_line_magic("matplotlib", "widget")
-plot_3d_func(gauss_interp, 0, 5)
+plot_3d_func(agent.solution[0].deposit_stage.d_func, 0, 5)
 
 
 # %%

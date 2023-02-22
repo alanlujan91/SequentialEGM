@@ -620,9 +620,6 @@ class PensionContribSolver(MetricObject):
 
 
 init_pension_contrib = init_portfolio.copy()
-T_cycle = 10  # 19 solve cycles and 1 retirement cycle
-init_pension_contrib["T_cycle"] = T_cycle
-init_pension_contrib["T_age"] = T_cycle + 1
 init_pension_contrib["Rfree"] = 1.02
 init_pension_contrib["RiskyAvg"] = 1.04
 init_pension_contrib["RiskyStd"] = 0.2
@@ -631,11 +628,11 @@ init_pension_contrib["DiscFac"] = 0.98
 init_pension_contrib["CRRA"] = 2.0
 init_pension_contrib["DisutilLabor"] = 0.25
 init_pension_contrib["TaxDeduct"] = 0.10
-init_pension_contrib["LivPrb"] = [1.0] * T_cycle
-init_pension_contrib["PermGroFac"] = [1.0] * T_cycle
-init_pension_contrib["TranShkStd"] = [0.10] * T_cycle
+init_pension_contrib["LivPrb"] = [1.0]
+init_pension_contrib["PermGroFac"] = [1.0]
+init_pension_contrib["TranShkStd"] = [0.10]
 init_pension_contrib["TranShkCount"] = 7
-init_pension_contrib["PermShkStd"] = [0.10] * T_cycle
+init_pension_contrib["PermShkStd"] = [0.10]
 init_pension_contrib["PermShkCount"] = 1
 init_pension_contrib["UnempPrb"] = 0.0  # Prob of unemployment while working
 init_pension_contrib["IncUnemp"] = 0.0

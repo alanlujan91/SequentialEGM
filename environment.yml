@@ -1,0 +1,25 @@
+name: egmn-dev
+channels:
+  - pytorch
+  - gpytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - cupy
+  - jupyter
+  - jupyterlab
+  - matplotlib
+  - numba
+  - numpy
+  - pandas
+  - pip
+  - python=3.10
+  - scikit-learn
+  - scipy
+  - seaborn
+  - statsmodels
+  - pip:
+      - git+https://github.com/alanlujan91/HARK@map_coordinates
+      - ConSav
+      - EconModel
