@@ -1,24 +1,30 @@
 name: egmn-dev
 channels:
-  - pytorch
-  - gpytorch
   - nvidia
   - conda-forge
   - defaults
 dependencies:
+  - black
   - cupy
+  - estimagic
+  - ipython
+  - joblib
   - jupyter
   - jupyterlab
+  - jupytext
   - matplotlib
+  - networkx
   - numba
   - numpy
   - pandas
   - pip
+  - pre-commit
   - python=3.10
   - scikit-learn
   - scipy
   - seaborn
   - statsmodels
+  - xarray
   - pip:
       - git+https://github.com/alanlujan91/HARK@map_coordinates
       - ConSav
