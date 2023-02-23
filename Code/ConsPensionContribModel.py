@@ -118,8 +118,6 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         )
 
     def update_grids(self):
-        # retirement
-
         # worker grids
         self.mGrid = construct_assets_grid(
             GridParameters(self.epsilon, self.mMax, self.mCount, self.mNestFac)
@@ -128,15 +126,18 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         self.nGrid = construct_assets_grid(
             GridParameters(0.0, self.nMax, self.nCount, self.nNestFac)
         )
+
         self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
 
         # pure consumption grids
         self.aGrid = construct_assets_grid(
             GridParameters(0.0, self.aMax, self.aCount, self.aNestFac)
         )
+
         self.bGrid = construct_assets_grid(
             GridParameters(0.0, self.bMax, self.bCount, self.bNestFac)
         )
+
         self.aMat, self.bMat = np.meshgrid(self.aGrid, self.bGrid, indexing="ij")
 
         # pension deposit grids
@@ -227,6 +228,19 @@ class PensionContribSolver(MetricObject):
         self.g = UtilityFunction(g, gp, gp_inv)
 
     def solve_post_decision(self, deposit_stage_next):
+        """
+        Should use aMat and bMat.
+
+        Parameters
+        ----------
+        deposit_stage_next : _type_
+            _description_
+
+        Returns
+        -------
+        _type_
+            _description_
+        """
         # unpack next period's solution
         dvdm_func_next = deposit_stage_next.dvdm_func
         dvdn_func_next = deposit_stage_next.dvdn_func
@@ -260,6 +274,7 @@ class PensionContribSolver(MetricObject):
             return variables
 
         # First calculate marginal value functions
+
         def dvda_func(shock, aBal, bBal):
             psi = shock["perm"]
             mNrm_next = aBal * self.Rfree / psi + shock["tran"]
@@ -327,6 +342,19 @@ class PensionContribSolver(MetricObject):
         return post_decision_stage
 
     def solve_consumption_decision(self, post_decision_stage):
+        """
+        Should use lMat and b2Mat
+
+        Parameters
+        ----------
+        post_decision_stage : _type_
+            _description_
+
+        Returns
+        -------
+        _type_
+            _description_
+        """
         dvda_end_of_prd_nvrs = post_decision_stage.dvda_nvrs
         dvdb_end_of_prd_nvrs = post_decision_stage.dvdb_nvrs
         v_end_of_prd = post_decision_stage.vals
@@ -363,7 +391,7 @@ class PensionContribSolver(MetricObject):
         )
 
         # make value function
-        v_innr = self.u(cMat) - self.DisutilLabor + v_end_of_prd
+        v_innr = self.u(cMat) + v_end_of_prd
         v_innr_nvrs = self.u.inv(v_innr)
         v_now_nvrs_temp = np.insert(v_innr_nvrs, 0, 0.0, axis=0)
 
@@ -419,7 +447,7 @@ class PensionContribSolver(MetricObject):
 
         # evaluate d on common grid
         dMat = gaussian_interp(self.mMat, self.nMat)
-        dMat = np.maximum(0.0, dMat)
+        dMat = np.maximum(0.0, dMat)  # binding constraint
         lMat = self.mMat - dMat
         b2Mat = self.nMat + dMat + self.g(dMat)
 
@@ -459,7 +487,6 @@ class PensionContribSolver(MetricObject):
 
         deposit_stage.c_func = c_outr_func
         deposit_stage.gaussian_interp = gaussian_interp
-        # deposit_stage.curvilinear_interp = curvilinear_interp
 
         return deposit_stage
 
@@ -634,8 +661,8 @@ class PensionContribSolver(MetricObject):
 init_pension_contrib = init_portfolio.copy()
 init_pension_contrib["Rfree"] = 1.02
 init_pension_contrib["RiskyAvg"] = 1.04
-init_pension_contrib["RiskyStd"] = 0.2
-init_pension_contrib["RiskyCount"] = 7
+init_pension_contrib["RiskyStd"] = 0.0
+init_pension_contrib["RiskyCount"] = 1
 init_pension_contrib["DiscFac"] = 0.98
 init_pension_contrib["CRRA"] = 2.0
 init_pension_contrib["DisutilLabor"] = 0.25

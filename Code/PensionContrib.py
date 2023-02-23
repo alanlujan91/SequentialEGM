@@ -8,7 +8,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.14.4
 #   kernelspec:
-#     display_name: egmn-dev
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
@@ -110,7 +110,7 @@ plot_3d_func(agent.solution[T].deposit_stage.dvdm_func.cFunc, 0, 5)
 plot_3d_func(agent.solution[T].deposit_stage.dvdn_func.cFunc, 0, 5)
 
 
-# %% pycharm={"name": "#%%\n"}
+# %% pycharm={"name": "#%%\n"} jupyter={"outputs_hidden": false}
 # %time
 plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, 0, 5)
 
@@ -119,7 +119,7 @@ plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, 0, 5)
 # ## Grids
 
 
-# %% pycharm={"name": "#%%\n"}
+# %% pycharm={"name": "#%%\n"} jupyter={"outputs_hidden": false}
 def scatter_hist(x, y, color, ax, ax_histx, ax_histy):
     # no labels
     ax_histx.tick_params(axis="x", labelbottom=False)
@@ -142,7 +142,7 @@ def scatter_hist(x, y, color, ax, ax_histx, ax_histy):
     return hist
 
 
-# %% pycharm={"name": "#%%\n"}
+# %% pycharm={"name": "#%%\n"} jupyter={"outputs_hidden": false}
 # definitions for the axes
 left, width = 0.1, 0.65
 bottom, height = 0.1, 0.65
