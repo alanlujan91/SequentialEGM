@@ -89,13 +89,20 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
 
     def update_solution_terminal(self):
         # consume everything in terminal period
-        c_func = lambda mNrm, nNrm: mNrm + nNrm
+        def c_func(mNrm, nNrm):
+            return mNrm + nNrm
+
         # deposit nothing in terminal period
-        d_func = lambda mNrm, nNrm: 0.0
+        def d_func(mNrm, nNrm):
+            return 0.0
 
         u = UtilityFuncCRRA(self.CRRA)
-        v_func = lambda mNrm, nNrm: u(c_func(mNrm, nNrm))
-        vp_func = lambda mNrm, nNrm: u.der(c_func(mNrm, nNrm))
+
+        def v_func(mNrm, nNrm):
+            return u(c_func(mNrm, nNrm))
+
+        def vp_func(mNrm, nNrm):
+            return u.der(c_func(mNrm, nNrm))
 
         consumption_stage = ConsumptionStage(
             c_func=c_func, v_func=v_func, dvdl_func=vp_func, dvdb_func=vp_func
@@ -208,9 +215,14 @@ class PensionContribSolver(MetricObject):
         # pension deposit function: tax deduction from pension deposits
         # which is gradually decreasing in the level of deposits
 
-        g = lambda x: self.TaxDeduct * np.log(1 + x)
-        gp = lambda x: self.TaxDeduct / (1 + x)
-        gp_inv = lambda x: self.TaxDeduct / x - 1
+        def g(x):
+            return self.TaxDeduct * np.log(1 + x)
+
+        def gp(x):
+            return self.TaxDeduct / (1 + x)
+
+        def gp_inv(x):
+            return self.TaxDeduct / x - 1
 
         self.g = UtilityFunction(g, gp, gp_inv)
 
@@ -632,7 +644,7 @@ init_pension_contrib["LivPrb"] = [1.0]
 init_pension_contrib["PermGroFac"] = [1.0]
 init_pension_contrib["TranShkStd"] = [0.10]
 init_pension_contrib["TranShkCount"] = 7
-init_pension_contrib["PermShkStd"] = [0.10]
+init_pension_contrib["PermShkStd"] = [0.0]
 init_pension_contrib["PermShkCount"] = 1
 init_pension_contrib["UnempPrb"] = 0.0  # Prob of unemployment while working
 init_pension_contrib["IncUnemp"] = 0.0
@@ -645,28 +657,28 @@ init_pension_contrib["epsilon"] = 1e-6
 
 
 init_pension_contrib["mCount"] = 100
-init_pension_contrib["mMax"] = 50
+init_pension_contrib["mMax"] = 10
 init_pension_contrib["mNestFac"] = 2
 
 init_pension_contrib["nCount"] = 100
-init_pension_contrib["nMax"] = 50
-init_pension_contrib["nNestFac"] = 2
+init_pension_contrib["nMax"] = 12
+init_pension_contrib["nNestFac"] = -1
 
 init_pension_contrib["lCount"] = 100
-init_pension_contrib["lMax"] = 50
+init_pension_contrib["lMax"] = 9
 init_pension_contrib["lNestFac"] = 2
 
 init_pension_contrib["b2Count"] = 100
-init_pension_contrib["b2Max"] = 50
-init_pension_contrib["b2NestFac"] = 2
+init_pension_contrib["b2Max"] = 13
+init_pension_contrib["b2NestFac"] = -1
 
 init_pension_contrib["aCount"] = 100
-init_pension_contrib["aMax"] = 50
+init_pension_contrib["aMax"] = 8
 init_pension_contrib["aNestFac"] = 2
 
 init_pension_contrib["bCount"] = 100
-init_pension_contrib["bMax"] = 50
-init_pension_contrib["bNestFac"] = 2
+init_pension_contrib["bMax"] = 14
+init_pension_contrib["bNestFac"] = -1
 
 
 class PensionRetirementConsumerType(PensionContribConsumerType):

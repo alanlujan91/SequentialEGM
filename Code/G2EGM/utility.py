@@ -3,7 +3,7 @@ from numba import njit
 
 @njit(fastmath=True)
 def func_ret(c, par):
-    return c ** (1 - par.rho) / (1 - par.rho)
+    return c ** (1 - par.rho) / (1 - par.rho) - 1e9
 
 
 @njit(fastmath=True)

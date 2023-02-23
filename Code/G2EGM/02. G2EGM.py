@@ -8,7 +8,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.14.4
 #   kernelspec:
-#     display_name: Python 3.9.13 ('consav-dev')
+#     display_name: egmn-dev
 #     language: python
 #     name: python3
 # ---
@@ -54,10 +54,13 @@ from G2EGMModel import G2EGMModelClass
 
 # %% pycharm={"name": "#%%\n"}
 T = 20
-Neta = 1
-var_eta = 0.0
+Neta = 7
+var_eta = 0.1
 do_print = False
 
+
+# %% [markdown]
+#
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Timing function
@@ -110,11 +113,11 @@ retirement(model_G2EGM_shocks)
 
 
 # %% pycharm={"name": "#%%\n"}
-decision_functions(model_G2EGM_shocks, 18)
+decision_functions(model_G2EGM_shocks, 17)
 
 
 # %% pycharm={"name": "#%%\n"}
-segments(model_G2EGM_shocks, 18)
+segments(model_G2EGM_shocks, 0)
 
 
 # %% pycharm={"name": "#%%\n"}

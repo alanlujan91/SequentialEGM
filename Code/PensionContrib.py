@@ -23,7 +23,7 @@ from IPython import get_ipython
 figures_path = "../Figures/"
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-agent = PensionContribConsumerType(cycles=1)
+agent = PensionContribConsumerType(cycles=19)
 
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
@@ -35,25 +35,6 @@ def plot_bilinear(function):
     plt.plot(x_list, f_vals)
 
 
-# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-agent.solve()
-
-
-# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-plot_funcs(agent.solution[0].consumption_stage.c_func.xInterpolators, 0, 5)
-
-
-# %%
-plot_funcs(agent.solution[0].consumption_stage.v_func.vFuncNvrs.xInterpolators, 0, 5)
-
-# %%
-plot_funcs(agent.solution[0].consumption_stage.dvdl_func.cFunc.xInterpolators, 0, 5)
-
-# %%
-plot_funcs(agent.solution[0].consumption_stage.dvdb_func.cFunc.xInterpolators, 0, 5)
-
-
-# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 def plot_3d_func(func, min, max, n=100):
     # get_ipython().run_line_magic("matplotlib", "widget")
     xgrid = np.linspace(min, max, n)
@@ -72,41 +53,70 @@ def plot_3d_func(func, min, max, n=100):
     plt.show()
 
 
-# %% pycharm={"name": "#%%\n"}
-plot_3d_func(agent.solution[0].consumption_stage.c_func, 0, 5)
+# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
+agent.solve()
+
+T = 0
+
+
+# %% [markdown]
+# ## Post Decision Stage
+
+# %%
+plot_3d_func(agent.solution[T].post_decision_stage.v_func.vFuncNvrs, 0, 5)
 
 
 # %%
-plot_3d_func(agent.solution[0].deposit_stage.v_func.vFuncNvrs, 0, 5)
+plot_3d_func(agent.solution[T].post_decision_stage.dvda_func.cFunc, 0, 5)
+
+# %%
+plot_3d_func(agent.solution[T].post_decision_stage.dvdb_func.cFunc, 0, 5)
+
+# %% [markdown]
+# ## Consumption Stage
+
+# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
+plot_3d_func(agent.solution[T].consumption_stage.c_func, 0, 5)
 
 
 # %%
-plot_3d_func(agent.solution[0].consumption_stage.dvdb_func.cFunc, 0, 5)
+plot_3d_func(agent.solution[T].consumption_stage.v_func.vFuncNvrs, 0, 5)
+
+# %%
+plot_3d_func(agent.solution[T].consumption_stage.dvdl_func.cFunc, 0, 5)
+
+# %%
+plot_3d_func(agent.solution[T].consumption_stage.dvdb_func.cFunc, 0, 5)
+
+# %% [markdown]
+# ## Deposit Stage
+
+# %%
+plot_3d_func(agent.solution[T].deposit_stage.d_func, 0, 5)
 
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-plot_3d_func(agent.solution[0].deposit_stage.d_func, 0, 5)
+plot_3d_func(agent.solution[T].deposit_stage.c_func, 0, 5)
+
+
+# %%
+plot_3d_func(agent.solution[T].deposit_stage.v_func.vFuncNvrs, 0, 5)
+
+# %%
+plot_3d_func(agent.solution[T].deposit_stage.dvdm_func.cFunc, 0, 5)
 
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-plot_3d_func(agent.solution[0].deposit_stage.c_func, 0, 5)
+plot_3d_func(agent.solution[T].deposit_stage.dvdn_func.cFunc, 0, 5)
 
 
 # %% pycharm={"name": "#%%\n"}
 # %time
-plot_3d_func(agent.solution[0].deposit_stage.gaussian_interp, 0, 5)
+plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, 0, 5)
 
 
-# %%
-plot_3d_func(agent.solution[0].deposit_stage.v_func.vFuncNvrs, 0, 5)
-
-
-# %%
-plot_3d_func(agent.solution[0].deposit_stage.dvdm_func.cFunc, 0, 5)
-
-
-# %%
-plot_3d_func(agent.solution[0].deposit_stage.dvdn_func.cFunc, 0, 5)
+# %% [markdown]
+# ## Grids
 
 
 # %% pycharm={"name": "#%%\n"}
@@ -149,9 +159,9 @@ ax = fig.add_axes(rect_scatter)
 ax_histx = fig.add_axes(rect_histx, sharex=ax)
 ax_histy = fig.add_axes(rect_histy, sharey=ax)
 
-x = agent.solution[0].deposit_stage.gaussian_interp.grids[0]
-y = agent.solution[0].deposit_stage.gaussian_interp.grids[1]
-color = agent.solution[0].deposit_stage.gaussian_interp.values
+x = agent.solution[T].deposit_stage.gaussian_interp.grids[0]
+y = agent.solution[T].deposit_stage.gaussian_interp.grids[1]
+color = agent.solution[T].deposit_stage.gaussian_interp.values
 
 idx = np.logical_or(x < 0, y < 0)
 
@@ -171,7 +181,7 @@ plt.show()
 fig.savefig(figures_path + "EndogenousGrid.pdf")
 
 # %%
-grids = agent.solution[0].consumption_stage.grids_before_cleanup
+grids = agent.solution[T].consumption_stage.grids_before_cleanup
 
 
 # %%
@@ -190,8 +200,8 @@ cbar = fig.colorbar(plot)
 cbar.ax.set_ylabel("Pension Deposits $d$")
 
 
-plt.xlim([-1, 50])
-plt.ylim([-1, 50])
+plt.xlim([-1, 10])
+plt.ylim([-1, 10])
 
 
 # %%
@@ -216,7 +226,7 @@ fig.savefig(figures_path + "ExogenousGrid.pdf")
 
 
 # %%
-grids = agent.solution[0].consumption_stage.grids_before_cleanup
+grids = agent.solution[T].consumption_stage.grids_before_cleanup
 
 # %%
 from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
@@ -232,8 +242,8 @@ gauss_interp = GeneralizedRegressionUnstructuredInterp(
 
 
 # %%
-get_ipython().run_line_magic("matplotlib", "widget")
-plot_3d_func(agent.solution[0].deposit_stage.d_func, 0, 5)
+# get_ipython().run_line_magic("matplotlib", "widget")
+plot_3d_func(gauss_interp, 0, 5)
 
 
 # %%

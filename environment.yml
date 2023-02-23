@@ -7,13 +7,12 @@ dependencies:
   - black
   - cupy
   - estimagic
-  - ipython
-  - joblib
-  - jupyter
+  - ipympl
   - jupyterlab
   - jupytext
   - matplotlib
   - networkx
+  - notebook
   - numba
   - numpy
   - pandas
