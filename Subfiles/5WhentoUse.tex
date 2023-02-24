@@ -9,6 +9,52 @@
 \par\section{Conditions for using the Sequential Endogenous Grid Method}
 \notinsubfile{\label{sec:conditions}}
 
+\subsection{Splitting the problem into subproblems}
+
+The first step in using the Sequential Endogenous Grid Method is to split the problem into subproblems. This process of splitting up the problem has to be strategic so as to not insert additional complexity to the original problem. If one is not careful when doing this, the sub-problems can become more complex and intractable than the original problem.
+
+To split up the problem, we first count the number of control variables or decisions faced by the agent. Ideally, if the agent has $n$ control variables, then the problem should be split into $n$ subproblems, each handling a different control variable. For counting the number of control variables, it is important to not double count variables which are equivalent and have market clearing conditions. For example, the decision of how much to consume and how much to save may seem like 2 different choices, but because of the market clearing condition $\cRat + \aRat = \mRat$ they are resolved simultaneously and count as only one decision variable. Similarly, the
+choice between labor and leisure are simultaneous and count as only one decision.
+
+Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in section 2 of the paper, or differentiable and invertible functions in the constraints, as in section 3 of the paper.
+
+\subsubsection{Separable utility functions}
+
+In that problem, we have additively separable utility of consumption and leisure, which allows for each of these control variables to be handled by a separate subproblem. So, it makes sense to split the utility between subproblems and attach one to the consumption subproblem and one to the leisure subproblem.
+
+As mentioned in section 2, however, there are only 2 separable utility functions in the problem which have been assigned to 2 sub-problems already. This leaves one control variable without a separable utility function. In that case, there is no more endogenous grid method step to exploit, and this subproblem has to be handled by standard convex optimization techniques such as maximization of the value function (VFI) or finding the root of the Euler equation (PFI).
+
+Now that we have split the problem into conceptual sub-problems, it is important to sequence them in such a way that they don't become more complex than the original problem. The key here is to avoid adding unnecessary state variables. For example, in the consumption-leisure-portfolio problem, if we were to choose consumption first, we would have to track the wage rate into the following leisure sub-problem. This would mean that our consumption problem would be 2-dimensional as well as our labor decision problem. As presented, the choice of order in section 2 ensures that the consumption problem is 1-dimensional, as we can shed the information about the wage rate offer after the agent has made their labor-leisure decision. If we did this the other way, the problem would be more complex and require more computational resources.
+
+The consumption sub-problem would be 2-dimensional instead of 1 dimensional, adding more complexity,
+
+\begin{equation}
+    \begin{split}
+        \vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
+        & \text{s.t.}\\
+        \bRat' & = \bRat - \cRat \ge - \tShkEmp
+    \end{split}
+\end{equation}
+
+while the labor-leisure sub-problem would have an additional constraint
+
+\begin{equation}
+    \begin{split}
+        \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \vNum(\leisure) + \vEnd(\aRat) \\
+        & \text{s.t.} \\
+        0 & \le \leisure \le 1 \\
+        \aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
+    \end{split}
+\end{equation}
+
+\subsubsection{Differentiable and invertible constraints}
+
+In section 3, we saw that a problem with a differentiable and invertible constraint can also be used to embed an additional endogenous grid method step.
+
+Therefore, strategic ordering of sub-problems can greatly simplify the solution process and reduce computational burden.
+
+
+
 \ifthenelse{\boolean{Web}}{}{
 \end{document} \endinput
 }
