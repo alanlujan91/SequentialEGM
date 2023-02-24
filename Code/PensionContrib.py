@@ -110,7 +110,7 @@ plot_3d_func(agent.solution[T].deposit_stage.dvdm_func.cFunc, 0, 5)
 plot_3d_func(agent.solution[T].deposit_stage.dvdn_func.cFunc, 0, 5)
 
 
-# %% pycharm={"name": "#%%\n"} jupyter={"outputs_hidden": false}
+# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 # %time
 plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, 0, 5)
 
@@ -119,7 +119,7 @@ plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, 0, 5)
 # ## Grids
 
 
-# %% pycharm={"name": "#%%\n"} jupyter={"outputs_hidden": false}
+# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 def scatter_hist(x, y, color, ax, ax_histx, ax_histy):
     # no labels
     ax_histx.tick_params(axis="x", labelbottom=False)
@@ -142,7 +142,7 @@ def scatter_hist(x, y, color, ax, ax_histx, ax_histy):
     return hist
 
 
-# %% pycharm={"name": "#%%\n"} jupyter={"outputs_hidden": false}
+# %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 # definitions for the axes
 left, width = 0.1, 0.65
 bottom, height = 0.1, 0.65
@@ -242,7 +242,7 @@ gauss_interp = GeneralizedRegressionUnstructuredInterp(
 
 
 # %%
-# get_ipython().run_line_magic("matplotlib", "widget")
+get_ipython().run_line_magic("matplotlib", "widget")
 plot_3d_func(gauss_interp, 0, 5)
 
 

@@ -113,7 +113,7 @@ retirement(model_G2EGM_shocks)
 
 
 # %% pycharm={"name": "#%%\n"}
-decision_functions(model_G2EGM_shocks, 17)
+decision_functions(model_G2EGM_shocks, 0)
 
 
 # %% pycharm={"name": "#%%\n"}

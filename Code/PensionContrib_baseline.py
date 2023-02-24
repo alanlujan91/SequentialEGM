@@ -26,7 +26,7 @@ figures_path = "../Figures/"
 baseline_params = init_pension_contrib.copy()
 baseline_params["mCount"] = 100
 baseline_params["mMax"] = 10
-baseline_params["mNestFac"] = 2
+baseline_params["mNestFac"] = -1
 
 baseline_params["nCount"] = 100
 
@@ -36,7 +36,7 @@ baseline_params["nNestFac"] = -1
 
 baseline_params["lCount"] = 100
 baseline_params["lMax"] = 9
-baseline_params["lNestFac"] = 2
+baseline_params["lNestFac"] = -1
 
 baseline_params["b2Count"] = 100
 baseline_params["b2Max"] = 13
@@ -44,11 +44,13 @@ baseline_params["b2NestFac"] = -1
 
 baseline_params["aCount"] = 100
 baseline_params["aMax"] = 8
-baseline_params["aNestFac"] = 2
+baseline_params["aNestFac"] = -1
 
 baseline_params["bCount"] = 100
 baseline_params["bMax"] = 14
 baseline_params["bNestFac"] = -1
+
+baseline_params["cycles"] = 1
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 agent = PensionContribConsumerType(**baseline_params)
@@ -266,7 +268,7 @@ fig.suptitle("Pension Deposit on Endogenous Grid", fontsize=16)
 ax.set_xlabel("Market Resources $m$")
 ax.set_ylabel("Retirement Savings $n$")
 plt.show()
-fig.savefig(figures_path + "EndogenousGrid.pdf")
+# fig.savefig(figures_path + "EndogenousGrid.pdf")
 
 # %%
 fig, ax = plt.subplots()
@@ -294,8 +296,8 @@ fig, ax = plt.subplots()
 scatter = ax.scatter(
     grids["lMat"],
     grids["b2Mat"],
-    c=np.maximum(grids["dMat"], 0),
-    cmap="viridis",
+    # c=np.maximum(grids["dMat"], 0),
+    # cmap="viridis",
     vmin=-2,
     vmax=15,
     plotnonfinite=True,
@@ -333,65 +335,64 @@ plot_3d_func(gauss_interp, 0, 5)
 
 
 # %%
-consumption_stage = agent.solution[T].consumption_stage
-dvdl_func_next = consumption_stage.dvdl_func
-dvdb_func_next = consumption_stage.dvdb_func
-c_func_next = consumption_stage.c_func
-v_func_next = consumption_stage.v_func
+# consumption_stage = agent.solution[T].consumption_stage
+# dvdl_func_next = consumption_stage.dvdl_func
+# dvdb_func_next = consumption_stage.dvdb_func
+# c_func_next = consumption_stage.c_func
+# v_func_next = consumption_stage.v_func
 
-dvdl_innr = dvdl_func_next(agent.lMat, agent.b2Mat)
-dvdb_innr = dvdb_func_next(agent.lMat, agent.b2Mat)
-
-
-def gp_inv(x):
-    return agent.TaxDeduct / x - 1
+# dvdl_innr = dvdl_func_next(agent.lMat, agent.b2Mat)
+# dvdb_innr = dvdb_func_next(agent.lMat, agent.b2Mat)
 
 
-# endogenous grid method, again
-dMat = gp_inv(dvdl_innr / dvdb_innr - 1.0)
+# def gp_inv(x):
+#     return agent.TaxDeduct / x - 1
 
-# %%
-dvdl_func_next(0.0, 0.0)
 
+# # endogenous grid method, again
+# dMat = gp_inv(dvdl_innr / dvdb_innr - 1.0)
 
 # %%
-def adaptive_func(lb):
-    l, b = lb
+# dvdl_func_next(0.0, 0.0)
 
-    dvdl_innr = dvdl_func_next(float(l), float(b))
-    dvdb_innr = dvdb_func_next(float(l), float(b))
+# %%
+# def adaptive_func(lb):
+#     l, b = lb
 
-    return dvdl_innr / dvdb_innr
+#     dvdl_innr = dvdl_func_next(float(l), float(b))
+#     dvdb_innr = dvdb_func_next(float(l), float(b))
+
+#     return dvdl_innr / dvdb_innr
 
 
-import warnings
+# import warnings
 
 # %% tags=[]
-from adaptive import Learner2D, Runner, notebook_extension
+# from adaptive import Learner2D, Runner, notebook_extension
 
-warnings.filterwarnings("ignore")
+# warnings.filterwarnings("ignore")
 
-import logging
+# import logging
 
-from adaptive.learner.Learner2D import minimize_triangle_surface_loss
+# from adaptive.learner.Learner2D import minimize_triangle_surface_loss
 
-logging.getLogger("param.main").setLevel(logging.CRITICAL)
+# logging.getLogger("param.main").setLevel(logging.CRITICAL)
 
-# import distributed
+# # import distributed
 
-# client = distributed.Client()
-
-
-notebook_extension()
-
-loss = minimize_triangle_surface_loss
-
-learner = Learner2D(adaptive_func, bounds=[(0, 10), (0, 10)], loss_per_triangle=loss)
+# # client = distributed.Client()
 
 
-runner = Runner(learner, loss_goal=0.001)  # start calculation on all CPU cores
-runner.live_info()  # shows a widget with status information
-runner.live_plot(update_interval=0.1)
+# notebook_extension()
+
+# loss = minimize_triangle_surface_loss
+
+# learner = Learner2D(adaptive_func, bounds=[(0, 10), (0, 10)], loss_per_triangle=loss)
+
+
+# runner = Runner(learner, loss_goal=0.001)  # start calculation on all CPU cores
+# runner.live_info()  # shows a widget with status information
+# runner.live_plot(update_interval=0.1)
 
 # %% tags=[]
 # def plot(learner):
@@ -400,22 +401,3 @@ runner.live_plot(update_interval=0.1)
 
 
 # runner.live_plot(plotter=plot, update_interval=0.1)
-
-# %% tags=[]
-learner_grid = learner.to_numpy()
-
-# %% tags=[]
-plot_scatter_hist(
-    learner_grid[:, 0],
-    learner_grid[:, 1],
-    learner_grid[:, 2],
-    "Pension Deposit on Endogenous Grid",
-    "Market Resources $m$",
-    "Retirement balance $n$",
-    "EndogenousGrid.pdf",
-)
-
-# %% tags=[]
-# learner_grid.shape
-
-# %%

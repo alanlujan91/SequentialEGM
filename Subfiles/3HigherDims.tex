@@ -57,7 +57,7 @@ Finally, the post-decision value function $\wFunc_{t}$ represents the value of b
                 \wFunc_{t}(\aRat_{t}, \bRat_{t}) & = \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \mRat_{t+1}) \right] \\
                 & \text{s.t.} \quad \aRat_{t} \ge 0, \quad \bRat_{t} \ge 0 \\
                 \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}  + \tShkEmp_{t+1} \\
-                \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / / \PGro_{t+1}
+                \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} /  \PGro_{t+1}
         \end{split}
 \end{equation}
 
@@ -65,7 +65,6 @@ Finally, the post-decision value function $\wFunc_{t}$ represents the value of b
 
 As seen in the consumption stage above, the retirement balance $\bRat_{t}$ passes through the problem unaffected because it can't be liquidated until retirement. In this sense, it is already a post-decision state variable. To solve this problem, we can use a fixed grid of $\bRat_{t}$ and for each obtain endogenous consumption and ex-ante market resources using the simple endogenous grid method for the consumption problem.
 
-\subsection{Non-rectilinear grids}
 
 \includegraphics[width=\textwidth]{Figures/ExogenousGrid.pdf}
 
