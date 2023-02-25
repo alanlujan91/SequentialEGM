@@ -14,7 +14,7 @@
 The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^n$) is a discrete time version of \cite{Bodie1992-yp} where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. The objective consists of maximizing the present discounted lifetime utility of consumption and leisure.
 
 \begin{equation}
-    \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
+    \VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
 \end{equation}
 
 In particular, this example makes use of a utility function that is based on Example 1 in the paper, which is that of additively separable utility of labor and leisure as
@@ -23,15 +23,15 @@ In particular, this example makes use of a utility function that is based on Exa
     \utilFunc(\CLev, \Leisure) = \util(\CLev) + \vNum(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
-where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in \cite{Mertens2011-ap}. The use of additively separable utility is ad-hoc, as it will allow for the use of multiple endogenous grid method steps in the solution process.
+where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in \cite{Mertens2011-ap}. The use of additively separable utility is ad-hoc, as it will allow for the use of multiple endogenous grid method steps in the solution process, as we'll see later.
 
-This model represents a consumer who begins the period with a level of bank balances $\bRat_{t}$ and a given wage offer $\tShkEmp_{t}$. Subsequently, they are able to choose consumption, labor intensity, and a risky portfolio share with the objective of maximizing their utility of consumption and leisure, as well as their future wealth.
+This model represents a consumer who begins the period with a level of bank balances $\bRat_{t}$ and a given wage offer $\tShkEmp_{t}$. Simultaneously, they are able to choose consumption, labor intensity, and a risky portfolio share with the objective of maximizing their utility of consumption and leisure, as well as their future wealth.
 
 The problem can be written in normalized recursive form\footnote{
     As in \cite{Carroll2009-zq}, where utility of normalized consumption and leisure is defined as
 
     \begin{equation}
-        \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + \labShare\PLev_{t}^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
+        \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
     \end{equation}
 
 } as
@@ -70,7 +70,7 @@ in which $\labor_{t}$ is the time supplied to labor net of leisure, $\mRat_{t}$ 
 
 \subsection{Restating the problem sequentially}
 
-We can make a few choices to create a nested problem which will allow us to use multiple endogenous grid method steps in sequence. First, the
+We can make a few choices to create a sequential problem which will allow us to use multiple endogenous grid method steps in succession. First, the
 agent decides their labor-leisure trade-off and receives a wage. Their wage
 plus their previous bank balance then becomes their market resources. Second, given
 market resources, the agent makes a pure consumption-saving decision. Finally, given an amount of savings, the consumer then decides their risky portfolio share.
@@ -84,7 +84,7 @@ Starting from the beginning of the period, we can define the labor-leisure probl
         & \text{s.t.} \\
         0 & \leq \leisure_{t} \leq 1 \\
         \labor_{t} & = 1 - \leisure_{t} \\
-        \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
+        \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t}.
     \end{split}
 \end{equation}
 
@@ -95,7 +95,7 @@ The pure consumption-saving problem is then
         \vOpt_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac\vEnd_{t}(\aRat_{t}) \\
         & \text{s.t.} \\
         0 & \leq \cRat_{t} \leq \mRat_{t} \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t}
+        \aRat_{t} & = \mRat_{t} - \cRat_{t}.
     \end{split}
 \end{equation}
 
@@ -111,11 +111,11 @@ Finally, the risky portfolio problem is
         0 & \leq \riskyshare_{t} \leq 1 \\
         \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
         \riskyshare_{t} \\
-        \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
+        \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}.
     \end{split}
 \end{equation}
 
-This sequential approach is explicitly modeled after the nested approach explored in \cite{Druedahl2021-wl}. However, I will offer additional insights that expand on NEGM. An important observation is that now, every single choice is self contained to a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
+This sequential approach is explicitly modeled after the nested approaches explored in  \cite{Clausen2020-zo} and \cite{Druedahl2021-wl}. However, I will offer additional insights that expand on these methods. An important observation is that now, every single choice is self contained to a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
 
 %\begin{equation}
 %	\begin{split}
@@ -137,30 +137,28 @@ This sequential approach is explicitly modeled after the nested approach explore
 
 \subsection{The portfolio decision problem}
 
-As useful as it is to be able to use the EGM step more than once, there are clear problems where the EGM step is not applicable. This basic labor-portfolio choice problem demonstrates where we can use an additional EGM step, and where we can not. Now, we go over a subproblem where we can not use the EGM step.
+As useful as it is to be able to use the EGM step more than once, there are clear problems where the EGM step is not applicable. This basic labor-portfolio choice problem demonstrates where we can use an additional EGM step, and where we can not. First, we go over a subproblem where we can not use the EGM step.
 
 In reorganizing the labor-portfolio problem into subproblems, we assigned the utility of leisure to the leisure-labor subproblem and the utility of consumption to the consumption-savings subproblem. There are no more separable convex utility functions to assign to this problem, and even if we re-organized the problem in a way that moved one of the utility functions into this subproblem, they would not be useful in solving this subproblem via EGM as there is no direct relation between the risky share of portfolio and consumption or leisure. Therefore, the only way to solve this subproblem is through standard convex optimization and root-finding techniques.
 
-Restating the problem in compact form:
+Restating the problem in compact form gives
 
 \begin{equation}
-    \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
+    \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}}  \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
     \vFunc_{t+1}\left(\aRat_{t}(\Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}), \tShkEmp_{t+1}\right)
-    \right]
+    \right].
 \end{equation}
 
-The first order condition with respect to the risky portfolio share is:
+The first order condition with respect to the risky portfolio share is then
 
 \begin{equation}
-    \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t}(\Risky_{t+1} - \Rfree)  \right] = 0
+    \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) (\Risky_{t+1} - \Rfree)  \right] = 0.
 \end{equation}
 
-Finding the optimal risky share requires numerical optimization and root-solving.
-
-To close out the problem, we can calculate the envelope condition as:
+Finding the optimal risky share requires numerical optimization and root-solving of the first order condition. To close out the problem, we can calculate the envelope condition as
 
 \begin{equation}
-    \vEnd_{t}'(\aRat_{t}) = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right]
+    \vEnd_{t}'(\aRat_{t}) =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right].
 \end{equation}
 
 \subsubsection{A note on avoiding taking expectations more than once.}
@@ -175,7 +173,7 @@ where
 
 \begin{equation}
     \begin{split}
-        \vOptAlt_{t}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right)   \right] \\
+        \vOptAlt_{t}(\aRat_{t}, \riskyshare_{t}) & =  \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right)   \right] \\
         \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t} \\
         \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
     \end{split}
@@ -185,40 +183,40 @@ In this case, the process is similar. The only difference is that we don't have 
 
 \begin{equation}
     \begin{split}
-        \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}   \right] \\
-        \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & = \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
+        \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}   \right] \\
+        \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
     \end{split}
 \end{equation}
 
-If we are clever, we can calculate both of these in one step. Now, the optimal risky share can be found by the first order condition and the envelope condition evaluated at the optimal risky share.
+If we are clever, we can calculate both of these in one step. Now, the optimal risky share can be found by the first order condition and we can use it to evaluate the envelope condition.
 
 \begin{equation}
     \text{F.O.C.:} \qquad \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*})  = 0 \qquad
     \text{E.C.:} \qquad \vEnd_{t}^{\aRat}(\aRat_{t}) = \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})
 \end{equation}
 
-The consumption-saving EGM follows \cite{Carroll2006-wq} but I will cover it for exposition.
+
 
 \subsection{Consumption-Savings}
 
-We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
+The consumption-saving EGM follows \cite{Carroll2006-wq} but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
 
 \begin{equation}
     \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
-    \vEnd_{t}(\mRat_{t}-\cRat_{t})
+    \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
 \end{equation}
 
 To solve, we derive the first order condition with respect to $\cRat_{t}$ which gives the familiar Euler equation:
 
 \begin{equation}
-    \utilFunc'(\cRat_t) = \vEnd_{t}'(\mRat_{t} - \cRat_{t}) =
+    \utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
     \vEnd_{t}'(\aRat_{t})
 \end{equation}
 
 Inverting the above equation is the (first) EGM step.
 
 \begin{equation}
-    \cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \vEnd_{t}'(\aRat_{t})
+    \cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
     \right)
 \end{equation}
 
@@ -235,11 +233,11 @@ Further, using the market resources constraint, we can recover the exact amount
 of market resources that is consistent with this consumption-saving decision as
 
 \begin{equation}
-    \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat
+    \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
 \end{equation}
 
-This $\mEndFunc_{t}(\aMat)$ is the ``endogenous`` grid that is consistent
-with the exogenous decision grid $\aRat_{t}$. Now that we have a
+This $\mEndFunc_{t}(\aMat)$ is the ``endogenous'' grid that is consistent
+with the exogenous decision grid $\aMat$. Now that we have a
 $(\mEndFunc_{t}(\aMat), \cEndFunc_{t}(\aMat))$ pair for each
 $\aRat \in \aMat$, we can construct an interpolating consumption function for
 market resources points that are off-the-grid.
@@ -248,7 +246,7 @@ The envelope condition will be useful in the next section, but for completeness
 is defined here.
 
 \begin{equation}
-    \vOpt_{t}'(\mRat_{t}) = \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
+    \vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
 \end{equation}
 
 \subsection{Labor-Leisure}
