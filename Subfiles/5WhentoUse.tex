@@ -16,13 +16,13 @@ The first step in using the Sequential Endogenous Grid Method is to split the pr
 To split up the problem, we first count the number of control variables or decisions faced by the agent. Ideally, if the agent has $n$ control variables, then the problem should be split into $n$ subproblems, each handling a different control variable. For counting the number of control variables, it is important to not double count variables which are equivalent and have market clearing conditions. For example, the decision of how much to consume and how much to save may seem like 2 different choices, but because of the market clearing condition $\cRat + \aRat = \mRat$ they are resolved simultaneously and count as only one decision variable. Similarly, the
 choice between labor and leisure are simultaneous and count as only one decision.
 
-Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in section 2 of the paper, or differentiable and invertible functions in the constraints, as in section 3 of the paper.
+Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in section 2 of the paper, or differentiable and invertible functions in the transition, as in section 3 of the paper.
 
 \subsubsection{Separable utility functions}
 
-In that problem, we have additively separable utility of consumption and leisure, which allows for each of these control variables to be handled by a separate subproblem. So, it makes sense to split the utility between subproblems and attach one to the consumption subproblem and one to the leisure subproblem.
+In section 2, we have additively separable utility of consumption and leisure, which allows for each of these control variables to be handled by a separate subproblem. So, it makes sense to split the utility between subproblems and attach one to the consumption subproblem and one to the leisure subproblem.
 
-As mentioned in section 2, however, there are only 2 separable utility functions in the problem which have been assigned to 2 sub-problems already. This leaves one control variable without a separable utility function. In that case, there is no more endogenous grid method step to exploit, and this subproblem has to be handled by standard convex optimization techniques such as maximization of the value function (VFI) or finding the root of the Euler equation (PFI).
+As mentioned in that section, however, there are only 2 separable utility functions in the problem which have been assigned to 2 sub-problems already. This leaves one control variable without a separable utility function. In that case, there is no more endogenous grid method step to exploit, and this subproblem has to be handled by standard convex optimization techniques such as maximization of the value function (VFI) or finding the root of the Euler equation (PFI).
 
 Now that we have split the problem into conceptual sub-problems, it is important to sequence them in such a way that they don't become more complex than the original problem. The key here is to avoid adding unnecessary state variables. For example, in the consumption-leisure-portfolio problem, if we were to choose consumption first, we would have to track the wage rate into the following leisure sub-problem. This would mean that our consumption problem would be 2-dimensional as well as our labor decision problem. As presented, the choice of order in section 2 ensures that the consumption problem is 1-dimensional, as we can shed the information about the wage rate offer after the agent has made their labor-leisure decision. If we did this the other way, the problem would be more complex and require more computational resources.
 
@@ -38,6 +38,7 @@ The consumption sub-problem would be 2-dimensional instead of 1 dimensional, add
 
 while the labor-leisure sub-problem would have an additional constraint
 
+
 \begin{equation}
     \begin{split}
         \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \vNum(\leisure) + \vEnd(\aRat) \\
@@ -47,12 +48,70 @@ while the labor-leisure sub-problem would have an additional constraint
     \end{split}
 \end{equation}
 
-\subsubsection{Differentiable and invertible constraints}
-
-In section 3, we saw that a problem with a differentiable and invertible constraint can also be used to embed an additional endogenous grid method step.
-
 Therefore, strategic ordering of sub-problems can greatly simplify the solution process and reduce computational burden.
 
+
+\subsubsection{Differentiable and invertible transition}
+
+In section 3, we saw that a problem with a differentiable and invertible transition can also be used to embed an additional endogenous grid method step. Because the transition applies independently to a state variable that is not related to the other control variable, consumption, it can be handled separately from the consumption sub-problem.
+
+In this particular problem, however, it turns out to make no difference how we order the two subproblems. This is because the control variables, consumption and pension deposit, each affect a separate resource account, namely market resources and pension balance. Because of this, the two subproblems are independent of each other and can be solved in any order.
+
+\subsection{The Endogenous Grid Method for Subproblems}
+
+Once we have strategically split the problem into sub-problems, we can use the endogenous grid method in each applicable subproblem while iterating backwards from the terminal period. As we discussed above, the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
+
+\subsubsection{Utility function}
+
+A generic atomic problem with a differentiable and invertible utility function can be characterized as follows:
+
+\begin{equation}
+    \begin{split}
+        \VFunc(\xRat) &  = \max_{\yRat  \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
+        & \text{s.t.} \\
+        \aRat & = \TFunc(\xRat,\yRat)
+    \end{split}
+\end{equation}
+
+The first order condition is thus
+
+\begin{equation}
+    \UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
+\end{equation}
+
+If, as we assumed, the utility function is differentiable and invertible, then the endogenous grid method consists of
+
+\begin{equation}
+    \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1} \left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
+\end{equation}
+
+By using an exogenous grid of the post-decision state $\aRat$, we can solve for the optimal decision rule $\yRat$ at each point on the grid. This is the endogenous grid method step.
+
+\subsubsection{Transition}
+
+If the atomic problem has no utility, but instead has a differentiable and invertible transition, then the endogenous grid method can still be used.
+
+\begin{equation}
+    \begin{split}
+        \VFunc(\xRat) &  = \max_{\yRat  \in \PGro(\xRat)}  \WFunc(\aRat) \\
+        & \text{s.t.} \\
+        \aRat & = \TFunc(\xRat,\yRat)
+    \end{split}
+\end{equation}
+
+
+
+Here, the first order condition is
+
+\begin{equation}
+    \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
+\end{equation}
+
+and the endogenous grid method step is
+
+\begin{equation}
+    \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
+\end{equation}
 
 
 \ifthenelse{\boolean{Web}}{}{
