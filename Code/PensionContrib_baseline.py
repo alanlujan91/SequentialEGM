@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.4
+#       jupytext_version: 1.14.5
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -367,7 +367,7 @@ plot_3d_func(gauss_interp, 0, 5)
 
 # import warnings
 
-# %% tags=[]
+# %%
 # from adaptive import Learner2D, Runner, notebook_extension
 
 # warnings.filterwarnings("ignore")
@@ -394,7 +394,7 @@ plot_3d_func(gauss_interp, 0, 5)
 # runner.live_info()  # shows a widget with status information
 # runner.live_plot(update_interval=0.1)
 
-# %% tags=[]
+# %%
 # def plot(learner):
 #     plot = learner.plot(tri_alpha=0.2)
 #     return (plot.Image + plot.EdgePaths.I + plot).cols(2)
