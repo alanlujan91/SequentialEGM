@@ -113,6 +113,36 @@ A standard kernel function is the squared exponential kernel, or the radial basi
 
 Using GPR to interpolate a function $f$, we can both predict the value of the function at a point $\mathbf{x}_*$ and the uncertainty in the prediction, which provides useful information as to the accuracy of the approximation.
 
+\subsubsection{An example of the GPR}
+
+In Figure \ref{fig:true_function}, we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Figures/true_function.pdf}
+	\caption{The true function that we are trying to approximate and a sample of data points.}
+	\notinsubfile{\label{fig:true_function}}
+\end{figure}
+
+As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In Figure \ref{fig:gpr_sample}, we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Figures/gpr_sample.pdf}
+	\caption{A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.}
+	\notinsubfile{\label{fig:gpr_sample}}
+\end{figure}
+
+In Figure \ref{fig:gpr}, we see the result of GPR with a particular parametrization\footnote{For details see notebook.} of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Figures/gpr.pdf}
+	\caption{GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
+	\notinsubfile{\label{fig:gpr}}
+\end{figure}
+
+
 %note: define the acronym if you want to use it and move it up to earlier in the section
 
 \onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}
