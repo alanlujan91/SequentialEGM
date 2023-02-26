@@ -94,26 +94,6 @@ class ConsLaborPortfolioSolution(MetricObject):
     consumption_stage: ConsumptionStage = ConsumptionStage()
     labor_stage: LaborStage = LaborStage()
 
-    def labor_func(self, b_nrm, t_shk):
-        return self.labor_stage.labor_func(b_nrm, t_shk)
-
-    def m_func(self, b_nrm, t_shk):
-        labor = self.labor_func(b_nrm, t_shk)
-        return b_nrm + labor * t_shk
-
-    def c_func(self, b_nrm, t_shk):
-        m_nrm = self.m_func(b_nrm, t_shk)
-        return self.consumption_stage.c_func(m_nrm)
-
-    def a_func(self, b_nrm, t_shk):
-        m_nrm = self.m_func(b_nrm, t_shk)
-        c_nrm = self.c_func(b_nrm, t_shk)
-        return m_nrm - c_nrm
-
-    def share_func(self, b_nrm, t_shk):
-        a_nrm = self.a_func(b_nrm, t_shk)
-        return self.portfolio_stage.share_func(a_nrm)
-
 
 class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType):
     time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
@@ -137,44 +117,22 @@ class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType
     def update_solution_terminal(self):
         # in the terminal period the risky share is trivially 0 since there is
         # no continuation; agents consume all resources and save nothing
-        portfolio_stage = PortfolioStage(share_func=ConstantFunction(0.0))
-
-        m_nrm = np.append(0.0, self.aXtraGrid)
-        c_nrm = m_nrm
-        c_func_terminal = LinearInterp(m_nrm, c_nrm)
-        v_func_terminal = ValueFuncCRRA(c_func_terminal, self.CRRA)
-        vp_func_terminal = MargValueFuncCRRA(c_func_terminal, self.CRRA)
+        portfolio_stage = PortfolioStage(share_func=lambda a: a * 0.0)
 
         # in terminal period agents consume everything
+
+        util = UtilityFuncCRRA(self.CRRA)
         consumption_stage = ConsumptionStage(
-            c_func=c_func_terminal, v_func=v_func_terminal, vp_func=vp_func_terminal
+            c_func=lambda m: m, v_func=util, vp_func=util.der
         )
-
-        tShkGrid = self.TranShkGrid[-1]
-
-        m_nrm_mat, t_shk_mat = np.meshgrid(m_nrm, tShkGrid, indexing="ij")
-
-        u_prime = vp_func_terminal(m_nrm_mat)
-        leisure = (u_prime * t_shk_mat / self.LesrCnst) ** (-1 / self.LesrShare)
-        leisure = np.clip(leisure, 0, 1)
-        labor = 1 - leisure
-        b_nrm = m_nrm_mat - t_shk_mat * labor
-
-        u_prime_inv = u_prime ** (-1 / self.CRRA)
-
-        labor_by_tShk = []
-        vPNvrsfunc_by_tShk = []
-        for i in range(tShkGrid.size):
-            labor_by_tShk.append(LinearInterp(b_nrm[:, i], labor[:, i]))
-            vPNvrsfunc_by_tShk.append(LinearInterp(b_nrm[:, i], u_prime_inv[:, i]))
-
-        labor_func = LinearInterpOnInterp1D(labor_by_tShk, tShkGrid)
-        vPNvrsfunc_labor = LinearInterpOnInterp1D(vPNvrsfunc_by_tShk, tShkGrid)
-        vp_func_labor = MargValueFuncCRRA(vPNvrsfunc_labor, self.CRRA)
 
         # in terminal period agents do not work, and so b = m
         # and marginal value is the same as in consumption stage
-        labor_stage = LaborStage(labor_func=labor_func, vp_func=vp_func_labor)
+        labor_stage = LaborStage(
+            labor_func=lambda b, theta: b * 0.0,
+            v_func=lambda b, theta: util(b),
+            vp_func=lambda b, theta: util.der(b),
+        )
 
         # create terminal solution object
         self.solution_terminal = ConsLaborPortfolioSolution(
