@@ -304,8 +304,8 @@ scatter = ax.scatter(
     alpha=0.6,
     s=5,
 )
-cbar = fig.colorbar(scatter)
-cbar.ax.set_ylabel("Pension Deposits $d$")
+# cbar = fig.colorbar(scatter)
+# cbar.ax.set_ylabel("Pension Deposits $d$")
 
 plt.title("Pension Deposits on Exogenous Post-Decision Grid")
 plt.xlabel(r"Liquid Wealth $\ell$")
