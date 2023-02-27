@@ -208,11 +208,14 @@ class ConsLaborPortfolioSolver(MetricObject):
 
         # these set of grids will be used in labor stage
 
-        self.mNrmGrid = np.append(0.0, self.aXtraGrid)
+        self.mNrmGrid = self.aXtraGrid
 
         self.mNrmMat, self.tShkMat = np.meshgrid(
             self.mNrmGrid, self.TranShkGrid, indexing="ij"
         )
+
+        self.mNrmGrid = self.aXtraGrid
+        self.bNrmMat = self.mNrmMat
 
         # name ShockDstn indeces
         self.PermShkIdx = 0
@@ -345,35 +348,43 @@ class ConsLaborPortfolioSolver(MetricObject):
         labor = 1.0 - leisure
         bNrmMat = self.mNrmMat - self.tShkMat * labor
 
-        # if bank balances are 0, work full time
-        # is this the right limit?
-        labor_temp = np.insert(labor, 0, 1.0, axis=0)
-        leisure_temp = np.insert(leisure, 0, 0.0, axis=0)
-        bNrmMat_temp = np.insert(bNrmMat, 0, 0.0, axis=0)
-        tShkMat_temp = np.insert(self.tShkMat, 0, self.TranShkGrid, axis=0)
+        # # if bank balances are 0, work full time
+        # # is this the right limit?
+        # labor_temp = np.insert(labor, 0, 1.0, axis=0)
+        # leisure_temp = np.insert(leisure, 0, 0.0, axis=0)
+        # bNrmMat_temp = np.insert(bNrmMat, 0, 0.0, axis=0)
+        # tShkMat_temp = np.insert(self.tShkMat, 0, self.TranShkGrid, axis=0)
 
         grids = {
-            "bNrm": bNrmMat_temp,
-            "tShk": tShkMat_temp,
-            "labor": labor_temp,
-            "leisure": leisure_temp,
+            "mNrm": self.mNrmMat,
+            "bNrm": bNrmMat,
+            "tShk": self.tShkMat,
+            "labor": labor,
+            "leisure": leisure,
         }
 
-        labor_unconstrained_func =
+        leisure_unconstrained_func_by_tShk = []
+        for i in range(self.TranShkGrid.size):
+            leisure_unconstrained_func_by_tShk.append(
+                LinearInterp(grids["bNrm"][:, i], grids["leisure"][:, i])
+            )
 
+        leisure_unconstrained_func = LinearInterpOnInterp1D(
+            leisure_unconstrained_func_by_tShk, self.TranShkGrid
+        )
 
+        # on common grid
 
-        leisure = np.clip(leisure, 0.0, 1.0)  # constrained
+        leisure_unconstrained = leisure_unconstrained_func(self.bNrmMat, self.tShkMat)
 
-        # TODO - this might be incorrect!!
+        leisure = np.clip(leisure_unconstrained, 0.0, 1.0)  # constrained
 
         labor = 1.0 - leisure
-        bNrmMat = self.mNrmMat - self.tShkMat * labor
 
         # if bank balances are 0, work full time
         # is this the right limit?
         labor_temp = np.insert(labor, 0, 1.0, axis=0)
-        bNrmMat_temp = np.insert(bNrmMat, 0, 0.0, axis=0)
+        bNrmMat_temp = np.insert(self.bNrmMat, 0, 0.0, axis=0)
 
         labor_func_by_tShk = []
         for i in range(self.TranShkGrid.size):
@@ -382,6 +393,14 @@ class ConsLaborPortfolioSolver(MetricObject):
             )
 
         labor_func = LinearInterpOnInterp1D(labor_func_by_tShk, self.TranShkGrid)
+
+        leisure_func_by_tShk = []
+        for i in range(self.TranShkGrid.size):
+            leisure_func_by_tShk.append(
+                LinearInterp(bNrmMat_temp[:, i], 1.0 - labor_temp[:, i])
+            )
+
+        leisure_func = LinearInterpOnInterp1D(leisure_func_by_tShk, self.TranShkGrid)
 
         vp_vals = next_stage.vp_func(self.mNrmMat)
         vp_vals_temp = np.insert(vp_vals, 0, 0.0, axis=0)
@@ -395,6 +414,7 @@ class ConsLaborPortfolioSolver(MetricObject):
         dvdb_func = LinearInterpOnInterp1D(dvdb_func_by_tShk, self.TranShkGrid)
 
         labor_stage_solution = LaborStage(labor_func=labor_func, vp_func=dvdb_func)
+        labor_stage_solution.leisure_func = leisure_func
         labor_stage_solution.grids = grids
 
         return labor_stage_solution

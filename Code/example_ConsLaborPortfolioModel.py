@@ -6,13 +6,14 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.5
+#       jupytext_version: 1.14.4
 #   kernelspec:
 #     display_name: egmn-dev
 #     language: python
 #     name: python3
 # ---
 
+# %%
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -23,7 +24,7 @@ from HARK.utilities import plot_funcs
 
 # %% pycharm={"name": "#%%\n"}
 agent = LaborPortfolioConsumerType()
-agent.cycles = 1
+agent.cycles = 10
 
 
 # %%
@@ -41,8 +42,8 @@ def plot_3d_func(func, lims_x, lims_y, n=100):
     ax = plt.axes(projection="3d")
     ax.plot_surface(xMat, yMat, zMat, cmap="viridis")
     ax.set_title("surface")
-    ax.set_xlabel("b")
-    ax.set_ylabel(r"$\theta$")
+    ax.set_xlabel(r"$\theta$")
+    ax.set_ylabel("b")
     ax.set_zlabel("f")
     plt.show()
 
@@ -72,11 +73,16 @@ plot_funcs(agent.solution[0].consumption_stage.c_func, 0, 10)
 
 
 # %% pycharm={"name": "#%%\n"}
-plot_3d_func(agent.solution[0].labor_stage.labor_func, [0, 2.5], [0, 10])
+plot_3d_func(
+    agent.solution[0].labor_stage.labor_func,
+    [min(agent.TranShkGrid), max(agent.TranShkGrid)],
+    [0, 10],
+)
 
 
 # %% pycharm={"name": "#%%\n"}
 grids = agent.solution[0].labor_stage.grids
+
 
 # %%
 ax = plt.axes(projection="3d")
@@ -86,21 +92,19 @@ ax.set_xlabel("b")
 ax.set_ylabel(r"$\theta$")
 ax.set_zlabel("f")
 
-# %%
-grids["tShk"].shape
 
 # %%
-plt.scatter(grids["tShk"], grids["bNrm"], c=grids["leisure"])
+plot_funcs(agent.solution[0].labor_stage.labor_func.xInterpolators, 0, 10)
 
 # %%
-labor_unconstrained_func = WarpedInterpOnInterp2D(
-    grids["leisure"], [grids["bNrm"], grids["tShk"]]
-)
+xInterps = agent.solution[0].labor_stage.labor_func.xInterpolators
+y = agent.TranShkGrid[0]
 
-# %%
-labor_unconstrained_func([0, 1], [0, 1])
-
-# %%
-grids["bNrm"].shape, grids["tShk"].shape, grids["leisure"].shape
+for i in range(len(xInterps)):
+    x_list = np.array(xInterps[i].x_list).ravel()
+    c_list = np.array(xInterps[i].y_list).ravel()
+    y_list = np.array([y[i]] * len(x_list)).ravel()
+    print(len(x_list), len(y_list), len(c_list))
+    plt.scatter(x_list, y_list, c=c_list, cmap="viridis")
 
 # %%

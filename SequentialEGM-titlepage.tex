@@ -14,7 +14,7 @@
 
 \author{Alan Lujan\authNum}
 
-\keywords{endogenous grid method, gaussian processes, machine learning, stochastic dynamic programming}
+\keywords{Endogenous Grid Method, gaussian processes, machine learning, stochastic dynamic programming}
 
 \jelclass{D..,E.. \par
     \href{https://econ-ark.org}{\includegraphics{\ResourcesDir/PoweredByEconARK}}
@@ -27,11 +27,11 @@
 
 \hypertarget{abstract}{}
 \begin{verbatimwrite}{\econtexRoot/Subfiles/Abstract.texinput}
-    Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require a large number of points and are time intensive.
-    This paper provides a novel method for solving such models using an extension of the endogenous grid method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids.
+    Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.
+    This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids.
     First, separating models into smaller, sequential problems allows the problems to be more tractable and easily analyzed.
     Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first order condition greatly speeds up the solution process.
-    Third, since the resulting endogenous grid can often be curvilinear at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and policy functions.
+    Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and policy functions.
     Applied sequentially to each decision within the overarching problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard grid search methods currently used.
     This paper also illustrates how this method can be applied to a number of increasingly complex models. Software is provided in the form of a \texttt{python} module under the \href{https://econ-ark/HARK}{\texttt{Econ-ARK/HARK}} package.
 \end{verbatimwrite}
@@ -46,11 +46,11 @@
         \begin{center}
             \begin{tabbing}
                 \texttt{~~~~~~~~~~~} \= \=  \\
-                %      \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/SequentialEGM}} \\
-                %      \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/SequentialEGM}{Click `Launch Dashboard' Button}} \\
+                % \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/SequentialEGM}} \\
+                % \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/SequentialEGM}{Click `Launch Dashboard' Button}} \\
                 \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM/blob/master/SequentialEGM.pdf}{SequentialEGM.pdf (\textbf{Current Version})}} \\
                 \texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/SequentialEGM/}{https://\owner.github.io/SequentialEGM/}} \\ % Owner is defined in Resources/owner.tex
-                %      \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM/blob/master/SequentialEGM-Slides.pdf}{SequentialEGM-Slides.pdf}} \\
+                % \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM/blob/master/SequentialEGM-Slides.pdf}{SequentialEGM-Slides.pdf}} \\
                 \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM}{https://github.com/\owner/SequentialEGM}} \\
             \end{tabbing}
         \end{center}
@@ -58,7 +58,7 @@
 \end{footnotesize}
 
 \begin{authorsinfo}
-    \noindent \name{\href{https://quantmacro.org}{Department of Economics, The Ohio State University}, \href{mailto:alujan@quantmacro.org}{\texttt{alujan91@quantmacro.org}}.}
+    \noindent \name{\href{https://quantmacro.org}{Department of Economics, The Ohio State University}, \href{mailto:alanlujan91@gmail.com}{\texttt{alanlujan91@gmail.com}}.}
 \end{authorsinfo}
 
 \pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page
