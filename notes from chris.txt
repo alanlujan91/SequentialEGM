@@ -1,0 +1,25 @@
+decision choices is redundant - keep decisions
+inefficient grid search methods that require a large number of points -- mistifying to theorists
+say instead - solved using methods that try to achieve multiple goals simultaneously
+time intensive -- are slow
+too many words --- 100 words or less
+separating problems is generic -- say instead that the requirements for a problem to be solved using EGM and GPR provide guidance about how to
+transform a simultaneous problem into sequential problems that can be solved efficiently -- this tells you how to break it down
+Second is restating EGM -- either readers already understand or not... Second can be eliminated
+Curvilinear is unknown, don't expect reader to know meaning of it.. focus on structured vs unstructured
+The special sauce is GPR complements sharp points of EGM -> say one of tricky things of EGM is non-linearities introduced into the constructed functions
+and judicious choice of interpolation method can make a big difference in efficiently handling the non-linear structure of the things that are pushed out
+by EGM... special recipee to be used by what comes out of EGM
+instead of Applied sequentially -- Exercises in the paper demonstrate the degree of speed up which can be quantified.. #todo
+Combine second to last 2 sentences -- The paper goes through a set of examples of real world problems that illustrate how the tools can be applied in different contexts
+
+Software that can reproduce the results is provided at... on standard computer systems is available at Econ-ARK/HARK.
+
+
+From the restaing of the problem work backwards...
+
+Change curly V for leisure ...
+
+Signal in abstract that there is discussion of intuition for strategic choices to make... and also early in the introduction
+
+Minimize the number of state variables required for the next subproblem

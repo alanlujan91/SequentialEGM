@@ -57,6 +57,7 @@ plt.legend()
 plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.title("True function and randomly sampled points")
+plt.tight_layout()
 plt.savefig(figures_path + "true_function.pdf")
 
 
@@ -102,6 +103,7 @@ plt.legend()
 plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.title("Gaussian process regression on a noisy dataset")
+plt.tight_layout()
 plt.savefig(figures_path + "gpr.pdf")
 
 # %%
@@ -116,6 +118,7 @@ plt.legend()
 plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.title("Random sample of functions from the Gaussian Process posterior.")
+plt.tight_layout()
 plt.savefig(figures_path + "gpr_sample.pdf")
 
 
