@@ -22,14 +22,14 @@
 % around, be overly broad, or use prior literature to motivate it (the question is not important
 % because so many papers looked at this issue before!).
 
-Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, requiring strong underlying assumptions to be made, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is to use a grid search method to solve the model. The endogenous grid method (EGM) developed by \cite{Carroll2006-wq} allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to solve became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation.
+Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, requiring strong underlying assumptions to be made, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is using a grid search method to solve the model. The endogenous grid method (EGM) developed by \cite{Carroll2006-wq} allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to solve became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation.
 However, the endogenous grid method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied has been expanded\footnote{\cite{Barillas2007-uh, Maliar2013-sv, Fella2014-my, White2015-fg, Iskhakov2017-my}, among others.}, but with every new method comes a new set of limitations.
 This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM$^n$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
 
 \subsection{Literature Review} % Summarize the existing literature on the topic and highlight any gaps or limitations in the current research.
 
 % Then use the second paragraph for a summary of the most relevant literature
-% (not a full section!). Hint: use present tense, to be consistent. "Smith (1986) presents a similar model, ..."
+% (not a full Section!). Hint: use present tense, to be consistent. "Smith (1986) presents a similar model, ..."
 
 \cite{Carroll2006-wq} first introduced the endogenous grid method as a way to speed up the solution of dynamic stochastic consumption-savings problems. The method consists of starting with an exogenous grid of post-decision states and using the inverse of the first order condition to find the optimal consumption policy that rationalizes such post-decision states. Given the optimal policy and post-decision states, it is straightforward to calculate the initial pre-decision state that leads to the optimal policy. Although this method is certainly innovative, it only applied to a model with one control variable and one state variable. \cite{Barillas2007-uh} further extend this method by including more than one control variable in the form of a labor-leisure choice, as well as a second state variable for stochastic persistence.
 
@@ -59,17 +59,19 @@ The sequential endogenous grid method consists of 3 major parts: First, the prob
 % That sets you up for the fourth paragraph, which lists "The contributions of
 % this work" – relative to that prior literature. Clarify what you do that's different
 
-The Sequential Endogenous Grid Method is capable of solving multivariate dynamic optimization problems in an efficient and fast manner by avoiding grid search. This should allow researchers and practitioners to solve more complex problems that were previously not easily accessible to them, but more accurately capture the dynamics of the macroeconomy. By using advancements in machine learning techniques such as Gaussian Process Regression, the Sequential Endogenous Grid Method is capable of solving problems that were not previously able to be solved using the traditional endogenous grid method. Additionally, the Sequential Endogenous Grid Method often sheds light onto the problem by breaking it down into a sequence of simpler problems that were not previously apparent. This is because intermediary steps in the solution process generate value and marginal value functions of different pre- and post-decision states that can be used to understand the problem better.
+The Sequential Endogenous Grid Method is capable of solving multivariate dynamic optimization problems in an efficient and fast manner by avoiding grid search. This should allow researchers and practitioners to solve more complex problems that were previously not easily accessible to them, but more accurately capture the dynamics of the macroeconomy. By using advancements in machine learning techniques such as Gaussian Process Regression, the Sequential Endogenous Grid Method is capable of solving problems that were not previously able to be solved using the traditional endogenous grid method. In particular, the Sequential Endogenous Grid Method is different from NEGM in that it allows for using more than one endogenous grid method step to solve a problem, avoiding costly grid search methods to the extent that the problem allows.
+
+Additionally, the Sequential Endogenous Grid Method often sheds light onto the problem by breaking it down into a sequence of simpler problems that were not previously apparent. This is because intermediary steps in the solution process generate value and marginal value functions of different pre- and post-decision states that can be used to understand the problem better.
 
 % The fifth paragraph then summarizes your results. Tell the answer, so they know what to expect,
 % and how to think about each step along the way, what's driving your results.
 
 \subsection{Outline} %  Provide a brief overview of the results and conclusions that will be presented in the article.
 % In the sixth and final paragraph, as an aid to the reader, plot the course for the rest of the paper.
-% "The first section below presents a theoretical model that can be used to generate specific
-% hypotheses. Then Section 2 presents the econometric model, ..."
+% "The first Section below presents a theoretical model that can be used to generate specific
+% hypotheses. Then Section~\ref{sec:method} presents the econometric model, ..."
 
-The first section below presents a basic model that illustrates the sequential endogenous grid method in one dimension. Then Section 2 introduces a more complex method with 2 state variables to demonstrate the use of machine learning tools to generate an interpolating function. In Section 3 I present the unstructured interpolation methods using machine learning in more detail. Section 4 discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, section 5 concludes with some limitations and future work.
+Section~\ref{sec:method} presents a basic model that illustrates the sequential endogenous grid method in one dimension. Then Section~\ref{sec:higherdims} introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In Section~\ref{sec:gpr} I present the unstructured interpolation methods using machine learning in more detail. Section~\ref{sec:conditions} discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, Section~\ref{sec:conclusion} concludes with some limitations and future work.
 
 \onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}
 

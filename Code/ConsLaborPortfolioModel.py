@@ -17,11 +17,11 @@ from HARK.core import make_one_period_oo_solver
 from HARK.distribution import DiscreteDistribution, calc_expectation
 from HARK.interpolation import (
     BilinearInterp,
-    ConstantFunction,
     LinearInterp,
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
     ValueFuncCRRA,
+    WarpedInterpOnInterp2D,
 )
 from HARK.rewards import UtilityFuncCRRA, UtilityFunction
 from HARK.utilities import NullFunc
@@ -99,11 +99,11 @@ class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType
     time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
     time_inv_ += ["DisutlLabr", "LabrCnst", "LabrShare", "LesrCnst", "LesrShare"]
 
-    def __init__(self, verbose=False, quiet=False, **kwds):
+    def __init__(self, **kwds):
         params = init_labor_portfolio.copy()
         params.update(kwds)
 
-        PortfolioConsumerType.__init__(self, verbose=verbose, quiet=quiet, **params)
+        PortfolioConsumerType.__init__(self, **params)
 
         self.solve_one_period = make_one_period_oo_solver(ConsLaborPortfolioSolver)
 
@@ -158,11 +158,9 @@ class ConsLaborPortfolioSolver(MetricObject):
     Rfree: float
     PermGroFac: float
     BoroCnstArt: float
-    aXtraGrid: np.array
-    ShareGrid: np.array
-    TranShkGrid: np.array
-    v_funcBool: float
-    CubicBool: float
+    aXtraGrid: np.ndarray
+    ShareGrid: np.ndarray
+    TranShkGrid: np.ndarray
 
     def __post_init__(self):
         self.def_utility_funcs()
@@ -177,15 +175,15 @@ class ConsLaborPortfolioSolver(MetricObject):
         if self.DisutlLabr:
             # use these functions if model defined by disutility of labor
             n = lambda x: -self.LabrCnst * utility(1 - x, -self.LabrShare)
-            np = lambda x: self.LabrCnst * utilityP(1 - x, -self.LabrShare)
-            npinv = lambda x: 1 - utilityP_inv(x / self.LabrCnst, -self.LabrShare)
+            n_der = lambda x: self.LabrCnst * utilityP(1 - x, -self.LabrShare)
+            n_derinv = lambda x: 1 - utilityP_inv(x / self.LabrCnst, -self.LabrShare)
         else:
             # use these functions if model defined by utility of leisure (default)
             n = lambda x: self.LesrCnst * utility(x, self.LesrShare)
-            np = lambda x: self.LesrCnst * utilityP(x, self.LesrShare)
-            npinv = lambda x: utilityP_inv(x / self.LesrCnst, self.LesrShare)
+            n_der = lambda x: self.LesrCnst * utilityP(x, self.LesrShare)
+            n_derinv = lambda x: utilityP_inv(x / self.LesrCnst, self.LesrShare)
 
-        self.n = UtilityFunction(n, np, npinv)
+        self.n = UtilityFunction(n, n_der, n_derinv)
 
     def prepare_to_solve(self):
         """
@@ -196,12 +194,13 @@ class ConsLaborPortfolioSolver(MetricObject):
         # portfolio stage and consumption stage.
 
         # assume for now natural borrowing constraint is less than 0
+        # by construction of tShkDstn
         self.zero_bound = False
 
         if self.zero_bound:
             self.aNrmGrid = self.aXtraGrid
         else:
-            self.aNrmGrid = np.append(0.0, self.aXtraGrid)
+            self.aNrmGrid = np.append(0.0, self.aXtraGrid)  # safe to add zero
 
         self.aNrmMat, self.shareMat = np.meshgrid(
             self.aNrmGrid, self.ShareGrid, indexing="ij"
@@ -230,10 +229,10 @@ class ConsLaborPortfolioSolver(MetricObject):
             t_shk = shocks[self.TranShkIdx] * np.ones_like(a_nrm)
             b_nrm_next = a_nrm * r_port / p_shk
 
-            vP_next = p_shk ** (-self.CRRA) * vp_func_next(b_nrm_next, t_shk)
+            vp_next = p_shk ** (-self.CRRA) * vp_func_next(b_nrm_next, t_shk)
 
-            dvda = r_port * vP_next
-            dvds = a_nrm * r_diff * vP_next
+            dvda = r_port * vp_next
+            dvds = a_nrm * r_diff * vp_next
 
             return dvda, dvds
 
@@ -244,7 +243,6 @@ class ConsLaborPortfolioSolver(MetricObject):
                 self.ShockDstn, marginal_values, self.aNrmMat, self.shareMat
             )
         )
-        partials = partials[:, :, :, 0]
 
         dvda = partials[0]
         dvds = partials[1]
@@ -256,8 +254,10 @@ class ConsLaborPortfolioSolver(MetricObject):
         dvda_func = MargValueFuncCRRA(dvda_nvrs_func, self.CRRA)
 
         # make post decision dvds function
-
-        dvds_func = BilinearInterp(dvds, self.aNrmGrid, self.ShareGrid)
+        dvds_nvrs = self.n.inv(dvds)
+        dvds_nvrs_func = BilinearInterp(dvds_nvrs, self.aNrmGrid, self.ShareGrid)
+        dvds_func = MargValueFuncCRRA(dvds_nvrs_func, self.CRRA)
+        # dvds_func = BilinearInterp(dvds, self.aNrmGrid, self.ShareGrid)
 
         post_decision_stage_solution = PostDecisionStage(
             dvda_func=dvda_func,
@@ -299,7 +299,7 @@ class ConsLaborPortfolioSolver(MetricObject):
 
         if not self.zero_bound:
             # aNrm=0, so there's no way to "optimize" the portfolio
-            optimal_share[0] = 1.0
+            optimal_share[0] = 1.0  # set 1.0 for continuity
 
         return optimal_share
 
@@ -338,13 +338,37 @@ class ConsLaborPortfolioSolver(MetricObject):
     def labor_stage(self, next_stage: ConsumptionStage):
         vp_func_next = next_stage.vp_func
 
-        mNrmMat, tShkMat = np.meshgrid(self.aNrmGrid, self.TranShkGrid, indexing="ij")
+        # mNrmMat, tShkMat = np.meshgrid(self.aNrmGrid, self.TranShkGrid, indexing="ij")
 
-        leisure = self.n.inv(vp_func_next(mNrmMat) * tShkMat)
-        leisure = np.clip(leisure, 0.0, 1.0)
+        # unconstrained labor-leisure
+        leisure = self.n.inv(vp_func_next(self.mNrmMat) * self.tShkMat)  # unconstrained
+        labor = 1.0 - leisure
+        bNrmMat = self.mNrmMat - self.tShkMat * labor
+
+        # if bank balances are 0, work full time
+        # is this the right limit?
+        labor_temp = np.insert(labor, 0, 1.0, axis=0)
+        leisure_temp = np.insert(leisure, 0, 0.0, axis=0)
+        bNrmMat_temp = np.insert(bNrmMat, 0, 0.0, axis=0)
+        tShkMat_temp = np.insert(self.tShkMat, 0, self.TranShkGrid, axis=0)
+
+        grids = {
+            "bNrm": bNrmMat_temp,
+            "tShk": tShkMat_temp,
+            "labor": labor_temp,
+            "leisure": leisure_temp,
+        }
+
+        labor_unconstrained_func =
+
+
+
+        leisure = np.clip(leisure, 0.0, 1.0)  # constrained
+
+        # TODO - this might be incorrect!!
 
         labor = 1.0 - leisure
-        bNrmMat = mNrmMat - tShkMat * labor
+        bNrmMat = self.mNrmMat - self.tShkMat * labor
 
         # if bank balances are 0, work full time
         # is this the right limit?
@@ -359,7 +383,7 @@ class ConsLaborPortfolioSolver(MetricObject):
 
         labor_func = LinearInterpOnInterp1D(labor_func_by_tShk, self.TranShkGrid)
 
-        vp_vals = next_stage.vp_func(mNrmMat)
+        vp_vals = next_stage.vp_func(self.mNrmMat)
         vp_vals_temp = np.insert(vp_vals, 0, 0.0, axis=0)
 
         dvdb_func_by_tShk = []
@@ -371,76 +395,79 @@ class ConsLaborPortfolioSolver(MetricObject):
         dvdb_func = LinearInterpOnInterp1D(dvdb_func_by_tShk, self.TranShkGrid)
 
         labor_stage_solution = LaborStage(labor_func=labor_func, vp_func=dvdb_func)
+        labor_stage_solution.grids = grids
 
         return labor_stage_solution
 
-    def calc_EndOfPrdvP(self):
+    def calc_end_of_prd_vP(self):
         def dvdb_func(shock, bnrm):
             # This calculation is inefficient because it has to interpolate over shocks
             # because of the way this does expectations, there's no off-the-grid shocks
             # have to make sure shock and bnrm are same dimension
             return self.vp_func_next(bnrm, shock.repeat(bnrm.size))
 
-        EndOfPrdvp_vals = calc_expectation(self.TranShkDstn, dvdb_func, self.bNrmGrid)
-        EndOfPrdvp_nvrs = self.u.derinv(EndOfPrdvp_vals)
-        EndOfPrdvp_nvrs_func = LinearInterp(self.bNrmGrid, EndOfPrdvp_nvrs)
-        EndOfPrdvP_func = MargValueFuncCRRA(EndOfPrdvp_nvrs_func, self.CRRA)
+        end_of_prd_vp_vals = calc_expectation(
+            self.TranShkDstn, dvdb_func, self.bNrmGrid
+        )
+        end_of_prd_vp_nvrs = self.u.derinv(end_of_prd_vp_vals)
+        end_of_prd_vp_nvrs_func = LinearInterp(self.bNrmGrid, end_of_prd_vp_nvrs)
+        end_of_prd_vP_func = MargValueFuncCRRA(end_of_prd_vp_nvrs_func, self.CRRA)
 
-        self.EndOfPrdvPNvrs = EndOfPrdvp_nvrs
-        self.EndOfPrdvp_func = EndOfPrdvP_func
+        self.end_of_prd_vPNvrs = end_of_prd_vp_nvrs
+        self.end_of_prd_vp_func = end_of_prd_vP_func
 
     def make_consumption_solution(self):
         # this is the consumption function that is consistent with the exogneous asset level
         # this decision comes before end of period post decision value function, but after
         # the labor-leisure decision function
-        self.cGrid = self.EndOfPrdvPNvrs
-        self.mGrid = self.cGrid + self.aNrmGrid
+        self.cNrmGrid = self.end_of_prd_vPNvrs
+        self.mNrmGrid = self.cNrmGrid + self.aNrmGrid
 
-        self.c_funcEndOfPrd = LinearInterp(self.mGrid, self.cGrid)
-        self.vp_funcEndOfPrd = MargValueFuncCRRA(self.c_funcEndOfPrd, self.CRRA)
+        self.c_func_end_of_prd = LinearInterp(self.mNrmGrid, self.cNrmGrid)
+        self.vp_func_end_of_prd = MargValueFuncCRRA(self.c_func_end_of_prd, self.CRRA)
 
     def make_labor_leisure_solution(self):
         tshkgrid = self.TranShkGrid
         zero_bound = True if tshkgrid[0] == 0.0 else False
 
-        # this mgrid and cgrid are consistent with exogenous asset level
-        mgrid = np.append(0.0, self.aXtraGrid)
+        # this mNrmGrid and cNrmGrid are consistent with exogenous asset level
+        mNrmGrid = np.append(0.0, self.aXtraGrid)
 
         # in the previous step we found the endogenous m that is consistent with
         # exogenous asset level, now we can use m (and tshk) as the exogenous grids
         # that will give us the consistent labor, leisure, and bank balances for a
-        mnrmat, tshkmat = np.meshgrid(mgrid, tshkgrid, indexing="ij")
+        mNrmMat, tShkMat = np.meshgrid(mNrmGrid, tshkgrid, indexing="ij")
 
         # this is the egm step, given exog m and tshk, find leisure
-        lsrmat = self.n.inv(self.vp_funcEndOfPrd(mnrmat) * tshkmat)
+        lsrMat = self.n.inv(self.vp_func_end_of_prd(mNrmMat) * tShkMat)
         # Make sure lsrgrid is not greater than 1.0
-        lsrmat = np.clip(lsrmat, 0.0, 1.0)
+        lsrMat = np.clip(lsrMat, 0.0, 1.0)
         if zero_bound:
-            lsrmat[:, 0] = 1.0
+            lsrMat[:, 0] = 1.0
 
-        lbrmat = 1.0 - lsrmat  # labor is 1 - leisure
+        lbrMat = 1.0 - lsrMat  # labor is 1 - leisure
         # bank balances = cash on hand - wage * labor
-        bnrmat = mnrmat - tshkmat * lbrmat
+        bNrmMat = mNrmMat - tShkMat * lbrMat
 
-        lsrFunc_by_tShk = []
+        lsr_func_by_tShk = []
         for tShk in range(tshkgrid.size):
-            lsrFunc_by_tShk.append(LinearInterp(bnrmat[:, tShk], lsrmat[:, tShk]))
+            lsr_func_by_tShk.append(LinearInterp(bNrmMat[:, tShk], lsrMat[:, tShk]))
 
-        self.lsrFunc = LinearInterpOnInterp1D(lsrFunc_by_tShk, tshkgrid)
+        self.lsr_func = LinearInterpOnInterp1D(lsr_func_by_tShk, tshkgrid)
 
-        lbrFunc_by_tShk = []
+        lbr_func_by_tShk = []
         for tShk in range(tshkgrid.size):
-            lbrFunc_by_tShk.append(LinearInterp(bnrmat[:, tShk], lbrmat[:, tShk]))
+            lbr_func_by_tShk.append(LinearInterp(bNrmMat[:, tShk], lbrMat[:, tShk]))
 
-        self.lbrFunc = LinearInterpOnInterp1D(lbrFunc_by_tShk, tshkgrid)
+        self.lbr_func = LinearInterpOnInterp1D(lbr_func_by_tShk, tshkgrid)
 
-        cgrid = self.c_funcEndOfPrd(mgrid)
+        cNrmGrid = self.c_func_end_of_prd(mNrmGrid)
 
         # as in the terminal solution, we construct the consumption function by using
         # the c that was consistent with a, and the b that was consistent with m
         c_func_by_tShk = []
         for tShk in range(tshkgrid.size):
-            c_func_by_tShk.append(LinearInterp(bnrmat[:, tShk], cgrid))
+            c_func_by_tShk.append(LinearInterp(bNrmMat[:, tShk], cNrmGrid))
 
         self.c_func = LinearInterpOnInterp1D(c_func_by_tShk, tshkgrid)
         self.vp_func_now = MargValueFuncCRRA(self.c_func, self.CRRA)
@@ -448,12 +475,12 @@ class ConsLaborPortfolioSolver(MetricObject):
     def make_consumer_labor_solution(self):
         self.solution = ConsumerLaborSolution(
             c_func=self.c_func,
-            LbrFunc=self.lbrFunc,
+            lbr_func=self.lbr_func,
             vp_func=self.vp_func_now,
         )
 
-        self.solution.LsrFunc = self.lsrFunc
-        self.solution.c_funcEndOfPrd = self.c_funcEndOfPrd
+        self.solution.lsr_func = self.lsr_func
+        self.solution.c_func_end_of_prd = self.c_func_end_of_prd
 
     def solve(self):
         labor_stage_next = self.solution_next.labor_stage
