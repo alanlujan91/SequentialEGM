@@ -34,7 +34,6 @@ import numpy as np
 np.seterr(all="ignore")  # ignoring all warnings
 
 # %% pycharm={"name": "#%%\n"}
-import numba as nb
 
 # load the G2EGMModel module
 from G2EGMModel import G2EGMModelClass
@@ -66,7 +65,6 @@ do_print = False
 # %% pycharm={"name": "#%%\n"}
 def timing(model, rep=1, do_print=True):  # set to 5 in the paper
     name = model.name
-    par = model.par
 
     time_best = np.inf
     for i in range(rep):
@@ -195,7 +193,7 @@ txt = "VFI-step"
 for model in models:
     tot_time = np.sum(model.par.time_vfi)
     if tot_time == 0:
-        txt += f" & "
+        txt += " & "
     else:
         txt += f" & {tot_time / 60:.2f}"
 txt += "\\\\ \n"

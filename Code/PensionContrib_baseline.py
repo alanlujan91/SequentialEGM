@@ -17,8 +17,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from ConsPensionContribModel import PensionContribConsumerType, init_pension_contrib
-from HARK.utilities import plot_funcs
-from IPython import get_ipython
 
 figures_path = "../Figures/"
 

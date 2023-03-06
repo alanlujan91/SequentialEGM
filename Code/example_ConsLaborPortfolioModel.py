@@ -19,7 +19,6 @@ import numpy as np
 
 # %% pycharm={"name": "#%%\n"}
 from ConsLaborPortfolioModel import LaborPortfolioConsumerType
-from HARK.interpolation import WarpedInterpOnInterp2D
 from HARK.utilities import plot_funcs
 
 # %% pycharm={"name": "#%%\n"}

@@ -17,7 +17,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from ConsPensionContribModel import PensionContribConsumerType
-from HARK.utilities import plot_funcs
 from IPython import get_ipython
 
 figures_path = "../Figures/"
@@ -29,7 +28,6 @@ agent = PensionContribConsumerType(cycles=19)
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 def plot_bilinear(function):
     x_list = function.x_list
-    y_list = function.y_list
     f_vals = function.f_values
 
     plt.plot(x_list, f_vals)

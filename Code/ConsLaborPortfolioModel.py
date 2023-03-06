@@ -21,7 +21,6 @@ from HARK.interpolation import (
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
     ValueFuncCRRA,
-    WarpedInterpOnInterp2D,
 )
 from HARK.rewards import UtilityFuncCRRA, UtilityFunction
 from HARK.utilities import NullFunc
@@ -174,14 +173,25 @@ class ConsLaborPortfolioSolver(MetricObject):
 
         if self.DisutlLabr:
             # use these functions if model defined by disutility of labor
-            n = lambda x: -self.LabrCnst * utility(1 - x, -self.LabrShare)
-            n_der = lambda x: self.LabrCnst * utilityP(1 - x, -self.LabrShare)
-            n_derinv = lambda x: 1 - utilityP_inv(x / self.LabrCnst, -self.LabrShare)
+            def n(x):
+                return -self.LabrCnst * utility(1 - x, -self.LabrShare)
+
+            def n_der(x):
+                return self.LabrCnst * utilityP(1 - x, -self.LabrShare)
+
+            def n_derinv(x):
+                return 1 - utilityP_inv(x / self.LabrCnst, -self.LabrShare)
+
         else:
             # use these functions if model defined by utility of leisure (default)
-            n = lambda x: self.LesrCnst * utility(x, self.LesrShare)
-            n_der = lambda x: self.LesrCnst * utilityP(x, self.LesrShare)
-            n_derinv = lambda x: utilityP_inv(x / self.LesrCnst, self.LesrShare)
+            def n(x):
+                return self.LesrCnst * utility(x, self.LesrShare)
+
+            def n_der(x):
+                return self.LesrCnst * utilityP(x, self.LesrShare)
+
+            def n_derinv(x):
+                return utilityP_inv(x / self.LesrCnst, self.LesrShare)
 
         self.n = UtilityFunction(n, n_der, n_derinv)
 
