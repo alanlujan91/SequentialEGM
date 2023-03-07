@@ -16,8 +16,7 @@
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
-from ConsLaborPortfolioModel import LaborPortfolioConsumerType, init_labor_portfolio
-from HARK.ConsumptionSaving.ConsPortfolioModel import PortfolioConsumerType
+from ConsLaborPortfolioModel import LaborPortfolioConsumerType
 from HARK.utilities import plot_funcs
 
 # %% pycharm={"name": "#%%\n"}
