@@ -1,5 +1,6 @@
 name: egmn-dev
 channels:
+  - pytorch
   - nvidia
   - conda-forge
   - defaults
@@ -24,6 +25,9 @@ dependencies:
   - seaborn
   - statsmodels
   - xarray
+  - pytorch
+  - gpytorch
+  - skorch
   - pip:
       - git+https://github.com/alanlujan91/HARK@map_coordinates
       - ConSav
