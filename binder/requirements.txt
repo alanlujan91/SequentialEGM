@@ -1,5 +1,5 @@
 econ-ark==0.13.0
-ipywidgets==7.6.3
+ipywidgets==7.7.4
 jupyter==1.0.0
 jupyter_contrib_nbextensions==0.5.1
 matplotlib==3.4.2
