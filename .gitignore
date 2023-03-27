@@ -592,3 +592,5 @@ settings.json
 .spyderproject
 spyproject
 .spyproject
+
+.private
