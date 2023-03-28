@@ -1,0 +1,557 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [
+      "econtexRoot/Add-Refs",
+      "econtexRoot/texname",
+      "system",
+      "texname",
+      "econtexRoot/Add-Refs",
+      "econtexRoot/texname",
+      "econtexRoot/texname",
+      "system"
+    ],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "bibliography_blend.tex",
+        "url": "/bibliography_blend-ae080a49f89b5adbbde9b6f7168a5382.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\LaTeXInputs\\bibliography_blend.tex",
+  "sha256": "a112aa06c083e32df8db8577dfa1f86913ce0a80f1eae4579cbe6fd59e5d555c",
+  "slug": "bibliography-blend",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 258, "line": 4, "column": 17 },
+              "end": { "offset": 271, "line": 4, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 258, "line": 4, "column": 17 },
+                  "end": { "offset": 271, "line": 4, "column": 30 }
+                },
+                "value": "AddRefsExists",
+                "key": "KquRPsoUuI"
+              }
+            ],
+            "key": "eZrhxUyHRH"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 290, "line": 5, "column": 17 },
+              "end": { "offset": 302, "line": 5, "column": 29 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 290, "line": 5, "column": 17 },
+                  "end": { "offset": 302, "line": 5, "column": 29 }
+                },
+                "value": "systemExists",
+                "key": "AiJV49OCuv"
+              }
+            ],
+            "key": "a0nmZZTExt"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 321, "line": 6, "column": 17 },
+              "end": { "offset": 330, "line": 6, "column": 26 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 321, "line": 6, "column": 17 },
+                  "end": { "offset": 330, "line": 6, "column": 26 }
+                },
+                "value": "BothExist",
+                "key": "adaiqrWzFX"
+              }
+            ],
+            "key": "EPemP9T6sc"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 349, "line": 7, "column": 17 },
+              "end": { "offset": 362, "line": 7, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 349, "line": 7, "column": 17 },
+                  "end": { "offset": 362, "line": 7, "column": 30 }
+                },
+                "value": "NeitherExists",
+                "key": "fzC7CxpPfY"
+              }
+            ],
+            "key": "pf6GOE9ruy"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 377, "line": 8, "column": 13 },
+              "end": { "offset": 386, "line": 8, "column": 22 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 377, "line": 8, "column": 13 },
+                  "end": { "offset": 386, "line": 8, "column": 22 }
+                },
+                "value": "BothExisttrue",
+                "key": "Rv7QRbSDbI"
+              }
+            ],
+            "key": "gw2AE0CTix"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 407, "line": 9, "column": 13 },
+              "end": { "offset": 420, "line": 9, "column": 26 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 407, "line": 9, "column": 13 },
+                  "end": { "offset": 420, "line": 9, "column": 26 }
+                },
+                "value": "NeitherExiststrue",
+                "key": "Whk05AXglo"
+              }
+            ],
+            "key": "DocIkXDt4A"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 457, "line": 11, "column": 27 },
+              "end": { "offset": 458, "line": 11, "column": 28 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 457, "line": 11, "column": 27 },
+                  "end": { "offset": 458, "line": 11, "column": 28 }
+                },
+                "value": "/Add-Refs.bib",
+                "key": "rtuBJWGIce"
+              }
+            ],
+            "key": "ZFRENM7Wg9"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 493, "line": 13, "column": 11 },
+              "end": { "offset": 503, "line": 13, "column": 21 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 493, "line": 13, "column": 11 },
+                  "end": { "offset": 503, "line": 13, "column": 21 }
+                },
+                "value": "References in Add-Refs.bib will take precedence over those elsewhere",
+                "key": "IRxCIUlv4y"
+              }
+            ],
+            "key": "nPqy9T0jGT"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 577, "line": 14, "column": 14 },
+              "end": { "offset": 590, "line": 14, "column": 27 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 577, "line": 14, "column": 14 },
+                  "end": { "offset": 590, "line": 14, "column": 27 }
+                },
+                "value": "AddRefsExiststrue",
+                "key": "AujmCyduHP"
+              }
+            ],
+            "key": "bdTLmUmmgN"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 612, "line": 15, "column": 14 },
+              "end": { "offset": 625, "line": 15, "column": 27 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 612, "line": 15, "column": 14 },
+                  "end": { "offset": 625, "line": 15, "column": 27 }
+                },
+                "value": "NeitherExistsfalse",
+                "key": "QckoJSS3d1"
+              }
+            ],
+            "key": "tyjMReFsNk"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 679, "line": 18, "column": 14 },
+              "end": { "offset": 692, "line": 18, "column": 27 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 679, "line": 18, "column": 14 },
+                  "end": { "offset": 692, "line": 18, "column": 27 }
+                },
+                "value": "AddRefsExistsfalse",
+                "key": "Vd7uRZiGGW"
+              }
+            ],
+            "key": "W0sezpTkAF"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 762, "line": 19, "column": 14 },
+              "end": { "offset": 771, "line": 19, "column": 23 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 762, "line": 19, "column": 14 },
+                  "end": { "offset": 771, "line": 19, "column": 23 }
+                },
+                "value": "BothExistfalse",
+                "key": "v5vkz95wJ0"
+              }
+            ],
+            "key": "Q6uN6wURif"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 914, "line": 23, "column": 15 },
+              "end": { "offset": 915, "line": 23, "column": 16 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 914, "line": 23, "column": 15 },
+                  "end": { "offset": 915, "line": 23, "column": 16 }
+                },
+                "value": "/usr/local/texlive/texmf-local/bibtex/bib/system.bib",
+                "key": "hrLKd8QC3s"
+              }
+            ],
+            "key": "YMBK8Jg0cH"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 989, "line": 25, "column": 11 },
+              "end": { "offset": 999, "line": 25, "column": 21 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 989, "line": 25, "column": 11 },
+                  "end": { "offset": 999, "line": 25, "column": 21 }
+                },
+                "value": "References in system.bib will be used for items not found elsewhere",
+                "key": "eguxe2cEnI"
+              }
+            ],
+            "key": "MVyYoubsNO"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1072, "line": 26, "column": 14 },
+              "end": { "offset": 1084, "line": 26, "column": 26 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1072, "line": 26, "column": 14 },
+                  "end": { "offset": 1084, "line": 26, "column": 26 }
+                },
+                "value": "systemExiststrue",
+                "key": "ipb4rfE2Wc"
+              }
+            ],
+            "key": "s3zVPhxOlX"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1106, "line": 27, "column": 14 },
+              "end": { "offset": 1119, "line": 27, "column": 27 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1106, "line": 27, "column": 14 },
+                  "end": { "offset": 1119, "line": 27, "column": 27 }
+                },
+                "value": "NeitherExistsfalse",
+                "key": "q4zaHWL95C"
+              }
+            ],
+            "key": "Mdvlt6f3b6"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1152, "line": 30, "column": 11 },
+              "end": { "offset": 1157, "line": 30, "column": 16 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1152, "line": 30, "column": 11 },
+                  "end": { "offset": 1157, "line": 30, "column": 16 }
+                },
+                "value": "Found no system database file",
+                "key": "uRcSgQUNpC"
+              }
+            ],
+            "key": "m1ZH62NRYH"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1197, "line": 31, "column": 14 },
+              "end": { "offset": 1209, "line": 31, "column": 26 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1197, "line": 31, "column": 14 },
+                  "end": { "offset": 1209, "line": 31, "column": 26 }
+                },
+                "value": "systemExistsfalse",
+                "key": "vHVm6Szwly"
+              }
+            ],
+            "key": "ycjkqv2WH9"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1232, "line": 32, "column": 14 },
+              "end": { "offset": 1241, "line": 32, "column": 23 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1232, "line": 32, "column": 14 },
+                  "end": { "offset": 1241, "line": 32, "column": 23 }
+                },
+                "value": "BothExistfalse",
+                "key": "FU7Gaig6u5"
+              }
+            ],
+            "key": "MvHHIrmCSp"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1277, "line": 35, "column": 22 },
+              "end": { "offset": 1289, "line": 35, "column": 34 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1277, "line": 35, "column": 22 },
+                  "end": { "offset": 1289, "line": 35, "column": 34 }
+                },
+                "value": "showPageHead",
+                "key": "rcT2ezA2op"
+              }
+            ],
+            "key": "hRQ0kwKCgs"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1418, "line": 39, "column": 22 },
+              "end": { "offset": 1427, "line": 39, "column": 31 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1418, "line": 39, "column": 22 },
+                  "end": { "offset": 1427, "line": 39, "column": 31 }
+                },
+                "value": "BothExist",
+                "key": "L9UWrBpWgX"
+              }
+            ],
+            "key": "f1GbxHRnhf"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1460, "line": 41, "column": 11 },
+              "end": { "offset": 1472, "line": 41, "column": 23 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1460, "line": 41, "column": 11 },
+                  "end": { "offset": 1472, "line": 41, "column": 23 }
+                },
+                "value": "bibliography/Add-Refs,/,system",
+                "key": "lgy6Hz0YZa"
+              }
+            ],
+            "key": "KmxnCy58Mn"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1670, "line": 45, "column": 23 },
+              "end": { "offset": 1683, "line": 45, "column": 36 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1670, "line": 45, "column": 23 },
+                  "end": { "offset": 1683, "line": 45, "column": 36 }
+                },
+                "value": "NeitherExists",
+                "key": "FkE4Vdtaol"
+              }
+            ],
+            "key": "UllgeJ4FYw"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1699, "line": 46, "column": 12 },
+              "end": { "offset": 1711, "line": 46, "column": 24 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1699, "line": 46, "column": 12 },
+                  "end": { "offset": 1711, "line": 46, "column": 24 }
+                },
+                "value": "bibliography",
+                "key": "xJzcgLfoYX"
+              }
+            ],
+            "key": "QfBndwL5w2"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1807, "line": 49, "column": 24 },
+              "end": { "offset": 1820, "line": 49, "column": 37 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1807, "line": 49, "column": 24 },
+                  "end": { "offset": 1820, "line": 49, "column": 37 }
+                },
+                "value": "AddRefsExists",
+                "key": "LYBjhcyrU5"
+              }
+            ],
+            "key": "o6eUHkMuJ5"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1837, "line": 50, "column": 13 },
+              "end": { "offset": 1849, "line": 50, "column": 25 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1837, "line": 50, "column": 13 },
+                  "end": { "offset": 1849, "line": 50, "column": 25 }
+                },
+                "value": "bibliography/Add-Refs,/",
+                "key": "cQvhI0RWVd"
+              }
+            ],
+            "key": "HXm4IkabbR"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1974, "line": 52, "column": 13 },
+              "end": { "offset": 1986, "line": 52, "column": 25 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1974, "line": 52, "column": 13 },
+                  "end": { "offset": 1986, "line": 52, "column": 25 }
+                },
+                "value": "bibliography/,system",
+                "key": "wiaBsoo0nD"
+              }
+            ],
+            "key": "YBAMNbvsG0"
+          }
+        ],
+        "key": "NIjXprb1yY"
+      }
+    ],
+    "key": "IUHKSnOkzW"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

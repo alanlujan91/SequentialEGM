@@ -1,0 +1,2319 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "Appendix.tex",
+        "url": "/Appendix-97ce2c72e4b18c189fd7facf0baa2637.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Subfiles\\Appendix.tex",
+  "sha256": "4c9e26f4951193280a4877665c1f4cf3debe040df0e0008b4e497c95f8c56973",
+  "slug": "appendix",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 131, "line": 3, "column": 46 },
+              "end": { "offset": 132, "line": 3, "column": 47 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 131, "line": 3, "column": 46 },
+                  "end": { "offset": 132, "line": 3, "column": 47 }
+                },
+                "value": "/SequentialEGM",
+                "key": "EJapcBg9Mh"
+              }
+            ],
+            "key": "GmFXdcjk5v"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 213, "line": 6, "column": 8 },
+              "end": { "offset": 221, "line": 6, "column": 16 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 213, "line": 6, "column": 8 },
+                  "end": { "offset": 221, "line": 6, "column": 16 }
+                },
+                "value": "document",
+                "key": "zN7N8rP8gO"
+              }
+            ],
+            "key": "EaCwLRpgKB"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 397, "line": 11, "column": 22 },
+              "end": { "offset": 400, "line": 11, "column": 25 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 397, "line": 11, "column": 22 },
+                  "end": { "offset": 400, "line": 11, "column": 25 }
+                },
+                "value": "Web",
+                "key": "ublpXR4Nrt"
+              }
+            ],
+            "key": "fnamTeXmlq"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 450, "line": 12, "column": 11 },
+              "end": { "offset": 451, "line": 12, "column": 12 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 450, "line": 12, "column": 11 },
+                  "end": { "offset": 451, "line": 12, "column": 12 }
+                },
+                "value": "[Appendices]Appendices",
+                "key": "aq8ILxElGA"
+              }
+            ],
+            "key": "DbTJaoWJ1Y"
+          }
+        ],
+        "key": "YqstQC7yfe"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "offset": 651, "line": 16, "column": 90 },
+          "end": { "offset": 659, "line": 16, "column": 98 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 651, "line": 16, "column": 90 },
+              "end": { "offset": 659, "line": 16, "column": 98 }
+            },
+            "depth": 2,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 660, "line": 16, "column": 99 },
+                  "end": { "offset": 667, "line": 16, "column": 106 }
+                },
+                "value": "Solving the illustrative G2EGM model with EGM",
+                "key": "rb65bQcpHE"
+              },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "position": {
+                  "start": { "offset": 705, "line": 16, "column": 144 },
+                  "end": { "offset": 709, "line": 16, "column": 148 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "BKJyfpKmdW"
+              }
+            ],
+            "label": "app:DF_R",
+            "identifier": "app:df_r",
+            "html_id": "app-df-r",
+            "key": "fOBAWyebK7"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 747, "line": 19, "column": 1 },
+              "end": { "offset": 758, "line": 19, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 759, "line": 19, "column": 13 },
+                  "end": { "offset": 762, "line": 19, "column": 16 }
+                },
+                "value": "The problem for a retired household",
+                "key": "N2xKB1zhPb"
+              }
+            ],
+            "identifier": "the-problem-for-a-retired-household",
+            "label": "The problem for a retired household",
+            "html_id": "the-problem-for-a-retired-household",
+            "implicit": true,
+            "key": "poP6DJdwwh"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 799, "line": 21, "column": 1 },
+              "end": { "offset": 800, "line": 21, "column": 2 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 799, "line": 21, "column": 1 },
+                  "end": { "offset": 800, "line": 21, "column": 2 }
+                },
+                "value": "I designate as ",
+                "key": "HEO155OW7H"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\wFunc_{t}(\\mRat_{t})",
+                "position": {
+                  "start": { "offset": 814, "line": 21, "column": 16 },
+                  "end": { "offset": 837, "line": 21, "column": 39 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\wFunc at position 1: \\̲w̲F̲u̲n̲c̲_{t}(\\mRat_{t})",
+                "key": "FYfNq4HsX4"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 837, "line": 21, "column": 39 },
+                  "end": { "offset": 838, "line": 21, "column": 40 }
+                },
+                "value": " the problem of a retired household at time ",
+                "key": "KvVp1tQc4T"
+              },
+              {
+                "type": "inlineMath",
+                "value": "t",
+                "position": {
+                  "start": { "offset": 881, "line": 21, "column": 83 },
+                  "end": { "offset": 884, "line": 21, "column": 86 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6151em;\"></span><span class=\"mord mathnormal\">t</span></span></span></span>",
+                "key": "ridYMqtSuf"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 884, "line": 21, "column": 86 },
+                  "end": { "offset": 885, "line": 21, "column": 87 }
+                },
+                "value": " with total resources ",
+                "key": "hQJuDr3NIY"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\mRat",
+                "position": {
+                  "start": { "offset": 906, "line": 21, "column": 108 },
+                  "end": { "offset": 913, "line": 21, "column": 115 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\mRat at position 1: \\̲m̲R̲a̲t̲",
+                "key": "PJX30DvN9u"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 913, "line": 21, "column": 115 },
+                  "end": { "offset": 914, "line": 21, "column": 116 }
+                },
+                "value": ". The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of ",
+                "key": "ZUdIN6RypO"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\underline{\\tShkEmp}",
+                "position": {
+                  "start": { "offset": 1045, "line": 21, "column": 247 },
+                  "end": { "offset": 1067, "line": 21, "column": 269 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\tShkEmp at position 12: \\underline{\\̲t̲S̲h̲k̲E̲m̲p̲}",
+                "key": "pmqrqnVuqW"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1067, "line": 21, "column": 269 },
+                  "end": { "offset": 1068, "line": 21, "column": 270 }
+                },
+                "value": ".",
+                "key": "PdJ1OCyxNO"
+              }
+            ],
+            "key": "zdruQR20X2"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\wFunc_{t}(\\mRat_{t}) & = \\max_{\\cRat_{t}} \\util(\\cRat_{t}) +\r\n        \\DiscFac \\wFunc_{t+1}(\\mRat_{t}) \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\aRat_{t} & = \\mRat_{t} - \\cRat_{t} \\\\\r\n        \\mRat_{t+1} & = \\Rfree_{\\aRat} \\aRat_{t} +\r\n        \\underline{\\tShkEmp}\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 1072, "line": 23, "column": 1 },
+              "end": { "offset": 1412, "line": 32, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\wFunc at position 24: …plit}\r\n        \\̲w̲F̲u̲n̲c̲_{t}(\\mRat_{t})…",
+            "enumerator": "1",
+            "key": "n3YEjhc3wQ"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1416, "line": 34, "column": 1 },
+              "end": { "offset": 1422, "line": 34, "column": 7 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1416, "line": 34, "column": 1 },
+                  "end": { "offset": 1422, "line": 34, "column": 7 }
+                },
+                "value": "Notice that there is no uncertainty and the household receives a retirement",
+                "key": "kKPbIldc7U"
+              }
+            ],
+            "key": "L94vybQs4G"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1493, "line": 35, "column": 1 },
+              "end": { "offset": 1499, "line": 35, "column": 7 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1493, "line": 35, "column": 1 },
+                  "end": { "offset": 1499, "line": 35, "column": 7 }
+                },
+                "value": "income ",
+                "key": "V0IZffR1ir"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\underline{\\tShkEmp}",
+                "position": {
+                  "start": { "offset": 1500, "line": 35, "column": 8 },
+                  "end": { "offset": 1522, "line": 35, "column": 30 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\tShkEmp at position 12: \\underline{\\̲t̲S̲h̲k̲E̲m̲p̲}",
+                "key": "h4DE297026"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1522, "line": 35, "column": 30 },
+                  "end": { "offset": 1523, "line": 35, "column": 31 }
+                },
+                "value": " every period until death.",
+                "key": "C2AizuTVJ5"
+              }
+            ],
+            "key": "FAl2knKx4B"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 1552, "line": 37, "column": 1 },
+              "end": { "offset": 1563, "line": 37, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1564, "line": 37, "column": 13 },
+                  "end": { "offset": 1567, "line": 37, "column": 16 }
+                },
+                "value": "The problem for a worker household",
+                "key": "LwLDjfLKpv"
+              }
+            ],
+            "identifier": "the-problem-for-a-worker-household",
+            "label": "The problem for a worker household",
+            "html_id": "the-problem-for-a-worker-household",
+            "implicit": true,
+            "key": "M2emo6yUgG"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1603, "line": 39, "column": 1 },
+              "end": { "offset": 1606, "line": 39, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1603, "line": 39, "column": 1 },
+                  "end": { "offset": 1606, "line": 39, "column": 4 }
+                },
+                "value": "The value function of a worker household is",
+                "key": "Wvjp9Dnf3f"
+              }
+            ],
+            "key": "mTeIdh34hJ"
+          },
+          {
+            "type": "math",
+            "value": "\\VFunc_{t}(\\mRat_{t}, \\nRat_{t}) = \\Ex_\\error \\max \\left\\{\r\n    \\vFunc_{t}(\\mRat_{t}, \\nRat_{t}, \\Work) + \\sigma_{\\error}\r\n    \\error_{\\Work} ,\r\n    \\vFunc_{t}(\\mRat_{t}, \\nRat_{t}, \\Retire) + \\sigma_{\\error}\r\n    \\error_{\\Retire} \\right\\}",
+            "position": {
+              "start": { "offset": 1656, "line": 43, "column": 1 },
+              "end": { "offset": 1933, "line": 49, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\VFunc at position 1: \\̲V̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "2",
+            "key": "M3uM83Ybxc"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1937, "line": 51, "column": 1 },
+              "end": { "offset": 1942, "line": 51, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1937, "line": 51, "column": 1 },
+                  "end": { "offset": 1942, "line": 51, "column": 6 }
+                },
+                "value": "where the choice specific problem for a working household that decides to",
+                "key": "OT6mJc1omk"
+              }
+            ],
+            "key": "H8nEsfwWkj"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2012, "line": 52, "column": 1 },
+              "end": { "offset": 2020, "line": 52, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2012, "line": 52, "column": 1 },
+                  "end": { "offset": 2020, "line": 52, "column": 9 }
+                },
+                "value": "continue working is",
+                "key": "z7ROIm2FLx"
+              }
+            ],
+            "key": "sdpT8Q5rMJ"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vFunc_{t}(\\mRat_{t}, \\nRat_{t}, \\Work) & = \\max_{\\cRat_{t},\r\n            \\dRat_{t}} \\util(\\cRat_{t}) - \\kapShare + \\DiscFac\r\n        \\Ex_{t} \\left[\r\n            \\VFunc_{t+1}(\\mRat_{t+1}, \\nRat_{t+1})\r\n            \\right] \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\aRat_{t} & = \\mRat_{t} - \\cRat_{t} - \\dRat_{t} \\\\\r\n        \\bRat_{t} & = \\nRat_{t} + \\dRat_{t} + \\gFunc(\\dRat_{t}) \\\\\r\n        \\mRat_{t+1} & = \\Rfree_{\\aRat} \\aRat_{t} + \\tShkEmp_{t+1} \\\\\r\n        \\nRat_{t+1} & = \\Rfree_{\\bRat} \\bRat_{t}\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 2035, "line": 54, "column": 1 },
+              "end": { "offset": 2611, "line": 67, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 24: …plit}\r\n        \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "3",
+            "key": "rsShZsCwwh"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2615, "line": 69, "column": 1 },
+              "end": { "offset": 2618, "line": 69, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2615, "line": 69, "column": 1 },
+                  "end": { "offset": 2618, "line": 69, "column": 4 }
+                },
+                "value": "and the choice specific problem for a working household that decides to retire",
+                "key": "Tq9R2hGcCB"
+              }
+            ],
+            "key": "WByiYul1Xr"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2695, "line": 70, "column": 1 },
+              "end": { "offset": 2697, "line": 70, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2695, "line": 70, "column": 1 },
+                  "end": { "offset": 2697, "line": 70, "column": 3 }
+                },
+                "value": "is",
+                "key": "saENGNOMU0"
+              }
+            ],
+            "key": "dQP8oizgyD"
+          },
+          {
+            "type": "math",
+            "value": "\\vFunc_{t}(\\mRat_{t}, \\nRat_{t}, \\Retire) =\r\n    \\wFunc_{t}(\\mRat_{t}+\\nRat_{t})",
+            "position": {
+              "start": { "offset": 2701, "line": 72, "column": 1 },
+              "end": { "offset": 2819, "line": 75, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 1: \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "4",
+            "key": "SEN7Yo0YOk"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 2823, "line": 77, "column": 1 },
+              "end": { "offset": 2834, "line": 77, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2835, "line": 77, "column": 13 },
+                  "end": { "offset": 2843, "line": 77, "column": 21 }
+                },
+                "value": "Applying the Sequential EGM",
+                "key": "zuGdHZ2ZcV"
+              }
+            ],
+            "identifier": "applying-the-sequential-egm",
+            "label": "Applying the Sequential EGM",
+            "html_id": "applying-the-sequential-egm",
+            "implicit": true,
+            "key": "D84SncSyDS"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2867, "line": 79, "column": 1 },
+              "end": { "offset": 2870, "line": 79, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2867, "line": 79, "column": 1 },
+                  "end": { "offset": 2870, "line": 79, "column": 4 }
+                },
+                "value": "The first step is to define a post-decision value function. Once the household",
+                "key": "F60DMErKwD"
+              }
+            ],
+            "key": "qqUuOAKbT1"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2947, "line": 80, "column": 1 },
+              "end": { "offset": 2954, "line": 80, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2947, "line": 80, "column": 1 },
+                  "end": { "offset": 2954, "line": 80, "column": 8 }
+                },
+                "value": "decides their level of consumption and pension deposits, they are left with",
+                "key": "tnBMbFomxe"
+              }
+            ],
+            "key": "fj0nWYqb0C"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 3024, "line": 81, "column": 1 },
+              "end": { "offset": 3030, "line": 81, "column": 7 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3024, "line": 81, "column": 1 },
+                  "end": { "offset": 3030, "line": 81, "column": 7 }
+                },
+                "value": "liquid assets they are saving for the future and illiquid assets in their",
+                "key": "ZnhVjtHFic"
+              }
+            ],
+            "key": "H3R7tV3tzM"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 3099, "line": 82, "column": 1 },
+              "end": { "offset": 3106, "line": 82, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3099, "line": 82, "column": 1 },
+                  "end": { "offset": 3106, "line": 82, "column": 8 }
+                },
+                "value": "pension account which they can’t access again until retirement. The",
+                "key": "aKnNgSoY4y"
+              }
+            ],
+            "key": "mObGpbKe73"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 3168, "line": 83, "column": 1 },
+              "end": { "offset": 3172, "line": 83, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3168, "line": 83, "column": 1 },
+                  "end": { "offset": 3172, "line": 83, "column": 5 }
+                },
+                "value": "post-decision value function can be defined as",
+                "key": "Wg8FmMBGam"
+              }
+            ],
+            "key": "S1jgvao1kP"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vEnd_{t}(\\aRat_{t}, \\bRat_{t}) & =  \\DiscFac\r\n        \\Ex_{t} \\left[ \\VFunc_{t+1}(\\mRat_{t+1}, \\nRat_{t+1}) \\right] \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\mRat_{t+1} & = \\Rfree_{\\aRat} \\aRat_{t} + \\tShkEmp_{t+1} \\\\\r\n        \\nRat_{t+1} & = \\Rfree_{\\bRat} \\bRat_{t}\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 3218, "line": 85, "column": 1 },
+              "end": { "offset": 3561, "line": 93, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vEnd at position 24: …plit}\r\n        \\̲v̲E̲n̲d̲_{t}(\\aRat_{t},…",
+            "enumerator": "5",
+            "key": "yutEaP4Vax"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 3565, "line": 95, "column": 1 },
+              "end": { "offset": 3569, "line": 95, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3565, "line": 95, "column": 1 },
+                  "end": { "offset": 3569, "line": 95, "column": 5 }
+                },
+                "value": "Then redefine the working agent’s problem as",
+                "key": "a4muhMDBfq"
+              }
+            ],
+            "key": "CME0N4zpt0"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vFunc_{t}(\\mRat_{t}, \\nRat_{t}, \\Work) & = \\max_{\\cRat_{t},\r\n            \\dRat_{t}} \\util(\\cRat_{t})  - \\kapShare + \\vEnd_{t}(\\aRat_{t},\r\n        \\bRat_{t}) \\\\\r\n        \\aRat_{t} & = \\mRat_{t} - \\cRat_{t} - \\dRat_{t} \\\\\r\n        \\bRat_{t} & = \\nRat_{t} + \\dRat_{t} + \\gFunc(\\dRat_{t}) \\\\\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 3613, "line": 97, "column": 1 },
+              "end": { "offset": 3979, "line": 105, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 24: …plit}\r\n        \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "6",
+            "key": "KM4PWEKtnT"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 3983, "line": 107, "column": 1 },
+              "end": { "offset": 3990, "line": 107, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3983, "line": 107, "column": 1 },
+                  "end": { "offset": 3990, "line": 107, "column": 8 }
+                },
+                "value": "Clearly, the structure of the problem remains the same, and this is the problem",
+                "key": "cz4umRNcJ0"
+              }
+            ],
+            "key": "XDhldLK1P0"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4064, "line": 108, "column": 1 },
+              "end": { "offset": 4068, "line": 108, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4064, "line": 108, "column": 1 },
+                  "end": { "offset": 4068, "line": 108, "column": 5 }
+                },
+                "value": "that G2EGM solves. We’ve only moved some",
+                "key": "TC49ix9MJm"
+              }
+            ],
+            "key": "NAslTZstiV"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4106, "line": 109, "column": 1 },
+              "end": { "offset": 4108, "line": 109, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4106, "line": 109, "column": 1 },
+                  "end": { "offset": 4108, "line": 109, "column": 3 }
+                },
+                "value": "of the stochastic mechanics out of the problem. Now, we can apply the",
+                "key": "SccHXTsSgV"
+              }
+            ],
+            "key": "DFGfWHNFyx"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4177, "line": 110, "column": 1 },
+              "end": { "offset": 4187, "line": 110, "column": 11 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4177, "line": 110, "column": 1 },
+                  "end": { "offset": 4187, "line": 110, "column": 11 }
+                },
+                "value": "sequential EGM",
+                "key": "hmZEEgMiI3"
+              },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "position": {
+                  "start": { "offset": 4191, "line": 110, "column": 15 },
+                  "end": { "offset": 4195, "line": 110, "column": 19 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "aMIpLJ3Sl0"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4195, "line": 110, "column": 19 },
+                  "end": { "offset": 4196, "line": 110, "column": 20 }
+                },
+                "value": " method. Let the agent first decide ",
+                "key": "lmAVy2JcgF"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\dRat_{t}",
+                "position": {
+                  "start": { "offset": 4231, "line": 110, "column": 55 },
+                  "end": { "offset": 4242, "line": 110, "column": 66 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\dRat at position 1: \\̲d̲R̲a̲t̲_{t}",
+                "key": "Rx5iaXWH3D"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4242, "line": 110, "column": 66 },
+                  "end": { "offset": 4243, "line": 110, "column": 67 }
+                },
+                "value": ", the deposit",
+                "key": "Q92Tfa2Snk"
+              }
+            ],
+            "key": "bXy95wcxzg"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4257, "line": 111, "column": 1 },
+              "end": { "offset": 4263, "line": 111, "column": 7 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4257, "line": 111, "column": 1 },
+                  "end": { "offset": 4263, "line": 111, "column": 7 }
+                },
+                "value": "amount into their retirement; we will call this the deposit problem, or outer loop. Thereafter, the",
+                "key": "jnpGyTa4sS"
+              }
+            ],
+            "key": "xV5E8BguCv"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4358, "line": 112, "column": 1 },
+              "end": { "offset": 4363, "line": 112, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4358, "line": 112, "column": 1 },
+                  "end": { "offset": 4363, "line": 112, "column": 6 }
+                },
+                "value": "agent will have net liquid assets",
+                "key": "RlsBGr3joa"
+              }
+            ],
+            "key": "gxaUQ6PmY6"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4393, "line": 113, "column": 1 },
+              "end": { "offset": 4395, "line": 113, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4393, "line": 113, "column": 1 },
+                  "end": { "offset": 4395, "line": 113, "column": 3 }
+                },
+                "value": "of ",
+                "key": "jxRfuWDWwX"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\lRat_{t}",
+                "position": {
+                  "start": { "offset": 4396, "line": 113, "column": 4 },
+                  "end": { "offset": 4407, "line": 113, "column": 15 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lRat at position 1: \\̲l̲R̲a̲t̲_{t}",
+                "key": "WjTZvjUmFD"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4407, "line": 113, "column": 15 },
+                  "end": { "offset": 4408, "line": 113, "column": 16 }
+                },
+                "value": " and pension assets of ",
+                "key": "tazKdL1tme"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat_{t}",
+                "position": {
+                  "start": { "offset": 4430, "line": 113, "column": 38 },
+                  "end": { "offset": 4441, "line": 113, "column": 49 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                "key": "Epc2A6WbRR"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4441, "line": 113, "column": 49 },
+                  "end": { "offset": 4442, "line": 113, "column": 50 }
+                },
+                "value": ".",
+                "key": "woFAQ0E9zW"
+              }
+            ],
+            "key": "ltZi6NHm5R"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vFunc_{t}(\\mRat_{t}, \\nRat_{t}, \\Work) & = \\max_{\\dRat_{t}}\r\n        \\vOpt_{t}(\\lRat_{t}, \\bRat_{t}) \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\lRat_{t} & = \\mRat_{t} - \\dRat_{t} \\\\\r\n        \\bRat_{t} & = \\nRat_{t} + \\dRat_{t} + \\gFunc(\\dRat_{t})\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 4446, "line": 115, "column": 1 },
+              "end": { "offset": 4767, "line": 123, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 24: …plit}\r\n        \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "7",
+            "key": "ENoWcwiLec"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4771, "line": 125, "column": 1 },
+              "end": { "offset": 4774, "line": 125, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4771, "line": 125, "column": 1 },
+                  "end": { "offset": 4774, "line": 125, "column": 4 }
+                },
+                "value": "Now, the agent can move on to picking their consumption and savings; we can call this",
+                "key": "UAOnkjNZWv"
+              }
+            ],
+            "key": "Vxuk1xJ1zH"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4858, "line": 126, "column": 1 },
+              "end": { "offset": 4861, "line": 126, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4858, "line": 126, "column": 1 },
+                  "end": { "offset": 4861, "line": 126, "column": 4 }
+                },
+                "value": "the pure consumption problem or inner loop.",
+                "key": "g3pkxORb7U"
+              }
+            ],
+            "key": "ccvqrgO5sK"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vOpt_{t}(\\lRat_{t}, \\bRat_{t}) & = \\max_{\\cRat_{t}}\r\n        \\util(\\cRat_{t}) - \\kapShare  + \\vEnd_{t}(\\aRat_{t}, \\bRat_{t}) \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\aRat_{t} & = \\lRat_{t} - \\cRat_{t} \\\\\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 4905, "line": 128, "column": 1 },
+              "end": { "offset": 5185, "line": 135, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vOpt at position 24: …plit}\r\n        \\̲v̲O̲p̲t̲_{t}(\\lRat_{t},…",
+            "enumerator": "8",
+            "key": "IcJZLz7rj0"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5189, "line": 137, "column": 1 },
+              "end": { "offset": 5196, "line": 137, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5189, "line": 137, "column": 1 },
+                  "end": { "offset": 5196, "line": 137, "column": 8 }
+                },
+                "value": "Because we’ve already made the pension decision, the amount of pension assets",
+                "key": "CXpVNZcrEk"
+              }
+            ],
+            "key": "hBTFnGydbJ"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5268, "line": 138, "column": 1 },
+              "end": { "offset": 5272, "line": 138, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5268, "line": 138, "column": 1 },
+                  "end": { "offset": 5272, "line": 138, "column": 5 }
+                },
+                "value": "does not change in this loop and it just passes through to the post-decision",
+                "key": "HhAAucCKzv"
+              }
+            ],
+            "key": "ieZVteR1JY"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5346, "line": 139, "column": 1 },
+              "end": { "offset": 5351, "line": 139, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5346, "line": 139, "column": 1 },
+                  "end": { "offset": 5351, "line": 139, "column": 6 }
+                },
+                "value": "value function.",
+                "key": "zJwIJyxPGl"
+              }
+            ],
+            "key": "fU0293XBAl"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 5365, "line": 141, "column": 1 },
+              "end": { "offset": 5376, "line": 141, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5377, "line": 141, "column": 13 },
+                  "end": { "offset": 5384, "line": 141, "column": 20 }
+                },
+                "value": "Solving the problem",
+                "key": "A8cHiZGhyR"
+              }
+            ],
+            "identifier": "solving-the-problem",
+            "label": "Solving the problem",
+            "html_id": "solving-the-problem",
+            "implicit": true,
+            "key": "KDhpJM2GMl"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 5401, "line": 143, "column": 1 },
+              "end": { "offset": 5415, "line": 143, "column": 15 }
+            },
+            "depth": 4,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5416, "line": 143, "column": 16 },
+                  "end": { "offset": 5423, "line": 143, "column": 23 }
+                },
+                "value": "Solving the Inner Consumption Saving Problem",
+                "key": "WU7OqjHu4L"
+              }
+            ],
+            "identifier": "solving-the-inner-consumption-saving-problem",
+            "label": "Solving the Inner Consumption Saving Problem",
+            "html_id": "solving-the-inner-consumption-saving-problem",
+            "implicit": true,
+            "key": "LIzxJVqpWZ"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5465, "line": 145, "column": 1 },
+              "end": { "offset": 5468, "line": 145, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5465, "line": 145, "column": 1 },
+                  "end": { "offset": 5468, "line": 145, "column": 4 }
+                },
+                "value": "Let’s start with the pure consumption-saving problem, which we can summarize by",
+                "key": "ZQraQtJry3"
+              }
+            ],
+            "key": "FOMMLcqAPH"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5546, "line": 146, "column": 1 },
+              "end": { "offset": 5558, "line": 146, "column": 13 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5546, "line": 146, "column": 1 },
+                  "end": { "offset": 5558, "line": 146, "column": 13 }
+                },
+                "value": "substitution as",
+                "key": "AUH8j3VzYs"
+              }
+            ],
+            "key": "JqrbajvUCC"
+          },
+          {
+            "type": "math",
+            "value": "\\vOpt_{t}(\\lRat_{t}, \\bRat_{t}) = \\max_{\\cRat_{t}} \\util(\\cRat_{t}) - \\kapShare +\r\n    \\vEnd_{t}(\\lRat_{t} - \\cRat_{t}, \\bRat_{t})",
+            "position": {
+              "start": { "offset": 5565, "line": 148, "column": 1 },
+              "end": { "offset": 5733, "line": 151, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vOpt at position 1: \\̲v̲O̲p̲t̲_{t}(\\lRat_{t},…",
+            "enumerator": "9",
+            "key": "pHCX9dPCFa"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5737, "line": 153, "column": 1 },
+              "end": { "offset": 5740, "line": 153, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5737, "line": 153, "column": 1 },
+                  "end": { "offset": 5740, "line": 153, "column": 4 }
+                },
+                "value": "The first-order condition is",
+                "key": "y80OaAFeF5"
+              }
+            ],
+            "key": "n98smVgONJ"
+          },
+          {
+            "type": "math",
+            "value": "\\util'(\\cRat_{t}) = \\vEnd_{t}^{\\aRat}(\\lRat_{t}-\\cRat_{t}, \\bRat_{t}) =\r\n    \\vEnd_{t}^{\\aRat}(\\aRat_{t}, \\bRat_{t})",
+            "position": {
+              "start": { "offset": 5769, "line": 155, "column": 1 },
+              "end": { "offset": 5923, "line": 158, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\util at position 1: \\̲u̲t̲i̲l̲'(\\cRat_{t}) = …",
+            "enumerator": "10",
+            "key": "SM8gx0pclv"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5927, "line": 160, "column": 1 },
+              "end": { "offset": 5929, "line": 160, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5927, "line": 160, "column": 1 },
+                  "end": { "offset": 5929, "line": 160, "column": 3 }
+                },
+                "value": "We can invert this Euler equation as in standard EGM to obtain the consumption",
+                "key": "TYLHSAKgkJ"
+              }
+            ],
+            "key": "daNglIgsCI"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6007, "line": 161, "column": 1 },
+              "end": { "offset": 6015, "line": 161, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6007, "line": 161, "column": 1 },
+                  "end": { "offset": 6015, "line": 161, "column": 9 }
+                },
+                "value": "function.",
+                "key": "Xp7h1mCyKz"
+              }
+            ],
+            "key": "TQi23ZM6BA"
+          },
+          {
+            "type": "math",
+            "value": "\\cEndFunc_{t}(\\aRat_{t}, \\bRat_{t}) =\r\n    \\util'^{-1}\\left(\\vEnd_{t}^{\\aRat}(\\aRat_{t}, \\bRat_{t})\\right)",
+            "position": {
+              "start": { "offset": 6020, "line": 163, "column": 1 },
+              "end": { "offset": 6164, "line": 166, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\cEndFunc at position 1: \\̲c̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\aRat_{t},…",
+            "enumerator": "11",
+            "key": "vAZHwXWaAM"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6168, "line": 168, "column": 1 },
+              "end": { "offset": 6173, "line": 168, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6168, "line": 168, "column": 1 },
+                  "end": { "offset": 6173, "line": 168, "column": 6 }
+                },
+                "value": "Again as before, ",
+                "key": "uJhI9M7pNS"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\lEndFunc_{t}(\\aRat_{t}, \\bRat_{t}) =\r\n    \\cEndFunc_{t}(\\aRat_{t}, \\bRat_{t}) + \\aRat_{t}",
+                "position": {
+                  "start": { "offset": 6185, "line": 168, "column": 18 },
+                  "end": { "offset": 6277, "line": 169, "column": 53 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lEndFunc at position 1: \\̲l̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\aRat_{t},…",
+                "key": "yOymzZAh4w"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6277, "line": 169, "column": 53 },
+                  "end": { "offset": 6278, "line": 169, "column": 54 }
+                },
+                "value": ". To sum up, using an",
+                "key": "Xp1KcdwigI"
+              }
+            ],
+            "key": "ewVO9lmHqO"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6300, "line": 170, "column": 1 },
+              "end": { "offset": 6309, "line": 170, "column": 10 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6300, "line": 170, "column": 1 },
+                  "end": { "offset": 6309, "line": 170, "column": 10 }
+                },
+                "value": "exogenous",
+                "key": "FeylNz51T1"
+              }
+            ],
+            "key": "zWvxKTmicU"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6311, "line": 171, "column": 1 },
+              "end": { "offset": 6315, "line": 171, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6311, "line": 171, "column": 1 },
+                  "end": { "offset": 6315, "line": 171, "column": 5 }
+                },
+                "value": "grid of ",
+                "key": "NfGVOEz0LO"
+              },
+              {
+                "type": "inlineMath",
+                "value": "(\\aRat_{t}, \\bRat_{t})",
+                "position": {
+                  "start": { "offset": 6319, "line": 171, "column": 9 },
+                  "end": { "offset": 6343, "line": 171, "column": 33 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\aRat at position 2: (\\̲a̲R̲a̲t̲_{t}, \\bRat_{t}…",
+                "key": "swKyh55MUb"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6343, "line": 171, "column": 33 },
+                  "end": { "offset": 6344, "line": 171, "column": 34 }
+                },
+                "value": " we obtain the trio ",
+                "key": "m8QQ2qaY6T"
+              },
+              {
+                "type": "inlineMath",
+                "value": "(\\cEndFunc_{t}(\\aRat_{t},\r\n    \\bRat_{t}), \\lEndFunc_{t}(\\aRat_{t},\r\n    \\bRat_{t}), \\bRat_{t})",
+                "position": {
+                  "start": { "offset": 6363, "line": 171, "column": 53 },
+                  "end": { "offset": 6460, "line": 173, "column": 28 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\cEndFunc at position 2: (\\̲c̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\aRat_{t},…",
+                "key": "LbRb0hF4DU"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6460, "line": 173, "column": 28 },
+                  "end": { "offset": 6461, "line": 173, "column": 29 }
+                },
+                "value": " which",
+                "key": "zDl1dz5KQf"
+              }
+            ],
+            "key": "hnQjGjXP2m"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6468, "line": 174, "column": 1 },
+              "end": { "offset": 6476, "line": 174, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6468, "line": 174, "column": 1 },
+                  "end": { "offset": 6476, "line": 174, "column": 9 }
+                },
+                "value": "provides an",
+                "key": "xdzC0OigSg"
+              }
+            ],
+            "key": "bFJtGMU5fj"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6481, "line": 175, "column": 1 },
+              "end": { "offset": 6494, "line": 175, "column": 14 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6481, "line": 175, "column": 1 },
+                  "end": { "offset": 6494, "line": 175, "column": 14 }
+                },
+                "value": "interpolating function for our optimal consumption decision rule over the",
+                "key": "f62YsgefPZ"
+              }
+            ],
+            "key": "zoiQ86rnU1"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6556, "line": 176, "column": 1 },
+              "end": { "offset": 6572, "line": 176, "column": 17 }
+            },
+            "children": [
+              {
+                "type": "inlineMath",
+                "value": "(\\lRat, \\bRat)",
+                "position": {
+                  "start": { "offset": 6556, "line": 176, "column": 1 },
+                  "end": { "offset": 6572, "line": 176, "column": 17 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lRat at position 2: (\\̲l̲R̲a̲t̲, \\bRat)",
+                "key": "wUP2abiLuz"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6572, "line": 176, "column": 17 },
+                  "end": { "offset": 6573, "line": 176, "column": 18 }
+                },
+                "value": " grid. Without loss of generality, assume ",
+                "key": "mtFZEVjDXK"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\lEndFunc_{t} =\r\n    \\lEndFunc_{t}(\\aRat_{t}, \\bRat_{t})",
+                "position": {
+                  "start": { "offset": 6614, "line": 176, "column": 59 },
+                  "end": { "offset": 6672, "line": 177, "column": 41 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lEndFunc at position 1: \\̲l̲E̲n̲d̲F̲u̲n̲c̲_{t} =\r\n    \\lE…",
+                "key": "RzfLRZXoIa"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6672, "line": 177, "column": 41 },
+                  "end": { "offset": 6673, "line": 177, "column": 42 }
+                },
+                "value": " and define the interpolating",
+                "key": "qIG9Oxn5rr"
+              }
+            ],
+            "key": "mGjwr8P5mq"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6703, "line": 178, "column": 1 },
+              "end": { "offset": 6711, "line": 178, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6703, "line": 178, "column": 1 },
+                  "end": { "offset": 6711, "line": 178, "column": 9 }
+                },
+                "value": "function as",
+                "key": "MKVG43OnOw"
+              }
+            ],
+            "key": "Rs0IxHKry6"
+          },
+          {
+            "type": "math",
+            "value": "\\cTarg_{t}(\\lEndFunc_{t}, \\bRat_{t}) \\equiv \\cEndFunc_{t}(\\aRat_{t},\r\n    \\bRat_{t})",
+            "position": {
+              "start": { "offset": 6718, "line": 180, "column": 1 },
+              "end": { "offset": 6840, "line": 183, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\cTarg at position 1: \\̲c̲T̲a̲r̲g̲_{t}(\\lEndFunc_…",
+            "enumerator": "12",
+            "key": "Xu5ULg888L"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6844, "line": 185, "column": 1 },
+              "end": { "offset": 6847, "line": 185, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6844, "line": 185, "column": 1 },
+                  "end": { "offset": 6847, "line": 185, "column": 4 }
+                },
+                "value": "For completeness, we derive the envelope conditions as well, and as we will",
+                "key": "AjmTbxdZb7"
+              }
+            ],
+            "key": "VeOailQXXu"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6921, "line": 186, "column": 1 },
+              "end": { "offset": 6924, "line": 186, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6921, "line": 186, "column": 1 },
+                  "end": { "offset": 6924, "line": 186, "column": 4 }
+                },
+                "value": "see, these will be useful when solving the next section.",
+                "key": "I9JrU61c8B"
+              }
+            ],
+            "key": "ZfaLJSCgtt"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vOpt_{t}^{\\lRat}(\\lRat_{t}, \\bRat_{t}) & =\r\n        \\vEnd_{t}^{\\aRat}(\\aRat_{t}, \\bRat_{t}) = \\util'(\\cRat_{t}) \\\\\r\n        \\vOpt_{t}^{\\bRat}(\\lRat_{t}, \\bRat_{t}) & =\r\n        \\vEnd_{t}^{\\bRat}(\\aRat_{t}, \\bRat_{t})\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 6981, "line": 188, "column": 1 },
+              "end": { "offset": 7276, "line": 195, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vOpt at position 24: …plit}\r\n        \\̲v̲O̲p̲t̲_{t}^{\\lRat}(\\l…",
+            "enumerator": "13",
+            "key": "BnRDe1md1R"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 7280, "line": 197, "column": 1 },
+              "end": { "offset": 7294, "line": 197, "column": 15 }
+            },
+            "depth": 4,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7295, "line": 197, "column": 16 },
+                  "end": { "offset": 7302, "line": 197, "column": 23 }
+                },
+                "value": "Solving the Outer Pension Deposit Problem",
+                "key": "N8C3TDqSZM"
+              }
+            ],
+            "identifier": "solving-the-outer-pension-deposit-problem",
+            "label": "Solving the Outer Pension Deposit Problem",
+            "html_id": "solving-the-outer-pension-deposit-problem",
+            "implicit": true,
+            "key": "JtoKcWKgTF"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7341, "line": 199, "column": 1 },
+              "end": { "offset": 7344, "line": 199, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7341, "line": 199, "column": 1 },
+                  "end": { "offset": 7344, "line": 199, "column": 4 }
+                },
+                "value": "Now, we can move on to solving the deposit problem, which we can also summarize",
+                "key": "UHx03dpRVv"
+              }
+            ],
+            "key": "qHHyMQlbJs"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7422, "line": 200, "column": 1 },
+              "end": { "offset": 7424, "line": 200, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7422, "line": 200, "column": 1 },
+                  "end": { "offset": 7424, "line": 200, "column": 3 }
+                },
+                "value": "as",
+                "key": "oaH0RbCf8Q"
+              }
+            ],
+            "key": "H6TestVNwP"
+          },
+          {
+            "type": "math",
+            "value": "\\vFunc_{t}(\\mRat_{t}, \\nRat_{t}, \\Work) = \\max_{\\dRat_{t}}\r\n    \\vOpt_{t}(\\mRat_{t}\r\n    - \\dRat_{t}, \\nRat_{t} + \\dRat_{t} + \\gFunc(\\dRat_{t}))",
+            "position": {
+              "start": { "offset": 7428, "line": 202, "column": 1 },
+              "end": { "offset": 7610, "line": 206, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 1: \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "14",
+            "key": "RKSxpI98kY"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7614, "line": 208, "column": 1 },
+              "end": { "offset": 7617, "line": 208, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7614, "line": 208, "column": 1 },
+                  "end": { "offset": 7617, "line": 208, "column": 4 }
+                },
+                "value": "The first-order condition is",
+                "key": "J2VwELMzMu"
+              }
+            ],
+            "key": "Hgk0ARcAHR"
+          },
+          {
+            "type": "math",
+            "value": "\\vOpt_{t}^{\\lRat}(\\lRat_{t}, \\bRat_{t})(-1) +\r\n    \\vOpt_{t}^{\\bRat}(\\lRat_{t}, \\bRat_{t})(1+\\gFunc'(\\dRat_{t})) = 0",
+            "position": {
+              "start": { "offset": 7646, "line": 210, "column": 1 },
+              "end": { "offset": 7800, "line": 213, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vOpt at position 1: \\̲v̲O̲p̲t̲_{t}^{\\lRat}(\\l…",
+            "enumerator": "15",
+            "key": "BU4Omiulnq"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7804, "line": 215, "column": 1 },
+              "end": { "offset": 7815, "line": 215, "column": 12 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7804, "line": 215, "column": 1 },
+                  "end": { "offset": 7815, "line": 215, "column": 12 }
+                },
+                "value": "Rearranging this equation gives",
+                "key": "QVQOogbSEC"
+              }
+            ],
+            "key": "CcuDRBVp4E"
+          },
+          {
+            "type": "math",
+            "value": "\\gFunc'(\\dRat_{t}) = \\frac{\\vOpt_{t}^{\\lRat}(\\lRat_{t},\r\n        \\bRat_{t})}{\\vOpt_{t}^{\\bRat}(\\lRat_{t}, \\bRat_{t})} - 1",
+            "position": {
+              "start": { "offset": 7839, "line": 217, "column": 1 },
+              "end": { "offset": 7998, "line": 220, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲'(\\dRat_{t}) = …",
+            "enumerator": "16",
+            "key": "dZCSHQTE5O"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8002, "line": 222, "column": 1 },
+              "end": { "offset": 8010, "line": 222, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8002, "line": 222, "column": 1 },
+                  "end": { "offset": 8010, "line": 222, "column": 9 }
+                },
+                "value": "Assuming that ",
+                "key": "ZuCbNGJVWF"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\gFunc'(\\dRat)",
+                "position": {
+                  "start": { "offset": 8016, "line": 222, "column": 15 },
+                  "end": { "offset": 8032, "line": 222, "column": 31 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲'(\\dRat)",
+                "key": "FnjuXEyavv"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8032, "line": 222, "column": 31 },
+                  "end": { "offset": 8033, "line": 222, "column": 32 }
+                },
+                "value": " exists and is invertible, we can find",
+                "key": "fvjMiJDvnK"
+              }
+            ],
+            "key": "nfWfYmRi35"
+          },
+          {
+            "type": "math",
+            "value": "\\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) = \\gFunc'^{-1}\\left(\r\n    \\frac{\\vOpt_{t}^{\\lRat}(\\lRat_{t},\r\n        \\bRat_{t})}{\\vOpt_{t}^{\\bRat}(\\lRat_{t},\r\n        \\bRat_{t})} - 1 \\right)",
+            "position": {
+              "start": { "offset": 8074, "line": 224, "column": 1 },
+              "end": { "offset": 8291, "line": 229, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\dEndFunc at position 1: \\̲d̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+            "enumerator": "17",
+            "key": "CLv1IKxi3X"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8295, "line": 231, "column": 1 },
+              "end": { "offset": 8300, "line": 231, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8295, "line": 231, "column": 1 },
+                  "end": { "offset": 8300, "line": 231, "column": 6 }
+                },
+                "value": "Using this, we can back out ",
+                "key": "FHKZ2ceWyy"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\nRat_{t}",
+                "position": {
+                  "start": { "offset": 8323, "line": 231, "column": 29 },
+                  "end": { "offset": 8334, "line": 231, "column": 40 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\nRat at position 1: \\̲n̲R̲a̲t̲_{t}",
+                "key": "cJUxMQBoDB"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8334, "line": 231, "column": 40 },
+                  "end": { "offset": 8335, "line": 231, "column": 41 }
+                },
+                "value": " as",
+                "key": "RSdwGf4eU3"
+              }
+            ],
+            "key": "x1yu1PO2OF"
+          },
+          {
+            "type": "math",
+            "value": "\\nEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) = \\bRat_{t} -\r\n    \\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) - \\gFunc(\\dEndFunc_{t}(\\lRat_{t},\r\n        \\bRat_{t}))",
+            "position": {
+              "start": { "offset": 8341, "line": 233, "column": 1 },
+              "end": { "offset": 8524, "line": 237, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\nEndFunc at position 1: \\̲n̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+            "enumerator": "18",
+            "key": "b0FhMHurqc"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8528, "line": 239, "column": 1 },
+              "end": { "offset": 8531, "line": 239, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8528, "line": 239, "column": 1 },
+                  "end": { "offset": 8531, "line": 239, "column": 4 }
+                },
+                "value": "and ",
+                "key": "Gk7FQiwVJ2"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\mRat_{t}",
+                "position": {
+                  "start": { "offset": 8532, "line": 239, "column": 5 },
+                  "end": { "offset": 8543, "line": 239, "column": 16 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\mRat at position 1: \\̲m̲R̲a̲t̲_{t}",
+                "key": "zb473NAZGz"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8543, "line": 239, "column": 16 },
+                  "end": { "offset": 8544, "line": 239, "column": 17 }
+                },
+                "value": " as",
+                "key": "XifhPKMVpP"
+              }
+            ],
+            "key": "bw1oGudLnT"
+          },
+          {
+            "type": "math",
+            "value": "\\mEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) = \\lRat_{t} +\r\n    \\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t})",
+            "position": {
+              "start": { "offset": 8550, "line": 241, "column": 1 },
+              "end": { "offset": 8678, "line": 244, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\mEndFunc at position 1: \\̲m̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+            "enumerator": "19",
+            "key": "CLbHUrUyTS"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8682, "line": 246, "column": 1 },
+              "end": { "offset": 8684, "line": 246, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8682, "line": 246, "column": 1 },
+                  "end": { "offset": 8684, "line": 246, "column": 3 }
+                },
+                "value": "In sum, given an exogenous grid ",
+                "key": "L4SdDyImLc"
+              },
+              {
+                "type": "inlineMath",
+                "value": "(\\lRat_{t}, \\bRat_{t})",
+                "position": {
+                  "start": { "offset": 8714, "line": 246, "column": 33 },
+                  "end": { "offset": 8738, "line": 246, "column": 57 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lRat at position 2: (\\̲l̲R̲a̲t̲_{t}, \\bRat_{t}…",
+                "key": "FPHfaReRq7"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8738, "line": 246, "column": 57 },
+                  "end": { "offset": 8739, "line": 246, "column": 58 }
+                },
+                "value": " we obtain the triple",
+                "key": "qMXHjFYl98"
+              }
+            ],
+            "key": "bH5DYO7ynu"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8761, "line": 247, "column": 1 },
+              "end": { "offset": 8894, "line": 248, "column": 64 }
+            },
+            "children": [
+              {
+                "type": "inlineMath",
+                "value": "\\left(\\mEndFunc_{t}(\\lRat_{t}, \\bRat_{t}), \\nEndFunc_{t}(\\lRat_{t},\r\n        \\bRat_{t}), \\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t})\\right)",
+                "position": {
+                  "start": { "offset": 8761, "line": 247, "column": 1 },
+                  "end": { "offset": 8894, "line": 248, "column": 64 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\mEndFunc at position 7: \\left(\\̲m̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+                "key": "qTdPmIzY4B"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8894, "line": 248, "column": 64 },
+                  "end": { "offset": 8895, "line": 248, "column": 65 }
+                },
+                "value": ", which",
+                "key": "A0PoWxbqTp"
+              }
+            ],
+            "key": "B6NQ5KApEh"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8903, "line": 249, "column": 1 },
+              "end": { "offset": 8905, "line": 249, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8903, "line": 249, "column": 1 },
+                  "end": { "offset": 8905, "line": 249, "column": 3 }
+                },
+                "value": "we can use to",
+                "key": "ZGo7M8mAxg"
+              }
+            ],
+            "key": "fjcVXrWYPm"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8918, "line": 250, "column": 1 },
+              "end": { "offset": 8924, "line": 250, "column": 7 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8918, "line": 250, "column": 1 },
+                  "end": { "offset": 8924, "line": 250, "column": 7 }
+                },
+                "value": "create an interpolator for the decision rule ",
+                "key": "WKlBW1nb0P"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\dRat_{t}",
+                "position": {
+                  "start": { "offset": 8963, "line": 250, "column": 46 },
+                  "end": { "offset": 8974, "line": 250, "column": 57 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\dRat at position 1: \\̲d̲R̲a̲t̲_{t}",
+                "key": "Qiz46papfF"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8974, "line": 250, "column": 57 },
+                  "end": { "offset": 8975, "line": 250, "column": 58 }
+                },
+                "value": ".",
+                "key": "FtoXfGD1HR"
+              }
+            ],
+            "key": "Px9n04UInz"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8979, "line": 252, "column": 1 },
+              "end": { "offset": 8981, "line": 252, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8979, "line": 252, "column": 1 },
+                  "end": { "offset": 8981, "line": 252, "column": 3 }
+                },
+                "value": "To close the solution method, the envelope conditions are",
+                "key": "mhSuMiE1ib"
+              }
+            ],
+            "key": "m6BAj32EYV"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vFunc_{t}^{\\mRat}(\\mRat_{t}, \\nRat_{t}, \\Work) & =\r\n        \\vOpt_{t}^{\\lRat}(\\lRat_{t}, \\bRat_{t}) \\\\\r\n        \\vFunc_{t}^{\\nRat}(\\mRat_{t}, \\nRat_{t}, \\Work) & =\r\n        \\vOpt_{t}^{\\bRat}(\\lRat_{t}, \\bRat_{t})\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 9040, "line": 254, "column": 1 },
+              "end": { "offset": 9331, "line": 261, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 24: …plit}\r\n        \\̲v̲F̲u̲n̲c̲_{t}^{\\mRat}(\\m…",
+            "enumerator": "20",
+            "key": "CbmDt9LJVY"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 9335, "line": 263, "column": 1 },
+              "end": { "offset": 9346, "line": 263, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9347, "line": 263, "column": 13 },
+                  "end": { "offset": 9349, "line": 263, "column": 15 }
+                },
+                "value": "Is g invertible?",
+                "key": "IqhVAQjSzU"
+              }
+            ],
+            "identifier": "is-g-invertible",
+            "label": "Is g invertible?",
+            "html_id": "is-g-invertible",
+            "implicit": true,
+            "key": "umqsG0QOVZ"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 9368, "line": 265, "column": 1 },
+              "end": { "offset": 9370, "line": 265, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9368, "line": 265, "column": 1 },
+                  "end": { "offset": 9370, "line": 265, "column": 3 }
+                },
+                "value": "We’ve already seen that ",
+                "key": "x7TrgYeft6"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\util'(\\cdot)",
+                "position": {
+                  "start": { "offset": 9392, "line": 265, "column": 25 },
+                  "end": { "offset": 9407, "line": 265, "column": 40 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\util at position 1: \\̲u̲t̲i̲l̲'(\\cdot)",
+                "key": "kv9mk0w2Y5"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9407, "line": 265, "column": 40 },
+                  "end": { "offset": 9408, "line": 265, "column": 41 }
+                },
+                "value": " is invertible, but is ",
+                "key": "Xi6rEyyKv8"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\gFunc",
+                "position": {
+                  "start": { "offset": 9430, "line": 265, "column": 63 },
+                  "end": { "offset": 9438, "line": 265, "column": 71 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲",
+                "key": "P8KbrPldLv"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9438, "line": 265, "column": 71 },
+                  "end": { "offset": 9439, "line": 265, "column": 72 }
+                },
+                "value": "?",
+                "key": "xh5NQ11XNx"
+              }
+            ],
+            "key": "VmS9u8yd53"
+          },
+          {
+            "type": "math",
+            "value": "\\gFunc(\\dRat) = \\xFer \\log(1+\\dRat) \\qquad \\gFunc'(\\dRat) =\r\n    \\frac{\\xFer}{1+\\dRat} \\qquad \\gFunc'^{-1}(y) = \\xFer/y - 1",
+            "position": {
+              "start": { "offset": 9443, "line": 267, "column": 1 },
+              "end": { "offset": 9604, "line": 270, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲(\\dRat) = \\xFer…",
+            "enumerator": "21",
+            "key": "O18g3LHHbn"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 9608, "line": 272, "column": 1 },
+              "end": { "offset": 9619, "line": 272, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9620, "line": 272, "column": 13 },
+                  "end": { "offset": 9623, "line": 272, "column": 16 }
+                },
+                "value": "The Post-Decision Value and Marginal Value Functions",
+                "key": "vCjyPBwmP1"
+              }
+            ],
+            "identifier": "the-post-decision-value-and-marginal-value-functions",
+            "label": "The Post-Decision Value and Marginal Value Functions",
+            "html_id": "the-post-decision-value-and-marginal-value-functions",
+            "implicit": true,
+            "key": "YWACWDQT8V"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vEnd_{t}(\\aRat, \\bRat) & =  \\DiscFac \\Ex_{t} \\left[\r\n            \\VFunc(\\mRat_{t+1}, \\nRat_{t+1}) \\right] \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\mRat_{t+1} & = \\Rfree_{\\aRat} \\aRat_{t} + \\tShkEmp_{t+1} \\\\\r\n        \\nRat_{t+1} & = \\Rfree_{\\bRat} \\bRat_{t}\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 9677, "line": 274, "column": 1 },
+              "end": { "offset": 10010, "line": 282, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vEnd at position 24: …plit}\r\n        \\̲v̲E̲n̲d̲_{t}(\\aRat, \\bR…",
+            "enumerator": "22",
+            "key": "WYCrqkBK10"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 10014, "line": 284, "column": 1 },
+              "end": { "offset": 10017, "line": 284, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 10014, "line": 284, "column": 1 },
+                  "end": { "offset": 10017, "line": 284, "column": 4 }
+                },
+                "value": "and",
+                "key": "UyZ0Jtofs8"
+              }
+            ],
+            "key": "nFOczRECYA"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vEnd_{t}^{\\aRat}(\\aRat_{t}, \\bRat_{t}) & =  \\DiscFac\r\n        \\Rfree_{\\aRat} \\Ex_{t} \\left[ \\VFunc^{\\mRat}_{t+1}(\\mRat_{t+1},\r\n            \\nRat_{t+1})\r\n            \\right] \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\mRat_{t+1} & = \\Rfree_{\\aRat} \\aRat_{t} + \\tShkEmp_{t+1} \\\\\r\n        \\nRat_{t+1} & = \\Rfree_{\\bRat} \\bRat_{t}\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 10021, "line": 286, "column": 1 },
+              "end": { "offset": 10421, "line": 296, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vEnd at position 24: …plit}\r\n        \\̲v̲E̲n̲d̲_{t}^{\\aRat}(\\a…",
+            "enumerator": "23",
+            "key": "Yu1NUvDfNN"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 10425, "line": 298, "column": 1 },
+              "end": { "offset": 10428, "line": 298, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 10425, "line": 298, "column": 1 },
+                  "end": { "offset": 10428, "line": 298, "column": 4 }
+                },
+                "value": "and",
+                "key": "M6hbkJb69V"
+              }
+            ],
+            "key": "TGK7A0UQui"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n        \\vEnd_{t}^{\\bRat}(\\aRat_{t}, \\bRat_{t}) & =  \\DiscFac\r\n        \\Rfree_{\\bRat} \\Ex_{t} \\left[ \\VFunc^{\\nRat}_{t+1}(\\mRat_{t+1},\r\n            \\nRat_{t+1})\r\n            \\right] \\\\\r\n        & \\text{s.t.} \\\\\r\n        \\mRat_{t+1} & = \\Rfree_{\\aRat} \\aRat_{t} + \\tShkEmp_{t+1} \\\\\r\n        \\nRat_{t+1} & = \\Rfree_{\\bRat} \\bRat_{t}\r\n    \\end{split}",
+            "position": {
+              "start": { "offset": 10432, "line": 300, "column": 1 },
+              "end": { "offset": 10832, "line": 310, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vEnd at position 24: …plit}\r\n        \\̲v̲E̲n̲d̲_{t}^{\\bRat}(\\a…",
+            "enumerator": "24",
+            "key": "bIPau0Qyme"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 10836, "line": 312, "column": 1 },
+              "end": { "offset": 10847, "line": 312, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 10848, "line": 312, "column": 13 },
+                  "end": { "offset": 10853, "line": 312, "column": 18 }
+                },
+                "value": "Taste Shocks",
+                "key": "KkGV2isvFG"
+              }
+            ],
+            "identifier": "taste-shocks",
+            "label": "Taste Shocks",
+            "html_id": "taste-shocks",
+            "implicit": true,
+            "key": "cw7HuX1ooC"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 10865, "line": 314, "column": 1 },
+              "end": { "offset": 10869, "line": 314, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 10865, "line": 314, "column": 1 },
+                  "end": { "offset": 10869, "line": 314, "column": 5 }
+                },
+                "value": "From discrete choice theory and from DCEGM paper, we know that",
+                "key": "fXz3ASXBO8"
+              }
+            ],
+            "key": "B58jAh6trD"
+          },
+          {
+            "type": "math",
+            "value": "\\Ex_{t} \\left[\r\n        \\VFunc_{t+1}(\\mRat_{t+1}, \\nRat_{t+1}, \\error_{t+1}) \\right] =\r\n    \\sigma \\log \\left[ \\sum_{\\Decision \\in \\{\\Work, \\Retire\\}} \\exp \\left(\r\n        \\frac{\\vFunc_{t+1}(\\mRat_{t+1}, \\nRat_{t+1},\r\n            \\Decision)}{\\sigma_\\error}\t\\right) \t\\right]",
+            "position": {
+              "start": { "offset": 10931, "line": 316, "column": 1 },
+              "end": { "offset": 11242, "line": 322, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\Ex at position 1: \\̲E̲x̲_{t} \\left[\r\n  …",
+            "enumerator": "25",
+            "key": "wJ4tE63sWl"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 11246, "line": 324, "column": 1 },
+              "end": { "offset": 11249, "line": 324, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 11246, "line": 324, "column": 1 },
+                  "end": { "offset": 11249, "line": 324, "column": 4 }
+                },
+                "value": "and",
+                "key": "ouk6F7iboI"
+              }
+            ],
+            "key": "GjWVZYMyOx"
+          },
+          {
+            "type": "math",
+            "value": "\\Prob_{t}(\\Decision ~ \\lvert ~ \\mRat_{t+1}, \\nRat_{t+1}) = \\frac{\\exp\r\n        \\left(\r\n        \\vFunc_{t + 1}(\\mRat_{t+1}, \\nRat_{t+1}, \\Decision) /\r\n        \\sigma_\\error\r\n        \\right)\r\n    }{  \\sum\\limits_{\\Decision \\in \\{\\Work, \\Retire\\}}\t\\exp \\left(\r\n        \\frac{\\vFunc_{t+1}(\\mRat_{t+1}, \\nRat_{t+1},\r\n            \\Decision)}{\\sigma_\\error}\t\\right)}",
+            "position": {
+              "start": { "offset": 11253, "line": 326, "column": 1 },
+              "end": { "offset": 11650, "line": 335, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\Prob at position 1: \\̲P̲r̲o̲b̲_{t}(\\Decision …",
+            "enumerator": "26",
+            "key": "aVD82Hasg3"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 11654, "line": 337, "column": 1 },
+              "end": { "offset": 11657, "line": 337, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 11654, "line": 337, "column": 1 },
+                  "end": { "offset": 11657, "line": 337, "column": 4 }
+                },
+                "value": "the first-order conditions are therefore",
+                "key": "jftOTmtWVm"
+              }
+            ],
+            "key": "GHvLOi3tB0"
+          },
+          {
+            "type": "math",
+            "value": "\\vOptAlt_{t}^{\\mRat}(\\mRat_{t+1}, \\nRat_{t+1}) = \\sum_{\\Decision \\in\r\n        \\{\\Work, \\Retire\\}} \\Prob_{t}(\\Decision ~\r\n    \\lvert ~\r\n    \\mRat_{t+1}, \\nRat_{t+1}) \\vFunc_{t+1}^{\\mRat}(\\mRat_{t+1},\r\n    \\nRat_{t+1},\r\n    \\Decision)",
+            "position": {
+              "start": { "offset": 11698, "line": 339, "column": 1 },
+              "end": { "offset": 11968, "line": 346, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vOptAlt at position 1: \\̲v̲O̲p̲t̲A̲l̲t̲_{t}^{\\mRat}(\\m…",
+            "enumerator": "27",
+            "key": "QPWnePrfJ5"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12052, "line": 350, "column": 22 },
+              "end": { "offset": 12055, "line": 350, "column": 25 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12052, "line": 350, "column": 22 },
+                  "end": { "offset": 12055, "line": 350, "column": 25 }
+                },
+                "value": "Web",
+                "key": "tyso2D6uRK"
+              }
+            ],
+            "key": "mWL68diYxU"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12090, "line": 351, "column": 29 },
+              "end": { "offset": 12091, "line": 351, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12090, "line": 351, "column": 29 },
+                  "end": { "offset": 12091, "line": 351, "column": 30 }
+                },
+                "value": "[figure]list=no",
+                "key": "ipIBnFGsBQ"
+              }
+            ],
+            "key": "ypZSye9dLd"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12138, "line": 352, "column": 29 },
+              "end": { "offset": 12139, "line": 352, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12138, "line": 352, "column": 29 },
+                  "end": { "offset": 12139, "line": 352, "column": 30 }
+                },
+                "value": "[table]list=no",
+                "key": "knjv6y3Gax"
+              }
+            ],
+            "key": "NavFJkZZUT"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12162, "line": 353, "column": 6 },
+              "end": { "offset": 12170, "line": 353, "column": 14 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12162, "line": 353, "column": 6 },
+                  "end": { "offset": 12170, "line": 353, "column": 14 }
+                },
+                "value": "document",
+                "key": "w4latczqIN"
+              }
+            ],
+            "key": "I5xkhoggre"
+          }
+        ],
+        "key": "h4yvdEq79f"
+      }
+    ],
+    "key": "Ipuf9iCeHb"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

@@ -1,0 +1,602 @@
+{
+  "frontmatter": {
+    "title": "NEGM",
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "ipynb",
+        "filename": "03. NEGM.ipynb",
+        "url": "/03. NEGM-d724923534d5d279dd2636771de96964.ipynb"
+      }
+    ]
+  },
+  "kind": "Notebook",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\G2EGM\\03. NEGM.ipynb",
+  "sha256": "625e313dc81f0d813433986ff7a1f0a7dba29f78c61ae0c00c9a38c8b97c6ad2",
+  "slug": "negm",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 5, "column": 0 },
+          "end": { "line": 6, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 7, "column": 0 },
+              "end": { "line": 8, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "This notebook produces the timing and accuracy results for the comparison of ",
+                "key": "aLb9Gm84Sv"
+              },
+              {
+                "type": "strong",
+                "children": [
+                  { "type": "text", "value": "NEGM", "key": "HHRFyqVAeM" }
+                ],
+                "key": "VOd4ZpHd6o"
+              },
+              { "type": "text", "value": " and ", "key": "tigu3NlRrr" },
+              {
+                "type": "strong",
+                "children": [
+                  { "type": "text", "value": "G", "key": "wrz5hOegGM" },
+                  {
+                    "type": "inlineMath",
+                    "value": "^2",
+                    "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">^2</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.8141em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8141em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span></span></span></span>",
+                    "key": "J6URT0u0I4"
+                  },
+                  { "type": "text", "value": "EGM", "key": "yhcwR0OfLS" }
+                ],
+                "key": "L0ICrVQNtA"
+              },
+              { "type": "text", "value": " in ", "key": "lJ1NcDI16f" },
+              {
+                "type": "cite",
+                "url": "https://doi.org/10.1007/s10614-020-10045-x",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "A Guide to Solve Non-Convex Consumption-Saving Models",
+                    "key": "XJ8RZ5uikl"
+                  }
+                ],
+                "urlSource": "https://doi.org/10.1007/s10614-020-10045-x",
+                "data": { "doi": "10.1007/s10614-020-10045-x" },
+                "internal": false,
+                "protocol": "doi",
+                "kind": "narrative",
+                "label": "Druedahl_2020",
+                "key": "DBYb4fZmkD"
+              },
+              { "type": "text", "value": ".", "key": "mNVn1ovOLE" }
+            ],
+            "key": "sF5XTtYmGP"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%% md\n" } },
+        "key": "AxU3Aqlv5q"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 10, "column": 0 },
+          "end": { "line": 11, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 12, "column": 0 },
+              "end": { "line": 13, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Setup", "key": "y0MSt0ESJh" }
+            ],
+            "identifier": "setup",
+            "label": "Setup",
+            "html_id": "setup",
+            "implicit": true,
+            "key": "NSGN5dXKQo"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%% md\n" } },
+        "key": "EN31rXtwSf"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 15, "column": 0 },
+          "end": { "line": 16, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "%load_ext autoreload\n%autoreload 2\n\nimport numpy as np\nfrom figs import decision_functions, retirement, segments\n\nnp.seterr(all=\"ignore\")  # ignoring all warnings",
+            "position": {
+              "start": { "line": 17, "column": 0 },
+              "end": { "line": 26, "column": 0 }
+            },
+            "key": "dU96lePRs2"
+          },
+          {
+            "type": "output",
+            "id": "CmUcMBE4fiYUS5iQepXwu",
+            "data": [
+              {
+                "output_type": "execute_result",
+                "execution_count": 1,
+                "metadata": {},
+                "data": {
+                  "text/plain": {
+                    "content": "{'divide': 'warn', 'over': 'warn', 'under': 'ignore', 'invalid': 'warn'}",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "yx6MTHCmoP"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%%\n" } },
+        "key": "HrRr8gs4ZM"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 31, "column": 0 },
+          "end": { "line": 32, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "\n# load the G2EGMModel module\nfrom G2EGMModel import G2EGMModelClass",
+            "position": {
+              "start": { "line": 33, "column": 0 },
+              "end": { "line": 38, "column": 0 }
+            },
+            "key": "iL7j3YomI8"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%%\n" } },
+        "key": "yw4nO2OelZ"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 39, "column": 0 },
+          "end": { "line": 40, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 41, "column": 0 },
+              "end": { "line": 42, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Choose number of threads in numba",
+                "key": "i1nJKoPgo2"
+              }
+            ],
+            "identifier": "choose-number-of-threads-in-numba",
+            "label": "Choose number of threads in numba",
+            "html_id": "choose-number-of-threads-in-numba",
+            "implicit": true,
+            "key": "LD4sxSv6Gm"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 45, "column": 0 },
+              "end": { "line": 46, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "nb.set_num_threads(1)",
+                "key": "CUzjyir0uj"
+              }
+            ],
+            "key": "lJJ3PZr2iZ"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%% md\n" } },
+        "key": "Ic71TzlYzp"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 47, "column": 0 },
+          "end": { "line": 48, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 49, "column": 0 },
+              "end": { "line": 50, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Settings", "key": "U66QyflwxK" }
+            ],
+            "identifier": "settings",
+            "label": "Settings",
+            "html_id": "settings",
+            "implicit": true,
+            "key": "FSxe4gki69"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%% md\n" } },
+        "key": "poBf04aTF8"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 52, "column": 0 },
+          "end": { "line": 53, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "T = 20\nNeta = 7\nvar_eta = 0.01\ndo_print = False",
+            "position": {
+              "start": { "line": 54, "column": 0 },
+              "end": { "line": 60, "column": 0 }
+            },
+            "key": "bIXU4VKkHU"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2, "pycharm": { "name": "#%%\n" } },
+        "key": "KIhSdF1i3U"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 61, "column": 0 },
+          "end": { "line": 62, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 63, "column": 0 },
+              "end": { "line": 64, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Timing function",
+                "key": "fj9c9ouDgg"
+              }
+            ],
+            "identifier": "timing-function",
+            "label": "Timing function",
+            "html_id": "timing-function",
+            "implicit": true,
+            "key": "Yup9s9QLPj"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2, "pycharm": { "name": "#%% md\n" } },
+        "key": "j4nw6KXZLo"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 66, "column": 0 },
+          "end": { "line": 67, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def timing(model, rep=1, do_print=True):  # set to 5 in the paper\n    name = model.name\n\n    time_best = np.inf\n    for i in range(rep):\n        model.solve()\n        model.calculate_euler()\n\n        tot_time = np.sum(model.par.time_work)\n        if do_print:\n            print(f\"{i}: {tot_time:.2f} secs, euler: {np.nanmean(model.sim.euler):.3f}\")\n\n        if tot_time < time_best:\n            time_best = tot_time\n            model_best = model.copy(\"best\")\n\n    model_best.name = name\n    return model_best",
+            "position": {
+              "start": { "line": 68, "column": 0 },
+              "end": { "line": 88, "column": 0 }
+            },
+            "key": "Czue2Xo4KL"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%%\n" } },
+        "key": "QwnyPCPc1H"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 89, "column": 0 },
+          "end": { "line": 90, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 91, "column": 0 },
+              "end": { "line": 92, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "NEGM", "key": "aXZytxbS9q" }
+            ],
+            "identifier": "negm",
+            "label": "NEGM",
+            "html_id": "negm",
+            "implicit": true,
+            "key": "FdbXixcyQV"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%% md\n" } },
+        "key": "N9fl0YrcNM"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 94, "column": 0 },
+          "end": { "line": 95, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "model_NEGM = G2EGMModelClass(\n    name=\"NEGM\",\n    par={\n        \"solmethod\": \"NEGM\",\n        \"T\": T,\n        \"do_print\": do_print,\n        \"Neta\": Neta,\n        \"var_eta\": var_eta,\n    },\n)\nmodel_NEGM.precompile_numba()\nmodel_NEGM = timing(model_NEGM)",
+            "position": {
+              "start": { "line": 96, "column": 0 },
+              "end": { "line": 110, "column": 0 }
+            },
+            "key": "Xg2NPVW6nO"
+          },
+          {
+            "type": "output",
+            "id": "idihNKfQ1Mtqp6ieWCQ23",
+            "data": [
+              {
+                "name": "stdout",
+                "output_type": "stream",
+                "text": "0: 89.43 secs, euler: -5.886\n"
+              }
+            ],
+            "key": "SdioO65QeY"
+          }
+        ],
+        "data": { "pycharm": { "name": "#%%\n" } },
+        "key": "sJw5aN2cNN"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 115, "column": 0 },
+          "end": { "line": 116, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "retirement(model_NEGM)",
+            "position": {
+              "start": { "line": 117, "column": 0 },
+              "end": { "line": 120, "column": 0 }
+            },
+            "key": "bmW3B8tefp"
+          },
+          {
+            "type": "output",
+            "id": "hD8XsCWEVlWFGeakHls47",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "4f5ae499c49acf1fb4078542c567df38",
+                    "path": "/_static/4f5ae499c49acf1fb4078542c567df38.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "4dc016837f26391f1fd77e7250d76600",
+                    "path": "/_static/4dc016837f26391f1fd77e7250d76600.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "wRBSA1GaE1"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "Yx82jwDFNp"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 125, "column": 0 },
+          "end": { "line": 126, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "decision_functions(model_NEGM, 0)",
+            "position": {
+              "start": { "line": 127, "column": 0 },
+              "end": { "line": 130, "column": 0 }
+            },
+            "key": "Ep0Cak1oIA"
+          },
+          {
+            "type": "output",
+            "id": "Nka-bO_DyvHPPAPE9mELI",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "6ca0a4de4de2ab76f587739b944d73d3",
+                    "path": "/_static/6ca0a4de4de2ab76f587739b944d73d3.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "9fd749561a2eb45ad6a5e33891322557",
+                    "path": "/_static/9fd749561a2eb45ad6a5e33891322557.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "b9773e04489fc9e60d2514210d7101bf",
+                    "path": "/_static/b9773e04489fc9e60d2514210d7101bf.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "793093fcc0d63fcd337a912b13f5bc60",
+                    "path": "/_static/793093fcc0d63fcd337a912b13f5bc60.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "fd52b956f55832c7481971b606fdbd84",
+                    "path": "/_static/fd52b956f55832c7481971b606fdbd84.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "wdXXbZjcbp"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "sipvfLM1Zr"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 135, "column": 0 },
+          "end": { "line": 136, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "segments(model_NEGM, 0)",
+            "position": {
+              "start": { "line": 137, "column": 0 },
+              "end": { "line": 140, "column": 0 }
+            },
+            "key": "DdbVY3TRy5"
+          },
+          {
+            "type": "output",
+            "id": "Q-zflwTlAq06k_Wj7R7WZ",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "e842d92b54f909092808a89e5a57206c",
+                    "path": "/_static/e842d92b54f909092808a89e5a57206c.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 600x600 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "IkHzHhHfeq"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "guzOZGZwOp"
+      }
+    ],
+    "key": "Du2EX5NWn0"
+  },
+  "references": {
+    "cite": {
+      "order": ["Druedahl_2020"],
+      "data": {
+        "Druedahl_2020": {
+          "number": 1,
+          "doi": "10.1007/s10614-020-10045-x",
+          "html": "Druedahl, J. (2020). A Guide on Solving Non-convex Consumption-Saving Models. <i>Computational Economics</i>, <i>58</i>(3), 747–775. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1007/s10614-020-10045-x\">10.1007/s10614-020-10045-x</a>"
+        }
+      }
+    }
+  }
+}

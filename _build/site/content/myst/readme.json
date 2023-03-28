@@ -1,0 +1,188 @@
+{
+  "frontmatter": {
+    "title": "EGM$^n$: The Sequential Endogenous Grid Method",
+    "authors": [{ "name": "Alan Lujan" }],
+    "date": "2023/02/15",
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-94146a58075a4d3b8bc4e4c729d837b3.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\README.md",
+  "sha256": "26c3ad3851d9532ae16d8d61240996733d443dcd749f096a5f6b95b31fb543a0",
+  "slug": "readme",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 6, "column": 0 },
+              "end": { "line": 7, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "EGM", "key": "dV9mpLiJzQ" },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "DQ0DmkYiTe"
+              },
+              {
+                "type": "text",
+                "value": ": The Sequential Endogenous Grid Method",
+                "key": "GJg3doJmqm"
+              }
+            ],
+            "identifier": "egm-n-the-sequential-endogenous-grid-method",
+            "label": "EGM^n: The Sequential Endogenous Grid Method",
+            "html_id": "egm-n-the-sequential-endogenous-grid-method",
+            "implicit": true,
+            "key": "MDVsP7MWrt"
+          },
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 8, "column": 0 },
+              "end": { "line": 9, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Abstract", "key": "tbc3zRdpM1" }
+            ],
+            "identifier": "abstract",
+            "label": "Abstract",
+            "html_id": "abstract",
+            "implicit": true,
+            "key": "pa0OQZ6LBB"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 10, "column": 0 },
+              "end": { "line": 11, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require a large number of points and are time intensive. This paper provides a novel method for solving such models using an extension of the endogenous grid method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids. First, separating models into smaller, sequential problems allows the problems to be more tractable and easily analyzed. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be curvilinear at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and policy functions. Applied sequentially to each decision within the overarching problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard grid search methods currently used. This paper also illustrates how this method can be applied to a number of increasingly complex models. Software is provided in the form of a Python module under the ",
+                "key": "mtvvu7918E"
+              },
+              { "type": "inlineCode", "value": "HARK", "key": "WQt6JSTTha" },
+              { "type": "text", "value": " package.", "key": "YZTSxSX5RJ" }
+            ],
+            "key": "UAz8vIjqU1"
+          },
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 12, "column": 0 },
+              "end": { "line": 13, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Replication from a unix (macOS/linux) command line",
+                "key": "gkskZE2rSE"
+              }
+            ],
+            "identifier": "replication-from-a-unix-macos-linux-command-line",
+            "label": "Replication from a unix (macOS/linux) command line",
+            "html_id": "replication-from-a-unix-macos-linux-command-line",
+            "implicit": true,
+            "key": "RyruCwW37A"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 14, "column": 0 },
+              "end": { "line": 15, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "To reproduce all the computational results of the paper:",
+                "key": "qb706nN8HR"
+              }
+            ],
+            "key": "VKjPVTH1fJ"
+          },
+          {
+            "type": "code",
+            "lang": "",
+            "value": "\t/bin/bash reproduce_document.sh",
+            "position": {
+              "start": { "line": 16, "column": 0 },
+              "end": { "line": 19, "column": 0 }
+            },
+            "key": "Dre4bLKCLf"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 20, "column": 0 },
+              "end": { "line": 21, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "To produce pdf version of the paper from a unix (macOS/linux) command line:",
+                "key": "Z0HZiFylA1"
+              }
+            ],
+            "key": "nr12I95ovn"
+          },
+          {
+            "type": "code",
+            "lang": "",
+            "value": "\t/bin/bash reproduce_document.sh",
+            "position": {
+              "start": { "line": 22, "column": 0 },
+              "end": { "line": 25, "column": 0 }
+            },
+            "key": "w9klklj66H"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 26, "column": 0 },
+              "end": { "line": 27, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "To reproduce both computational results and the paper:",
+                "key": "PS6I35oHHc"
+              }
+            ],
+            "key": "M2khHxuWuB"
+          },
+          {
+            "type": "code",
+            "lang": "",
+            "value": "\t/bin/bash reproduce.sh",
+            "position": {
+              "start": { "line": 28, "column": 0 },
+              "end": { "line": 31, "column": 0 }
+            },
+            "key": "wCjpxo64r4"
+          }
+        ],
+        "key": "vXgeCkoZOw"
+      }
+    ],
+    "key": "hozr3uYNZx"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

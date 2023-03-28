@@ -1,0 +1,28 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "owner.tex",
+        "url": "/owner-b618328f19b458f917a918bc2a89393f.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\owner.tex",
+  "sha256": "da3cc2c3481848d04cfbd72a387866d7497240cd3c793c6f2353860a7193153b",
+  "slug": "owner",
+  "mdast": {
+    "type": "root",
+    "children": [{ "type": "block", "children": [], "key": "rA0dDtd0J4" }],
+    "key": "wx4EKlG0KH"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

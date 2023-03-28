@@ -1,0 +1,111 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "tabs_timings_G2EGM_vs_NEGM.tex",
+        "url": "/tabs_timings_G2EGM_v-67119a4f14fb44f5ffe2723cee3c8b85.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\G2EGM\\tabs_timings_G2EGM_vs_NEGM.tex",
+  "sha256": "494ca4640f70501a1fd441d7803fae711e5459449ff328fda98ed63f46aa741f",
+  "slug": "tabs-timings-g2egm-vs-negm",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 0, "line": 1, "column": 1 },
+              "end": { "offset": 5, "line": 1, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 0, "line": 1, "column": 1 },
+                  "end": { "offset": 5, "line": 1, "column": 6 }
+                },
+                "value": "Total & 0.84 & 1.38 & 1.13 & 1.60",
+                "key": "ifBy5bdgzW"
+              }
+            ],
+            "key": "DLnQHyQy87"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 37, "line": 2, "column": 1 },
+              "end": { "offset": 41, "line": 2, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 37, "line": 2, "column": 1 },
+                  "end": { "offset": 41, "line": 2, "column": 5 }
+                },
+                "value": "Post-decision functions & 0.02 & 0.02 & 0.32 & 0.23",
+                "key": "sJRdV3Ny93"
+              }
+            ],
+            "key": "zPYBxcdP5t"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 92, "line": 3, "column": 1 },
+              "end": { "offset": 95, "line": 3, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 92, "line": 3, "column": 1 },
+                  "end": { "offset": 95, "line": 3, "column": 4 }
+                },
+                "value": "EGM-step & 0.82 & 0.30 & 0.81 & 0.30",
+                "key": "RHTEgFwFfn"
+              }
+            ],
+            "key": "NqklljAcmq"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 132, "line": 4, "column": 1 },
+              "end": { "offset": 135, "line": 4, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 132, "line": 4, "column": 1 },
+                  "end": { "offset": 135, "line": 4, "column": 4 }
+                },
+                "value": "VFI-step & & 1.07 & & 1.07",
+                "key": "cKmTyMlgw9"
+              }
+            ],
+            "key": "P80ytAtVM0"
+          }
+        ],
+        "key": "a5577dVXVu"
+      }
+    ],
+    "key": "vZbtIm4HMd"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

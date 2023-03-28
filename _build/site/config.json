@@ -1,0 +1,435 @@
+{
+  "myst": "v1",
+  "nav": [],
+  "actions": [
+    { "title": "Learn More", "url": "https://myst-tools.org/docs/mystjs" }
+  ],
+  "projects": [
+    {
+      "authors": [],
+      "github": "https://github.com/alanlujan91/SequentialEGM",
+      "keywords": [],
+      "bibliography": [],
+      "title": "EGM$^n$: The Sequential Endogenous Grid Method",
+      "slug": "myst",
+      "index": "readme",
+      "pages": [
+        {
+          "slug": "sequentialegm-titlepage",
+          "title": "EGM^n: The Sequential Endogenous Grid Method",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 1
+        },
+        {
+          "slug": "sequentialegm",
+          "title": "sequentialegm",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 1
+        },
+        { "title": "Calibration", "level": 1 },
+        {
+          "slug": "readme-1",
+          "title": "Calibration of Model Parameters Should Be Here",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        { "title": "Code", "level": 1 },
+        {
+          "slug": "gpr-example",
+          "title": "gpr-example",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "lifecyclepensionretirement",
+          "title": "lifecyclepensionretirement",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "pensioncontrib",
+          "title": "pensioncontrib",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "pensioncontrib-baseline",
+          "title": "pensioncontrib-baseline",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "readme-2",
+          "title": "Contains computer code used to generate all results",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "example-conslaborportfoliomodel",
+          "title": "example-conslaborportfoliomodel",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "example-consretpencontribmodel",
+          "title": "example-consretpencontribmodel",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        { "title": "Empirical", "level": 2 },
+        {
+          "slug": "readme-3",
+          "title": "Code to Produce empirical results",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        { "title": "G2 EGM", "level": 2 },
+        {
+          "slug": "g2egm-vs-negm",
+          "title": "G2EGM vs. NEGM",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        {
+          "slug": "g2egm-1",
+          "title": "G2EGM",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        {
+          "slug": "negm",
+          "title": "NEGM",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        {
+          "slug": "readme-4",
+          "title": "readme-4",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        {
+          "slug": "tabs-euler-errors-g2egm-vs-negm",
+          "title": "tabs-euler-errors-g2egm-vs-negm",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        {
+          "slug": "tabs-timings-g2egm-vs-negm",
+          "title": "tabs-timings-g2egm-vs-negm",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        { "title": "Equations", "level": 1 },
+        {
+          "slug": "readme-5",
+          "title": "Equations That Should Be Reproducible",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        { "title": "Figures", "level": 1 },
+        {
+          "slug": "readme-6",
+          "title": "All Figures for Paper",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        { "title": "Highlighted", "level": 1 },
+        {
+          "slug": "readme-7",
+          "title": "Highlighted Passages",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        { "title": "Resources", "level": 1 },
+        {
+          "slug": "econtexpaths",
+          "title": "econtexpaths",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "owner",
+          "title": "owner",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        { "title": "La Te X Inputs", "level": 2 },
+        {
+          "slug": "bibliography-blend",
+          "title": "bibliography-blend",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        {
+          "slug": "econtex-notinsubfile",
+          "title": "econtex-notinsubfile",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        {
+          "slug": "econtex-onlyinsubfile",
+          "title": "econtex-onlyinsubfile",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        { "title": "Texmf Local", "level": 2 },
+        {
+          "slug": "readme-8",
+          "title": "texmf-local contains customizations of LaTeX",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 3
+        },
+        { "title": "Tex", "level": 3 },
+        { "title": "Latex", "level": 4 },
+        {
+          "slug": "bibmake",
+          "title": "bibmake",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 5
+        },
+        {
+          "slug": "cvbibmake",
+          "title": "cvbibmake",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 5
+        },
+        {
+          "slug": "econtexbibmake",
+          "title": "econtexbibmake",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 5
+        },
+        {
+          "slug": "handoutbibmake",
+          "title": "handoutbibmake",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 5
+        },
+        {
+          "slug": "makeposthandoutsstart",
+          "title": "makeposthandoutsstart",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 5
+        },
+        { "title": "Tex4ht", "level": 5 },
+        {
+          "slug": "svg-math-and-subfigures-readme",
+          "title": "svg-math-and-subfigures-readme",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 6
+        },
+        { "title": "Subfiles", "level": 1 },
+        {
+          "slug": "intro",
+          "title": "intro",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "method",
+          "title": "method",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "higherdims",
+          "title": "higherdims",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "unstructuredinterp",
+          "title": "unstructuredinterp",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "whentouse",
+          "title": "whentouse",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "conclusion",
+          "title": "conclusion",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
+          "slug": "appendix",
+          "title": "appendix",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        { "title": "Tables", "level": 1 },
+        {
+          "slug": "readme-9",
+          "title": "LaTeX Input Files for Tables",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        }
+      ]
+    }
+  ]
+}

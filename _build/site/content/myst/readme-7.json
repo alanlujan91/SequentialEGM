@@ -1,0 +1,47 @@
+{
+  "frontmatter": {
+    "title": "Highlighted Passages",
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-22968970403afa030f0ed6fd51de13d1.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Highlighted\\README.md",
+  "sha256": "57704e8a69d05c80540648e4cc8b56f74a9ed729f776eb9f588af81519d90b94",
+  "slug": "readme-7",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 3, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "This is a place to put text passages that we want to highlight, perhaps in response to referees' or editors' comments.",
+                "key": "rAVl5mhwk3"
+              }
+            ],
+            "key": "C9DOXJ7lqL"
+          }
+        ],
+        "key": "UebSYLZ54K"
+      }
+    ],
+    "key": "Cg5dRb8mLt"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

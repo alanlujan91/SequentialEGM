@@ -1,0 +1,1562 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "1Intro.tex",
+        "url": "/1Intro-0814a81f2bc878287435e0a717db1f8b.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Subfiles\\1Intro.tex",
+  "sha256": "7e736d2a99228a1cf4a2ab440a83c5f8d5c02066a255af773bbdf52870445bfb",
+  "slug": "intro",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 131, "line": 3, "column": 46 },
+              "end": { "offset": 132, "line": 3, "column": 47 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 131, "line": 3, "column": 46 },
+                  "end": { "offset": 132, "line": 3, "column": 47 }
+                },
+                "value": "/SequentialEGM",
+                "key": "chfyIgYciP"
+              }
+            ],
+            "key": "q1HRp5wwik"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 213, "line": 6, "column": 8 },
+              "end": { "offset": 221, "line": 6, "column": 16 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 213, "line": 6, "column": 8 },
+                  "end": { "offset": 221, "line": 6, "column": 16 }
+                },
+                "value": "document",
+                "key": "vwiNj8Fnvw"
+              }
+            ],
+            "key": "izUrqRY0cC"
+          }
+        ],
+        "key": "v0Tm2atthE"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "offset": 260, "line": 9, "column": 5 },
+          "end": { "offset": 268, "line": 9, "column": 13 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 260, "line": 9, "column": 5 },
+              "end": { "offset": 268, "line": 9, "column": 13 }
+            },
+            "depth": 2,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 269, "line": 9, "column": 14 },
+                  "end": { "offset": 281, "line": 9, "column": 26 }
+                },
+                "value": "Introduction",
+                "key": "He0kk3b6ZU"
+              }
+            ],
+            "label": "sec:intro",
+            "identifier": "sec:intro",
+            "html_id": "sec-intro",
+            "key": "x2hUUtV3cl"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 364, "line": 13, "column": 1 },
+              "end": { "offset": 375, "line": 13, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 376, "line": 13, "column": 13 },
+                  "end": { "offset": 386, "line": 13, "column": 23 }
+                },
+                "value": "Background",
+                "key": "SmMnixprV7"
+              }
+            ],
+            "identifier": "background",
+            "label": "Background",
+            "html_id": "background",
+            "implicit": true,
+            "key": "BjDt4gMFQE"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1514, "line": 25, "column": 1 },
+              "end": { "offset": 1527, "line": 25, "column": 14 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1514, "line": 25, "column": 1 },
+                  "end": { "offset": 1527, "line": 25, "column": 14 }
+                },
+                "value": "Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, require strong underlying assumptions, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is using a grid search method to solve the model. The Endogenous Grid Method (EGM) developed by ",
+                "key": "iESlIAWK1C"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Carroll2006",
+                    "identifier": "carroll2006",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Carroll (2006)",
+                        "key": "WK8yRTgOJ3"
+                      }
+                    ],
+                    "key": "BvRBd4lpsk"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 1931, "line": 25, "column": 418 },
+                  "end": { "offset": 1936, "line": 25, "column": 423 }
+                },
+                "key": "PuiandAOSw"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1949, "line": 25, "column": 436 },
+                  "end": { "offset": 1950, "line": 25, "column": 437 }
+                },
+                "value": " allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to compute became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation.",
+                "key": "JUPjWErFmn"
+              }
+            ],
+            "key": "AxfTcBnKF7"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2294, "line": 26, "column": 1 },
+              "end": { "offset": 2301, "line": 26, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2294, "line": 26, "column": 1 },
+                  "end": { "offset": 2301, "line": 26, "column": 8 }
+                },
+                "value": "However, the Endogenous Grid Method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied have been expanded",
+                "key": "rnUan94VfZ"
+              },
+              {
+                "type": "footnoteReference",
+                "label": "DLzfl2uQKI",
+                "position": {
+                  "start": { "offset": 2460, "line": 26, "column": 167 },
+                  "end": { "offset": 2469, "line": 26, "column": 176 }
+                },
+                "identifier": "dlzfl2uqki",
+                "number": 1,
+                "key": "rs8rXmLYgz"
+              },
+              {
+                "type": "footnoteDefinition",
+                "position": {
+                  "start": { "offset": 2460, "line": 26, "column": 167 },
+                  "end": { "offset": 2469, "line": 26, "column": 176 }
+                },
+                "label": "DLzfl2uQKI",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "position": {
+                      "start": { "offset": 2470, "line": 26, "column": 177 },
+                      "end": { "offset": 2475, "line": 26, "column": 182 }
+                    },
+                    "children": [
+                      {
+                        "type": "citeGroup",
+                        "kind": "narrative",
+                        "children": [
+                          {
+                            "type": "cite",
+                            "kind": "narrative",
+                            "label": "Barillas2007",
+                            "identifier": "barillas2007",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "Barillas & Fernández-Villaverde (2007)",
+                                "key": "TjsXdqW9AM"
+                              }
+                            ],
+                            "key": "KL6KPVX3mx"
+                          },
+                          {
+                            "type": "cite",
+                            "kind": "narrative",
+                            "label": "Maliar2013",
+                            "identifier": "maliar2013",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "Maliar & Maliar (2013)",
+                                "key": "fyKSC6PBSq"
+                              }
+                            ],
+                            "key": "agwpIOZAqd"
+                          },
+                          {
+                            "type": "cite",
+                            "kind": "narrative",
+                            "label": "Fella2014",
+                            "identifier": "fella2014",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "Fella (2014)",
+                                "key": "VTQZvou0vF"
+                              }
+                            ],
+                            "key": "asmVZDDK0C"
+                          },
+                          {
+                            "type": "cite",
+                            "kind": "narrative",
+                            "label": "White2015",
+                            "identifier": "white2015",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "White (2015)",
+                                "key": "YVaa1jfIsp"
+                              }
+                            ],
+                            "key": "LJtlDFCGXI"
+                          },
+                          {
+                            "type": "cite",
+                            "kind": "narrative",
+                            "label": "Iskhakov2017",
+                            "identifier": "iskhakov2017",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "Iskhakov ",
+                                "key": "Y09xCodz4p"
+                              },
+                              {
+                                "type": "emphasis",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "et al.",
+                                    "key": "kItTV403Va"
+                                  }
+                                ],
+                                "key": "X2PTwEbkA9"
+                              },
+                              {
+                                "type": "text",
+                                "value": " (2017)",
+                                "key": "I0evIDbIdh"
+                              }
+                            ],
+                            "key": "vNpoav22iG"
+                          }
+                        ],
+                        "position": {
+                          "start": {
+                            "offset": 2470,
+                            "line": 26,
+                            "column": 177
+                          },
+                          "end": { "offset": 2475, "line": 26, "column": 182 }
+                        },
+                        "key": "BlFemnASrI"
+                      },
+                      {
+                        "type": "text",
+                        "position": {
+                          "start": {
+                            "offset": 2537,
+                            "line": 26,
+                            "column": 244
+                          },
+                          "end": { "offset": 2538, "line": 26, "column": 245 }
+                        },
+                        "value": ", among others.",
+                        "key": "pGBuR4WCKK"
+                      }
+                    ],
+                    "key": "cMyxnfQs1c"
+                  }
+                ],
+                "identifier": "dlzfl2uqki",
+                "number": 1,
+                "key": "U2WK04M8RJ"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2553, "line": 26, "column": 260 },
+                  "end": { "offset": 2554, "line": 26, "column": 261 }
+                },
+                "value": ", but with every new method comes a new set of limitations.",
+                "key": "yLcDTy6tJg"
+              }
+            ],
+            "key": "KLsAM5Xf3J"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2614, "line": 27, "column": 1 },
+              "end": { "offset": 2618, "line": 27, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2614, "line": 27, "column": 1 },
+                  "end": { "offset": 2618, "line": 27, "column": 5 }
+                },
+                "value": "This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM",
+                "key": "ZzaXsGRWto"
+              },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "position": {
+                  "start": { "offset": 2728, "line": 27, "column": 115 },
+                  "end": { "offset": 2732, "line": 27, "column": 119 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "e5CvqPzBaT"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2732, "line": 27, "column": 119 },
+                  "end": { "offset": 2733, "line": 27, "column": 120 }
+                },
+                "value": ") and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.",
+                "key": "f5X3PuYOGL"
+              }
+            ],
+            "key": "FVYj9QvmJN"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 2978, "line": 29, "column": 1 },
+              "end": { "offset": 2989, "line": 29, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2990, "line": 29, "column": 13 },
+                  "end": { "offset": 3000, "line": 29, "column": 23 }
+                },
+                "value": "Literature Review",
+                "key": "V1pnogZB9N"
+              }
+            ],
+            "identifier": "literature-review",
+            "label": "Literature Review",
+            "html_id": "literature-review",
+            "implicit": true,
+            "key": "vI0E81S5Nd"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 3319, "line": 34, "column": 1 },
+              "end": { "offset": 3324, "line": 34, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Carroll2006",
+                    "identifier": "carroll2006",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Carroll (2006)",
+                        "key": "naG8DffhbC"
+                      }
+                    ],
+                    "key": "TM4XOjbaou"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 3319, "line": 34, "column": 1 },
+                  "end": { "offset": 3324, "line": 34, "column": 6 }
+                },
+                "key": "cgGS5KOoo0"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3337, "line": 34, "column": 19 },
+                  "end": { "offset": 3338, "line": 34, "column": 20 }
+                },
+                "value": " first introduced the Endogenous Grid Method as a way to speed up the solution of dynamic stochastic consumption-savings problems. The method consists of starting with an exogenous grid of post-decision states and using the inverse of the first-order condition to find the optimal consumption policy that rationalizes such post-decision states. Given the optimal policy and post-decision states, it is straightforward to calculate the initial pre-decision state that leads to the optimal policy. Although this method is certainly innovative, it only applied to a model with one control variable and one state variable. ",
+                "key": "x3HCqjoIes"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Barillas2007",
+                    "identifier": "barillas2007",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Barillas & Fernández-Villaverde (2007)",
+                        "key": "P62c4rPK4t"
+                      }
+                    ],
+                    "key": "vxHbkA5x4Q"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 3956, "line": 34, "column": 638 },
+                  "end": { "offset": 3961, "line": 34, "column": 643 }
+                },
+                "key": "MuR2G2VYkf"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3975, "line": 34, "column": 657 },
+                  "end": { "offset": 3976, "line": 34, "column": 658 }
+                },
+                "value": " further extend this method by including more than one control variable in the form of a labor-leisure choice, as well as a second state variable for stochastic persistence.",
+                "key": "vLZ0iwXqVv"
+              }
+            ],
+            "key": "dU4rPMG5Aq"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4152, "line": 36, "column": 1 },
+              "end": { "offset": 4157, "line": 36, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Hintermaier2010",
+                    "identifier": "hintermaier2010",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Hintermaier & Koeniger (2010)",
+                        "key": "z86mt0wyK6"
+                      }
+                    ],
+                    "key": "I4SzYcr9yG"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 4152, "line": 36, "column": 1 },
+                  "end": { "offset": 4157, "line": 36, "column": 6 }
+                },
+                "key": "wMKhPYbmUZ"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4174, "line": 36, "column": 23 },
+                  "end": { "offset": 4175, "line": 36, "column": 24 }
+                },
+                "value": " introduce a model with collateral constraints and non-separable utility and solve using an EGM method that allows for occasionally binding constraints among endogenous variables. ",
+                "key": "Pq6rIPMGZi"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Jorgensen2013",
+                    "identifier": "jorgensen2013",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Jørgensen (2013)",
+                        "key": "rpCEBnHFea"
+                      }
+                    ],
+                    "key": "xr5zbWe2Im"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 4354, "line": 36, "column": 203 },
+                  "end": { "offset": 4359, "line": 36, "column": 208 }
+                },
+                "key": "awjvX8vVmu"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4374, "line": 36, "column": 223 },
+                  "end": { "offset": 4375, "line": 36, "column": 224 }
+                },
+                "value": " evaluates the performance of the Endogenous Grid Method against other methods for solving dynamic stochastic optimization problems and finds it to be fast and efficient. ",
+                "key": "oy1M1u2UzY"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Maliar2013",
+                    "identifier": "maliar2013",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Maliar & Maliar (2013)",
+                        "key": "iGnVKoz9CI"
+                      }
+                    ],
+                    "key": "oshrOYWvIL"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 4545, "line": 36, "column": 394 },
+                  "end": { "offset": 4550, "line": 36, "column": 399 }
+                },
+                "key": "yzTzCfBcF4"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4562, "line": 36, "column": 411 },
+                  "end": { "offset": 4563, "line": 36, "column": 412 }
+                },
+                "value": " develop the Envelope Condition Method based on a similar idea as the Endogenous Grid Method, avoiding the need for costly numerical optimization and grid search. However, their model is limited to infinite horizon problems as it is a forward solution method.",
+                "key": "MO4ZTs7xGs"
+              }
+            ],
+            "key": "foVvGE3T3M"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4825, "line": 38, "column": 1 },
+              "end": { "offset": 4832, "line": 38, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4825, "line": 38, "column": 1 },
+                  "end": { "offset": 4832, "line": 38, "column": 8 }
+                },
+                "value": "Further development into a multivariate Endogenous Grid Method expanded the ability of researchers to solve models efficiently. ",
+                "key": "LERUpunVuA"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "White2015",
+                    "identifier": "white2015",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "White (2015)",
+                        "key": "LTrZvNVhAb"
+                      }
+                    ],
+                    "key": "aw6XJaCi8L"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 4953, "line": 38, "column": 129 },
+                  "end": { "offset": 4958, "line": 38, "column": 134 }
+                },
+                "key": "N6dyLgzJQM"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4969, "line": 38, "column": 145 },
+                  "end": { "offset": 4970, "line": 38, "column": 146 }
+                },
+                "value": " formally characterized the conditions for the Endogenous Grid Method and developed an interpolation method for structured non-rectilinear, or curvilinear, grids. ",
+                "key": "MQBsMKZYlE"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Iskhakov2015",
+                    "identifier": "iskhakov2015",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Iskhakov (2015)",
+                        "key": "tNh6WMex7Q"
+                      }
+                    ],
+                    "key": "XZQZPTaeQt"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 5132, "line": 38, "column": 308 },
+                  "end": { "offset": 5137, "line": 38, "column": 313 }
+                },
+                "key": "nnw1UIJZHV"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5151, "line": 38, "column": 327 },
+                  "end": { "offset": 5152, "line": 38, "column": 328 }
+                },
+                "value": " additionally establishes conditions for solving multivariate models with EGM, requiring the invertibility of a triangular system of first-order conditions. ",
+                "key": "bwgg5STTnt"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Ludwig2018",
+                    "identifier": "ludwig2018",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Ludwig & Schön (2018)",
+                        "key": "UKoCKlqOy2"
+                      }
+                    ],
+                    "key": "VjYCnZa0Lo"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 5308, "line": 38, "column": 484 },
+                  "end": { "offset": 5313, "line": 38, "column": 489 }
+                },
+                "key": "kyBzV8ynNx"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5325, "line": 38, "column": 501 },
+                  "end": { "offset": 5326, "line": 38, "column": 502 }
+                },
+                "value": " also develops a novel interpolating method using Delaunay triangulation of the resulting unstructured endogenous grid. However, the authors show that the gains from avoiding the grid search method are often offset by the costly construction of the triangulation.",
+                "key": "IVqnP093ei"
+              }
+            ],
+            "key": "Q3L7svfoAF"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5592, "line": 40, "column": 1 },
+              "end": { "offset": 5595, "line": 40, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5592, "line": 40, "column": 1 },
+                  "end": { "offset": 5595, "line": 40, "column": 4 }
+                },
+                "value": "For the papers discussed above, continuity and smoothness of the value and first-order conditions are strict requirements. ",
+                "key": "ZDp3MuGzzT"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Fella2014",
+                    "identifier": "fella2014",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Fella (2014)",
+                        "key": "rmO1GUWkq9"
+                      }
+                    ],
+                    "key": "pHSLThKoc2"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 5715, "line": 40, "column": 124 },
+                  "end": { "offset": 5720, "line": 40, "column": 129 }
+                },
+                "key": "Z9wVe9cW6S"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5731, "line": 40, "column": 140 },
+                  "end": { "offset": 5732, "line": 40, "column": 141 }
+                },
+                "value": " first introduced a method to solve non-convex problems using the Endogenous Grid Method. The idea is based on evaluating necessary but not sufficient candidates for the first-order condition in overlapping regions of the state space. ",
+                "key": "s7P7XgFVpy"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Arellano2016",
+                    "identifier": "arellano2016",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Arellano ",
+                        "key": "oZwIwPJLO0"
+                      },
+                      {
+                        "type": "emphasis",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "et al.",
+                            "key": "SwzE2y6ceV"
+                          }
+                        ],
+                        "key": "zmSHNR82FR"
+                      },
+                      {
+                        "type": "text",
+                        "value": " (2016)",
+                        "key": "u22h9wyEqy"
+                      }
+                    ],
+                    "key": "U5vZXJCEW4"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 5966, "line": 40, "column": 375 },
+                  "end": { "offset": 5971, "line": 40, "column": 380 }
+                },
+                "key": "reViXMcyT6"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5985, "line": 40, "column": 394 },
+                  "end": { "offset": 5986, "line": 40, "column": 395 }
+                },
+                "value": " use the Envelope Condition Method to solve a sovereign default risk model with similar efficiency gains to EGM. ",
+                "key": "jPTFOMS71s"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Iskhakov2017",
+                    "identifier": "iskhakov2017",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Iskhakov ",
+                        "key": "oou8KHIA7M"
+                      },
+                      {
+                        "type": "emphasis",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "et al.",
+                            "key": "U3PdfKunRw"
+                          }
+                        ],
+                        "key": "GgbhxgcDYH"
+                      },
+                      {
+                        "type": "text",
+                        "value": " (2017)",
+                        "key": "dfgQsVCwko"
+                      }
+                    ],
+                    "key": "tSwEUmIoVN"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 6098, "line": 40, "column": 507 },
+                  "end": { "offset": 6103, "line": 40, "column": 512 }
+                },
+                "key": "dNDJqK0H9G"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6117, "line": 40, "column": 526 },
+                  "end": { "offset": 6118, "line": 40, "column": 527 }
+                },
+                "value": " further advances the methodology by using extreme errors to solve discrete choice problems with Endogenous Grid Method. These methods however were only applied to a single control variable and a single state variable. ",
+                "key": "MUY36nfpmp"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Druedahl2017",
+                    "identifier": "druedahl2017",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Druedahl & Jørgensen (2017)",
+                        "key": "FUuDOH1pJv"
+                      }
+                    ],
+                    "key": "x7r3fpoq9S"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 6336, "line": 40, "column": 745 },
+                  "end": { "offset": 6341, "line": 40, "column": 750 }
+                },
+                "key": "VglEsIsG5R"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6355, "line": 40, "column": 764 },
+                  "end": { "offset": 6356, "line": 40, "column": 765 }
+                },
+                "value": " introduces the ",
+                "key": "z7dPB3WjWW"
+              },
+              {
+                "type": "inlineMath",
+                "value": "G2EGM",
+                "position": {
+                  "start": { "offset": 6371, "line": 40, "column": 780 },
+                  "end": { "offset": 6378, "line": 40, "column": 787 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>G</mi><mn>2</mn><mi>E</mi><mi>G</mi><mi>M</mi></mrow><annotation encoding=\"application/x-tex\">G2EGM</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6833em;\"></span><span class=\"mord mathnormal\">G</span><span class=\"mord\">2</span><span class=\"mord mathnormal\" style=\"margin-right:0.10903em;\">EGM</span></span></span></span>",
+                "key": "ZpnzTp2MEc"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6378, "line": 40, "column": 787 },
+                  "end": { "offset": 6379, "line": 40, "column": 788 }
+                },
+                "value": " to handle non-convex problems with more than 1 control variable and more than 1 state variable. This method is also capable of handling occasionally binding constraints which previous multivariate EGM methods were not.",
+                "key": "uNvJ2LlknB"
+              }
+            ],
+            "key": "mAhJAPEVyn"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6601, "line": 42, "column": 1 },
+              "end": { "offset": 6606, "line": 42, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Clausen2020",
+                    "identifier": "clausen2020",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Clausen & Strub (2020)",
+                        "key": "CPkLCnOZKf"
+                      }
+                    ],
+                    "key": "W0PgnC3aX1"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 6601, "line": 42, "column": 1 },
+                  "end": { "offset": 6606, "line": 42, "column": 6 }
+                },
+                "key": "q2RCudiVZ7"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6619, "line": 42, "column": 19 },
+                  "end": { "offset": 6620, "line": 42, "column": 20 }
+                },
+                "value": " formalize the applicability of the Endogenous Grid Method and its extensions to discrete choice models and discuss the nesting of problems to efficiently find accurate solutions. ",
+                "key": "QqhibY37CW"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Druedahl2021",
+                    "identifier": "druedahl2021",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Druedahl (2021)",
+                        "key": "DU9Rzn3IW2"
+                      }
+                    ],
+                    "key": "Khvc62qYJA"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 6800, "line": 42, "column": 200 },
+                  "end": { "offset": 6805, "line": 42, "column": 205 }
+                },
+                "key": "ItFrZSFjAb"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6819, "line": 42, "column": 219 },
+                  "end": { "offset": 6820, "line": 42, "column": 220 }
+                },
+                "value": " similarly suggest the nesting of problems to efficiently use the Endogenous Grid Method within problems with multiple control variables. However, while these nested methods reduce the complexity of solving these models, they often still require grid search methods as is the case with ",
+                "key": "PrJwWDuVCT"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Druedahl2021",
+                    "identifier": "druedahl2021",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Druedahl (2021)",
+                        "key": "lsfxMX9Utv"
+                      }
+                    ],
+                    "key": "oTvrKiW3B7"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 7105, "line": 42, "column": 505 },
+                  "end": { "offset": 7110, "line": 42, "column": 510 }
+                },
+                "key": "V6KvQEGvZG"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7124, "line": 42, "column": 524 },
+                  "end": { "offset": 7125, "line": 42, "column": 525 }
+                },
+                "value": ".",
+                "key": "Sujk1zOXiW"
+              }
+            ],
+            "key": "PNBMARJ6e9"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 7549, "line": 47, "column": 1 },
+              "end": { "offset": 7560, "line": 47, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7561, "line": 47, "column": 13 },
+                  "end": { "offset": 7569, "line": 47, "column": 21 }
+                },
+                "value": "Research Question",
+                "key": "W0Ya45aNgS"
+              }
+            ],
+            "identifier": "research-question",
+            "label": "Research Question",
+            "html_id": "research-question",
+            "implicit": true,
+            "key": "adIregGSU3"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7853, "line": 52, "column": 1 },
+              "end": { "offset": 7856, "line": 52, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7853, "line": 52, "column": 1 },
+                  "end": { "offset": 7856, "line": 52, "column": 4 }
+                },
+                "value": "The purpose of this paper is to describe a new method for solving dynamic optimization problems efficiently and accurately while avoiding convex optimization and grid search methods with the use of the Endogenous Grid Method and first-order conditions. The method is called Sequential EGM (or EGM",
+                "key": "dtAshCmfjL"
+              },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "position": {
+                  "start": { "offset": 8149, "line": 52, "column": 297 },
+                  "end": { "offset": 8153, "line": 52, "column": 301 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "qkjl3TbNXP"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8153, "line": 52, "column": 301 },
+                  "end": { "offset": 8154, "line": 52, "column": 302 }
+                },
+                "value": ") and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems. This paper also illustrates an example of how Sequential EGM can be used to solve a dynamic optimization problem in a multivariate setting.",
+                "key": "CRUH8Uoa4h"
+              }
+            ],
+            "key": "EGQ5KYR2PT"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 8539, "line": 54, "column": 1 },
+              "end": { "offset": 8550, "line": 54, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8551, "line": 54, "column": 13 },
+                  "end": { "offset": 8562, "line": 54, "column": 24 }
+                },
+                "value": "Methodology",
+                "key": "vktztyX7uI"
+              }
+            ],
+            "identifier": "methodology",
+            "label": "Methodology",
+            "html_id": "methodology",
+            "implicit": true,
+            "key": "Y21derQPiN"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8705, "line": 56, "column": 1 },
+              "end": { "offset": 8708, "line": 56, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8705, "line": 56, "column": 1 },
+                  "end": { "offset": 8708, "line": 56, "column": 4 }
+                },
+                "value": "The sequential Endogenous Grid Method consists of 3 major parts: First, the problem to be solved should be broken up into a sequence of smaller problems that themselves don’t add any additional state variables or introduce asynchronous dynamics with respect to the uncertainty. If the problem is broken up in such a way that uncertainty can happen in more than one period, then the solution to this sequence of problems might be different from the aggregate problem due to giving the agent additional information about the future by realizing some uncertainty. Second, I evaluate each of the smaller problems to see if they can be solved using the Endogenous Grid Method. This evaluation is of greater scope than the traditional Endogenous Grid Method, as it allows for the resulting exogenous grid to be non-regular. If the subproblem can not be solved with EGM, then convex optimization is used. Third, if the exogenous grid generated by the EGM is non-regular, then I use a multidimensional interpolation method that takes advantage of machine learning tools to generate an interpolating function. Solving each subproblem in this way, the sequential Endogenous Grid Method is capable of solving complex problems that are not solvable with the traditional Endogenous Grid Method and are difficult and time-consuming to solve with convex optimization and grid search methods.",
+                "key": "metaZ5Z8qx"
+              }
+            ],
+            "key": "i2apXGRTvU"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 10085, "line": 58, "column": 1 },
+              "end": { "offset": 10096, "line": 58, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 10097, "line": 58, "column": 13 },
+                  "end": { "offset": 10110, "line": 58, "column": 26 }
+                },
+                "value": "Contributions",
+                "key": "oWgP6ukDsB"
+              }
+            ],
+            "identifier": "contributions",
+            "label": "Contributions",
+            "html_id": "contributions",
+            "implicit": true,
+            "key": "jLkV8k1veg"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 10392, "line": 63, "column": 1 },
+              "end": { "offset": 10395, "line": 63, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 10392, "line": 63, "column": 1 },
+                  "end": { "offset": 10395, "line": 63, "column": 4 }
+                },
+                "value": "The Sequential Endogenous Grid Method is capable of solving multivariate dynamic optimization problems in an efficient and fast manner by avoiding grid search. This should allow researchers and practitioners to solve more complex problems that were previously not easily accessible to them, but more accurately capture the dynamics of the macroeconomy. By using advancements in machine learning techniques such as Gaussian Process Regression, the Sequential Endogenous Grid Method is capable of solving problems that were not previously able to be solved using the traditional Endogenous Grid Method. In particular, the Sequential Endogenous Grid Method is different from NEGM in that it allows for using more than one Endogenous Grid Method step to solve a problem, avoiding costly grid search methods to the extent that the problem allows.",
+                "key": "vIh6cqgsKk"
+              }
+            ],
+            "key": "vySCkoSpXm"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 11237, "line": 65, "column": 1 },
+              "end": { "offset": 11249, "line": 65, "column": 13 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 11237, "line": 65, "column": 1 },
+                  "end": { "offset": 11249, "line": 65, "column": 13 }
+                },
+                "value": "Additionally, the Sequential Endogenous Grid Method often sheds light on the problem by breaking it down into a sequence of simpler problems that were not previously apparent. This is because intermediary steps in the solution process generate value and marginal value functions of different pre- and post-decision states that can be used to understand the problem better.",
+                "key": "fAQGTbVTse"
+              }
+            ],
+            "key": "gQPLsvo3mB"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 11794, "line": 70, "column": 1 },
+              "end": { "offset": 11805, "line": 70, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 11806, "line": 70, "column": 13 },
+                  "end": { "offset": 11813, "line": 70, "column": 20 }
+                },
+                "value": "Outline",
+                "key": "A6h2yMz0Gl"
+              }
+            ],
+            "identifier": "outline",
+            "label": "Outline",
+            "html_id": "outline",
+            "implicit": true,
+            "key": "CPbikHo7ae"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12198, "line": 75, "column": 1 },
+              "end": { "offset": 12205, "line": 75, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12198, "line": 75, "column": 1 },
+                  "end": { "offset": 12205, "line": 75, "column": 8 }
+                },
+                "value": "Section ",
+                "key": "dnSkDeI3Vx"
+              },
+              {
+                "type": "crossReference",
+                "label": "sec:method",
+                "children": [
+                  { "type": "text", "value": "??", "key": "rAN6vPKYOb" }
+                ],
+                "position": {
+                  "start": { "offset": 12206, "line": 75, "column": 9 },
+                  "end": { "offset": 12210, "line": 75, "column": 13 }
+                },
+                "identifier": "sec:method",
+                "kind": "heading",
+                "template": "{name}",
+                "resolved": true,
+                "remote": true,
+                "url": "/myst/method",
+                "key": "UGWqxdhWx2"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12222, "line": 75, "column": 25 },
+                  "end": { "offset": 12223, "line": 75, "column": 26 }
+                },
+                "value": " presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then Section ",
+                "key": "cER6JQin1k"
+              },
+              {
+                "type": "crossReference",
+                "label": "sec:higherdims",
+                "children": [
+                  { "type": "text", "value": "??", "key": "dIbI5nkFqK" }
+                ],
+                "position": {
+                  "start": { "offset": 12332, "line": 75, "column": 135 },
+                  "end": { "offset": 12336, "line": 75, "column": 139 }
+                },
+                "identifier": "sec:higherdims",
+                "kind": "heading",
+                "template": "{name}",
+                "resolved": true,
+                "remote": true,
+                "url": "/myst/higherdims",
+                "key": "xI403ya4eO"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12352, "line": 75, "column": 155 },
+                  "end": { "offset": 12353, "line": 75, "column": 156 }
+                },
+                "value": " introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In Section ",
+                "key": "ME926rarAi"
+              },
+              {
+                "type": "crossReference",
+                "label": "sec:gpr",
+                "children": [
+                  { "type": "text", "value": "??", "key": "qv3eiVnOuq" }
+                ],
+                "position": {
+                  "start": { "offset": 12510, "line": 75, "column": 313 },
+                  "end": { "offset": 12514, "line": 75, "column": 317 }
+                },
+                "identifier": "sec:gpr",
+                "kind": "heading",
+                "template": "{name}",
+                "resolved": true,
+                "remote": true,
+                "url": "/myst/unstructuredinterp",
+                "key": "Ix0gYnBZtG"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12523, "line": 75, "column": 326 },
+                  "end": { "offset": 12524, "line": 75, "column": 327 }
+                },
+                "value": " I present the unstructured interpolation methods using machine learning in more detail. Section ",
+                "key": "QkED7LHP4q"
+              },
+              {
+                "type": "crossReference",
+                "label": "sec:conditions",
+                "children": [
+                  { "type": "text", "value": "??", "key": "iVukaxhv9d" }
+                ],
+                "position": {
+                  "start": { "offset": 12620, "line": 75, "column": 423 },
+                  "end": { "offset": 12624, "line": 75, "column": 427 }
+                },
+                "identifier": "sec:conditions",
+                "kind": "heading",
+                "template": "{name}",
+                "resolved": true,
+                "remote": true,
+                "url": "/myst/whentouse",
+                "key": "ifydKt4snO"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12640, "line": 75, "column": 443 },
+                  "end": { "offset": 12641, "line": 75, "column": 444 }
+                },
+                "value": " discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, Section ",
+                "key": "qStCBVhOij"
+              },
+              {
+                "type": "crossReference",
+                "label": "sec:conclusion",
+                "children": [
+                  { "type": "text", "value": "??", "key": "bsermkwI1p" }
+                ],
+                "position": {
+                  "start": { "offset": 12743, "line": 75, "column": 546 },
+                  "end": { "offset": 12747, "line": 75, "column": 550 }
+                },
+                "identifier": "sec:conclusion",
+                "kind": "heading",
+                "template": "{name}",
+                "resolved": true,
+                "remote": true,
+                "url": "/myst/conclusion",
+                "key": "FPho7DGpTQ"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12763, "line": 75, "column": 566 },
+                  "end": { "offset": 12764, "line": 75, "column": 567 }
+                },
+                "value": " concludes with some limitations and future work.",
+                "key": "PVpHwmPMmZ"
+              }
+            ],
+            "key": "mElBbQmv5H"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12896, "line": 79, "column": 22 },
+              "end": { "offset": 12899, "line": 79, "column": 25 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12896, "line": 79, "column": 22 },
+                  "end": { "offset": 12899, "line": 79, "column": 25 }
+                },
+                "value": "Web",
+                "key": "znIbRwik1P"
+              }
+            ],
+            "key": "l0MoRgLnRW"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12934, "line": 80, "column": 29 },
+              "end": { "offset": 12935, "line": 80, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12934, "line": 80, "column": 29 },
+                  "end": { "offset": 12935, "line": 80, "column": 30 }
+                },
+                "value": "[figure]list=no",
+                "key": "oscCCJAyCX"
+              }
+            ],
+            "key": "HBW3LeduQp"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 12982, "line": 81, "column": 29 },
+              "end": { "offset": 12983, "line": 81, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 12982, "line": 81, "column": 29 },
+                  "end": { "offset": 12983, "line": 81, "column": 30 }
+                },
+                "value": "[table]list=no",
+                "key": "L56rfzvAaZ"
+              }
+            ],
+            "key": "cdxxg1Z52R"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 13006, "line": 82, "column": 6 },
+              "end": { "offset": 13014, "line": 82, "column": 14 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 13006, "line": 82, "column": 6 },
+                  "end": { "offset": 13014, "line": 82, "column": 14 }
+                },
+                "value": "document",
+                "key": "H8NSFpZ1Vk"
+              }
+            ],
+            "key": "oXVwcAL3tq"
+          }
+        ],
+        "key": "RjqcUkmigh"
+      }
+    ],
+    "key": "bzXBZQ9gPg"
+  },
+  "references": {
+    "cite": {
+      "order": [
+        "Carroll2006",
+        "Barillas2007",
+        "Maliar2013",
+        "Fella2014",
+        "White2015",
+        "Iskhakov2017",
+        "Hintermaier2010",
+        "Jorgensen2013",
+        "Iskhakov2015",
+        "Ludwig2018",
+        "Arellano2016",
+        "Druedahl2017",
+        "Clausen2020",
+        "Druedahl2021"
+      ],
+      "data": {
+        "Carroll2006": {
+          "number": 6,
+          "doi": "10.1016/j.econlet.2005.09.013",
+          "html": "Carroll, C. D. (2006). The method of endogenous gridpoints for solving dynamic stochastic optimization problems. <i>Economics Letters</i>, <i>91</i>(3), 312–320. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.econlet.2005.09.013\">10.1016/j.econlet.2005.09.013</a>"
+        },
+        "Barillas2007": {
+          "number": 6,
+          "doi": "10.1016/j.jedc.2006.08.005",
+          "html": "Barillas, F., &amp; Fernández-Villaverde, J. (2007). A generalization of the endogenous grid method. <i>Journal of Economic Dynamics &amp; Control</i>, <i>31</i>(8), 2698–2712. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.jedc.2006.08.005\">10.1016/j.jedc.2006.08.005</a>"
+        },
+        "Maliar2013": {
+          "number": 8,
+          "doi": "10.1016/j.econlet.2013.04.031",
+          "html": "Maliar, L., &amp; Maliar, S. (2013). Envelope condition method versus endogenous grid method for solving dynamic programming problems. <i>Economics Letters</i>, <i>120</i>(2), 262–266. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.econlet.2013.04.031\">10.1016/j.econlet.2013.04.031</a>"
+        },
+        "Fella2014": {
+          "number": 10,
+          "doi": "10.1016/j.red.2013.07.001",
+          "html": "Fella, G. (2014). A generalized endogenous grid method for non-smooth and non-concave problems. <i>Review of Economic Dynamics</i>, <i>17</i>(2), 329–344. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.red.2013.07.001\">10.1016/j.red.2013.07.001</a>"
+        },
+        "White2015": {
+          "number": 8,
+          "doi": "10.1016/j.jedc.2015.08.001",
+          "html": "White, M. N. (2015). The method of endogenous gridpoints in theory and practice. <i>Journal of Economic Dynamics &amp; Control</i>, <i>60</i>, 26–41. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.jedc.2015.08.001\">10.1016/j.jedc.2015.08.001</a>"
+        },
+        "Iskhakov2017": {
+          "number": 11,
+          "doi": "10.3982/QE643",
+          "html": "Iskhakov, F., Jørgensen, T. H., Rust, J., &amp; Schjerning, B. (2017). The endogenous grid method for discrete‐continuous dynamic choice models with (or without) taste shocks. <i>Quantitative Economics</i>, <i>8</i>(2), 317–365. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.3982/QE643\">10.3982/QE643</a>"
+        },
+        "Hintermaier2010": {
+          "number": 7,
+          "doi": "10.1016/j.jedc.2010.05.002",
+          "html": "Hintermaier, T., &amp; Koeniger, W. (2010). The method of endogenous gridpoints with occasionally binding constraints among endogenous variables. <i>Journal of Economic Dynamics &amp; Control</i>, <i>34</i>(10), 2074–2088. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.jedc.2010.05.002\">10.1016/j.jedc.2010.05.002</a>"
+        },
+        "Jorgensen2013": {
+          "number": 8,
+          "doi": "10.1016/j.econlet.2013.02.027",
+          "html": "Jørgensen, T. H. (2013). Structural estimation of continuous choice models: Evaluating the EGM and MPEC. <i>Economics Letters</i>, <i>119</i>(3), 287–290. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.econlet.2013.02.027\">10.1016/j.econlet.2013.02.027</a>"
+        },
+        "Iskhakov2015": {
+          "number": 9,
+          "doi": "10.1016/j.econlet.2015.07.033",
+          "html": "Iskhakov, F. (2015). Multidimensional endogenous gridpoint method: Solving triangular dynamic stochastic optimization problems without root-finding operations. <i>Economics Letters</i>, <i>135</i>, 72–76. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.econlet.2015.07.033\">10.1016/j.econlet.2015.07.033</a>"
+        },
+        "Ludwig2018": {
+          "number": 10,
+          "doi": "10.1007/s10614-016-9611-2",
+          "html": "Ludwig, A., &amp; Schön, M. (2018). Endogenous Grids in Higher Dimensions: Delaunay Interpolation and Hybrid Methods. <i>Computational Economics</i>, <i>51</i>(3), 463–492. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1007/s10614-016-9611-2\">10.1007/s10614-016-9611-2</a>"
+        },
+        "Arellano2016": {
+          "number": 11,
+          "doi": "10.1016/j.jedc.2016.05.016",
+          "html": "Arellano, C., Maliar, L., Maliar, S., &amp; Tsyrennikov, V. (2016). Envelope condition method with an application to default risk models. <i>Journal of Economic Dynamics &amp; Control</i>, <i>69</i>, 436–459. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.jedc.2016.05.016\">10.1016/j.jedc.2016.05.016</a>"
+        },
+        "Druedahl2017": {
+          "number": 12,
+          "doi": "10.1016/j.jedc.2016.11.005",
+          "html": "Druedahl, J., &amp; Jørgensen, T. H. (2017). A general endogenous grid method for multi-dimensional models with non-convexities and constraints. <i>Journal of Economic Dynamics &amp; Control</i>, <i>74</i>, 87–107. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.jedc.2016.11.005\">10.1016/j.jedc.2016.11.005</a>"
+        },
+        "Clausen2020": {
+          "number": 13,
+          "doi": "10.1016/j.jet.2020.105019",
+          "html": "Clausen, A., &amp; Strub, C. (2020). Reverse calculus and nested optimization. <i>Journal of Economic Theory</i>, <i>187</i>(105019), 105019. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.jet.2020.105019\">10.1016/j.jet.2020.105019</a>"
+        },
+        "Druedahl2021": {
+          "number": 14,
+          "doi": "10.1007/s10614-020-10045-x",
+          "html": "Druedahl, J. (2021). A Guide on Solving Non-convex Consumption-Saving Models. <i>Computational Economics</i>, <i>58</i>(3), 747–775. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1007/s10614-020-10045-x\">10.1007/s10614-020-10045-x</a>"
+        }
+      }
+    }
+  }
+}

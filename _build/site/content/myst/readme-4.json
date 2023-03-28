@@ -1,0 +1,105 @@
+{
+  "frontmatter": {
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-c55e3d86d33075060cd27b7de38ef05a.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\G2EGM\\README.md",
+  "sha256": "c37a2f0627f6f5d477276ac02e1b7a70cd49cfd0da8c09ef1537c0e347cce032",
+  "slug": "readme-4",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 0, "column": 0 },
+              "end": { "line": 2, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "The code in this folder comes from the open source repository\n",
+                "key": "UAvD9pxda6"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/NumEconCopenhagen/ConsumptionSavingNotebooks",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​github​​.com​​/NumEconCopenhagen​​/ConsumptionSavingNotebooks",
+                    "key": "GEP5K5L3Nz"
+                  }
+                ],
+                "urlSource": "https://github.com/NumEconCopenhagen/ConsumptionSavingNotebooks",
+                "error": true,
+                "key": "hXvm1rAj7a"
+              }
+            ],
+            "key": "dCegFlIECc"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 3, "column": 0 },
+              "end": { "line": 5, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Slight changes have been made to the code to make it compatible\nwith this project. The original code is licensed under the MIT license.",
+                "key": "sRmhBpnfB7"
+              }
+            ],
+            "key": "g4Ys4dZaME"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 6, "column": 0 },
+              "end": { "line": 7, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "The original code is written by Jeppe Druedahl.",
+                "key": "EoKRChQQqi"
+              }
+            ],
+            "key": "XJpVMkvEw8"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 8, "column": 0 },
+              "end": { "line": 9, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Any errors herein are my own.",
+                "key": "bVOEMcE1hT"
+              }
+            ],
+            "key": "eEIhF58XvA"
+          }
+        ],
+        "key": "FuN2aDjWYK"
+      }
+    ],
+    "key": "azy3ceMdSo"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

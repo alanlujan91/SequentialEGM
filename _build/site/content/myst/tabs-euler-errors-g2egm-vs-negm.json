@@ -1,0 +1,92 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "tabs_euler_errors_G2EGM_vs_NEGM.tex",
+        "url": "/tabs_euler_errors_G2-a28daae7515b7397868fd90b016e5ec4.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\G2EGM\\tabs_euler_errors_G2EGM_vs_NEGM.tex",
+  "sha256": "8e70c944bd5ea1d60806478fab6edb766ef549ecff4c984529957a96c3ba1a9a",
+  "slug": "tabs-euler-errors-g2egm-vs-negm",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 0, "line": 1, "column": 1 },
+              "end": { "offset": 3, "line": 1, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 0, "line": 1, "column": 1 },
+                  "end": { "offset": 3, "line": 1, "column": 4 }
+                },
+                "value": "All (average) & -6.233 & -5.367 & -5.758 & -5.201",
+                "key": "d3TFkrcdhU"
+              }
+            ],
+            "key": "nmiCkRDNGg"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 53, "line": 2, "column": 1 },
+              "end": { "offset": 55, "line": 2, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 53, "line": 2, "column": 1 },
+                  "end": { "offset": 55, "line": 2, "column": 3 }
+                },
+                "value": " 5th percentile & -7.361 & -7.205 & -7.234 & -6.673",
+                "key": "FrcDIe3yp9"
+              }
+            ],
+            "key": "ohYxeofSwH"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 111, "line": 3, "column": 1 },
+              "end": { "offset": 113, "line": 3, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 111, "line": 3, "column": 1 },
+                  "end": { "offset": 113, "line": 3, "column": 3 }
+                },
+                "value": " 95th percentile & -4.266 & -3.347 & -3.644 & -3.472",
+                "key": "B5AHb3mBrv"
+              }
+            ],
+            "key": "hRB5e4h6vb"
+          }
+        ],
+        "key": "bwqfrzRQvw"
+      }
+    ],
+    "key": "DkwLZUrHKH"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

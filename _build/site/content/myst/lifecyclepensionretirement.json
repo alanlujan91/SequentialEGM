@@ -1,0 +1,516 @@
+{
+  "frontmatter": {
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "ipynb",
+        "filename": "LifecyclePensionRetirement.ipynb",
+        "url": "/LifecyclePensionReti-83addb8ad44dcf85b10fc755c01b2784.ipynb"
+      }
+    ]
+  },
+  "kind": "Notebook",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\LifecyclePensionRetirement.ipynb",
+  "sha256": "51dc0c454cae31544694d2a6d614356135ef49c78b821971de7cfe68a6eda6a6",
+  "slug": "lifecyclepensionretirement",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 0, "column": 0 },
+          "end": { "line": 1, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "import matplotlib.pyplot as plt\nimport numpy as np\nfrom ConsPensionContribModel import PensionRetirementConsumerType\nfrom HARK.utilities import plot_funcs\nfrom IPython import get_ipython\n\nplt.style.use(\"seaborn-whitegrid\")",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 11, "column": 0 }
+            },
+            "key": "AAJSva4Yz3"
+          },
+          {
+            "type": "output",
+            "id": "r2iuanToUr8NIFxY4edE0",
+            "data": [
+              {
+                "name": "stderr",
+                "output_type": "stream",
+                "text": "C:\\Users\\alujan\\AppData\\Local\\Temp\\ipykernel_30504\\3127061483.py:10: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as 'seaborn-v0_8-<style>'. Alternatively, directly use the seaborn API instead.\n  plt.style.use(\"seaborn-whitegrid\")\n"
+              }
+            ],
+            "key": "bj46YPqzp7"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "ShvQThszdX"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 16, "column": 0 },
+          "end": { "line": 17, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "agent = PensionRetirementConsumerType()\nagent.solve()",
+            "position": {
+              "start": { "line": 18, "column": 0 },
+              "end": { "line": 22, "column": 0 }
+            },
+            "key": "ZkWMOksDQZ"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "aPkReZaA9Y"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 23, "column": 0 },
+          "end": { "line": 24, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_funcs(agent.solution[10].cFunc, 0, 40)",
+            "position": {
+              "start": { "line": 25, "column": 0 },
+              "end": { "line": 28, "column": 0 }
+            },
+            "key": "xTZdHIsbhW"
+          },
+          {
+            "type": "output",
+            "id": "5uWP3ahgfeecENR5jySHd",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "b78d0f1dd86eb1a0c4cc4e75cf562432",
+                    "path": "/_static/b78d0f1dd86eb1a0c4cc4e75cf562432.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "XxZWytdcSr"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "bzCiHp9LQQ"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 33, "column": 0 },
+          "end": { "line": 34, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_funcs(agent.solution[0].consumption_stage.c_func.xInterpolators, 0, 40)",
+            "position": {
+              "start": { "line": 35, "column": 0 },
+              "end": { "line": 38, "column": 0 }
+            },
+            "key": "dpOIPy7pL0"
+          },
+          {
+            "type": "output",
+            "id": "fil59eYCrmZThBXxaFrV1",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "abb78d9f5b98d1d82f344c2dc2dfd116",
+                    "path": "/_static/abb78d9f5b98d1d82f344c2dc2dfd116.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "B9oe9svIAC"
+          }
+        ],
+        "data": {},
+        "key": "bXXtu7nui6"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 43, "column": 0 },
+          "end": { "line": 44, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def plot_3d_func(func, min, max, n=100):\n    get_ipython().run_line_magic(\"matplotlib\", \"widget\")\n    xgrid = np.linspace(min, max, n)\n    ygrid = xgrid\n\n    xmat, ymat = np.meshgrid(xgrid, ygrid, indexing=\"ij\")\n\n    zmat = func(xmat, ymat)\n\n    ax = plt.axes(projection=\"3d\")\n    ax.plot_surface(xmat, ymat, zmat, cmap=\"viridis\")\n    ax.set_title(\"surface\")\n    ax.set_xlabel(\"m\")\n    ax.set_ylabel(\"n\")\n    ax.set_zlabel(\"f\")\n    plt.show()",
+            "position": {
+              "start": { "line": 45, "column": 0 },
+              "end": { "line": 63, "column": 0 }
+            },
+            "key": "DNUC1P9IPe"
+          }
+        ],
+        "data": {},
+        "key": "BtrISfUTwu"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 64, "column": 0 },
+          "end": { "line": 65, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[0].deposit_stage.c_func, 0, 40)",
+            "position": {
+              "start": { "line": 66, "column": 0 },
+              "end": { "line": 69, "column": 0 }
+            },
+            "key": "zc3R2lOyYr"
+          },
+          {
+            "type": "output",
+            "id": "ckaYJzcGFpCU2pcr1gGLa",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "application/vnd.jupyter.widget-view+json": {
+                    "content": "{\"model_id\":\"1bd3d873440d41b5bec6b27a7a23dfc3\",\"version_major\":2,\"version_minor\":0}",
+                    "content_type": "application/vnd.jupyter.widget-view+json"
+                  },
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "f694a78add713f60df38d9658d0a46b3",
+                    "path": "/_static/f694a78add713f60df38d9658d0a46b3.png"
+                  },
+                  "text/html": {
+                    "content_type": "text/html",
+                    "hash": "8cc26e670c684aa94187e2c0a5d1d088",
+                    "path": "/_static/8cc26e670c684aa94187e2c0a5d1d088.html"
+                  },
+                  "text/plain": {
+                    "content": "Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              }
+            ],
+            "key": "k5jy5sStB3"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "vxvUu43Wah"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 74, "column": 0 },
+          "end": { "line": 75, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[0].deposit_stage.d_func, 0, 40)",
+            "position": {
+              "start": { "line": 76, "column": 0 },
+              "end": { "line": 79, "column": 0 }
+            },
+            "key": "HNZiJ35pA6"
+          },
+          {
+            "type": "output",
+            "id": "wlLL2seq3-7K9YbdyaDSd",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "application/vnd.jupyter.widget-view+json": {
+                    "content": "{\"model_id\":\"1bd3d873440d41b5bec6b27a7a23dfc3\",\"version_major\":2,\"version_minor\":0}",
+                    "content_type": "application/vnd.jupyter.widget-view+json"
+                  },
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "c4373348e13b9c40710132290d0a29cd",
+                    "path": "/_static/c4373348e13b9c40710132290d0a29cd.png"
+                  },
+                  "text/html": {
+                    "content_type": "text/html",
+                    "hash": "f19aff5329567e1c8af5d21da6498932",
+                    "path": "/_static/f19aff5329567e1c8af5d21da6498932.html"
+                  },
+                  "text/plain": {
+                    "content": "Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "rWkftrJjer"
+          }
+        ],
+        "data": {},
+        "key": "CF2MPIc8NM"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 84, "column": 0 },
+          "end": { "line": 85, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def scatter_hist(x, y, color, ax, ax_histx, ax_histy):\n    # no labels\n    ax_histx.tick_params(axis=\"x\", labelbottom=False)\n    ax_histy.tick_params(axis=\"y\", labelleft=False)\n\n    # the scatter plot:\n    hist = ax.scatter(x, y, c=color, cmap=\"viridis\", alpha=0.6)\n\n    # now determine nice limits by hand:\n    binwidth = 1.5\n    xymax = max(np.max(x), np.max(y))\n    xymin = min(np.min(x), np.min(y))\n    top = (int(xymax / binwidth) + 1) * binwidth\n    bottom = (int(xymin / binwidth) + 1) * binwidth\n\n    bins = np.arange(bottom, top + binwidth, binwidth)\n    ax_histx.hist(x, bins=bins)\n    ax_histy.hist(y, bins=bins, orientation=\"horizontal\")\n\n    return hist",
+            "position": {
+              "start": { "line": 86, "column": 0 },
+              "end": { "line": 108, "column": 0 }
+            },
+            "key": "AAgIMrAMUV"
+          }
+        ],
+        "data": {},
+        "key": "MKF59ghqvb"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 109, "column": 0 },
+          "end": { "line": 110, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# definitions for the axes\nleft, width = 0.1, 0.65\nbottom, height = 0.1, 0.65\nspacing = 0.005\n\nrect_scatter = [left, bottom, width, height]\nrect_histx = [left, bottom + height + spacing, width, 0.2]\nrect_histy = [left + width + spacing, bottom, 0.2, height]\n\n# start with a square Figure\nfig = plt.figure(figsize=(8, 8))\n\nax = fig.add_axes(rect_scatter)\nax_histx = fig.add_axes(rect_histx, sharex=ax)\nax_histy = fig.add_axes(rect_histy, sharey=ax)\n\nx = agent.solution[0].deposit_stage.linear_interp.points[:, 0]\ny = agent.solution[0].deposit_stage.linear_interp.points[:, 1]\ncolor = agent.solution[0].deposit_stage.linear_interp.values\n\n# idx = np.logical_or(x < 0, y < 0)\n\n# x = x[~idx]\n# y = y[~idx]\n# color = color[~idx]\n\n# use the previously defined function\nhist = scatter_hist(x, y, color, ax, ax_histx, ax_histy)\ncbar = fig.colorbar(hist)\ncbar.ax.set_ylabel(\"Pension Deposits $d$\")\n\nfig.suptitle(\"Pension Deposit on Endogenous Grid\", fontsize=16)\nax.set_xlabel(\"Market Resources $m$\")\nax.set_ylabel(\"Retirement Savings $n$\")\nplt.show()\nfig.savefig(\"EndogenousGrid.pdf\")",
+            "position": {
+              "start": { "line": 111, "column": 0 },
+              "end": { "line": 149, "column": 0 }
+            },
+            "key": "ZCk3iSmuIk"
+          },
+          {
+            "type": "output",
+            "id": "mIyHUtef2ViYti3rmDOe_",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "application/vnd.jupyter.widget-view+json": {
+                    "content": "{\"model_id\":\"2558b7e70fa54ceea67b01c1bb803b51\",\"version_major\":2,\"version_minor\":0}",
+                    "content_type": "application/vnd.jupyter.widget-view+json"
+                  },
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "b7f06f0c5e5589bdeeafc55c973bfb3a",
+                    "path": "/_static/b7f06f0c5e5589bdeeafc55c973bfb3a.png"
+                  },
+                  "text/html": {
+                    "content_type": "text/html",
+                    "hash": "0c9bcf14bf164b6c5099a4bda92e374d",
+                    "path": "/_static/0c9bcf14bf164b6c5099a4bda92e374d.html"
+                  },
+                  "text/plain": {
+                    "content": "Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              },
+              {
+                "ename": "KeyError",
+                "evalue": "'modifiers'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
+              }
+            ],
+            "key": "IeC8dxhNbU"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "r7yRRFhXY6"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 154, "column": 0 },
+          "end": { "line": 155, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "",
+            "position": {
+              "start": { "line": 156, "column": 0 },
+              "end": { "line": 159, "column": 0 }
+            },
+            "key": "BW9SzitZ1V"
+          }
+        ],
+        "data": {},
+        "key": "hf78btSDjJ"
+      }
+    ],
+    "key": "bZDbNQE0CX"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

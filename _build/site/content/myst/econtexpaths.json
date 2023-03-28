@@ -1,0 +1,28 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "econtexPaths.tex",
+        "url": "/econtexPaths-28cd4f78f49f50baf59690a7c7e632d9.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\econtexPaths.tex",
+  "sha256": "af1709bcd19a138a8b877d931fcb2a2ec6044c711a6e74b1897e7058989820c8",
+  "slug": "econtexpaths",
+  "mdast": {
+    "type": "root",
+    "children": [{ "type": "block", "children": [], "key": "aaVyp92s8m" }],
+    "key": "X2zgZRrwRp"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

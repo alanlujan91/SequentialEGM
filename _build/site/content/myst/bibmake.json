@@ -1,0 +1,73 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": ["jobname", "jobname-Add", "economics"],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "bibMake.tex",
+        "url": "/bibMake-88d313f7d67a34a9f1c7055689c4ecfc.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\texmf-local\\tex\\latex\\bibMake.tex",
+  "sha256": "826764d00e9132b101aa3d4a151a508ab3bdffd8bf7f4cbcef000a064c3d9b16",
+  "slug": "bibmake",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 8, "line": 2, "column": 7 },
+              "end": { "offset": 10, "line": 2, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8, "line": 2, "column": 7 },
+                  "end": { "offset": 10, "line": 2, "column": 9 }
+                },
+                "value": "18if [ ! -f .bib ]; then touch .bib ; fi",
+                "key": "mIgrLO8hEm"
+              }
+            ],
+            "key": "XhBqSK2c8Z"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 82, "line": 3, "column": 7 },
+              "end": { "offset": 84, "line": 3, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 82, "line": 3, "column": 7 },
+                  "end": { "offset": 84, "line": 3, "column": 9 }
+                },
+                "value": "18if [ ! -f -Add.bib ]; then touch -Add.bib ; fi",
+                "key": "fiGajILCkl"
+              }
+            ],
+            "key": "ZyXqya3VBf"
+          }
+        ],
+        "key": "WWd3QgVoQp"
+      }
+    ],
+    "key": "fg0KJthgZf"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

@@ -1,0 +1,1975 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "3HigherDims.tex",
+        "url": "/3HigherDims-87f697dda46f51dc7d0473ed9e8d6a01.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Subfiles\\3HigherDims.tex",
+  "sha256": "bed59ab37d31f0e13d22f56280ea479ddb419ccab1607b7dee1791ef0b31b266",
+  "slug": "higherdims",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 131, "line": 3, "column": 46 },
+              "end": { "offset": 132, "line": 3, "column": 47 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 131, "line": 3, "column": 46 },
+                  "end": { "offset": 132, "line": 3, "column": 47 }
+                },
+                "value": "/SequentialEGM",
+                "key": "rJW3OsmSP0"
+              }
+            ],
+            "key": "M2s9MI3CS1"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 213, "line": 6, "column": 8 },
+              "end": { "offset": 221, "line": 6, "column": 16 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 213, "line": 6, "column": 8 },
+                  "end": { "offset": 221, "line": 6, "column": 16 }
+                },
+                "value": "document",
+                "key": "ooqht5X4xu"
+              }
+            ],
+            "key": "gqGD6fHnVh"
+          }
+        ],
+        "key": "YvGoIqrgS3"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "offset": 265, "line": 9, "column": 5 },
+          "end": { "offset": 273, "line": 9, "column": 13 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 265, "line": 9, "column": 5 },
+              "end": { "offset": 273, "line": 9, "column": 13 }
+            },
+            "depth": 2,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 274, "line": 9, "column": 14 },
+                  "end": { "offset": 277, "line": 9, "column": 17 }
+                },
+                "value": "The EGM",
+                "key": "UDnM8V8gMe"
+              },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "position": {
+                  "start": { "offset": 281, "line": 9, "column": 21 },
+                  "end": { "offset": 285, "line": 9, "column": 25 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "kjtOW00ihM"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 285, "line": 9, "column": 25 },
+                  "end": { "offset": 286, "line": 9, "column": 26 }
+                },
+                "value": " in Higher Dimensions",
+                "key": "a7a4bcfDws"
+              }
+            ],
+            "label": "sec:higherdims",
+            "identifier": "sec:higherdims",
+            "html_id": "sec-higherdims",
+            "key": "BXIAtYJdry"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 350, "line": 12, "column": 1 },
+              "end": { "offset": 353, "line": 12, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 350, "line": 12, "column": 1 },
+                  "end": { "offset": 353, "line": 12, "column": 4 }
+                },
+                "value": "The problem in Section ",
+                "key": "OIau5ORKtz"
+              },
+              {
+                "type": "crossReference",
+                "label": "sec:method",
+                "children": [
+                  { "type": "text", "value": "??", "key": "ouLcNUxbvZ" }
+                ],
+                "position": {
+                  "start": { "offset": 373, "line": 12, "column": 24 },
+                  "end": { "offset": 377, "line": 12, "column": 28 }
+                },
+                "identifier": "sec:method",
+                "kind": "heading",
+                "template": "{name}",
+                "resolved": true,
+                "remote": true,
+                "url": "/myst/method",
+                "key": "fUtkjyse2P"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 389, "line": 12, "column": 40 },
+                  "end": { "offset": 390, "line": 12, "column": 41 }
+                },
+                "value": " demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only one state variable and one post-decision state variable per stage. Can EGM",
+                "key": "tbdHprzRNc"
+              },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "position": {
+                  "start": { "offset": 572, "line": 12, "column": 223 },
+                  "end": { "offset": 576, "line": 12, "column": 227 }
+                },
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "SSXyZQLbK8"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 576, "line": 12, "column": 227 },
+                  "end": { "offset": 577, "line": 12, "column": 228 }
+                },
+                "value": " be used to solve higher dimensional problems? In short, yes, but it requires additional thought on interpolation.",
+                "key": "PkOnPHDWoZ"
+              }
+            ],
+            "key": "v32Fv1hRdX"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 694, "line": 14, "column": 1 },
+              "end": { "offset": 705, "line": 14, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 706, "line": 14, "column": 13 },
+                  "end": { "offset": 707, "line": 14, "column": 14 }
+                },
+                "value": "A more complex problem",
+                "key": "CHa4eJaL9Q"
+              }
+            ],
+            "identifier": "a-more-complex-problem",
+            "label": "A more complex problem",
+            "html_id": "a-more-complex-problem",
+            "implicit": true,
+            "key": "HNsZIoO4Md"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 733, "line": 16, "column": 1 },
+              "end": { "offset": 736, "line": 16, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 733, "line": 16, "column": 1 },
+                  "end": { "offset": 736, "line": 16, "column": 4 }
+                },
+                "value": "For a demonstration, we now turn to the problem of a worker saving up for retirement. This worker must consume, save, and deposit resources into a tax-advantaged account that can not be liquidated until retirement. In the recursive problem, the worker begins a new period with a liquid account of market resources ",
+                "key": "DebvIU3tLb"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\mRat_{t}",
+                "position": {
+                  "start": { "offset": 1047, "line": 16, "column": 315 },
+                  "end": { "offset": 1058, "line": 16, "column": 326 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\mRat at position 1: \\̲m̲R̲a̲t̲_{t}",
+                "key": "z8N2LMbMiG"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1058, "line": 16, "column": 326 },
+                  "end": { "offset": 1059, "line": 16, "column": 327 }
+                },
+                "value": " and an illiquid account of retirement savings ",
+                "key": "Kj6sSN1rui"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\nRat_{t}",
+                "position": {
+                  "start": { "offset": 1105, "line": 16, "column": 373 },
+                  "end": { "offset": 1116, "line": 16, "column": 384 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\nRat at position 1: \\̲n̲R̲a̲t̲_{t}",
+                "key": "FZcrh10Xsh"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1116, "line": 16, "column": 384 },
+                  "end": { "offset": 1117, "line": 16, "column": 385 }
+                },
+                "value": ". The worker maximizes their utility by choosing consumption ",
+                "key": "bHIXCN7cwN"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\cRat_{t}",
+                "position": {
+                  "start": { "offset": 1177, "line": 16, "column": 445 },
+                  "end": { "offset": 1188, "line": 16, "column": 456 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\cRat at position 1: \\̲c̲R̲a̲t̲_{t}",
+                "key": "ZQwcRVH73j"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1188, "line": 16, "column": 456 },
+                  "end": { "offset": 1189, "line": 16, "column": 457 }
+                },
+                "value": " and pension deposit ",
+                "key": "t58CC5dA4g"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\dRat_{t}",
+                "position": {
+                  "start": { "offset": 1209, "line": 16, "column": 477 },
+                  "end": { "offset": 1220, "line": 16, "column": 488 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\dRat at position 1: \\̲d̲R̲a̲t̲_{t}",
+                "key": "dj3tiSqp67"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1220, "line": 16, "column": 488 },
+                  "end": { "offset": 1221, "line": 16, "column": 489 }
+                },
+                "value": ". The pension deposit is set aside on a retirement account that is exposed to a risky return, while their post-consumption liquid assets accrue risk-free interest every period. The worker additionally receives an income that faces a permanent (",
+                "key": "Y82es31Jig"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\PGro_{t+1}",
+                "position": {
+                  "start": { "offset": 1464, "line": 16, "column": 732 },
+                  "end": { "offset": 1477, "line": 16, "column": 745 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\PGro at position 1: \\̲P̲G̲r̲o̲_{t+1}",
+                "key": "SilQikqE3S"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1477, "line": 16, "column": 745 },
+                  "end": { "offset": 1478, "line": 16, "column": 746 }
+                },
+                "value": ") and a transitory (",
+                "key": "pwZDXvMFqO"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\tShkEmp_{t+1}",
+                "position": {
+                  "start": { "offset": 1497, "line": 16, "column": 765 },
+                  "end": { "offset": 1513, "line": 16, "column": 781 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\tShkEmp at position 1: \\̲t̲S̲h̲k̲E̲m̲p̲_{t+1}",
+                "key": "yzPOdGHaHJ"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1513, "line": 16, "column": 781 },
+                  "end": { "offset": 1514, "line": 16, "column": 782 }
+                },
+                "value": ") shock every period. At the age of 65, the worker is retired and their assets are liquidated, at which point the state reduces to one liquid account of market resources. The worker’s recursive problem is:",
+                "key": "NhCH0w7cbj"
+              }
+            ],
+            "key": "zQm9oSE8DJ"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n    \\vFunc_{t}(\\mRat_{t}, \\nRat_{t}) & = \\max_{\\cRat_{t}, \\dRat_{t}} \\util(\\cRat_{t}) + \\DiscFac \\Ex_{t} \\left[ \\PGro_{t+1}^{1-\\CRRA} \\vFunc_{t+1}(\\mRat_{t+1}, \\nRat_{t+1}) \\right] \\\\\r\n    & \\text{s.t.} \\quad \\cRat_{t} \\ge 0, \\quad \\dRat_{t} \\ge 0 \\\\\r\n    \\aRat_{t} & = \\mRat_{t} - \\cRat_{t} - \\dRat_{t} \\\\\r\n    \\bRat_{t} & = \\nRat_{t} + \\dRat_{t} + g(\\dRat_{t}) \\\\\r\n    \\mRat_{t+1} & = \\aRat_{t} \\Rfree / \\PGro_{t+1}  + \\tShkEmp_{t+1} \\\\\r\n    \\nRat_{t+1} & = \\bRat_{t} \\Risky_{t+1} / / \\PGro_{t+1}\r\n  \\end{split}",
+            "position": {
+              "start": { "offset": 1722, "line": 18, "column": 1 },
+              "end": { "offset": 2286, "line": 27, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 20: …in{split}\r\n    \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "1",
+            "key": "ZAbGvXlstz"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2290, "line": 29, "column": 1 },
+              "end": { "offset": 2295, "line": 29, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2290, "line": 29, "column": 1 },
+                  "end": { "offset": 2295, "line": 29, "column": 6 }
+                },
+                "value": "where",
+                "key": "a851R61CHr"
+              }
+            ],
+            "key": "DrTAVoLM5d"
+          },
+          {
+            "type": "math",
+            "value": "\\gFunc(\\dRat) = \\xFer \\log(1+\\dRat).",
+            "position": {
+              "start": { "offset": 2299, "line": 31, "column": 1 },
+              "end": { "offset": 2371, "line": 33, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲(\\dRat) = \\xFer…",
+            "enumerator": "2",
+            "key": "FKb6pGxhzG"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2375, "line": 35, "column": 1 },
+              "end": { "offset": 2379, "line": 35, "column": 5 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2375, "line": 35, "column": 1 },
+                  "end": { "offset": 2379, "line": 35, "column": 5 }
+                },
+                "value": "This problem can subsequently be broken down into 3 stages: a pension deposit stage, a consumption stage, and an income shock stage.",
+                "key": "tAqcCtcJuH"
+              }
+            ],
+            "key": "vG0IOGKxr4"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 2511, "line": 37, "column": 1 },
+              "end": { "offset": 2522, "line": 37, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2523, "line": 37, "column": 13 },
+                  "end": { "offset": 2531, "line": 37, "column": 21 }
+                },
+                "value": "Breaking down the problem",
+                "key": "SjR06ByTjQ"
+              }
+            ],
+            "identifier": "breaking-down-the-problem",
+            "label": "Breaking down the problem",
+            "html_id": "breaking-down-the-problem",
+            "implicit": true,
+            "key": "fgX6oD8Y0t"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 2553, "line": 39, "column": 1 },
+              "end": { "offset": 2555, "line": 39, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2553, "line": 39, "column": 1 },
+                  "end": { "offset": 2555, "line": 39, "column": 3 }
+                },
+                "value": "In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth ",
+                "key": "PgkRw7kOOV"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\lRat_{t}",
+                "position": {
+                  "start": { "offset": 2703, "line": 39, "column": 151 },
+                  "end": { "offset": 2714, "line": 39, "column": 162 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lRat at position 1: \\̲l̲R̲a̲t̲_{t}",
+                "key": "DbI4Wdjly6"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2714, "line": 39, "column": 162 },
+                  "end": { "offset": 2715, "line": 39, "column": 163 }
+                },
+                "value": " and retirement balance ",
+                "key": "pNhjkV5xim"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat_{t}",
+                "position": {
+                  "start": { "offset": 2738, "line": 39, "column": 186 },
+                  "end": { "offset": 2749, "line": 39, "column": 197 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                "key": "rnFSKdkFcD"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2749, "line": 39, "column": 197 },
+                  "end": { "offset": 2750, "line": 39, "column": 198 }
+                },
+                "value": " by choosing a pension deposit ",
+                "key": "lXLRbWRZmw"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\dRat_{t}",
+                "position": {
+                  "start": { "offset": 2780, "line": 39, "column": 228 },
+                  "end": { "offset": 2791, "line": 39, "column": 239 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\dRat at position 1: \\̲d̲R̲a̲t̲_{t}",
+                "key": "mMF6TCWNat"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2791, "line": 39, "column": 239 },
+                  "end": { "offset": 2792, "line": 39, "column": 240 }
+                },
+                "value": ", which must be positive. The retirement balance ",
+                "key": "fMjMSmL3gr"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat",
+                "position": {
+                  "start": { "offset": 2840, "line": 39, "column": 288 },
+                  "end": { "offset": 2847, "line": 39, "column": 295 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲",
+                "key": "ZGwnYYY9xI"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2847, "line": 39, "column": 295 },
+                  "end": { "offset": 2848, "line": 39, "column": 296 }
+                },
+                "value": " is the cash value of their retirement account plus their pension deposit and an additional amount ",
+                "key": "OqKoefAjQe"
+              },
+              {
+                "type": "inlineMath",
+                "value": "g(\\dRat_{t})",
+                "position": {
+                  "start": { "offset": 2946, "line": 39, "column": 394 },
+                  "end": { "offset": 2960, "line": 39, "column": 408 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\dRat at position 3: g(\\̲d̲R̲a̲t̲_{t})",
+                "key": "Xm9OGFatO6"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 2960, "line": 39, "column": 408 },
+                  "end": { "offset": 2961, "line": 39, "column": 409 }
+                },
+                "value": " that provides an incentive to save for retirement. As we’ll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem.",
+                "key": "JHntndSD88"
+              }
+            ],
+            "key": "OanDrxLtYX"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n    \\vFunc_{t}(\\mRat_{t}, \\nRat_{t}) & = \\max_{\\dRat_{t}} \\vOpt_{t}(\\lRat_{t}, \\bRat_{t}) \\\\\r\n    & \\text{s.t.}  \\quad \\dRat_{t} \\ge 0 \\\\\r\n    \\lRat_{t} & = \\mRat_{t} - \\dRat_{t} \\\\\r\n    \\bRat_{t} & = \\nRat_{t} + \\dRat_{t} + g(\\dRat_{t})\r\n  \\end{split}",
+            "position": {
+              "start": { "offset": 3124, "line": 41, "column": 1 },
+              "end": { "offset": 3427, "line": 48, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 20: …in{split}\r\n    \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "3",
+            "key": "GfHwmxIMO0"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 3431, "line": 50, "column": 1 },
+              "end": { "offset": 3436, "line": 50, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3431, "line": 50, "column": 1 },
+                  "end": { "offset": 3436, "line": 50, "column": 6 }
+                },
+                "value": "After making their pension decision, the worker begins their consumption stage with liquid wealth ",
+                "key": "ZGok6fSWCp"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\lRat_{t}",
+                "position": {
+                  "start": { "offset": 3529, "line": 50, "column": 99 },
+                  "end": { "offset": 3540, "line": 50, "column": 110 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lRat at position 1: \\̲l̲R̲a̲t̲_{t}",
+                "key": "LXI96lkZqV"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3540, "line": 50, "column": 110 },
+                  "end": { "offset": 3541, "line": 50, "column": 111 }
+                },
+                "value": " and retirement balance ",
+                "key": "BKd8zWTckv"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat_{t}",
+                "position": {
+                  "start": { "offset": 3564, "line": 50, "column": 134 },
+                  "end": { "offset": 3575, "line": 50, "column": 145 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                "key": "X2lux7uLxu"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3575, "line": 50, "column": 145 },
+                  "end": { "offset": 3576, "line": 50, "column": 146 }
+                },
+                "value": ". From their liquid wealth, the worker must choose a level of consumption to maximize utility and continuation value ",
+                "key": "f5iAStgG5R"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\wFunc_{t}",
+                "position": {
+                  "start": { "offset": 3692, "line": 50, "column": 262 },
+                  "end": { "offset": 3704, "line": 50, "column": 274 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\wFunc at position 1: \\̲w̲F̲u̲n̲c̲_{t}",
+                "key": "PdQ111Yg1J"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3704, "line": 50, "column": 274 },
+                  "end": { "offset": 3705, "line": 50, "column": 275 }
+                },
+                "value": ". After consumption, the worker is left with post-decision states that represent liquid assets ",
+                "key": "ezdn49eNXh"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\aRat_{t}",
+                "position": {
+                  "start": { "offset": 3799, "line": 50, "column": 369 },
+                  "end": { "offset": 3810, "line": 50, "column": 380 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\aRat at position 1: \\̲a̲R̲a̲t̲_{t}",
+                "key": "tCOapi78Lk"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3810, "line": 50, "column": 380 },
+                  "end": { "offset": 3811, "line": 50, "column": 381 }
+                },
+                "value": " and retirement balance ",
+                "key": "MwWYFjpaXP"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat_{t}",
+                "position": {
+                  "start": { "offset": 3834, "line": 50, "column": 404 },
+                  "end": { "offset": 3845, "line": 50, "column": 415 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                "key": "sYDIxGZl5J"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 3845, "line": 50, "column": 415 },
+                  "end": { "offset": 3846, "line": 50, "column": 416 }
+                },
+                "value": ", which passes through this problem unaffected because it can’t be liquidated until retirement.",
+                "key": "fsn66tiyrH"
+              }
+            ],
+            "key": "qUX7cb1Dcm"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n    \\vOpt_{t}(\\lRat_{t}, \\bRat_{t}) & = \\max_{\\cRat_{t}} \\util(\\cRat_{t}) + \\DiscFac \\wFunc_{t}(\\aRat_{t}, \\bRat_{t})  \\\\\r\n    & \\text{s.t.} \\quad \\cRat_{t} \\ge 0 \\\\\r\n    \\aRat_{t} & = \\lRat_{t} - \\cRat_{t}\r\n  \\end{split}",
+            "position": {
+              "start": { "offset": 3944, "line": 52, "column": 1 },
+              "end": { "offset": 4216, "line": 58, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vOpt at position 20: …in{split}\r\n    \\̲v̲O̲p̲t̲_{t}(\\lRat_{t},…",
+            "enumerator": "4",
+            "key": "u8vrnEcxbD"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4220, "line": 60, "column": 1 },
+              "end": { "offset": 4227, "line": 60, "column": 8 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4220, "line": 60, "column": 1 },
+                  "end": { "offset": 4227, "line": 60, "column": 8 }
+                },
+                "value": "Finally, the post-decision value function ",
+                "key": "pGRWNliZhx"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\wFunc_{t}",
+                "position": {
+                  "start": { "offset": 4262, "line": 60, "column": 43 },
+                  "end": { "offset": 4274, "line": 60, "column": 55 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\wFunc at position 1: \\̲w̲F̲u̲n̲c̲_{t}",
+                "key": "BOFvz0m5XQ"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4274, "line": 60, "column": 55 },
+                  "end": { "offset": 4275, "line": 60, "column": 56 }
+                },
+                "value": " represents the value of both liquid and illiquid account balances before the realization of uncertainty regarding the risky return and income shocks. Since we are dealing with a normalized problem, this stage handles the normalization of state variables and value functions into the next period.",
+                "key": "bZrModYgms"
+              }
+            ],
+            "key": "cyf2MROwAm"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n    \\wFunc_{t}(\\aRat_{t}, \\bRat_{t}) & = \\Ex_{t} \\left[ \\PGro_{t+1}^{1-\\CRRA} \\vFunc_{t+1}(\\mRat_{t+1}, \\mRat_{t+1}) \\right] \\\\\r\n    & \\text{s.t.} \\quad \\aRat_{t} \\ge 0, \\quad \\bRat_{t} \\ge 0 \\\\\r\n    \\mRat_{t+1} & = \\aRat_{t} \\Rfree / \\PGro_{t+1}  + \\tShkEmp_{t+1} \\\\\r\n    \\nRat_{t+1} & = \\bRat_{t} \\Risky_{t+1} /  \\PGro_{t+1}\r\n  \\end{split}",
+            "position": {
+              "start": { "offset": 4574, "line": 62, "column": 1 },
+              "end": { "offset": 4966, "line": 69, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\wFunc at position 20: …in{split}\r\n    \\̲w̲F̲u̲n̲c̲_{t}(\\aRat_{t},…",
+            "enumerator": "5",
+            "key": "gKkDFkhvlZ"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 4970, "line": 71, "column": 1 },
+              "end": { "offset": 4973, "line": 71, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 4970, "line": 71, "column": 1 },
+                  "end": { "offset": 4973, "line": 71, "column": 4 }
+                },
+                "value": "The advantage of conceptualizing this subproblem as a separate stage is that we can construct a function ",
+                "key": "mxv09UDtRv"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\wFunc_{t}",
+                "position": {
+                  "start": { "offset": 5075, "line": 71, "column": 106 },
+                  "end": { "offset": 5087, "line": 71, "column": 118 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\wFunc at position 1: \\̲w̲F̲u̲n̲c̲_{t}",
+                "key": "rOTw3FrqiX"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5087, "line": 71, "column": 118 },
+                  "end": { "offset": 5088, "line": 71, "column": 119 }
+                },
+                "value": " and use it in the prior optimization problems without having to worry about stochastic optimization and taking expectations repeatedly.",
+                "key": "M9uYgxxBYU"
+              }
+            ],
+            "key": "YhN8wkTXHI"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 5227, "line": 73, "column": 1 },
+              "end": { "offset": 5238, "line": 73, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5239, "line": 73, "column": 13 },
+                  "end": { "offset": 5242, "line": 73, "column": 16 }
+                },
+                "value": "The consumption-saving problem",
+                "key": "L8RkcD9tT3"
+              }
+            ],
+            "identifier": "the-consumption-saving-problem",
+            "label": "The consumption-saving problem",
+            "html_id": "the-consumption-saving-problem",
+            "implicit": true,
+            "key": "BnDJ3k8nml"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5274, "line": 75, "column": 1 },
+              "end": { "offset": 5276, "line": 75, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5274, "line": 75, "column": 1 },
+                  "end": { "offset": 5276, "line": 75, "column": 3 }
+                },
+                "value": "As seen in the consumption stage above, the retirement balance ",
+                "key": "T9XXatMyCt"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat_{t}",
+                "position": {
+                  "start": { "offset": 5337, "line": 75, "column": 64 },
+                  "end": { "offset": 5348, "line": 75, "column": 75 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                "key": "VJTI7FTPU6"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5348, "line": 75, "column": 75 },
+                  "end": { "offset": 5349, "line": 75, "column": 76 }
+                },
+                "value": " passes through the problem unaffected because it can’t be liquidated until retirement. In this sense, it is already a post-decision state variable. To solve this problem, we can use a fixed grid of ",
+                "key": "HexDAH1v0U"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat_{t}",
+                "position": {
+                  "start": { "offset": 5547, "line": 75, "column": 274 },
+                  "end": { "offset": 5558, "line": 75, "column": 285 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                "key": "wz6ocj2JFD"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5558, "line": 75, "column": 285 },
+                  "end": { "offset": 5559, "line": 75, "column": 286 }
+                },
+                "value": " and for each obtain endogenous consumption and ex-ante market resources using the simple Endogenous Grid Method for the consumption problem.",
+                "key": "SnhJvp3UJ0"
+              }
+            ],
+            "key": "jXveQMF8ZJ"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 5703, "line": 77, "column": 1 },
+              "end": { "offset": 5714, "line": 77, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5715, "line": 77, "column": 13 },
+                  "end": { "offset": 5718, "line": 77, "column": 16 }
+                },
+                "value": "The pension deposit problem",
+                "key": "ZGXXlC6dnZ"
+              }
+            ],
+            "identifier": "the-pension-deposit-problem",
+            "label": "The pension deposit problem",
+            "html_id": "the-pension-deposit-problem",
+            "implicit": true,
+            "key": "aRtsT7h7F0"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5747, "line": 79, "column": 1 },
+              "end": { "offset": 5749, "line": 79, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5747, "line": 79, "column": 1 },
+                  "end": { "offset": 5749, "line": 79, "column": 3 }
+                },
+                "value": "In the deposit stage, both the state variables and post-decision variables are different since both are affected by the pension deposit decision.",
+                "key": "K968tvbkm6"
+              }
+            ],
+            "key": "PSLF0DiJao"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 5896, "line": 81, "column": 1 },
+              "end": { "offset": 5901, "line": 81, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 5896, "line": 81, "column": 1 },
+                  "end": { "offset": 5901, "line": 81, "column": 6 }
+                },
+                "value": "First, we can rewrite the pension deposit problem more compactly:",
+                "key": "VBWLtFIOh8"
+              }
+            ],
+            "key": "f3NzY7OWFf"
+          },
+          {
+            "type": "math",
+            "value": "\\vFunc_{t}(\\mRat_{t}, \\nRat_{t}) = \\max_{\\dRat_{t}}\r\n  \\vOpt_{t}(\\mRat_{t}\r\n  - \\dRat_{t}, \\nRat_{t} + \\dRat_{t} + \\gFunc(\\dRat_{t}))",
+            "position": {
+              "start": { "offset": 5965, "line": 83, "column": 1 },
+              "end": { "offset": 6134, "line": 87, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 1: \\̲v̲F̲u̲n̲c̲_{t}(\\mRat_{t},…",
+            "enumerator": "6",
+            "key": "cxPk6P9Nuj"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6138, "line": 89, "column": 1 },
+              "end": { "offset": 6141, "line": 89, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6138, "line": 89, "column": 1 },
+                  "end": { "offset": 6141, "line": 89, "column": 4 }
+                },
+                "value": "The first-order condition is",
+                "key": "h6MvphRqKJ"
+              }
+            ],
+            "key": "YZFNVPKy3C"
+          },
+          {
+            "type": "math",
+            "value": "\\vOpt_{t}^{\\lRat}(\\lRat_{t}, \\bRat_{t})(-1) +\r\n  \\vOpt_{t}^{\\bRat}(\\lRat_{t}, \\bRat_{t})(1+\\gFunc'(\\dRat_{t})) = 0.",
+            "position": {
+              "start": { "offset": 6170, "line": 91, "column": 1 },
+              "end": { "offset": 6321, "line": 94, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vOpt at position 1: \\̲v̲O̲p̲t̲_{t}^{\\lRat}(\\l…",
+            "enumerator": "7",
+            "key": "iMMYwK5KeX"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6325, "line": 96, "column": 1 },
+              "end": { "offset": 6336, "line": 96, "column": 12 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6325, "line": 96, "column": 1 },
+                  "end": { "offset": 6336, "line": 96, "column": 12 }
+                },
+                "value": "Rearranging this equation gives",
+                "key": "AtRRcGqa30"
+              }
+            ],
+            "key": "F75R03HS7T"
+          },
+          {
+            "type": "math",
+            "value": "\\gFunc'(\\dRat_{t}) = \\frac{\\vOpt_{t}^{\\lRat}(\\lRat_{t},\r\n    \\bRat_{t})}{\\vOpt_{t}^{\\bRat}(\\lRat_{t}, \\bRat_{t})} - 1",
+            "position": {
+              "start": { "offset": 6360, "line": 98, "column": 1 },
+              "end": { "offset": 6513, "line": 101, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲'(\\dRat_{t}) = …",
+            "enumerator": "8",
+            "key": "nv6nqX7yFh"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6517, "line": 103, "column": 1 },
+              "end": { "offset": 6522, "line": 103, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6517, "line": 103, "column": 1 },
+                  "end": { "offset": 6522, "line": 103, "column": 6 }
+                },
+                "value": "where",
+                "key": "cPwcEZ5gy6"
+              }
+            ],
+            "key": "cqVxbSno1b"
+          },
+          {
+            "type": "math",
+            "value": "\\gFunc'(\\dRat) =\r\n  \\frac{\\xFer}{1+\\dRat} \\qquad \\gFunc'^{-1}(y) = \\xFer/y - 1",
+            "position": {
+              "start": { "offset": 6526, "line": 105, "column": 1 },
+              "end": { "offset": 6640, "line": 108, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲'(\\dRat) =\r\n  \\…",
+            "enumerator": "9",
+            "key": "ko1MDQou7K"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6644, "line": 110, "column": 1 },
+              "end": { "offset": 6649, "line": 110, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6644, "line": 110, "column": 1 },
+                  "end": { "offset": 6649, "line": 110, "column": 6 }
+                },
+                "value": "Given that ",
+                "key": "u76Tgrp3ZX"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\gFunc'(\\dRat)",
+                "position": {
+                  "start": { "offset": 6655, "line": 110, "column": 12 },
+                  "end": { "offset": 6671, "line": 110, "column": 28 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\gFunc at position 1: \\̲g̲F̲u̲n̲c̲'(\\dRat)",
+                "key": "tD5i1KRYFZ"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6671, "line": 110, "column": 28 },
+                  "end": { "offset": 6672, "line": 110, "column": 29 }
+                },
+                "value": " exists and is invertible, we can find",
+                "key": "grfVEkJdsv"
+              }
+            ],
+            "key": "EzaMlvsnP6"
+          },
+          {
+            "type": "math",
+            "value": "\\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) = \\gFunc'^{-1}\\left(\r\n  \\frac{\\vOpt_{t}^{\\lRat}(\\lRat_{t},\r\n    \\bRat_{t})}{\\vOpt_{t}^{\\bRat}(\\lRat_{t},\r\n    \\bRat_{t})} - 1 \\right)",
+            "position": {
+              "start": { "offset": 6713, "line": 112, "column": 1 },
+              "end": { "offset": 6918, "line": 117, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\dEndFunc at position 1: \\̲d̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+            "enumerator": "10",
+            "key": "esXwQXzkJf"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 6922, "line": 119, "column": 1 },
+              "end": { "offset": 6927, "line": 119, "column": 6 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6922, "line": 119, "column": 1 },
+                  "end": { "offset": 6927, "line": 119, "column": 6 }
+                },
+                "value": "Using this, we can back out ",
+                "key": "X7XaFbQZDr"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\nRat_{t}",
+                "position": {
+                  "start": { "offset": 6950, "line": 119, "column": 29 },
+                  "end": { "offset": 6961, "line": 119, "column": 40 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\nRat at position 1: \\̲n̲R̲a̲t̲_{t}",
+                "key": "sU5k86fJEV"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 6961, "line": 119, "column": 40 },
+                  "end": { "offset": 6962, "line": 119, "column": 41 }
+                },
+                "value": " as",
+                "key": "SaSkewYZ9u"
+              }
+            ],
+            "key": "IDdvrZvXA0"
+          },
+          {
+            "type": "math",
+            "value": "\\nEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) = \\bRat_{t} -\r\n  \\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) - \\gFunc(\\dEndFunc_{t}(\\lRat_{t},\r\n    \\bRat_{t}))",
+            "position": {
+              "start": { "offset": 6968, "line": 121, "column": 1 },
+              "end": { "offset": 7143, "line": 125, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\nEndFunc at position 1: \\̲n̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+            "enumerator": "11",
+            "key": "BDCkeS7P8m"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7147, "line": 127, "column": 1 },
+              "end": { "offset": 7150, "line": 127, "column": 4 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7147, "line": 127, "column": 1 },
+                  "end": { "offset": 7150, "line": 127, "column": 4 }
+                },
+                "value": "and ",
+                "key": "uE1RllmjeX"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\mRat_{t}",
+                "position": {
+                  "start": { "offset": 7151, "line": 127, "column": 5 },
+                  "end": { "offset": 7162, "line": 127, "column": 16 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\mRat at position 1: \\̲m̲R̲a̲t̲_{t}",
+                "key": "VD6X4lb47f"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7162, "line": 127, "column": 16 },
+                  "end": { "offset": 7163, "line": 127, "column": 17 }
+                },
+                "value": " as",
+                "key": "BOi1bNXi1n"
+              }
+            ],
+            "key": "Wsxfnj9Dwh"
+          },
+          {
+            "type": "math",
+            "value": "\\mEndFunc_{t}(\\lRat_{t}, \\bRat_{t}) = \\lRat_{t} +\r\n  \\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t})",
+            "position": {
+              "start": { "offset": 7169, "line": 129, "column": 1 },
+              "end": { "offset": 7293, "line": 132, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\mEndFunc at position 1: \\̲m̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+            "enumerator": "12",
+            "key": "pIpTjMkp2r"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7297, "line": 134, "column": 1 },
+              "end": { "offset": 7299, "line": 134, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7297, "line": 134, "column": 1 },
+                  "end": { "offset": 7299, "line": 134, "column": 3 }
+                },
+                "value": "In sum, given an exogenous grid ",
+                "key": "pFlvAKUNZ9"
+              },
+              {
+                "type": "inlineMath",
+                "value": "(\\lRat_{t}, \\bRat_{t})",
+                "position": {
+                  "start": { "offset": 7329, "line": 134, "column": 33 },
+                  "end": { "offset": 7353, "line": 134, "column": 57 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lRat at position 2: (\\̲l̲R̲a̲t̲_{t}, \\bRat_{t}…",
+                "key": "fExVY2vVOa"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7353, "line": 134, "column": 57 },
+                  "end": { "offset": 7354, "line": 134, "column": 58 }
+                },
+                "value": " we obtain the triple",
+                "key": "G6B7bEkIXT"
+              }
+            ],
+            "key": "KPzW2fGc5U"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7376, "line": 135, "column": 1 },
+              "end": { "offset": 7505, "line": 136, "column": 60 }
+            },
+            "children": [
+              {
+                "type": "inlineMath",
+                "value": "\\left(\\mEndFunc_{t}(\\lRat_{t}, \\bRat_{t}), \\nEndFunc_{t}(\\lRat_{t},\r\n    \\bRat_{t}), \\dEndFunc_{t}(\\lRat_{t}, \\bRat_{t})\\right)",
+                "position": {
+                  "start": { "offset": 7376, "line": 135, "column": 1 },
+                  "end": { "offset": 7505, "line": 136, "column": 60 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\mEndFunc at position 7: \\left(\\̲m̲E̲n̲d̲F̲u̲n̲c̲_{t}(\\lRat_{t},…",
+                "key": "ybKOfWqeFn"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7505, "line": 136, "column": 60 },
+                  "end": { "offset": 7506, "line": 136, "column": 61 }
+                },
+                "value": ", which",
+                "key": "hqPZ7Yg10u"
+              }
+            ],
+            "key": "z2C5eMLoh5"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7514, "line": 137, "column": 1 },
+              "end": { "offset": 7516, "line": 137, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7514, "line": 137, "column": 1 },
+                  "end": { "offset": 7516, "line": 137, "column": 3 }
+                },
+                "value": "we can use to",
+                "key": "zFr0G527le"
+              }
+            ],
+            "key": "NxUFJh7Ib9"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7529, "line": 138, "column": 1 },
+              "end": { "offset": 7535, "line": 138, "column": 7 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7529, "line": 138, "column": 1 },
+                  "end": { "offset": 7535, "line": 138, "column": 7 }
+                },
+                "value": "create an interpolator for the decision rule ",
+                "key": "ToHnWm93Th"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\dRat_{t}",
+                "position": {
+                  "start": { "offset": 7574, "line": 138, "column": 46 },
+                  "end": { "offset": 7585, "line": 138, "column": 57 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\dRat at position 1: \\̲d̲R̲a̲t̲_{t}",
+                "key": "xxpMldk6nb"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7585, "line": 138, "column": 57 },
+                  "end": { "offset": 7586, "line": 138, "column": 58 }
+                },
+                "value": ".",
+                "key": "UVRN5eNQo9"
+              }
+            ],
+            "key": "aM8gQvhQKk"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7590, "line": 140, "column": 1 },
+              "end": { "offset": 7592, "line": 140, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7590, "line": 140, "column": 1 },
+                  "end": { "offset": 7592, "line": 140, "column": 3 }
+                },
+                "value": "To close the solution method, the envelope conditions are",
+                "key": "FApHrrJIPS"
+              }
+            ],
+            "key": "pnVptm9WFh"
+          },
+          {
+            "type": "math",
+            "value": "\\begin{split}\r\n    \\vFunc_{t}^{\\mRat}(\\mRat_{t}, \\nRat_{t}) & =\r\n    \\vOpt_{t}^{\\lRat}(\\lRat_{t}, \\bRat_{t}) \\\\\r\n    \\vFunc_{t}^{\\nRat}(\\mRat_{t}, \\nRat_{t}) & =\r\n    \\vOpt_{t}^{\\bRat}(\\lRat_{t}, \\bRat_{t})\r\n  \\end{split}",
+            "position": {
+              "start": { "offset": 7651, "line": 142, "column": 1 },
+              "end": { "offset": 7908, "line": 149, "column": 15 }
+            },
+            "enumerated": true,
+            "error": true,
+            "message": "Undefined control sequence: \\vFunc at position 20: …in{split}\r\n    \\̲v̲F̲u̲n̲c̲_{t}^{\\mRat}(\\m…",
+            "enumerator": "13",
+            "key": "zWAIjWIKgb"
+          },
+          {
+            "type": "heading",
+            "position": {
+              "start": { "offset": 7912, "line": 151, "column": 1 },
+              "end": { "offset": 7923, "line": 151, "column": 12 }
+            },
+            "depth": 3,
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7924, "line": 151, "column": 13 },
+                  "end": { "offset": 7936, "line": 151, "column": 25 }
+                },
+                "value": "Unstructured Grid Interpolation",
+                "key": "BnzRFoJb3R"
+              }
+            ],
+            "identifier": "unstructured-grid-interpolation",
+            "label": "Unstructured Grid Interpolation",
+            "html_id": "unstructured-grid-interpolation",
+            "implicit": true,
+            "key": "E6mhTYngRT"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 7960, "line": 153, "column": 1 },
+              "end": { "offset": 7962, "line": 153, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7960, "line": 153, "column": 1 },
+                  "end": { "offset": 7962, "line": 153, "column": 3 }
+                },
+                "value": "As in Section ",
+                "key": "yq8q4pvIEE"
+              },
+              {
+                "type": "crossReference",
+                "label": "sec:method",
+                "children": [
+                  { "type": "text", "value": "??", "key": "o2X7KGVOWN" }
+                ],
+                "position": {
+                  "start": { "offset": 7974, "line": 153, "column": 15 },
+                  "end": { "offset": 7978, "line": 153, "column": 19 }
+                },
+                "identifier": "sec:method",
+                "kind": "heading",
+                "template": "{name}",
+                "resolved": true,
+                "remote": true,
+                "url": "/myst/method",
+                "key": "MB3zWY8yVS"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 7990, "line": 153, "column": 31 },
+                  "end": { "offset": 7991, "line": 153, "column": 32 }
+                },
+                "value": ", the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in Figure ",
+                "key": "t4DAwDOZIF"
+              },
+              {
+                "type": "crossReference",
+                "label": "fig:exog",
+                "children": [
+                  { "type": "text", "value": "1", "key": "yahkk9u3US" }
+                ],
+                "position": {
+                  "start": { "offset": 8127, "line": 153, "column": 168 },
+                  "end": { "offset": 8131, "line": 153, "column": 172 }
+                },
+                "identifier": "fig:exog",
+                "kind": "figure",
+                "template": "Figure %s",
+                "enumerator": "1",
+                "resolved": true,
+                "key": "vxqSAQx4Em"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8141, "line": 153, "column": 182 },
+                  "end": { "offset": 8142, "line": 153, "column": 183 }
+                },
+                "value": " that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption ",
+                "key": "vUoh6WJadE"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\lRat_{t}",
+                "position": {
+                  "start": { "offset": 8236, "line": 153, "column": 277 },
+                  "end": { "offset": 8247, "line": 153, "column": 288 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\lRat at position 1: \\̲l̲R̲a̲t̲_{t}",
+                "key": "JzqcvIpvtH"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8247, "line": 153, "column": 288 },
+                  "end": { "offset": 8248, "line": 153, "column": 289 }
+                },
+                "value": " and pension balances post-deposit ",
+                "key": "jyt7CEZEti"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\bRat_{t}",
+                "position": {
+                  "start": { "offset": 8282, "line": 153, "column": 323 },
+                  "end": { "offset": 8293, "line": 153, "column": 334 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                "key": "j6jxdVIGnq"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8293, "line": 153, "column": 334 },
+                  "end": { "offset": 8294, "line": 153, "column": 335 }
+                },
+                "value": ", we obtain Figure ",
+                "key": "jKP1G36U1L"
+              },
+              {
+                "type": "crossReference",
+                "label": "fig:endog",
+                "children": [
+                  { "type": "text", "value": "2", "key": "zZepS7O2I5" }
+                ],
+                "position": {
+                  "start": { "offset": 8312, "line": 153, "column": 353 },
+                  "end": { "offset": 8316, "line": 153, "column": 357 }
+                },
+                "identifier": "fig:endog",
+                "kind": "figure",
+                "template": "Figure %s",
+                "enumerator": "2",
+                "resolved": true,
+                "key": "MRqLlldCuq"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8327, "line": 153, "column": 368 },
+                  "end": { "offset": 8328, "line": 153, "column": 369 }
+                },
+                "value": " which shows an irregular and unstructured endogenous grid of market resources ",
+                "key": "GlcZtl6BnZ"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\mRat_{t}",
+                "position": {
+                  "start": { "offset": 8406, "line": 153, "column": 447 },
+                  "end": { "offset": 8417, "line": 153, "column": 458 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\mRat at position 1: \\̲m̲R̲a̲t̲_{t}",
+                "key": "WlkUXuTaGG"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8417, "line": 153, "column": 458 },
+                  "end": { "offset": 8418, "line": 153, "column": 459 }
+                },
+                "value": " and pension balances pre-deposit ",
+                "key": "ieAjHYVTzL"
+              },
+              {
+                "type": "inlineMath",
+                "value": "\\nRat_{t}",
+                "position": {
+                  "start": { "offset": 8451, "line": 153, "column": 492 },
+                  "end": { "offset": 8462, "line": 153, "column": 503 }
+                },
+                "error": true,
+                "message": "Undefined control sequence: \\nRat at position 1: \\̲n̲R̲a̲t̲_{t}",
+                "key": "HvOn9kusMX"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 8462, "line": 153, "column": 503 },
+                  "end": { "offset": 8463, "line": 153, "column": 504 }
+                },
+                "value": ".",
+                "key": "l1kLE8txFL"
+              }
+            ],
+            "key": "PQknrix8Lx"
+          },
+          {
+            "type": "container",
+            "position": {
+              "start": { "offset": 8467, "line": 155, "column": 1 },
+              "end": { "offset": 8758, "line": 160, "column": 13 }
+            },
+            "kind": "figure",
+            "children": [
+              {
+                "type": "image",
+                "url": "Figures/ExogenousGrid.pdf",
+                "position": {
+                  "start": { "offset": 8499, "line": 157, "column": 3 },
+                  "end": { "offset": 8515, "line": 157, "column": 19 }
+                },
+                "alt": "A regular, rectilinear exogenous grid of pension balances after deposit \\bRat_{t} and liquid assets after consumption \\lRat_{t}.",
+                "key": "m82hPTaz0y"
+              },
+              {
+                "type": "caption",
+                "position": {
+                  "start": { "offset": 8567, "line": 158, "column": 3 },
+                  "end": { "offset": 8575, "line": 158, "column": 11 }
+                },
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "position": {
+                      "start": { "offset": 8567, "line": 158, "column": 3 },
+                      "end": { "offset": 8575, "line": 158, "column": 11 }
+                    },
+                    "children": [
+                      {
+                        "type": "captionNumber",
+                        "kind": "figure",
+                        "label": "fig:exog",
+                        "identifier": "fig:exog",
+                        "html_id": "fig-exog",
+                        "enumerator": "1",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "Figure ",
+                            "key": "ekIRDIlJY8"
+                          },
+                          { "type": "text", "value": "1", "key": "k2eNobZEgv" },
+                          { "type": "text", "value": ":", "key": "WOjmKvliOr" }
+                        ],
+                        "template": "Figure %s:",
+                        "key": "YMhJf5Zzre"
+                      },
+                      {
+                        "type": "text",
+                        "position": {
+                          "start": {
+                            "offset": 8576,
+                            "line": 158,
+                            "column": 12
+                          },
+                          "end": { "offset": 8577, "line": 158, "column": 13 }
+                        },
+                        "value": "A regular, rectilinear exogenous grid of pension balances after deposit ",
+                        "key": "oMg6NRrxYL"
+                      },
+                      {
+                        "type": "inlineMath",
+                        "value": "\\bRat_{t}",
+                        "position": {
+                          "start": {
+                            "offset": 8648,
+                            "line": 158,
+                            "column": 84
+                          },
+                          "end": { "offset": 8659, "line": 158, "column": 95 }
+                        },
+                        "error": true,
+                        "message": "Undefined control sequence: \\bRat at position 1: \\̲b̲R̲a̲t̲_{t}",
+                        "key": "tzrA3CLYBI"
+                      },
+                      {
+                        "type": "text",
+                        "position": {
+                          "start": {
+                            "offset": 8659,
+                            "line": 158,
+                            "column": 95
+                          },
+                          "end": { "offset": 8660, "line": 158, "column": 96 }
+                        },
+                        "value": " and liquid assets after consumption ",
+                        "key": "SdQeBE3CQO"
+                      },
+                      {
+                        "type": "inlineMath",
+                        "value": "\\lRat_{t}",
+                        "position": {
+                          "start": {
+                            "offset": 8696,
+                            "line": 158,
+                            "column": 132
+                          },
+                          "end": { "offset": 8707, "line": 158, "column": 143 }
+                        },
+                        "error": true,
+                        "message": "Undefined control sequence: \\lRat at position 1: \\̲l̲R̲a̲t̲_{t}",
+                        "key": "oZUHPh1frw"
+                      },
+                      {
+                        "type": "text",
+                        "position": {
+                          "start": {
+                            "offset": 8707,
+                            "line": 158,
+                            "column": 143
+                          },
+                          "end": { "offset": 8708, "line": 158, "column": 144 }
+                        },
+                        "value": ".",
+                        "key": "V2r9JVrpTx"
+                      }
+                    ],
+                    "key": "PcG1H32xvn"
+                  }
+                ],
+                "key": "sPooS1vFfD"
+              }
+            ],
+            "align": "center",
+            "label": "fig:exog",
+            "identifier": "fig:exog",
+            "enumerator": "1",
+            "html_id": "fig-exog",
+            "key": "VuGNg1v8FH"
+          },
+          {
+            "type": "container",
+            "position": {
+              "start": { "offset": 8762, "line": 162, "column": 1 },
+              "end": { "offset": 9046, "line": 167, "column": 13 }
+            },
+            "kind": "figure",
+            "children": [
+              {
+                "type": "image",
+                "url": "Figures/EndogenousGrid.pdf",
+                "position": {
+                  "start": { "offset": 8794, "line": 164, "column": 3 },
+                  "end": { "offset": 8810, "line": 164, "column": 19 }
+                },
+                "alt": "An irregular, unstructured endogenous grid of market resources \\mRat_{t} and pension balances before deposit \\nRat_{t}.",
+                "key": "zC8slMNpIs"
+              },
+              {
+                "type": "caption",
+                "position": {
+                  "start": { "offset": 8863, "line": 165, "column": 3 },
+                  "end": { "offset": 8871, "line": 165, "column": 11 }
+                },
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "position": {
+                      "start": { "offset": 8863, "line": 165, "column": 3 },
+                      "end": { "offset": 8871, "line": 165, "column": 11 }
+                    },
+                    "children": [
+                      {
+                        "type": "captionNumber",
+                        "kind": "figure",
+                        "label": "fig:endog",
+                        "identifier": "fig:endog",
+                        "html_id": "fig-endog",
+                        "enumerator": "2",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "Figure ",
+                            "key": "qQ0XnBVbKT"
+                          },
+                          { "type": "text", "value": "2", "key": "kL5Rxcutrc" },
+                          { "type": "text", "value": ":", "key": "a3tYCmyrjS" }
+                        ],
+                        "template": "Figure %s:",
+                        "key": "voPMnzOyRD"
+                      },
+                      {
+                        "type": "text",
+                        "position": {
+                          "start": {
+                            "offset": 8872,
+                            "line": 165,
+                            "column": 12
+                          },
+                          "end": { "offset": 8874, "line": 165, "column": 14 }
+                        },
+                        "value": "An irregular, unstructured endogenous grid of market resources ",
+                        "key": "uSVEArG619"
+                      },
+                      {
+                        "type": "inlineMath",
+                        "value": "\\mRat_{t}",
+                        "position": {
+                          "start": {
+                            "offset": 8935,
+                            "line": 165,
+                            "column": 75
+                          },
+                          "end": { "offset": 8946, "line": 165, "column": 86 }
+                        },
+                        "error": true,
+                        "message": "Undefined control sequence: \\mRat at position 1: \\̲m̲R̲a̲t̲_{t}",
+                        "key": "W8XhsKsl6j"
+                      },
+                      {
+                        "type": "text",
+                        "position": {
+                          "start": {
+                            "offset": 8946,
+                            "line": 165,
+                            "column": 86
+                          },
+                          "end": { "offset": 8947, "line": 165, "column": 87 }
+                        },
+                        "value": " and pension balances before deposit ",
+                        "key": "IMV9ZXqT2M"
+                      },
+                      {
+                        "type": "inlineMath",
+                        "value": "\\nRat_{t}",
+                        "position": {
+                          "start": {
+                            "offset": 8983,
+                            "line": 165,
+                            "column": 123
+                          },
+                          "end": { "offset": 8994, "line": 165, "column": 134 }
+                        },
+                        "error": true,
+                        "message": "Undefined control sequence: \\nRat at position 1: \\̲n̲R̲a̲t̲_{t}",
+                        "key": "w3zVTlC90q"
+                      },
+                      {
+                        "type": "text",
+                        "position": {
+                          "start": {
+                            "offset": 8994,
+                            "line": 165,
+                            "column": 134
+                          },
+                          "end": { "offset": 8995, "line": 165, "column": 135 }
+                        },
+                        "value": ".",
+                        "key": "xpVTNmyrqH"
+                      }
+                    ],
+                    "key": "aJKRi64tv5"
+                  }
+                ],
+                "key": "V2MqkrVAPf"
+              }
+            ],
+            "align": "center",
+            "label": "fig:endog",
+            "identifier": "fig:endog",
+            "enumerator": "2",
+            "html_id": "fig-endog",
+            "key": "Rlgro9R4dX"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 9050, "line": 169, "column": 1 },
+              "end": { "offset": 9052, "line": 169, "column": 3 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9050, "line": 169, "column": 1 },
+                  "end": { "offset": 9052, "line": 169, "column": 3 }
+                },
+                "value": "To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in ",
+                "key": "WW7EoR9NT4"
+              },
+              {
+                "type": "citeGroup",
+                "kind": "narrative",
+                "children": [
+                  {
+                    "type": "cite",
+                    "kind": "narrative",
+                    "label": "Scheidegger2019",
+                    "identifier": "scheidegger2019",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Scheidegger & Bilionis (2019)",
+                        "key": "ezjkTy5UUa"
+                      }
+                    ],
+                    "key": "A8y8KsAMIm"
+                  }
+                ],
+                "position": {
+                  "start": { "offset": 9150, "line": 169, "column": 101 },
+                  "end": { "offset": 9155, "line": 169, "column": 106 }
+                },
+                "key": "JunnjzgeVQ"
+              },
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9172, "line": 169, "column": 123 },
+                  "end": { "offset": 9173, "line": 169, "column": 124 }
+                },
+                "value": ".",
+                "key": "ABm0OMb2uf"
+              }
+            ],
+            "key": "Xk46nY7iCe"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 9257, "line": 173, "column": 22 },
+              "end": { "offset": 9260, "line": 173, "column": 25 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9257, "line": 173, "column": 22 },
+                  "end": { "offset": 9260, "line": 173, "column": 25 }
+                },
+                "value": "Web",
+                "key": "ZRaWVtcgth"
+              }
+            ],
+            "key": "RzheCBGcuj"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 9297, "line": 175, "column": 29 },
+              "end": { "offset": 9298, "line": 175, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9297, "line": 175, "column": 29 },
+                  "end": { "offset": 9298, "line": 175, "column": 30 }
+                },
+                "value": "[figure]list=no",
+                "key": "KQeUHFfvXK"
+              }
+            ],
+            "key": "HhIld18Rs6"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 9345, "line": 176, "column": 29 },
+              "end": { "offset": 9346, "line": 176, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9345, "line": 176, "column": 29 },
+                  "end": { "offset": 9346, "line": 176, "column": 30 }
+                },
+                "value": "[table]list=no",
+                "key": "oZXW54PRWy"
+              }
+            ],
+            "key": "A9uXz8LC5G"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 9369, "line": 177, "column": 6 },
+              "end": { "offset": 9377, "line": 177, "column": 14 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 9369, "line": 177, "column": 6 },
+                  "end": { "offset": 9377, "line": 177, "column": 14 }
+                },
+                "value": "document",
+                "key": "kbKneW01CY"
+              }
+            ],
+            "key": "jEYpQuoKY5"
+          }
+        ],
+        "key": "YZuc7nrcLS"
+      }
+    ],
+    "key": "h1A635Undi"
+  },
+  "references": {
+    "cite": {
+      "order": ["Scheidegger2019"],
+      "data": {
+        "Scheidegger2019": {
+          "number": 1,
+          "doi": "10.1016/j.jocs.2019.03.004",
+          "html": "Scheidegger, S., &amp; Bilionis, I. (2019). Machine learning for high-dimensional dynamic stochastic economies. <i>Journal of Computational Science</i>, <i>33</i>, 68–82. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1016/j.jocs.2019.03.004\">10.1016/j.jocs.2019.03.004</a>"
+        }
+      }
+    }
+  }
+}

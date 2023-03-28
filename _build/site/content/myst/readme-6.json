@@ -1,0 +1,25 @@
+{
+  "frontmatter": {
+    "title": "All Figures for Paper",
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-59d711d6c4c748f7685def7bced38f6a.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Figures\\README.md",
+  "sha256": "4bda6b6dbd30058fdef46e3bfa9e7072c49d5c019f9ccc382be5bc42a4eb4691",
+  "slug": "readme-6",
+  "mdast": {
+    "type": "root",
+    "children": [{ "type": "block", "children": [], "key": "goJ08dlP5z" }],
+    "key": "kHfmR2SPca"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

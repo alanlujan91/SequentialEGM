@@ -1,0 +1,1545 @@
+{
+  "frontmatter": {
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "ipynb",
+        "filename": "example_ConsRetPenContribModel.ipynb",
+        "url": "/example_ConsRetPenCo-987094cb09cf40a988dd17ebe6b312a6.ipynb"
+      }
+    ]
+  },
+  "kind": "Notebook",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\example_ConsRetPenContribModel.ipynb",
+  "sha256": "2723a0bc1c4625558535e10bfe9ff39df59d83cdfa3f90804e4c7adafbc6e5ca",
+  "slug": "example-consretpencontribmodel",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 0, "column": 0 },
+          "end": { "line": 1, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "import matplotlib.pyplot as plt\nimport numpy as np\nfrom ConsRetPenContribModel import PensionContribConsumerType",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 7, "column": 0 }
+            },
+            "key": "m8UaU4GCRp"
+          },
+          {
+            "type": "output",
+            "id": "ZdoWRsUc6WAS266CfvXF0",
+            "data": [
+              {
+                "ename": "ModuleNotFoundError",
+                "evalue": "No module named 'HARK.fast'",
+                "output_type": "error",
+                "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)\nCell \u001b[1;32mIn[1], line 3\u001b[0m\n\u001b[0;32m      1\u001b[0m \u001b[39mimport\u001b[39;00m \u001b[39mmatplotlib\u001b[39;00m\u001b[39m.\u001b[39;00m\u001b[39mpyplot\u001b[39;00m \u001b[39mas\u001b[39;00m \u001b[39mplt\u001b[39;00m\n\u001b[0;32m      2\u001b[0m \u001b[39mimport\u001b[39;00m \u001b[39mnumpy\u001b[39;00m \u001b[39mas\u001b[39;00m \u001b[39mnp\u001b[39;00m\n\u001b[1;32m----> 3\u001b[0m \u001b[39mfrom\u001b[39;00m \u001b[39mConsRetPenContribModel\u001b[39;00m \u001b[39mimport\u001b[39;00m PensionContribConsumerType\n\nFile \u001b[1;32mc:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\ConsRetPenContribModel.py:17\u001b[0m\n\u001b[0;32m     15\u001b[0m \u001b[39mfrom\u001b[39;00m \u001b[39mHARK\u001b[39;00m\u001b[39m.\u001b[39;00m\u001b[39mcore\u001b[39;00m \u001b[39mimport\u001b[39;00m MetricObject, make_one_period_oo_solver\n\u001b[0;32m     16\u001b[0m \u001b[39mfrom\u001b[39;00m \u001b[39mHARK\u001b[39;00m\u001b[39m.\u001b[39;00m\u001b[39mdistribution\u001b[39;00m \u001b[39mimport\u001b[39;00m DiscreteDistribution, calc_expectation\n\u001b[1;32m---> 17\u001b[0m \u001b[39mfrom\u001b[39;00m \u001b[39mHARK\u001b[39;00m\u001b[39m.\u001b[39;00m\u001b[39mfast\u001b[39;00m \u001b[39mimport\u001b[39;00m BilinearInterpFast, LinearInterpFast\n\u001b[0;32m     18\u001b[0m \u001b[39mfrom\u001b[39;00m \u001b[39mHARK\u001b[39;00m\u001b[39m.\u001b[39;00m\u001b[39minterpolation\u001b[39;00m \u001b[39mimport\u001b[39;00m (\n\u001b[0;32m     19\u001b[0m     ConstantFunction,\n\u001b[0;32m     20\u001b[0m     LinearInterpOnInterp1D,\n\u001b[1;32m   (...)\u001b[0m\n\u001b[0;32m     23\u001b[0m     calc_log_sum_choice_probs,\n\u001b[0;32m     24\u001b[0m )\n\u001b[0;32m     25\u001b[0m \u001b[39mfrom\u001b[39;00m \u001b[39mHARK\u001b[39;00m\u001b[39m.\u001b[39;00m\u001b[39mutilities\u001b[39;00m \u001b[39mimport\u001b[39;00m NullFunc, make_grid_exp_mult\n\n\u001b[1;31mModuleNotFoundError\u001b[0m: No module named 'HARK.fast'"
+              }
+            ],
+            "key": "QAfUV0fdHP"
+          }
+        ],
+        "data": { "collapsed": true, "pycharm": { "name": "#%%\n" } },
+        "key": "KNmecuEdyw"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 12, "column": 0 },
+          "end": { "line": 13, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "agent = PensionContribConsumerType()\nagent.solve()",
+            "position": {
+              "start": { "line": 14, "column": 0 },
+              "end": { "line": 18, "column": 0 }
+            },
+            "key": "m5MPRWpZx0"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "fT2JOojwfE"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 19, "column": 0 },
+          "end": { "line": 20, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def plot_retired(min, max, n=100):\n    plt.figure(figsize=(15, 6))\n\n    mgrid = np.linspace(min, max, n)\n\n    plt.subplot(1, 3, 1)\n    plt.title(\"consumption\")\n    for cFunc in cFunc_retired:\n        plt.plot(mgrid, cFunc(mgrid))\n\n    plt.subplot(1, 3, 2)\n    plt.title(\"inverse vPfunc\")\n    for vPfunc in vPFunc_retired:\n        plt.plot(mgrid, vPfunc.cFunc(mgrid))\n\n    plt.subplot(1, 3, 3)\n    plt.title(\"inverse vFunc\")\n    for vFunc in vFunc_retired:\n        plt.plot(mgrid, vFunc.vFuncNvrs(mgrid))\n\n    plt.show()",
+            "position": {
+              "start": { "line": 21, "column": 0 },
+              "end": { "line": 44, "column": 0 }
+            },
+            "key": "Y03vEVUU5K"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "GMA6T6qH81"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 45, "column": 0 },
+          "end": { "line": 46, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def plot_3d_func(func, min, max, n=100):\n    xgrid = np.linspace(min, max, n)\n    ygrid = xgrid\n\n    xmat, ymat = np.meshgrid(xgrid, ygrid, indexing=\"ij\")\n\n    zmat = func(xmat, ymat)\n\n    ax = plt.axes(projection=\"3d\")\n    ax.plot_surface(xmat, ymat, zmat, cmap=\"viridis\")\n    ax.set_title(\"surface\")\n    ax.set_xlabel(\"m\")\n    ax.set_ylabel(\"n\")\n    ax.set_zlabel(\"f\")\n    plt.show()",
+            "position": {
+              "start": { "line": 47, "column": 0 },
+              "end": { "line": 64, "column": 0 }
+            },
+            "key": "QoopryhVP2"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "yvgtxjjfdO"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 65, "column": 0 },
+          "end": { "line": 66, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "solution = agent.solution\nretired_solution = [solution[t].retired_solution for t in range(agent.T_age)]\nworker_solution = [solution[t].worker_solution for t in range(agent.T_age)]\nworking_solution = [solution[t].working_solution for t in range(agent.T_age)]\nretiring_solution = [solution[t].retiring_solution for t in range(agent.T_age)]\n\n# Retired\n\ncFunc_retired = [retired_solution[t].cFunc for t in range(agent.T_age)]\nvPFunc_retired = [retired_solution[t].vPfunc for t in range(agent.T_age)]\nvFunc_retired = [retired_solution[t].vFunc for t in range(agent.T_age)]\n\n# Worker\n\ncFunc_worker = [worker_solution[t].deposit_stage.cFunc for t in range(agent.T_age)]\ndFunc_worker = [worker_solution[t].deposit_stage.dFunc for t in range(agent.T_age)]\ndvdmFunc_worker = [\n    worker_solution[t].deposit_stage.dvdmFunc for t in range(agent.T_age)\n]\ndvdnFunc_worker = [\n    worker_solution[t].deposit_stage.dvdnFunc for t in range(agent.T_age)\n]\nvFunc_worker = [worker_solution[t].deposit_stage.vFunc for t in range(agent.T_age)]\nprbWrkFunc_worker = [\n    worker_solution[t].probabilities.prob_working for t in range(agent.T_age)\n]\nprbRetFunc_worker = [\n    worker_solution[t].probabilities.prob_retiring for t in range(agent.T_age)\n]\n\n# Working\n\n# End of Period\n\ndvdaEndOfPrdFunc_working = [\n    working_solution[t].post_decision_stage.dvdaFunc for t in range(agent.T_age)\n]\ndvdbEndOfPrdFunc_working = [\n    working_solution[t].post_decision_stage.dvdbFunc for t in range(agent.T_age)\n]\nvEndOfPrdFunc_working = [\n    working_solution[t].post_decision_stage.vFunc for t in range(agent.T_age)\n]\n\n# Inner Loop\n\ncInnerFunc_working = [\n    working_solution[t].consumption_stage.cFunc for t in range(agent.T_age)\n]\ndvdlInnerFunc_working = [\n    working_solution[t].consumption_stage.dvdlFunc for t in range(agent.T_age)\n]\ndvdbInnerFunc_working = [\n    working_solution[t].consumption_stage.dvdbFunc for t in range(agent.T_age)\n]\nvInnerFunc_working = [\n    working_solution[t].consumption_stage.vFunc for t in range(agent.T_age)\n]\n\n# Outer Loop\n\ncFunc_working = [working_solution[t].deposit_stage.cFunc for t in range(agent.T_age)]\ndFunc_working = [working_solution[t].deposit_stage.dFunc for t in range(agent.T_age)]\ndvdmFunc_working = [\n    working_solution[t].deposit_stage.dvdmFunc for t in range(agent.T_age)\n]\ndvdnFunc_working = [\n    working_solution[t].deposit_stage.dvdnFunc for t in range(agent.T_age)\n]\nvFunc_working = [working_solution[t].deposit_stage.vFunc for t in range(agent.T_age)]\n\n# Retiring\n\ncFunc_retiring = [retiring_solution[t].cFunc for t in range(agent.T_age)]\nvPfunc_retiring = [retiring_solution[t].vPfunc for t in range(agent.T_age)]\nvPfunc_retiring = [retiring_solution[t].vPfunc for t in range(agent.T_age)]\nvFunc_retiring = [retiring_solution[t].vFunc for t in range(agent.T_age)]",
+            "position": {
+              "start": { "line": 67, "column": 0 },
+              "end": { "line": 146, "column": 0 }
+            },
+            "key": "CUpSv7j90d"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "tBD2L8b5Ne"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 147, "column": 0 },
+          "end": { "line": 148, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_retired(0, 10)",
+            "position": {
+              "start": { "line": 149, "column": 0 },
+              "end": { "line": 152, "column": 0 }
+            },
+            "key": "ljq7cn3iEn"
+          },
+          {
+            "type": "output",
+            "id": "6S0sS4EZ0-H9eQEksAije",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "d98b887affc5d9ca39aa56f9bcf6ffa5",
+                    "path": "/_static/d98b887affc5d9ca39aa56f9bcf6ffa5.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 1080x432 with 3 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "bmdyWdP9Lg"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "PCQU3hIFun"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 157, "column": 0 },
+          "end": { "line": 158, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "t = 0",
+            "position": {
+              "start": { "line": 159, "column": 0 },
+              "end": { "line": 162, "column": 0 }
+            },
+            "key": "HfPT9utNdk"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "KNtWyrM5N6"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 163, "column": 0 },
+          "end": { "line": 164, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 165, "column": 0 },
+              "end": { "line": 166, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Working", "key": "Ei6NoWg3z7" }
+            ],
+            "identifier": "working",
+            "label": "Working",
+            "html_id": "working",
+            "implicit": true,
+            "key": "pbruWrkBNa"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%% md\n" } },
+        "key": "xKPv537J1M"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 168, "column": 0 },
+          "end": { "line": 169, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 170, "column": 0 },
+              "end": { "line": 171, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Post Decision Stage",
+                "key": "sLzJd6fOdU"
+              }
+            ],
+            "identifier": "post-decision-stage",
+            "label": "Post Decision Stage",
+            "html_id": "post-decision-stage",
+            "implicit": true,
+            "key": "YmBFwXjIDu"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%% md\n" } },
+        "key": "qhuYfWU3lz"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 173, "column": 0 },
+          "end": { "line": 174, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# wa\nplot_3d_func(dvdaEndOfPrdFunc_working[t].cFunc, 0.0, 10)",
+            "position": {
+              "start": { "line": 175, "column": 0 },
+              "end": { "line": 179, "column": 0 }
+            },
+            "key": "cNjvgaH8fb"
+          },
+          {
+            "type": "output",
+            "id": "ZxML2Zi-CH5PxUPfB7001",
+            "data": [
+              {
+                "name": "stderr",
+                "output_type": "stream",
+                "text": "c:\\Users\\alujan\\miniconda3\\envs\\hark-priv\\lib\\site-packages\\mpl_toolkits\\mplot3d\\proj3d.py:113: RuntimeWarning: invalid value encountered in true_divide\n  txs, tys, tzs = vecw[0]/w, vecw[1]/w, vecw[2]/w\n"
+              },
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "61f9fca39b7e314824e1874f4d1f7f92",
+                    "path": "/_static/61f9fca39b7e314824e1874f4d1f7f92.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "ueEhQ27zSE"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "S8lY2X7jEu"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 184, "column": 0 },
+          "end": { "line": 185, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# wb\nplot_3d_func(dvdbEndOfPrdFunc_working[t].cFunc, 0.0, 10)",
+            "position": {
+              "start": { "line": 186, "column": 0 },
+              "end": { "line": 190, "column": 0 }
+            },
+            "key": "RkpJlUXm1C"
+          },
+          {
+            "type": "output",
+            "id": "398M_mwucRLrNcxixyl1a",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "f80e2f722138ce734355cb840dca1f79",
+                    "path": "/_static/f80e2f722138ce734355cb840dca1f79.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "scV4GuRX8p"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "rteDxXRbXO"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 195, "column": 0 },
+          "end": { "line": 196, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# w\nplot_3d_func(vEndOfPrdFunc_working[t].vFuncNvrs, 0.0, 10)",
+            "position": {
+              "start": { "line": 197, "column": 0 },
+              "end": { "line": 201, "column": 0 }
+            },
+            "key": "cJ9wOkfFaF"
+          },
+          {
+            "type": "output",
+            "id": "LUBPe1lQgrG75eR56yJLz",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "45af0a36f4be39b4338a7062ae9160b4",
+                    "path": "/_static/45af0a36f4be39b4338a7062ae9160b4.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "uW9qeZlSYo"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "tzmXg27Lyi"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 206, "column": 0 },
+          "end": { "line": 207, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 208, "column": 0 },
+              "end": { "line": 209, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Consumption Stage",
+                "key": "XSILUYaXPb"
+              }
+            ],
+            "identifier": "consumption-stage",
+            "label": "Consumption Stage",
+            "html_id": "consumption-stage",
+            "implicit": true,
+            "key": "aLONYyqYRw"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%% md\n" } },
+        "key": "PtSTRhp9X4"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 211, "column": 0 },
+          "end": { "line": 212, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(cInnerFunc_working[t], 0.0, 10)",
+            "position": {
+              "start": { "line": 213, "column": 0 },
+              "end": { "line": 216, "column": 0 }
+            },
+            "key": "WVFC5LaT4r"
+          },
+          {
+            "type": "output",
+            "id": "ehA6qPD9nP4KXvnlsGoZj",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "72c9491eee6261364dfaec9044e3bfe9",
+                    "path": "/_static/72c9491eee6261364dfaec9044e3bfe9.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "Eg8Cp2v8vj"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "dhEFlZRjUU"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 221, "column": 0 },
+          "end": { "line": 222, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dvdlInnerFunc_working[t].cFunc, 0.1, 10)",
+            "position": {
+              "start": { "line": 223, "column": 0 },
+              "end": { "line": 226, "column": 0 }
+            },
+            "key": "JdHpE0o5D7"
+          },
+          {
+            "type": "output",
+            "id": "As-DZcoOoMtAu_vCpzF1O",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "15f61690029c68802a40ec77832ccf6e",
+                    "path": "/_static/15f61690029c68802a40ec77832ccf6e.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "aPY7zU5dML"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "vlbnSxWsHs"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 231, "column": 0 },
+          "end": { "line": 232, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dvdbInnerFunc_working[t].cFunc, 0.0, 10)",
+            "position": {
+              "start": { "line": 233, "column": 0 },
+              "end": { "line": 236, "column": 0 }
+            },
+            "key": "RrbSeIkcRq"
+          },
+          {
+            "type": "output",
+            "id": "rx2xXZ4s-bMSzcC8FEexl",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "50eddccc3c2cc699a81d582db502bf0a",
+                    "path": "/_static/50eddccc3c2cc699a81d582db502bf0a.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "qhBuMmH2M7"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "tyojTgErLn"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 241, "column": 0 },
+          "end": { "line": 242, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(vInnerFunc_working[t].vFuncNvrs, 0.0, 10)",
+            "position": {
+              "start": { "line": 243, "column": 0 },
+              "end": { "line": 246, "column": 0 }
+            },
+            "key": "DbK8rzKSTS"
+          },
+          {
+            "type": "output",
+            "id": "pLy0aV8WmMq7_2aa-H-1j",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "669ddab5aff3c45b686d1637d8e37336",
+                    "path": "/_static/669ddab5aff3c45b686d1637d8e37336.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "O2OUWdWwij"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "spB621xtb2"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 251, "column": 0 },
+          "end": { "line": 252, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 253, "column": 0 },
+              "end": { "line": 254, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Deposit Stage", "key": "bWQItqcVmE" }
+            ],
+            "identifier": "deposit-stage",
+            "label": "Deposit Stage",
+            "html_id": "deposit-stage",
+            "implicit": true,
+            "key": "eTGe6gu7TZ"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%% md\n" } },
+        "key": "yfsg0GmoCR"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 256, "column": 0 },
+          "end": { "line": 257, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(cFunc_working[t], 0.1, 10)",
+            "position": {
+              "start": { "line": 258, "column": 0 },
+              "end": { "line": 261, "column": 0 }
+            },
+            "key": "NcC5KuBBJL"
+          },
+          {
+            "type": "output",
+            "id": "BP-1vx_UagStHRRFMCmrm",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "d4025a70cb77c8bbc091aed1227ff0b5",
+                    "path": "/_static/d4025a70cb77c8bbc091aed1227ff0b5.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "rNX7j5SbcL"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "XH9Kwsm45G"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 266, "column": 0 },
+          "end": { "line": 267, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dFunc_working[t], 0.0, 10)",
+            "position": {
+              "start": { "line": 268, "column": 0 },
+              "end": { "line": 271, "column": 0 }
+            },
+            "key": "l63cbJyAx1"
+          },
+          {
+            "type": "output",
+            "id": "7yZ8v_w7dR9l5M8TS9a2d",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "afeb9a7ec1e24de305bcfc8403ad39f2",
+                    "path": "/_static/afeb9a7ec1e24de305bcfc8403ad39f2.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "we3SjnSqxI"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "luhqBcRIP6"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 276, "column": 0 },
+          "end": { "line": 277, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dvdmFunc_working[t].cFunc, 0.1, 10)",
+            "position": {
+              "start": { "line": 278, "column": 0 },
+              "end": { "line": 281, "column": 0 }
+            },
+            "key": "Lx0Qvcm2ej"
+          },
+          {
+            "type": "output",
+            "id": "m0vgtlCeaWvPHaCmXIM-U",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "d4025a70cb77c8bbc091aed1227ff0b5",
+                    "path": "/_static/d4025a70cb77c8bbc091aed1227ff0b5.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "TdyDnVvN1b"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "hQXvTx1VNP"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 286, "column": 0 },
+          "end": { "line": 287, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dvdnFunc_working[t].cFunc, 0.0, 10)",
+            "position": {
+              "start": { "line": 288, "column": 0 },
+              "end": { "line": 291, "column": 0 }
+            },
+            "key": "Zhhe7Q2y4D"
+          },
+          {
+            "type": "output",
+            "id": "T7VpUxgFGutt59hmygPv4",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "b557f32a27bf154f825adb5ae321d8b2",
+                    "path": "/_static/b557f32a27bf154f825adb5ae321d8b2.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "Ejuub7cj2f"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "SP8OpPyvmI"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 296, "column": 0 },
+          "end": { "line": 297, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(vFunc_working[t].vFuncNvrs, 0.1, 10)",
+            "position": {
+              "start": { "line": 298, "column": 0 },
+              "end": { "line": 301, "column": 0 }
+            },
+            "key": "kc3zOyskYX"
+          },
+          {
+            "type": "output",
+            "id": "uzRa1y2hvTyUMu97H9_ar",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "09c95525601e9d7f090a42181d4104a1",
+                    "path": "/_static/09c95525601e9d7f090a42181d4104a1.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "aGiuUA4i80"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "auFpSSTn8W"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 306, "column": 0 },
+          "end": { "line": 307, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 308, "column": 0 },
+              "end": { "line": 309, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Retiring", "key": "gweZdqDKWk" }
+            ],
+            "identifier": "retiring",
+            "label": "Retiring",
+            "html_id": "retiring",
+            "implicit": true,
+            "key": "mTcKgetkL8"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%% md\n" } },
+        "key": "PoSPlG2Tmm"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 311, "column": 0 },
+          "end": { "line": 312, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(cFunc_retiring[t], 0.0, 10)",
+            "position": {
+              "start": { "line": 313, "column": 0 },
+              "end": { "line": 316, "column": 0 }
+            },
+            "key": "lVxPwiDHbc"
+          },
+          {
+            "type": "output",
+            "id": "t4QJAxA2EpF3cG639IUjE",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "8e342245657871a768b7784431ab7c97",
+                    "path": "/_static/8e342245657871a768b7784431ab7c97.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "iMU0v3gcou"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "iBLdnNoZXO"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 321, "column": 0 },
+          "end": { "line": 322, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(vPfunc_retiring[t].cFunc, 0.0, 10)",
+            "position": {
+              "start": { "line": 323, "column": 0 },
+              "end": { "line": 326, "column": 0 }
+            },
+            "key": "SyREvmEVxn"
+          },
+          {
+            "type": "output",
+            "id": "VPjdIvY_VeBc6HK8Dvo20",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "8e342245657871a768b7784431ab7c97",
+                    "path": "/_static/8e342245657871a768b7784431ab7c97.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "oyqpmKUl6i"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "jnMJP1myRW"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 331, "column": 0 },
+          "end": { "line": 332, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(vFunc_retiring[t].vFuncNvrs, 0.0, 10)",
+            "position": {
+              "start": { "line": 333, "column": 0 },
+              "end": { "line": 336, "column": 0 }
+            },
+            "key": "RN7aF3coTL"
+          },
+          {
+            "type": "output",
+            "id": "44Wj5DQ-bQKv3Q3AjKcwt",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "ca2fc641216a44afa0f3cd13326c53e0",
+                    "path": "/_static/ca2fc641216a44afa0f3cd13326c53e0.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "Jq606EHds7"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "zllBZzgHLy"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 341, "column": 0 },
+          "end": { "line": 342, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 1,
+            "position": {
+              "start": { "line": 343, "column": 0 },
+              "end": { "line": 344, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Worker", "key": "zKuQCeZTqh" }
+            ],
+            "identifier": "worker",
+            "label": "Worker",
+            "html_id": "worker",
+            "implicit": true,
+            "key": "MjE6XroR7D"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%% md\n" } },
+        "key": "zKIkh8a1hR"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 346, "column": 0 },
+          "end": { "line": 347, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(cFunc_worker[t], 0.0, 10)",
+            "position": {
+              "start": { "line": 348, "column": 0 },
+              "end": { "line": 351, "column": 0 }
+            },
+            "key": "VBAEksYRAq"
+          },
+          {
+            "type": "output",
+            "id": "5mJjhpt69x5e-75w9bRDD",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "d4e90dcb21713ada7d1b3a51a11d373e",
+                    "path": "/_static/d4e90dcb21713ada7d1b3a51a11d373e.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "iCruWhwkNs"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "yKvgEYNkna"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 356, "column": 0 },
+          "end": { "line": 357, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dFunc_worker[t], 0.0, 10)",
+            "position": {
+              "start": { "line": 358, "column": 0 },
+              "end": { "line": 361, "column": 0 }
+            },
+            "key": "n8Fj1Ev5oL"
+          },
+          {
+            "type": "output",
+            "id": "_KZzjGABmUmmuCv8Z-XGH",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "d829e575b0f0f824eb4c6813d928da90",
+                    "path": "/_static/d829e575b0f0f824eb4c6813d928da90.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "cqwXjowyA5"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "N514T4IsTq"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 366, "column": 0 },
+          "end": { "line": 367, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dvdmFunc_worker[t].cFunc, 0.0, 10)",
+            "position": {
+              "start": { "line": 368, "column": 0 },
+              "end": { "line": 371, "column": 0 }
+            },
+            "key": "Zob650KGgI"
+          },
+          {
+            "type": "output",
+            "id": "7qJ_0idS1q9calkSCuXgG",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "d84b722c620b2dba34b44ce3739ab50c",
+                    "path": "/_static/d84b722c620b2dba34b44ce3739ab50c.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "OJLelW2J10"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "aNpBhbNGoN"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 376, "column": 0 },
+          "end": { "line": 377, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(dvdnFunc_worker[t].cFunc, 0.0, 10)",
+            "position": {
+              "start": { "line": 378, "column": 0 },
+              "end": { "line": 381, "column": 0 }
+            },
+            "key": "nGzWYhWI46"
+          },
+          {
+            "type": "output",
+            "id": "r7FJcfcwiZ2VSkkz4n2DD",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "d68350a267b4a3c3107a825502b76541",
+                    "path": "/_static/d68350a267b4a3c3107a825502b76541.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "KLueHkC50w"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "efarjLs3nR"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 386, "column": 0 },
+          "end": { "line": 387, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(vFunc_worker[t].vFuncNvrs, 0.0, 10)",
+            "position": {
+              "start": { "line": 388, "column": 0 },
+              "end": { "line": 391, "column": 0 }
+            },
+            "key": "TnWl6AUDY4"
+          },
+          {
+            "type": "output",
+            "id": "swGpRcrzmZYJU0oqKWjeg",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "6ae171ffd5923af081749898430c7dcb",
+                    "path": "/_static/6ae171ffd5923af081749898430c7dcb.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "J6jjjEr1Jg"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "fFBLQEtyFD"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 396, "column": 0 },
+          "end": { "line": 397, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(prbWrkFunc_worker[t], 0.0, 10)",
+            "position": {
+              "start": { "line": 398, "column": 0 },
+              "end": { "line": 401, "column": 0 }
+            },
+            "key": "p5WgM2IBP6"
+          },
+          {
+            "type": "output",
+            "id": "zB2YtvDndh9r-ETlfRxpD",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "45f80f177cb89e9e3701cd697e2a46a2",
+                    "path": "/_static/45f80f177cb89e9e3701cd697e2a46a2.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "xnGWrDCyJx"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "msCG9ku0yw"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 406, "column": 0 },
+          "end": { "line": 407, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(prbRetFunc_worker[t], 0.0, 10)",
+            "position": {
+              "start": { "line": 408, "column": 0 },
+              "end": { "line": 411, "column": 0 }
+            },
+            "key": "ufajoUx83n"
+          },
+          {
+            "type": "output",
+            "id": "EdrfsovR37WmAX0FmE5Dg",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "652cb07dfd6abd768d6fb7a95f6f981f",
+                    "path": "/_static/652cb07dfd6abd768d6fb7a95f6f981f.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "KTVjJxOZSl"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "HLkvC73tmJ"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 416, "column": 0 },
+          "end": { "line": 417, "column": 0 }
+        },
+        "data": { "collapsed": false, "pycharm": { "name": "#%% md\n" } },
+        "key": "X3BtqqyzKp"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 420, "column": 0 },
+          "end": { "line": 421, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[0].working_solution.deposit_stage.linear_interp, 0, 10)",
+            "position": {
+              "start": { "line": 422, "column": 0 },
+              "end": { "line": 425, "column": 0 }
+            },
+            "key": "JhUaxogPjk"
+          },
+          {
+            "type": "output",
+            "id": "jJT-24nDCHMR1d7Rs0n-I",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "72f612be2645a37980dcefd1d6d651e3",
+                    "path": "/_static/72f612be2645a37980dcefd1d6d651e3.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 432x288 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "LOhtjRuLXH"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "bKrUyG7758"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 430, "column": 0 },
+          "end": { "line": 431, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def scatter_hist(x, y, color, ax, ax_histx, ax_histy, fig):\n    # no labels\n    ax_histx.tick_params(axis=\"x\", labelbottom=False)\n    ax_histy.tick_params(axis=\"y\", labelleft=False)\n\n    # the scatter plot:\n    plot = ax.scatter(x, y, c=color, cmap=\"jet\")\n    fig.colorbar(plot)\n\n    # now determine nice limits by hand:\n    binwidth = 0.25\n    xymax = max(np.max(x), np.max(y))\n    xymin = min(np.min(x), np.min(y))\n    top = (int(xymax / binwidth) + 1) * binwidth\n    bottom = (int(xymin / binwidth) + 1) * binwidth\n\n    bins = np.arange(bottom, top + binwidth, binwidth)\n    ax_histx.hist(x, bins=bins)\n    ax_histy.hist(y, bins=bins, orientation=\"horizontal\")",
+            "position": {
+              "start": { "line": 432, "column": 0 },
+              "end": { "line": 453, "column": 0 }
+            },
+            "key": "CUTPz7OWOj"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "jsDLSZc8dO"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 454, "column": 0 },
+          "end": { "line": 455, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# definitions for the axes\nleft, width = 0.1, 0.65\nbottom, height = 0.1, 0.65\nspacing = 0.005\n\nx = agent.solution[0].working_solution.deposit_stage.linear_interp.points[:, 0]\ny = agent.solution[0].working_solution.deposit_stage.linear_interp.points[:, 1]\ncolor = agent.solution[0].working_solution.deposit_stage.linear_interp.values\n\nrect_scatter = [left, bottom, width, height]\nrect_histx = [left, bottom + height + spacing, width, 0.2]\nrect_histy = [left + width + spacing, bottom, 0.2, height]\n\n# start with a square Figure\nfig = plt.figure(figsize=(8, 8))\n\nax = fig.add_axes(rect_scatter)\nax_histx = fig.add_axes(rect_histx, sharex=ax)\nax_histy = fig.add_axes(rect_histy, sharey=ax)\n\n# use the previously defined function\nscatter_hist(x, y, color, ax, ax_histx, ax_histy, fig)",
+            "position": {
+              "start": { "line": 456, "column": 0 },
+              "end": { "line": 480, "column": 0 }
+            },
+            "key": "rrwsIPXwvU"
+          },
+          {
+            "type": "output",
+            "id": "9i5ZrwwrmgGKXd0M1I_BW",
+            "data": [
+              {
+                "name": "stderr",
+                "output_type": "stream",
+                "text": "C:\\Users\\alujan\\AppData\\Local\\Temp\\ipykernel_10612\\2228136609.py:8: MatplotlibDeprecationWarning: Starting from Matplotlib 3.6, colorbar() will steal space from the mappable's axes, rather than from the current axes, to place the colorbar.  To silence this warning, explicitly pass the 'ax' argument to colorbar().\n  fig.colorbar(plot)\n"
+              },
+              {
+                "output_type": "display_data",
+                "metadata": { "needs_background": "light" },
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "6db5b9fa0ff2dfd8fc98d94619d59582",
+                    "path": "/_static/6db5b9fa0ff2dfd8fc98d94619d59582.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 576x576 with 4 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "ZRL7hfdYzN"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "Wip2bzsVV2"
+      }
+    ],
+    "key": "TXoDXBT5DF"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

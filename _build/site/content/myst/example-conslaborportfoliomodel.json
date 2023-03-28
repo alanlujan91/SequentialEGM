@@ -1,0 +1,357 @@
+{
+  "frontmatter": {
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "ipynb",
+        "filename": "example_ConsLaborPortfolioModel.ipynb",
+        "url": "/example_ConsLaborPor-d92410e221751f986830fe759a704d91.ipynb"
+      }
+    ]
+  },
+  "kind": "Notebook",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\example_ConsLaborPortfolioModel.ipynb",
+  "sha256": "75ad494e17b3a5d4a3b03d2d020c148a6426e296be0c0ad6d3ab3ed2100dfc62",
+  "slug": "example-conslaborportfoliomodel",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 0, "column": 0 },
+          "end": { "line": 1, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "import matplotlib.pyplot as plt\nimport numpy as np\nfrom ConsLaborPortfolioModel import LaborPortfolioConsumerType, init_labor_portfolio\nfrom HARK.ConsumptionSaving.ConsPortfolioModel import PortfolioConsumerType\nfrom HARK.utilities import plot_funcs",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 9, "column": 0 }
+            },
+            "key": "MYA8BZ1KTe"
+          }
+        ],
+        "data": { "collapsed": true },
+        "key": "QNyTd8dtcL"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 10, "column": 0 },
+          "end": { "line": 11, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "agent = LaborPortfolioConsumerType()\nagent.cycles = 10",
+            "position": {
+              "start": { "line": 12, "column": 0 },
+              "end": { "line": 16, "column": 0 }
+            },
+            "key": "Ub2PxKWQ9D"
+          }
+        ],
+        "data": { "collapsed": false, "pycharm": { "name": "#%%\n" } },
+        "key": "qY2Yg4XbRi"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 17, "column": 0 },
+          "end": { "line": 18, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def plot_3d_func(func, lims_x, lims_y, n=100, label_x=\"x\", label_y=\"y\", label_z=\"z\"):\n    # get_ipython().run_line_magic(\"matplotlib\", \"widget\")\n    xmin, xmax = lims_x\n    ymin, ymax = lims_y\n    xgrid = np.linspace(xmin, xmax, n)\n    ygrid = np.linspace(ymin, ymax, n)\n\n    xMat, yMat = np.meshgrid(xgrid, ygrid, indexing=\"ij\")\n\n    zMat = func(xMat, yMat)\n\n    ax = plt.axes(projection=\"3d\")\n    ax.plot_surface(xMat, yMat, zMat, cmap=\"viridis\")\n    ax.set_title(\"surface\")\n    ax.set_xlabel(label_x)\n    ax.set_ylabel(label_y)\n    ax.set_zlabel(label_z)\n    plt.show()",
+            "position": {
+              "start": { "line": 19, "column": 0 },
+              "end": { "line": 39, "column": 0 }
+            },
+            "key": "gTrfup5IeS"
+          }
+        ],
+        "data": {},
+        "key": "FbS27Sxs4k"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 40, "column": 0 },
+          "end": { "line": 41, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "agent.solve()",
+            "position": {
+              "start": { "line": 42, "column": 0 },
+              "end": { "line": 45, "column": 0 }
+            },
+            "key": "Kq9l1iZS33"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "iUir8eS1E1"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 46, "column": 0 },
+          "end": { "line": 47, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "share_func = agent.solution[0].portfolio_stage.share_func\nc_func = agent.solution[0].consumption_stage.c_func\nlabor_func = agent.solution[0].labor_stage.labor_func\nleisure_func = agent.solution[0].labor_stage.leisure_func",
+            "position": {
+              "start": { "line": 48, "column": 0 },
+              "end": { "line": 54, "column": 0 }
+            },
+            "key": "vaYkqMtLhF"
+          }
+        ],
+        "data": {},
+        "key": "d5HgiGH6jg"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 55, "column": 0 },
+          "end": { "line": 56, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_funcs(share_func, 0, 100)",
+            "position": {
+              "start": { "line": 57, "column": 0 },
+              "end": { "line": 60, "column": 0 }
+            },
+            "key": "q0gnewZfdD"
+          },
+          {
+            "type": "output",
+            "id": "yHxGhk0SQxhJjb5_DTPUL",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "08585a4496fc5a98df41d8a43fcd12b6",
+                    "path": "/_static/08585a4496fc5a98df41d8a43fcd12b6.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "nuyG8s4Py0"
+          }
+        ],
+        "data": {},
+        "key": "jVIbZD179D"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 65, "column": 0 },
+          "end": { "line": 66, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_funcs(c_func, 0, 100)",
+            "position": {
+              "start": { "line": 67, "column": 0 },
+              "end": { "line": 70, "column": 0 }
+            },
+            "key": "xXyUyYU7lA"
+          },
+          {
+            "type": "output",
+            "id": "TmOeQOlmIDErHsisZ-SG4",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "8b675df3818b7d40649657bd32573352",
+                    "path": "/_static/8b675df3818b7d40649657bd32573352.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "OYikyqHbp2"
+          }
+        ],
+        "data": {},
+        "key": "zUNw1PL0bA"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 75, "column": 0 },
+          "end": { "line": 76, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(\n    labor_func,\n    (0, 10),\n    [min(agent.TranShkGrid), max(agent.TranShkGrid)],\n    label_x=\"m\",\n    label_y=r\"$\\theta$\",\n    label_z=\"labor\",\n)",
+            "position": {
+              "start": { "line": 77, "column": 0 },
+              "end": { "line": 87, "column": 0 }
+            },
+            "key": "pIFH58WwqS"
+          },
+          {
+            "type": "output",
+            "id": "TvsRn-PkPP7zLCFWpBs55",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "e4eb60b9c289109e5445771cfe47d373",
+                    "path": "/_static/e4eb60b9c289109e5445771cfe47d373.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "zqnpp0vuAF"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "IZsKt4BB7g"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 92, "column": 0 },
+          "end": { "line": 93, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(\n    leisure_func,\n    (0, 10),\n    [min(agent.TranShkGrid), max(agent.TranShkGrid)],\n    label_x=\"m\",\n    label_y=r\"$\\theta$\",\n    label_z=\"leisure\",\n)",
+            "position": {
+              "start": { "line": 94, "column": 0 },
+              "end": { "line": 104, "column": 0 }
+            },
+            "key": "NbjtIC1yYs"
+          },
+          {
+            "type": "output",
+            "id": "rpgkXGhMRj7XOxuiqVJiR",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "8a84f0a067a317bacf63a86b82a12e7d",
+                    "path": "/_static/8a84f0a067a317bacf63a86b82a12e7d.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "M8SLi0rptY"
+          }
+        ],
+        "data": {},
+        "key": "GZMcIPwHBP"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 109, "column": 0 },
+          "end": { "line": 110, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_funcs(agent.solution[0].consumption_stage.c_func, 0, 10)",
+            "position": {
+              "start": { "line": 111, "column": 0 },
+              "end": { "line": 114, "column": 0 }
+            },
+            "key": "pMPPQXh0JR"
+          },
+          {
+            "type": "output",
+            "id": "Ss6yaRVm8pc5UysYTJ0IJ",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "51c240213b1b24bc4a6090b06b56c6c7",
+                    "path": "/_static/51c240213b1b24bc4a6090b06b56c6c7.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "KVCxLxpodR"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "GIPttbWIFk"
+      }
+    ],
+    "key": "IBUSJeqePL"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}
