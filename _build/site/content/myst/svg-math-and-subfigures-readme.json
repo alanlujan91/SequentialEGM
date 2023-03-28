@@ -1,0 +1,163 @@
+{
+  "frontmatter": {
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "svg-math-and-subfigures-README.md",
+        "url": "/svg-math-and-subfigu-765cc4dd08bfa1c96ca26417d7fb06ee.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\texmf-local\\tex\\latex\\tex4ht\\svg-math-and-subfigures-README.md",
+  "sha256": "ea36ceefe15c03bd710104f9e2b8b2864cf164bf2f8134499477303ea032142f",
+  "slug": "svg-math-and-subfigures-readme",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 0, "column": 0 },
+              "end": { "line": 1, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "20191212 - struggled for several hours to get svg figures to work properly",
+                "key": "vYQAbWJHCA"
+              }
+            ],
+            "key": "MDBqgTNrkb"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 3, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "The current version works",
+                "key": "CIRSILWYbi"
+              }
+            ],
+            "key": "JIYf8Qihe3"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 4, "column": 0 },
+              "end": { "line": 5, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "There seem to be two options:",
+                "key": "iGgWfwBbr6"
+              }
+            ],
+            "key": "IMmLdHzwxj"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "start": 1,
+            "spread": false,
+            "position": {
+              "start": { "line": 6, "column": 0 },
+              "end": { "line": 9, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "listItem",
+                "spread": true,
+                "position": {
+                  "start": { "line": 6, "column": 0 },
+                  "end": { "line": 7, "column": 0 }
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "If you never set a specified size of a figure (like \\includegraphics[width=6in]) then the method discussed ",
+                    "key": "ZSQZiceGao"
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://tug.org/pipermail/tex4ht/2015q2/001166.html",
+                    "children": [
+                      { "type": "text", "value": "here", "key": "GDoJ9aUalE" }
+                    ],
+                    "urlSource": "https://tug.org/pipermail/tex4ht/2015q2/001166.html",
+                    "key": "eUJxOfeAUU"
+                  },
+                  {
+                    "type": "text",
+                    "value": " works. But dies with a division by zero error whenever the size has been explicitly set. It can be resurrected by uncommenting the \\Configure{graphics*}{svg} portion of the file",
+                    "key": "chutBlTBLz"
+                  }
+                ],
+                "key": "TLCkDM8W1O"
+              },
+              {
+                "type": "listItem",
+                "spread": true,
+                "position": {
+                  "start": { "line": 7, "column": 0 },
+                  "end": { "line": 9, "column": 0 }
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "In cases where the size is set (as is frequently the case), the current version obtains the dimensions directly from the svg file",
+                    "key": "QQx9atzDSA"
+                  },
+                  {
+                    "type": "list",
+                    "ordered": false,
+                    "spread": false,
+                    "position": {
+                      "start": { "line": 8, "column": 0 },
+                      "end": { "line": 9, "column": 0 }
+                    },
+                    "children": [
+                      {
+                        "type": "listItem",
+                        "spread": true,
+                        "position": {
+                          "start": { "line": 8, "column": 0 },
+                          "end": { "line": 9, "column": 0 }
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "This might have problems with an svg file without explicit dimensions",
+                            "key": "AY9QaoqkDY"
+                          }
+                        ],
+                        "key": "JBwTgMfdXe"
+                      }
+                    ],
+                    "key": "mcfFfZv0vF"
+                  }
+                ],
+                "key": "VWwJOCQ34M"
+              }
+            ],
+            "key": "pp5WGHfTdv"
+          }
+        ],
+        "key": "QbljJbqhkM"
+      }
+    ],
+    "key": "e9dpIiVLtj"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

@@ -1,0 +1,47 @@
+{
+  "frontmatter": {
+    "title": "Code to Produce empirical results",
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-04966bc7c57fc9971b774908fa07a746.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\Empirical\\README.md",
+  "sha256": "5c492f9c1281d9d903613729fca9d8520f32fc1e038404163fefb9c25a250b59",
+  "slug": "readme-3",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 3, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "This directory should contain code which, when transported to a system that has the Norwegian data available, produces all of our results that we use from that source; or, links to external resources that reproduce those results",
+                "key": "goduUElKQs"
+              }
+            ],
+            "key": "qUhGr01pln"
+          }
+        ],
+        "key": "E0IpxJeMhw"
+      }
+    ],
+    "key": "yGsOc86Y3j"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

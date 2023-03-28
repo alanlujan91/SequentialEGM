@@ -1,0 +1,1360 @@
+{
+  "frontmatter": {
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "ipynb",
+        "filename": "PensionContrib_baseline.ipynb",
+        "url": "/PensionContrib_basel-5a4768bacd69054f58aae1a37610145b.ipynb"
+      }
+    ]
+  },
+  "kind": "Notebook",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\PensionContrib_baseline.ipynb",
+  "sha256": "c369df18d42b5d0ed457e3b5b52c51329282f72e5274187a5aa70a14f73b99a7",
+  "slug": "pensioncontrib-baseline",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 0, "column": 0 },
+          "end": { "line": 1, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "import matplotlib.pyplot as plt\nimport numpy as np\nfrom ConsPensionContribModel import PensionContribConsumerType, init_pension_contrib\n\nfigures_path = \"../Figures/\"",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 9, "column": 0 }
+            },
+            "key": "HOpHESjCAx"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "x34DisE7pn"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 10, "column": 0 },
+          "end": { "line": 11, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "baseline_params = init_pension_contrib.copy()\nbaseline_params[\"mCount\"] = 100\nbaseline_params[\"mMax\"] = 10\nbaseline_params[\"mNestFac\"] = -1\n\nbaseline_params[\"nCount\"] = 100\n\n\nbaseline_params[\"nMax\"] = 12\nbaseline_params[\"nNestFac\"] = -1\n\nbaseline_params[\"lCount\"] = 100\nbaseline_params[\"lMax\"] = 9\nbaseline_params[\"lNestFac\"] = -1\n\nbaseline_params[\"b2Count\"] = 100\nbaseline_params[\"b2Max\"] = 13\nbaseline_params[\"b2NestFac\"] = -1\n\nbaseline_params[\"aCount\"] = 100\nbaseline_params[\"aMax\"] = 8\nbaseline_params[\"aNestFac\"] = -1\n\nbaseline_params[\"bCount\"] = 100\nbaseline_params[\"bMax\"] = 14\nbaseline_params[\"bNestFac\"] = -1\n\nbaseline_params[\"cycles\"] = 1",
+            "position": {
+              "start": { "line": 12, "column": 0 },
+              "end": { "line": 42, "column": 0 }
+            },
+            "key": "gQ2Sfw4jy2"
+          }
+        ],
+        "data": {},
+        "key": "IySfF0ubtg"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 43, "column": 0 },
+          "end": { "line": 44, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "agent = PensionContribConsumerType(**baseline_params)",
+            "position": {
+              "start": { "line": 45, "column": 0 },
+              "end": { "line": 48, "column": 0 }
+            },
+            "key": "VwTghwjmqC"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "ou2qXahURl"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 49, "column": 0 },
+          "end": { "line": 50, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def plot_3d_func(func, min, max, n=100):\n    # get_ipython().run_line_magic(\"matplotlib\", \"widget\")\n    xgrid = np.linspace(min, max, n)\n    ygrid = xgrid\n\n    xMat, yMat = np.meshgrid(xgrid, ygrid, indexing=\"ij\")\n\n    zMat = func(xMat, yMat)\n\n    ax = plt.axes(projection=\"3d\")\n    ax.plot_surface(xMat, yMat, zMat, cmap=\"viridis\")\n    ax.set_title(\"surface\")\n    ax.set_xlabel(\"m\")\n    ax.set_ylabel(\"n\")\n    ax.set_zlabel(\"f\")\n    plt.show()",
+            "position": {
+              "start": { "line": 51, "column": 0 },
+              "end": { "line": 69, "column": 0 }
+            },
+            "key": "BXzbq4v0Tj"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "DQ2M6NX2f8"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 70, "column": 0 },
+          "end": { "line": 71, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "agent.solve()\n\nT = 0",
+            "position": {
+              "start": { "line": 72, "column": 0 },
+              "end": { "line": 77, "column": 0 }
+            },
+            "key": "hBeo4M93De"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "QBDoYElIJW"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 78, "column": 0 },
+          "end": { "line": 79, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 80, "column": 0 },
+              "end": { "line": 81, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Post Decision Stage",
+                "key": "WSyqVpqEl4"
+              }
+            ],
+            "identifier": "post-decision-stage",
+            "label": "Post Decision Stage",
+            "html_id": "post-decision-stage",
+            "implicit": true,
+            "key": "PUs5Gp6fke"
+          }
+        ],
+        "data": {},
+        "key": "lPEN6OIiAV"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 83, "column": 0 },
+          "end": { "line": 84, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].post_decision_stage.v_func.vFuncNvrs, 0, 5)",
+            "position": {
+              "start": { "line": 85, "column": 0 },
+              "end": { "line": 88, "column": 0 }
+            },
+            "key": "BGMNV7MWcT"
+          },
+          {
+            "type": "output",
+            "id": "x15hnUGyf2wO8C_Bv3zPB",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "be2580cd18218edadf0bfda380e32ec3",
+                    "path": "/_static/be2580cd18218edadf0bfda380e32ec3.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "EJbwKC7g14"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "uZmIdGmuB4"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 93, "column": 0 },
+          "end": { "line": 94, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].post_decision_stage.dvda_func.cFunc, 0, 5)",
+            "position": {
+              "start": { "line": 95, "column": 0 },
+              "end": { "line": 98, "column": 0 }
+            },
+            "key": "NIpk6HErJn"
+          },
+          {
+            "type": "output",
+            "id": "igRJY00iM2xn5uLSkKdaS",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "743936feef1de27436418a8de2f7ede0",
+                    "path": "/_static/743936feef1de27436418a8de2f7ede0.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "xMtq5s87TK"
+          }
+        ],
+        "data": {},
+        "key": "SxDNqdrhme"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 103, "column": 0 },
+          "end": { "line": 104, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].post_decision_stage.dvdb_func.cFunc, 0, 5)",
+            "position": {
+              "start": { "line": 105, "column": 0 },
+              "end": { "line": 108, "column": 0 }
+            },
+            "key": "nRo3ncfqwZ"
+          },
+          {
+            "type": "output",
+            "id": "VCvj4MZLXP09PsWYtYJLn",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "2ef0043b6184ce9bca5764765651a8f7",
+                    "path": "/_static/2ef0043b6184ce9bca5764765651a8f7.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "qqDdqOgMxj"
+          }
+        ],
+        "data": {},
+        "key": "NIRt1gCKt2"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 113, "column": 0 },
+          "end": { "line": 114, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 115, "column": 0 },
+              "end": { "line": 116, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "Consumption Stage",
+                "key": "Vc9rbZkZYN"
+              }
+            ],
+            "identifier": "consumption-stage",
+            "label": "Consumption Stage",
+            "html_id": "consumption-stage",
+            "implicit": true,
+            "key": "eDnaUH7xj3"
+          }
+        ],
+        "data": {},
+        "key": "X16oTlx17R"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 118, "column": 0 },
+          "end": { "line": 119, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].consumption_stage.c_func, 0, 5)",
+            "position": {
+              "start": { "line": 120, "column": 0 },
+              "end": { "line": 123, "column": 0 }
+            },
+            "key": "fqUoMYzddI"
+          },
+          {
+            "type": "output",
+            "id": "p02RtPZKEhqvQemItNzze",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "9681ab3dd039095994b4d63d1892c65c",
+                    "path": "/_static/9681ab3dd039095994b4d63d1892c65c.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "fMlM2SpqD3"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "OqSAgvrsux"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 128, "column": 0 },
+          "end": { "line": 129, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].consumption_stage.v_func.vFuncNvrs, 0, 5)",
+            "position": {
+              "start": { "line": 130, "column": 0 },
+              "end": { "line": 133, "column": 0 }
+            },
+            "key": "TkcO87Zixl"
+          },
+          {
+            "type": "output",
+            "id": "7sKxEVPKS1iF4byfzhVdy",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "c72c3a18d8f0b083d2a86012ca0f78cc",
+                    "path": "/_static/c72c3a18d8f0b083d2a86012ca0f78cc.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "nI5JrPeoKO"
+          }
+        ],
+        "data": {},
+        "key": "gQEO6E6ALD"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 138, "column": 0 },
+          "end": { "line": 139, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].consumption_stage.dvdl_func.cFunc, 0, 5)",
+            "position": {
+              "start": { "line": 140, "column": 0 },
+              "end": { "line": 143, "column": 0 }
+            },
+            "key": "fxjDPbU2oE"
+          },
+          {
+            "type": "output",
+            "id": "Aht2G_IMammtZhNuhbX9u",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "9681ab3dd039095994b4d63d1892c65c",
+                    "path": "/_static/9681ab3dd039095994b4d63d1892c65c.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "fW0IUWsYd9"
+          }
+        ],
+        "data": {},
+        "key": "cVLw0kLxUo"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 148, "column": 0 },
+          "end": { "line": 149, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].consumption_stage.dvdb_func.cFunc, 0, 5)",
+            "position": {
+              "start": { "line": 150, "column": 0 },
+              "end": { "line": 153, "column": 0 }
+            },
+            "key": "kscxqJH26c"
+          },
+          {
+            "type": "output",
+            "id": "GWTTAaJXhfEo0uPnOgSwk",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "17efe78940a696e9b425dd500f600395",
+                    "path": "/_static/17efe78940a696e9b425dd500f600395.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "Xot3NPlx4b"
+          }
+        ],
+        "data": {},
+        "key": "m7IZT8oUJX"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 158, "column": 0 },
+          "end": { "line": 159, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 160, "column": 0 },
+              "end": { "line": 161, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Deposit Stage", "key": "SGBybRiz9s" }
+            ],
+            "identifier": "deposit-stage",
+            "label": "Deposit Stage",
+            "html_id": "deposit-stage",
+            "implicit": true,
+            "key": "JZx5wgYxoN"
+          }
+        ],
+        "data": {},
+        "key": "PXHCQCQfiE"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 163, "column": 0 },
+          "end": { "line": 164, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].deposit_stage.d_func, 0, 5)",
+            "position": {
+              "start": { "line": 165, "column": 0 },
+              "end": { "line": 168, "column": 0 }
+            },
+            "key": "QGwLxC8eRZ"
+          },
+          {
+            "type": "output",
+            "id": "L-r1Pe5n3AOC1qJfXjmHO",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "2233e86c578dfeefc9c3802a484d7189",
+                    "path": "/_static/2233e86c578dfeefc9c3802a484d7189.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "LuXBYakgmF"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "GDiriq5Jo0"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 173, "column": 0 },
+          "end": { "line": 174, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].deposit_stage.c_func, 0, 5)",
+            "position": {
+              "start": { "line": 175, "column": 0 },
+              "end": { "line": 178, "column": 0 }
+            },
+            "key": "lR235Udl5L"
+          },
+          {
+            "type": "output",
+            "id": "4D9uPqR9GpZUMeFlhfeYV",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "fa56a37ec17bf38ace3d3d89e2d5cd40",
+                    "path": "/_static/fa56a37ec17bf38ace3d3d89e2d5cd40.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "VQIkg9Lx5r"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "IxtGAUNuIt"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 183, "column": 0 },
+          "end": { "line": 184, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].deposit_stage.v_func.vFuncNvrs, 0, 5)",
+            "position": {
+              "start": { "line": 185, "column": 0 },
+              "end": { "line": 188, "column": 0 }
+            },
+            "key": "erYCFy5pdh"
+          },
+          {
+            "type": "output",
+            "id": "QKJSNUwpNOrGBcpdlzdG1",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "13b3906b217a739ac81c4fe5f73e30b0",
+                    "path": "/_static/13b3906b217a739ac81c4fe5f73e30b0.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "pTIaVIBhdY"
+          }
+        ],
+        "data": {},
+        "key": "LUbRpcHje7"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 193, "column": 0 },
+          "end": { "line": 194, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].deposit_stage.dvdm_func.cFunc, 0, 5)",
+            "position": {
+              "start": { "line": 195, "column": 0 },
+              "end": { "line": 198, "column": 0 }
+            },
+            "key": "StFPZBw2gT"
+          },
+          {
+            "type": "output",
+            "id": "Y5MLtX8vvhGehX7bsRMe4",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "fa56a37ec17bf38ace3d3d89e2d5cd40",
+                    "path": "/_static/fa56a37ec17bf38ace3d3d89e2d5cd40.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "hGevOwya4Z"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "PQ1fTBoWUq"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 203, "column": 0 },
+          "end": { "line": 204, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_3d_func(agent.solution[T].deposit_stage.dvdn_func.cFunc, 0, 5)",
+            "position": {
+              "start": { "line": 205, "column": 0 },
+              "end": { "line": 208, "column": 0 }
+            },
+            "key": "Vq4K2Sp9Q5"
+          },
+          {
+            "type": "output",
+            "id": "wIfbFyv8JL1736sMHxKOR",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "8d5809ede35d7987ae4fbde5c0fe34af",
+                    "path": "/_static/8d5809ede35d7987ae4fbde5c0fe34af.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "vzRVrcaVVy"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "CfLt0eL9gr"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 213, "column": 0 },
+          "end": { "line": 214, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "%time\nplot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, 0, 5)",
+            "position": {
+              "start": { "line": 215, "column": 0 },
+              "end": { "line": 219, "column": 0 }
+            },
+            "key": "FVYqH6KSRw"
+          },
+          {
+            "type": "output",
+            "id": "P0BLYbxabauhT02S_RbBr",
+            "data": [
+              {
+                "name": "stdout",
+                "output_type": "stream",
+                "text": "CPU times: total: 0 ns\nWall time: 0 ns\n"
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "086495cbebc22de99fc1adf46754c578",
+                    "path": "/_static/086495cbebc22de99fc1adf46754c578.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "klAmXfPD5w"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "lines_to_next_cell": 2,
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "H8MGwIdxQ6"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 224, "column": 0 },
+          "end": { "line": 225, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "heading",
+            "depth": 2,
+            "position": {
+              "start": { "line": 226, "column": 0 },
+              "end": { "line": 227, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "Grids", "key": "bcs8EcxY1X" }
+            ],
+            "identifier": "grids",
+            "label": "Grids",
+            "html_id": "grids",
+            "implicit": true,
+            "key": "zPMcEFsera"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "n6Vx8hfCdG"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 229, "column": 0 },
+          "end": { "line": 230, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "grids = agent.solution[T].consumption_stage.grids_before_cleanup",
+            "position": {
+              "start": { "line": 231, "column": 0 },
+              "end": { "line": 234, "column": 0 }
+            },
+            "key": "OptmlkzpVD"
+          }
+        ],
+        "data": {},
+        "key": "R3DQdBFAvg"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 235, "column": 0 },
+          "end": { "line": 236, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def scatter_hist(x, y, color, ax, ax_histx, ax_histy):\n    # no labels\n    ax_histx.tick_params(axis=\"x\", labelbottom=False)\n    ax_histy.tick_params(axis=\"y\", labelleft=False)\n\n    # the scatter plot:\n    hist = ax.scatter(x, y, c=color, cmap=\"viridis\", alpha=0.6, s=5)\n\n    # now determine nice limits by hand:\n    binwidth = 1\n    xymax = max(np.max(x), np.max(y))\n    xymin = min(np.min(x), np.min(y))\n    top = (int(xymax / binwidth) + 1) * binwidth\n    bottom = (int(xymin / binwidth) + 1) * binwidth\n\n    bins = np.arange(bottom, top + binwidth, binwidth)\n    ax_histx.hist(x, bins=bins)\n    ax_histy.hist(y, bins=bins, orientation=\"horizontal\")\n\n    return hist",
+            "position": {
+              "start": { "line": 237, "column": 0 },
+              "end": { "line": 259, "column": 0 }
+            },
+            "key": "RcGAsvPIqb"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "MsN4WPKiT0"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 260, "column": 0 },
+          "end": { "line": 261, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def plot_scatter_hist(x, y, color, title, xlabel, ylabel, filename):\n    # Create a Figure, which doesn't have to be square.\n    fig = plt.figure(figsize=(6, 6), constrained_layout=True)\n    # Create the main axes, leaving 25% of the figure space at the top and on the\n    # right to position marginals.\n    ax = fig.add_gridspec(top=0.75, right=0.75).subplots()\n    # The main axes' aspect can be fixed.\n    ax.set(aspect=1)\n    # Create marginal axes, which have 25% of the size of the main axes.  Note that\n    # the inset axes are positioned *outside* (on the right and the top) of the\n    # main axes, by specifying axes coordinates greater than 1.  Axes coordinates\n    # less than 0 would likewise specify positions on the left and the bottom of\n    # the main axes.\n    ax_histx = ax.inset_axes([0, 1.05, 1, 0.25], sharex=ax)\n    ax_histy = ax.inset_axes([1.05, 0, 0.25, 1], sharey=ax)\n\n    # remove non-finite values\n    idx = np.logical_and.reduce([np.isfinite(x), np.isfinite(y), np.isfinite(color)])\n    idx = np.logical_and.reduce([idx, x > 0, y > 0])\n\n    x = x[idx]\n    y = y[idx]\n    color = color[idx]\n\n    # Draw the scatter plot and marginals.\n    hist = scatter_hist(x, y, color, ax, ax_histx, ax_histy)\n    cbar = fig.colorbar(hist)\n    cbar.ax.set_ylabel(\"Pension Deposits $d$\")\n\n    fig.suptitle(title, fontsize=14)\n    ax.set_xlabel(xlabel)\n    ax.set_ylabel(ylabel)\n\n    plt.show()\n    fig.savefig(figures_path + filename)",
+            "position": {
+              "start": { "line": 262, "column": 0 },
+              "end": { "line": 299, "column": 0 }
+            },
+            "key": "ljTSf9Tlcy"
+          }
+        ],
+        "data": {},
+        "key": "bxGQhRr9R6"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 300, "column": 0 },
+          "end": { "line": 301, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_scatter_hist(\n    grids[\"lMat\"],\n    grids[\"b2Mat\"],\n    grids[\"dMat\"],\n    \"Pension Deposit on Exogenous Grid\",\n    r\"Market Resources $\\ell$\",\n    \"Retirement balance $b$\",\n    \"ExogenousGrid.pdf\",\n)",
+            "position": {
+              "start": { "line": 302, "column": 0 },
+              "end": { "line": 313, "column": 0 }
+            },
+            "key": "Tg0EsiMg0L"
+          },
+          {
+            "type": "output",
+            "id": "umsXHdOmHzhmUgXkP-Bal",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "6d0a48617b08c63da3b33bbab909e570",
+                    "path": "/_static/6d0a48617b08c63da3b33bbab909e570.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 600x600 with 2 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "TaNObMBgbH"
+          }
+        ],
+        "data": {},
+        "key": "IWUHSa3PwW"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 318, "column": 0 },
+          "end": { "line": 319, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plot_scatter_hist(\n    grids[\"mMat\"],\n    grids[\"nMat\"],\n    grids[\"dMat\"],\n    \"Pension Deposit on Endogenous Grid\",\n    \"Market Resources $m$\",\n    \"Retirement balance $n$\",\n    \"EndogenousGrid.pdf\",\n)",
+            "position": {
+              "start": { "line": 320, "column": 0 },
+              "end": { "line": 331, "column": 0 }
+            },
+            "key": "drTosY5Z6n"
+          },
+          {
+            "type": "output",
+            "id": "yZ1gIIqpwaxU6tqnz8kfP",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "f19e7e94de1d6ce6fcff24123446d3a9",
+                    "path": "/_static/f19e7e94de1d6ce6fcff24123446d3a9.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 600x600 with 2 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "UEQ74n4d1P"
+          }
+        ],
+        "data": {},
+        "key": "Kbr6CsSPGw"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 336, "column": 0 },
+          "end": { "line": 337, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# definitions for the axes\nleft, width = 0.1, 0.65\nbottom, height = 0.1, 0.65\nspacing = 0.005\n\nrect_scatter = [left, bottom, width, height]\nrect_histx = [left, bottom + height + spacing, width, 0.2]\nrect_histy = [left + width + spacing, bottom, 0.2, height]\n\n# start with a square Figure\nfig = plt.figure(figsize=(8, 8))\n\nax = fig.add_axes(rect_scatter)\nax_histx = fig.add_axes(rect_histx, sharex=ax)\nax_histy = fig.add_axes(rect_histy, sharey=ax)\n\nx = agent.solution[T].deposit_stage.gaussian_interp.grids[0]\ny = agent.solution[T].deposit_stage.gaussian_interp.grids[1]\ncolor = agent.solution[T].deposit_stage.gaussian_interp.values\n\nidx = np.logical_or(x < 0, y < 0)\n\nx = x[~idx]\ny = y[~idx]\ncolor = color[~idx]\n\n# use the previously defined function\nhist = scatter_hist(x, y, color, ax, ax_histx, ax_histy)\ncbar = fig.colorbar(hist)\ncbar.ax.set_ylabel(\"Pension Deposits $d$\")\n\nfig.suptitle(\"Pension Deposit on Endogenous Grid\", fontsize=16)\nax.set_xlabel(\"Market Resources $m$\")\nax.set_ylabel(\"Retirement Savings $n$\")\nplt.show()\n# fig.savefig(figures_path + \"EndogenousGrid.pdf\")",
+            "position": {
+              "start": { "line": 338, "column": 0 },
+              "end": { "line": 376, "column": 0 }
+            },
+            "key": "KTjB0b1xlf"
+          },
+          {
+            "type": "output",
+            "id": "y5H79bwdt_ouvded3C8Gm",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "711555f35224bd6a5dcd78d6cd132fa4",
+                    "path": "/_static/711555f35224bd6a5dcd78d6cd132fa4.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 800x800 with 4 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "JNrL377kFW"
+          }
+        ],
+        "data": {
+          "collapsed": false,
+          "jupyter": { "outputs_hidden": false },
+          "pycharm": { "name": "#%%\n" }
+        },
+        "key": "tv4q7RlLky"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 381, "column": 0 },
+          "end": { "line": 382, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "fig, ax = plt.subplots()\nplot = ax.scatter(\n    grids[\"mMat\"],\n    grids[\"nMat\"],\n    c=grids[\"dMat\"],\n    cmap=\"viridis\",\n    vmin=-1,\n    vmax=5,\n    plotnonfinite=True,\n    alpha=0.6,\n    s=5,\n)\ncbar = fig.colorbar(plot)\ncbar.ax.set_ylabel(\"Pension Deposits $d$\")\n\n\nplt.xlim([-1, 10])\nplt.ylim([-1, 10])",
+            "position": {
+              "start": { "line": 383, "column": 0 },
+              "end": { "line": 403, "column": 0 }
+            },
+            "key": "r45yH6qNxB"
+          },
+          {
+            "type": "output",
+            "id": "mo6zsRDtNb-D4IokD2bHL",
+            "data": [
+              {
+                "output_type": "execute_result",
+                "execution_count": 25,
+                "metadata": {},
+                "data": {
+                  "text/plain": {
+                    "content": "(-1.0, 10.0)",
+                    "content_type": "text/plain"
+                  }
+                }
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "5d21768c8192bb14a9f833343a6efaf9",
+                    "path": "/_static/5d21768c8192bb14a9f833343a6efaf9.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 2 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "r0Ngli3GVU"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "SW1dzQAhoA"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 408, "column": 0 },
+          "end": { "line": 409, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "fig, ax = plt.subplots()\nscatter = ax.scatter(\n    grids[\"lMat\"],\n    grids[\"b2Mat\"],\n    # c=np.maximum(grids[\"dMat\"], 0),\n    # cmap=\"viridis\",\n    vmin=-2,\n    vmax=15,\n    plotnonfinite=True,\n    alpha=0.6,\n    s=5,\n)\n# cbar = fig.colorbar(scatter)\n# cbar.ax.set_ylabel(\"Pension Deposits $d$\")\n\nplt.title(\"Pension Deposits on Exogenous Post-Decision Grid\")\nplt.xlabel(r\"Liquid Wealth $\\ell$\")\nplt.ylabel(\"Retirement Balance $b$\")\nfig.savefig(figures_path + \"ExogenousGrid.pdf\")",
+            "position": {
+              "start": { "line": 410, "column": 0 },
+              "end": { "line": 431, "column": 0 }
+            },
+            "key": "dEFwEdTerF"
+          },
+          {
+            "type": "output",
+            "id": "uXGOF_NISpzT1IS4Spuwt",
+            "data": [
+              {
+                "name": "stderr",
+                "output_type": "stream",
+                "text": "C:\\Users\\alujan\\AppData\\Local\\Temp\\ipykernel_35916\\29046517.py:2: UserWarning: No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored\n  scatter = ax.scatter(\n"
+              },
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "b146a888b992d76c6897decef27442c8",
+                    "path": "/_static/b146a888b992d76c6897decef27442c8.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "tuI63xWyop"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "yaltSmeRMs"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 436, "column": 0 },
+          "end": { "line": 437, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "grids = agent.solution[T].consumption_stage.grids_before_cleanup",
+            "position": {
+              "start": { "line": 438, "column": 0 },
+              "end": { "line": 441, "column": 0 }
+            },
+            "key": "AO4BmhWcAW"
+          }
+        ],
+        "data": {},
+        "key": "DNKjHqk00t"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 442, "column": 0 },
+          "end": { "line": 443, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp",
+            "position": {
+              "start": { "line": 444, "column": 0 },
+              "end": { "line": 447, "column": 0 }
+            },
+            "key": "aBPjFew6pP"
+          }
+        ],
+        "data": {},
+        "key": "ucjvdBclcE"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 448, "column": 0 },
+          "end": { "line": 449, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "gauss_interp = GeneralizedRegressionUnstructuredInterp(\n    grids[\"dMat\"],\n    [grids[\"mMat\"], grids[\"nMat\"]],\n    model=\"gaussian-process\",\n    std=True,\n    model_kwargs={\"normalize_y\": True},\n)",
+            "position": {
+              "start": { "line": 450, "column": 0 },
+              "end": { "line": 459, "column": 0 }
+            },
+            "key": "vFMjOzS80G"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "yp1eCZKizV"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 460, "column": 0 },
+          "end": { "line": 461, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# get_ipython().run_line_magic(\"matplotlib\", \"widget\")\nplot_3d_func(gauss_interp, 0, 5)",
+            "position": {
+              "start": { "line": 462, "column": 0 },
+              "end": { "line": 466, "column": 0 }
+            },
+            "key": "QYSSk2VZM2"
+          },
+          {
+            "type": "output",
+            "id": "hSX3LXKF9FuqpnNoOE8Pm",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "086495cbebc22de99fc1adf46754c578",
+                    "path": "/_static/086495cbebc22de99fc1adf46754c578.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 640x480 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "PlLrIhCNBg"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "fBrhudhqNr"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 471, "column": 0 },
+          "end": { "line": 472, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# consumption_stage = agent.solution[T].consumption_stage\n# dvdl_func_next = consumption_stage.dvdl_func\n# dvdb_func_next = consumption_stage.dvdb_func\n# c_func_next = consumption_stage.c_func\n# v_func_next = consumption_stage.v_func\n\n# dvdl_innr = dvdl_func_next(agent.lMat, agent.b2Mat)\n# dvdb_innr = dvdb_func_next(agent.lMat, agent.b2Mat)\n\n\n# def gp_inv(x):\n#     return agent.TaxDeduct / x - 1\n\n\n# # endogenous grid method, again\n# dMat = gp_inv(dvdl_innr / dvdb_innr - 1.0)",
+            "position": {
+              "start": { "line": 473, "column": 0 },
+              "end": { "line": 491, "column": 0 }
+            },
+            "key": "gxpamZAYGT"
+          }
+        ],
+        "data": {},
+        "key": "dCUkOD4rJb"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 492, "column": 0 },
+          "end": { "line": 493, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# dvdl_func_next(0.0, 0.0)",
+            "position": {
+              "start": { "line": 494, "column": 0 },
+              "end": { "line": 497, "column": 0 }
+            },
+            "key": "uPsnVWlbvP"
+          }
+        ],
+        "data": {},
+        "key": "T0ejPDWBzT"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 498, "column": 0 },
+          "end": { "line": 499, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# def adaptive_func(lb):\n#     l, b = lb\n\n#     dvdl_innr = dvdl_func_next(float(l), float(b))\n#     dvdb_innr = dvdb_func_next(float(l), float(b))\n\n#     return dvdl_innr / dvdb_innr\n\n\n# import warnings",
+            "position": {
+              "start": { "line": 500, "column": 0 },
+              "end": { "line": 512, "column": 0 }
+            },
+            "key": "ncmoxGn2RN"
+          }
+        ],
+        "data": {},
+        "key": "jIMu9fotQV"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 513, "column": 0 },
+          "end": { "line": 514, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# from adaptive import Learner2D, Runner, notebook_extension\n\n# warnings.filterwarnings(\"ignore\")\n\n# import logging\n\n# from adaptive.learner.Learner2D import minimize_triangle_surface_loss\n\n# logging.getLogger(\"param.main\").setLevel(logging.CRITICAL)\n\n# # import distributed\n\n# # client = distributed.Client()\n\n\n# notebook_extension()\n\n# loss = minimize_triangle_surface_loss\n\n# learner = Learner2D(adaptive_func, bounds=[(0, 10), (0, 10)], loss_per_triangle=loss)\n\n\n# runner = Runner(learner, loss_goal=0.001)  # start calculation on all CPU cores\n# runner.live_info()  # shows a widget with status information\n# runner.live_plot(update_interval=0.1)",
+            "position": {
+              "start": { "line": 515, "column": 0 },
+              "end": { "line": 542, "column": 0 }
+            },
+            "key": "Q424KsnVmH"
+          }
+        ],
+        "data": {},
+        "key": "Y7ayGrjfbN"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 543, "column": 0 },
+          "end": { "line": 544, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# def plot(learner):\n#     plot = learner.plot(tri_alpha=0.2)\n#     return (plot.Image + plot.EdgePaths.I + plot).cols(2)\n\n\n# runner.live_plot(plotter=plot, update_interval=0.1)",
+            "position": {
+              "start": { "line": 545, "column": 0 },
+              "end": { "line": 553, "column": 0 }
+            },
+            "key": "S7EMIxchfo"
+          }
+        ],
+        "data": {},
+        "key": "xuVKFGRfJP"
+      }
+    ],
+    "key": "AU7IUxDsrI"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

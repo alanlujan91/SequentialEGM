@@ -1,0 +1,28 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": ["economics"],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "cvBibMake.tex",
+        "url": "/cvBibMake-fe9963cd0a67b27fc6a9eac5b1203843.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\texmf-local\\tex\\latex\\cvBibMake.tex",
+  "sha256": "8bf3626c92f91335fc4b3449b5ac263b0f3a761cd23acf735324cedb623f7df9",
+  "slug": "cvbibmake",
+  "mdast": {
+    "type": "root",
+    "children": [{ "type": "block", "children": [], "key": "R5mUxeWOYE" }],
+    "key": "mi7Us6zyPI"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

@@ -1,0 +1,25 @@
+{
+  "frontmatter": {
+    "title": "Contains computer code used to generate all results",
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-4e59e6ebd2ba200a36d43172429e234b.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\README.md",
+  "sha256": "f30b1f5fcf6f531801818e1cfc537acf26cce69365123a0034544e3060aa01c6",
+  "slug": "readme-2",
+  "mdast": {
+    "type": "root",
+    "children": [{ "type": "block", "children": [], "key": "Q99GUlvyQH" }],
+    "key": "PoL3TPPMYQ"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

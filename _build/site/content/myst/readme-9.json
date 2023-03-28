@@ -1,0 +1,47 @@
+{
+  "frontmatter": {
+    "title": "LaTeX Input Files for Tables",
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-685b28174d24ad00aba38ff9743d4985.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Tables\\README.md",
+  "sha256": "d15540ef12126f4792fff1470523779cc708d32a6ee40c7b282e50bbfd709f87",
+  "slug": "readme-9",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 3, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "All tables should be generated programmatically (no typing in numbers by hand!) and should take the form of *.tex files that can be read in directly by the main document.",
+                "key": "C8A5sHH4rn"
+              }
+            ],
+            "key": "pu2kHZ0C9b"
+          }
+        ],
+        "key": "f53e0S9XQ6"
+      }
+    ],
+    "key": "iSuJNzQBWw"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

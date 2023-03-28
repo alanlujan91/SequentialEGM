@@ -1,0 +1,111 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": { "\\texname": "SequentialEGM" },
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "SequentialEGM.tex",
+        "url": "/SequentialEGM-358181dfb1bf7fa9d3f09558e0e2f418.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\SequentialEGM.tex",
+  "sha256": "5665886004c4c2565093702250257fbbfd87bb5718f63d92d4a97df8bbd3d3fd",
+  "slug": "sequentialegm",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1221, "line": 31, "column": 10 },
+              "end": { "offset": 1234, "line": 31, "column": 23 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1221, "line": 31, "column": 10 },
+                  "end": { "offset": 1234, "line": 31, "column": 23 }
+                },
+                "value": "SequentialEGM-titlepage",
+                "key": "DvCBELJr4C"
+              }
+            ],
+            "key": "GpWm5qWaXG"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1301, "line": 34, "column": 22 },
+              "end": { "offset": 1304, "line": 34, "column": 25 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1301, "line": 34, "column": 22 },
+                  "end": { "offset": 1304, "line": 34, "column": 25 }
+                },
+                "value": "TOCSequentialEGM-contents.texinput",
+                "key": "gFSYxXLxaw"
+              }
+            ],
+            "key": "oIShbXV3RT"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1476, "line": 39, "column": 22 },
+              "end": { "offset": 1484, "line": 39, "column": 30 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1476, "line": 39, "column": 22 },
+                  "end": { "offset": 1484, "line": 39, "column": 30 }
+                },
+                "value": "Appendix",
+                "key": "VgmIQLyfrc"
+              }
+            ],
+            "key": "nBg3yZckWv"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 1508, "line": 40, "column": 20 },
+              "end": { "offset": 1516, "line": 40, "column": 28 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 1508, "line": 40, "column": 20 },
+                  "end": { "offset": 1516, "line": 40, "column": 28 }
+                },
+                "value": "Subfiles/Appendix",
+                "key": "zslPTdERLj"
+              }
+            ],
+            "key": "Ymubqjv6Zo"
+          }
+        ],
+        "key": "Pu59DmtUTf"
+      }
+    ],
+    "key": "wzWQJM9tuZ"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

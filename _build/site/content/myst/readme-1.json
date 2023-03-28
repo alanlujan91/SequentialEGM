@@ -1,0 +1,25 @@
+{
+  "frontmatter": {
+    "title": "Calibration of Model Parameters Should Be Here",
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "md",
+        "filename": "README.md",
+        "url": "/README-bae47ce37290d9c9d43eb0a9776bc193.md"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Calibration\\README.md",
+  "sha256": "f5ba465afca5e2950fd05b5c1a966aa1dc1274b07d8e007c8c1851fad7a22ec9",
+  "slug": "readme-1",
+  "mdast": {
+    "type": "root",
+    "children": [{ "type": "block", "children": [], "key": "fZdeFCgZXN" }],
+    "key": "FUskjDiszo"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

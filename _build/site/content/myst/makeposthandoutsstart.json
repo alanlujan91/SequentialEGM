@@ -1,0 +1,92 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": {},
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "makePostHandoutsStart.tex",
+        "url": "/makePostHandoutsStar-4a04c332a7a79dfa03df3e99a1f0e7a3.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\texmf-local\\tex\\latex\\makePostHandoutsStart.tex",
+  "sha256": "3f1520cdd4211664cdfcf17ba70032282c5a19bf06d33bb069a8a52cb118d9f6",
+  "slug": "makeposthandoutsstart",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "children": [
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 64, "line": 4, "column": 7 },
+              "end": { "offset": 66, "line": 4, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 64, "line": 4, "column": 7 },
+                  "end": { "offset": 66, "line": 4, "column": 9 }
+                },
+                "value": "18touch makePostHandouts.sh ; rm makePostHandouts.sh",
+                "key": "OtR2yhx5Py"
+              }
+            ],
+            "key": "Oapf3Ysyzy"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 127, "line": 5, "column": 7 },
+              "end": { "offset": 129, "line": 5, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 127, "line": 5, "column": 7 },
+                  "end": { "offset": 129, "line": 5, "column": 9 }
+                },
+                "value": "18cat /Volumes/Data/Courses/Choice/LectureNotes/makePost/shellStart.txt > makePostHandouts.sh",
+                "key": "o9vZ7PZ6F0"
+              }
+            ],
+            "key": "uO9le2ZhOb"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "offset": 230, "line": 6, "column": 7 },
+              "end": { "offset": 232, "line": 6, "column": 9 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "position": {
+                  "start": { "offset": 230, "line": 6, "column": 7 },
+                  "end": { "offset": 232, "line": 6, "column": 9 }
+                },
+                "value": "18chmod a+x makePostHandouts.sh",
+                "key": "sFGvgTtCtC"
+              }
+            ],
+            "key": "Tdu1NOYDHb"
+          }
+        ],
+        "key": "DzVyAgrl5j"
+      }
+    ],
+    "key": "m94R3SoG0B"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

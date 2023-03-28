@@ -1,0 +1,277 @@
+{
+  "frontmatter": {
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
+    "exports": [
+      {
+        "format": "ipynb",
+        "filename": "GPR_example.ipynb",
+        "url": "/GPR_example-d2d21f010456bd2de995560144353122.ipynb"
+      }
+    ]
+  },
+  "kind": "Notebook",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Code\\GPR_example.ipynb",
+  "sha256": "a64b2b29f0efc1683e7b00d2d1bb67e2faf39324b3d778ed9cdd2a8facaf07ad",
+  "slug": "gpr-example",
+  "mdast": {
+    "type": "root",
+    "children": [
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 0, "column": 0 },
+          "end": { "line": 1, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "import matplotlib.pyplot as plt",
+            "position": {
+              "start": { "line": 2, "column": 0 },
+              "end": { "line": 5, "column": 0 }
+            },
+            "key": "rkUeA4ub22"
+          }
+        ],
+        "data": {},
+        "key": "ojaZubvq1r"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 6, "column": 0 },
+          "end": { "line": 7, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "import numpy as np\n\nrng = np.random.RandomState(5)\nfigures_path = \"../Figures/\"",
+            "position": {
+              "start": { "line": 8, "column": 0 },
+              "end": { "line": 14, "column": 0 }
+            },
+            "key": "Ex2E2ebTdv"
+          }
+        ],
+        "data": {},
+        "key": "VLV96jxNg8"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 15, "column": 0 },
+          "end": { "line": 16, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "def f(x):\n    return x * np.cos(1.5 * x)\n\n\n# Define latex function\nlatex_func = r\"$f(x) = x \\cos(1.5x)$\"\n\n\nx_min = 0\nx_max = 10\nn_true = 1_000\nn_test = 100\nn_train = 10\ns = 0.000005  # noise variance.\n\nX_true = np.linspace(start=x_min, stop=x_max, num=n_true)\ny_true = f(X_true)\n\nX_test = np.linspace(start=x_min, stop=x_max, num=n_test).reshape(-1, 1)\ny_test = f(X_test)\n\nX_train = (rng.rand(n_train) * x_max).reshape(-1, 1)\ny_train = f(X_train) + s * rng.randn(n_train).reshape(-1, 1)\nX_train.shape, y_train.shape",
+            "position": {
+              "start": { "line": 17, "column": 0 },
+              "end": { "line": 43, "column": 0 }
+            },
+            "key": "OQnY7R6ZXA"
+          },
+          {
+            "type": "output",
+            "id": "lgPThm0YuYaT9LKTAjiit",
+            "data": [
+              {
+                "output_type": "execute_result",
+                "execution_count": 3,
+                "metadata": {},
+                "data": {
+                  "text/plain": {
+                    "content": "((10, 1), (10, 1))",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "JsYtA7jR2J"
+          }
+        ],
+        "data": {},
+        "key": "PdH3L6mKmg"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 48, "column": 0 },
+          "end": { "line": 49, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "plt.figure(figsize=(15, 5))\nplt.plot(X_test, y_test, label=latex_func, linestyle=\"dotted\")\nplt.scatter(X_train, y_train, label=\"Randomly sampled points\", s=100)\nplt.legend()\nplt.xlabel(\"$x$\")\nplt.ylabel(\"$f(x)$\")\nplt.title(\"True function and randomly sampled points\")\nplt.tight_layout()\nplt.savefig(figures_path + \"true_function.pdf\")",
+            "position": {
+              "start": { "line": 50, "column": 0 },
+              "end": { "line": 61, "column": 0 }
+            },
+            "key": "ace5IyP5uX"
+          },
+          {
+            "type": "output",
+            "id": "9Nul1lISJWqVaRXdyNx1g",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "0a67c2679d42aeec6d940d7aa90c7faf",
+                    "path": "/_static/0a67c2679d42aeec6d940d7aa90c7faf.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 1500x500 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "oVVhJBQJdQ"
+          }
+        ],
+        "data": {},
+        "key": "QAi3DgJ41S"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 66, "column": 0 },
+          "end": { "line": 67, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "# Define the kernel\ndef kernel(a, b):\n    \"\"\"GP squared exponential kernel function\"\"\"\n    kernelParameter_l = 0.5\n    kernelParameter_sigma = 1.0\n    sqdist = (\n        np.sum(a**2, axis=1).reshape(-1, 1) + np.sum(b**2, 1) - 2 * np.dot(a, b.T)\n    )\n    # np.sum( ,axis=1) means adding all elements columnly; .reshap(-1, 1) add one dimension to make (n,) become (n,1)\n    return kernelParameter_sigma * np.exp(-0.5 * (1 / kernelParameter_l) * sqdist)",
+            "position": {
+              "start": { "line": 68, "column": 0 },
+              "end": { "line": 80, "column": 0 }
+            },
+            "key": "JlSSc0p6h2"
+          }
+        ],
+        "data": {},
+        "key": "CSsTntlSgC"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 81, "column": 0 },
+          "end": { "line": 82, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "K_train = kernel(X_train, X_train)\nK_test = kernel(X_test, X_test)\nK_cross = kernel(X_train, X_test)\n\nL = np.linalg.cholesky(K_train + s * np.eye(n_train))\nLk = np.linalg.solve(L, K_cross)\nmean_prediction = np.dot(Lk.T, np.linalg.solve(L, y_train)).ravel()\nvar_prediction = np.diag(K_test) - np.sum(Lk**2, axis=0)\nstd_prediction = np.sqrt(var_prediction)",
+            "position": {
+              "start": { "line": 83, "column": 0 },
+              "end": { "line": 94, "column": 0 }
+            },
+            "key": "W87XAzejTR"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "x05x0WRGF5"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 95, "column": 0 },
+          "end": { "line": 96, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "\nplt.figure(figsize=(15, 5))\nplt.plot(X_true, y_true, label=latex_func, linestyle=\"dotted\")\nplt.scatter(X_train, y_train, label=\"Observations\")\nplt.plot(X_test, mean_prediction, label=\"Mean prediction\")\nplt.gca().fill_between(\n    X_test.ravel(),\n    mean_prediction - 1.96 * std_prediction,\n    mean_prediction + 1.96 * std_prediction,\n    alpha=0.5,\n    label=r\"95% confidence interval\",\n)\nplt.legend()\nplt.xlabel(\"$x$\")\nplt.ylabel(\"$f(x)$\")\nplt.title(\"Gaussian process regression on a noisy dataset\")\nplt.tight_layout()\nplt.savefig(figures_path + \"gpr.pdf\")",
+            "position": {
+              "start": { "line": 97, "column": 0 },
+              "end": { "line": 117, "column": 0 }
+            },
+            "key": "uXc9Iwzhzr"
+          },
+          {
+            "type": "output",
+            "id": "rUNgRZbtd_dVTNFNhiDqu",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "2261d51ccf7c159e9e34feb4ff5c807e",
+                    "path": "/_static/2261d51ccf7c159e9e34feb4ff5c807e.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 1500x500 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "cT12PmZVm0"
+          }
+        ],
+        "data": {},
+        "key": "hfLVIkNy9m"
+      },
+      {
+        "type": "block",
+        "position": {
+          "start": { "line": 122, "column": 0 },
+          "end": { "line": 123, "column": 0 }
+        },
+        "children": [
+          {
+            "type": "code",
+            "lang": "python",
+            "value": "L = np.linalg.cholesky(K_test + 1e-6 * np.eye(n_test) - np.dot(Lk.T, Lk))\nf_post = mean_prediction.reshape(-1, 1) + np.dot(L, rng.normal(size=(n_test, 50)))\nplt.figure(figsize=(15, 5))\nplt.plot(X_true, y_true, label=latex_func, linestyle=\"dotted\")\nplt.scatter(X_train, y_train, label=\"Observations\")\nplt.plot(X_test, mean_prediction, label=\"Mean prediction\")\nplt.plot(X_test, f_post, linewidth=0.8, alpha=0.5)\nplt.legend()\nplt.xlabel(\"$x$\")\nplt.ylabel(\"$f(x)$\")\nplt.title(\"Random sample of functions from the Gaussian Process posterior.\")\nplt.tight_layout()\nplt.savefig(figures_path + \"gpr_sample.pdf\")",
+            "position": {
+              "start": { "line": 124, "column": 0 },
+              "end": { "line": 139, "column": 0 }
+            },
+            "key": "vLFXCHyeFy"
+          },
+          {
+            "type": "output",
+            "id": "gP4VyFVEcvEIvQtpmQZ68",
+            "data": [
+              {
+                "output_type": "display_data",
+                "metadata": {},
+                "data": {
+                  "image/png": {
+                    "content_type": "image/png",
+                    "hash": "9e16b2a2c23e548f467d604c92554398",
+                    "path": "/_static/9e16b2a2c23e548f467d604c92554398.png"
+                  },
+                  "text/plain": {
+                    "content": "<Figure size 1500x500 with 1 Axes>",
+                    "content_type": "text/plain"
+                  }
+                }
+              }
+            ],
+            "key": "Vub28XigS6"
+          }
+        ],
+        "data": { "lines_to_next_cell": 2 },
+        "key": "PGSTUOJare"
+      }
+    ],
+    "key": "uRLLdvfZMY"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}

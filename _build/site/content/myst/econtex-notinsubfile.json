@@ -1,0 +1,28 @@
+{
+  "frontmatter": {
+    "title": "",
+    "short_title": "",
+    "authors": [],
+    "keywords": [],
+    "math": { "\\onlyinsubfile": "", "\\notinsubfile": "#1" },
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "exports": [
+      {
+        "format": "tex",
+        "filename": "econtex_notinsubfile.tex",
+        "url": "/econtex_notinsubfile-8d018db9a370f8331d9886fa86dc9392.tex"
+      }
+    ]
+  },
+  "kind": "Article",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\Resources\\LaTeXInputs\\econtex_notinsubfile.tex",
+  "sha256": "a1fb4137d578fd60231d9f741ca4856c0a14f75fc7e9097c14db002b0f2fa2cc",
+  "slug": "econtex-notinsubfile",
+  "mdast": {
+    "type": "root",
+    "children": [{ "type": "block", "children": [], "key": "a6fdRo5ZqX" }],
+    "key": "hhxh4BtQEl"
+  },
+  "references": { "cite": { "order": [], "data": {} } }
+}
