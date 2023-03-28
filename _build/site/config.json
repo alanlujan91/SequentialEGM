@@ -823,7 +823,7 @@
       "pages": [
         {
           "slug": "sequentialegm-titlepage",
-          "title": "EGM^n: The Sequential Endogenous Grid Method",
+          "title": "sequentialegm-titlepage",
           "description": "",
           "date": "",
           "thumbnail": "",
@@ -841,7 +841,7 @@
           "tags": [],
           "level": 1
         },
-        { "level": 1, "title": "Calibration" },
+        { "title": "Calibration", "level": 1 },
         {
           "slug": "readme-1",
           "title": "Calibration of Model Parameters Should Be Here",
@@ -852,7 +852,7 @@
           "tags": [],
           "level": 2
         },
-        { "level": 1, "title": "Code" },
+        { "title": "Code", "level": 1 },
         {
           "slug": "gpr-example",
           "title": "gpr-example",
@@ -923,7 +923,7 @@
           "tags": [],
           "level": 2
         },
-        { "level": 2, "title": "Empirical" },
+        { "title": "Empirical", "level": 2 },
         {
           "slug": "readme-3",
           "title": "Code to Produce empirical results",
@@ -934,7 +934,7 @@
           "tags": [],
           "level": 3
         },
-        { "level": 2, "title": "G2 EGM" },
+        { "title": "G2 EGM", "level": 2 },
         {
           "slug": "g2egm-vs-negm",
           "title": "G2EGM vs. NEGM",
@@ -946,7 +946,7 @@
           "level": 3
         },
         {
-          "slug": "g2egm",
+          "slug": "g2egm-1",
           "title": "G2EGM",
           "description": "",
           "date": "",
@@ -995,7 +995,7 @@
           "tags": [],
           "level": 3
         },
-        { "level": 1, "title": "Equations" },
+        { "title": "Equations", "level": 1 },
         {
           "slug": "readme-5",
           "title": "Equations That Should Be Reproducible",
@@ -1006,7 +1006,7 @@
           "tags": [],
           "level": 2
         },
-        { "level": 1, "title": "Figures" },
+        { "title": "Figures", "level": 1 },
         {
           "slug": "readme-6",
           "title": "All Figures for Paper",
@@ -1017,7 +1017,7 @@
           "tags": [],
           "level": 2
         },
-        { "level": 1, "title": "Highlighted" },
+        { "title": "Highlighted", "level": 1 },
         {
           "slug": "readme-7",
           "title": "Highlighted Passages",
@@ -1028,133 +1028,7 @@
           "tags": [],
           "level": 2
         },
-        { "level": 1, "title": "Resources" },
-        {
-          "slug": "econtexpaths",
-          "title": "econtexpaths",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 2
-        },
-        {
-          "slug": "owner",
-          "title": "owner",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 2
-        },
-        { "level": 2, "title": "La Te X Inputs" },
-        {
-          "slug": "bibliography-blend",
-          "title": "bibliography-blend",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 3
-        },
-        {
-          "slug": "econtex-notinsubfile",
-          "title": "econtex-notinsubfile",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 3
-        },
-        {
-          "slug": "econtex-onlyinsubfile",
-          "title": "econtex-onlyinsubfile",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 3
-        },
-        { "level": 2, "title": "Texmf Local" },
-        {
-          "slug": "readme-8",
-          "title": "texmf-local contains customizations of LaTeX",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 3
-        },
-        { "level": 3, "title": "Tex" },
-        { "level": 4, "title": "Latex" },
-        {
-          "slug": "bibmake",
-          "title": "bibmake",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 5
-        },
-        {
-          "slug": "cvbibmake",
-          "title": "cvbibmake",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 5
-        },
-        {
-          "slug": "econtexbibmake",
-          "title": "econtexbibmake",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 5
-        },
-        {
-          "slug": "handoutbibmake",
-          "title": "handoutbibmake",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 5
-        },
-        {
-          "slug": "makeposthandoutsstart",
-          "title": "makeposthandoutsstart",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 5
-        },
-        { "level": 5, "title": "Tex4ht" },
-        {
-          "slug": "svg-math-and-subfigures-readme",
-          "title": "svg-math-and-subfigures-readme",
-          "description": "",
-          "date": "",
-          "thumbnail": "",
-          "thumbnailOptimized": "",
-          "tags": [],
-          "level": 6
-        },
-        { "level": 1, "title": "Subfiles" },
+        { "title": "Subfiles", "level": 1 },
         {
           "slug": "intro",
           "title": "intro",
@@ -1216,6 +1090,16 @@
           "level": 2
         },
         {
+          "slug": "abstract",
+          "title": "abstract",
+          "description": "",
+          "date": "",
+          "thumbnail": "",
+          "thumbnailOptimized": "",
+          "tags": [],
+          "level": 2
+        },
+        {
           "slug": "appendix",
           "title": "appendix",
           "description": "",
@@ -1225,9 +1109,9 @@
           "tags": [],
           "level": 2
         },
-        { "level": 1, "title": "Tables" },
+        { "title": "Tables", "level": 1 },
         {
-          "slug": "readme-9",
+          "slug": "readme-8",
           "title": "LaTeX Input Files for Tables",
           "description": "",
           "date": "",

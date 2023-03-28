@@ -840,11 +840,11 @@
               "start": { "line": 2, "column": 0 },
               "end": { "line": 11, "column": 0 }
             },
-            "key": "ppIdOt8vg5"
+            "key": "zOTxYcSmOn"
           },
           {
             "type": "output",
-            "id": "5ieo3hzOBvrf7f0okgMzi",
+            "id": "F2b6CZH_11VcG2i5ubo7Z",
             "data": [
               {
                 "name": "stderr",
@@ -852,11 +852,11 @@
                 "text": "C:\\Users\\alujan\\AppData\\Local\\Temp\\ipykernel_30504\\3127061483.py:10: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as 'seaborn-v0_8-<style>'. Alternatively, directly use the seaborn API instead.\n  plt.style.use(\"seaborn-whitegrid\")\n"
               }
             ],
-            "key": "DWDfrmvKsj"
+            "key": "UxH9rqAA0f"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "fpS0gW4pcb"
+        "key": "yBE98DLlNQ"
       },
       {
         "type": "block",
@@ -873,11 +873,11 @@
               "start": { "line": 18, "column": 0 },
               "end": { "line": 22, "column": 0 }
             },
-            "key": "sidjfbh9d0"
+            "key": "ptlSG2A0aa"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "kAuRVqepRz"
+        "key": "b3312NPWBQ"
       },
       {
         "type": "block",
@@ -894,11 +894,11 @@
               "start": { "line": 25, "column": 0 },
               "end": { "line": 28, "column": 0 }
             },
-            "key": "Hr4iULiRzM"
+            "key": "OwBLwuJVFn"
           },
           {
             "type": "output",
-            "id": "_t0Sglra9h5oclQhBJn1k",
+            "id": "0YlKAIIUrWbhX5uMjOx4V",
             "data": [
               {
                 "output_type": "display_data",
@@ -916,11 +916,11 @@
                 }
               }
             ],
-            "key": "P74jEa6NCR"
+            "key": "ItVtJMr43S"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "kwrBUN1BFH"
+        "key": "atZChGGSyx"
       },
       {
         "type": "block",
@@ -937,11 +937,11 @@
               "start": { "line": 35, "column": 0 },
               "end": { "line": 38, "column": 0 }
             },
-            "key": "wcc3CcoWjp"
+            "key": "UJj8nUrvoS"
           },
           {
             "type": "output",
-            "id": "iT64Fq7weLkhvPP6PE_D1",
+            "id": "bpTDe1MvoU1Uy-fqJcRaQ",
             "data": [
               {
                 "output_type": "display_data",
@@ -959,11 +959,11 @@
                 }
               }
             ],
-            "key": "pE1xlKUpjp"
+            "key": "RfR21nd5HD"
           }
         ],
         "data": {},
-        "key": "yJqWKvEWAp"
+        "key": "ajqQ727VIS"
       },
       {
         "type": "block",
@@ -980,11 +980,11 @@
               "start": { "line": 45, "column": 0 },
               "end": { "line": 63, "column": 0 }
             },
-            "key": "QTNjFLfXer"
+            "key": "QnL04sdhMd"
           }
         ],
         "data": {},
-        "key": "wq8RJsg83G"
+        "key": "d1KhcKiXvc"
       },
       {
         "type": "block",
@@ -1001,11 +1001,11 @@
               "start": { "line": 66, "column": 0 },
               "end": { "line": 69, "column": 0 }
             },
-            "key": "TxufTyCt4R"
+            "key": "PyLaOk6rlr"
           },
           {
             "type": "output",
-            "id": "2JIXp6WEir6mpNBoEHlKI",
+            "id": "WGEyOgaycHYEhl9dNDdRS",
             "data": [
               {
                 "output_type": "display_data",
@@ -1110,11 +1110,11 @@
                 "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
               }
             ],
-            "key": "Aj9jrkXGRv"
+            "key": "LD1fhraXun"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "QAYEXXul2M"
+        "key": "nIHeZPxSzR"
       },
       {
         "type": "block",
@@ -1131,11 +1131,11 @@
               "start": { "line": 76, "column": 0 },
               "end": { "line": 79, "column": 0 }
             },
-            "key": "IbvXbmFivu"
+            "key": "dk1saB0cpX"
           },
           {
             "type": "output",
-            "id": "pa9catq7i6lmpslaHjwtF",
+            "id": "N2eUwqGg8HZng2LFW5bIJ",
             "data": [
               {
                 "output_type": "display_data",
@@ -1162,11 +1162,11 @@
                 }
               }
             ],
-            "key": "TOdR3xqWM1"
+            "key": "m2x5jVh6WQ"
           }
         ],
         "data": {},
-        "key": "AbnyLpUsFT"
+        "key": "gtgux7eD9E"
       },
       {
         "type": "block",
@@ -1183,11 +1183,11 @@
               "start": { "line": 86, "column": 0 },
               "end": { "line": 108, "column": 0 }
             },
-            "key": "j3xvgNaXHf"
+            "key": "DYmfvVqbtt"
           }
         ],
         "data": {},
-        "key": "oC7PKkQQYy"
+        "key": "GGylLJDXfe"
       },
       {
         "type": "block",
@@ -1204,11 +1204,11 @@
               "start": { "line": 111, "column": 0 },
               "end": { "line": 149, "column": 0 }
             },
-            "key": "WUrqdJ3AJT"
+            "key": "MwHsGNI2rI"
           },
           {
             "type": "output",
-            "id": "S2BQ1qrSf4EOju9yL1_ji",
+            "id": "nRaA74V0r7sQukC_BkUZD",
             "data": [
               {
                 "output_type": "display_data",
@@ -1289,11 +1289,11 @@
                 "traceback": "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\ipympl\\backend_nbagg.py:279\u001b[0m, in \u001b[0;36mCanvas._handle_message\u001b[1;34m(self, object, content, buffers)\u001b[0m\n\u001b[0;32m    276\u001b[0m     \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mmanager\u001b[39m.\u001b[39mhandle_json(content)\n\u001b[0;32m    278\u001b[0m \u001b[39melse\u001b[39;00m:\n\u001b[1;32m--> 279\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mmanager\u001b[39m.\u001b[39;49mhandle_json(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:462\u001b[0m, in \u001b[0;36mFigureManagerWebAgg.handle_json\u001b[1;34m(self, content)\u001b[0m\n\u001b[0;32m    461\u001b[0m \u001b[39mdef\u001b[39;00m \u001b[39mhandle_json\u001b[39m(\u001b[39mself\u001b[39m, content):\n\u001b[1;32m--> 462\u001b[0m     \u001b[39mself\u001b[39;49m\u001b[39m.\u001b[39;49mcanvas\u001b[39m.\u001b[39;49mhandle_event(content)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:266\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore.handle_event\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    263\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[0;32m    264\u001b[0m handler \u001b[39m=\u001b[39m \u001b[39mgetattr\u001b[39m(\u001b[39mself\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mhandle_\u001b[39m\u001b[39m{0}\u001b[39;00m\u001b[39m'\u001b[39m\u001b[39m.\u001b[39mformat(e_type),\n\u001b[0;32m    265\u001b[0m                   \u001b[39mself\u001b[39m\u001b[39m.\u001b[39mhandle_unknown_event)\n\u001b[1;32m--> 266\u001b[0m \u001b[39mreturn\u001b[39;00m handler(event)\n\nFile \u001b[1;32mc:\\Users\\alujan\\miniconda3\\envs\\egmn-dev\\lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py:293\u001b[0m, in \u001b[0;36mFigureCanvasWebAggCore._handle_mouse\u001b[1;34m(self, event)\u001b[0m\n\u001b[0;32m    290\u001b[0m button \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mbutton\u001b[39m\u001b[39m'\u001b[39m] \u001b[39m+\u001b[39m \u001b[39m1\u001b[39m\n\u001b[0;32m    292\u001b[0m e_type \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39m\u001b[39mtype\u001b[39m\u001b[39m'\u001b[39m]\n\u001b[1;32m--> 293\u001b[0m modifiers \u001b[39m=\u001b[39m event[\u001b[39m'\u001b[39;49m\u001b[39mmodifiers\u001b[39;49m\u001b[39m'\u001b[39;49m]\n\u001b[0;32m    294\u001b[0m guiEvent \u001b[39m=\u001b[39m event\u001b[39m.\u001b[39mget(\u001b[39m'\u001b[39m\u001b[39mguiEvent\u001b[39m\u001b[39m'\u001b[39m)\n\u001b[0;32m    295\u001b[0m \u001b[39mif\u001b[39;00m e_type \u001b[39min\u001b[39;00m [\u001b[39m'\u001b[39m\u001b[39mbutton_press\u001b[39m\u001b[39m'\u001b[39m, \u001b[39m'\u001b[39m\u001b[39mbutton_release\u001b[39m\u001b[39m'\u001b[39m]:\n\n\u001b[1;31mKeyError\u001b[0m: 'modifiers'"
               }
             ],
-            "key": "oWpC1Syoiz"
+            "key": "epx5Y9Q6NP"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "Y0KRz4qHLs"
+        "key": "gulAaqZGAJ"
       },
       {
         "type": "block",
@@ -1310,14 +1310,14 @@
               "start": { "line": 156, "column": 0 },
               "end": { "line": 159, "column": 0 }
             },
-            "key": "bMkvqZwUTu"
+            "key": "damWp6G19q"
           }
         ],
         "data": {},
-        "key": "IXafsjAmIy"
+        "key": "qqPEqXp5xV"
       }
     ],
-    "key": "dTSjMsEHaN"
+    "key": "yJFNwF8czX"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

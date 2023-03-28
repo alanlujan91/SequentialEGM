@@ -1,6 +1,0 @@
-% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
-
-% \input this to generate a table of contents without header
-\let\LaTeXStandardContentsName\contentsname
-\renewcommand{\contentsname}{}
-\tableofcontents

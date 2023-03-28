@@ -1,14 +1,8 @@
 {
   "frontmatter": {
-    "title": "EGM^n: The Sequential Endogenous Grid Method",
-    "short_title": "",
-    "authors": [{ "name": "Alan Lujan" }],
-    "keywords": [
-      "Endogenous Grid Method",
-      "Gaussian Processes",
-      "Machine Learning",
-      "Stochastic Dynamic Programming"
-    ],
+    "authors": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
+    "keywords": [],
     "math": {
       "\\CARA": "\\alpha",
       "\\CRRA": "\\rho",
@@ -814,23 +808,18 @@
       "\\Risky": "\\mathbf{R}",
       "\\risky": "\\mathbf{r}",
       "\\Seniority": "\\mathsf{X}",
-      "\\seniority": "\\mathsf{x}",
-      "\\versn": "Web",
-      "\\forcedate": "February 28, 2023",
-      "\\REMARK": "\\href{https://github.com/econ-ark/REMARK}{REMARK}"
+      "\\seniority": "\\mathsf{x}"
     },
-    "bibliography": [],
-    "github": "https://github.com/alanlujan91/SequentialEGM",
     "exports": [
       {
-        "format": "tex",
-        "filename": "SequentialEGM-titlepage.tex",
-        "url": "/SequentialEGM-titlep-17aba1c971587411f87eb335b5902c46.tex"
+        "format": "md",
+        "filename": "SequentialEGM-titlepage.md",
+        "url": "/SequentialEGM-titlep-3e037f434cc4bfcbd9ea622d45c41b0a.md"
       }
     ]
   },
   "kind": "Article",
-  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\SequentialEGM-titlepage.tex",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\SequentialEGM-titlepage.md",
   "sha256": "960b01cfecf0e1c94a9ce2e6e5d2d78df4d26b7626d46fa1e95e4cfdac115b56",
   "slug": "sequentialegm-titlepage",
   "mdast": {
@@ -840,1011 +829,813 @@
         "type": "block",
         "children": [
           {
-            "type": "paragraph",
+            "type": "mystComment",
+            "value": "-*- mode: LaTeX; TeX-PDF-mode: t; -*-",
             "position": {
-              "start": { "offset": 437, "line": 10, "column": 22 },
-              "end": { "offset": 440, "line": 10, "column": 25 }
+              "start": { "line": 0, "column": 0 },
+              "end": { "line": 1, "column": 0 }
             },
-            "children": [
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 437, "line": 10, "column": 22 },
-                  "end": { "offset": 440, "line": 10, "column": 25 }
-                },
-                "value": "Web",
-                "key": "xIEfdbEm3Y"
-              }
-            ],
-            "key": "CyvUSwBqlj"
+            "key": "Yu0x55aGgS"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 551, "line": 13, "column": 11 },
-              "end": { "offset": 558, "line": 13, "column": 18 }
+              "start": { "line": 1, "column": 0 },
+              "end": { "line": 4, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 551, "line": 13, "column": 11 },
-                  "end": { "offset": 558, "line": 13, "column": 18 }
-                },
-                "value": "Solving Micro DSOPS using Unstructured Multivariate Interpolation",
-                "key": "Dgmn6OBE4P"
+                "value": "\\input{./econtexRoot.texinput}\\documentclass[SequentialEGM]{subfiles}\n\\externaldocument{\\econtexRoot/SequentialEGM}\n\\input{\\econtexRoot/Resources/owner}",
+                "key": "sR8iiGZ0yv"
               }
             ],
-            "key": "AXF3Vmsmin"
+            "key": "WEqTkS7s0L"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 771, "line": 19, "column": 11 },
-              "end": { "offset": 772, "line": 19, "column": 12 }
+              "start": { "line": 5, "column": 0 },
+              "end": { "line": 6, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 771, "line": 19, "column": 11 },
-                  "end": { "offset": 772, "line": 19, "column": 12 }
-                },
-                "value": "D..,E..",
-                "key": "erdPW9TkS2"
+                "value": "\\usepackage{\\econtexSetup,\\econark,\\econtexShortcuts}",
+                "key": "qjz1oOuHiM"
               }
             ],
-            "key": "edq3lGWUYx"
+            "key": "QS0cHQyye7"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 787, "line": 20, "column": 3 },
-              "end": { "offset": 792, "line": 20, "column": 8 }
+              "start": { "line": 7, "column": 0 },
+              "end": { "line": 8, "column": 0 }
             },
             "children": [
+              {
+                "type": "text",
+                "value": "\\begin{document}",
+                "key": "KzwfbDfjS4"
+              }
+            ],
+            "key": "sZOk2eKx4V"
+          },
+          {
+            "type": "mystComment",
+            "value": "Attempted to make all lines used for Web version contain {Web} (or version with only single curly brace at end) so can be removed with sed",
+            "position": {
+              "start": { "line": 8, "column": 0 },
+              "end": { "line": 9, "column": 0 }
+            },
+            "key": "LVHbgmD1m2"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 9, "column": 0 },
+              "end": { "line": 10, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\ifthenelse{\\boolean{Web}}{\\renewcommand{\\versn}{Web}}{}  % {Web}",
+                "key": "wkiL8RWrKx"
+              }
+            ],
+            "key": "UME75dndQc"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 11, "column": 0 },
+              "end": { "line": 13, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "\\title{EGM", "key": "hfJ1czEgvM" },
+              {
+                "type": "inlineMath",
+                "value": "^n",
+                "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
+                "key": "DPJtYDaPYo"
+              },
+              {
+                "type": "text",
+                "value": ": The Sequential Endogenous Grid Method}\n\\subtitle{Solving Micro DSOPS using Unstructured Multivariate Interpolation}",
+                "key": "EP0caLK7Mv"
+              }
+            ],
+            "key": "KNgJsNUPOc"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 14, "column": 0 },
+              "end": { "line": 15, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\author{Alan Lujan\\authNum}",
+                "key": "If5wfjR4vI"
+              }
+            ],
+            "key": "NxBiyPvCmk"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 16, "column": 0 },
+              "end": { "line": 17, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\keywords{Endogenous Grid Method, Gaussian Processes, Machine Learning,  Stochastic Dynamic  Programming}",
+                "key": "xR3cdVYqhH"
+              }
+            ],
+            "key": "mgaBY1I16c"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 18, "column": 0 },
+              "end": { "line": 21, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\jelclass{D..,E.. \\par\n\\href{",
+                "key": "LZ26sPLZKN"
+              },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 787, "line": 20, "column": 3 },
-                  "end": { "offset": 792, "line": 20, "column": 8 }
-                },
                 "url": "https://econ-ark.org",
                 "children": [
                   {
-                    "type": "image",
-                    "url": "ResourcesDir/PoweredByEconARK",
-                    "position": {
-                      "start": { "offset": 815, "line": 20, "column": 31 },
-                      "end": { "offset": 831, "line": 20, "column": 47 }
-                    },
-                    "key": "fFO5w1kqfT"
+                    "type": "text",
+                    "value": "https://​​econ​​-ark​​.org",
+                    "key": "IOa7TMeR9e"
                   }
                 ],
                 "urlSource": "https://econ-ark.org",
-                "key": "XegsVadvk6"
+                "key": "K2DikpfJFY"
+              },
+              {
+                "type": "text",
+                "value": "}{\\includegraphics{\\ResourcesDir/PoweredByEconARK}}\n}",
+                "key": "p1QqBst3Tg"
               }
             ],
-            "key": "Lavgul7bxV"
+            "key": "soiEiRyAce"
+          },
+          {
+            "type": "mystComment",
+            "value": "\\date{\\today}",
+            "position": {
+              "start": { "line": 22, "column": 0 },
+              "end": { "line": 23, "column": 0 }
+            },
+            "key": "lxTIpCEu3S"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 4034, "line": 66, "column": 22 },
-              "end": { "offset": 4037, "line": 66, "column": 25 }
+              "start": { "line": 23, "column": 0 },
+              "end": { "line": 24, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4034, "line": 66, "column": 22 },
-                  "end": { "offset": 4037, "line": 66, "column": 25 }
-                },
-                "value": "Web",
-                "key": "fK99FBLCBx"
+                "value": "\\renewcommand{\\forcedate}{February 28, 2023}\\date{\\forcedate}",
+                "key": "c2MzPJkO9q"
               }
             ],
-            "key": "QGbegVvjmk"
+            "key": "pmRNnSGkea"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 4098, "line": 69, "column": 18 },
-              "end": { "offset": 4099, "line": 69, "column": 19 }
+              "start": { "line": 25, "column": 0 },
+              "end": { "line": 26, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "\\maketitle", "key": "baS548oifQ" }
+            ],
+            "key": "q64QMF4mYG"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 27, "column": 0 },
+              "end": { "line": 38, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4098, "line": 69, "column": 18 },
-                  "end": { "offset": 4099, "line": 69, "column": 19 }
-                },
-                "value": "I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the ",
-                "key": "fVXolpJWt0"
+                "value": "\\hypertarget{abstract}{}\n\\begin{verbatimwrite}{\\econtexRoot/Subfiles/Abstract.texinput}\nHeterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.\nThis paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids.\nFirst, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods.\nSecond, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process.\nThird, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions.\nApplied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used.\nSoftware to reproduce these methods is available under the \\href{",
+                "key": "UixNyeuGta"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4307, "line": 69, "column": 227 },
-                  "end": { "offset": 4312, "line": 69, "column": 232 }
-                },
                 "url": "https://econ-ark.org/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4336, "line": 69, "column": 256 },
-                      "end": { "offset": 4343, "line": 69, "column": 263 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4344,
-                            "line": 69,
-                            "column": 264
-                          },
-                          "end": { "offset": 4348, "line": 69, "column": 268 }
-                        },
-                        "value": "Econ-ARK/HARK",
-                        "key": "TnPzdwabKH"
-                      }
-                    ],
-                    "key": "Q7S9NWnNCo"
+                    "type": "text",
+                    "value": "https://​​econ​​-ark​​.org​​/",
+                    "key": "GIw0w3ywWs"
                   }
                 ],
                 "urlSource": "https://econ-ark.org/",
-                "key": "rpdmlI70iz"
+                "key": "BkqT29Fzih"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4359, "line": 69, "column": 279 },
-                  "end": { "offset": 4360, "line": 69, "column": 280 }
-                },
-                "value": " toolkit (",
-                "key": "v5Qo1Jf5DR"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Carroll2018",
-                    "identifier": "carroll2018",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Carroll ",
-                        "key": "rQmieTaQ26"
-                      },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "RU62kbSuBr"
-                          }
-                        ],
-                        "key": "THhS1yLozm"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2018)",
-                        "key": "Db4Jqz1jqd"
-                      }
-                    ],
-                    "key": "PY2sHGhxM3"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4369, "line": 69, "column": 289 },
-                  "end": { "offset": 4374, "line": 69, "column": 294 }
-                },
-                "key": "hQoy0E9zCk"
-              },
+                "value": "}{\\texttt{Econ-ARK/HARK}} project for the \\texttt{python} programming language.\n\\end{verbatimwrite}\n\\input{\\econtexRoot/Subfiles/Abstract.texinput}",
+                "key": "LMikzpHn0l"
+              }
+            ],
+            "key": "pby66APcEf"
+          },
+          {
+            "type": "mystComment",
+            "value": "Various resources",
+            "position": {
+              "start": { "line": 39, "column": 0 },
+              "end": { "line": 40, "column": 0 }
+            },
+            "key": "U98geSGWDL"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 40, "column": 0 },
+              "end": { "line": 41, "column": 0 }
+            },
+            "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4387, "line": 69, "column": 307 },
-                  "end": { "offset": 4388, "line": 69, "column": 308 }
-                },
-                "value": "). Additional libraries used in the production of this paper include but are not limited to: ",
-                "key": "PJ8z85ejIX"
+                "value": "\\hypertarget{links}{}",
+                "key": "e2siupmS1V"
+              }
+            ],
+            "key": "uxX4OGgwmT"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 42, "column": 0 },
+              "end": { "line": 58, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\newcommand{\\REMARK}{\\href{",
+                "key": "WSMC8Xhz28"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4480, "line": 69, "column": 400 },
-                  "end": { "offset": 4485, "line": 69, "column": 405 }
+                "url": "https://github.com/econ-ark/REMARK",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​github​​.com​​/econ​​-ark​​/REMARK",
+                    "key": "uY9Mho5YDE"
+                  }
+                ],
+                "urlSource": "https://github.com/econ-ark/REMARK",
+                "error": true,
+                "key": "quTZONLT0u"
+              },
+              {
+                "type": "text",
+                "value": "}{REMARK}}\n\\begin{footnotesize}\n\\parbox{0.9\\textwidth}{\n\\begin{center}\n\\begin{tabbing}\n\\texttt{~~~~~~~~~~~} = =  \\\n% \\texttt{~~~\\REMARK:~} = = \\texttt{\\url{",
+                "key": "dXq8vjlHW9"
+              },
+              {
+                "type": "link",
+                "url": "https://econ-ark.org/materials/SequentialEGM",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​econ​​-ark​​.org​​/materials​​/SequentialEGM",
+                    "key": "GKuzPNC8zD"
+                  }
+                ],
+                "urlSource": "https://econ-ark.org/materials/SequentialEGM",
+                "key": "yhRxGdZLz4"
+              },
+              {
+                "type": "text",
+                "value": "}} \\\n% \\texttt{Dashboard:~} > > \\texttt{\\href{",
+                "key": "kN4er1RL4Q"
+              },
+              {
+                "type": "link",
+                "url": "https://econ-ark.org/materials/SequentialEGM",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​econ​​-ark​​.org​​/materials​​/SequentialEGM",
+                    "key": "CVouhlCeYB"
+                  }
+                ],
+                "urlSource": "https://econ-ark.org/materials/SequentialEGM",
+                "key": "ci5TmLNIn4"
+              },
+              {
+                "type": "text",
+                "value": "}{Click `Launch Dashboard' Button}} \\\n\\texttt{~~~~~~PDF:~} > > \\texttt{\\href{",
+                "key": "bJRVBnoni4"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/%5Cowner/SequentialEGM/blob/master/SequentialEGM.pdf",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​github​​.com​​/\\owner​​/SequentialEGM​​/blob​​/master​​/SequentialEGM​​.pdf",
+                    "key": "BS7zkSXjhB"
+                  }
+                ],
+                "urlSource": "https://github.com/%5Cowner/SequentialEGM/blob/master/SequentialEGM.pdf",
+                "data": {
+                  "kind": "file",
+                  "org": "%5Cowner",
+                  "repo": "SequentialEGM",
+                  "reference": "master",
+                  "file": "SequentialEGM.pdf",
+                  "raw": "https://raw.githubusercontent.com/%5Cowner/SequentialEGM/master/SequentialEGM.pdf"
                 },
+                "internal": false,
+                "protocol": "github",
+                "key": "LsMkEc26nL"
+              },
+              {
+                "type": "text",
+                "value": "}{SequentialEGM.pdf (\\textbf{Current Version})}} \\\n\\texttt{~~~~~html:~} > > \\texttt{\\href{https://\\",
+                "key": "etggfWTIwW"
+              },
+              {
+                "type": "link",
+                "url": "http://owner.github.io/SequentialEGM/",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "owner​​.github​​.io​​/SequentialEGM​​/",
+                    "key": "iwgOu1DGT0"
+                  }
+                ],
+                "urlSource": "http://owner.github.io/SequentialEGM/",
+                "key": "lVwky8jd8e"
+              },
+              { "type": "text", "value": "}{https://\\", "key": "G5h0QRZlej" },
+              {
+                "type": "link",
+                "url": "http://owner.github.io/SequentialEGM/",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "owner​​.github​​.io​​/SequentialEGM​​/",
+                    "key": "rC7e5m30Je"
+                  }
+                ],
+                "urlSource": "http://owner.github.io/SequentialEGM/",
+                "key": "SzIEiKAhxU"
+              },
+              {
+                "type": "text",
+                "value": "}} \\ % Owner is defined in Resources/owner.tex\n% \\texttt{~~~Slides:~} > > \\texttt{\\href{",
+                "key": "iACgVrppwx"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/%5Cowner/SequentialEGM/blob/master/SequentialEGM-Slides.pdf",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​github​​.com​​/\\owner​​/SequentialEGM​​/blob​​/master​​/SequentialEGM​​-Slides​​.pdf",
+                    "key": "oVh0HgCEG4"
+                  }
+                ],
+                "urlSource": "https://github.com/%5Cowner/SequentialEGM/blob/master/SequentialEGM-Slides.pdf",
+                "data": {
+                  "kind": "file",
+                  "org": "%5Cowner",
+                  "repo": "SequentialEGM",
+                  "reference": "master",
+                  "file": "SequentialEGM-Slides.pdf",
+                  "raw": "https://raw.githubusercontent.com/%5Cowner/SequentialEGM/master/SequentialEGM-Slides.pdf"
+                },
+                "internal": false,
+                "protocol": "github",
+                "key": "F05QfriSP8"
+              },
+              {
+                "type": "text",
+                "value": "}{SequentialEGM-Slides.pdf}} \\\n\\texttt{~~~GitHub:~} > > \\texttt{\\href{",
+                "key": "g9o1sagqXa"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/%5Cowner/SequentialEGM",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​github​​.com​​/\\owner​​/SequentialEGM",
+                    "key": "CGiTqI2zgp"
+                  }
+                ],
+                "urlSource": "https://github.com/%5Cowner/SequentialEGM",
+                "error": true,
+                "key": "z5kSIxPZWV"
+              },
+              { "type": "text", "value": "}{", "key": "J5E3mHdKzw" },
+              {
+                "type": "link",
+                "url": "https://github.com/%5Cowner/SequentialEGM",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​github​​.com​​/\\owner​​/SequentialEGM",
+                    "key": "lqxNq0WAeF"
+                  }
+                ],
+                "urlSource": "https://github.com/%5Cowner/SequentialEGM",
+                "error": true,
+                "key": "CjNNun8mdx"
+              },
+              {
+                "type": "text",
+                "value": "}} \\\n\\end{tabbing}\n\\end{center}\n} % end \\parbox{\\textwidth}\n\\end{footnotesize}",
+                "key": "bUtQPZkI1k"
+              }
+            ],
+            "key": "y4pbPsuNI7"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 59, "column": 0 },
+              "end": { "line": 62, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\begin{authorsinfo}\n\\noindent \\name{\\href{",
+                "key": "Qgh1olnPMo"
+              },
+              {
+                "type": "link",
+                "url": "https://quantmacro.org",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​quantmacro​​.org",
+                    "key": "Uv92ph5rhL"
+                  }
+                ],
+                "urlSource": "https://quantmacro.org",
+                "key": "PLlmwSSDhp"
+              },
+              {
+                "type": "text",
+                "value": "}{Department of Economics, The Ohio State University}, \\href{",
+                "key": "LQQUQPMDby"
+              },
+              {
+                "type": "link",
+                "url": "mailto:alanlujan91@gmail.com",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "mailto:alanlujan91@gmail​​.com",
+                    "key": "eHeDJAOLU8"
+                  }
+                ],
+                "urlSource": "mailto:alanlujan91@gmail.com",
+                "key": "rNKV4usEHS"
+              },
+              {
+                "type": "text",
+                "value": "}{\\texttt{alanlujan91@gmail.com}}.}\n\\end{authorsinfo}",
+                "key": "bpymPkht4K"
+              }
+            ],
+            "key": "pz4UjVQhQy"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 63, "column": 0 },
+              "end": { "line": 64, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page",
+                "key": "MYS8A85j7E"
+              }
+            ],
+            "key": "YW88jlRK55"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 65, "column": 0 },
+              "end": { "line": 71, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\ifthenelse{\\boolean{Web}}{\n}{\n\\begin{minipage}{0.9\\textwidth}\n\\footnotesize I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the \\href{",
+                "key": "aadi11diFp"
+              },
+              {
+                "type": "link",
+                "url": "https://econ-ark.org/",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "https://​​econ​​-ark​​.org​​/",
+                    "key": "KKo3NqYQS7"
+                  }
+                ],
+                "urlSource": "https://econ-ark.org/",
+                "key": "MJxPN57i7t"
+              },
+              {
+                "type": "text",
+                "value": "}{\\texttt{Econ-ARK/HARK}} toolkit (\\cite{Carroll2018}). Additional libraries used in the production of this paper include but are not limited to: \\href{",
+                "key": "vu92fil6MG"
+              },
+              {
+                "type": "link",
                 "url": "https://www.scipy.org/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4510, "line": 69, "column": 430 },
-                      "end": { "offset": 4517, "line": 69, "column": 437 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4518,
-                            "line": 69,
-                            "column": 438
-                          },
-                          "end": { "offset": 4523, "line": 69, "column": 443 }
-                        },
-                        "value": "scipy",
-                        "key": "zMIQvgCnMA"
-                      }
-                    ],
-                    "key": "wdqVcxTvjh"
+                    "type": "text",
+                    "value": "https://​​www​​.scipy​​.org​​/",
+                    "key": "sgtGm6tSat"
                   }
                 ],
                 "urlSource": "https://www.scipy.org/",
-                "key": "uAAU1UlmQr"
+                "key": "puo0H0QbNl"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4525, "line": 69, "column": 445 },
-                  "end": { "offset": 4526, "line": 69, "column": 446 }
-                },
-                "value": " (",
-                "key": "pg6ZQNDBb6"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Virtanen2020",
-                    "identifier": "virtanen2020",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Virtanen ",
-                        "key": "lzbOYNgUUG"
-                      },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "hT0888BPLh"
-                          }
-                        ],
-                        "key": "kRXhnl10Uq"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2020)",
-                        "key": "hPmlogq7qi"
-                      }
-                    ],
-                    "key": "nGMM4Xt6MW"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4527, "line": 69, "column": 447 },
-                  "end": { "offset": 4532, "line": 69, "column": 452 }
-                },
-                "key": "nJNnuod0oL"
-              },
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 4546, "line": 69, "column": 466 },
-                  "end": { "offset": 4547, "line": 69, "column": 467 }
-                },
-                "value": "), ",
-                "key": "ijGqTODEsF"
+                "value": "}{\\texttt{scipy}} (\\cite{Virtanen2020}), \\href{",
+                "key": "WRCliOvuQb"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4549, "line": 69, "column": 469 },
-                  "end": { "offset": 4554, "line": 69, "column": 474 }
-                },
                 "url": "https://www.numpy.org/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4579, "line": 69, "column": 499 },
-                      "end": { "offset": 4586, "line": 69, "column": 506 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4587,
-                            "line": 69,
-                            "column": 507
-                          },
-                          "end": { "offset": 4592, "line": 69, "column": 512 }
-                        },
-                        "value": "numpy",
-                        "key": "PihTlL76gu"
-                      }
-                    ],
-                    "key": "vnRzalE07g"
+                    "type": "text",
+                    "value": "https://​​www​​.numpy​​.org​​/",
+                    "key": "xJVUymwFHw"
                   }
                 ],
                 "urlSource": "https://www.numpy.org/",
-                "key": "zyHcgqIZwr"
+                "key": "UntfAq9eUh"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4594, "line": 69, "column": 514 },
-                  "end": { "offset": 4595, "line": 69, "column": 515 }
-                },
-                "value": " (",
-                "key": "RpsGcVVBxp"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Harris2020",
-                    "identifier": "harris2020",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Harris ",
-                        "key": "iNtz5GXQwp"
-                      },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "G3DWJMNo9g"
-                          }
-                        ],
-                        "key": "f4R8haUYou"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2020)",
-                        "key": "s4D6MteCAO"
-                      }
-                    ],
-                    "key": "sWRpNadc3F"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4596, "line": 69, "column": 516 },
-                  "end": { "offset": 4601, "line": 69, "column": 521 }
-                },
-                "key": "YyuLbuBKHw"
-              },
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 4613, "line": 69, "column": 533 },
-                  "end": { "offset": 4614, "line": 69, "column": 534 }
-                },
-                "value": "), ",
-                "key": "ktRFqS1iZr"
+                "value": "}{\\texttt{numpy}} (\\cite{Harris2020}), \\href{",
+                "key": "lrNW5oPJ9d"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4616, "line": 69, "column": 536 },
-                  "end": { "offset": 4621, "line": 69, "column": 541 }
-                },
                 "url": "https://numba.pydata.org/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4649, "line": 69, "column": 569 },
-                      "end": { "offset": 4656, "line": 69, "column": 576 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4657,
-                            "line": 69,
-                            "column": 577
-                          },
-                          "end": { "offset": 4662, "line": 69, "column": 582 }
-                        },
-                        "value": "numba",
-                        "key": "l2j8JEKrmp"
-                      }
-                    ],
-                    "key": "eHLBJV4VOL"
+                    "type": "text",
+                    "value": "https://​​numba​​.pydata​​.org​​/",
+                    "key": "LpDTpXWtR4"
                   }
                 ],
                 "urlSource": "https://numba.pydata.org/",
-                "key": "bUoqp1Ls91"
+                "key": "LdZQpPNJTJ"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4664, "line": 69, "column": 584 },
-                  "end": { "offset": 4665, "line": 69, "column": 585 }
-                },
-                "value": " (",
-                "key": "kKxx1kr8Q7"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Lam2015",
-                    "identifier": "lam2015",
-                    "children": [
-                      { "type": "text", "value": "Lam ", "key": "YAE8Wsz9jY" },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "O90tRYykoE"
-                          }
-                        ],
-                        "key": "uPFboBzeEN"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2015)",
-                        "key": "zjaQGjoJez"
-                      }
-                    ],
-                    "key": "hKYwch8fSl"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4666, "line": 69, "column": 586 },
-                  "end": { "offset": 4671, "line": 69, "column": 591 }
-                },
-                "key": "w1jIIanPuF"
-              },
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 4680, "line": 69, "column": 600 },
-                  "end": { "offset": 4681, "line": 69, "column": 601 }
-                },
-                "value": "), ",
-                "key": "G3B9iStMHv"
+                "value": "}{\\texttt{numba}} (\\cite{Lam2015}), \\href{",
+                "key": "M1xC3frSxZ"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4683, "line": 69, "column": 603 },
-                  "end": { "offset": 4688, "line": 69, "column": 608 }
-                },
                 "url": "https://cupy.dev/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4708, "line": 69, "column": 628 },
-                      "end": { "offset": 4715, "line": 69, "column": 635 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4716,
-                            "line": 69,
-                            "column": 636
-                          },
-                          "end": { "offset": 4720, "line": 69, "column": 640 }
-                        },
-                        "value": "cupy",
-                        "key": "KD7M5wxCNK"
-                      }
-                    ],
-                    "key": "tVg15q64Vp"
+                    "type": "text",
+                    "value": "https://cupy.dev/",
+                    "key": "CEwhTOTLtM"
                   }
                 ],
                 "urlSource": "https://cupy.dev/",
-                "key": "hDKrsbdzoB"
+                "key": "N6qYAXEcU3"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4722, "line": 69, "column": 642 },
-                  "end": { "offset": 4723, "line": 69, "column": 643 }
-                },
-                "value": " (",
-                "key": "oIRDmyTIxS"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Okuta2017",
-                    "identifier": "okuta2017",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Okuta ",
-                        "key": "SDRhxrYzRq"
-                      },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "CWYXAaxhLa"
-                          }
-                        ],
-                        "key": "aCjszHbxdG"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2017)",
-                        "key": "qKJIlrEIuk"
-                      }
-                    ],
-                    "key": "DSci457gMm"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4724, "line": 69, "column": 644 },
-                  "end": { "offset": 4729, "line": 69, "column": 649 }
-                },
-                "key": "SNVNkf1Djj"
-              },
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 4740, "line": 69, "column": 660 },
-                  "end": { "offset": 4741, "line": 69, "column": 661 }
-                },
-                "value": "), ",
-                "key": "DZHV3EGN1k"
+                "value": "}{\\texttt{cupy}} (\\cite{Okuta2017}), \\href{",
+                "key": "JGK4eJp9ks"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4743, "line": 69, "column": 663 },
-                  "end": { "offset": 4748, "line": 69, "column": 668 }
-                },
                 "url": "https://scikit-learn.org/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4776, "line": 69, "column": 696 },
-                      "end": { "offset": 4783, "line": 69, "column": 703 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4784,
-                            "line": 69,
-                            "column": 704
-                          },
-                          "end": { "offset": 4790, "line": 69, "column": 710 }
-                        },
-                        "value": "scikit-learn",
-                        "key": "C8kgjwqMyx"
-                      }
-                    ],
-                    "key": "ixba5cMoNi"
+                    "type": "text",
+                    "value": "https://​​scikit​​-learn​​.org​​/",
+                    "key": "e5nnMCIw1e"
                   }
                 ],
                 "urlSource": "https://scikit-learn.org/",
-                "key": "boEKTUqhDT"
+                "key": "e8VkFS32Vz"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4798, "line": 69, "column": 718 },
-                  "end": { "offset": 4799, "line": 69, "column": 719 }
-                },
-                "value": " (",
-                "key": "uNQvKRk1B1"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Pedregosa2011",
-                    "identifier": "pedregosa2011",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Pedregosa ",
-                        "key": "nfnnZ7jZcg"
-                      },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "JDJtnELCR6"
-                          }
-                        ],
-                        "key": "CuB2Ncyhgv"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2011)",
-                        "key": "iCUUriaVWN"
-                      }
-                    ],
-                    "key": "G9rtavdHew"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4800, "line": 69, "column": 720 },
-                  "end": { "offset": 4805, "line": 69, "column": 725 }
-                },
-                "key": "V5ZlOcfuo3"
-              },
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 4820, "line": 69, "column": 740 },
-                  "end": { "offset": 4821, "line": 69, "column": 741 }
-                },
-                "value": "), ",
-                "key": "rAqQ8JkPnr"
+                "value": "}{\\texttt{scikit-learn}} (\\cite{Pedregosa2011}), \\href{",
+                "key": "smLd0hK3Pm"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4823, "line": 69, "column": 743 },
-                  "end": { "offset": 4828, "line": 69, "column": 748 }
-                },
                 "url": "https://pytorch.org/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4851, "line": 69, "column": 771 },
-                      "end": { "offset": 4858, "line": 69, "column": 778 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4859,
-                            "line": 69,
-                            "column": 779
-                          },
-                          "end": { "offset": 4866, "line": 69, "column": 786 }
-                        },
-                        "value": "pytorch",
-                        "key": "J5HGJdWGq1"
-                      }
-                    ],
-                    "key": "YAg5F1P8HG"
+                    "type": "text",
+                    "value": "https://​​pytorch​​.org​​/",
+                    "key": "kEVCpSJLPv"
                   }
                 ],
                 "urlSource": "https://pytorch.org/",
-                "key": "NoqZ6nJEra"
+                "key": "fKzq4AamJo"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4868, "line": 69, "column": 788 },
-                  "end": { "offset": 4869, "line": 69, "column": 789 }
-                },
-                "value": " (",
-                "key": "MLW0YHa3aZ"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Paszke2019",
-                    "identifier": "paszke2019",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Paszke ",
-                        "key": "UNbBpSCZJ1"
-                      },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "fVciSfaaWD"
-                          }
-                        ],
-                        "key": "UXRNeveSD3"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2019)",
-                        "key": "o5dFNMF66v"
-                      }
-                    ],
-                    "key": "U2pB97tPUV"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4870, "line": 69, "column": 790 },
-                  "end": { "offset": 4875, "line": 69, "column": 795 }
-                },
-                "key": "ZZ5DzCVsOL"
-              },
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 4887, "line": 69, "column": 807 },
-                  "end": { "offset": 4888, "line": 69, "column": 808 }
-                },
-                "value": "), and ",
-                "key": "cM8tdcTxkd"
+                "value": "}{\\texttt{pytorch}} (\\cite{Paszke2019}), and \\href{",
+                "key": "w5xyKVK7cy"
               },
               {
                 "type": "link",
-                "position": {
-                  "start": { "offset": 4894, "line": 69, "column": 814 },
-                  "end": { "offset": 4899, "line": 69, "column": 819 }
-                },
                 "url": "https://gpytorch.ai/",
                 "children": [
                   {
-                    "type": "inlineCode",
-                    "position": {
-                      "start": { "offset": 4922, "line": 69, "column": 842 },
-                      "end": { "offset": 4929, "line": 69, "column": 849 }
-                    },
-                    "children": [
-                      {
-                        "type": "text",
-                        "position": {
-                          "start": {
-                            "offset": 4930,
-                            "line": 69,
-                            "column": 850
-                          },
-                          "end": { "offset": 4938, "line": 69, "column": 858 }
-                        },
-                        "value": "gpytorch",
-                        "key": "ENEglSO1dw"
-                      }
-                    ],
-                    "key": "BBKB4uEfoH"
+                    "type": "text",
+                    "value": "https://​​gpytorch​​.ai​​/",
+                    "key": "XOnEz0J9GS"
                   }
                 ],
                 "urlSource": "https://gpytorch.ai/",
-                "key": "JdrKc4LPJl"
+                "key": "hKJqdjGgmg"
               },
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 4940, "line": 69, "column": 860 },
-                  "end": { "offset": 4941, "line": 69, "column": 861 }
-                },
-                "value": " (",
-                "key": "HVRO0IBK6s"
-              },
-              {
-                "type": "citeGroup",
-                "kind": "narrative",
-                "children": [
-                  {
-                    "type": "cite",
-                    "kind": "narrative",
-                    "label": "Gardner2018",
-                    "identifier": "gardner2018",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Gardner ",
-                        "key": "pIVl6V9XRq"
-                      },
-                      {
-                        "type": "emphasis",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "et al.",
-                            "key": "bGNUlBnupb"
-                          }
-                        ],
-                        "key": "uJM8QKlhSS"
-                      },
-                      {
-                        "type": "text",
-                        "value": " (2018)",
-                        "key": "xK2ak27kCz"
-                      }
-                    ],
-                    "key": "xHjOhoyeIQ"
-                  }
-                ],
-                "position": {
-                  "start": { "offset": 4942, "line": 69, "column": 862 },
-                  "end": { "offset": 4947, "line": 69, "column": 867 }
-                },
-                "key": "kQKoXxybMW"
-              },
-              {
-                "type": "text",
-                "position": {
-                  "start": { "offset": 4960, "line": 69, "column": 880 },
-                  "end": { "offset": 4961, "line": 69, "column": 881 }
-                },
-                "value": ").",
-                "key": "xQ5JxUIsrB"
+                "value": "}{\\texttt{gpytorch}} (\\cite{Gardner2018}).\n\\end{minipage}\n} % {Web}",
+                "key": "fzWu6JMCLa"
               }
             ],
-            "key": "xALa1p54m5"
+            "key": "NDsgqeikDB"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 5372, "line": 90, "column": 22 },
-              "end": { "offset": 5375, "line": 90, "column": 25 }
+              "start": { "line": 72, "column": 0 },
+              "end": { "line": 73, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 5372, "line": 90, "column": 22 },
-                  "end": { "offset": 5375, "line": 90, "column": 25 }
-                },
-                "value": "Web",
-                "key": "HjHFb1hvlZ"
+                "value": "\\titlepagefinish",
+                "key": "jgteRbS4KA"
               }
             ],
-            "key": "miIIOyj71Q"
+            "key": "XFxNBsuA0L"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 5412, "line": 91, "column": 31 },
-              "end": { "offset": 5413, "line": 91, "column": 32 }
+              "start": { "line": 74, "column": 0 },
+              "end": { "line": 76, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 5412, "line": 91, "column": 31 },
-                  "end": { "offset": 5413, "line": 91, "column": 32 }
-                },
-                "value": "[figure]list=no",
-                "key": "GMoMGXRDC3"
+                "value": "\\end{document}\n\\endinput",
+                "key": "yWNbxL50z7"
               }
             ],
-            "key": "SIPkhfSiWm"
+            "key": "swF9hSYBSN"
+          },
+          {
+            "type": "mystComment",
+            "value": "\\medskip\\medskip\n \\begin{minipage}{0.9\\textwidth}\n   \\listoffigures\n \\end{minipage}",
+            "position": {
+              "start": { "line": 77, "column": 0 },
+              "end": { "line": 81, "column": 0 }
+            },
+            "key": "qzyPLhAkGS"
+          },
+          {
+            "type": "mystComment",
+            "value": "\\medskip\\medskip\n \\begin{minipage}{0.9\\textwidth}\n   \\listoftables\n \\end{minipage}",
+            "position": {
+              "start": { "line": 82, "column": 0 },
+              "end": { "line": 86, "column": 0 }
+            },
+            "key": "mox3q2JcDu"
+          },
+          {
+            "type": "mystComment",
+            "value": "\\input{\\LaTeXInputs/bibliography_blend}\n Do not include appendix figures and tables in ToC unless for Web version",
+            "position": {
+              "start": { "line": 87, "column": 0 },
+              "end": { "line": 89, "column": 0 }
+            },
+            "key": "cNRyhnz1nE"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 5462, "line": 92, "column": 31 },
-              "end": { "offset": 5463, "line": 92, "column": 32 }
+              "start": { "line": 89, "column": 0 },
+              "end": { "line": 93, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 5462, "line": 92, "column": 31 },
-                  "end": { "offset": 5463, "line": 92, "column": 32 }
-                },
-                "value": "[table]list=no",
-                "key": "vHI79JJVn2"
+                "value": "\\ifthenelse{\\boolean{Web}}{}{\n\\onlyinsubfile{\\captionsetup[figure]{list=no}}\n\\onlyinsubfile{\\captionsetup[table]{list=no}}\n}",
+                "key": "xhFb5W6CDX"
               }
             ],
-            "key": "oDRy5GJ588"
+            "key": "rxMLWxJZz6"
+          },
+          {
+            "type": "mystComment",
+            "value": "\\bibliography{Add-Refs,economics}\n \\input{\\LaTeXInputs/bibliography_blend}",
+            "position": {
+              "start": { "line": 94, "column": 0 },
+              "end": { "line": 96, "column": 0 }
+            },
+            "key": "eWHvhY03gW"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "offset": 5632, "line": 100, "column": 6 },
-              "end": { "offset": 5640, "line": 100, "column": 14 }
+              "start": { "line": 97, "column": 0 },
+              "end": { "line": 98, "column": 0 }
             },
             "children": [
               {
                 "type": "text",
-                "position": {
-                  "start": { "offset": 5632, "line": 100, "column": 6 },
-                  "end": { "offset": 5640, "line": 100, "column": 14 }
-                },
-                "value": "document",
-                "key": "dGnoyAmMSf"
+                "value": "\\onlyinsubfile{\\input{\\LaTeXInputs/bibliography_blend}}",
+                "key": "ZL1ey8P9RG"
               }
             ],
-            "key": "SBS1WvGIRQ"
+            "key": "BcBz3BxaaZ"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 99, "column": 0 },
+              "end": { "line": 100, "column": 0 }
+            },
+            "children": [
+              {
+                "type": "text",
+                "value": "\\end{document}",
+                "key": "Y0ny5ysFmT"
+              }
+            ],
+            "key": "ZToUVopitF"
+          },
+          {
+            "type": "paragraph",
+            "position": {
+              "start": { "line": 101, "column": 0 },
+              "end": { "line": 102, "column": 0 }
+            },
+            "children": [
+              { "type": "text", "value": "\\endinput", "key": "dQVAhjgDr2" }
+            ],
+            "key": "cJTrCB7F4K"
+          },
+          {
+            "type": "mystComment",
+            "value": "If you are editing in Emacs-AucTeX, modify the lines below for your system (otherwise ignore)\n Local Variables:\n eval: (setq TeX-command-list  (assq-delete-all (car (assoc \"BibTeX\" TeX-command-list)) TeX-command-list))\n eval: (setq TeX-command-list  (assq-delete-all (car (assoc \"BibTeX\" TeX-command-list)) TeX-command-list))\n eval: (setq TeX-command-list  (assq-delete-all (car (assoc \"BibTeX\" TeX-command-list)) TeX-command-list))\n eval: (setq TeX-command-list  (assq-delete-all (car (assoc \"Biber\"  TeX-command-list)) TeX-command-list))\n eval: (add-to-list 'TeX-command-list '(\"BibTeX\" \"bibtex %s\" TeX-run-BibTeX nil t                                                                              :help \"Run BibTeX\") t)\n eval: (add-to-list 'TeX-command-list '(\"BibTeX\" \"bibtex %s\" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help \"Run BibTeX\") t)\n TeX-PDF-mode: t\n TeX-file-line-error: t\n TeX-debug-warnings: t\n LaTeX-command-style: ((\"\" \"%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)\"))\n TeX-source-correlate-mode: t\n TeX-parse-self: t\n eval: (cond ((string-equal system-type \"darwin\")    (progn (setq TeX-view-program-list '((\"Skim\" \"/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b\"))))))\n eval: (cond ((string-equal system-type \"gnu/linux\") (progn (setq TeX-view-program-list '((\"Evince\" \"evince --page-index=%(outpage) %o\"))))))\n eval: (cond ((string-equal system-type \"gnu/linux\") (progn (setq TeX-view-program-selection '((output-pdf \"Evince\"))))))\n TeX-parse-all-errors: t\n End:",
+            "position": {
+              "start": { "line": 103, "column": 0 },
+              "end": { "line": 122, "column": 0 }
+            },
+            "key": "XhXB2bEdd6"
           }
         ],
-        "key": "B7vS9qYGMX"
+        "key": "tT5LoHVlSu"
       }
     ],
-    "key": "hCwhBcA3jU"
+    "key": "FfWR1tvAT5"
   },
-  "references": {
-    "cite": {
-      "order": [
-        "Carroll2018",
-        "Virtanen2020",
-        "Harris2020",
-        "Lam2015",
-        "Okuta2017",
-        "Pedregosa2011",
-        "Paszke2019",
-        "Gardner2018"
-      ],
-      "data": {
-        "Carroll2018": {
-          "number": 1,
-          "doi": "10.25080/majora-4af1f417-004",
-          "html": "Carroll, C., Kaufman, A., Kazil, J., Palmer, N., &amp; White, M. (2018). The econ-ARK and HARK: Open source tools for computational economics. In F. Akici, D. Lippa, D. Niederhut, &amp; M. Pacer (Eds.), <i>Proceedings of the Python in Science Conference</i> (pp. 25–30). SciPy. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.25080/majora-4af1f417-004\">10.25080/majora-4af1f417-004</a>"
-        },
-        "Virtanen2020": {
-          "number": 2,
-          "doi": "10.1038/s41592-019-0686-2",
-          "html": "Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J., van der Walt, S. J., Brett, M., Wilson, J., Millman, K. J., Mayorov, N., Nelson, A. R. J., Jones, E., Kern, R., Larson, E., … SciPy 1.0 Contributors. (2020). SciPy 1.0: fundamental algorithms for scientific computing in Python. <i>Nature Methods</i>, <i>17</i>(3), 261–272. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1038/s41592-019-0686-2\">10.1038/s41592-019-0686-2</a>"
-        },
-        "Harris2020": {
-          "number": 3,
-          "doi": "10.1038/s41586-020-2649-2",
-          "html": "Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., Kern, R., Picus, M., Hoyer, S., van Kerkwijk, M. H., Brett, M., Haldane, A., Del Rı́o, J. F., Wiebe, M., Peterson, P., … Oliphant, T. E. (2020). Array programming with NumPy. <i>Nature</i>, <i>585</i>(7825), 357–362. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1038/s41586-020-2649-2\">10.1038/s41586-020-2649-2</a>"
-        },
-        "Lam2015": {
-          "number": 4,
-          "doi": "10.1145/2833157.2833162",
-          "html": "Lam, S. K., Pitrou, A., &amp; Seibert, S. (2015). Numba: a LLVM-based Python JIT compiler. <i>Proceedings of the Second Workshop on the LLVM Compiler Infrastructure in HPC</i>, <i>Article 7</i>, 1–6. <a target=\"_blank\" rel=\"noreferrer\" href=\"https://doi.org/10.1145/2833157.2833162\">10.1145/2833157.2833162</a>"
-        },
-        "Okuta2017": {
-          "number": 5,
-          "html": "Okuta, R., Unno, Y., Nishino, D., Hido, S., &amp; Loomis, C. (2017). Cupy: A numpy-compatible library for nvidia gpu calculations. <i>Proceedings of Workshop on Machine Learning Systems (LearningSys) in the Thirty-First Annual Conference on Neural Information Processing Systems (NIPS)</i>, <i>5</i>."
-        },
-        "Pedregosa2011": {
-          "number": 6,
-          "html": "Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., &amp; Duchesnay, E. (2011). Scikit-Learn: Machine Learning in Python. <i>Journal of Machine Learning Research: JMLR</i>, <i>12</i>, 2825–2830."
-        },
-        "Paszke2019": {
-          "number": 7,
-          "html": "Paszke, A., Gross, S., Massa, F., Lerer, A., Bradbury, J., Chanan, G., Killeen, T., Lin, Z., Gimelshein, N., Antiga, L., &amp; Others. (2019). Pytorch: An imperative style, high-performance deep learning library. <i>Advances in Neural Information Processing Systems</i>, <i>32</i>, 8026–8037."
-        },
-        "Gardner2018": {
-          "number": 8,
-          "html": "Gardner, J. R., Pleiss, G., Bindel, D., Weinberger, K. Q., &amp; Wilson, A. G. (2018). GPyTorch: Blackbox Matrix-Matrix Gaussian Process Inference with GPU Acceleration. <i>Advances in Neural Information Processing Systems</i>."
-        }
-      }
-    }
-  }
+  "references": { "cite": { "order": [], "data": {} } }
 }

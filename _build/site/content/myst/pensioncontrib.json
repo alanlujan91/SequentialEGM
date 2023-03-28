@@ -840,7 +840,7 @@
               "start": { "line": 2, "column": 0 },
               "end": { "line": 10, "column": 0 }
             },
-            "key": "ksmIHCpDFl"
+            "key": "sNNtjojAc6"
           }
         ],
         "data": {
@@ -848,7 +848,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "pDoE3IozJu"
+        "key": "gPrE4Lv5KD"
       },
       {
         "type": "block",
@@ -865,7 +865,7 @@
               "start": { "line": 13, "column": 0 },
               "end": { "line": 16, "column": 0 }
             },
-            "key": "tfVBPHrBWM"
+            "key": "HSmRQiokl9"
           }
         ],
         "data": {
@@ -873,7 +873,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "a25piSm3pO"
+        "key": "xLmbtEmdGV"
       },
       {
         "type": "block",
@@ -890,7 +890,7 @@
               "start": { "line": 19, "column": 0 },
               "end": { "line": 44, "column": 0 }
             },
-            "key": "lGsELZGOJp"
+            "key": "CyzuWdmeMc"
           }
         ],
         "data": {
@@ -898,7 +898,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "WI0pzHI6zO"
+        "key": "HYgcwYAGSp"
       },
       {
         "type": "block",
@@ -915,7 +915,7 @@
               "start": { "line": 47, "column": 0 },
               "end": { "line": 52, "column": 0 }
             },
-            "key": "klBuE0nYa2"
+            "key": "Wb7eMgoynL"
           }
         ],
         "data": {
@@ -924,7 +924,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "k3YtU4DTO3"
+        "key": "BrpnhlNWFG"
       },
       {
         "type": "block",
@@ -944,18 +944,18 @@
               {
                 "type": "text",
                 "value": "Post Decision Stage",
-                "key": "O3EWZCGeg6"
+                "key": "enGJnULqSU"
               }
             ],
             "identifier": "post-decision-stage",
             "label": "Post Decision Stage",
             "html_id": "post-decision-stage",
             "implicit": true,
-            "key": "zT2xEJIGft"
+            "key": "TTFs92GZ59"
           }
         ],
         "data": {},
-        "key": "bbjhTjaZna"
+        "key": "jLXRdwTEkg"
       },
       {
         "type": "block",
@@ -972,11 +972,11 @@
               "start": { "line": 59, "column": 0 },
               "end": { "line": 62, "column": 0 }
             },
-            "key": "yqPIj6g3HK"
+            "key": "vgyIeiz2D1"
           },
           {
             "type": "output",
-            "id": "ThlODD562StRRYHyV0XAH",
+            "id": "o15vxOFQnc80jsWeG--U2",
             "data": [
               {
                 "output_type": "display_data",
@@ -994,11 +994,11 @@
                 }
               }
             ],
-            "key": "iKP7rTN8Kb"
+            "key": "QmnxHZankN"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "LPlrnEwxuP"
+        "key": "ZV6hfcAF3l"
       },
       {
         "type": "block",
@@ -1015,11 +1015,11 @@
               "start": { "line": 69, "column": 0 },
               "end": { "line": 72, "column": 0 }
             },
-            "key": "d6KqcwiwGV"
+            "key": "dqTYv61RMP"
           },
           {
             "type": "output",
-            "id": "yaRjy01QmowIN6fKS_3Tm",
+            "id": "PRANnFd7QntP5oJ8eg3A1",
             "data": [
               {
                 "output_type": "display_data",
@@ -1037,11 +1037,11 @@
                 }
               }
             ],
-            "key": "Vfggfle7xS"
+            "key": "BCTs1e0esZ"
           }
         ],
         "data": {},
-        "key": "ATgX0qgPAV"
+        "key": "gszIwygo1u"
       },
       {
         "type": "block",
@@ -1058,11 +1058,11 @@
               "start": { "line": 79, "column": 0 },
               "end": { "line": 82, "column": 0 }
             },
-            "key": "dLO0HLTBwH"
+            "key": "GrO6ewND1m"
           },
           {
             "type": "output",
-            "id": "R9ARbF75rSbqquDnEFwZ5",
+            "id": "0vgYEApQWiORLp6I5tGo1",
             "data": [
               {
                 "output_type": "display_data",
@@ -1080,11 +1080,11 @@
                 }
               }
             ],
-            "key": "UTz0nk9XBl"
+            "key": "bwiNG5ym8d"
           }
         ],
         "data": {},
-        "key": "Fc5agxjLUr"
+        "key": "ZDBlJOHPVD"
       },
       {
         "type": "block",
@@ -1104,18 +1104,18 @@
               {
                 "type": "text",
                 "value": "Consumption Stage",
-                "key": "DzoRtTAmiY"
+                "key": "RAspmGvtNA"
               }
             ],
             "identifier": "consumption-stage",
             "label": "Consumption Stage",
             "html_id": "consumption-stage",
             "implicit": true,
-            "key": "LcoRHX4nM0"
+            "key": "YGVJnAHZub"
           }
         ],
         "data": {},
-        "key": "Cu0hrTKCmY"
+        "key": "dDNitm9lvq"
       },
       {
         "type": "block",
@@ -1132,11 +1132,11 @@
               "start": { "line": 93, "column": 0 },
               "end": { "line": 96, "column": 0 }
             },
-            "key": "Ch99X3z9f5"
+            "key": "M51bu62ILp"
           },
           {
             "type": "output",
-            "id": "WYIE_QvrBfv8VQ0ohNPEQ",
+            "id": "Uon8SFEq4Wxh2WMyHT6tj",
             "data": [
               {
                 "output_type": "display_data",
@@ -1154,7 +1154,7 @@
                 }
               }
             ],
-            "key": "X5UhyGB6S3"
+            "key": "kksXinEevu"
           }
         ],
         "data": {
@@ -1163,7 +1163,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "cBP2zvgwAn"
+        "key": "BCXukg6Iin"
       },
       {
         "type": "block",
@@ -1180,11 +1180,11 @@
               "start": { "line": 103, "column": 0 },
               "end": { "line": 106, "column": 0 }
             },
-            "key": "UrxMzOpGJi"
+            "key": "fPz7HEHpQ6"
           },
           {
             "type": "output",
-            "id": "MBLbJPKHEIM_sCwzAMOpl",
+            "id": "9l5wHVY-M0b0QLBVhof6u",
             "data": [
               {
                 "output_type": "display_data",
@@ -1202,11 +1202,11 @@
                 }
               }
             ],
-            "key": "LYDgkzmZMD"
+            "key": "zNofrIedoZ"
           }
         ],
         "data": {},
-        "key": "ycFkNaI9ZW"
+        "key": "VZef38Db9Z"
       },
       {
         "type": "block",
@@ -1223,11 +1223,11 @@
               "start": { "line": 113, "column": 0 },
               "end": { "line": 116, "column": 0 }
             },
-            "key": "KAHnQTopgV"
+            "key": "ariAj7Uv8Q"
           },
           {
             "type": "output",
-            "id": "ofx5bx1vcjvQi3L_yF9DK",
+            "id": "toBW3opqNbFZGNB9eaqeX",
             "data": [
               {
                 "output_type": "display_data",
@@ -1245,11 +1245,11 @@
                 }
               }
             ],
-            "key": "EgcHa5I2Ah"
+            "key": "wn2jqXv7lE"
           }
         ],
         "data": {},
-        "key": "PRQhOEYi05"
+        "key": "go9dhxIEkp"
       },
       {
         "type": "block",
@@ -1266,11 +1266,11 @@
               "start": { "line": 123, "column": 0 },
               "end": { "line": 126, "column": 0 }
             },
-            "key": "eUG3ldWn1u"
+            "key": "wKMucwkMVE"
           },
           {
             "type": "output",
-            "id": "Dj2a5nqDCGL_BiX8vA73h",
+            "id": "LyU8y2AhwxuaL4Y-pTP74",
             "data": [
               {
                 "output_type": "display_data",
@@ -1288,11 +1288,11 @@
                 }
               }
             ],
-            "key": "EEm0iFwPXR"
+            "key": "mzzXHojBGn"
           }
         ],
         "data": {},
-        "key": "F7diSMYWW5"
+        "key": "wjTe8zb6dj"
       },
       {
         "type": "block",
@@ -1309,17 +1309,17 @@
               "end": { "line": 134, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "Deposit Stage", "key": "RfheCmMuL7" }
+              { "type": "text", "value": "Deposit Stage", "key": "HFvUouBpyW" }
             ],
             "identifier": "deposit-stage",
             "label": "Deposit Stage",
             "html_id": "deposit-stage",
             "implicit": true,
-            "key": "HAJiEt2ewG"
+            "key": "JM8Af24u2A"
           }
         ],
         "data": {},
-        "key": "b3AIO0pgkk"
+        "key": "LR9dD65JBL"
       },
       {
         "type": "block",
@@ -1336,11 +1336,11 @@
               "start": { "line": 137, "column": 0 },
               "end": { "line": 140, "column": 0 }
             },
-            "key": "pabXrIO24E"
+            "key": "q0yjJbC0TE"
           },
           {
             "type": "output",
-            "id": "1-9IbA2VKIlPHxKSEsQfe",
+            "id": "Q4O8cW10dpX0eU0TAdLMj",
             "data": [
               {
                 "output_type": "display_data",
@@ -1358,11 +1358,11 @@
                 }
               }
             ],
-            "key": "IbjRtMV2i9"
+            "key": "HYTINhYrka"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "qf78PbTNx6"
+        "key": "BdHdAGVHiu"
       },
       {
         "type": "block",
@@ -1379,11 +1379,11 @@
               "start": { "line": 147, "column": 0 },
               "end": { "line": 150, "column": 0 }
             },
-            "key": "OUjFsAF8Ul"
+            "key": "UWvYFRVOQd"
           },
           {
             "type": "output",
-            "id": "EUqVwbWwY4D0TXR0cAw7Y",
+            "id": "PjmZfZ2o8nl7Nlh-44zGL",
             "data": [
               {
                 "output_type": "display_data",
@@ -1401,7 +1401,7 @@
                 }
               }
             ],
-            "key": "eLRayXA1mS"
+            "key": "SwhecSSwpK"
           }
         ],
         "data": {
@@ -1410,7 +1410,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "GS7hqYAEXk"
+        "key": "YL6gxDh90b"
       },
       {
         "type": "block",
@@ -1427,11 +1427,11 @@
               "start": { "line": 157, "column": 0 },
               "end": { "line": 160, "column": 0 }
             },
-            "key": "Vr9ssyAN1w"
+            "key": "t0vR59u4qW"
           },
           {
             "type": "output",
-            "id": "8FEPjHPWuhvqOwdWcaVqs",
+            "id": "mWH-UfyD6wnPOleHWI2n-",
             "data": [
               {
                 "output_type": "display_data",
@@ -1449,11 +1449,11 @@
                 }
               }
             ],
-            "key": "Hz16fPfegq"
+            "key": "lzyUgk2maM"
           }
         ],
         "data": {},
-        "key": "IfbqAhge8D"
+        "key": "sHiuGx41cU"
       },
       {
         "type": "block",
@@ -1470,11 +1470,11 @@
               "start": { "line": 167, "column": 0 },
               "end": { "line": 170, "column": 0 }
             },
-            "key": "zHkGEBYVIT"
+            "key": "xq9S45Muhz"
           },
           {
             "type": "output",
-            "id": "SZCytiYubYpe3UnlevLnh",
+            "id": "Y31YY5Y_EAK6dHqi5eSUB",
             "data": [
               {
                 "output_type": "display_data",
@@ -1492,11 +1492,11 @@
                 }
               }
             ],
-            "key": "a4XbHQfAPq"
+            "key": "yeGgWKC5wF"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "ACshzgMtBF"
+        "key": "XxwFAJr9qY"
       },
       {
         "type": "block",
@@ -1513,11 +1513,11 @@
               "start": { "line": 177, "column": 0 },
               "end": { "line": 180, "column": 0 }
             },
-            "key": "Dlb12W03sz"
+            "key": "fsJpMcLH6v"
           },
           {
             "type": "output",
-            "id": "yFV1ptk7rp-EO72DJARJm",
+            "id": "1ynga0JovgP0pGWsJIKKL",
             "data": [
               {
                 "output_type": "display_data",
@@ -1535,7 +1535,7 @@
                 }
               }
             ],
-            "key": "k5I3aSOZRR"
+            "key": "CHH8JQuuJv"
           }
         ],
         "data": {
@@ -1544,7 +1544,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "YZ6sNsH7aC"
+        "key": "zjwDdrzvRC"
       },
       {
         "type": "block",
@@ -1561,11 +1561,11 @@
               "start": { "line": 187, "column": 0 },
               "end": { "line": 191, "column": 0 }
             },
-            "key": "zAHuksP4a5"
+            "key": "r6Yc5yCua5"
           },
           {
             "type": "output",
-            "id": "D5GRbWWAr_ZhUfrBzcZtA",
+            "id": "iT7KW5OaOaBdsHCpRzQ2q",
             "data": [
               {
                 "name": "stdout",
@@ -1588,7 +1588,7 @@
                 }
               }
             ],
-            "key": "XVAIBRj9hL"
+            "key": "T6aj4KFDUQ"
           }
         ],
         "data": {
@@ -1597,7 +1597,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "L4f5K7ILLb"
+        "key": "ClyQ14HuCM"
       },
       {
         "type": "block",
@@ -1614,17 +1614,17 @@
               "end": { "line": 199, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "Grids", "key": "RwzrDKEbJ8" }
+              { "type": "text", "value": "Grids", "key": "ZqCx0RSJha" }
             ],
             "identifier": "grids",
             "label": "Grids",
             "html_id": "grids",
             "implicit": true,
-            "key": "gJdJujEZwa"
+            "key": "TXXyy0mCRm"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "fRsjXge1DV"
+        "key": "fJn6VC7mzV"
       },
       {
         "type": "block",
@@ -1641,7 +1641,7 @@
               "start": { "line": 202, "column": 0 },
               "end": { "line": 224, "column": 0 }
             },
-            "key": "EBkN4TBGcd"
+            "key": "ddvwG0qtVu"
           }
         ],
         "data": {
@@ -1649,7 +1649,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "eDW3Yr6oAS"
+        "key": "VNbso2GUPL"
       },
       {
         "type": "block",
@@ -1666,11 +1666,11 @@
               "start": { "line": 227, "column": 0 },
               "end": { "line": 265, "column": 0 }
             },
-            "key": "Q6zXp7l0gx"
+            "key": "cZWPj0e1CD"
           },
           {
             "type": "output",
-            "id": "QMicAsPGLnez0ZBUi4Gqq",
+            "id": "kdkOwVaZIf-BMXnu8HItv",
             "data": [
               {
                 "output_type": "display_data",
@@ -1688,7 +1688,7 @@
                 }
               }
             ],
-            "key": "QriMFQJfMt"
+            "key": "PlQ6Kc5CJy"
           }
         ],
         "data": {
@@ -1696,7 +1696,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "BAzk6zj8B8"
+        "key": "S5saSyUoz3"
       },
       {
         "type": "block",
@@ -1713,11 +1713,11 @@
               "start": { "line": 272, "column": 0 },
               "end": { "line": 275, "column": 0 }
             },
-            "key": "w5rxDLmBId"
+            "key": "TInn5KwB9m"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "hIPTU37xQH"
+        "key": "D9WTE7DgVF"
       },
       {
         "type": "block",
@@ -1734,11 +1734,11 @@
               "start": { "line": 278, "column": 0 },
               "end": { "line": 297, "column": 0 }
             },
-            "key": "xB3cKwtUWH"
+            "key": "b0eRehitaM"
           },
           {
             "type": "output",
-            "id": "yNPH1HNwYPAw18ikzU-gg",
+            "id": "6DWkEjgwgPhOgtjj5E31_",
             "data": [
               {
                 "output_type": "execute_result",
@@ -1767,11 +1767,11 @@
                 }
               }
             ],
-            "key": "DIiHhg1Vqi"
+            "key": "EZwunvv24W"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "V6Un3E7O13"
+        "key": "HMmZ4F4RD1"
       },
       {
         "type": "block",
@@ -1788,11 +1788,11 @@
               "start": { "line": 304, "column": 0 },
               "end": { "line": 324, "column": 0 }
             },
-            "key": "kgHcjfQwWG"
+            "key": "J1xifGt79g"
           },
           {
             "type": "output",
-            "id": "ml_M_Xtj2iU3X4-C-iaij",
+            "id": "DaHOOFJY-gnQLmFlozyGR",
             "data": [
               {
                 "output_type": "display_data",
@@ -1810,11 +1810,11 @@
                 }
               }
             ],
-            "key": "hby6UJOj0B"
+            "key": "aoRQCNfj7c"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "Tl1tmkIQ4G"
+        "key": "FZDxNnk6El"
       },
       {
         "type": "block",
@@ -1831,11 +1831,11 @@
               "start": { "line": 331, "column": 0 },
               "end": { "line": 334, "column": 0 }
             },
-            "key": "Vrmm4wYXhS"
+            "key": "ZfyNeh1Zgx"
           }
         ],
         "data": {},
-        "key": "IOAbso5aHc"
+        "key": "RpE1Yd3CUN"
       },
       {
         "type": "block",
@@ -1852,11 +1852,11 @@
               "start": { "line": 337, "column": 0 },
               "end": { "line": 340, "column": 0 }
             },
-            "key": "fBm7wtTx9H"
+            "key": "tKVhZuss3q"
           }
         ],
         "data": {},
-        "key": "k07BVVAKeE"
+        "key": "p8ickjL3Px"
       },
       {
         "type": "block",
@@ -1873,11 +1873,11 @@
               "start": { "line": 343, "column": 0 },
               "end": { "line": 352, "column": 0 }
             },
-            "key": "GaIpihtXUz"
+            "key": "FApnRTxryx"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "OSwfTnPfmL"
+        "key": "YBA51uyaz8"
       },
       {
         "type": "block",
@@ -1894,11 +1894,11 @@
               "start": { "line": 355, "column": 0 },
               "end": { "line": 359, "column": 0 }
             },
-            "key": "ARGJZaLqVW"
+            "key": "DPo4MNfmNL"
           },
           {
             "type": "output",
-            "id": "Id0sRpoVN7emrt5IZj5If",
+            "id": "Ho9g60Abi9yLfZq6tYF7R",
             "data": [
               {
                 "output_type": "display_data",
@@ -1925,14 +1925,14 @@
                 }
               }
             ],
-            "key": "rpb6LuwAWL"
+            "key": "Gy4HoYCUWx"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "X8H3qcZZEV"
+        "key": "maxfTwfuIH"
       }
     ],
-    "key": "E2FK5rJOHG"
+    "key": "n1HXz1VelY"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }
