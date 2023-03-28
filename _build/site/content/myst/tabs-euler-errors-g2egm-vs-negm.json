@@ -845,10 +845,10 @@
                   "end": { "offset": 3, "line": 1, "column": 4 }
                 },
                 "value": "All (average) & -6.233 & -5.367 & -5.758 & -5.201",
-                "key": "c8hTRPQYdu"
+                "key": "gsbdzjIGmO"
               }
             ],
-            "key": "nzMCy8bKTB"
+            "key": "s8qwPMynrM"
           },
           {
             "type": "paragraph",
@@ -864,10 +864,10 @@
                   "end": { "offset": 55, "line": 2, "column": 3 }
                 },
                 "value": " 5th percentile & -7.361 & -7.205 & -7.234 & -6.673",
-                "key": "QtZKwU4qgc"
+                "key": "dXcvgmjlJ3"
               }
             ],
-            "key": "dW0yBGCn1q"
+            "key": "OKyY6rMGji"
           },
           {
             "type": "paragraph",
@@ -883,16 +883,16 @@
                   "end": { "offset": 113, "line": 3, "column": 3 }
                 },
                 "value": " 95th percentile & -4.266 & -3.347 & -3.644 & -3.472",
-                "key": "uWG117DxUE"
+                "key": "S3qTQTa2bJ"
               }
             ],
-            "key": "b2HAGiQtu1"
+            "key": "oleaG6V2Mm"
           }
         ],
-        "key": "mkbZRlbZcC"
+        "key": "sDbTrxcrta"
       }
     ],
-    "key": "hugneshPsX"
+    "key": "mTRFF5YXn0"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

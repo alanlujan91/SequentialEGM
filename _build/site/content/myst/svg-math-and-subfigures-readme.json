@@ -838,10 +838,10 @@
               {
                 "type": "text",
                 "value": "20191212 - struggled for several hours to get svg figures to work properly",
-                "key": "IBh8h4pfSn"
+                "key": "IyBI3bad6K"
               }
             ],
-            "key": "yhbIEHKJq5"
+            "key": "MXF2DzCwWZ"
           },
           {
             "type": "paragraph",
@@ -853,10 +853,10 @@
               {
                 "type": "text",
                 "value": "The current version works",
-                "key": "VQH7oFWoAy"
+                "key": "OFPT2LjrBH"
               }
             ],
-            "key": "brxxty9rdQ"
+            "key": "jNeOOZofD9"
           },
           {
             "type": "paragraph",
@@ -868,10 +868,10 @@
               {
                 "type": "text",
                 "value": "There seem to be two options:",
-                "key": "jANLHljJvH"
+                "key": "JSfPKphyVw"
               }
             ],
-            "key": "JTM9YuRzEl"
+            "key": "B63VzJZODp"
           },
           {
             "type": "list",
@@ -894,24 +894,24 @@
                   {
                     "type": "text",
                     "value": "If you never set a specified size of a figure (like \\includegraphics[width=6in]) then the method discussed ",
-                    "key": "bX47S1R455"
+                    "key": "CfqmgW9EI7"
                   },
                   {
                     "type": "link",
                     "url": "https://tug.org/pipermail/tex4ht/2015q2/001166.html",
                     "children": [
-                      { "type": "text", "value": "here", "key": "RTVz6rBfug" }
+                      { "type": "text", "value": "here", "key": "KszqMbEe9v" }
                     ],
                     "urlSource": "https://tug.org/pipermail/tex4ht/2015q2/001166.html",
-                    "key": "Gx6oiNaa6r"
+                    "key": "tCIhea0Wc3"
                   },
                   {
                     "type": "text",
                     "value": " works. But dies with a division by zero error whenever the size has been explicitly set. It can be resurrected by uncommenting the \\Configure{graphics*}{svg} portion of the file",
-                    "key": "KzIIVPVaRE"
+                    "key": "HhAVk8nkga"
                   }
                 ],
-                "key": "IiXz1yl9Ex"
+                "key": "Rc4rz7SPFk"
               },
               {
                 "type": "listItem",
@@ -924,7 +924,7 @@
                   {
                     "type": "text",
                     "value": "In cases where the size is set (as is frequently the case), the current version obtains the dimensions directly from the svg file",
-                    "key": "ltmE5zzObG"
+                    "key": "CofoPkzzkF"
                   },
                   {
                     "type": "list",
@@ -946,25 +946,25 @@
                           {
                             "type": "text",
                             "value": "This might have problems with an svg file without explicit dimensions",
-                            "key": "dbuq7IoENW"
+                            "key": "Z48pAqQuca"
                           }
                         ],
-                        "key": "Ybef74k6xR"
+                        "key": "cGy5S9UNpf"
                       }
                     ],
-                    "key": "qEq42r3iLc"
+                    "key": "SWFFuP59Vv"
                   }
                 ],
-                "key": "zqOpVV15tZ"
+                "key": "covLS6ZdpJ"
               }
             ],
-            "key": "YkPjxn47Uu"
+            "key": "Z0wTNqinnp"
           }
         ],
-        "key": "Jd3ma7Lqmd"
+        "key": "a5de9d65mX"
       }
     ],
-    "key": "paWkvQbtrn"
+    "key": "DsQQFxk4HJ"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

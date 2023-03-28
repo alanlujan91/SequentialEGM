@@ -853,10 +853,10 @@
                   "end": { "offset": 440, "line": 10, "column": 25 }
                 },
                 "value": "Web",
-                "key": "CubZetVjmA"
+                "key": "xIEfdbEm3Y"
               }
             ],
-            "key": "Y61uQmVuFj"
+            "key": "CyvUSwBqlj"
           },
           {
             "type": "paragraph",
@@ -872,10 +872,10 @@
                   "end": { "offset": 558, "line": 13, "column": 18 }
                 },
                 "value": "Solving Micro DSOPS using Unstructured Multivariate Interpolation",
-                "key": "iAbwgNqM98"
+                "key": "Dgmn6OBE4P"
               }
             ],
-            "key": "t6GHd9wI2A"
+            "key": "AXF3Vmsmin"
           },
           {
             "type": "paragraph",
@@ -891,10 +891,10 @@
                   "end": { "offset": 772, "line": 19, "column": 12 }
                 },
                 "value": "D..,E..",
-                "key": "pHDb9pN3xa"
+                "key": "erdPW9TkS2"
               }
             ],
-            "key": "faoo2vFgR2"
+            "key": "edq3lGWUYx"
           },
           {
             "type": "paragraph",
@@ -918,14 +918,14 @@
                       "start": { "offset": 815, "line": 20, "column": 31 },
                       "end": { "offset": 831, "line": 20, "column": 47 }
                     },
-                    "key": "kuznde8WSd"
+                    "key": "fFO5w1kqfT"
                   }
                 ],
                 "urlSource": "https://econ-ark.org",
-                "key": "Yo1BUclkAt"
+                "key": "XegsVadvk6"
               }
             ],
-            "key": "WRuoANpfdV"
+            "key": "Lavgul7bxV"
           },
           {
             "type": "paragraph",
@@ -941,10 +941,10 @@
                   "end": { "offset": 4037, "line": 66, "column": 25 }
                 },
                 "value": "Web",
-                "key": "UWJuPlZffm"
+                "key": "fK99FBLCBx"
               }
             ],
-            "key": "jPMqc1uENT"
+            "key": "QGbegVvjmk"
           },
           {
             "type": "paragraph",
@@ -960,7 +960,7 @@
                   "end": { "offset": 4099, "line": 69, "column": 19 }
                 },
                 "value": "I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the ",
-                "key": "favpjipTqZ"
+                "key": "fVXolpJWt0"
               },
               {
                 "type": "link",
@@ -988,14 +988,14 @@
                           "end": { "offset": 4348, "line": 69, "column": 268 }
                         },
                         "value": "Econ-ARK/HARK",
-                        "key": "F2m8WGrnJi"
+                        "key": "TnPzdwabKH"
                       }
                     ],
-                    "key": "XIQ0fV2oQg"
+                    "key": "Q7S9NWnNCo"
                   }
                 ],
                 "urlSource": "https://econ-ark.org/",
-                "key": "UXZrKA2QGj"
+                "key": "rpdmlI70iz"
               },
               {
                 "type": "text",
@@ -1004,7 +1004,7 @@
                   "end": { "offset": 4360, "line": 69, "column": 280 }
                 },
                 "value": " toolkit (",
-                "key": "UTT464vf08"
+                "key": "v5Qo1Jf5DR"
               },
               {
                 "type": "citeGroup",
@@ -1019,7 +1019,7 @@
                       {
                         "type": "text",
                         "value": "Carroll ",
-                        "key": "MhZbiD7jXZ"
+                        "key": "rQmieTaQ26"
                       },
                       {
                         "type": "emphasis",
@@ -1027,25 +1027,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "HKYZpdEZDZ"
+                            "key": "RU62kbSuBr"
                           }
                         ],
-                        "key": "jSwWi69DHm"
+                        "key": "THhS1yLozm"
                       },
                       {
                         "type": "text",
                         "value": " (2018)",
-                        "key": "RplRO42Bv8"
+                        "key": "Db4Jqz1jqd"
                       }
                     ],
-                    "key": "XmgksRgvzG"
+                    "key": "PY2sHGhxM3"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4369, "line": 69, "column": 289 },
                   "end": { "offset": 4374, "line": 69, "column": 294 }
                 },
-                "key": "YLheurTcSM"
+                "key": "hQoy0E9zCk"
               },
               {
                 "type": "text",
@@ -1054,7 +1054,7 @@
                   "end": { "offset": 4388, "line": 69, "column": 308 }
                 },
                 "value": "). Additional libraries used in the production of this paper include but are not limited to: ",
-                "key": "FeZzYLlRdQ"
+                "key": "PJ8z85ejIX"
               },
               {
                 "type": "link",
@@ -1082,14 +1082,14 @@
                           "end": { "offset": 4523, "line": 69, "column": 443 }
                         },
                         "value": "scipy",
-                        "key": "pFvuykUfUW"
+                        "key": "zMIQvgCnMA"
                       }
                     ],
-                    "key": "R1rlt71sto"
+                    "key": "wdqVcxTvjh"
                   }
                 ],
                 "urlSource": "https://www.scipy.org/",
-                "key": "bhohlvm9XD"
+                "key": "uAAU1UlmQr"
               },
               {
                 "type": "text",
@@ -1098,7 +1098,7 @@
                   "end": { "offset": 4526, "line": 69, "column": 446 }
                 },
                 "value": " (",
-                "key": "z7XI9xy0FM"
+                "key": "pg6ZQNDBb6"
               },
               {
                 "type": "citeGroup",
@@ -1113,7 +1113,7 @@
                       {
                         "type": "text",
                         "value": "Virtanen ",
-                        "key": "FEIuA4eOKr"
+                        "key": "lzbOYNgUUG"
                       },
                       {
                         "type": "emphasis",
@@ -1121,25 +1121,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "LBb8NC4z1j"
+                            "key": "hT0888BPLh"
                           }
                         ],
-                        "key": "iE0eSB8IcR"
+                        "key": "kRXhnl10Uq"
                       },
                       {
                         "type": "text",
                         "value": " (2020)",
-                        "key": "jTVPyVcBL4"
+                        "key": "hPmlogq7qi"
                       }
                     ],
-                    "key": "jA0iXGP2Nm"
+                    "key": "nGMM4Xt6MW"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4527, "line": 69, "column": 447 },
                   "end": { "offset": 4532, "line": 69, "column": 452 }
                 },
-                "key": "Pmu18Guw8x"
+                "key": "nJNnuod0oL"
               },
               {
                 "type": "text",
@@ -1148,7 +1148,7 @@
                   "end": { "offset": 4547, "line": 69, "column": 467 }
                 },
                 "value": "), ",
-                "key": "jZTaDbwLYa"
+                "key": "ijGqTODEsF"
               },
               {
                 "type": "link",
@@ -1176,14 +1176,14 @@
                           "end": { "offset": 4592, "line": 69, "column": 512 }
                         },
                         "value": "numpy",
-                        "key": "adtaGJZjbH"
+                        "key": "PihTlL76gu"
                       }
                     ],
-                    "key": "En80EUbOhG"
+                    "key": "vnRzalE07g"
                   }
                 ],
                 "urlSource": "https://www.numpy.org/",
-                "key": "lseKsIZVlA"
+                "key": "zyHcgqIZwr"
               },
               {
                 "type": "text",
@@ -1192,7 +1192,7 @@
                   "end": { "offset": 4595, "line": 69, "column": 515 }
                 },
                 "value": " (",
-                "key": "EVol5YsUqh"
+                "key": "RpsGcVVBxp"
               },
               {
                 "type": "citeGroup",
@@ -1207,7 +1207,7 @@
                       {
                         "type": "text",
                         "value": "Harris ",
-                        "key": "qQO2CUkKIt"
+                        "key": "iNtz5GXQwp"
                       },
                       {
                         "type": "emphasis",
@@ -1215,25 +1215,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "oaNFFnrPbz"
+                            "key": "G3DWJMNo9g"
                           }
                         ],
-                        "key": "HuVXbzxDDo"
+                        "key": "f4R8haUYou"
                       },
                       {
                         "type": "text",
                         "value": " (2020)",
-                        "key": "zbAju1nNlG"
+                        "key": "s4D6MteCAO"
                       }
                     ],
-                    "key": "n2cEcrDskT"
+                    "key": "sWRpNadc3F"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4596, "line": 69, "column": 516 },
                   "end": { "offset": 4601, "line": 69, "column": 521 }
                 },
-                "key": "NV986J0iDf"
+                "key": "YyuLbuBKHw"
               },
               {
                 "type": "text",
@@ -1242,7 +1242,7 @@
                   "end": { "offset": 4614, "line": 69, "column": 534 }
                 },
                 "value": "), ",
-                "key": "C0mNFxljdt"
+                "key": "ktRFqS1iZr"
               },
               {
                 "type": "link",
@@ -1270,14 +1270,14 @@
                           "end": { "offset": 4662, "line": 69, "column": 582 }
                         },
                         "value": "numba",
-                        "key": "V2lHFn9Bj2"
+                        "key": "l2j8JEKrmp"
                       }
                     ],
-                    "key": "Hr5DufLLng"
+                    "key": "eHLBJV4VOL"
                   }
                 ],
                 "urlSource": "https://numba.pydata.org/",
-                "key": "XhSLzrdljI"
+                "key": "bUoqp1Ls91"
               },
               {
                 "type": "text",
@@ -1286,7 +1286,7 @@
                   "end": { "offset": 4665, "line": 69, "column": 585 }
                 },
                 "value": " (",
-                "key": "JqcEZFFGPD"
+                "key": "kKxx1kr8Q7"
               },
               {
                 "type": "citeGroup",
@@ -1298,32 +1298,32 @@
                     "label": "Lam2015",
                     "identifier": "lam2015",
                     "children": [
-                      { "type": "text", "value": "Lam ", "key": "vZrA6oMLOY" },
+                      { "type": "text", "value": "Lam ", "key": "YAE8Wsz9jY" },
                       {
                         "type": "emphasis",
                         "children": [
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "zl8togZvhv"
+                            "key": "O90tRYykoE"
                           }
                         ],
-                        "key": "bVL8W3lS0C"
+                        "key": "uPFboBzeEN"
                       },
                       {
                         "type": "text",
                         "value": " (2015)",
-                        "key": "VsO8HDhqjH"
+                        "key": "zjaQGjoJez"
                       }
                     ],
-                    "key": "T4XOSqCdaW"
+                    "key": "hKYwch8fSl"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4666, "line": 69, "column": 586 },
                   "end": { "offset": 4671, "line": 69, "column": 591 }
                 },
-                "key": "n4UKahTmog"
+                "key": "w1jIIanPuF"
               },
               {
                 "type": "text",
@@ -1332,7 +1332,7 @@
                   "end": { "offset": 4681, "line": 69, "column": 601 }
                 },
                 "value": "), ",
-                "key": "zRTeLzNJ0D"
+                "key": "G3B9iStMHv"
               },
               {
                 "type": "link",
@@ -1360,14 +1360,14 @@
                           "end": { "offset": 4720, "line": 69, "column": 640 }
                         },
                         "value": "cupy",
-                        "key": "w9DqnUqNrR"
+                        "key": "KD7M5wxCNK"
                       }
                     ],
-                    "key": "Ns8stxlpns"
+                    "key": "tVg15q64Vp"
                   }
                 ],
                 "urlSource": "https://cupy.dev/",
-                "key": "QaBCsA67fF"
+                "key": "hDKrsbdzoB"
               },
               {
                 "type": "text",
@@ -1376,7 +1376,7 @@
                   "end": { "offset": 4723, "line": 69, "column": 643 }
                 },
                 "value": " (",
-                "key": "Q6mFF5LEMj"
+                "key": "oIRDmyTIxS"
               },
               {
                 "type": "citeGroup",
@@ -1391,7 +1391,7 @@
                       {
                         "type": "text",
                         "value": "Okuta ",
-                        "key": "Wvk9xHRSU4"
+                        "key": "SDRhxrYzRq"
                       },
                       {
                         "type": "emphasis",
@@ -1399,25 +1399,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "HgufHsAKnC"
+                            "key": "CWYXAaxhLa"
                           }
                         ],
-                        "key": "LXf228IS7y"
+                        "key": "aCjszHbxdG"
                       },
                       {
                         "type": "text",
                         "value": " (2017)",
-                        "key": "O6rhwMFKLT"
+                        "key": "qKJIlrEIuk"
                       }
                     ],
-                    "key": "NklibCS2iY"
+                    "key": "DSci457gMm"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4724, "line": 69, "column": 644 },
                   "end": { "offset": 4729, "line": 69, "column": 649 }
                 },
-                "key": "Ewd8mmDr8k"
+                "key": "SNVNkf1Djj"
               },
               {
                 "type": "text",
@@ -1426,7 +1426,7 @@
                   "end": { "offset": 4741, "line": 69, "column": 661 }
                 },
                 "value": "), ",
-                "key": "wBnV1xaw6K"
+                "key": "DZHV3EGN1k"
               },
               {
                 "type": "link",
@@ -1454,14 +1454,14 @@
                           "end": { "offset": 4790, "line": 69, "column": 710 }
                         },
                         "value": "scikit-learn",
-                        "key": "mU1FkqF7OF"
+                        "key": "C8kgjwqMyx"
                       }
                     ],
-                    "key": "tLYAjcwqNv"
+                    "key": "ixba5cMoNi"
                   }
                 ],
                 "urlSource": "https://scikit-learn.org/",
-                "key": "AwGvFTlgI0"
+                "key": "boEKTUqhDT"
               },
               {
                 "type": "text",
@@ -1470,7 +1470,7 @@
                   "end": { "offset": 4799, "line": 69, "column": 719 }
                 },
                 "value": " (",
-                "key": "KAQ0Wgkzqf"
+                "key": "uNQvKRk1B1"
               },
               {
                 "type": "citeGroup",
@@ -1485,7 +1485,7 @@
                       {
                         "type": "text",
                         "value": "Pedregosa ",
-                        "key": "foHtIbamzu"
+                        "key": "nfnnZ7jZcg"
                       },
                       {
                         "type": "emphasis",
@@ -1493,25 +1493,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "NSchPaHhOG"
+                            "key": "JDJtnELCR6"
                           }
                         ],
-                        "key": "dCAPJ11b6p"
+                        "key": "CuB2Ncyhgv"
                       },
                       {
                         "type": "text",
                         "value": " (2011)",
-                        "key": "i30WSVM4iq"
+                        "key": "iCUUriaVWN"
                       }
                     ],
-                    "key": "XoL5LoX47K"
+                    "key": "G9rtavdHew"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4800, "line": 69, "column": 720 },
                   "end": { "offset": 4805, "line": 69, "column": 725 }
                 },
-                "key": "ge9bQw9ODL"
+                "key": "V5ZlOcfuo3"
               },
               {
                 "type": "text",
@@ -1520,7 +1520,7 @@
                   "end": { "offset": 4821, "line": 69, "column": 741 }
                 },
                 "value": "), ",
-                "key": "YR8uA4QcIJ"
+                "key": "rAqQ8JkPnr"
               },
               {
                 "type": "link",
@@ -1548,14 +1548,14 @@
                           "end": { "offset": 4866, "line": 69, "column": 786 }
                         },
                         "value": "pytorch",
-                        "key": "qd4bmCeCes"
+                        "key": "J5HGJdWGq1"
                       }
                     ],
-                    "key": "S6wrbX3DQ1"
+                    "key": "YAg5F1P8HG"
                   }
                 ],
                 "urlSource": "https://pytorch.org/",
-                "key": "feGtZqWg7s"
+                "key": "NoqZ6nJEra"
               },
               {
                 "type": "text",
@@ -1564,7 +1564,7 @@
                   "end": { "offset": 4869, "line": 69, "column": 789 }
                 },
                 "value": " (",
-                "key": "WHzbZ63HEc"
+                "key": "MLW0YHa3aZ"
               },
               {
                 "type": "citeGroup",
@@ -1579,7 +1579,7 @@
                       {
                         "type": "text",
                         "value": "Paszke ",
-                        "key": "htzCs3BbGi"
+                        "key": "UNbBpSCZJ1"
                       },
                       {
                         "type": "emphasis",
@@ -1587,25 +1587,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "cjTrC1b3tn"
+                            "key": "fVciSfaaWD"
                           }
                         ],
-                        "key": "GRzGKGSG4g"
+                        "key": "UXRNeveSD3"
                       },
                       {
                         "type": "text",
                         "value": " (2019)",
-                        "key": "c0J4n55Qkh"
+                        "key": "o5dFNMF66v"
                       }
                     ],
-                    "key": "bDuUqfHdep"
+                    "key": "U2pB97tPUV"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4870, "line": 69, "column": 790 },
                   "end": { "offset": 4875, "line": 69, "column": 795 }
                 },
-                "key": "Kw8m8dXkL6"
+                "key": "ZZ5DzCVsOL"
               },
               {
                 "type": "text",
@@ -1614,7 +1614,7 @@
                   "end": { "offset": 4888, "line": 69, "column": 808 }
                 },
                 "value": "), and ",
-                "key": "DtgnNfSisL"
+                "key": "cM8tdcTxkd"
               },
               {
                 "type": "link",
@@ -1642,14 +1642,14 @@
                           "end": { "offset": 4938, "line": 69, "column": 858 }
                         },
                         "value": "gpytorch",
-                        "key": "bEVPAzLNSL"
+                        "key": "ENEglSO1dw"
                       }
                     ],
-                    "key": "rJIaQXgeyk"
+                    "key": "BBKB4uEfoH"
                   }
                 ],
                 "urlSource": "https://gpytorch.ai/",
-                "key": "Oa16dDzE8j"
+                "key": "JdrKc4LPJl"
               },
               {
                 "type": "text",
@@ -1658,7 +1658,7 @@
                   "end": { "offset": 4941, "line": 69, "column": 861 }
                 },
                 "value": " (",
-                "key": "rqezPTEcmb"
+                "key": "HVRO0IBK6s"
               },
               {
                 "type": "citeGroup",
@@ -1673,7 +1673,7 @@
                       {
                         "type": "text",
                         "value": "Gardner ",
-                        "key": "oEf1rMCSnw"
+                        "key": "pIVl6V9XRq"
                       },
                       {
                         "type": "emphasis",
@@ -1681,25 +1681,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "Ky03ffX09P"
+                            "key": "bGNUlBnupb"
                           }
                         ],
-                        "key": "nAMEFcb9my"
+                        "key": "uJM8QKlhSS"
                       },
                       {
                         "type": "text",
                         "value": " (2018)",
-                        "key": "XSvKVevqaf"
+                        "key": "xK2ak27kCz"
                       }
                     ],
-                    "key": "ZPvUYGl92N"
+                    "key": "xHjOhoyeIQ"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4942, "line": 69, "column": 862 },
                   "end": { "offset": 4947, "line": 69, "column": 867 }
                 },
-                "key": "ZgHDNNiuaq"
+                "key": "kQKoXxybMW"
               },
               {
                 "type": "text",
@@ -1708,10 +1708,10 @@
                   "end": { "offset": 4961, "line": 69, "column": 881 }
                 },
                 "value": ").",
-                "key": "wnepTx5y4e"
+                "key": "xQ5JxUIsrB"
               }
             ],
-            "key": "tOU1BOvso1"
+            "key": "xALa1p54m5"
           },
           {
             "type": "paragraph",
@@ -1727,10 +1727,10 @@
                   "end": { "offset": 5375, "line": 90, "column": 25 }
                 },
                 "value": "Web",
-                "key": "jhuaFszJqa"
+                "key": "HjHFb1hvlZ"
               }
             ],
-            "key": "Zsux1lzJ5f"
+            "key": "miIIOyj71Q"
           },
           {
             "type": "paragraph",
@@ -1746,10 +1746,10 @@
                   "end": { "offset": 5413, "line": 91, "column": 32 }
                 },
                 "value": "[figure]list=no",
-                "key": "QOo1XFSiPg"
+                "key": "GMoMGXRDC3"
               }
             ],
-            "key": "gNbsiwSheV"
+            "key": "SIPkhfSiWm"
           },
           {
             "type": "paragraph",
@@ -1765,10 +1765,10 @@
                   "end": { "offset": 5463, "line": 92, "column": 32 }
                 },
                 "value": "[table]list=no",
-                "key": "g4tkHa0Jgv"
+                "key": "vHI79JJVn2"
               }
             ],
-            "key": "qHfXHDEuaR"
+            "key": "oDRy5GJ588"
           },
           {
             "type": "paragraph",
@@ -1784,16 +1784,16 @@
                   "end": { "offset": 5640, "line": 100, "column": 14 }
                 },
                 "value": "document",
-                "key": "q176itBYMD"
+                "key": "dGnoyAmMSf"
               }
             ],
-            "key": "aY0n2Hrnt6"
+            "key": "SBS1WvGIRQ"
           }
         ],
-        "key": "yFQdbAolgv"
+        "key": "B7vS9qYGMX"
       }
     ],
-    "key": "OsoRyI3y5J"
+    "key": "hCwhBcA3jU"
   },
   "references": {
     "cite": {

@@ -813,11 +813,11 @@
         "\\Seniority": "\\mathsf{X}",
         "\\seniority": "\\mathsf{x}"
       },
+      "title": "EGM$^n$: The Sequential Endogenous Grid Method",
       "authors": [],
       "github": "https://github.com/alanlujan91/SequentialEGM",
       "keywords": [],
       "bibliography": [],
-      "title": "EGM$^n$: The Sequential Endogenous Grid Method",
       "slug": "myst",
       "index": "readme",
       "pages": [

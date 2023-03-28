@@ -1,7 +1,7 @@
 # See docs at: https://myst-tools.org/docs/mystjs/frontmatter
 version: 1
 project:
-  # title:
+  title: "EGM$^n$: The Sequential Endogenous Grid Method"
   # description:
   keywords: []
   authors: []

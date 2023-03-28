@@ -839,10 +839,10 @@
               {
                 "type": "text",
                 "value": "If you use TeXLive on more than one system, or under more than one username,\nit is useful to have a set of customizations that are shared across all your\nidentities and machines.",
-                "key": "UQj5zpg6m3"
+                "key": "aAG8gV3TPR"
               }
             ],
-            "key": "FOnhzQL84y"
+            "key": "Ds59z4oUrR"
           },
           {
             "type": "paragraph",
@@ -854,10 +854,10 @@
               {
                 "type": "text",
                 "value": "This can be accomplished in a number of ways.",
-                "key": "MhBhKnJe73"
+                "key": "Oli0NIUPLI"
               }
             ],
-            "key": "EJKD0hwqn7"
+            "key": "FtKhslTpHf"
           },
           {
             "type": "paragraph",
@@ -869,10 +869,10 @@
               {
                 "type": "text",
                 "value": "The easiest is probably to install a file sync service like Dropbox that runs\nautomatically on all of the machines/users in question, and to have a master\nversion of texmf-local that lives in Dropbox.",
-                "key": "pAJP8Gj4IL"
+                "key": "BR9O32LEOX"
               }
             ],
-            "key": "AMo9flXV6c"
+            "key": "GeR8PbPXAX"
           },
           {
             "type": "paragraph",
@@ -884,10 +884,10 @@
               {
                 "type": "text",
                 "value": "Then you have two options:",
-                "key": "yKaierXIr8"
+                "key": "rAVLLuaq79"
               }
             ],
-            "key": "gWTbTB9NcC"
+            "key": "pojn8iwFac"
           },
           {
             "type": "list",
@@ -910,10 +910,10 @@
                   {
                     "type": "text",
                     "value": "On unix-based machines (Mac or Linux, say), you can replace the texmf-local\nfile on your machine with a symbolic link to the filepath in Dropbox",
-                    "key": "fxhn2HeClH"
+                    "key": "d8ycSe2x4b"
                   }
                 ],
-                "key": "yxTMMWWpnS"
+                "key": "VlaQRZFpp6"
               },
               {
                 "type": "listItem",
@@ -926,19 +926,19 @@
                   {
                     "type": "text",
                     "value": "Windows does not allow symbolic links. So on Windows machines you will need\nto modify the texmf.cnf configuration file so that it knows to look in the\nright place (your Dropbox path) for the texmf-local config files",
-                    "key": "FtWjQ3uGZ2"
+                    "key": "LfxsC9nXoB"
                   }
                 ],
-                "key": "mDV5e4ecZD"
+                "key": "AXO81DMZgl"
               }
             ],
-            "key": "ekOIAQQ0Qu"
+            "key": "iSWZL6tNVZ"
           }
         ],
-        "key": "qGw31Z3YYe"
+        "key": "FbPu6ZCJ0a"
       }
     ],
-    "key": "AhyvziSLpc"
+    "key": "eHV71auxLP"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

@@ -846,10 +846,10 @@
                   "end": { "offset": 1234, "line": 31, "column": 23 }
                 },
                 "value": "SequentialEGM-titlepage",
-                "key": "TUt0dRBrfp"
+                "key": "lKW1KXGTaR"
               }
             ],
-            "key": "U0QJ2tvHj2"
+            "key": "DDBOAyKsvt"
           },
           {
             "type": "paragraph",
@@ -865,10 +865,10 @@
                   "end": { "offset": 1304, "line": 34, "column": 25 }
                 },
                 "value": "TOCSequentialEGM-contents.texinput",
-                "key": "biXrMURIiX"
+                "key": "RRJ7iUCt0h"
               }
             ],
-            "key": "xx0JfhiTd0"
+            "key": "jnLjN2QmBE"
           },
           {
             "type": "paragraph",
@@ -884,10 +884,10 @@
                   "end": { "offset": 1484, "line": 39, "column": 30 }
                 },
                 "value": "Appendix",
-                "key": "bfYkNOf7l2"
+                "key": "u3RAb036zP"
               }
             ],
-            "key": "ZQlcd2mKXT"
+            "key": "BHB04ftus3"
           },
           {
             "type": "paragraph",
@@ -903,16 +903,16 @@
                   "end": { "offset": 1516, "line": 40, "column": 28 }
                 },
                 "value": "Subfiles/Appendix",
-                "key": "Yw5fhI8sgi"
+                "key": "T1uY4hfNpn"
               }
             ],
-            "key": "jnma8hAUn9"
+            "key": "H5A7tOfdvM"
           }
         ],
-        "key": "GsI7wYlBrZ"
+        "key": "WAOuuNWH0V"
       }
     ],
-    "key": "PIs6Y91vcX"
+    "key": "R93yTlXN7v"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

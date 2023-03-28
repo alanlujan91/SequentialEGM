@@ -838,7 +838,7 @@
               {
                 "type": "text",
                 "value": "The code in this folder comes from the open source repository\n",
-                "key": "RSGf4K26D4"
+                "key": "ybMa9GsWQP"
               },
               {
                 "type": "link",
@@ -847,15 +847,15 @@
                   {
                     "type": "text",
                     "value": "https://​​github​​.com​​/NumEconCopenhagen​​/ConsumptionSavingNotebooks",
-                    "key": "H7LUCLeefa"
+                    "key": "IpeDNh0MKF"
                   }
                 ],
                 "urlSource": "https://github.com/NumEconCopenhagen/ConsumptionSavingNotebooks",
                 "error": true,
-                "key": "rLNN8qlboY"
+                "key": "wT0FGYFW9A"
               }
             ],
-            "key": "tCUspp5YBy"
+            "key": "qztiClM90e"
           },
           {
             "type": "paragraph",
@@ -867,10 +867,10 @@
               {
                 "type": "text",
                 "value": "Slight changes have been made to the code to make it compatible\nwith this project. The original code is licensed under the MIT license.",
-                "key": "Srbz0LxBA1"
+                "key": "DtRAemwzaj"
               }
             ],
-            "key": "Ql01p3kRi7"
+            "key": "i1dgmALuNO"
           },
           {
             "type": "paragraph",
@@ -882,10 +882,10 @@
               {
                 "type": "text",
                 "value": "The original code is written by Jeppe Druedahl.",
-                "key": "rp3IDjryWd"
+                "key": "j2NjGu3jUj"
               }
             ],
-            "key": "pOlOcVr2pb"
+            "key": "CsVpF19WHe"
           },
           {
             "type": "paragraph",
@@ -897,16 +897,16 @@
               {
                 "type": "text",
                 "value": "Any errors herein are my own.",
-                "key": "outouUQmnI"
+                "key": "CRnNF60VxY"
               }
             ],
-            "key": "UxQPct1PBF"
+            "key": "CDRZWod4nn"
           }
         ],
-        "key": "WV071GM7zf"
+        "key": "VGEtALC2b7"
       }
     ],
-    "key": "GYQs0DiSKO"
+    "key": "QSNuHWzR5p"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

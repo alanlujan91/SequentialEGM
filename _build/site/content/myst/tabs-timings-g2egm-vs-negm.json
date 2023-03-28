@@ -845,10 +845,10 @@
                   "end": { "offset": 5, "line": 1, "column": 6 }
                 },
                 "value": "Total & 0.84 & 1.38 & 1.13 & 1.60",
-                "key": "WjsXEoZe0P"
+                "key": "eFwG1c7qCn"
               }
             ],
-            "key": "WG8ytyE426"
+            "key": "xzCNGJPsFe"
           },
           {
             "type": "paragraph",
@@ -864,10 +864,10 @@
                   "end": { "offset": 41, "line": 2, "column": 5 }
                 },
                 "value": "Post-decision functions & 0.02 & 0.02 & 0.32 & 0.23",
-                "key": "xLNfYsiI4K"
+                "key": "U1j7ZuKcDS"
               }
             ],
-            "key": "ekA9dDFYib"
+            "key": "gDjwx6Yis3"
           },
           {
             "type": "paragraph",
@@ -883,10 +883,10 @@
                   "end": { "offset": 95, "line": 3, "column": 4 }
                 },
                 "value": "EGM-step & 0.82 & 0.30 & 0.81 & 0.30",
-                "key": "RIAwyGj7Vu"
+                "key": "pOqMAP9c9p"
               }
             ],
-            "key": "E8VoGFoIvn"
+            "key": "JbkwvRlNDz"
           },
           {
             "type": "paragraph",
@@ -902,16 +902,16 @@
                   "end": { "offset": 135, "line": 4, "column": 4 }
                 },
                 "value": "VFI-step & & 1.07 & & 1.07",
-                "key": "Oj1EKDFELt"
+                "key": "Qhuo2sqa1L"
               }
             ],
-            "key": "HbEC1GrUQw"
+            "key": "coCLGVMP4t"
           }
         ],
-        "key": "s52S7Clad0"
+        "key": "GK36IMQS1f"
       }
     ],
-    "key": "cUmRI863i0"
+    "key": "Utypax4UNk"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }
