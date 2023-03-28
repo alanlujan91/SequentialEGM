@@ -1,0 +1,52 @@
+% Created with jtex v.0.1.10
+\documentclass{article}
+\PassOptionsToPackage{short, nodayofweek}{datetime}
+
+\input{curvenote.def}
+
+
+
+% colors for hyperlinks
+\hypersetup{colorlinks=true, allcolors=blue}
+\hypersetup{
+pdftitle={\@title},
+pdfsubject={},
+pdfauthor={\@author},
+pdfkeywords={},
+addtopdfcreator={Written in Curvenote}
+}
+
+\usepackage{curvenote}
+
+\title{}
+
+\newdate{articleDate}{28}{3}{2023}
+\date{\displaydate{articleDate}}
+
+\author{}
+
+\begin{document}
+
+\maketitle
+\keywords{}/SequentialEGM
+
+document
+
+\subsection{Conclusion}\label{sec:conclusion}
+
+This paper introduces a novel method for solving dynamic stochastic optimization problems called the Sequential Endogenous Grid Method (EGM$^n$). Given a problem with multiple decisions (or control variables), the Sequential Endogenous Grid Method proposes separating the problem into a sequence of smaller subproblems that can be solved sequentially by using more than one EGM step. Then, depending on the resulting endogenous grid from each subproblem, this paper proposes different methods for interpolating functions on non-rectilinear grids, called the Warped Grid Interpolation (WGI) and the Gaussian Process Regression (GPR) method.
+
+EGM$^n$ is similar to the Nested Endogenous Grid Method (NEGM)\footnote{\citet{Druedahl2021}.} and the Generalized Endogenous Grid Method (G2EGM)\footnote{\citet{Druedahl2017}.} in that it can solve problems with multiple decisions, but it differs from these methods in that by choosing the subproblems strategically, we can take advantage of multiple sequential EGM steps to solve complex multidimensional models in a fast and efficient manner. Additionally, the use of machine learning tools such as the GPR overcomes bottlenecks seen in unstructured interpolation using Delauany triangulation and other similar methods.
+
+Web
+
+[figure]list=no
+
+[table]list=no
+
+document
+
+\clearpage
+\bibliography{main.bib}
+
+\end{document}

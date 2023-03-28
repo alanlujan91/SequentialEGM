@@ -1,0 +1,105 @@
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" dtd-version="1.3" xml:lang="en">
+  <body>
+    <p>/SequentialEGM</p>
+    <p>document</p>
+    <sec id="sec:intro">
+      <title>Introduction</title>
+      <sec id="background">
+        <title>Background</title>
+        <p>Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, require strong underlying assumptions, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is using a grid search method to solve the model. The Endogenous Grid Method (EGM) developed by
+          <xref ref-type="bibr" rid="Carroll2006">Carroll (2006)</xref> allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to compute became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation.
+        </p>
+        <p>However, the Endogenous Grid Method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied have been expanded
+          <xref ref-type="fn" rid="gtxnrk4ae3"/>, but with every new method comes a new set of limitations.
+        </p>
+        <p>This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM
+          <inline-formula>
+            <tex-math><![CDATA[^n]]></tex-math>
+          </inline-formula>) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
+        </p>
+      </sec>
+    </sec>
+    <sec id="literature-review">
+      <title>Literature Review</title>
+      <p>
+        <xref ref-type="bibr" rid="Carroll2006">Carroll (2006)</xref> first introduced the Endogenous Grid Method as a way to speed up the solution of dynamic stochastic consumption-savings problems. The method consists of starting with an exogenous grid of post-decision states and using the inverse of the first-order condition to find the optimal consumption policy that rationalizes such post-decision states. Given the optimal policy and post-decision states, it is straightforward to calculate the initial pre-decision state that leads to the optimal policy. Although this method is certainly innovative, it only applied to a model with one control variable and one state variable.
+        <xref ref-type="bibr" rid="Barillas2007">Barillas &amp; Fernández-Villaverde (2007)</xref> further extend this method by including more than one control variable in the form of a labor-leisure choice, as well as a second state variable for stochastic persistence.
+      </p>
+      <p>
+        <xref ref-type="bibr" rid="Hintermaier2010">Hintermaier &amp; Koeniger (2010)</xref> introduce a model with collateral constraints and non-separable utility and solve using an EGM method that allows for occasionally binding constraints among endogenous variables.
+        <xref ref-type="bibr" rid="Jorgensen2013">Jørgensen (2013)</xref> evaluates the performance of the Endogenous Grid Method against other methods for solving dynamic stochastic optimization problems and finds it to be fast and efficient.
+        <xref ref-type="bibr" rid="Maliar2013">Maliar &amp; Maliar (2013)</xref> develop the Envelope Condition Method based on a similar idea as the Endogenous Grid Method, avoiding the need for costly numerical optimization and grid search. However, their model is limited to infinite horizon problems as it is a forward solution method.
+      </p>
+      <p>Further development into a multivariate Endogenous Grid Method expanded the ability of researchers to solve models efficiently.
+        <xref ref-type="bibr" rid="White2015">White (2015)</xref> formally characterized the conditions for the Endogenous Grid Method and developed an interpolation method for structured non-rectilinear, or curvilinear, grids.
+        <xref ref-type="bibr" rid="Iskhakov2015">Iskhakov (2015)</xref> additionally establishes conditions for solving multivariate models with EGM, requiring the invertibility of a triangular system of first-order conditions.
+        <xref ref-type="bibr" rid="Ludwig2018">Ludwig &amp; Schön (2018)</xref> also develops a novel interpolating method using Delaunay triangulation of the resulting unstructured endogenous grid. However, the authors show that the gains from avoiding the grid search method are often offset by the costly construction of the triangulation.
+      </p>
+      <p>For the papers discussed above, continuity and smoothness of the value and first-order conditions are strict requirements.
+        <xref ref-type="bibr" rid="Fella2014">Fella (2014)</xref> first introduced a method to solve non-convex problems using the Endogenous Grid Method. The idea is based on evaluating necessary but not sufficient candidates for the first-order condition in overlapping regions of the state space.
+        <xref ref-type="bibr" rid="Arellano2016">Arellano
+          <italic>et al.</italic> (2016)
+        </xref> use the Envelope Condition Method to solve a sovereign default risk model with similar efficiency gains to EGM.
+        <xref ref-type="bibr" rid="Iskhakov2017">Iskhakov
+          <italic>et al.</italic> (2017)
+        </xref> further advances the methodology by using extreme errors to solve discrete choice problems with Endogenous Grid Method. These methods however were only applied to a single control variable and a single state variable.
+        <xref ref-type="bibr" rid="Druedahl2017">Druedahl &amp; Jørgensen (2017)</xref> introduces the
+        <inline-formula>
+          <tex-math><![CDATA[G2EGM]]></tex-math>
+        </inline-formula> to handle non-convex problems with more than 1 control variable and more than 1 state variable. This method is also capable of handling occasionally binding constraints which previous multivariate EGM methods were not.
+      </p>
+      <p>
+        <xref ref-type="bibr" rid="Clausen2020">Clausen &amp; Strub (2020)</xref> formalize the applicability of the Endogenous Grid Method and its extensions to discrete choice models and discuss the nesting of problems to efficiently find accurate solutions.
+        <xref ref-type="bibr" rid="Druedahl2021">Druedahl (2021)</xref> similarly suggest the nesting of problems to efficiently use the Endogenous Grid Method within problems with multiple control variables. However, while these nested methods reduce the complexity of solving these models, they often still require grid search methods as is the case with
+        <xref ref-type="bibr" rid="Druedahl2021">Druedahl (2021)</xref>.
+      </p>
+    </sec>
+    <sec id="research-question">
+      <title>Research Question</title>
+      <p>The purpose of this paper is to describe a new method for solving dynamic optimization problems efficiently and accurately while avoiding convex optimization and grid search methods with the use of the Endogenous Grid Method and first-order conditions. The method is called Sequential EGM (or EGM
+        <inline-formula>
+          <tex-math><![CDATA[^n]]></tex-math>
+        </inline-formula>) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems. This paper also illustrates an example of how Sequential EGM can be used to solve a dynamic optimization problem in a multivariate setting.
+      </p>
+    </sec>
+    <sec id="methodology">
+      <title>Methodology</title>
+      <p>The sequential Endogenous Grid Method consists of 3 major parts: First, the problem to be solved should be broken up into a sequence of smaller problems that themselves don’t add any additional state variables or introduce asynchronous dynamics with respect to the uncertainty. If the problem is broken up in such a way that uncertainty can happen in more than one period, then the solution to this sequence of problems might be different from the aggregate problem due to giving the agent additional information about the future by realizing some uncertainty. Second, I evaluate each of the smaller problems to see if they can be solved using the Endogenous Grid Method. This evaluation is of greater scope than the traditional Endogenous Grid Method, as it allows for the resulting exogenous grid to be non-regular. If the subproblem can not be solved with EGM, then convex optimization is used. Third, if the exogenous grid generated by the EGM is non-regular, then I use a multidimensional interpolation method that takes advantage of machine learning tools to generate an interpolating function. Solving each subproblem in this way, the sequential Endogenous Grid Method is capable of solving complex problems that are not solvable with the traditional Endogenous Grid Method and are difficult and time-consuming to solve with convex optimization and grid search methods.</p>
+    </sec>
+    <sec id="contributions">
+      <title>Contributions</title>
+      <p>The Sequential Endogenous Grid Method is capable of solving multivariate dynamic optimization problems in an efficient and fast manner by avoiding grid search. This should allow researchers and practitioners to solve more complex problems that were previously not easily accessible to them, but more accurately capture the dynamics of the macroeconomy. By using advancements in machine learning techniques such as Gaussian Process Regression, the Sequential Endogenous Grid Method is capable of solving problems that were not previously able to be solved using the traditional Endogenous Grid Method. In particular, the Sequential Endogenous Grid Method is different from NEGM in that it allows for using more than one Endogenous Grid Method step to solve a problem, avoiding costly grid search methods to the extent that the problem allows.</p>
+      <p>Additionally, the Sequential Endogenous Grid Method often sheds light on the problem by breaking it down into a sequence of simpler problems that were not previously apparent. This is because intermediary steps in the solution process generate value and marginal value functions of different pre- and post-decision states that can be used to understand the problem better.</p>
+    </sec>
+    <sec id="outline">
+      <title>Outline</title>
+      <p>Section 
+        <xref ref-type="sec" rid="sec:method">??</xref> presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then Section 
+        <xref ref-type="sec" rid="sec:higherdims">??</xref> introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In Section 
+        <xref ref-type="sec" rid="sec:gpr">??</xref> I present the unstructured interpolation methods using machine learning in more detail. Section 
+        <xref ref-type="sec" rid="sec:conditions">??</xref> discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, Section 
+        <xref ref-type="sec" rid="sec:conclusion">??</xref> concludes with some limitations and future work.
+      </p>
+      <p>Web</p>
+      <p>[figure]list=no</p>
+      <p>[table]list=no</p>
+      <p>document</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn id="gtxnrk4ae3">
+        <label>gtXnrk4AE3</label>
+        <p>
+          <xref ref-type="bibr" rid="Barillas2007">Barillas &amp; Fernández-Villaverde (2007)</xref>,
+          <xref ref-type="bibr" rid="Maliar2013">Maliar &amp; Maliar (2013)</xref>,
+          <xref ref-type="bibr" rid="Fella2014">Fella (2014)</xref>,
+          <xref ref-type="bibr" rid="White2015">White (2015)</xref>,
+          <xref ref-type="bibr" rid="Iskhakov2017">Iskhakov
+            <italic>et al.</italic> (2017)
+          </xref>, among others.
+        </p>
+      </fn>
+    </fn-group>
+  </back>
+</article>

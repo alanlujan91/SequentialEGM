@@ -845,10 +845,10 @@
                   "end": { "offset": 132, "line": 3, "column": 47 }
                 },
                 "value": "/SequentialEGM",
-                "key": "z1evg1t5ym"
+                "key": "WHxRfMK3zb"
               }
             ],
-            "key": "NZdmwwehd7"
+            "key": "Ffv8FFCRGY"
           },
           {
             "type": "paragraph",
@@ -864,13 +864,13 @@
                   "end": { "offset": 221, "line": 6, "column": 16 }
                 },
                 "value": "document",
-                "key": "c3UX9d7UUl"
+                "key": "MN004W4Km1"
               }
             ],
-            "key": "mgvIt09L1q"
+            "key": "GZl99ZGIaO"
           }
         ],
-        "key": "b8v33ErtUw"
+        "key": "Lj6xRJNWrq"
       },
       {
         "type": "block",
@@ -894,13 +894,13 @@
                   "end": { "offset": 277, "line": 9, "column": 24 }
                 },
                 "value": "Conclusion",
-                "key": "et4hpD2GvN"
+                "key": "da5g2Sxy7l"
               }
             ],
             "label": "sec:conclusion",
             "identifier": "sec:conclusion",
             "html_id": "sec-conclusion",
-            "key": "T4TkeiRKcy"
+            "key": "J0MMzGGqdh"
           },
           {
             "type": "paragraph",
@@ -916,7 +916,7 @@
                   "end": { "offset": 546, "line": 14, "column": 5 }
                 },
                 "value": "This paper introduces a novel method for solving dynamic stochastic optimization problems called the Sequential Endogenous Grid Method (EGM",
-                "key": "lbC12pZv7Z"
+                "key": "zf9bWzrGDo"
               },
               {
                 "type": "inlineMath",
@@ -926,7 +926,7 @@
                   "end": { "offset": 685, "line": 14, "column": 144 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
-                "key": "HCxL5FHcaO"
+                "key": "qgq4cOy3Io"
               },
               {
                 "type": "text",
@@ -935,10 +935,10 @@
                   "end": { "offset": 686, "line": 14, "column": 145 }
                 },
                 "value": "). Given a problem with multiple decisions (or control variables), the Sequential Endogenous Grid Method proposes separating the problem into a sequence of smaller subproblems that can be solved sequentially by using more than one EGM step. Then, depending on the resulting endogenous grid from each subproblem, this paper proposes different methods for interpolating functions on non-rectilinear grids, called the Warped Grid Interpolation (WGI) and the Gaussian Process Regression (GPR) method.",
-                "key": "VUugBRioyd"
+                "key": "fJHSpWgvWp"
               }
             ],
-            "key": "kqfN9v518G"
+            "key": "jkW9WT2s8C"
           },
           {
             "type": "paragraph",
@@ -954,7 +954,7 @@
                   "end": { "offset": 1188, "line": 16, "column": 4 }
                 },
                 "value": "EGM",
-                "key": "ItmSgPkdFz"
+                "key": "qkNmBQTj1t"
               },
               {
                 "type": "inlineMath",
@@ -964,7 +964,7 @@
                   "end": { "offset": 1192, "line": 16, "column": 8 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
-                "key": "pcurYCBdZK"
+                "key": "E0hYbR6xLD"
               },
               {
                 "type": "text",
@@ -973,18 +973,18 @@
                   "end": { "offset": 1193, "line": 16, "column": 9 }
                 },
                 "value": " is similar to the Nested Endogenous Grid Method (NEGM)",
-                "key": "eWA5qKXfru"
+                "key": "kbwIcolq6n"
               },
               {
                 "type": "footnoteReference",
-                "label": "q2uSqgjZvk",
+                "label": "gDIz2FBiuJ",
                 "position": {
                   "start": { "offset": 1247, "line": 16, "column": 63 },
                   "end": { "offset": 1256, "line": 16, "column": 72 }
                 },
-                "identifier": "q2usqgjzvk",
+                "identifier": "gdiz2fbiuj",
                 "number": 1,
-                "key": "TQaVBMxNx4"
+                "key": "oZA0YEZSBR"
               },
               {
                 "type": "footnoteDefinition",
@@ -992,7 +992,7 @@
                   "start": { "offset": 1247, "line": 16, "column": 63 },
                   "end": { "offset": 1256, "line": 16, "column": 72 }
                 },
-                "label": "q2uSqgjZvk",
+                "label": "gDIz2FBiuJ",
                 "children": [
                   {
                     "type": "paragraph",
@@ -1014,17 +1014,17 @@
                               {
                                 "type": "text",
                                 "value": "Druedahl (2021)",
-                                "key": "Z8hqGPTxjs"
+                                "key": "uLdAaxL4iV"
                               }
                             ],
-                            "key": "r7HAvoc4W1"
+                            "key": "KMAXL3VFLc"
                           }
                         ],
                         "position": {
                           "start": { "offset": 1257, "line": 16, "column": 73 },
                           "end": { "offset": 1262, "line": 16, "column": 78 }
                         },
-                        "key": "nXqTR3JsuN"
+                        "key": "IPd4p8MoM0"
                       },
                       {
                         "type": "text",
@@ -1033,15 +1033,15 @@
                           "end": { "offset": 1277, "line": 16, "column": 93 }
                         },
                         "value": ".",
-                        "key": "I8vbG1B6Vk"
+                        "key": "K152YdWgHl"
                       }
                     ],
-                    "key": "pdyVVfJpZb"
+                    "key": "uGJQJUUtga"
                   }
                 ],
-                "identifier": "q2usqgjzvk",
+                "identifier": "gdiz2fbiuj",
                 "number": 1,
-                "key": "HWQo5cmMU0"
+                "key": "RvZBTOxaVC"
               },
               {
                 "type": "text",
@@ -1050,18 +1050,18 @@
                   "end": { "offset": 1279, "line": 16, "column": 95 }
                 },
                 "value": " and the Generalized Endogenous Grid Method (G2EGM)",
-                "key": "pVzxX0ESB2"
+                "key": "EbJHLuu5fj"
               },
               {
                 "type": "footnoteReference",
-                "label": "AKlZ54QBJL",
+                "label": "GVbf4ed5eV",
                 "position": {
                   "start": { "offset": 1329, "line": 16, "column": 145 },
                   "end": { "offset": 1338, "line": 16, "column": 154 }
                 },
-                "identifier": "aklz54qbjl",
+                "identifier": "gvbf4ed5ev",
                 "number": 2,
-                "key": "KkSljR8RbB"
+                "key": "NJpQ8zfWaD"
               },
               {
                 "type": "footnoteDefinition",
@@ -1069,7 +1069,7 @@
                   "start": { "offset": 1329, "line": 16, "column": 145 },
                   "end": { "offset": 1338, "line": 16, "column": 154 }
                 },
-                "label": "AKlZ54QBJL",
+                "label": "GVbf4ed5eV",
                 "children": [
                   {
                     "type": "paragraph",
@@ -1091,10 +1091,10 @@
                               {
                                 "type": "text",
                                 "value": "Druedahl & Jørgensen (2017)",
-                                "key": "xeA0R3Hin3"
+                                "key": "I8gwT2cb9D"
                               }
                             ],
-                            "key": "PaNpjhVtzf"
+                            "key": "VmF3qG7LUM"
                           }
                         ],
                         "position": {
@@ -1105,7 +1105,7 @@
                           },
                           "end": { "offset": 1344, "line": 16, "column": 160 }
                         },
-                        "key": "EAXFYUiddY"
+                        "key": "qdvqFy9dvb"
                       },
                       {
                         "type": "text",
@@ -1118,15 +1118,15 @@
                           "end": { "offset": 1359, "line": 16, "column": 175 }
                         },
                         "value": ".",
-                        "key": "kyoybyG8l5"
+                        "key": "CB9IwVJuIl"
                       }
                     ],
-                    "key": "GKHZCC8xAi"
+                    "key": "WeKMTI3eVL"
                   }
                 ],
-                "identifier": "aklz54qbjl",
+                "identifier": "gvbf4ed5ev",
                 "number": 2,
-                "key": "XtOzBqdW2Q"
+                "key": "B4hiaIimav"
               },
               {
                 "type": "text",
@@ -1135,10 +1135,10 @@
                   "end": { "offset": 1361, "line": 16, "column": 177 }
                 },
                 "value": " in that it can solve problems with multiple decisions, but it differs from these methods in that by choosing the subproblems strategically, we can take advantage of multiple sequential EGM steps to solve complex multidimensional models in a fast and efficient manner. Additionally, the use of machine learning tools such as the GPR overcomes bottlenecks seen in unstructured interpolation using Delauany triangulation and other similar methods.",
-                "key": "EY7J3d8gIY"
+                "key": "wAsdNpuVqu"
               }
             ],
-            "key": "vPLcnU1GKo"
+            "key": "IvAYoxmw8G"
           },
           {
             "type": "paragraph",
@@ -1154,10 +1154,10 @@
                   "end": { "offset": 3046, "line": 30, "column": 25 }
                 },
                 "value": "Web",
-                "key": "k2qCDvQKMM"
+                "key": "UjCXxTywXS"
               }
             ],
-            "key": "SBClOhHJ8g"
+            "key": "xKO72T0zHg"
           },
           {
             "type": "paragraph",
@@ -1173,10 +1173,10 @@
                   "end": { "offset": 3082, "line": 31, "column": 30 }
                 },
                 "value": "[figure]list=no",
-                "key": "WsoHTkCZbD"
+                "key": "teacEJB5PF"
               }
             ],
-            "key": "Qtq6ZXcZLf"
+            "key": "eEdcx2X7Es"
           },
           {
             "type": "paragraph",
@@ -1192,10 +1192,10 @@
                   "end": { "offset": 3130, "line": 32, "column": 30 }
                 },
                 "value": "[table]list=no",
-                "key": "x1u60ldIuv"
+                "key": "IkDZ9Afytj"
               }
             ],
-            "key": "kKoyMUxYpz"
+            "key": "koTFidrhxj"
           },
           {
             "type": "paragraph",
@@ -1211,16 +1211,16 @@
                   "end": { "offset": 3161, "line": 33, "column": 14 }
                 },
                 "value": "document",
-                "key": "LhUKmn1h8w"
+                "key": "zIJ1qnmmwy"
               }
             ],
-            "key": "GrRmxY3ve7"
+            "key": "GBU230mbJD"
           }
         ],
-        "key": "y84yotNl8v"
+        "key": "EfZBBMx9nr"
       }
     ],
-    "key": "oTld7Z4vgG"
+    "key": "AdFRWuFIaM"
   },
   "references": {
     "cite": {

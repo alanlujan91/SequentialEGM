@@ -838,24 +838,24 @@
               "end": { "line": 7, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "EGM", "key": "uTZFIjAOl5" },
+              { "type": "text", "value": "EGM", "key": "gTmSsGqVWF" },
               {
                 "type": "inlineMath",
                 "value": "^n",
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
-                "key": "mxJhMOmCGN"
+                "key": "AdhYpascBq"
               },
               {
                 "type": "text",
                 "value": ": The Sequential Endogenous Grid Method",
-                "key": "ofI1Xx36IU"
+                "key": "iEjgT7ZDJp"
               }
             ],
             "identifier": "egm-n-the-sequential-endogenous-grid-method",
             "label": "EGM^n: The Sequential Endogenous Grid Method",
             "html_id": "egm-n-the-sequential-endogenous-grid-method",
             "implicit": true,
-            "key": "gy4kMvD6nF"
+            "key": "PkjzfNg98u"
           },
           {
             "type": "heading",
@@ -865,13 +865,13 @@
               "end": { "line": 9, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "Abstract", "key": "UKhpHGSUey" }
+              { "type": "text", "value": "Abstract", "key": "YYqRim4zzj" }
             ],
             "identifier": "abstract",
             "label": "Abstract",
             "html_id": "abstract",
             "implicit": true,
-            "key": "lhFEXot4xG"
+            "key": "JHw4MLJrNx"
           },
           {
             "type": "paragraph",
@@ -883,12 +883,12 @@
               {
                 "type": "text",
                 "value": "Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require a large number of points and are time intensive. This paper provides a novel method for solving such models using an extension of the endogenous grid method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids. First, separating models into smaller, sequential problems allows the problems to be more tractable and easily analyzed. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be curvilinear at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and policy functions. Applied sequentially to each decision within the overarching problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard grid search methods currently used. This paper also illustrates how this method can be applied to a number of increasingly complex models. Software is provided in the form of a Python module under the ",
-                "key": "BgS3IfdgBG"
+                "key": "mMprZJYFhk"
               },
-              { "type": "inlineCode", "value": "HARK", "key": "zAwS4JvXHP" },
-              { "type": "text", "value": " package.", "key": "eFGaRmOy5U" }
+              { "type": "inlineCode", "value": "HARK", "key": "sDu0KXAr1D" },
+              { "type": "text", "value": " package.", "key": "pIHk6hG6DV" }
             ],
-            "key": "Rr4GeZu9dN"
+            "key": "OLUujo4E6C"
           },
           {
             "type": "heading",
@@ -901,14 +901,14 @@
               {
                 "type": "text",
                 "value": "Replication from a unix (macOS/linux) command line",
-                "key": "EB203YWI4d"
+                "key": "w45dfeiUSe"
               }
             ],
             "identifier": "replication-from-a-unix-macos-linux-command-line",
             "label": "Replication from a unix (macOS/linux) command line",
             "html_id": "replication-from-a-unix-macos-linux-command-line",
             "implicit": true,
-            "key": "MohwQwaCRE"
+            "key": "oVJBjpYb4X"
           },
           {
             "type": "paragraph",
@@ -920,10 +920,10 @@
               {
                 "type": "text",
                 "value": "To reproduce all the computational results of the paper:",
-                "key": "XI2p5q28DO"
+                "key": "cpDbdFdo7P"
               }
             ],
-            "key": "CaU2ptVefZ"
+            "key": "Le129dpVti"
           },
           {
             "type": "code",
@@ -933,7 +933,7 @@
               "start": { "line": 16, "column": 0 },
               "end": { "line": 19, "column": 0 }
             },
-            "key": "eY3o6ht1Xx"
+            "key": "vysoPLOPRi"
           },
           {
             "type": "paragraph",
@@ -945,10 +945,10 @@
               {
                 "type": "text",
                 "value": "To produce pdf version of the paper from a unix (macOS/linux) command line:",
-                "key": "zGyzrLImwS"
+                "key": "BMpWzHPR2u"
               }
             ],
-            "key": "ZKidcuZ0E9"
+            "key": "kkkgyAlsmS"
           },
           {
             "type": "code",
@@ -958,7 +958,7 @@
               "start": { "line": 22, "column": 0 },
               "end": { "line": 25, "column": 0 }
             },
-            "key": "UmznPeVskI"
+            "key": "ZvLYdzsTa5"
           },
           {
             "type": "paragraph",
@@ -970,10 +970,10 @@
               {
                 "type": "text",
                 "value": "To reproduce both computational results and the paper:",
-                "key": "BoCUghTL1A"
+                "key": "CfmbBNCupd"
               }
             ],
-            "key": "ybVVqmd9Tw"
+            "key": "SZS6MRZy1Q"
           },
           {
             "type": "code",
@@ -983,13 +983,13 @@
               "start": { "line": 28, "column": 0 },
               "end": { "line": 31, "column": 0 }
             },
-            "key": "eDnvVrntVh"
+            "key": "m7LCx5cXNR"
           }
         ],
-        "key": "FgV6xCeRCe"
+        "key": "y4SmXakt0I"
       }
     ],
-    "key": "BoVuaXg2Ut"
+    "key": "On1kdaASNn"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

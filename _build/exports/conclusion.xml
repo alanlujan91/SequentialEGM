@@ -1,0 +1,41 @@
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ali="http://www.niso.org/schemas/ali/1.0/" dtd-version="1.3" xml:lang="en">
+  <body>
+    <p>/SequentialEGM</p>
+    <p>document</p>
+    <sec id="sec:conclusion">
+      <title>Conclusion</title>
+      <p>This paper introduces a novel method for solving dynamic stochastic optimization problems called the Sequential Endogenous Grid Method (EGM
+        <inline-formula>
+          <tex-math><![CDATA[^n]]></tex-math>
+        </inline-formula>). Given a problem with multiple decisions (or control variables), the Sequential Endogenous Grid Method proposes separating the problem into a sequence of smaller subproblems that can be solved sequentially by using more than one EGM step. Then, depending on the resulting endogenous grid from each subproblem, this paper proposes different methods for interpolating functions on non-rectilinear grids, called the Warped Grid Interpolation (WGI) and the Gaussian Process Regression (GPR) method.
+      </p>
+      <p>EGM
+        <inline-formula>
+          <tex-math><![CDATA[^n]]></tex-math>
+        </inline-formula> is similar to the Nested Endogenous Grid Method (NEGM)
+        <xref ref-type="fn" rid="f1gg2sbsr2"/> and the Generalized Endogenous Grid Method (G2EGM)
+        <xref ref-type="fn" rid="ujoeupsw6j"/> in that it can solve problems with multiple decisions, but it differs from these methods in that by choosing the subproblems strategically, we can take advantage of multiple sequential EGM steps to solve complex multidimensional models in a fast and efficient manner. Additionally, the use of machine learning tools such as the GPR overcomes bottlenecks seen in unstructured interpolation using Delauany triangulation and other similar methods.
+      </p>
+      <p>Web</p>
+      <p>[figure]list=no</p>
+      <p>[table]list=no</p>
+      <p>document</p>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn id="f1gg2sbsr2">
+        <label>F1Gg2sbsR2</label>
+        <p>
+          <xref ref-type="bibr" rid="Druedahl2021">Druedahl (2021)</xref>.
+        </p>
+      </fn>
+      <fn id="ujoeupsw6j">
+        <label>uJoEupsW6J</label>
+        <p>
+          <xref ref-type="bibr" rid="Druedahl2017">Druedahl &amp; Jørgensen (2017)</xref>.
+        </p>
+      </fn>
+    </fn-group>
+  </back>
+</article>
