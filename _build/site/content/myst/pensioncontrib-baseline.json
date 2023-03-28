@@ -3,6 +3,813 @@
     "authors": [],
     "github": "https://github.com/alanlujan91/SequentialEGM",
     "keywords": [],
+    "math": {
+      "\\CARA": "\\alpha",
+      "\\CRRA": "\\rho",
+      "\\PtyLab": "\\mathrm{Z}",
+      "\\ptyLab": "z",
+      "\\TaxComb": "\\mathcal{T}",
+      "\\Prob": "\\mathbb{P}",
+      "\\DiePrb": "\\mathsf{D}",
+      "\\diePrb": "\\mathsf{d}",
+      "\\LivPrb": "\\cancel{\\DiePrb}",
+      "\\livPrb": "\\cancel{\\diePrb}",
+      "\\DiscFac": "\\beta",
+      "\\DieFac": "\\pDead",
+      "\\GroFac": "\\Omega",
+      "\\BalGroFac": "\\check",
+      "\\permGroFac": "\\Gamma",
+      "\\PermGroFac": "\\pmb{\\Phi}",
+      "\\PopnGroFac": "\\Xi",
+      "\\APFac": "\\text{\\pmb{\\Thorn}}",
+      "\\PopFac": "\\PopGro",
+      "\\RPFac": "\\APFac_{\\Rfree}",
+      "\\DeprFac": "\\daleth",
+      "\\LivFac": "\\Alive",
+      "\\aVec": "\\vec{\\mathrm{\\aNrm}}",
+      "\\bVec": "\\vec{\\mathrm{\\bNrm}}",
+      "\\cVec": "\\vec{\\mathrm{\\cNrm}}",
+      "\\mVec": "\\vec{\\mathrm{\\mNrm}}",
+      "\\yVec": "\\vec{\\mathrm{\\yNrm}}",
+      "\\Inc": "Y",
+      "\\inc": "y",
+      "\\PInc": "P",
+      "\\AFunc": "\\mathrm{A}",
+      "\\aFunc": "\\mathrm{a}",
+      "\\BFunc": "\\mathrm{B}",
+      "\\bFunc": "\\mathrm{b}",
+      "\\CFunc": "\\mathrm{C}",
+      "\\cFunc": "\\mathrm{c}",
+      "\\MPCFunc": "\\pmb{\\kappa}",
+      "\\DFunc": "\\mathrm{D}",
+      "\\dFunc": "\\mathrm{d}",
+      "\\bEndFunc": "\\mathfrak{b}",
+      "\\CEndFunc": "\\mathfrak{C}",
+      "\\cEndFunc": "\\mathfrak{c}",
+      "\\dEndFunc": "\\mathfrak{d}",
+      "\\lEndFunc": "\\mathfrak{l}",
+      "\\mEndFunc": "\\mathfrak{m}",
+      "\\nEndFunc": "\\mathfrak{n}",
+      "\\VEndFunc": "\\mathfrak{V}",
+      "\\vEndFunc": "\\mathfrak{v}",
+      "\\zEndFunc": "\\mathfrak{z}",
+      "\\ProdFunc": "\\mathrm{F}",
+      "\\prodFunc": "\\mathrm{f}",
+      "\\EFunc": "\\mathrm{E}",
+      "\\eFunc": "\\mathrm{e}",
+      "\\FFunc": "\\mathrm{F}",
+      "\\fFunc": "\\mathrm{f}",
+      "\\GFunc": "\\mathrm{G}",
+      "\\gFunc": "\\mathrm{g}",
+      "\\vBegFunc": "\\pmb{\\upsilon}",
+      "\\HFunc": "\\mathrm{H}",
+      "\\hFunc": "\\mathrm{h}",
+      "\\IFunc": "\\mathrm{I}",
+      "\\iFunc": "\\mathrm{i}",
+      "\\chiFunc": "\\pmb{\\chi}",
+      "\\phiFunc": "\\digamma",
+      "\\JFunc": "\\mathrm{J}",
+      "\\jFunc": "\\mathrm{j}",
+      "\\KFunc": "\\mathrm{K}",
+      "\\kFunc": "\\mathrm{k}",
+      "\\LFunc": "\\mathrm{L}",
+      "\\utilFunc": "\\mathrm{u}",
+      "\\MFunc": "\\mathrm{M}",
+      "\\mFunc": "\\mathrm{m}",
+      "\\NFunc": "\\mathrm{N}",
+      "\\nFunc": "\\mathrm{n}",
+      "\\OFunc": "\\mathrm{O}",
+      "\\PFunc": "\\mathrm{P}",
+      "\\pFunc": "\\mathrm{p}",
+      "\\QFunc": "\\mathrm{Q}",
+      "\\RFunc": "\\mathrm{R}",
+      "\\rFunc": "\\mathrm{r}",
+      "\\SFunc": "\\mathrm{S}",
+      "\\sFunc": "\\mathrm{s}",
+      "\\MPSFunc": "\\pmb{lambda}",
+      "\\TFunc": "\\mathrm{T}",
+      "\\UFunc": "\\mathrm{U}",
+      "\\uFunc": "\\mathrm{u}",
+      "\\VFunc": "\\mathrm{V}",
+      "\\vFunc": "\\mathrm{v}",
+      "\\cPDVFunc": "\\mathbb{C}",
+      "\\pPDVFunc": "\\mathbb{P}",
+      "\\uPDVFunc": "\\mathbb{U}",
+      "\\cLevFunc": "\\pmb{\\cFunc}",
+      "\\VLevFunc": "\\pmb{\\mathrm{V}}",
+      "\\vLevFunc": "\\pmb{\\mathrm{v}}",
+      "\\RevFunc": "\\pmb{\\Pi}",
+      "\\revFunc": "\\pmb{\\pi}",
+      "\\WFunc": "\\mathrm{W}",
+      "\\wFunc": "\\mathrm{w}",
+      "\\XFunc": "\\mathrm{X}",
+      "\\xFunc": "\\mathrm{x}",
+      "\\YFunc": "\\mathrm{Y}",
+      "\\yFunc": "\\mathrm{y}",
+      "\\ZFunc": "\\mathrm{Z}",
+      "\\zFunc": "\\mathrm{z}",
+      "\\MPC": "\\kappa",
+      "\\PIHMPC": "\\varkappa",
+      "\\MinMPC": "\\uline{\\kappa}",
+      "\\MinMinMPC": "\\underline{\\kappa}",
+      "\\MaxMinMPC": "\\hat{\\underline{\\kappa}}",
+      "\\MaxMPC": "\\bar{\\kappa}",
+      "\\MaxMaxMPC": "\\bar{\\bar{\\kappa}}",
+      "\\itc": "\\zeta",
+      "\\kPriceAfterITC": "\\mathscr{P}",
+      "\\PostITC": "\\cancel{\\zeta}",
+      "\\pDead": "\\mathfrak{D}",
+      "\\TaxPaid": "T",
+      "\\WMid": "\\BLev",
+      "\\wMid": "\\bLev",
+      "\\Wmid": "\\BRat",
+      "\\wmid": "\\bRat",
+      "\\Dvdnd": "\\mathbf{D}",
+      "\\dvdnd": "d",
+      "\\edvdnd": "\\grave{\\dvdnd}",
+      "\\hEnd": "\\mathfrak{h}",
+      "\\GovSpend": "X",
+      "\\govSpend": "x",
+      "\\xpend": "\\xi",
+      "\\expend": "\\xi",
+      "\\TEnd": "T",
+      "\\VEnd": "\\mathfrak{V}",
+      "\\vEnd": "\\mathfrak{v}",
+      "\\WEnd": "\\ALev",
+      "\\wEnd": "\\aLev",
+      "\\Wend": "\\ARat",
+      "\\wend": "\\aRat",
+      "\\permGroFacInd": "\\pmb{\\phi}",
+      "\\permShkInd": "\\psi",
+      "\\tranShkInd": "\\theta",
+      "\\permLvlInd": "\\mathrm{p}",
+      "\\RCpnd": "\\mathbf{R}",
+      "\\Mod": "\\tilde",
+      "\\Rprod": "\\mathscr{R}",
+      "\\rprod": "\\mathscr{r}",
+      "\\RProd": "\\mathsf{R}",
+      "\\rProd": "\\mathsf{r}",
+      "\\tranShkIndStd": "\\sigma_{\\tranShkInd}",
+      "\\tranShkAggStd": "\\sigma_{\\tranShkAgg}",
+      "\\ShkMeanOneLogStd": "\\sigma_{\\ShkMeanOneLog}",
+      "\\ShkLogZeroLogStd": "\\sigma_{\\cancel{\\ShkMeanOneLog}}",
+      "\\PermShkStd": "\\sigma_{\\PermShk}",
+      "\\TranShkStd": "\\sigma_{\\TranShk}",
+      "\\prud": "\\eta",
+      "\\tFwd": "n",
+      "\\aE": "\\aRat^{e}",
+      "\\BE": "\\BRat^{e}",
+      "\\bE": "\\bRat^{e}",
+      "\\CE": "\\CRat^{e}",
+      "\\cE": "\\cRat^{e}",
+      "\\Price": "\\mathsf{P}",
+      "\\kPrice": "\\mathsf{P}",
+      "\\Severance": "\\kappa",
+      "\\MPCE": "\\MPC^{e}",
+      "\\Rfree": "\\mathsf{R}",
+      "\\rfree": "\\mathsf{r}",
+      "\\TaxFree": "\\cancel{\\Tax}",
+      "\\Age": "Z",
+      "\\age": "z",
+      "\\Wage": "\\mathsf{W}",
+      "\\wage": "\\mathsf{w}",
+      "\\bTargE": "\\check{b}^{e}",
+      "\\CTargE": "\\CTarg^{\\null}",
+      "\\cTargE": "\\Target{c}^{e}",
+      "\\kTargE": "\\Target{k}^{e}",
+      "\\STargE": "\\Target{\\SRat}^{\\null}",
+      "\\sTargE": "\\Target{\\sRat}^{\\null}",
+      "\\yTargE": "\\check{y}^{e}",
+      "\\ME": "\\MRat^{e}",
+      "\\mE": "\\mRat^{e}",
+      "\\TermTime": "T",
+      "\\ShkMeanOne": "\\Theta",
+      "\\PopE": "\\mathcal{E}",
+      "\\popE": "e",
+      "\\labShare": "\\nu",
+      "\\leiShare": "\\zeta",
+      "\\kapShare": "\\alpha",
+      "\\riskyshare": "\\varsigma",
+      "\\Retire": "\\mathbb{R}",
+      "\\WPre": "K",
+      "\\wPre": "k",
+      "\\Leisure": "Z",
+      "\\leisure": "z",
+      "\\SE": "\\SRat^{e}",
+      "\\sE": "\\sRat^{e}",
+      "\\BRatE": "B}^{e",
+      "\\bRatE": "b}^{e",
+      "\\CRatE": "\\CRat^{e}",
+      "\\cRatE": "\\cRat^{e}",
+      "\\DiscRate": "\\vartheta",
+      "\\pDeadRate": "\\grave{\\cancel{\\mathsf{d}}}",
+      "\\erate": "\\cancel{\\mho}",
+      "\\pDieRate": "\\grave{\\mathsf{d}}",
+      "\\timeRate": "\\vartheta",
+      "\\saveRate": "\\grave{s}",
+      "\\MRatE": "\\MRat^{e}",
+      "\\mRatE": "\\mRat^{e}",
+      "\\SRatE": "\\SRat^{e}",
+      "\\sRatE": "\\sRat^{e}",
+      "\\srate": "\\varsigma",
+      "\\urate": "\\mho",
+      "\\TaxRate": "t",
+      "\\empState": "\\xi",
+      "\\discRte": "\\tau",
+      "\\DiscRte": "\\vartheta",
+      "\\GroRte": "\\omega",
+      "\\BalGroRte": "\\tilde",
+      "\\permGroRte": "\\gamma",
+      "\\PermGroRte": "\\varphi",
+      "\\PopnGroRte": "\\xi",
+      "\\APRte": "\\text{\\thorn}",
+      "\\GPRte": "\\text{\\thorn}_{\\PermGroRte}",
+      "\\popRte": "\\popGro",
+      "\\RPRte": "\\text{\\thorn}_{\\rfree}",
+      "\\deprRte": "\\delta",
+      "\\Value": "\\mathrm{V}",
+      "\\VE": "V}^{e",
+      "\\vE": "v}^{e",
+      "\\Save": "S",
+      "\\save": "s",
+      "\\RSave": "\\underline{\\Rfree}",
+      "\\rsave": "\\underline{\\rfree}",
+      "\\Abve": "\\bar",
+      "\\BLevE": "\\BLev^{e}",
+      "\\bLevE": "\\bLev^{e}",
+      "\\CLevE": "\\CLev^{e}",
+      "\\cLevE": "\\cLev^{e}",
+      "\\mLevE": "\\mLev^{e}",
+      "\\SLevE": "\\SLev^{e}",
+      "\\sLevE": "\\sLev^{e}",
+      "\\Alive": "\\mathcal{L}",
+      "\\cFuncAbove": "\\bar{\\mathrm{c}}",
+      "\\aRatBF": "\\pmb{a}",
+      "\\bRatBF": "\\pmb{\\mathrm{b}}",
+      "\\cRatBF": "\\pmb{c}",
+      "\\mRatBF": "\\pmb{\\mathrm{m}}",
+      "\\ALevBF": "\\mathbf{A}",
+      "\\aLevBF": "\\mathbf{a}",
+      "\\BLevBF": "\\mathbf{B}",
+      "\\bLevBF": "\\mathbf{b}",
+      "\\CLevBF": "\\mathbf{C}",
+      "\\cLevBF": "\\mathbf{c}",
+      "\\HLevBF": "\\mathbf{H}",
+      "\\hLevBF": "\\mathbf{h}",
+      "\\KLevBF": "\\mathbf{K}",
+      "\\kLevBF": "\\mathbf{k}",
+      "\\LLevBF": "\\mathbf{L}",
+      "\\lLevBF": "\\pmb{\\ell}",
+      "\\MLevBF": "\\mathbf{M}",
+      "\\mLevBF": "\\mathbf{m}",
+      "\\OLevBF": "\\mathbf{O}",
+      "\\oLevBF": "\\mathbf{o}",
+      "\\PLevBF": "\\mathbf{P}",
+      "\\pLevBF": "\\mathbf{p}",
+      "\\SLevBF": "\\mathbf{S}",
+      "\\sLevBF": "\\mathbf{s}",
+      "\\vLevBF": "\\mathbf{v}",
+      "\\YLevBF": "\\mathbf{Y}",
+      "\\yLevBF": "\\mathbf{y}",
+      "\\ZLevBF": "\\mathbf{Z}",
+      "\\zLevBF": "\\pmb{z}",
+      "\\CDF": "\\mathcal{F}",
+      "\\SDF": "\\MLev",
+      "\\RfreeEff": "\\bar{\\Rfree}",
+      "\\CGroPF": "\\Lambda",
+      "\\cGroPF": "\\lambda",
+      "\\WGroPF": "\\mathrm{G}",
+      "\\MPCPPF": "\\Pi",
+      "\\vBeg": "\\upsilon",
+      "\\WBeg": "\\KLev",
+      "\\wBeg": "\\kLev",
+      "\\aAgg": "\\mathsf{A}",
+      "\\cAgg": "\\pmb{C}",
+      "\\permGroFacAgg": "\\Phi",
+      "\\RfreeAgg": "\\Agg{\\Rfree}",
+      "\\PermShkAgg": "\\Psi",
+      "\\permShkAgg": "\\Psi",
+      "\\TranShkAgg": "\\Theta",
+      "\\tranShkAgg": "\\Theta",
+      "\\permLvlAgg": "\\mathrm{P}",
+      "\\PermLvlAgg": "\\PLvl",
+      "\\zAgg": "\\pmb{Z}",
+      "\\ShkMeanOneLog": "\\theta",
+      "\\mBalLog": "\\BalGroRte{\\mNrm}",
+      "\\EpremLog": "\\varphi",
+      "\\ShkLogZeroLog": "\\cancel{\\ShkMeanOneLog}",
+      "\\pLog": "p",
+      "\\ImpG": "\\Im}_{\\PGro",
+      "\\impg": "\\imath}_{\\pGro",
+      "\\ATarg": "\\check{A}",
+      "\\aTarg": "\\check{a}",
+      "\\BTarg": "\\check{B}",
+      "\\bTarg": "\\check{b}",
+      "\\CTarg": "\\Target{C}",
+      "\\cTarg": "\\Target{c}",
+      "\\BTargTarg": "\\Target{\\Target{\\BRat}}",
+      "\\bTargTarg": "\\Target{\\Target{\\bRat}}",
+      "\\cTargTarg": "\\Target{\\Target{\\cRat}}",
+      "\\STargTarg": "\\Target{\\Target{\\SRat}}",
+      "\\sTargTarg": "\\Target{\\Target{\\sRat}}",
+      "\\kTarg": "\\Target{k}",
+      "\\mTarg": "\\check{m}",
+      "\\STarg": "\\Target{\\SRat}",
+      "\\sTarg": "\\Target{\\sRat}",
+      "\\vTarg": "\\Target{\\vRat}",
+      "\\yTarg": "\\check{y}",
+      "\\CGroOverG": "\\Upsilon",
+      "\\avg": "\\bar",
+      "\\h": "h",
+      "\\Wealth": "O",
+      "\\wealth": "o",
+      "\\Hi": "\\hat",
+      "\\Chi": "\\mathrm{X}",
+      "\\NI": "Z",
+      "\\TaxUI": "\\tau",
+      "\\adj": "\\mathrm{j}",
+      "\\PermGroFacAdj": "\\underline{\\PermGroFac}",
+      "\\PGroAdj": "\\underline{\\PGro}",
+      "\\pGroAdj": "\\underline{\\pGro}",
+      "\\PatPGroAdj": "\\text{\\pmb{\\Thorn}}_{\\underline{\\PGro}}",
+      "\\patpGroAdj": "\\text{\\thorn}_{\\underline{\\pGro}}",
+      "\\PermGroFacuAdj": "\\underline{\\underline{\\PermGroFac}}",
+      "\\PGrouAdj": "\\underline{\\underline{\\PGro}}",
+      "\\pGrouAdj": "\\underline{\\underline{\\pGro}}",
+      "\\DiscAltuAdj": "\\underline{\\underline{\\beth}}",
+      "\\TEndBak": "\\mathsf{p}",
+      "\\tBak": "\\pmb{n}",
+      "\\TEatBak": "\\mathtt{q}",
+      "\\ek": "\\lambda",
+      "\\Shk": "\\Phi",
+      "\\shk": "\\phi",
+      "\\PermShk": "\\mathbf{\\Psi}",
+      "\\permShk": "\\psi",
+      "\\uInvEuPermShk": "\\underline{\\underline{\\PermShk}}",
+      "\\TranShk": "\\pmb{\\xi}",
+      "\\PShk": "\\Psi",
+      "\\pShk": "\\psi",
+      "\\pshk": "\\psi",
+      "\\TShk": "\\Xi",
+      "\\tShk": "\\xi",
+      "\\tshk": "\\xi",
+      "\\Work": "\\mathbb{W}",
+      "\\vk": "\\lambda",
+      "\\util": "u",
+      "\\TranShkAll": "\\pmb{\\xi}",
+      "\\tShkAll": "\\xi",
+      "\\WAll": "O",
+      "\\wAll": "o",
+      "\\Lvl": "\\mathbf",
+      "\\ALvl": "\\mathbf{A}",
+      "\\aLvl": "\\mathbf{a}",
+      "\\BLvl": "\\mathbf{B}",
+      "\\bLvl": "\\mathbf{b}",
+      "\\CLvl": "\\mathbf{C}",
+      "\\cLvl": "\\mathbf{c}",
+      "\\DLvl": "\\mathbf{D}",
+      "\\dLvl": "\\mathbf{d}",
+      "\\ELvl": "\\mathbf{E}",
+      "\\eLvl": "\\mathbf{e}",
+      "\\FLvl": "\\mathbf{F}",
+      "\\fLvl": "\\mathbf{f}",
+      "\\GLvl": "\\mathbf{G}",
+      "\\HLvl": "\\mathbf{H}",
+      "\\hLvl": "\\mathbf{h}",
+      "\\ILvl": "\\mathbf{I}",
+      "\\iLvl": "\\mathbf{i}",
+      "\\JLvl": "\\mathbf{J}",
+      "\\jLvl": "\\mathbf{j}",
+      "\\KLvl": "\\mathbf{K}",
+      "\\kLvl": "\\mathbf{k}",
+      "\\LLvl": "\\mathbf{L}",
+      "\\ABalLvl": "\\BalGroFac{\\ALvl}",
+      "\\MBalLvl": "\\BalGroFac{\\MNrm}",
+      "\\mBalLvl": "\\BalGroFac{\\mNrm}",
+      "\\MLvl": "\\mathbf{M}",
+      "\\mLvl": "\\mathbf{m}",
+      "\\PermLvl": "\\pLvl",
+      "\\NLvl": "\\mathbf{N}",
+      "\\PopnLvl": "\\pmb{\\mathrm{N}}",
+      "\\OLvl": "\\mathbf{O}",
+      "\\PLvl": "\\mathbf{P}",
+      "\\pLvl": "\\mathbf{p}",
+      "\\QLvl": "\\mathbf{Q}",
+      "\\RLvl": "\\mathbf{R}",
+      "\\rLvl": "\\mathbf{r}",
+      "\\SLvl": "\\mathbf{S}",
+      "\\sLvl": "\\mathbf{s}",
+      "\\TLvl": "\\mathbf{T}",
+      "\\ULvl": "\\mathbf{U}",
+      "\\VLvl": "\\mathbf{V}",
+      "\\vLvl": "\\mathbf{v}",
+      "\\WLvl": "\\mathbf{W}",
+      "\\XLvl": "\\mathbf{X}",
+      "\\YLvl": "\\mathbf{Y}",
+      "\\yLvl": "\\mathbf{y}",
+      "\\ZLvl": "\\mathbf{Z}",
+      "\\zLvl": "\\mathbf{z}",
+      "\\Ham": "\\mathcal{H}",
+      "\\EPrem": "\\Phi",
+      "\\eprem": "\\varphi",
+      "\\tHorOfm": "\\pmb{n}",
+      "\\debtLim": "\\mathsf{d}",
+      "\\tTerm": "T",
+      "\\vFirm": "\\mathrm{e}",
+      "\\ANrm": "A",
+      "\\aNrm": "a",
+      "\\BNrm": "B",
+      "\\bNrm": "b",
+      "\\CNrm": "C",
+      "\\cNrm": "c",
+      "\\GPFacNrm": "\\APFac_{\\PermGroFacAdj}",
+      "\\DNrm": "D",
+      "\\dNrm": "d",
+      "\\ENrm": "E",
+      "\\eNrm": "e",
+      "\\FNrm": "F",
+      "\\fNrm": "f",
+      "\\bTrgNrm": "\\TargetNrm{\\bNrm}",
+      "\\mTrgNrm": "\\TargetNrm{\\mNrm}",
+      "\\HNrm": "H",
+      "\\hNrm": "h",
+      "\\INrm": "I",
+      "\\iNrm": "i",
+      "\\JNrm": "J",
+      "\\jNrm": "j",
+      "\\KNrm": "K",
+      "\\kNrm": "k",
+      "\\MNrm": "M",
+      "\\mNrm": "m",
+      "\\PNrm": "P",
+      "\\pNrm": "p",
+      "\\RNrm": "\\mathcal{R}",
+      "\\rNrm": "s",
+      "\\SNrm": "S",
+      "\\sNrm": "s",
+      "\\TargetNrm": "\\hat",
+      "\\VNrm": "V",
+      "\\vNrm": "v",
+      "\\xNrm": "x",
+      "\\YNrm": "Y",
+      "\\yNrm": "y",
+      "\\ZNrm": "Z",
+      "\\zNrm": "z",
+      "\\Rnorm": "\\mathcal{R}",
+      "\\rnorm": "\\mathit{r}",
+      "\\vNorm": "\\mathrm{w}",
+      "\\WHum": "\\HLev",
+      "\\wHum": "\\hLev",
+      "\\Whum": "\\HRat",
+      "\\whum": "\\hRat",
+      "\\Num": "N",
+      "\\VNum": "V",
+      "\\vNum": "v",
+      "\\Mean": "\\mathbb{M}",
+      "\\tThen": "\\tau",
+      "\\valfn": "\\mathrm{v}",
+      "\\aMin": "\\underline{\\aRat}",
+      "\\bMin": "\\underline{\\bRat}",
+      "\\MPCmin": "\\uline{\\kappa}",
+      "\\hEndMin": "\\underline{\\mathfrak{h}}",
+      "\\aboveMin": "\\blacktriangle",
+      "\\hMin": "\\underline{\\h}",
+      "\\HMin": "\\underline{H}",
+      "\\pShkMin": "\\underline{\\psi}",
+      "\\whumMin": "\\underline{\\hRat}",
+      "\\MPCminmin": "\\underline{\\kappa}",
+      "\\TranShkEmpMin": "\\underline{\\TranShkEmp}",
+      "\\tShkEmpMin": "\\underline{\\theta}",
+      "\\MPSmin": "\\pZero^{1/\\CRRA} \\RPFac",
+      "\\MPCmaxmin": "\\hat{\\underline{\\kappa}}",
+      "\\Decision": "\\mathbb{D}",
+      "\\SeveranceRatio": "\\varsigma",
+      "\\Lo": "\\check",
+      "\\ShkLogZero": "\\cancel{\\ShkMeanOne}",
+      "\\pZero": "\\wp",
+      "\\pNotZero": "(1-\\pZero)",
+      "\\LGro": "\\Lambda",
+      "\\lGro": "\\lambda",
+      "\\PGro": "\\Gamma",
+      "\\pGro": "\\gamma",
+      "\\GDPGro": "\\gimel",
+      "\\EmpGro": "\\Xi",
+      "\\empGro": "\\xi",
+      "\\PopGro": "\\Xi",
+      "\\popGro": "\\xi",
+      "\\PatPGro": "\\text{\\pmb{\\Thorn}}_{\\PGro}",
+      "\\patpGro": "\\text{\\thorn}_{\\pGro}",
+      "\\XperGro": "\\mathsf{X}",
+      "\\xperGro": "\\mathsf{x}",
+      "\\DivGro": "\\mathrm{G}",
+      "\\divGro": "\\mathsf{g}",
+      "\\WGro": "\\mathrm{G}",
+      "\\wGro": "\\mathsf{g}",
+      "\\RnormWGro": "\\mathcal{R}_{\\WGro}",
+      "\\rnormwGro": "\\mathit{r}_{\\wGro}",
+      "\\PatWGro": "\\text{\\pmb{\\Thorn}}_{\\WGro}",
+      "\\patwGro": "\\text{\\thorn}_{\\wGro}",
+      "\\PtyGro": "\\Phi",
+      "\\ptyGro": "\\phi",
+      "\\RBoro": "\\bar{\\Rfree}",
+      "\\rboro": "\\bar{\\rfree}",
+      "\\Pareto": "\\zeta",
+      "\\Kap": "K",
+      "\\kap": "k",
+      "\\EEndMap": "\\mathsf{E}",
+      "\\TMap": "\\mathscr{T}",
+      "\\cP": "\\cons^{\\prime}",
+      "\\MPCP": "\\pi",
+      "\\taxDep": "\\partial",
+      "\\FP": "\\mathrm{F}^{\\prime}",
+      "\\fP": "\\mathrm{f}^{\\prime}",
+      "\\TranShkEmp": "\\pmb{\\theta}",
+      "\\TShkEmp": "\\Theta",
+      "\\tShkEmp": "\\theta",
+      "\\IncUnemp": "\\mu",
+      "\\Pop": "L",
+      "\\cPP": "\\cons^{\\prime\\prime}",
+      "\\FPP": "\\mathrm{F}^{\\prime\\prime}",
+      "\\fPP": "\\mathrm{f}^{\\prime\\prime}",
+      "\\cPPP": "\\cons^{\\prime\\prime\\prime}",
+      "\\uPPP": "\\mathrm{u}^{\\prime\\prime\\prime}",
+      "\\uPP": "\\mathrm{u}^{\\prime\\prime}",
+      "\\TaxCorp": "\\Large \\tau",
+      "\\taxCorp": "\\tau",
+      "\\uP": "\\mathrm{u}^{\\prime}",
+      "\\q": "\\koppa",
+      "\\adjPar": "\\omega",
+      "\\tranShkIndVar": "\\sigma^{2}_{\\tranShkInd}",
+      "\\tranShkAggVar": "\\sigma^{2}_{\\tranShkAgg}",
+      "\\ShkMeanOneLogVar": "\\sigma^{2}_{\\ShkMeanOneLog}",
+      "\\ShkLogZeroLogVar": "\\sigma_{\\cancel{\\ShkMeanOneLog}}^{2}",
+      "\\PermShkVar": "\\sigma^{2}_{\\PermShk}",
+      "\\TranShkVar": "\\sigma^{2}_{\\TranShk}",
+      "\\sdr": "\\mRat",
+      "\\Estdr": "\\sigma_{\\risky}",
+      "\\xFer": "\\chi",
+      "\\XFer": "X",
+      "\\nIter": "n",
+      "\\power": "\\eta",
+      "\\labor": "\\ell",
+      "\\Labor": "\\mathrm{L}",
+      "\\PLabor": "P",
+      "\\Plabor": "P",
+      "\\tHor": "\\mathsf{n}",
+      "\\error": "\\epsilon",
+      "\\Depr": "\\daleth",
+      "\\depr": "\\delta",
+      "\\ImpR": "\\Im}_{\\Rfree",
+      "\\impr": "\\imath}_{\\rfree",
+      "\\EVarr": "\\sigma_{\\Risky}^{2}",
+      "\\Evarr": "\\sigma_{\\risky}^{2}",
+      "\\Err": "Z",
+      "\\err": "z",
+      "\\CGroOverR": "\\Phi",
+      "\\corr": "\\varrho",
+      "\\curr": "1",
+      "\\Curr": "t",
+      "\\tCurr": "t",
+      "\\PatR": "\\text{\\pmb{\\Thorn}}_{\\Rfree}",
+      "\\patr": "\\text{\\thorn}_{\\rfree}",
+      "\\PDies": "\\mathsf{D}",
+      "\\pDies": "\\mathsf{d}",
+      "\\PLives": "\\cancel{\\PDies}",
+      "\\pLives": "\\cancel{\\pDies}",
+      "\\Stocks": "S",
+      "\\stocks": "s",
+      "\\TaxNetTrans": "Z",
+      "\\taxNetTrans": "z",
+      "\\unins": "\\zeta",
+      "\\Cons": "C",
+      "\\cons": "c",
+      "\\MPS": "\\lambda",
+      "\\MinMPS": "\\pZero^{1/\\CRRA} \\PatR",
+      "\\MaxMPS": "\\PatR",
+      "\\CGroPS": "\\chi",
+      "\\Hours": "\\mathfrak{H}",
+      "\\hours": "\\mathfrak{h}",
+      "\\ASS": "A",
+      "\\aSS": "a",
+      "\\cEss": "c}^{e",
+      "\\mEss": "\\check{m}^{e}",
+      "\\vEss": "\\check{v}^{e}",
+      "\\MSS": "\\breve{M}",
+      "\\mSS": "\\breve{m}",
+      "\\RGross": "\\breve{\\mathsf{R}}",
+      "\\rGross": "\\breve{\\mathsf{r}}",
+      "\\tSS": "t",
+      "\\effUnits": "X",
+      "\\Surplus": "Z",
+      "\\surplus": "z",
+      "\\TEat": "\\TEnd",
+      "\\patpGrohat": "\\hat{\\text{\\thorn}}_{\\pGro}",
+      "\\aMat": "[{\\mathrm{\\aNrm}}]",
+      "\\bMat": "[{\\mathrm{\\bNrm}}]",
+      "\\cMat": "[{\\mathrm{\\cNrm}}]",
+      "\\tShkMat": "[{\\mathrm{\\tShkEmp}}]",
+      "\\mMat": "[{\\mathrm{\\mNrm}}]",
+      "\\xMat": "[{\\mathrm{\\xNrm}}]",
+      "\\yMat": "[{\\mathrm{\\yNrm}}]",
+      "\\Pat": "\\text{\\pmb{\\Thorn}}",
+      "\\pat": "\\text{\\thorn}",
+      "\\ARat": "A",
+      "\\aRat": "a",
+      "\\NFARat": "\\NRat",
+      "\\BRat": "B",
+      "\\bRat": "b",
+      "\\CRat": "C",
+      "\\cRat": "c",
+      "\\ccRat": "\\mathsf{c}",
+      "\\dRat": "d",
+      "\\WEndRat": "\\ARat",
+      "\\wEndRat": "\\aRat",
+      "\\HRat": "H",
+      "\\hRat": "h",
+      "\\IRat": "I",
+      "\\iRat": "i",
+      "\\KRat": "K",
+      "\\kRat": "k",
+      "\\LRat": "L",
+      "\\lRat": "l",
+      "\\WAllRat": "O",
+      "\\wAllRat": "o",
+      "\\MRat": "M",
+      "\\mRat": "m",
+      "\\NRat": "N",
+      "\\nRat": "n",
+      "\\ORat": "O",
+      "\\oRat": "o",
+      "\\pRat": "p",
+      "\\GDPRat": "P",
+      "\\gdpRat": "p",
+      "\\SRat": "S",
+      "\\sRat": "s",
+      "\\VRat": "V",
+      "\\vRat": "v",
+      "\\WRat": "O",
+      "\\wRat": "o",
+      "\\XRat": "X",
+      "\\xRat": "x",
+      "\\YRat": "Y",
+      "\\yRat": "y",
+      "\\ZRat": "Z",
+      "\\zRat": "z",
+      "\\Debt": "D",
+      "\\debt": "d",
+      "\\Target": "\\check",
+      "\\WNet": "X",
+      "\\wNet": "x",
+      "\\straight": "\\Pi",
+      "\\weight": "\\omega",
+      "\\Habit": "H",
+      "\\habit": "h",
+      "\\WMkt": "\\MLev",
+      "\\wMkt": "\\mLev",
+      "\\wmkt": "\\mLev",
+      "\\Alt": "\\grave",
+      "\\DiscFacAlt": "\\beth",
+      "\\DiscAlt": "\\beth",
+      "\\ValAlt": "\\mathcal{V}",
+      "\\vOptAlt": "\\Alt{\\tilde{\\mathfrak{v}}}",
+      "\\RiskyAlt": "\\pmb{\\mathfrak{R}}",
+      "\\riskyAlt": "\\pmb{\\mathfrak{r}}",
+      "\\uPmt": "\\mu",
+      "\\SeverancePayment": "\\mathcal{S}",
+      "\\kapRent": "\\varkappa",
+      "\\Discount": "\\beta",
+      "\\tinyAmount": "\\epsilon",
+      "\\WTot": "\\mathbf{O}",
+      "\\wTot": "\\mathbf{o}",
+      "\\Wtot": "O",
+      "\\wtot": "o",
+      "\\vOpt": "\\tilde{\\mathfrak{v}}",
+      "\\Rport": "\\mathbb{R}",
+      "\\rport": "\\mathbb{r}",
+      "\\FDist": "\\mathcal{F}",
+      "\\fDist": "\\mathcal{f}",
+      "\\Next": "t+1",
+      "\\tNext": "t+1",
+      "\\BU": "B}^{u",
+      "\\bU": "b}^{u",
+      "\\CU": "\\CRat^{u}",
+      "\\cU": "\\cRat^{u}",
+      "\\MPCU": "\\MPC^{u}",
+      "\\MU": "M}^{u",
+      "\\mU": "m}^{u",
+      "\\PopU": "\\mathcal{U}",
+      "\\SU": "\\SRat^{u}",
+      "\\sU": "\\sRat^{u}",
+      "\\PatU": "\\text{\\pmb{\\Thorn}}_{\\urate}",
+      "\\patu": "\\text{\\thorn}_{\\urate}",
+      "\\bRatU": "b}^{u",
+      "\\CRatU": "\\CRat^{u}",
+      "\\cRatU": "\\cRat^{u}",
+      "\\SRatU": "\\SRat^{u}",
+      "\\sRatU": "\\sRat^{u}",
+      "\\VU": "V}^{u",
+      "\\vU": "v}^{u",
+      "\\BLevU": "\\BLev^{u}",
+      "\\bLevU": "\\bLev^{u}",
+      "\\CLevU": "\\CLev^{u}",
+      "\\cLevU": "\\cLev^{u}",
+      "\\SLevU": "\\SLev^{u}",
+      "\\sLevU": "\\sLev^{u}",
+      "\\pSav": "\\phi",
+      "\\PDV": "\\mathbb{P}",
+      "\\CPDV": "\\text{PDV($C$)}",
+      "\\PPDV": "\\text{PDV($P$)}",
+      "\\ALev": "A",
+      "\\aLev": "a",
+      "\\NFALev": "\\NLev",
+      "\\BLev": "B",
+      "\\bLev": "b",
+      "\\CLev": "C",
+      "\\cLev": "c",
+      "\\DLev": "D",
+      "\\ELev": "E",
+      "\\FLev": "F",
+      "\\fLev": "f",
+      "\\GLev": "G",
+      "\\HLev": "\\pmb{H}",
+      "\\hLev": "\\pmb{h}",
+      "\\ILev": "I",
+      "\\iLev": "i",
+      "\\JLev": "J",
+      "\\KLev": "K",
+      "\\kLev": "k",
+      "\\lLev": "\\ell",
+      "\\LLev": "L",
+      "\\WAllLev": "\\mathbf{O}",
+      "\\wAllLev": "\\mathbf{o}",
+      "\\MLev": "M",
+      "\\mLev": "m",
+      "\\NLev": "N",
+      "\\nLev": "n",
+      "\\oLev": "\\pmb{o}",
+      "\\OLev": "O",
+      "\\pLev": "\\pmb{p}",
+      "\\PLev": "P",
+      "\\GDPLev": "\\pmb{P}",
+      "\\gdpLev": "\\pmb{p}",
+      "\\PopLev": "\\pmb{N}",
+      "\\QLev": "Q",
+      "\\RLev": "R",
+      "\\SLev": "S",
+      "\\sLev": "s",
+      "\\TLev": "T",
+      "\\ULev": "U",
+      "\\uLev": "u",
+      "\\VLev": "V",
+      "\\vLev": "v",
+      "\\wLev": "\\pmb{w}",
+      "\\WLev": "W",
+      "\\XLev": "X",
+      "\\xLev": "x",
+      "\\TaxLev": "T",
+      "\\YLev": "Y",
+      "\\yLev": "y",
+      "\\PtyLev": "A",
+      "\\ptyLev": "a",
+      "\\ZLev": "Z",
+      "\\zLev": "z",
+      "\\Rev": "\\Pi",
+      "\\rev": "\\pi",
+      "\\tPrev": "t-1",
+      "\\Div": "D",
+      "\\DiscFacLiv": "\\underline{\\DiscFacRaw}",
+      "\\Inv": "I",
+      "\\inv": "i",
+      "\\TaxCombInv": "\\mathcal{T}^{-1}",
+      "\\EPermShkInv": "\\Ex[\\PermShk^{-1}]",
+      "\\InvEPermShkInv": "\\underline{\\PermShk}",
+      "\\EpShkInv": "\\Ex[\\pShk^{-1}]",
+      "\\InvEpShkInv": "\\underline{\\psi}",
+      "\\uInvEpShkuInv": "\\underline{\\underline{\\psi}}",
+      "\\VInv": "\\Lambda",
+      "\\vInv": "\\scriptstyle \\Lambda \\displaystyle",
+      "\\cov": "\\textup{cov}",
+      "\\DiscFacRaw": "\\beta",
+      "\\GPFacRaw": "\\APFac_{\\PermGroFac}",
+      "\\Belw": "\\ushort",
+      "\\GovNW": "N",
+      "\\govNW": "n",
+      "\\cFuncBelow": "\\uline{\\mathrm{c}}",
+      "\\tNow": "t",
+      "\\cFuncMax": "\\bar{\\bar{\\mathrm{c}}}",
+      "\\MPCmax": "\\bar{\\kappa}",
+      "\\MPSmax": "\\RPFac",
+      "\\MPCmaxmax": "\\bar{\\bar{\\kappa}}",
+      "\\Tax": "\\tau",
+      "\\tax": "\\tau",
+      "\\Ex": "\\mathbb{E}",
+      "\\prudEx": "\\omega",
+      "\\Steady": "\\bar",
+      "\\Risky": "\\mathbf{R}",
+      "\\risky": "\\mathbf{r}",
+      "\\Seniority": "\\mathsf{X}",
+      "\\seniority": "\\mathsf{x}"
+    },
     "exports": [
       {
         "format": "ipynb",
@@ -33,7 +840,7 @@
               "start": { "line": 2, "column": 0 },
               "end": { "line": 9, "column": 0 }
             },
-            "key": "HOpHESjCAx"
+            "key": "RDPARbbOOm"
           }
         ],
         "data": {
@@ -41,7 +848,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "x34DisE7pn"
+        "key": "N6jA2lksbN"
       },
       {
         "type": "block",
@@ -58,11 +865,11 @@
               "start": { "line": 12, "column": 0 },
               "end": { "line": 42, "column": 0 }
             },
-            "key": "gQ2Sfw4jy2"
+            "key": "bd9IJQQ122"
           }
         ],
         "data": {},
-        "key": "IySfF0ubtg"
+        "key": "kTe85jSO9x"
       },
       {
         "type": "block",
@@ -79,7 +886,7 @@
               "start": { "line": 45, "column": 0 },
               "end": { "line": 48, "column": 0 }
             },
-            "key": "VwTghwjmqC"
+            "key": "h8zDglNZq1"
           }
         ],
         "data": {
@@ -87,7 +894,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "ou2qXahURl"
+        "key": "IwumFWFY7b"
       },
       {
         "type": "block",
@@ -104,7 +911,7 @@
               "start": { "line": 51, "column": 0 },
               "end": { "line": 69, "column": 0 }
             },
-            "key": "BXzbq4v0Tj"
+            "key": "R0wAt4hGOC"
           }
         ],
         "data": {
@@ -112,7 +919,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "DQ2M6NX2f8"
+        "key": "DGjhz1YzUa"
       },
       {
         "type": "block",
@@ -129,7 +936,7 @@
               "start": { "line": 72, "column": 0 },
               "end": { "line": 77, "column": 0 }
             },
-            "key": "hBeo4M93De"
+            "key": "fguIFojRYS"
           }
         ],
         "data": {
@@ -138,7 +945,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "QBDoYElIJW"
+        "key": "sqFo4JU6xg"
       },
       {
         "type": "block",
@@ -158,18 +965,18 @@
               {
                 "type": "text",
                 "value": "Post Decision Stage",
-                "key": "WSyqVpqEl4"
+                "key": "n2uDNZH9DQ"
               }
             ],
             "identifier": "post-decision-stage",
             "label": "Post Decision Stage",
             "html_id": "post-decision-stage",
             "implicit": true,
-            "key": "PUs5Gp6fke"
+            "key": "O1SD2htPQs"
           }
         ],
         "data": {},
-        "key": "lPEN6OIiAV"
+        "key": "wOJik557pK"
       },
       {
         "type": "block",
@@ -186,11 +993,11 @@
               "start": { "line": 85, "column": 0 },
               "end": { "line": 88, "column": 0 }
             },
-            "key": "BGMNV7MWcT"
+            "key": "j9QAXAI4rF"
           },
           {
             "type": "output",
-            "id": "x15hnUGyf2wO8C_Bv3zPB",
+            "id": "oqBGgu1dzg5C-VAzy9m4L",
             "data": [
               {
                 "output_type": "display_data",
@@ -208,11 +1015,11 @@
                 }
               }
             ],
-            "key": "EJbwKC7g14"
+            "key": "EFPq1HNgxA"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "uZmIdGmuB4"
+        "key": "IqS5nzJl07"
       },
       {
         "type": "block",
@@ -229,11 +1036,11 @@
               "start": { "line": 95, "column": 0 },
               "end": { "line": 98, "column": 0 }
             },
-            "key": "NIpk6HErJn"
+            "key": "b9OboM5l7n"
           },
           {
             "type": "output",
-            "id": "igRJY00iM2xn5uLSkKdaS",
+            "id": "PxTENYOo_AhFIE5k34Xl_",
             "data": [
               {
                 "output_type": "display_data",
@@ -251,11 +1058,11 @@
                 }
               }
             ],
-            "key": "xMtq5s87TK"
+            "key": "HsF9jC4nw5"
           }
         ],
         "data": {},
-        "key": "SxDNqdrhme"
+        "key": "uOPU4gxSCb"
       },
       {
         "type": "block",
@@ -272,11 +1079,11 @@
               "start": { "line": 105, "column": 0 },
               "end": { "line": 108, "column": 0 }
             },
-            "key": "nRo3ncfqwZ"
+            "key": "NBy9DAumsM"
           },
           {
             "type": "output",
-            "id": "VCvj4MZLXP09PsWYtYJLn",
+            "id": "a4lwLXJ8huZbEAFD0qbZW",
             "data": [
               {
                 "output_type": "display_data",
@@ -294,11 +1101,11 @@
                 }
               }
             ],
-            "key": "qqDdqOgMxj"
+            "key": "NjFe8WGkIk"
           }
         ],
         "data": {},
-        "key": "NIRt1gCKt2"
+        "key": "cPmo06qRhF"
       },
       {
         "type": "block",
@@ -318,18 +1125,18 @@
               {
                 "type": "text",
                 "value": "Consumption Stage",
-                "key": "Vc9rbZkZYN"
+                "key": "m0AAtQM3Lw"
               }
             ],
             "identifier": "consumption-stage",
             "label": "Consumption Stage",
             "html_id": "consumption-stage",
             "implicit": true,
-            "key": "eDnaUH7xj3"
+            "key": "MHzfEXNkZy"
           }
         ],
         "data": {},
-        "key": "X16oTlx17R"
+        "key": "n7JibPa1yM"
       },
       {
         "type": "block",
@@ -346,11 +1153,11 @@
               "start": { "line": 120, "column": 0 },
               "end": { "line": 123, "column": 0 }
             },
-            "key": "fqUoMYzddI"
+            "key": "gCc9BRXii2"
           },
           {
             "type": "output",
-            "id": "p02RtPZKEhqvQemItNzze",
+            "id": "8RYPPiXdUKWdWotJb9-ca",
             "data": [
               {
                 "output_type": "display_data",
@@ -368,7 +1175,7 @@
                 }
               }
             ],
-            "key": "fMlM2SpqD3"
+            "key": "uzEyX3gTeP"
           }
         ],
         "data": {
@@ -377,7 +1184,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "OqSAgvrsux"
+        "key": "Wjc4GRy842"
       },
       {
         "type": "block",
@@ -394,11 +1201,11 @@
               "start": { "line": 130, "column": 0 },
               "end": { "line": 133, "column": 0 }
             },
-            "key": "TkcO87Zixl"
+            "key": "TVuuOC5oLc"
           },
           {
             "type": "output",
-            "id": "7sKxEVPKS1iF4byfzhVdy",
+            "id": "ch3E22JoDYWb8xSOL8no1",
             "data": [
               {
                 "output_type": "display_data",
@@ -416,11 +1223,11 @@
                 }
               }
             ],
-            "key": "nI5JrPeoKO"
+            "key": "wEWmxFwyjA"
           }
         ],
         "data": {},
-        "key": "gQEO6E6ALD"
+        "key": "uKMK9FtWLY"
       },
       {
         "type": "block",
@@ -437,11 +1244,11 @@
               "start": { "line": 140, "column": 0 },
               "end": { "line": 143, "column": 0 }
             },
-            "key": "fxjDPbU2oE"
+            "key": "mHLnJ5LCc2"
           },
           {
             "type": "output",
-            "id": "Aht2G_IMammtZhNuhbX9u",
+            "id": "AzfYUI0M8Ngiab7DLgRwG",
             "data": [
               {
                 "output_type": "display_data",
@@ -459,11 +1266,11 @@
                 }
               }
             ],
-            "key": "fW0IUWsYd9"
+            "key": "J28v30x8fY"
           }
         ],
         "data": {},
-        "key": "cVLw0kLxUo"
+        "key": "GbMiS8052V"
       },
       {
         "type": "block",
@@ -480,11 +1287,11 @@
               "start": { "line": 150, "column": 0 },
               "end": { "line": 153, "column": 0 }
             },
-            "key": "kscxqJH26c"
+            "key": "OyJuWPyzgH"
           },
           {
             "type": "output",
-            "id": "GWTTAaJXhfEo0uPnOgSwk",
+            "id": "O95xpwc1nM8wLpDi47QwL",
             "data": [
               {
                 "output_type": "display_data",
@@ -502,11 +1309,11 @@
                 }
               }
             ],
-            "key": "Xot3NPlx4b"
+            "key": "HLAOLb3UsZ"
           }
         ],
         "data": {},
-        "key": "m7IZT8oUJX"
+        "key": "NZnOpGKh5F"
       },
       {
         "type": "block",
@@ -523,17 +1330,17 @@
               "end": { "line": 161, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "Deposit Stage", "key": "SGBybRiz9s" }
+              { "type": "text", "value": "Deposit Stage", "key": "oxEJQrfUvA" }
             ],
             "identifier": "deposit-stage",
             "label": "Deposit Stage",
             "html_id": "deposit-stage",
             "implicit": true,
-            "key": "JZx5wgYxoN"
+            "key": "A8tv7iUXXG"
           }
         ],
         "data": {},
-        "key": "PXHCQCQfiE"
+        "key": "pxxqsBJGO8"
       },
       {
         "type": "block",
@@ -550,11 +1357,11 @@
               "start": { "line": 165, "column": 0 },
               "end": { "line": 168, "column": 0 }
             },
-            "key": "QGwLxC8eRZ"
+            "key": "q2RDOXGori"
           },
           {
             "type": "output",
-            "id": "L-r1Pe5n3AOC1qJfXjmHO",
+            "id": "A_Zkn3MKe2u6bxP9yIKfW",
             "data": [
               {
                 "output_type": "display_data",
@@ -572,11 +1379,11 @@
                 }
               }
             ],
-            "key": "LuXBYakgmF"
+            "key": "ZXyYCK9AOo"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "GDiriq5Jo0"
+        "key": "lzJT1CCbDD"
       },
       {
         "type": "block",
@@ -593,11 +1400,11 @@
               "start": { "line": 175, "column": 0 },
               "end": { "line": 178, "column": 0 }
             },
-            "key": "lR235Udl5L"
+            "key": "jrZWYd5KrE"
           },
           {
             "type": "output",
-            "id": "4D9uPqR9GpZUMeFlhfeYV",
+            "id": "adJQMPnoX9ZZ0NoEd6WNY",
             "data": [
               {
                 "output_type": "display_data",
@@ -615,7 +1422,7 @@
                 }
               }
             ],
-            "key": "VQIkg9Lx5r"
+            "key": "op6b3OjmYj"
           }
         ],
         "data": {
@@ -624,7 +1431,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "IxtGAUNuIt"
+        "key": "i4w83cDXts"
       },
       {
         "type": "block",
@@ -641,11 +1448,11 @@
               "start": { "line": 185, "column": 0 },
               "end": { "line": 188, "column": 0 }
             },
-            "key": "erYCFy5pdh"
+            "key": "RLdcFW7RMl"
           },
           {
             "type": "output",
-            "id": "QKJSNUwpNOrGBcpdlzdG1",
+            "id": "7XfpLCgp6FVSxClhpUPg4",
             "data": [
               {
                 "output_type": "display_data",
@@ -663,11 +1470,11 @@
                 }
               }
             ],
-            "key": "pTIaVIBhdY"
+            "key": "qoGxKo0aaS"
           }
         ],
         "data": {},
-        "key": "LUbRpcHje7"
+        "key": "UZnLnTIOqz"
       },
       {
         "type": "block",
@@ -684,11 +1491,11 @@
               "start": { "line": 195, "column": 0 },
               "end": { "line": 198, "column": 0 }
             },
-            "key": "StFPZBw2gT"
+            "key": "xkQ9POQ0f8"
           },
           {
             "type": "output",
-            "id": "Y5MLtX8vvhGehX7bsRMe4",
+            "id": "LXf8fwApbnNuXi8yzfhAp",
             "data": [
               {
                 "output_type": "display_data",
@@ -706,11 +1513,11 @@
                 }
               }
             ],
-            "key": "hGevOwya4Z"
+            "key": "phf0J9tCHH"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "PQ1fTBoWUq"
+        "key": "nT7DP0IaHe"
       },
       {
         "type": "block",
@@ -727,11 +1534,11 @@
               "start": { "line": 205, "column": 0 },
               "end": { "line": 208, "column": 0 }
             },
-            "key": "Vq4K2Sp9Q5"
+            "key": "ekhUmreXgB"
           },
           {
             "type": "output",
-            "id": "wIfbFyv8JL1736sMHxKOR",
+            "id": "X6LFxQj9dg6-xZGzVLOSO",
             "data": [
               {
                 "output_type": "display_data",
@@ -749,7 +1556,7 @@
                 }
               }
             ],
-            "key": "vzRVrcaVVy"
+            "key": "ua9HNEC8sR"
           }
         ],
         "data": {
@@ -758,7 +1565,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "CfLt0eL9gr"
+        "key": "Z5M66WZM78"
       },
       {
         "type": "block",
@@ -775,11 +1582,11 @@
               "start": { "line": 215, "column": 0 },
               "end": { "line": 219, "column": 0 }
             },
-            "key": "FVYqH6KSRw"
+            "key": "PaXTa641DJ"
           },
           {
             "type": "output",
-            "id": "P0BLYbxabauhT02S_RbBr",
+            "id": "acC1FnM4k09BNxzDyxiKc",
             "data": [
               {
                 "name": "stdout",
@@ -802,7 +1609,7 @@
                 }
               }
             ],
-            "key": "klAmXfPD5w"
+            "key": "jitoH0NPOn"
           }
         ],
         "data": {
@@ -811,7 +1618,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "H8MGwIdxQ6"
+        "key": "MGqgAe4nyM"
       },
       {
         "type": "block",
@@ -828,17 +1635,17 @@
               "end": { "line": 227, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "Grids", "key": "bcs8EcxY1X" }
+              { "type": "text", "value": "Grids", "key": "VvKCDQ2tsc" }
             ],
             "identifier": "grids",
             "label": "Grids",
             "html_id": "grids",
             "implicit": true,
-            "key": "zPMcEFsera"
+            "key": "msz7OK541D"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "n6Vx8hfCdG"
+        "key": "hc4xzdGI9d"
       },
       {
         "type": "block",
@@ -855,11 +1662,11 @@
               "start": { "line": 231, "column": 0 },
               "end": { "line": 234, "column": 0 }
             },
-            "key": "OptmlkzpVD"
+            "key": "Rnmo6TUYh6"
           }
         ],
         "data": {},
-        "key": "R3DQdBFAvg"
+        "key": "zAUsyfI4Ns"
       },
       {
         "type": "block",
@@ -876,7 +1683,7 @@
               "start": { "line": 237, "column": 0 },
               "end": { "line": 259, "column": 0 }
             },
-            "key": "RcGAsvPIqb"
+            "key": "rpwZWsHwMb"
           }
         ],
         "data": {
@@ -884,7 +1691,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "MsN4WPKiT0"
+        "key": "LkrMauhUcn"
       },
       {
         "type": "block",
@@ -901,11 +1708,11 @@
               "start": { "line": 262, "column": 0 },
               "end": { "line": 299, "column": 0 }
             },
-            "key": "ljTSf9Tlcy"
+            "key": "eY7uT0NHhU"
           }
         ],
         "data": {},
-        "key": "bxGQhRr9R6"
+        "key": "YNHf9iHxsS"
       },
       {
         "type": "block",
@@ -922,11 +1729,11 @@
               "start": { "line": 302, "column": 0 },
               "end": { "line": 313, "column": 0 }
             },
-            "key": "Tg0EsiMg0L"
+            "key": "cxUH3D6Vgs"
           },
           {
             "type": "output",
-            "id": "umsXHdOmHzhmUgXkP-Bal",
+            "id": "hBAAVYOojvoseWwkdO8Lr",
             "data": [
               {
                 "output_type": "display_data",
@@ -944,11 +1751,11 @@
                 }
               }
             ],
-            "key": "TaNObMBgbH"
+            "key": "iSHSTvNZz9"
           }
         ],
         "data": {},
-        "key": "IWUHSa3PwW"
+        "key": "yGW7HPkrFz"
       },
       {
         "type": "block",
@@ -965,11 +1772,11 @@
               "start": { "line": 320, "column": 0 },
               "end": { "line": 331, "column": 0 }
             },
-            "key": "drTosY5Z6n"
+            "key": "PoAh23T6Tx"
           },
           {
             "type": "output",
-            "id": "yZ1gIIqpwaxU6tqnz8kfP",
+            "id": "JJSvgdtR8dkQ7bF89qGSG",
             "data": [
               {
                 "output_type": "display_data",
@@ -987,11 +1794,11 @@
                 }
               }
             ],
-            "key": "UEQ74n4d1P"
+            "key": "W4rYib1mvo"
           }
         ],
         "data": {},
-        "key": "Kbr6CsSPGw"
+        "key": "xobgZg85Y4"
       },
       {
         "type": "block",
@@ -1008,11 +1815,11 @@
               "start": { "line": 338, "column": 0 },
               "end": { "line": 376, "column": 0 }
             },
-            "key": "KTjB0b1xlf"
+            "key": "unzs3JCxVw"
           },
           {
             "type": "output",
-            "id": "y5H79bwdt_ouvded3C8Gm",
+            "id": "Tdwcv_xKXYTTbTNof87o9",
             "data": [
               {
                 "output_type": "display_data",
@@ -1030,7 +1837,7 @@
                 }
               }
             ],
-            "key": "JNrL377kFW"
+            "key": "xf05dVDUai"
           }
         ],
         "data": {
@@ -1038,7 +1845,7 @@
           "jupyter": { "outputs_hidden": false },
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "tv4q7RlLky"
+        "key": "uhVSTCE8Ev"
       },
       {
         "type": "block",
@@ -1055,11 +1862,11 @@
               "start": { "line": 383, "column": 0 },
               "end": { "line": 403, "column": 0 }
             },
-            "key": "r45yH6qNxB"
+            "key": "nX3cm6YtG6"
           },
           {
             "type": "output",
-            "id": "mo6zsRDtNb-D4IokD2bHL",
+            "id": "x2jubBw5dE3Dp5iRnhAKL",
             "data": [
               {
                 "output_type": "execute_result",
@@ -1088,11 +1895,11 @@
                 }
               }
             ],
-            "key": "r0Ngli3GVU"
+            "key": "f655Ab9aCx"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "SW1dzQAhoA"
+        "key": "Y2DAzxduqr"
       },
       {
         "type": "block",
@@ -1109,11 +1916,11 @@
               "start": { "line": 410, "column": 0 },
               "end": { "line": 431, "column": 0 }
             },
-            "key": "dEFwEdTerF"
+            "key": "LRuqaPU6v1"
           },
           {
             "type": "output",
-            "id": "uXGOF_NISpzT1IS4Spuwt",
+            "id": "ijIEPAY5tLu1bNXUQx0UC",
             "data": [
               {
                 "name": "stderr",
@@ -1136,11 +1943,11 @@
                 }
               }
             ],
-            "key": "tuI63xWyop"
+            "key": "bKaIYqiNMO"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "yaltSmeRMs"
+        "key": "xjRH3bqJfC"
       },
       {
         "type": "block",
@@ -1157,11 +1964,11 @@
               "start": { "line": 438, "column": 0 },
               "end": { "line": 441, "column": 0 }
             },
-            "key": "AO4BmhWcAW"
+            "key": "EL9tzpwtPS"
           }
         ],
         "data": {},
-        "key": "DNKjHqk00t"
+        "key": "s0byzhajhw"
       },
       {
         "type": "block",
@@ -1178,11 +1985,11 @@
               "start": { "line": 444, "column": 0 },
               "end": { "line": 447, "column": 0 }
             },
-            "key": "aBPjFew6pP"
+            "key": "HqwHmbzHxo"
           }
         ],
         "data": {},
-        "key": "ucjvdBclcE"
+        "key": "LH3IjHQtLB"
       },
       {
         "type": "block",
@@ -1199,11 +2006,11 @@
               "start": { "line": 450, "column": 0 },
               "end": { "line": 459, "column": 0 }
             },
-            "key": "vFMjOzS80G"
+            "key": "Za0aWpABU1"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "yp1eCZKizV"
+        "key": "b1EWlMECK9"
       },
       {
         "type": "block",
@@ -1220,11 +2027,11 @@
               "start": { "line": 462, "column": 0 },
               "end": { "line": 466, "column": 0 }
             },
-            "key": "QYSSk2VZM2"
+            "key": "mXuRH92gY6"
           },
           {
             "type": "output",
-            "id": "hSX3LXKF9FuqpnNoOE8Pm",
+            "id": "Be3feUbr_tnHyn3v4Sn1G",
             "data": [
               {
                 "output_type": "display_data",
@@ -1242,11 +2049,11 @@
                 }
               }
             ],
-            "key": "PlLrIhCNBg"
+            "key": "HeecAQEyJe"
           }
         ],
         "data": { "lines_to_next_cell": 2 },
-        "key": "fBrhudhqNr"
+        "key": "YEOC0ENNrM"
       },
       {
         "type": "block",
@@ -1263,11 +2070,11 @@
               "start": { "line": 473, "column": 0 },
               "end": { "line": 491, "column": 0 }
             },
-            "key": "gxpamZAYGT"
+            "key": "bp4rWPsxfX"
           }
         ],
         "data": {},
-        "key": "dCUkOD4rJb"
+        "key": "ZLiS2qupWg"
       },
       {
         "type": "block",
@@ -1284,11 +2091,11 @@
               "start": { "line": 494, "column": 0 },
               "end": { "line": 497, "column": 0 }
             },
-            "key": "uPsnVWlbvP"
+            "key": "nnWpr61tVN"
           }
         ],
         "data": {},
-        "key": "T0ejPDWBzT"
+        "key": "i0y0CxJV58"
       },
       {
         "type": "block",
@@ -1305,11 +2112,11 @@
               "start": { "line": 500, "column": 0 },
               "end": { "line": 512, "column": 0 }
             },
-            "key": "ncmoxGn2RN"
+            "key": "kXYWx5uDyo"
           }
         ],
         "data": {},
-        "key": "jIMu9fotQV"
+        "key": "B5bEamTOeo"
       },
       {
         "type": "block",
@@ -1326,11 +2133,11 @@
               "start": { "line": 515, "column": 0 },
               "end": { "line": 542, "column": 0 }
             },
-            "key": "Q424KsnVmH"
+            "key": "fiyE2hIJiH"
           }
         ],
         "data": {},
-        "key": "Y7ayGrjfbN"
+        "key": "Gk5Vt7q4tf"
       },
       {
         "type": "block",
@@ -1347,14 +2154,14 @@
               "start": { "line": 545, "column": 0 },
               "end": { "line": 553, "column": 0 }
             },
-            "key": "S7EMIxchfo"
+            "key": "iQNdCxjcIs"
           }
         ],
         "data": {},
-        "key": "xuVKFGRfJP"
+        "key": "NYXU5749fs"
       }
     ],
-    "key": "AU7IUxDsrI"
+    "key": "sMOuPIdOmD"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }
