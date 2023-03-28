@@ -4,7 +4,813 @@
     "short_title": "",
     "authors": [],
     "keywords": [],
-    "math": {},
+    "math": {
+      "\\CARA": "\\alpha",
+      "\\CRRA": "\\rho",
+      "\\PtyLab": "\\mathrm{Z}",
+      "\\ptyLab": "z",
+      "\\TaxComb": "\\mathcal{T}",
+      "\\Prob": "\\mathbb{P}",
+      "\\DiePrb": "\\mathsf{D}",
+      "\\diePrb": "\\mathsf{d}",
+      "\\LivPrb": "\\cancel{\\DiePrb}",
+      "\\livPrb": "\\cancel{\\diePrb}",
+      "\\DiscFac": "\\beta",
+      "\\DieFac": "\\pDead",
+      "\\GroFac": "\\Omega",
+      "\\BalGroFac": "\\check",
+      "\\permGroFac": "\\Gamma",
+      "\\PermGroFac": "\\pmb{\\Phi}",
+      "\\PopnGroFac": "\\Xi",
+      "\\APFac": "\\text{\\pmb{\\Thorn}}",
+      "\\PopFac": "\\PopGro",
+      "\\RPFac": "\\APFac_{\\Rfree}",
+      "\\DeprFac": "\\daleth",
+      "\\LivFac": "\\Alive",
+      "\\aVec": "\\vec{\\mathrm{\\aNrm}}",
+      "\\bVec": "\\vec{\\mathrm{\\bNrm}}",
+      "\\cVec": "\\vec{\\mathrm{\\cNrm}}",
+      "\\mVec": "\\vec{\\mathrm{\\mNrm}}",
+      "\\yVec": "\\vec{\\mathrm{\\yNrm}}",
+      "\\Inc": "Y",
+      "\\inc": "y",
+      "\\PInc": "P",
+      "\\AFunc": "\\mathrm{A}",
+      "\\aFunc": "\\mathrm{a}",
+      "\\BFunc": "\\mathrm{B}",
+      "\\bFunc": "\\mathrm{b}",
+      "\\CFunc": "\\mathrm{C}",
+      "\\cFunc": "\\mathrm{c}",
+      "\\MPCFunc": "\\pmb{\\kappa}",
+      "\\DFunc": "\\mathrm{D}",
+      "\\dFunc": "\\mathrm{d}",
+      "\\bEndFunc": "\\mathfrak{b}",
+      "\\CEndFunc": "\\mathfrak{C}",
+      "\\cEndFunc": "\\mathfrak{c}",
+      "\\dEndFunc": "\\mathfrak{d}",
+      "\\lEndFunc": "\\mathfrak{l}",
+      "\\mEndFunc": "\\mathfrak{m}",
+      "\\nEndFunc": "\\mathfrak{n}",
+      "\\VEndFunc": "\\mathfrak{V}",
+      "\\vEndFunc": "\\mathfrak{v}",
+      "\\zEndFunc": "\\mathfrak{z}",
+      "\\ProdFunc": "\\mathrm{F}",
+      "\\prodFunc": "\\mathrm{f}",
+      "\\EFunc": "\\mathrm{E}",
+      "\\eFunc": "\\mathrm{e}",
+      "\\FFunc": "\\mathrm{F}",
+      "\\fFunc": "\\mathrm{f}",
+      "\\GFunc": "\\mathrm{G}",
+      "\\gFunc": "\\mathrm{g}",
+      "\\vBegFunc": "\\pmb{\\upsilon}",
+      "\\HFunc": "\\mathrm{H}",
+      "\\hFunc": "\\mathrm{h}",
+      "\\IFunc": "\\mathrm{I}",
+      "\\iFunc": "\\mathrm{i}",
+      "\\chiFunc": "\\pmb{\\chi}",
+      "\\phiFunc": "\\digamma",
+      "\\JFunc": "\\mathrm{J}",
+      "\\jFunc": "\\mathrm{j}",
+      "\\KFunc": "\\mathrm{K}",
+      "\\kFunc": "\\mathrm{k}",
+      "\\LFunc": "\\mathrm{L}",
+      "\\utilFunc": "\\mathrm{u}",
+      "\\MFunc": "\\mathrm{M}",
+      "\\mFunc": "\\mathrm{m}",
+      "\\NFunc": "\\mathrm{N}",
+      "\\nFunc": "\\mathrm{n}",
+      "\\OFunc": "\\mathrm{O}",
+      "\\PFunc": "\\mathrm{P}",
+      "\\pFunc": "\\mathrm{p}",
+      "\\QFunc": "\\mathrm{Q}",
+      "\\RFunc": "\\mathrm{R}",
+      "\\rFunc": "\\mathrm{r}",
+      "\\SFunc": "\\mathrm{S}",
+      "\\sFunc": "\\mathrm{s}",
+      "\\MPSFunc": "\\pmb{lambda}",
+      "\\TFunc": "\\mathrm{T}",
+      "\\UFunc": "\\mathrm{U}",
+      "\\uFunc": "\\mathrm{u}",
+      "\\VFunc": "\\mathrm{V}",
+      "\\vFunc": "\\mathrm{v}",
+      "\\cPDVFunc": "\\mathbb{C}",
+      "\\pPDVFunc": "\\mathbb{P}",
+      "\\uPDVFunc": "\\mathbb{U}",
+      "\\cLevFunc": "\\pmb{\\cFunc}",
+      "\\VLevFunc": "\\pmb{\\mathrm{V}}",
+      "\\vLevFunc": "\\pmb{\\mathrm{v}}",
+      "\\RevFunc": "\\pmb{\\Pi}",
+      "\\revFunc": "\\pmb{\\pi}",
+      "\\WFunc": "\\mathrm{W}",
+      "\\wFunc": "\\mathrm{w}",
+      "\\XFunc": "\\mathrm{X}",
+      "\\xFunc": "\\mathrm{x}",
+      "\\YFunc": "\\mathrm{Y}",
+      "\\yFunc": "\\mathrm{y}",
+      "\\ZFunc": "\\mathrm{Z}",
+      "\\zFunc": "\\mathrm{z}",
+      "\\MPC": "\\kappa",
+      "\\PIHMPC": "\\varkappa",
+      "\\MinMPC": "\\uline{\\kappa}",
+      "\\MinMinMPC": "\\underline{\\kappa}",
+      "\\MaxMinMPC": "\\hat{\\underline{\\kappa}}",
+      "\\MaxMPC": "\\bar{\\kappa}",
+      "\\MaxMaxMPC": "\\bar{\\bar{\\kappa}}",
+      "\\itc": "\\zeta",
+      "\\kPriceAfterITC": "\\mathscr{P}",
+      "\\PostITC": "\\cancel{\\zeta}",
+      "\\pDead": "\\mathfrak{D}",
+      "\\TaxPaid": "T",
+      "\\WMid": "\\BLev",
+      "\\wMid": "\\bLev",
+      "\\Wmid": "\\BRat",
+      "\\wmid": "\\bRat",
+      "\\Dvdnd": "\\mathbf{D}",
+      "\\dvdnd": "d",
+      "\\edvdnd": "\\grave{\\dvdnd}",
+      "\\hEnd": "\\mathfrak{h}",
+      "\\GovSpend": "X",
+      "\\govSpend": "x",
+      "\\xpend": "\\xi",
+      "\\expend": "\\xi",
+      "\\TEnd": "T",
+      "\\VEnd": "\\mathfrak{V}",
+      "\\vEnd": "\\mathfrak{v}",
+      "\\WEnd": "\\ALev",
+      "\\wEnd": "\\aLev",
+      "\\Wend": "\\ARat",
+      "\\wend": "\\aRat",
+      "\\permGroFacInd": "\\pmb{\\phi}",
+      "\\permShkInd": "\\psi",
+      "\\tranShkInd": "\\theta",
+      "\\permLvlInd": "\\mathrm{p}",
+      "\\RCpnd": "\\mathbf{R}",
+      "\\Mod": "\\tilde",
+      "\\Rprod": "\\mathscr{R}",
+      "\\rprod": "\\mathscr{r}",
+      "\\RProd": "\\mathsf{R}",
+      "\\rProd": "\\mathsf{r}",
+      "\\tranShkIndStd": "\\sigma_{\\tranShkInd}",
+      "\\tranShkAggStd": "\\sigma_{\\tranShkAgg}",
+      "\\ShkMeanOneLogStd": "\\sigma_{\\ShkMeanOneLog}",
+      "\\ShkLogZeroLogStd": "\\sigma_{\\cancel{\\ShkMeanOneLog}}",
+      "\\PermShkStd": "\\sigma_{\\PermShk}",
+      "\\TranShkStd": "\\sigma_{\\TranShk}",
+      "\\prud": "\\eta",
+      "\\tFwd": "n",
+      "\\aE": "\\aRat^{e}",
+      "\\BE": "\\BRat^{e}",
+      "\\bE": "\\bRat^{e}",
+      "\\CE": "\\CRat^{e}",
+      "\\cE": "\\cRat^{e}",
+      "\\Price": "\\mathsf{P}",
+      "\\kPrice": "\\mathsf{P}",
+      "\\Severance": "\\kappa",
+      "\\MPCE": "\\MPC^{e}",
+      "\\Rfree": "\\mathsf{R}",
+      "\\rfree": "\\mathsf{r}",
+      "\\TaxFree": "\\cancel{\\Tax}",
+      "\\Age": "Z",
+      "\\age": "z",
+      "\\Wage": "\\mathsf{W}",
+      "\\wage": "\\mathsf{w}",
+      "\\bTargE": "\\check{b}^{e}",
+      "\\CTargE": "\\CTarg^{\\null}",
+      "\\cTargE": "\\Target{c}^{e}",
+      "\\kTargE": "\\Target{k}^{e}",
+      "\\STargE": "\\Target{\\SRat}^{\\null}",
+      "\\sTargE": "\\Target{\\sRat}^{\\null}",
+      "\\yTargE": "\\check{y}^{e}",
+      "\\ME": "\\MRat^{e}",
+      "\\mE": "\\mRat^{e}",
+      "\\TermTime": "T",
+      "\\ShkMeanOne": "\\Theta",
+      "\\PopE": "\\mathcal{E}",
+      "\\popE": "e",
+      "\\labShare": "\\nu",
+      "\\leiShare": "\\zeta",
+      "\\kapShare": "\\alpha",
+      "\\riskyshare": "\\varsigma",
+      "\\Retire": "\\mathbb{R}",
+      "\\WPre": "K",
+      "\\wPre": "k",
+      "\\Leisure": "Z",
+      "\\leisure": "z",
+      "\\SE": "\\SRat^{e}",
+      "\\sE": "\\sRat^{e}",
+      "\\BRatE": "B}^{e",
+      "\\bRatE": "b}^{e",
+      "\\CRatE": "\\CRat^{e}",
+      "\\cRatE": "\\cRat^{e}",
+      "\\DiscRate": "\\vartheta",
+      "\\pDeadRate": "\\grave{\\cancel{\\mathsf{d}}}",
+      "\\erate": "\\cancel{\\mho}",
+      "\\pDieRate": "\\grave{\\mathsf{d}}",
+      "\\timeRate": "\\vartheta",
+      "\\saveRate": "\\grave{s}",
+      "\\MRatE": "\\MRat^{e}",
+      "\\mRatE": "\\mRat^{e}",
+      "\\SRatE": "\\SRat^{e}",
+      "\\sRatE": "\\sRat^{e}",
+      "\\srate": "\\varsigma",
+      "\\urate": "\\mho",
+      "\\TaxRate": "t",
+      "\\empState": "\\xi",
+      "\\discRte": "\\tau",
+      "\\DiscRte": "\\vartheta",
+      "\\GroRte": "\\omega",
+      "\\BalGroRte": "\\tilde",
+      "\\permGroRte": "\\gamma",
+      "\\PermGroRte": "\\varphi",
+      "\\PopnGroRte": "\\xi",
+      "\\APRte": "\\text{\\thorn}",
+      "\\GPRte": "\\text{\\thorn}_{\\PermGroRte}",
+      "\\popRte": "\\popGro",
+      "\\RPRte": "\\text{\\thorn}_{\\rfree}",
+      "\\deprRte": "\\delta",
+      "\\Value": "\\mathrm{V}",
+      "\\VE": "V}^{e",
+      "\\vE": "v}^{e",
+      "\\Save": "S",
+      "\\save": "s",
+      "\\RSave": "\\underline{\\Rfree}",
+      "\\rsave": "\\underline{\\rfree}",
+      "\\Abve": "\\bar",
+      "\\BLevE": "\\BLev^{e}",
+      "\\bLevE": "\\bLev^{e}",
+      "\\CLevE": "\\CLev^{e}",
+      "\\cLevE": "\\cLev^{e}",
+      "\\mLevE": "\\mLev^{e}",
+      "\\SLevE": "\\SLev^{e}",
+      "\\sLevE": "\\sLev^{e}",
+      "\\Alive": "\\mathcal{L}",
+      "\\cFuncAbove": "\\bar{\\mathrm{c}}",
+      "\\aRatBF": "\\pmb{a}",
+      "\\bRatBF": "\\pmb{\\mathrm{b}}",
+      "\\cRatBF": "\\pmb{c}",
+      "\\mRatBF": "\\pmb{\\mathrm{m}}",
+      "\\ALevBF": "\\mathbf{A}",
+      "\\aLevBF": "\\mathbf{a}",
+      "\\BLevBF": "\\mathbf{B}",
+      "\\bLevBF": "\\mathbf{b}",
+      "\\CLevBF": "\\mathbf{C}",
+      "\\cLevBF": "\\mathbf{c}",
+      "\\HLevBF": "\\mathbf{H}",
+      "\\hLevBF": "\\mathbf{h}",
+      "\\KLevBF": "\\mathbf{K}",
+      "\\kLevBF": "\\mathbf{k}",
+      "\\LLevBF": "\\mathbf{L}",
+      "\\lLevBF": "\\pmb{\\ell}",
+      "\\MLevBF": "\\mathbf{M}",
+      "\\mLevBF": "\\mathbf{m}",
+      "\\OLevBF": "\\mathbf{O}",
+      "\\oLevBF": "\\mathbf{o}",
+      "\\PLevBF": "\\mathbf{P}",
+      "\\pLevBF": "\\mathbf{p}",
+      "\\SLevBF": "\\mathbf{S}",
+      "\\sLevBF": "\\mathbf{s}",
+      "\\vLevBF": "\\mathbf{v}",
+      "\\YLevBF": "\\mathbf{Y}",
+      "\\yLevBF": "\\mathbf{y}",
+      "\\ZLevBF": "\\mathbf{Z}",
+      "\\zLevBF": "\\pmb{z}",
+      "\\CDF": "\\mathcal{F}",
+      "\\SDF": "\\MLev",
+      "\\RfreeEff": "\\bar{\\Rfree}",
+      "\\CGroPF": "\\Lambda",
+      "\\cGroPF": "\\lambda",
+      "\\WGroPF": "\\mathrm{G}",
+      "\\MPCPPF": "\\Pi",
+      "\\vBeg": "\\upsilon",
+      "\\WBeg": "\\KLev",
+      "\\wBeg": "\\kLev",
+      "\\aAgg": "\\mathsf{A}",
+      "\\cAgg": "\\pmb{C}",
+      "\\permGroFacAgg": "\\Phi",
+      "\\RfreeAgg": "\\Agg{\\Rfree}",
+      "\\PermShkAgg": "\\Psi",
+      "\\permShkAgg": "\\Psi",
+      "\\TranShkAgg": "\\Theta",
+      "\\tranShkAgg": "\\Theta",
+      "\\permLvlAgg": "\\mathrm{P}",
+      "\\PermLvlAgg": "\\PLvl",
+      "\\zAgg": "\\pmb{Z}",
+      "\\ShkMeanOneLog": "\\theta",
+      "\\mBalLog": "\\BalGroRte{\\mNrm}",
+      "\\EpremLog": "\\varphi",
+      "\\ShkLogZeroLog": "\\cancel{\\ShkMeanOneLog}",
+      "\\pLog": "p",
+      "\\ImpG": "\\Im}_{\\PGro",
+      "\\impg": "\\imath}_{\\pGro",
+      "\\ATarg": "\\check{A}",
+      "\\aTarg": "\\check{a}",
+      "\\BTarg": "\\check{B}",
+      "\\bTarg": "\\check{b}",
+      "\\CTarg": "\\Target{C}",
+      "\\cTarg": "\\Target{c}",
+      "\\BTargTarg": "\\Target{\\Target{\\BRat}}",
+      "\\bTargTarg": "\\Target{\\Target{\\bRat}}",
+      "\\cTargTarg": "\\Target{\\Target{\\cRat}}",
+      "\\STargTarg": "\\Target{\\Target{\\SRat}}",
+      "\\sTargTarg": "\\Target{\\Target{\\sRat}}",
+      "\\kTarg": "\\Target{k}",
+      "\\mTarg": "\\check{m}",
+      "\\STarg": "\\Target{\\SRat}",
+      "\\sTarg": "\\Target{\\sRat}",
+      "\\vTarg": "\\Target{\\vRat}",
+      "\\yTarg": "\\check{y}",
+      "\\CGroOverG": "\\Upsilon",
+      "\\avg": "\\bar",
+      "\\h": "h",
+      "\\Wealth": "O",
+      "\\wealth": "o",
+      "\\Hi": "\\hat",
+      "\\Chi": "\\mathrm{X}",
+      "\\NI": "Z",
+      "\\TaxUI": "\\tau",
+      "\\adj": "\\mathrm{j}",
+      "\\PermGroFacAdj": "\\underline{\\PermGroFac}",
+      "\\PGroAdj": "\\underline{\\PGro}",
+      "\\pGroAdj": "\\underline{\\pGro}",
+      "\\PatPGroAdj": "\\text{\\pmb{\\Thorn}}_{\\underline{\\PGro}}",
+      "\\patpGroAdj": "\\text{\\thorn}_{\\underline{\\pGro}}",
+      "\\PermGroFacuAdj": "\\underline{\\underline{\\PermGroFac}}",
+      "\\PGrouAdj": "\\underline{\\underline{\\PGro}}",
+      "\\pGrouAdj": "\\underline{\\underline{\\pGro}}",
+      "\\DiscAltuAdj": "\\underline{\\underline{\\beth}}",
+      "\\TEndBak": "\\mathsf{p}",
+      "\\tBak": "\\pmb{n}",
+      "\\TEatBak": "\\mathtt{q}",
+      "\\ek": "\\lambda",
+      "\\Shk": "\\Phi",
+      "\\shk": "\\phi",
+      "\\PermShk": "\\mathbf{\\Psi}",
+      "\\permShk": "\\psi",
+      "\\uInvEuPermShk": "\\underline{\\underline{\\PermShk}}",
+      "\\TranShk": "\\pmb{\\xi}",
+      "\\PShk": "\\Psi",
+      "\\pShk": "\\psi",
+      "\\pshk": "\\psi",
+      "\\TShk": "\\Xi",
+      "\\tShk": "\\xi",
+      "\\tshk": "\\xi",
+      "\\Work": "\\mathbb{W}",
+      "\\vk": "\\lambda",
+      "\\util": "u",
+      "\\TranShkAll": "\\pmb{\\xi}",
+      "\\tShkAll": "\\xi",
+      "\\WAll": "O",
+      "\\wAll": "o",
+      "\\Lvl": "\\mathbf",
+      "\\ALvl": "\\mathbf{A}",
+      "\\aLvl": "\\mathbf{a}",
+      "\\BLvl": "\\mathbf{B}",
+      "\\bLvl": "\\mathbf{b}",
+      "\\CLvl": "\\mathbf{C}",
+      "\\cLvl": "\\mathbf{c}",
+      "\\DLvl": "\\mathbf{D}",
+      "\\dLvl": "\\mathbf{d}",
+      "\\ELvl": "\\mathbf{E}",
+      "\\eLvl": "\\mathbf{e}",
+      "\\FLvl": "\\mathbf{F}",
+      "\\fLvl": "\\mathbf{f}",
+      "\\GLvl": "\\mathbf{G}",
+      "\\HLvl": "\\mathbf{H}",
+      "\\hLvl": "\\mathbf{h}",
+      "\\ILvl": "\\mathbf{I}",
+      "\\iLvl": "\\mathbf{i}",
+      "\\JLvl": "\\mathbf{J}",
+      "\\jLvl": "\\mathbf{j}",
+      "\\KLvl": "\\mathbf{K}",
+      "\\kLvl": "\\mathbf{k}",
+      "\\LLvl": "\\mathbf{L}",
+      "\\ABalLvl": "\\BalGroFac{\\ALvl}",
+      "\\MBalLvl": "\\BalGroFac{\\MNrm}",
+      "\\mBalLvl": "\\BalGroFac{\\mNrm}",
+      "\\MLvl": "\\mathbf{M}",
+      "\\mLvl": "\\mathbf{m}",
+      "\\PermLvl": "\\pLvl",
+      "\\NLvl": "\\mathbf{N}",
+      "\\PopnLvl": "\\pmb{\\mathrm{N}}",
+      "\\OLvl": "\\mathbf{O}",
+      "\\PLvl": "\\mathbf{P}",
+      "\\pLvl": "\\mathbf{p}",
+      "\\QLvl": "\\mathbf{Q}",
+      "\\RLvl": "\\mathbf{R}",
+      "\\rLvl": "\\mathbf{r}",
+      "\\SLvl": "\\mathbf{S}",
+      "\\sLvl": "\\mathbf{s}",
+      "\\TLvl": "\\mathbf{T}",
+      "\\ULvl": "\\mathbf{U}",
+      "\\VLvl": "\\mathbf{V}",
+      "\\vLvl": "\\mathbf{v}",
+      "\\WLvl": "\\mathbf{W}",
+      "\\XLvl": "\\mathbf{X}",
+      "\\YLvl": "\\mathbf{Y}",
+      "\\yLvl": "\\mathbf{y}",
+      "\\ZLvl": "\\mathbf{Z}",
+      "\\zLvl": "\\mathbf{z}",
+      "\\Ham": "\\mathcal{H}",
+      "\\EPrem": "\\Phi",
+      "\\eprem": "\\varphi",
+      "\\tHorOfm": "\\pmb{n}",
+      "\\debtLim": "\\mathsf{d}",
+      "\\tTerm": "T",
+      "\\vFirm": "\\mathrm{e}",
+      "\\ANrm": "A",
+      "\\aNrm": "a",
+      "\\BNrm": "B",
+      "\\bNrm": "b",
+      "\\CNrm": "C",
+      "\\cNrm": "c",
+      "\\GPFacNrm": "\\APFac_{\\PermGroFacAdj}",
+      "\\DNrm": "D",
+      "\\dNrm": "d",
+      "\\ENrm": "E",
+      "\\eNrm": "e",
+      "\\FNrm": "F",
+      "\\fNrm": "f",
+      "\\bTrgNrm": "\\TargetNrm{\\bNrm}",
+      "\\mTrgNrm": "\\TargetNrm{\\mNrm}",
+      "\\HNrm": "H",
+      "\\hNrm": "h",
+      "\\INrm": "I",
+      "\\iNrm": "i",
+      "\\JNrm": "J",
+      "\\jNrm": "j",
+      "\\KNrm": "K",
+      "\\kNrm": "k",
+      "\\MNrm": "M",
+      "\\mNrm": "m",
+      "\\PNrm": "P",
+      "\\pNrm": "p",
+      "\\RNrm": "\\mathcal{R}",
+      "\\rNrm": "s",
+      "\\SNrm": "S",
+      "\\sNrm": "s",
+      "\\TargetNrm": "\\hat",
+      "\\VNrm": "V",
+      "\\vNrm": "v",
+      "\\xNrm": "x",
+      "\\YNrm": "Y",
+      "\\yNrm": "y",
+      "\\ZNrm": "Z",
+      "\\zNrm": "z",
+      "\\Rnorm": "\\mathcal{R}",
+      "\\rnorm": "\\mathit{r}",
+      "\\vNorm": "\\mathrm{w}",
+      "\\WHum": "\\HLev",
+      "\\wHum": "\\hLev",
+      "\\Whum": "\\HRat",
+      "\\whum": "\\hRat",
+      "\\Num": "N",
+      "\\VNum": "V",
+      "\\vNum": "v",
+      "\\Mean": "\\mathbb{M}",
+      "\\tThen": "\\tau",
+      "\\valfn": "\\mathrm{v}",
+      "\\aMin": "\\underline{\\aRat}",
+      "\\bMin": "\\underline{\\bRat}",
+      "\\MPCmin": "\\uline{\\kappa}",
+      "\\hEndMin": "\\underline{\\mathfrak{h}}",
+      "\\aboveMin": "\\blacktriangle",
+      "\\hMin": "\\underline{\\h}",
+      "\\HMin": "\\underline{H}",
+      "\\pShkMin": "\\underline{\\psi}",
+      "\\whumMin": "\\underline{\\hRat}",
+      "\\MPCminmin": "\\underline{\\kappa}",
+      "\\TranShkEmpMin": "\\underline{\\TranShkEmp}",
+      "\\tShkEmpMin": "\\underline{\\theta}",
+      "\\MPSmin": "\\pZero^{1/\\CRRA} \\RPFac",
+      "\\MPCmaxmin": "\\hat{\\underline{\\kappa}}",
+      "\\Decision": "\\mathbb{D}",
+      "\\SeveranceRatio": "\\varsigma",
+      "\\Lo": "\\check",
+      "\\ShkLogZero": "\\cancel{\\ShkMeanOne}",
+      "\\pZero": "\\wp",
+      "\\pNotZero": "(1-\\pZero)",
+      "\\LGro": "\\Lambda",
+      "\\lGro": "\\lambda",
+      "\\PGro": "\\Gamma",
+      "\\pGro": "\\gamma",
+      "\\GDPGro": "\\gimel",
+      "\\EmpGro": "\\Xi",
+      "\\empGro": "\\xi",
+      "\\PopGro": "\\Xi",
+      "\\popGro": "\\xi",
+      "\\PatPGro": "\\text{\\pmb{\\Thorn}}_{\\PGro}",
+      "\\patpGro": "\\text{\\thorn}_{\\pGro}",
+      "\\XperGro": "\\mathsf{X}",
+      "\\xperGro": "\\mathsf{x}",
+      "\\DivGro": "\\mathrm{G}",
+      "\\divGro": "\\mathsf{g}",
+      "\\WGro": "\\mathrm{G}",
+      "\\wGro": "\\mathsf{g}",
+      "\\RnormWGro": "\\mathcal{R}_{\\WGro}",
+      "\\rnormwGro": "\\mathit{r}_{\\wGro}",
+      "\\PatWGro": "\\text{\\pmb{\\Thorn}}_{\\WGro}",
+      "\\patwGro": "\\text{\\thorn}_{\\wGro}",
+      "\\PtyGro": "\\Phi",
+      "\\ptyGro": "\\phi",
+      "\\RBoro": "\\bar{\\Rfree}",
+      "\\rboro": "\\bar{\\rfree}",
+      "\\Pareto": "\\zeta",
+      "\\Kap": "K",
+      "\\kap": "k",
+      "\\EEndMap": "\\mathsf{E}",
+      "\\TMap": "\\mathscr{T}",
+      "\\cP": "\\cons^{\\prime}",
+      "\\MPCP": "\\pi",
+      "\\taxDep": "\\partial",
+      "\\FP": "\\mathrm{F}^{\\prime}",
+      "\\fP": "\\mathrm{f}^{\\prime}",
+      "\\TranShkEmp": "\\pmb{\\theta}",
+      "\\TShkEmp": "\\Theta",
+      "\\tShkEmp": "\\theta",
+      "\\IncUnemp": "\\mu",
+      "\\Pop": "L",
+      "\\cPP": "\\cons^{\\prime\\prime}",
+      "\\FPP": "\\mathrm{F}^{\\prime\\prime}",
+      "\\fPP": "\\mathrm{f}^{\\prime\\prime}",
+      "\\cPPP": "\\cons^{\\prime\\prime\\prime}",
+      "\\uPPP": "\\mathrm{u}^{\\prime\\prime\\prime}",
+      "\\uPP": "\\mathrm{u}^{\\prime\\prime}",
+      "\\TaxCorp": "\\Large \\tau",
+      "\\taxCorp": "\\tau",
+      "\\uP": "\\mathrm{u}^{\\prime}",
+      "\\q": "\\koppa",
+      "\\adjPar": "\\omega",
+      "\\tranShkIndVar": "\\sigma^{2}_{\\tranShkInd}",
+      "\\tranShkAggVar": "\\sigma^{2}_{\\tranShkAgg}",
+      "\\ShkMeanOneLogVar": "\\sigma^{2}_{\\ShkMeanOneLog}",
+      "\\ShkLogZeroLogVar": "\\sigma_{\\cancel{\\ShkMeanOneLog}}^{2}",
+      "\\PermShkVar": "\\sigma^{2}_{\\PermShk}",
+      "\\TranShkVar": "\\sigma^{2}_{\\TranShk}",
+      "\\sdr": "\\mRat",
+      "\\Estdr": "\\sigma_{\\risky}",
+      "\\xFer": "\\chi",
+      "\\XFer": "X",
+      "\\nIter": "n",
+      "\\power": "\\eta",
+      "\\labor": "\\ell",
+      "\\Labor": "\\mathrm{L}",
+      "\\PLabor": "P",
+      "\\Plabor": "P",
+      "\\tHor": "\\mathsf{n}",
+      "\\error": "\\epsilon",
+      "\\Depr": "\\daleth",
+      "\\depr": "\\delta",
+      "\\ImpR": "\\Im}_{\\Rfree",
+      "\\impr": "\\imath}_{\\rfree",
+      "\\EVarr": "\\sigma_{\\Risky}^{2}",
+      "\\Evarr": "\\sigma_{\\risky}^{2}",
+      "\\Err": "Z",
+      "\\err": "z",
+      "\\CGroOverR": "\\Phi",
+      "\\corr": "\\varrho",
+      "\\curr": "1",
+      "\\Curr": "t",
+      "\\tCurr": "t",
+      "\\PatR": "\\text{\\pmb{\\Thorn}}_{\\Rfree}",
+      "\\patr": "\\text{\\thorn}_{\\rfree}",
+      "\\PDies": "\\mathsf{D}",
+      "\\pDies": "\\mathsf{d}",
+      "\\PLives": "\\cancel{\\PDies}",
+      "\\pLives": "\\cancel{\\pDies}",
+      "\\Stocks": "S",
+      "\\stocks": "s",
+      "\\TaxNetTrans": "Z",
+      "\\taxNetTrans": "z",
+      "\\unins": "\\zeta",
+      "\\Cons": "C",
+      "\\cons": "c",
+      "\\MPS": "\\lambda",
+      "\\MinMPS": "\\pZero^{1/\\CRRA} \\PatR",
+      "\\MaxMPS": "\\PatR",
+      "\\CGroPS": "\\chi",
+      "\\Hours": "\\mathfrak{H}",
+      "\\hours": "\\mathfrak{h}",
+      "\\ASS": "A",
+      "\\aSS": "a",
+      "\\cEss": "c}^{e",
+      "\\mEss": "\\check{m}^{e}",
+      "\\vEss": "\\check{v}^{e}",
+      "\\MSS": "\\breve{M}",
+      "\\mSS": "\\breve{m}",
+      "\\RGross": "\\breve{\\mathsf{R}}",
+      "\\rGross": "\\breve{\\mathsf{r}}",
+      "\\tSS": "t",
+      "\\effUnits": "X",
+      "\\Surplus": "Z",
+      "\\surplus": "z",
+      "\\TEat": "\\TEnd",
+      "\\patpGrohat": "\\hat{\\text{\\thorn}}_{\\pGro}",
+      "\\aMat": "[{\\mathrm{\\aNrm}}]",
+      "\\bMat": "[{\\mathrm{\\bNrm}}]",
+      "\\cMat": "[{\\mathrm{\\cNrm}}]",
+      "\\tShkMat": "[{\\mathrm{\\tShkEmp}}]",
+      "\\mMat": "[{\\mathrm{\\mNrm}}]",
+      "\\xMat": "[{\\mathrm{\\xNrm}}]",
+      "\\yMat": "[{\\mathrm{\\yNrm}}]",
+      "\\Pat": "\\text{\\pmb{\\Thorn}}",
+      "\\pat": "\\text{\\thorn}",
+      "\\ARat": "A",
+      "\\aRat": "a",
+      "\\NFARat": "\\NRat",
+      "\\BRat": "B",
+      "\\bRat": "b",
+      "\\CRat": "C",
+      "\\cRat": "c",
+      "\\ccRat": "\\mathsf{c}",
+      "\\dRat": "d",
+      "\\WEndRat": "\\ARat",
+      "\\wEndRat": "\\aRat",
+      "\\HRat": "H",
+      "\\hRat": "h",
+      "\\IRat": "I",
+      "\\iRat": "i",
+      "\\KRat": "K",
+      "\\kRat": "k",
+      "\\LRat": "L",
+      "\\lRat": "l",
+      "\\WAllRat": "O",
+      "\\wAllRat": "o",
+      "\\MRat": "M",
+      "\\mRat": "m",
+      "\\NRat": "N",
+      "\\nRat": "n",
+      "\\ORat": "O",
+      "\\oRat": "o",
+      "\\pRat": "p",
+      "\\GDPRat": "P",
+      "\\gdpRat": "p",
+      "\\SRat": "S",
+      "\\sRat": "s",
+      "\\VRat": "V",
+      "\\vRat": "v",
+      "\\WRat": "O",
+      "\\wRat": "o",
+      "\\XRat": "X",
+      "\\xRat": "x",
+      "\\YRat": "Y",
+      "\\yRat": "y",
+      "\\ZRat": "Z",
+      "\\zRat": "z",
+      "\\Debt": "D",
+      "\\debt": "d",
+      "\\Target": "\\check",
+      "\\WNet": "X",
+      "\\wNet": "x",
+      "\\straight": "\\Pi",
+      "\\weight": "\\omega",
+      "\\Habit": "H",
+      "\\habit": "h",
+      "\\WMkt": "\\MLev",
+      "\\wMkt": "\\mLev",
+      "\\wmkt": "\\mLev",
+      "\\Alt": "\\grave",
+      "\\DiscFacAlt": "\\beth",
+      "\\DiscAlt": "\\beth",
+      "\\ValAlt": "\\mathcal{V}",
+      "\\vOptAlt": "\\Alt{\\tilde{\\mathfrak{v}}}",
+      "\\RiskyAlt": "\\pmb{\\mathfrak{R}}",
+      "\\riskyAlt": "\\pmb{\\mathfrak{r}}",
+      "\\uPmt": "\\mu",
+      "\\SeverancePayment": "\\mathcal{S}",
+      "\\kapRent": "\\varkappa",
+      "\\Discount": "\\beta",
+      "\\tinyAmount": "\\epsilon",
+      "\\WTot": "\\mathbf{O}",
+      "\\wTot": "\\mathbf{o}",
+      "\\Wtot": "O",
+      "\\wtot": "o",
+      "\\vOpt": "\\tilde{\\mathfrak{v}}",
+      "\\Rport": "\\mathbb{R}",
+      "\\rport": "\\mathbb{r}",
+      "\\FDist": "\\mathcal{F}",
+      "\\fDist": "\\mathcal{f}",
+      "\\Next": "t+1",
+      "\\tNext": "t+1",
+      "\\BU": "B}^{u",
+      "\\bU": "b}^{u",
+      "\\CU": "\\CRat^{u}",
+      "\\cU": "\\cRat^{u}",
+      "\\MPCU": "\\MPC^{u}",
+      "\\MU": "M}^{u",
+      "\\mU": "m}^{u",
+      "\\PopU": "\\mathcal{U}",
+      "\\SU": "\\SRat^{u}",
+      "\\sU": "\\sRat^{u}",
+      "\\PatU": "\\text{\\pmb{\\Thorn}}_{\\urate}",
+      "\\patu": "\\text{\\thorn}_{\\urate}",
+      "\\bRatU": "b}^{u",
+      "\\CRatU": "\\CRat^{u}",
+      "\\cRatU": "\\cRat^{u}",
+      "\\SRatU": "\\SRat^{u}",
+      "\\sRatU": "\\sRat^{u}",
+      "\\VU": "V}^{u",
+      "\\vU": "v}^{u",
+      "\\BLevU": "\\BLev^{u}",
+      "\\bLevU": "\\bLev^{u}",
+      "\\CLevU": "\\CLev^{u}",
+      "\\cLevU": "\\cLev^{u}",
+      "\\SLevU": "\\SLev^{u}",
+      "\\sLevU": "\\sLev^{u}",
+      "\\pSav": "\\phi",
+      "\\PDV": "\\mathbb{P}",
+      "\\CPDV": "\\text{PDV($C$)}",
+      "\\PPDV": "\\text{PDV($P$)}",
+      "\\ALev": "A",
+      "\\aLev": "a",
+      "\\NFALev": "\\NLev",
+      "\\BLev": "B",
+      "\\bLev": "b",
+      "\\CLev": "C",
+      "\\cLev": "c",
+      "\\DLev": "D",
+      "\\ELev": "E",
+      "\\FLev": "F",
+      "\\fLev": "f",
+      "\\GLev": "G",
+      "\\HLev": "\\pmb{H}",
+      "\\hLev": "\\pmb{h}",
+      "\\ILev": "I",
+      "\\iLev": "i",
+      "\\JLev": "J",
+      "\\KLev": "K",
+      "\\kLev": "k",
+      "\\lLev": "\\ell",
+      "\\LLev": "L",
+      "\\WAllLev": "\\mathbf{O}",
+      "\\wAllLev": "\\mathbf{o}",
+      "\\MLev": "M",
+      "\\mLev": "m",
+      "\\NLev": "N",
+      "\\nLev": "n",
+      "\\oLev": "\\pmb{o}",
+      "\\OLev": "O",
+      "\\pLev": "\\pmb{p}",
+      "\\PLev": "P",
+      "\\GDPLev": "\\pmb{P}",
+      "\\gdpLev": "\\pmb{p}",
+      "\\PopLev": "\\pmb{N}",
+      "\\QLev": "Q",
+      "\\RLev": "R",
+      "\\SLev": "S",
+      "\\sLev": "s",
+      "\\TLev": "T",
+      "\\ULev": "U",
+      "\\uLev": "u",
+      "\\VLev": "V",
+      "\\vLev": "v",
+      "\\wLev": "\\pmb{w}",
+      "\\WLev": "W",
+      "\\XLev": "X",
+      "\\xLev": "x",
+      "\\TaxLev": "T",
+      "\\YLev": "Y",
+      "\\yLev": "y",
+      "\\PtyLev": "A",
+      "\\ptyLev": "a",
+      "\\ZLev": "Z",
+      "\\zLev": "z",
+      "\\Rev": "\\Pi",
+      "\\rev": "\\pi",
+      "\\tPrev": "t-1",
+      "\\Div": "D",
+      "\\DiscFacLiv": "\\underline{\\DiscFacRaw}",
+      "\\Inv": "I",
+      "\\inv": "i",
+      "\\TaxCombInv": "\\mathcal{T}^{-1}",
+      "\\EPermShkInv": "\\Ex[\\PermShk^{-1}]",
+      "\\InvEPermShkInv": "\\underline{\\PermShk}",
+      "\\EpShkInv": "\\Ex[\\pShk^{-1}]",
+      "\\InvEpShkInv": "\\underline{\\psi}",
+      "\\uInvEpShkuInv": "\\underline{\\underline{\\psi}}",
+      "\\VInv": "\\Lambda",
+      "\\vInv": "\\scriptstyle \\Lambda \\displaystyle",
+      "\\cov": "\\textup{cov}",
+      "\\DiscFacRaw": "\\beta",
+      "\\GPFacRaw": "\\APFac_{\\PermGroFac}",
+      "\\Belw": "\\ushort",
+      "\\GovNW": "N",
+      "\\govNW": "n",
+      "\\cFuncBelow": "\\uline{\\mathrm{c}}",
+      "\\tNow": "t",
+      "\\cFuncMax": "\\bar{\\bar{\\mathrm{c}}}",
+      "\\MPCmax": "\\bar{\\kappa}",
+      "\\MPSmax": "\\RPFac",
+      "\\MPCmaxmax": "\\bar{\\bar{\\kappa}}",
+      "\\Tax": "\\tau",
+      "\\tax": "\\tau",
+      "\\Ex": "\\mathbb{E}",
+      "\\prudEx": "\\omega",
+      "\\Steady": "\\bar",
+      "\\Risky": "\\mathbf{R}",
+      "\\risky": "\\mathbf{r}",
+      "\\Seniority": "\\mathsf{X}",
+      "\\seniority": "\\mathsf{x}"
+    },
     "bibliography": [],
     "github": "https://github.com/alanlujan91/SequentialEGM",
     "exports": [
@@ -39,10 +845,10 @@
                   "end": { "offset": 132, "line": 3, "column": 47 }
                 },
                 "value": "/SequentialEGM",
-                "key": "chfyIgYciP"
+                "key": "HkFqI4JoV7"
               }
             ],
-            "key": "q1HRp5wwik"
+            "key": "gihHRq9bXX"
           },
           {
             "type": "paragraph",
@@ -58,13 +864,13 @@
                   "end": { "offset": 221, "line": 6, "column": 16 }
                 },
                 "value": "document",
-                "key": "vwiNj8Fnvw"
+                "key": "WEM0PgWfCt"
               }
             ],
-            "key": "izUrqRY0cC"
+            "key": "VgsWCYLQ5d"
           }
         ],
-        "key": "v0Tm2atthE"
+        "key": "BIdJNinBmb"
       },
       {
         "type": "block",
@@ -88,13 +894,13 @@
                   "end": { "offset": 281, "line": 9, "column": 26 }
                 },
                 "value": "Introduction",
-                "key": "He0kk3b6ZU"
+                "key": "fOp5RV9ylS"
               }
             ],
             "label": "sec:intro",
             "identifier": "sec:intro",
             "html_id": "sec-intro",
-            "key": "x2hUUtV3cl"
+            "key": "LzLmchvsgI"
           },
           {
             "type": "heading",
@@ -111,14 +917,14 @@
                   "end": { "offset": 386, "line": 13, "column": 23 }
                 },
                 "value": "Background",
-                "key": "SmMnixprV7"
+                "key": "oy4vGqOGU6"
               }
             ],
             "identifier": "background",
             "label": "Background",
             "html_id": "background",
             "implicit": true,
-            "key": "BjDt4gMFQE"
+            "key": "JIDeW5gIcN"
           },
           {
             "type": "paragraph",
@@ -134,7 +940,7 @@
                   "end": { "offset": 1527, "line": 25, "column": 14 }
                 },
                 "value": "Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, require strong underlying assumptions, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is using a grid search method to solve the model. The Endogenous Grid Method (EGM) developed by ",
-                "key": "iESlIAWK1C"
+                "key": "AfkkwZq72Z"
               },
               {
                 "type": "citeGroup",
@@ -149,17 +955,17 @@
                       {
                         "type": "text",
                         "value": "Carroll (2006)",
-                        "key": "WK8yRTgOJ3"
+                        "key": "aMMljc3XhQ"
                       }
                     ],
-                    "key": "BvRBd4lpsk"
+                    "key": "I4qlEbNlVk"
                   }
                 ],
                 "position": {
                   "start": { "offset": 1931, "line": 25, "column": 418 },
                   "end": { "offset": 1936, "line": 25, "column": 423 }
                 },
-                "key": "PuiandAOSw"
+                "key": "Ev6CeGE0pq"
               },
               {
                 "type": "text",
@@ -168,10 +974,10 @@
                   "end": { "offset": 1950, "line": 25, "column": 437 }
                 },
                 "value": " allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to compute became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation.",
-                "key": "JUPjWErFmn"
+                "key": "m2Ro28BOvn"
               }
             ],
-            "key": "AxfTcBnKF7"
+            "key": "DPtHtHOgE1"
           },
           {
             "type": "paragraph",
@@ -187,18 +993,18 @@
                   "end": { "offset": 2301, "line": 26, "column": 8 }
                 },
                 "value": "However, the Endogenous Grid Method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied have been expanded",
-                "key": "rnUan94VfZ"
+                "key": "ZL3ZVR84M3"
               },
               {
                 "type": "footnoteReference",
-                "label": "DLzfl2uQKI",
+                "label": "yU0Bg3KuSt",
                 "position": {
                   "start": { "offset": 2460, "line": 26, "column": 167 },
                   "end": { "offset": 2469, "line": 26, "column": 176 }
                 },
-                "identifier": "dlzfl2uqki",
+                "identifier": "yu0bg3kust",
                 "number": 1,
-                "key": "rs8rXmLYgz"
+                "key": "WMQ55OiWlg"
               },
               {
                 "type": "footnoteDefinition",
@@ -206,7 +1012,7 @@
                   "start": { "offset": 2460, "line": 26, "column": 167 },
                   "end": { "offset": 2469, "line": 26, "column": 176 }
                 },
-                "label": "DLzfl2uQKI",
+                "label": "yU0Bg3KuSt",
                 "children": [
                   {
                     "type": "paragraph",
@@ -228,10 +1034,10 @@
                               {
                                 "type": "text",
                                 "value": "Barillas & Fernández-Villaverde (2007)",
-                                "key": "TjsXdqW9AM"
+                                "key": "IoodycKFtk"
                               }
                             ],
-                            "key": "KL6KPVX3mx"
+                            "key": "BNAmKPCIBO"
                           },
                           {
                             "type": "cite",
@@ -242,10 +1048,10 @@
                               {
                                 "type": "text",
                                 "value": "Maliar & Maliar (2013)",
-                                "key": "fyKSC6PBSq"
+                                "key": "FqazieMipX"
                               }
                             ],
-                            "key": "agwpIOZAqd"
+                            "key": "brPhY6ySxH"
                           },
                           {
                             "type": "cite",
@@ -256,10 +1062,10 @@
                               {
                                 "type": "text",
                                 "value": "Fella (2014)",
-                                "key": "VTQZvou0vF"
+                                "key": "Tsoa2yRGtk"
                               }
                             ],
-                            "key": "asmVZDDK0C"
+                            "key": "SRRyaYVEep"
                           },
                           {
                             "type": "cite",
@@ -270,10 +1076,10 @@
                               {
                                 "type": "text",
                                 "value": "White (2015)",
-                                "key": "YVaa1jfIsp"
+                                "key": "zkRiXksbmT"
                               }
                             ],
-                            "key": "LJtlDFCGXI"
+                            "key": "Y2AGhZtgrf"
                           },
                           {
                             "type": "cite",
@@ -284,7 +1090,7 @@
                               {
                                 "type": "text",
                                 "value": "Iskhakov ",
-                                "key": "Y09xCodz4p"
+                                "key": "vA3T3eMK1L"
                               },
                               {
                                 "type": "emphasis",
@@ -292,18 +1098,18 @@
                                   {
                                     "type": "text",
                                     "value": "et al.",
-                                    "key": "kItTV403Va"
+                                    "key": "yGQbhymKkX"
                                   }
                                 ],
-                                "key": "X2PTwEbkA9"
+                                "key": "JaMrJ4UW8x"
                               },
                               {
                                 "type": "text",
                                 "value": " (2017)",
-                                "key": "I0evIDbIdh"
+                                "key": "cpP3bvBiMU"
                               }
                             ],
-                            "key": "vNpoav22iG"
+                            "key": "H2odGRkBRi"
                           }
                         ],
                         "position": {
@@ -314,7 +1120,7 @@
                           },
                           "end": { "offset": 2475, "line": 26, "column": 182 }
                         },
-                        "key": "BlFemnASrI"
+                        "key": "G66ZhUeuVw"
                       },
                       {
                         "type": "text",
@@ -327,15 +1133,15 @@
                           "end": { "offset": 2538, "line": 26, "column": 245 }
                         },
                         "value": ", among others.",
-                        "key": "pGBuR4WCKK"
+                        "key": "dmTVBj6PEA"
                       }
                     ],
-                    "key": "cMyxnfQs1c"
+                    "key": "qskXcKYjQP"
                   }
                 ],
-                "identifier": "dlzfl2uqki",
+                "identifier": "yu0bg3kust",
                 "number": 1,
-                "key": "U2WK04M8RJ"
+                "key": "mcAkF29E34"
               },
               {
                 "type": "text",
@@ -344,10 +1150,10 @@
                   "end": { "offset": 2554, "line": 26, "column": 261 }
                 },
                 "value": ", but with every new method comes a new set of limitations.",
-                "key": "yLcDTy6tJg"
+                "key": "xgrAHfmWV1"
               }
             ],
-            "key": "KLsAM5Xf3J"
+            "key": "LyClV3JS5t"
           },
           {
             "type": "paragraph",
@@ -363,7 +1169,7 @@
                   "end": { "offset": 2618, "line": 27, "column": 5 }
                 },
                 "value": "This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM",
-                "key": "ZzaXsGRWto"
+                "key": "Jwe1GgnIHQ"
               },
               {
                 "type": "inlineMath",
@@ -373,7 +1179,7 @@
                   "end": { "offset": 2732, "line": 27, "column": 119 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
-                "key": "e5CvqPzBaT"
+                "key": "vujzg6IKCR"
               },
               {
                 "type": "text",
@@ -382,10 +1188,10 @@
                   "end": { "offset": 2733, "line": 27, "column": 120 }
                 },
                 "value": ") and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.",
-                "key": "f5X3PuYOGL"
+                "key": "Js3kwvwnlT"
               }
             ],
-            "key": "FVYj9QvmJN"
+            "key": "MSY0bgBYEX"
           },
           {
             "type": "heading",
@@ -402,14 +1208,14 @@
                   "end": { "offset": 3000, "line": 29, "column": 23 }
                 },
                 "value": "Literature Review",
-                "key": "V1pnogZB9N"
+                "key": "cNShHSc7OB"
               }
             ],
             "identifier": "literature-review",
             "label": "Literature Review",
             "html_id": "literature-review",
             "implicit": true,
-            "key": "vI0E81S5Nd"
+            "key": "szH0AakjfW"
           },
           {
             "type": "paragraph",
@@ -431,17 +1237,17 @@
                       {
                         "type": "text",
                         "value": "Carroll (2006)",
-                        "key": "naG8DffhbC"
+                        "key": "eyNd2exYjj"
                       }
                     ],
-                    "key": "TM4XOjbaou"
+                    "key": "j8P6nyaAGV"
                   }
                 ],
                 "position": {
                   "start": { "offset": 3319, "line": 34, "column": 1 },
                   "end": { "offset": 3324, "line": 34, "column": 6 }
                 },
-                "key": "cgGS5KOoo0"
+                "key": "Ux55YYWi1R"
               },
               {
                 "type": "text",
@@ -450,7 +1256,7 @@
                   "end": { "offset": 3338, "line": 34, "column": 20 }
                 },
                 "value": " first introduced the Endogenous Grid Method as a way to speed up the solution of dynamic stochastic consumption-savings problems. The method consists of starting with an exogenous grid of post-decision states and using the inverse of the first-order condition to find the optimal consumption policy that rationalizes such post-decision states. Given the optimal policy and post-decision states, it is straightforward to calculate the initial pre-decision state that leads to the optimal policy. Although this method is certainly innovative, it only applied to a model with one control variable and one state variable. ",
-                "key": "x3HCqjoIes"
+                "key": "lbkGSJOFfQ"
               },
               {
                 "type": "citeGroup",
@@ -465,17 +1271,17 @@
                       {
                         "type": "text",
                         "value": "Barillas & Fernández-Villaverde (2007)",
-                        "key": "P62c4rPK4t"
+                        "key": "UjxJSg38E9"
                       }
                     ],
-                    "key": "vxHbkA5x4Q"
+                    "key": "Ks30AEgo4E"
                   }
                 ],
                 "position": {
                   "start": { "offset": 3956, "line": 34, "column": 638 },
                   "end": { "offset": 3961, "line": 34, "column": 643 }
                 },
-                "key": "MuR2G2VYkf"
+                "key": "TViayLGNaa"
               },
               {
                 "type": "text",
@@ -484,10 +1290,10 @@
                   "end": { "offset": 3976, "line": 34, "column": 658 }
                 },
                 "value": " further extend this method by including more than one control variable in the form of a labor-leisure choice, as well as a second state variable for stochastic persistence.",
-                "key": "vLZ0iwXqVv"
+                "key": "Pnd6je5yey"
               }
             ],
-            "key": "dU4rPMG5Aq"
+            "key": "poZOnd5Ghd"
           },
           {
             "type": "paragraph",
@@ -509,17 +1315,17 @@
                       {
                         "type": "text",
                         "value": "Hintermaier & Koeniger (2010)",
-                        "key": "z86mt0wyK6"
+                        "key": "qMWP3kjF2v"
                       }
                     ],
-                    "key": "I4SzYcr9yG"
+                    "key": "Ly9SnU7vIS"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4152, "line": 36, "column": 1 },
                   "end": { "offset": 4157, "line": 36, "column": 6 }
                 },
-                "key": "wMKhPYbmUZ"
+                "key": "ZLcMcqmSHQ"
               },
               {
                 "type": "text",
@@ -528,7 +1334,7 @@
                   "end": { "offset": 4175, "line": 36, "column": 24 }
                 },
                 "value": " introduce a model with collateral constraints and non-separable utility and solve using an EGM method that allows for occasionally binding constraints among endogenous variables. ",
-                "key": "Pq6rIPMGZi"
+                "key": "WH08xXJEyZ"
               },
               {
                 "type": "citeGroup",
@@ -543,17 +1349,17 @@
                       {
                         "type": "text",
                         "value": "Jørgensen (2013)",
-                        "key": "rpCEBnHFea"
+                        "key": "Gr9ibq7R1B"
                       }
                     ],
-                    "key": "xr5zbWe2Im"
+                    "key": "m9uYJWUl2w"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4354, "line": 36, "column": 203 },
                   "end": { "offset": 4359, "line": 36, "column": 208 }
                 },
-                "key": "awjvX8vVmu"
+                "key": "WkfEsDz0TN"
               },
               {
                 "type": "text",
@@ -562,7 +1368,7 @@
                   "end": { "offset": 4375, "line": 36, "column": 224 }
                 },
                 "value": " evaluates the performance of the Endogenous Grid Method against other methods for solving dynamic stochastic optimization problems and finds it to be fast and efficient. ",
-                "key": "oy1M1u2UzY"
+                "key": "hBqSE2SRQp"
               },
               {
                 "type": "citeGroup",
@@ -577,17 +1383,17 @@
                       {
                         "type": "text",
                         "value": "Maliar & Maliar (2013)",
-                        "key": "iGnVKoz9CI"
+                        "key": "QuxZr77q3K"
                       }
                     ],
-                    "key": "oshrOYWvIL"
+                    "key": "ldnb0rtFac"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4545, "line": 36, "column": 394 },
                   "end": { "offset": 4550, "line": 36, "column": 399 }
                 },
-                "key": "yzTzCfBcF4"
+                "key": "MgoHjg4Dss"
               },
               {
                 "type": "text",
@@ -596,10 +1402,10 @@
                   "end": { "offset": 4563, "line": 36, "column": 412 }
                 },
                 "value": " develop the Envelope Condition Method based on a similar idea as the Endogenous Grid Method, avoiding the need for costly numerical optimization and grid search. However, their model is limited to infinite horizon problems as it is a forward solution method.",
-                "key": "MO4ZTs7xGs"
+                "key": "v00uQDoBXF"
               }
             ],
-            "key": "foVvGE3T3M"
+            "key": "gZx608vP9P"
           },
           {
             "type": "paragraph",
@@ -615,7 +1421,7 @@
                   "end": { "offset": 4832, "line": 38, "column": 8 }
                 },
                 "value": "Further development into a multivariate Endogenous Grid Method expanded the ability of researchers to solve models efficiently. ",
-                "key": "LERUpunVuA"
+                "key": "bmJ8akxdHi"
               },
               {
                 "type": "citeGroup",
@@ -630,17 +1436,17 @@
                       {
                         "type": "text",
                         "value": "White (2015)",
-                        "key": "LTrZvNVhAb"
+                        "key": "ApMsaVbYOS"
                       }
                     ],
-                    "key": "aw6XJaCi8L"
+                    "key": "dW0Vfz1dSg"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4953, "line": 38, "column": 129 },
                   "end": { "offset": 4958, "line": 38, "column": 134 }
                 },
-                "key": "N6dyLgzJQM"
+                "key": "wqLZKlNpGi"
               },
               {
                 "type": "text",
@@ -649,7 +1455,7 @@
                   "end": { "offset": 4970, "line": 38, "column": 146 }
                 },
                 "value": " formally characterized the conditions for the Endogenous Grid Method and developed an interpolation method for structured non-rectilinear, or curvilinear, grids. ",
-                "key": "MQBsMKZYlE"
+                "key": "e6GYtcM1p2"
               },
               {
                 "type": "citeGroup",
@@ -664,17 +1470,17 @@
                       {
                         "type": "text",
                         "value": "Iskhakov (2015)",
-                        "key": "tNh6WMex7Q"
+                        "key": "pn7ugnWtL2"
                       }
                     ],
-                    "key": "XZQZPTaeQt"
+                    "key": "Vg9XQbYM0I"
                   }
                 ],
                 "position": {
                   "start": { "offset": 5132, "line": 38, "column": 308 },
                   "end": { "offset": 5137, "line": 38, "column": 313 }
                 },
-                "key": "nnw1UIJZHV"
+                "key": "AyP7MzIIxh"
               },
               {
                 "type": "text",
@@ -683,7 +1489,7 @@
                   "end": { "offset": 5152, "line": 38, "column": 328 }
                 },
                 "value": " additionally establishes conditions for solving multivariate models with EGM, requiring the invertibility of a triangular system of first-order conditions. ",
-                "key": "bwgg5STTnt"
+                "key": "kZ0GWX26Bh"
               },
               {
                 "type": "citeGroup",
@@ -698,17 +1504,17 @@
                       {
                         "type": "text",
                         "value": "Ludwig & Schön (2018)",
-                        "key": "UKoCKlqOy2"
+                        "key": "gbJGKIgRHc"
                       }
                     ],
-                    "key": "VjYCnZa0Lo"
+                    "key": "UnNnfbRvbK"
                   }
                 ],
                 "position": {
                   "start": { "offset": 5308, "line": 38, "column": 484 },
                   "end": { "offset": 5313, "line": 38, "column": 489 }
                 },
-                "key": "kyBzV8ynNx"
+                "key": "O85wzYr75q"
               },
               {
                 "type": "text",
@@ -717,10 +1523,10 @@
                   "end": { "offset": 5326, "line": 38, "column": 502 }
                 },
                 "value": " also develops a novel interpolating method using Delaunay triangulation of the resulting unstructured endogenous grid. However, the authors show that the gains from avoiding the grid search method are often offset by the costly construction of the triangulation.",
-                "key": "IVqnP093ei"
+                "key": "d0jm4Hb8Kb"
               }
             ],
-            "key": "Q3L7svfoAF"
+            "key": "Z2Im1pmoMh"
           },
           {
             "type": "paragraph",
@@ -736,7 +1542,7 @@
                   "end": { "offset": 5595, "line": 40, "column": 4 }
                 },
                 "value": "For the papers discussed above, continuity and smoothness of the value and first-order conditions are strict requirements. ",
-                "key": "ZDp3MuGzzT"
+                "key": "taBe68TXTK"
               },
               {
                 "type": "citeGroup",
@@ -751,17 +1557,17 @@
                       {
                         "type": "text",
                         "value": "Fella (2014)",
-                        "key": "rmO1GUWkq9"
+                        "key": "bIlwThlVEk"
                       }
                     ],
-                    "key": "pHSLThKoc2"
+                    "key": "tlCYaNpvjW"
                   }
                 ],
                 "position": {
                   "start": { "offset": 5715, "line": 40, "column": 124 },
                   "end": { "offset": 5720, "line": 40, "column": 129 }
                 },
-                "key": "Z9wVe9cW6S"
+                "key": "AY7YJiUktK"
               },
               {
                 "type": "text",
@@ -770,7 +1576,7 @@
                   "end": { "offset": 5732, "line": 40, "column": 141 }
                 },
                 "value": " first introduced a method to solve non-convex problems using the Endogenous Grid Method. The idea is based on evaluating necessary but not sufficient candidates for the first-order condition in overlapping regions of the state space. ",
-                "key": "s7P7XgFVpy"
+                "key": "LYfMx0mNS0"
               },
               {
                 "type": "citeGroup",
@@ -785,7 +1591,7 @@
                       {
                         "type": "text",
                         "value": "Arellano ",
-                        "key": "oZwIwPJLO0"
+                        "key": "IfFp6Z8jBC"
                       },
                       {
                         "type": "emphasis",
@@ -793,25 +1599,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "SwzE2y6ceV"
+                            "key": "k8Vd7g01it"
                           }
                         ],
-                        "key": "zmSHNR82FR"
+                        "key": "gEsZ9yNKcA"
                       },
                       {
                         "type": "text",
                         "value": " (2016)",
-                        "key": "u22h9wyEqy"
+                        "key": "Jsfm0jxUCL"
                       }
                     ],
-                    "key": "U5vZXJCEW4"
+                    "key": "LQgb5cKmIz"
                   }
                 ],
                 "position": {
                   "start": { "offset": 5966, "line": 40, "column": 375 },
                   "end": { "offset": 5971, "line": 40, "column": 380 }
                 },
-                "key": "reViXMcyT6"
+                "key": "UN726w5IE6"
               },
               {
                 "type": "text",
@@ -820,7 +1626,7 @@
                   "end": { "offset": 5986, "line": 40, "column": 395 }
                 },
                 "value": " use the Envelope Condition Method to solve a sovereign default risk model with similar efficiency gains to EGM. ",
-                "key": "jPTFOMS71s"
+                "key": "yA1YoisT1N"
               },
               {
                 "type": "citeGroup",
@@ -835,7 +1641,7 @@
                       {
                         "type": "text",
                         "value": "Iskhakov ",
-                        "key": "oou8KHIA7M"
+                        "key": "uqXzqgrXkI"
                       },
                       {
                         "type": "emphasis",
@@ -843,25 +1649,25 @@
                           {
                             "type": "text",
                             "value": "et al.",
-                            "key": "U3PdfKunRw"
+                            "key": "tWDFPlzeRB"
                           }
                         ],
-                        "key": "GgbhxgcDYH"
+                        "key": "vmR9hfEsb7"
                       },
                       {
                         "type": "text",
                         "value": " (2017)",
-                        "key": "dfgQsVCwko"
+                        "key": "ul1LDPsYg2"
                       }
                     ],
-                    "key": "tSwEUmIoVN"
+                    "key": "TVTeSREaTR"
                   }
                 ],
                 "position": {
                   "start": { "offset": 6098, "line": 40, "column": 507 },
                   "end": { "offset": 6103, "line": 40, "column": 512 }
                 },
-                "key": "dNDJqK0H9G"
+                "key": "WsUQgs1fJo"
               },
               {
                 "type": "text",
@@ -870,7 +1676,7 @@
                   "end": { "offset": 6118, "line": 40, "column": 527 }
                 },
                 "value": " further advances the methodology by using extreme errors to solve discrete choice problems with Endogenous Grid Method. These methods however were only applied to a single control variable and a single state variable. ",
-                "key": "MUY36nfpmp"
+                "key": "NaRUjXY8qJ"
               },
               {
                 "type": "citeGroup",
@@ -885,17 +1691,17 @@
                       {
                         "type": "text",
                         "value": "Druedahl & Jørgensen (2017)",
-                        "key": "FUuDOH1pJv"
+                        "key": "LLT5OSKJe5"
                       }
                     ],
-                    "key": "x7r3fpoq9S"
+                    "key": "j6ToB7K20V"
                   }
                 ],
                 "position": {
                   "start": { "offset": 6336, "line": 40, "column": 745 },
                   "end": { "offset": 6341, "line": 40, "column": 750 }
                 },
-                "key": "VglEsIsG5R"
+                "key": "umvc363vrn"
               },
               {
                 "type": "text",
@@ -904,7 +1710,7 @@
                   "end": { "offset": 6356, "line": 40, "column": 765 }
                 },
                 "value": " introduces the ",
-                "key": "z7dPB3WjWW"
+                "key": "GmiFtuvAIR"
               },
               {
                 "type": "inlineMath",
@@ -914,7 +1720,7 @@
                   "end": { "offset": 6378, "line": 40, "column": 787 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>G</mi><mn>2</mn><mi>E</mi><mi>G</mi><mi>M</mi></mrow><annotation encoding=\"application/x-tex\">G2EGM</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6833em;\"></span><span class=\"mord mathnormal\">G</span><span class=\"mord\">2</span><span class=\"mord mathnormal\" style=\"margin-right:0.10903em;\">EGM</span></span></span></span>",
-                "key": "ZpnzTp2MEc"
+                "key": "xqyMO3dBdI"
               },
               {
                 "type": "text",
@@ -923,10 +1729,10 @@
                   "end": { "offset": 6379, "line": 40, "column": 788 }
                 },
                 "value": " to handle non-convex problems with more than 1 control variable and more than 1 state variable. This method is also capable of handling occasionally binding constraints which previous multivariate EGM methods were not.",
-                "key": "uNvJ2LlknB"
+                "key": "RLZPjnDT23"
               }
             ],
-            "key": "mAhJAPEVyn"
+            "key": "p2d0KgtWNM"
           },
           {
             "type": "paragraph",
@@ -948,17 +1754,17 @@
                       {
                         "type": "text",
                         "value": "Clausen & Strub (2020)",
-                        "key": "CPkLCnOZKf"
+                        "key": "DMLU7l8lmC"
                       }
                     ],
-                    "key": "W0PgnC3aX1"
+                    "key": "AQeu29s2hR"
                   }
                 ],
                 "position": {
                   "start": { "offset": 6601, "line": 42, "column": 1 },
                   "end": { "offset": 6606, "line": 42, "column": 6 }
                 },
-                "key": "q2RCudiVZ7"
+                "key": "cWDkYhdpRl"
               },
               {
                 "type": "text",
@@ -967,7 +1773,7 @@
                   "end": { "offset": 6620, "line": 42, "column": 20 }
                 },
                 "value": " formalize the applicability of the Endogenous Grid Method and its extensions to discrete choice models and discuss the nesting of problems to efficiently find accurate solutions. ",
-                "key": "QqhibY37CW"
+                "key": "qYKujKCPxr"
               },
               {
                 "type": "citeGroup",
@@ -982,17 +1788,17 @@
                       {
                         "type": "text",
                         "value": "Druedahl (2021)",
-                        "key": "DU9Rzn3IW2"
+                        "key": "Jfv5Hi5lDS"
                       }
                     ],
-                    "key": "Khvc62qYJA"
+                    "key": "qlnnDvZyOU"
                   }
                 ],
                 "position": {
                   "start": { "offset": 6800, "line": 42, "column": 200 },
                   "end": { "offset": 6805, "line": 42, "column": 205 }
                 },
-                "key": "ItFrZSFjAb"
+                "key": "xxNa3sL2XP"
               },
               {
                 "type": "text",
@@ -1001,7 +1807,7 @@
                   "end": { "offset": 6820, "line": 42, "column": 220 }
                 },
                 "value": " similarly suggest the nesting of problems to efficiently use the Endogenous Grid Method within problems with multiple control variables. However, while these nested methods reduce the complexity of solving these models, they often still require grid search methods as is the case with ",
-                "key": "PrJwWDuVCT"
+                "key": "H3FhvmyMbd"
               },
               {
                 "type": "citeGroup",
@@ -1016,17 +1822,17 @@
                       {
                         "type": "text",
                         "value": "Druedahl (2021)",
-                        "key": "lsfxMX9Utv"
+                        "key": "vLn7bUIKmx"
                       }
                     ],
-                    "key": "oTvrKiW3B7"
+                    "key": "iaF9h0v4ih"
                   }
                 ],
                 "position": {
                   "start": { "offset": 7105, "line": 42, "column": 505 },
                   "end": { "offset": 7110, "line": 42, "column": 510 }
                 },
-                "key": "V6KvQEGvZG"
+                "key": "kjPssAJOn5"
               },
               {
                 "type": "text",
@@ -1035,10 +1841,10 @@
                   "end": { "offset": 7125, "line": 42, "column": 525 }
                 },
                 "value": ".",
-                "key": "Sujk1zOXiW"
+                "key": "BPwVd1t339"
               }
             ],
-            "key": "PNBMARJ6e9"
+            "key": "VGUcVmbEeG"
           },
           {
             "type": "heading",
@@ -1055,14 +1861,14 @@
                   "end": { "offset": 7569, "line": 47, "column": 21 }
                 },
                 "value": "Research Question",
-                "key": "W0Ya45aNgS"
+                "key": "aQadCPihWK"
               }
             ],
             "identifier": "research-question",
             "label": "Research Question",
             "html_id": "research-question",
             "implicit": true,
-            "key": "adIregGSU3"
+            "key": "dn9JXIMiva"
           },
           {
             "type": "paragraph",
@@ -1078,7 +1884,7 @@
                   "end": { "offset": 7856, "line": 52, "column": 4 }
                 },
                 "value": "The purpose of this paper is to describe a new method for solving dynamic optimization problems efficiently and accurately while avoiding convex optimization and grid search methods with the use of the Endogenous Grid Method and first-order conditions. The method is called Sequential EGM (or EGM",
-                "key": "dtAshCmfjL"
+                "key": "ri1iinZ76b"
               },
               {
                 "type": "inlineMath",
@@ -1088,7 +1894,7 @@
                   "end": { "offset": 8153, "line": 52, "column": 301 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
-                "key": "qkjl3TbNXP"
+                "key": "QPpMAC9Ypi"
               },
               {
                 "type": "text",
@@ -1097,10 +1903,10 @@
                   "end": { "offset": 8154, "line": 52, "column": 302 }
                 },
                 "value": ") and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems. This paper also illustrates an example of how Sequential EGM can be used to solve a dynamic optimization problem in a multivariate setting.",
-                "key": "CRUH8Uoa4h"
+                "key": "hGjjTCHqux"
               }
             ],
-            "key": "EGQ5KYR2PT"
+            "key": "MZ6MLtKMcJ"
           },
           {
             "type": "heading",
@@ -1117,14 +1923,14 @@
                   "end": { "offset": 8562, "line": 54, "column": 24 }
                 },
                 "value": "Methodology",
-                "key": "vktztyX7uI"
+                "key": "S6alkXW7cO"
               }
             ],
             "identifier": "methodology",
             "label": "Methodology",
             "html_id": "methodology",
             "implicit": true,
-            "key": "Y21derQPiN"
+            "key": "zb5atHJRkm"
           },
           {
             "type": "paragraph",
@@ -1140,10 +1946,10 @@
                   "end": { "offset": 8708, "line": 56, "column": 4 }
                 },
                 "value": "The sequential Endogenous Grid Method consists of 3 major parts: First, the problem to be solved should be broken up into a sequence of smaller problems that themselves don’t add any additional state variables or introduce asynchronous dynamics with respect to the uncertainty. If the problem is broken up in such a way that uncertainty can happen in more than one period, then the solution to this sequence of problems might be different from the aggregate problem due to giving the agent additional information about the future by realizing some uncertainty. Second, I evaluate each of the smaller problems to see if they can be solved using the Endogenous Grid Method. This evaluation is of greater scope than the traditional Endogenous Grid Method, as it allows for the resulting exogenous grid to be non-regular. If the subproblem can not be solved with EGM, then convex optimization is used. Third, if the exogenous grid generated by the EGM is non-regular, then I use a multidimensional interpolation method that takes advantage of machine learning tools to generate an interpolating function. Solving each subproblem in this way, the sequential Endogenous Grid Method is capable of solving complex problems that are not solvable with the traditional Endogenous Grid Method and are difficult and time-consuming to solve with convex optimization and grid search methods.",
-                "key": "metaZ5Z8qx"
+                "key": "ZV22EeDwhF"
               }
             ],
-            "key": "i2apXGRTvU"
+            "key": "IeUAulq64V"
           },
           {
             "type": "heading",
@@ -1160,14 +1966,14 @@
                   "end": { "offset": 10110, "line": 58, "column": 26 }
                 },
                 "value": "Contributions",
-                "key": "oWgP6ukDsB"
+                "key": "FPmxt0ybok"
               }
             ],
             "identifier": "contributions",
             "label": "Contributions",
             "html_id": "contributions",
             "implicit": true,
-            "key": "jLkV8k1veg"
+            "key": "HNKS6zgI6j"
           },
           {
             "type": "paragraph",
@@ -1183,10 +1989,10 @@
                   "end": { "offset": 10395, "line": 63, "column": 4 }
                 },
                 "value": "The Sequential Endogenous Grid Method is capable of solving multivariate dynamic optimization problems in an efficient and fast manner by avoiding grid search. This should allow researchers and practitioners to solve more complex problems that were previously not easily accessible to them, but more accurately capture the dynamics of the macroeconomy. By using advancements in machine learning techniques such as Gaussian Process Regression, the Sequential Endogenous Grid Method is capable of solving problems that were not previously able to be solved using the traditional Endogenous Grid Method. In particular, the Sequential Endogenous Grid Method is different from NEGM in that it allows for using more than one Endogenous Grid Method step to solve a problem, avoiding costly grid search methods to the extent that the problem allows.",
-                "key": "vIh6cqgsKk"
+                "key": "qbtVKR9sRM"
               }
             ],
-            "key": "vySCkoSpXm"
+            "key": "PVAhGc6Fhx"
           },
           {
             "type": "paragraph",
@@ -1202,10 +2008,10 @@
                   "end": { "offset": 11249, "line": 65, "column": 13 }
                 },
                 "value": "Additionally, the Sequential Endogenous Grid Method often sheds light on the problem by breaking it down into a sequence of simpler problems that were not previously apparent. This is because intermediary steps in the solution process generate value and marginal value functions of different pre- and post-decision states that can be used to understand the problem better.",
-                "key": "fAQGTbVTse"
+                "key": "Xt1eoliu3C"
               }
             ],
-            "key": "gQPLsvo3mB"
+            "key": "KiSLUjw0bK"
           },
           {
             "type": "heading",
@@ -1222,14 +2028,14 @@
                   "end": { "offset": 11813, "line": 70, "column": 20 }
                 },
                 "value": "Outline",
-                "key": "A6h2yMz0Gl"
+                "key": "Mctu9ALo8q"
               }
             ],
             "identifier": "outline",
             "label": "Outline",
             "html_id": "outline",
             "implicit": true,
-            "key": "CPbikHo7ae"
+            "key": "dork22v1dX"
           },
           {
             "type": "paragraph",
@@ -1245,13 +2051,13 @@
                   "end": { "offset": 12205, "line": 75, "column": 8 }
                 },
                 "value": "Section ",
-                "key": "dnSkDeI3Vx"
+                "key": "IPv41H3eV7"
               },
               {
                 "type": "crossReference",
                 "label": "sec:method",
                 "children": [
-                  { "type": "text", "value": "??", "key": "rAN6vPKYOb" }
+                  { "type": "text", "value": "??", "key": "h95SfcEZ0w" }
                 ],
                 "position": {
                   "start": { "offset": 12206, "line": 75, "column": 9 },
@@ -1263,7 +2069,7 @@
                 "resolved": true,
                 "remote": true,
                 "url": "/myst/method",
-                "key": "UGWqxdhWx2"
+                "key": "lAXizb596m"
               },
               {
                 "type": "text",
@@ -1272,13 +2078,13 @@
                   "end": { "offset": 12223, "line": 75, "column": 26 }
                 },
                 "value": " presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then Section ",
-                "key": "cER6JQin1k"
+                "key": "y53a2rcjkk"
               },
               {
                 "type": "crossReference",
                 "label": "sec:higherdims",
                 "children": [
-                  { "type": "text", "value": "??", "key": "dIbI5nkFqK" }
+                  { "type": "text", "value": "??", "key": "kbY5ccpp0P" }
                 ],
                 "position": {
                   "start": { "offset": 12332, "line": 75, "column": 135 },
@@ -1290,7 +2096,7 @@
                 "resolved": true,
                 "remote": true,
                 "url": "/myst/higherdims",
-                "key": "xI403ya4eO"
+                "key": "icliQxYtSf"
               },
               {
                 "type": "text",
@@ -1299,13 +2105,13 @@
                   "end": { "offset": 12353, "line": 75, "column": 156 }
                 },
                 "value": " introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In Section ",
-                "key": "ME926rarAi"
+                "key": "dpUm1XIomf"
               },
               {
                 "type": "crossReference",
                 "label": "sec:gpr",
                 "children": [
-                  { "type": "text", "value": "??", "key": "qv3eiVnOuq" }
+                  { "type": "text", "value": "??", "key": "ZyPMz5vGk8" }
                 ],
                 "position": {
                   "start": { "offset": 12510, "line": 75, "column": 313 },
@@ -1317,7 +2123,7 @@
                 "resolved": true,
                 "remote": true,
                 "url": "/myst/unstructuredinterp",
-                "key": "Ix0gYnBZtG"
+                "key": "LjjCLzkMOI"
               },
               {
                 "type": "text",
@@ -1326,13 +2132,13 @@
                   "end": { "offset": 12524, "line": 75, "column": 327 }
                 },
                 "value": " I present the unstructured interpolation methods using machine learning in more detail. Section ",
-                "key": "QkED7LHP4q"
+                "key": "EVpQhD3g60"
               },
               {
                 "type": "crossReference",
                 "label": "sec:conditions",
                 "children": [
-                  { "type": "text", "value": "??", "key": "iVukaxhv9d" }
+                  { "type": "text", "value": "??", "key": "icOAmH7fej" }
                 ],
                 "position": {
                   "start": { "offset": 12620, "line": 75, "column": 423 },
@@ -1344,7 +2150,7 @@
                 "resolved": true,
                 "remote": true,
                 "url": "/myst/whentouse",
-                "key": "ifydKt4snO"
+                "key": "Y0RXXzpjNm"
               },
               {
                 "type": "text",
@@ -1353,13 +2159,13 @@
                   "end": { "offset": 12641, "line": 75, "column": 444 }
                 },
                 "value": " discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, Section ",
-                "key": "qStCBVhOij"
+                "key": "TOUkx2QpXu"
               },
               {
                 "type": "crossReference",
                 "label": "sec:conclusion",
                 "children": [
-                  { "type": "text", "value": "??", "key": "bsermkwI1p" }
+                  { "type": "text", "value": "??", "key": "Bzsftyi1SG" }
                 ],
                 "position": {
                   "start": { "offset": 12743, "line": 75, "column": 546 },
@@ -1371,7 +2177,7 @@
                 "resolved": true,
                 "remote": true,
                 "url": "/myst/conclusion",
-                "key": "FPho7DGpTQ"
+                "key": "TX65SMg7le"
               },
               {
                 "type": "text",
@@ -1380,10 +2186,10 @@
                   "end": { "offset": 12764, "line": 75, "column": 567 }
                 },
                 "value": " concludes with some limitations and future work.",
-                "key": "PVpHwmPMmZ"
+                "key": "vHWPRB57gK"
               }
             ],
-            "key": "mElBbQmv5H"
+            "key": "muG1ZiWe1q"
           },
           {
             "type": "paragraph",
@@ -1399,10 +2205,10 @@
                   "end": { "offset": 12899, "line": 79, "column": 25 }
                 },
                 "value": "Web",
-                "key": "znIbRwik1P"
+                "key": "wm1EpGTE9M"
               }
             ],
-            "key": "l0MoRgLnRW"
+            "key": "DTc667p3fi"
           },
           {
             "type": "paragraph",
@@ -1418,10 +2224,10 @@
                   "end": { "offset": 12935, "line": 80, "column": 30 }
                 },
                 "value": "[figure]list=no",
-                "key": "oscCCJAyCX"
+                "key": "WDOO86UXlM"
               }
             ],
-            "key": "HBW3LeduQp"
+            "key": "D9f8ZkxgZe"
           },
           {
             "type": "paragraph",
@@ -1437,10 +2243,10 @@
                   "end": { "offset": 12983, "line": 81, "column": 30 }
                 },
                 "value": "[table]list=no",
-                "key": "L56rfzvAaZ"
+                "key": "xuRMTwtAea"
               }
             ],
-            "key": "cdxxg1Z52R"
+            "key": "NOgfTWSvAO"
           },
           {
             "type": "paragraph",
@@ -1456,16 +2262,16 @@
                   "end": { "offset": 13014, "line": 82, "column": 14 }
                 },
                 "value": "document",
-                "key": "H8NSFpZ1Vk"
+                "key": "wdcKLYTsS5"
               }
             ],
-            "key": "oXVwcAL3tq"
+            "key": "R7qDEdBKlx"
           }
         ],
-        "key": "RjqcUkmigh"
+        "key": "psWVPXGU6G"
       }
     ],
-    "key": "bzXBZQ9gPg"
+    "key": "w2isjQ6Fr2"
   },
   "references": {
     "cite": {
