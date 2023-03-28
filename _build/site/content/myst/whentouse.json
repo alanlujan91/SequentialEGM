@@ -850,14 +850,14 @@
                   "end": { "offset": 19, "line": 1, "column": 20 }
                 },
                 "value": "Conditions for using the Sequential Endogenous Grid Method",
-                "key": "c43AGSLCCh"
+                "key": "Q92zuYi7Lh"
               }
             ],
             "identifier": "conditions-for-using-the-sequential-endogenous-grid-method",
             "label": "Conditions for using the Sequential Endogenous Grid Method",
             "html_id": "conditions-for-using-the-sequential-endogenous-grid-method",
             "implicit": true,
-            "key": "SywJF244B7"
+            "key": "WaNiM6PQkY"
           },
           {
             "type": "heading",
@@ -874,14 +874,14 @@
                   "end": { "offset": 93, "line": 3, "column": 22 }
                 },
                 "value": "Splitting the problem into subproblems",
-                "key": "VFPsT2Ncl9"
+                "key": "NDwJLYMG48"
               }
             ],
             "identifier": "splitting-the-problem-into-subproblems",
             "label": "Splitting the problem into subproblems",
             "html_id": "splitting-the-problem-into-subproblems",
             "implicit": true,
-            "key": "LPfqzprP0T"
+            "key": "YitAcYY5Mk"
           },
           {
             "type": "paragraph",
@@ -897,10 +897,10 @@
                   "end": { "offset": 130, "line": 5, "column": 4 }
                 },
                 "value": "The first step in using the Sequential Endogenous Grid Method is to split the problem into subproblems. This process of splitting up the problem has to be strategic to not insert additional complexity into the original problem. If one is not careful when doing this, the subproblems can become more complex and intractable than the original problem.",
-                "key": "eYDi9z6MOw"
+                "key": "mcd9Aizcpp"
               }
             ],
-            "key": "PmjNYDvLvZ"
+            "key": "UP1nzOmEBT"
           },
           {
             "type": "paragraph",
@@ -916,7 +916,7 @@
                   "end": { "offset": 552, "line": 9, "column": 3 }
                 },
                 "value": "To split up the problem, we first count the number of control variables or decisions faced by the agent. Ideally, if the agent has ",
-                "key": "LWys1agdx2"
+                "key": "nNqEe6PDFE"
               },
               {
                 "type": "inlineMath",
@@ -926,7 +926,7 @@
                   "end": { "offset": 684, "line": 9, "column": 135 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">n</span></span></span></span>",
-                "key": "izVWi24si2"
+                "key": "S78HUonlGL"
               },
               {
                 "type": "text",
@@ -935,7 +935,7 @@
                   "end": { "offset": 685, "line": 9, "column": 136 }
                 },
                 "value": " control variables, then the problem should be split into ",
-                "key": "FhM98JU4rl"
+                "key": "IXeDrzF9zU"
               },
               {
                 "type": "inlineMath",
@@ -945,7 +945,7 @@
                   "end": { "offset": 745, "line": 9, "column": 196 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">n</span></span></span></span>",
-                "key": "PcKaN1HPzc"
+                "key": "B7ldH8Wo6N"
               },
               {
                 "type": "text",
@@ -954,7 +954,7 @@
                   "end": { "offset": 746, "line": 9, "column": 197 }
                 },
                 "value": " subproblems, each handling a different control variable. For counting the number of control variables, it is important to not double count variables which are equivalent and have market clearing conditions. For example, the decision of how much to consume and how much to save may seem like two different choices, but because of the market clearing condition ",
-                "key": "F7cAMJGKdp"
+                "key": "OJeLTMuFB7"
               },
               {
                 "type": "inlineMath",
@@ -964,7 +964,7 @@
                   "end": { "offset": 1128, "line": 9, "column": 579 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>+</mo><mi>a</mi><mo>=</mo><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">\\cRat + \\aRat = \\mRat</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">c</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">a</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">m</span></span></span></span>",
-                "key": "bRsgueHc0Q"
+                "key": "BEBwAHoLgs"
               },
               {
                 "type": "text",
@@ -973,10 +973,10 @@
                   "end": { "offset": 1129, "line": 9, "column": 580 }
                 },
                 "value": " they are resolved simultaneously and count as only one decision variable. Similarly, the",
-                "key": "PGOtImKSHV"
+                "key": "i8u4LrWDAP"
               }
             ],
-            "key": "FCzhugx45y"
+            "key": "sbSjbXG8Dr"
           },
           {
             "type": "paragraph",
@@ -992,10 +992,10 @@
                   "end": { "offset": 1225, "line": 10, "column": 7 }
                 },
                 "value": "choice between labor and leisure are simultaneous and count as only one decision.",
-                "key": "AhkGGpNfJJ"
+                "key": "t8AeA1vGdq"
               }
             ],
-            "key": "VpuGR89lNN"
+            "key": "MtWnTMr2Fb"
           },
           {
             "type": "paragraph",
@@ -1011,20 +1011,20 @@
                   "end": { "offset": 1310, "line": 12, "column": 7 }
                 },
                 "value": "Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in Section ",
-                "key": "moaHzitAOc"
+                "key": "ENkvJAmJrs"
               },
               {
                 "type": "crossReference",
                 "label": "sec:method",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "sRzftmoMMR" }
+                  { "type": "text", "value": "%s", "key": "uvKeE9paHv" }
                 ],
                 "position": {
                   "start": { "offset": 1477, "line": 12, "column": 174 },
                   "end": { "offset": 1481, "line": 12, "column": 178 }
                 },
                 "identifier": "sec:method",
-                "key": "dcA6mH2DWd"
+                "key": "L2uZl6uM1G"
               },
               {
                 "type": "text",
@@ -1033,20 +1033,20 @@
                   "end": { "offset": 1494, "line": 12, "column": 191 }
                 },
                 "value": " of the paper, or differentiable and invertible functions in the transition, as in Section ",
-                "key": "Kxz7SYNqu8"
+                "key": "xFksQXcsV4"
               },
               {
                 "type": "crossReference",
                 "label": "sec:higherdims",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "Bhor18zt1O" }
+                  { "type": "text", "value": "%s", "key": "LHA46jFHNh" }
                 ],
                 "position": {
                   "start": { "offset": 1584, "line": 12, "column": 281 },
                   "end": { "offset": 1588, "line": 12, "column": 285 }
                 },
                 "identifier": "sec:higherdims",
-                "key": "pppqCmR0o8"
+                "key": "b1HQFhcs50"
               },
               {
                 "type": "text",
@@ -1055,10 +1055,10 @@
                   "end": { "offset": 1605, "line": 12, "column": 302 }
                 },
                 "value": " of the paper.",
-                "key": "OdCLhiWbqS"
+                "key": "TlcHxY5hos"
               }
             ],
-            "key": "Z7Ei57MCy6"
+            "key": "ogKhj3v1zR"
           },
           {
             "type": "heading",
@@ -1075,14 +1075,14 @@
                   "end": { "offset": 1700, "line": 16, "column": 25 }
                 },
                 "value": "Separable utility functions",
-                "key": "kEYMtpLwo6"
+                "key": "UL2GYgJy0w"
               }
             ],
             "identifier": "separable-utility-functions",
             "label": "Separable utility functions",
             "html_id": "separable-utility-functions",
             "implicit": true,
-            "key": "iohCAKuisj"
+            "key": "VPqDRJIJrl"
           },
           {
             "type": "paragraph",
@@ -1098,20 +1098,20 @@
                   "end": { "offset": 1725, "line": 18, "column": 3 }
                 },
                 "value": "In Section ",
-                "key": "e3IIhSUSvb"
+                "key": "Y03Svrxot5"
               },
               {
                 "type": "crossReference",
                 "label": "sec:method",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "esC6KVziDi" }
+                  { "type": "text", "value": "%s", "key": "q6IJUpvrK8" }
                 ],
                 "position": {
                   "start": { "offset": 1734, "line": 18, "column": 12 },
                   "end": { "offset": 1738, "line": 18, "column": 16 }
                 },
                 "identifier": "sec:method",
-                "key": "gUnM4fwXWT"
+                "key": "adginAsZAA"
               },
               {
                 "type": "text",
@@ -1120,10 +1120,10 @@
                   "end": { "offset": 1751, "line": 18, "column": 29 }
                 },
                 "value": ", we have additively separable utility of consumption and leisure, which allows for each of these control variables to be handled by separate subproblems. So, it makes sense to split the utility between subproblems and attach one to the consumption subproblem and one to the leisure subproblem.",
-                "key": "VZOsSg4YQS"
+                "key": "ZK3moN6sD1"
               }
             ],
-            "key": "H73YamGNAm"
+            "key": "UIAyLF3MoI"
           },
           {
             "type": "paragraph",
@@ -1139,10 +1139,10 @@
                   "end": { "offset": 2050, "line": 20, "column": 3 }
                 },
                 "value": "As mentioned in that section, however, there are only two separable utility functions in the problem which have been assigned to two subproblems already. This leaves one control variable without a separable utility function. In that case, there is not another Endogenous Grid Method step to exploit, and this subproblem has to be handled by standard convex optimization techniques such as maximization of the value function (VFI) or finding the root of the Euler equation (PFI).",
-                "key": "rKwgVObnJh"
+                "key": "XtMAjNMzgx"
               }
             ],
-            "key": "aQcxHMOcch"
+            "key": "CjGC3XCXr1"
           },
           {
             "type": "paragraph",
@@ -1158,20 +1158,20 @@
                   "end": { "offset": 2632, "line": 24, "column": 4 }
                 },
                 "value": "Now that we have split the problem into conceptual subproblems, it is important to sequence them in such a way that they don’t become more complex than the original problem. The key here is to avoid adding unnecessary state variables. For example, in the consumption-leisure-portfolio problem, if we were to choose consumption first, we would have to track the wage rate into the following leisure subproblem. This would mean that our consumption problem would be two-dimensional as well as our labor decision problem. As presented, the choice of order in Section ",
-                "key": "emKjhO9hSP"
+                "key": "dB1XV0xoXB"
               },
               {
                 "type": "crossReference",
                 "label": "sec:method",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "XAuAW1HSYq" }
+                  { "type": "text", "value": "%s", "key": "ZK3nGat0DD" }
                 ],
                 "position": {
                   "start": { "offset": 3193, "line": 24, "column": 565 },
                   "end": { "offset": 3197, "line": 24, "column": 569 }
                 },
                 "identifier": "sec:method",
-                "key": "juvTAGfTNq"
+                "key": "f0zlX3YvCm"
               },
               {
                 "type": "text",
@@ -1180,10 +1180,10 @@
                   "end": { "offset": 3210, "line": 24, "column": 582 }
                 },
                 "value": " ensures that the consumption problem is one-dimensional, as we can shed the information about the wage rate offer after the agent has made their labor-leisure decision. If we did this the other way, the problem would be more complex and require additional computational resources.",
-                "key": "oL1peY4oxV"
+                "key": "NAGIJ80QcJ"
               }
             ],
-            "key": "nwVE0nN8vm"
+            "key": "iw9sJF7ojx"
           },
           {
             "type": "paragraph",
@@ -1199,10 +1199,10 @@
                   "end": { "offset": 3497, "line": 26, "column": 4 }
                 },
                 "value": "The consumption subproblem would be two-dimensional instead of one-dimensional, adding more complexity,",
-                "key": "DFylqAKFMM"
+                "key": "OVgzXfaB9X"
               }
             ],
-            "key": "xFcPzOutJR"
+            "key": "Y9758DXKYM"
           },
           {
             "type": "math",
@@ -1214,7 +1214,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mtable rowspacing=\"0.25em\" columnalign=\"right left\" columnspacing=\"0em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mi mathvariant=\"normal\">v</mi><mo stretchy=\"false\">(</mo><mi>b</mi><mo separator=\"true\">,</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><mi>c</mi></munder><mi mathvariant=\"normal\">u</mi><mo stretchy=\"false\">(</mo><mi>c</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mover accent=\"true\"><mi mathvariant=\"fraktur\">v</mi><mo>~</mo></mover><mo stretchy=\"false\">(</mo><msup><mi>b</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo separator=\"true\">,</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mtext>s.t.</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><msup><mi>b</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><mi>b</mi><mo>−</mo><mi>c</mi><mo>≥</mo><mo>−</mo><mi>θ</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{split}\r\n        \\vFunc(\\bRat, \\tShkEmp) &amp; = \\max_{\\cRat} \\uFunc(\\cRat) + \\vOpt(\\bRat&#x27;, \\tShkEmp) \\\\\r\n        &amp; \\text{s.t.}\\\\\r\n        \\bRat&#x27; &amp; = \\bRat - \\cRat \\ge - \\tShkEmp\r\n    \\end{split}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:4.84em;vertical-align:-2.17em;\"></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-r\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.67em;\"><span style=\"top:-4.83em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">v</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">b</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.02778em;\">θ</span><span class=\"mclose\">)</span></span></span><span style=\"top:-2.99em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"></span></span><span style=\"top:-1.49em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\">b</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.17em;\"><span></span></span></span></span></span><span class=\"col-align-l\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.67em;\"><span style=\"top:-4.83em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mop op-limits\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.4306em;\"><span style=\"top:-2.4em;margin-left:0em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\">c</span></span></span></span><span style=\"top:-3em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span><span class=\"mop\">max</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.7em;\"><span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathrm\">u</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">c</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord accent\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.7608em;\"><span style=\"top:-3em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord mathfrak\">v</span></span><span style=\"top:-3.443em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"accent-body\" style=\"left:-0.2222em;\"><span class=\"mord\">~</span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">b</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.02778em;\">θ</span><span class=\"mclose\">)</span></span></span><span style=\"top:-2.99em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mord text\"><span class=\"mord\">s.t.</span></span></span></span><span style=\"top:-1.49em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord mathnormal\">b</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord mathnormal\">c</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">≥</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord\">−</span><span class=\"mord mathnormal\" style=\"margin-right:0.02778em;\">θ</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.17em;\"><span></span></span></span></span></span></span></span></span></span></span></span>",
             "enumerator": "1",
-            "key": "Qz7DAiSeSm"
+            "key": "p0hLHI3TU4"
           },
           {
             "type": "paragraph",
@@ -1230,10 +1230,10 @@
                   "end": { "offset": 3845, "line": 36, "column": 6 }
                 },
                 "value": "while the labor-leisure subproblem would have an additional constraint",
-                "key": "xrVJbNwfHv"
+                "key": "s2MMoXLDwu"
               }
             ],
-            "key": "LA8vjiuTuZ"
+            "key": "bUtkqW2S50"
           },
           {
             "type": "math",
@@ -1245,7 +1245,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mtable rowspacing=\"0.25em\" columnalign=\"right left\" columnspacing=\"0em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mover accent=\"true\"><mi mathvariant=\"fraktur\">v</mi><mo>~</mo></mover><mo stretchy=\"false\">(</mo><msup><mi>b</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo separator=\"true\">,</mo><mi>θ</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><mi>z</mi></munder><mi>h</mi><mo stretchy=\"false\">(</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi mathvariant=\"fraktur\">v</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mtext>s.t.</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>≤</mo><mi>z</mi><mo>≤</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mi>a</mi></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><msup><mi>b</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>+</mo><mi>θ</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo>−</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>≥</mo><mn>0.</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{split}\r\n        \\vOpt(\\bRat&#x27;, \\tShkEmp) &amp; = \\max_{\\leisure} \\h(\\leisure) + \\vEnd(\\aRat) \\\\\r\n        &amp; \\text{s.t.} \\\\\r\n        0 &amp; \\le \\leisure \\le 1 \\\\\r\n        \\aRat &amp; = \\bRat&#x27; + \\tShkEmp(1 - \\leisure) \\ge 0.\r\n    \\end{split}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:6.34em;vertical-align:-2.92em;\"></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-r\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:3.42em;\"><span style=\"top:-5.58em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord accent\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.7608em;\"><span style=\"top:-3em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord mathfrak\">v</span></span><span style=\"top:-3.443em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"accent-body\" style=\"left:-0.2222em;\"><span class=\"mord\">~</span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">b</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.02778em;\">θ</span><span class=\"mclose\">)</span></span></span><span style=\"top:-3.74em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"></span></span><span style=\"top:-2.24em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\">0</span></span></span><span style=\"top:-0.74em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">a</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.92em;\"><span></span></span></span></span></span><span class=\"col-align-l\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:3.42em;\"><span style=\"top:-5.58em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mop op-limits\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.4306em;\"><span style=\"top:-2.4em;margin-left:0em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.04398em;\">z</span></span></span></span><span style=\"top:-3em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span><span class=\"mop\">max</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.7em;\"><span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\">h</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\" style=\"margin-right:0.04398em;\">z</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord mathfrak\">v</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mclose\">)</span></span></span><span style=\"top:-3.74em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mord text\"><span class=\"mord\">s.t.</span></span></span></span><span style=\"top:-2.24em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">≤</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.04398em;\">z</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">≤</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord\">1</span></span></span><span style=\"top:-0.74em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">b</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.02778em;\">θ</span><span class=\"mopen\">(</span><span class=\"mord\">1</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.04398em;\">z</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">≥</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord\">0.</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.92em;\"><span></span></span></span></span></span></span></span></span></span></span></span>",
             "enumerator": "2",
-            "key": "UeHjS8LqJi"
+            "key": "eGjDrCjPEY"
           },
           {
             "type": "paragraph",
@@ -1261,10 +1261,10 @@
                   "end": { "offset": 4198, "line": 47, "column": 10 }
                 },
                 "value": "Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce computational the burden.",
-                "key": "Msnh2A3TSl"
+                "key": "fsc1cQP3oW"
               }
             ],
-            "key": "AJCKpau6oB"
+            "key": "VXDR8Fwvd5"
           },
           {
             "type": "heading",
@@ -1281,14 +1281,14 @@
                   "end": { "offset": 4345, "line": 49, "column": 30 }
                 },
                 "value": "Differentiable and invertible transition",
-                "key": "qSqKzrFdP2"
+                "key": "WhpzpvXl0X"
               }
             ],
             "identifier": "differentiable-and-invertible-transition",
             "label": "Differentiable and invertible transition",
             "html_id": "differentiable-and-invertible-transition",
             "implicit": true,
-            "key": "BiwP0m3PO8"
+            "key": "OJ7HUH3xzb"
           },
           {
             "type": "paragraph",
@@ -1304,20 +1304,20 @@
                   "end": { "offset": 4378, "line": 51, "column": 3 }
                 },
                 "value": "In Section ",
-                "key": "a4wJ8NOF6p"
+                "key": "MRcnSZH7oS"
               },
               {
                 "type": "crossReference",
                 "label": "sec:higherdims",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "DvWrRGYS1k" }
+                  { "type": "text", "value": "%s", "key": "R2IVn6sAPg" }
                 ],
                 "position": {
                   "start": { "offset": 4387, "line": 51, "column": 12 },
                   "end": { "offset": 4391, "line": 51, "column": 16 }
                 },
                 "identifier": "sec:higherdims",
-                "key": "J61alEgZct"
+                "key": "OOlAEaGsZ5"
               },
               {
                 "type": "text",
@@ -1326,10 +1326,10 @@
                   "end": { "offset": 4408, "line": 51, "column": 33 }
                 },
                 "value": ", we see that a problem with a differentiable and invertible transition can also be used to embed an additional Endogenous Grid Method step. Because the transition applies independently to a state variable that is not related to the other control variable, consumption, it can be handled separately from the consumption subproblem.",
-                "key": "zd96dU2QcL"
+                "key": "x8OAQVU7w2"
               }
             ],
-            "key": "fwIrGCWoVy"
+            "key": "wkgwmhEa9e"
           },
           {
             "type": "paragraph",
@@ -1345,10 +1345,10 @@
                   "end": { "offset": 4791, "line": 55, "column": 3 }
                 },
                 "value": "In this particular problem, however, it turns out to make no difference how we order the two subproblems. This is because the control variables, consumption and pension deposit, each affect a separate resource account, namely market resources and pension balance. Because of this, the two subproblems are independent of each other and can be solved in any order.",
-                "key": "jTOymWwart"
+                "key": "OsziM3mBvS"
               }
             ],
-            "key": "tSwbLzsgAv"
+            "key": "u2IjOCfvKy"
           },
           {
             "type": "paragraph",
@@ -1364,20 +1364,20 @@
                   "end": { "offset": 5156, "line": 57, "column": 2 }
                 },
                 "value": "A good rule of thumb is that when splitting up a problem into subproblems, we should try to reduce the information set that is passed onto the next subproblem. In Section ",
-                "key": "KSyJZ215WY"
+                "key": "d6FZ2QMeou"
               },
               {
                 "type": "crossReference",
                 "label": "sec:method",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "ezEKAZhF3s" }
+                  { "type": "text", "value": "%s", "key": "tOB1dRFDqV" }
                 ],
                 "position": {
                   "start": { "offset": 5326, "line": 57, "column": 172 },
                   "end": { "offset": 5330, "line": 57, "column": 176 }
                 },
                 "identifier": "sec:method",
-                "key": "AHYQERlmW8"
+                "key": "WiaMFIoMxM"
               },
               {
                 "type": "text",
@@ -1386,20 +1386,20 @@
                   "end": { "offset": 5343, "line": 57, "column": 189 }
                 },
                 "value": ", choosing leisure-labor and realizing total market resources before consumption allows us to shed the wage rate offer state variable before the consumption problem, and we know that for the portfolio choice we only need to know liquid assets after expenditures (consumption). Thus, the order makes intuitive sense; agent first chooses leisure-labor, realizing total market resources, then chooses consumption and savings, and finally chooses their risky portfolio choice. In Section ",
-                "key": "eWVyrHVKlt"
+                "key": "j0ZfO5AUO3"
               },
               {
                 "type": "crossReference",
                 "label": "sec:higherdims",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "z4AjiRAl9B" }
+                  { "type": "text", "value": "%s", "key": "USbKvPQetc" }
                 ],
                 "position": {
                   "start": { "offset": 5826, "line": 57, "column": 672 },
                   "end": { "offset": 5830, "line": 57, "column": 676 }
                 },
                 "identifier": "sec:higherdims",
-                "key": "W9I2D38SMw"
+                "key": "rLYIbFXMxB"
               },
               {
                 "type": "text",
@@ -1408,10 +1408,10 @@
                   "end": { "offset": 5847, "line": 57, "column": 693 }
                 },
                 "value": ", there are two expenditures that are independent of each other, consumption and deposit, and making one decision or the other first does not reduce the information set for the agent, thus the order of these subproblems does not matter.",
-                "key": "VcsQWqPdha"
+                "key": "G638BQLpPN"
               }
             ],
-            "key": "OxVj0HWujV"
+            "key": "PGpOI4ljmf"
           },
           {
             "type": "heading",
@@ -1428,14 +1428,14 @@
                   "end": { "offset": 6101, "line": 59, "column": 16 }
                 },
                 "value": "The Endogenous Grid Method for Subproblems",
-                "key": "DLQMZvLJPh"
+                "key": "H8yaisO3tU"
               }
             ],
             "identifier": "the-endogenous-grid-method-for-subproblems",
             "label": "The Endogenous Grid Method for Subproblems",
             "html_id": "the-endogenous-grid-method-for-subproblems",
             "implicit": true,
-            "key": "Fyk13fuHoG"
+            "key": "KDZP32Ty7r"
           },
           {
             "type": "paragraph",
@@ -1451,20 +1451,20 @@
                   "end": { "offset": 6149, "line": 61, "column": 5 }
                 },
                 "value": "Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections ",
-                "key": "vZ25omejGn"
+                "key": "zHfKjtsUIu"
               },
               {
                 "type": "crossReference",
                 "label": "sec:method",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "AayBZeOlzF" }
+                  { "type": "text", "value": "%s", "key": "FkIyBtzyu7" }
                 ],
                 "position": {
                   "start": { "offset": 6356, "line": 61, "column": 212 },
                   "end": { "offset": 6360, "line": 61, "column": 216 }
                 },
                 "identifier": "sec:method",
-                "key": "QR5NIb6xxa"
+                "key": "Xec4OrbTb1"
               },
               {
                 "type": "text",
@@ -1473,20 +1473,20 @@
                   "end": { "offset": 6373, "line": 61, "column": 229 }
                 },
                 "value": " and ",
-                "key": "vYnDIT2KFq"
+                "key": "O51DOcdp9X"
               },
               {
                 "type": "crossReference",
                 "label": "sec:higherdims",
                 "children": [
-                  { "type": "text", "value": "%s", "key": "yfpZjAJkqK" }
+                  { "type": "text", "value": "%s", "key": "vmAZdokiPT" }
                 ],
                 "position": {
                   "start": { "offset": 6377, "line": 61, "column": 233 },
                   "end": { "offset": 6381, "line": 61, "column": 237 }
                 },
                 "identifier": "sec:higherdims",
-                "key": "azVdmUGv0Z"
+                "key": "wPnobtLF08"
               },
               {
                 "type": "text",
@@ -1495,10 +1495,10 @@
                   "end": { "offset": 6398, "line": 61, "column": 254 }
                 },
                 "value": ", the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.",
-                "key": "In8NLFyHNZ"
+                "key": "hceCnmnJFK"
               }
             ],
-            "key": "YjxpvnyesQ"
+            "key": "ebJNhlc5Pv"
           },
           {
             "type": "heading",
@@ -1515,14 +1515,14 @@
                   "end": { "offset": 6668, "line": 63, "column": 23 }
                 },
                 "value": "Utility function",
-                "key": "N7gsG2varW"
+                "key": "kGikbAQKbr"
               }
             ],
             "identifier": "utility-function",
             "label": "Utility function",
             "html_id": "utility-function",
             "implicit": true,
-            "key": "v2koOUjAns"
+            "key": "mSf2GFgyvx"
           },
           {
             "type": "paragraph",
@@ -1538,10 +1538,10 @@
                   "end": { "offset": 6683, "line": 65, "column": 2 }
                 },
                 "value": "A generic subproblem with a differentiable and invertible utility function can be characterized as follows:",
-                "key": "nAia0H4JTu"
+                "key": "XzR0QeQGRw"
               }
             ],
-            "key": "dMbD83MDwt"
+            "key": "WPACZU3fIr"
           },
           {
             "type": "math",
@@ -1553,7 +1553,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mtable rowspacing=\"0.25em\" columnalign=\"right left\" columnspacing=\"0em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mi mathvariant=\"normal\">V</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow><mi>y</mi><mo>∈</mo><mi mathvariant=\"normal\">Γ</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow></munder><mi mathvariant=\"normal\">U</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>β</mi><mi mathvariant=\"normal\">W</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mtext>s.t.</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mi>a</mi></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><mi mathvariant=\"normal\">T</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{split}\r\n        \\VFunc(\\xRat) &amp;  = \\max_{\\yRat  \\in \\PGro(\\xRat)} \\UFunc(\\xRat, \\yRat) + \\DiscFac \\WFunc(\\aRat) \\\\\r\n        &amp; \\text{s.t.} \\\\\r\n        \\aRat &amp; = \\TFunc(\\xRat,\\yRat)\r\n    \\end{split}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:5.106em;vertical-align:-2.303em;\"></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-r\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.803em;\"><span style=\"top:-4.963em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">V</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mclose\">)</span></span></span><span style=\"top:-2.857em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"></span></span><span style=\"top:-1.357em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">a</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.303em;\"><span></span></span></span></span></span><span class=\"col-align-l\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.803em;\"><span style=\"top:-4.963em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mop op-limits\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.4306em;\"><span style=\"top:-2.309em;margin-left:0em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span><span class=\"mrel mtight\">∈</span><span class=\"mord mtight\">Γ</span><span class=\"mopen mtight\">(</span><span class=\"mord mathnormal mtight\">x</span><span class=\"mclose mtight\">)</span></span></span></span><span style=\"top:-3em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span><span class=\"mop\">max</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.966em;\"><span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathrm\">U</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.05278em;\">β</span><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">W</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mclose\">)</span></span></span><span style=\"top:-2.857em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mord text\"><span class=\"mord\">s.t.</span></span></span></span><span style=\"top:-1.357em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord mathrm\">T</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.303em;\"><span></span></span></span></span></span></span></span></span></span></span></span>",
             "enumerator": "3",
-            "key": "xugh4h9exc"
+            "key": "osWUMTFsfc"
           },
           {
             "type": "paragraph",
@@ -1569,10 +1569,10 @@
                   "end": { "offset": 7041, "line": 75, "column": 4 }
                 },
                 "value": "For an interior solution, the first-order condition is thus",
-                "key": "hX3qwzGBjl"
+                "key": "rqA7kCsWAG"
               }
             ],
-            "key": "OjztNSXEeX"
+            "key": "TyELhYJSpO"
           },
           {
             "type": "math",
@@ -1584,7 +1584,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msubsup><mi mathvariant=\"normal\">U</mi><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msubsup><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>β</mi><msup><mi mathvariant=\"normal\">W</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">)</mo><msubsup><mi mathvariant=\"normal\">T</mi><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msubsup><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\UFunc&#x27;_{\\yRat}(\\xRat, \\yRat) + \\DiscFac \\WFunc&#x27;(\\aRat)\\TFunc&#x27;_{\\yRat}(\\xRat,\\yRat) = 0</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1.185em;vertical-align:-0.3831em;\"></span><span class=\"mord\"><span class=\"mord mathrm\">U</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-2.453em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span></span></span></span><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3831em;\"><span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.185em;vertical-align:-0.3831em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.05278em;\">β</span><span class=\"mord\"><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">W</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mclose\">)</span><span class=\"mord\"><span class=\"mord mathrm\">T</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-2.453em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span></span></span></span><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3831em;\"><span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">0</span></span></span></span></span>",
             "enumerator": "4",
-            "key": "YrsE19DHHp"
+            "key": "LxBLAhNs2o"
           },
           {
             "type": "paragraph",
@@ -1600,10 +1600,10 @@
                   "end": { "offset": 7232, "line": 81, "column": 3 }
                 },
                 "value": "If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of",
-                "key": "DHfdFuiGE6"
+                "key": "h2gGSu0fVi"
               }
             ],
-            "key": "daa2r7EmNy"
+            "key": "Y6De2VGuGb"
           },
           {
             "type": "math",
@@ -1615,7 +1615,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>y</mi><mo>=</mo><msup><mrow><mo fence=\"true\">(</mo><msubsup><mi mathvariant=\"normal\">U</mi><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msubsup><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo fence=\"true\">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo fence=\"true\">[</mo><mo>−</mo><mi>β</mi><msup><mi mathvariant=\"normal\">W</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">)</mo><msubsup><mi mathvariant=\"normal\">T</mi><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msubsup><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo fence=\"true\">]</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\yRat = \\left(\\UFunc&#x27;_{\\yRat}(\\xRat, \\yRat)\\right)^{-1} \\left[ -\\DiscFac \\WFunc&#x27;(\\aRat)\\TFunc&#x27;_{\\yRat}(\\xRat,\\yRat)\\right]</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.4371em;vertical-align:-0.3831em;\"></span><span class=\"minner\"><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size1\">(</span></span><span class=\"mord\"><span class=\"mord mathrm\">U</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-2.453em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span></span></span></span><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3831em;\"><span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mclose delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size1\">)</span></span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.054em;\"><span style=\"top:-3.3029em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">−</span><span class=\"mord mtight\">1</span></span></span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size1\">[</span></span><span class=\"mord\">−</span><span class=\"mord mathnormal\" style=\"margin-right:0.05278em;\">β</span><span class=\"mord\"><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">W</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mclose\">)</span><span class=\"mord\"><span class=\"mord mathrm\">T</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-2.453em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span></span></span></span><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3831em;\"><span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mclose delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size1\">]</span></span></span></span></span></span></span>",
             "enumerator": "5",
-            "key": "clZIIPGl0b"
+            "key": "ODyCr3TWkF"
           },
           {
             "type": "paragraph",
@@ -1631,7 +1631,7 @@
                   "end": { "offset": 7517, "line": 87, "column": 3 }
                 },
                 "value": "By using an exogenous grid of the post-decision state ",
-                "key": "gPoWKVDu0G"
+                "key": "w9lc5FtP7W"
               },
               {
                 "type": "inlineMath",
@@ -1641,7 +1641,7 @@
                   "end": { "offset": 7576, "line": 87, "column": 62 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">\\aRat</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">a</span></span></span></span>",
-                "key": "FSiRM9HJdn"
+                "key": "q3Ah20wG0Q"
               },
               {
                 "type": "text",
@@ -1650,7 +1650,7 @@
                   "end": { "offset": 7577, "line": 87, "column": 63 }
                 },
                 "value": ", we can solve for the optimal decision rule ",
-                "key": "X3xSWOwgOk"
+                "key": "s0eD3RQJkX"
               },
               {
                 "type": "inlineMath",
@@ -1660,7 +1660,7 @@
                   "end": { "offset": 7628, "line": 87, "column": 114 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">\\yRat</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span></span></span></span>",
-                "key": "m8GzVAA93y"
+                "key": "EeMolFao5u"
               },
               {
                 "type": "text",
@@ -1669,10 +1669,10 @@
                   "end": { "offset": 7629, "line": 87, "column": 115 }
                 },
                 "value": " at each point on the grid. This is the Endogenous Grid Method step.",
-                "key": "SVPFzrnq3z"
+                "key": "B8E3s05GUq"
               }
             ],
-            "key": "uKPZ4YKvF8"
+            "key": "NxOgMv2zwL"
           },
           {
             "type": "heading",
@@ -1689,14 +1689,14 @@
                   "end": { "offset": 7725, "line": 89, "column": 26 }
                 },
                 "value": "Transition",
-                "key": "teyH2hGqNI"
+                "key": "rPZTufFGx1"
               }
             ],
             "identifier": "transition",
             "label": "Transition",
             "html_id": "transition",
             "implicit": true,
-            "key": "LHJggM3Q0x"
+            "key": "W3nb9tQX37"
           },
           {
             "type": "paragraph",
@@ -1712,10 +1712,10 @@
                   "end": { "offset": 7732, "line": 91, "column": 3 }
                 },
                 "value": "If the generic subproblem has no utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.",
-                "key": "HjD0Hh4TxX"
+                "key": "TAoEUkNsKu"
               }
             ],
-            "key": "gxfnHsYaOb"
+            "key": "Ql7HQuB8re"
           },
           {
             "type": "math",
@@ -1727,7 +1727,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mtable rowspacing=\"0.25em\" columnalign=\"right left\" columnspacing=\"0em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mi mathvariant=\"normal\">V</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow><mi>y</mi><mo>∈</mo><mi mathvariant=\"normal\">Γ</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow></munder><mi mathvariant=\"normal\">W</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mtext>s.t.</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mi>a</mi></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mrow></mrow><mo>=</mo><mi mathvariant=\"normal\">T</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{split}\r\n        \\VFunc(\\xRat) &amp;  = \\max_{\\yRat  \\in \\PGro(\\xRat)}  \\WFunc(\\aRat) \\\\\r\n        &amp; \\text{s.t.} \\\\\r\n        \\aRat &amp; = \\TFunc(\\xRat,\\yRat)\r\n    \\end{split}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:5.106em;vertical-align:-2.303em;\"></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-r\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.803em;\"><span style=\"top:-4.963em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">V</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mclose\">)</span></span></span><span style=\"top:-2.857em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"></span></span><span style=\"top:-1.357em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">a</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.303em;\"><span></span></span></span></span></span><span class=\"col-align-l\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.803em;\"><span style=\"top:-4.963em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mop op-limits\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.4306em;\"><span style=\"top:-2.309em;margin-left:0em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span><span class=\"mrel mtight\">∈</span><span class=\"mord mtight\">Γ</span><span class=\"mopen mtight\">(</span><span class=\"mord mathnormal mtight\">x</span><span class=\"mclose mtight\">)</span></span></span></span><span style=\"top:-3em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span><span class=\"mop\">max</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.966em;\"><span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">W</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mclose\">)</span></span></span><span style=\"top:-2.857em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mord text\"><span class=\"mord\">s.t.</span></span></span></span><span style=\"top:-1.357em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord mathrm\">T</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.303em;\"><span></span></span></span></span></span></span></span></span></span></span></span>",
             "enumerator": "6",
-            "key": "qw5zy1z7v5"
+            "key": "M7EFWsz4fB"
           },
           {
             "type": "paragraph",
@@ -1743,10 +1743,10 @@
                   "end": { "offset": 8104, "line": 101, "column": 5 }
                 },
                 "value": "Here, the first-order condition is",
-                "key": "UeeyQfc9R5"
+                "key": "MfrYFCkzGT"
               }
             ],
-            "key": "KMNRQTGU0q"
+            "key": "F0JBOlNQI7"
           },
           {
             "type": "math",
@@ -1758,7 +1758,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msup><mi mathvariant=\"normal\">W</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">)</mo><msubsup><mi mathvariant=\"normal\">T</mi><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msubsup><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\WFunc&#x27;(\\aRat)\\TFunc&#x27;_{\\yRat}(\\xRat,\\yRat)  = 0</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1.185em;vertical-align:-0.3831em;\"></span><span class=\"mord\"><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">W</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mclose\">)</span><span class=\"mord\"><span class=\"mord mathrm\">T</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-2.453em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span></span></span></span><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3831em;\"><span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">0</span></span></span></span></span>",
             "enumerator": "7",
-            "key": "Xkna69sqEt"
+            "key": "ZksHGg8Zhx"
           },
           {
             "type": "paragraph",
@@ -1774,10 +1774,10 @@
                   "end": { "offset": 8230, "line": 107, "column": 4 }
                 },
                 "value": "and the Endogenous Grid Method step is",
-                "key": "yavZUFoZIs"
+                "key": "W9XrBlwx3k"
               }
             ],
-            "key": "Ip53AO0Dcc"
+            "key": "NhZqo8BMOw"
           },
           {
             "type": "math",
@@ -1789,13 +1789,13 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>y</mi><mo>=</mo><msup><mrow><mo fence=\"true\">(</mo><msubsup><mi mathvariant=\"normal\">T</mi><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msubsup><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo fence=\"true\">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo fence=\"true\">[</mo><mn>1</mn><mi mathvariant=\"normal\">/</mi><msup><mi mathvariant=\"normal\">W</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">)</mo><mo fence=\"true\">]</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\yRat = \\left(\\TFunc&#x27;_{\\yRat}(\\xRat,\\yRat)\\right)^{-1} \\left[ 1 / \\WFunc&#x27;(\\aRat)\\right]</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.4371em;vertical-align:-0.3831em;\"></span><span class=\"minner\"><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size1\">(</span></span><span class=\"mord\"><span class=\"mord mathrm\">T</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-2.453em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.03588em;\">y</span></span></span></span><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3831em;\"><span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mclose delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size1\">)</span></span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.054em;\"><span style=\"top:-3.3029em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">−</span><span class=\"mord mtight\">1</span></span></span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top:0em;\">[</span><span class=\"mord\">1/</span><span class=\"mord\"><span class=\"mord mathrm\" style=\"margin-right:0.01389em;\">W</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">a</span><span class=\"mclose\">)</span><span class=\"mclose delimcenter\" style=\"top:0em;\">]</span></span></span></span></span></span>",
             "enumerator": "8",
-            "key": "aRm536ISKQ"
+            "key": "uJQtPFmIMp"
           }
         ],
-        "key": "NSeQHa5r0I"
+        "key": "iPwSTTiFbx"
       }
     ],
-    "key": "Bl4v8aruQ4"
+    "key": "gSYwmz7edF"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

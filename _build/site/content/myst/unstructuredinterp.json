@@ -850,14 +850,14 @@
                   "end": { "offset": 21, "line": 1, "column": 22 }
                 },
                 "value": "Multivariate Interpolation on Non-Rectilinear Grids",
-                "key": "BHNom1IQtq"
+                "key": "cDHWq0UbO2"
               }
             ],
             "identifier": "multivariate-interpolation-on-non-rectilinear-grids",
             "label": "Multivariate Interpolation on Non-Rectilinear Grids",
             "html_id": "multivariate-interpolation-on-non-rectilinear-grids",
             "implicit": true,
-            "key": "fqiWTrXKfu"
+            "key": "bPy1dkxYVw"
           },
           {
             "type": "paragraph",
@@ -873,7 +873,7 @@
                   "end": { "offset": 69, "line": 3, "column": 5 }
                 },
                 "value": "This section presents alternative interpolation methods for non-rectilinear grids. First, I present the relatively simple case of fast warped interpolation on a curvilinear grid, which improves upon the interpolation in ",
-                "key": "GV4RRcQ07B"
+                "key": "wOG9QUx0IS"
               },
               {
                 "type": "citeGroup",
@@ -888,17 +888,17 @@
                       {
                         "type": "text",
                         "value": "White (2015)",
-                        "key": "JiL0upgniO"
+                        "key": "tiX8QFdG0E"
                       }
                     ],
-                    "key": "wxoNVzyhY8"
+                    "key": "BKQjjbiSZH"
                   }
                 ],
                 "position": {
                   "start": { "offset": 285, "line": 3, "column": 221 },
                   "end": { "offset": 290, "line": 3, "column": 226 }
                 },
-                "key": "X0cNAlxdBw"
+                "key": "nlWnKnlQsL"
               },
               {
                 "type": "text",
@@ -907,7 +907,7 @@
                   "end": { "offset": 302, "line": 3, "column": 238 }
                 },
                 "value": ". Then, I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in ",
-                "key": "b5JXpxSSZ2"
+                "key": "D3x4KKYQPd"
               },
               {
                 "type": "citeGroup",
@@ -922,17 +922,17 @@
                       {
                         "type": "text",
                         "value": "Scheidegger & Bilionis (2019)",
-                        "key": "aCELUQvYkj"
+                        "key": "H07ClJKZF1"
                       }
                     ],
-                    "key": "gRouv33kaz"
+                    "key": "dbUZsgiYqC"
                   }
                 ],
                 "position": {
                   "start": { "offset": 439, "line": 3, "column": 375 },
                   "end": { "offset": 444, "line": 3, "column": 380 }
                 },
-                "key": "wcXyPrquUw"
+                "key": "TuGdSvi3JE"
               },
               {
                 "type": "text",
@@ -941,10 +941,10 @@
                   "end": { "offset": 462, "line": 3, "column": 398 }
                 },
                 "value": ".",
-                "key": "uvPFp0vmQV"
+                "key": "bW70iR5QyI"
               }
             ],
-            "key": "v5G7UHsDwN"
+            "key": "BOSWV00FTM"
           },
           {
             "type": "heading",
@@ -961,14 +961,14 @@
                   "end": { "offset": 484, "line": 5, "column": 19 }
                 },
                 "value": "Warped Grid Interpolation (WGI)",
-                "key": "u32hyuYOCy"
+                "key": "AsSWuxjCqq"
               }
             ],
             "identifier": "warped-grid-interpolation-wgi",
             "label": "Warped Grid Interpolation (WGI)",
             "html_id": "warped-grid-interpolation-wgi",
             "implicit": true,
-            "key": "mCCcwgMKV0"
+            "key": "QhKbTGkYXW"
           },
           {
             "type": "paragraph",
@@ -984,7 +984,7 @@
                   "end": { "offset": 520, "line": 7, "column": 7 }
                 },
                 "value": "Assume we have a set of points indexed by ",
-                "key": "piO8NbQ5lf"
+                "key": "NgaxR7bHkf"
               },
               {
                 "type": "inlineMath",
@@ -994,7 +994,7 @@
                   "end": { "offset": 563, "line": 7, "column": 50 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>i</mi><mo separator=\"true\">,</mo><mi>j</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(i,j)</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">i</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.05724em;\">j</span><span class=\"mclose\">)</span></span></span></span>",
-                "key": "BBOocC3Ptx"
+                "key": "NDmRmKYPIG"
               },
               {
                 "type": "text",
@@ -1003,7 +1003,7 @@
                   "end": { "offset": 564, "line": 7, "column": 51 }
                 },
                 "value": " in two-dimensional space for which we have corresponding functional values in a third dimension, such that ",
-                "key": "gbIx39n5ol"
+                "key": "g2ZiFweze8"
               },
               {
                 "type": "inlineMath",
@@ -1013,7 +1013,7 @@
                   "end": { "offset": 698, "line": 7, "column": 185 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo separator=\"true\">,</mo><msub><mi>y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy=\"false\">)</mo><mo>=</mo><msub><mi>z</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding=\"application/x-tex\">f(x_{ij},y_{ij}) = z_{ij}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1.0361em;vertical-align:-0.2861em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.10764em;\">f</span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.7167em;vertical-align:-0.2861em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.04398em;\">z</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:-0.044em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span></span></span></span>",
-                "key": "KQ1rrfMqM5"
+                "key": "ZKqkJpoLkp"
               },
               {
                 "type": "text",
@@ -1022,7 +1022,7 @@
                   "end": { "offset": 699, "line": 7, "column": 186 }
                 },
                 "value": ". In practice, we are interested in cases where the ",
-                "key": "pg60DR7dkc"
+                "key": "PuHj8Bi1ra"
               },
               {
                 "type": "inlineMath",
@@ -1032,7 +1032,7 @@
                   "end": { "offset": 758, "line": 7, "column": 245 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>z</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding=\"application/x-tex\">z_{ij}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.7167em;vertical-align:-0.2861em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.04398em;\">z</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:-0.044em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span></span></span></span>",
-                "key": "U4AEtHzP02"
+                "key": "Lv11sp9Ah0"
               },
               {
                 "type": "text",
@@ -1041,7 +1041,7 @@
                   "end": { "offset": 759, "line": 7, "column": 246 }
                 },
                 "value": " are difficult to compute and ",
-                "key": "fwUqmj9ycY"
+                "key": "YWVciQYGal"
               },
               {
                 "type": "inlineMath",
@@ -1051,7 +1051,7 @@
                   "end": { "offset": 806, "line": 7, "column": 293 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo separator=\"true\">,</mo><msub><mi>y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x_{ij},y_{ij})</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1.0361em;vertical-align:-0.2861em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.10764em;\">f</span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span></span></span></span>",
-                "key": "s94eUUrBca"
+                "key": "NLPi6dXtiG"
               },
               {
                 "type": "text",
@@ -1060,7 +1060,7 @@
                   "end": { "offset": 807, "line": 7, "column": 294 }
                 },
                 "value": " is unknown, so we are unable to compute them at other values of ",
-                "key": "Enal3C1v08"
+                "key": "DFbwM5HVxZ"
               },
               {
                 "type": "inlineMath",
@@ -1070,7 +1070,7 @@
                   "end": { "offset": 874, "line": 7, "column": 361 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span>",
-                "key": "Na3Z9Jh58y"
+                "key": "UgP4HroZth"
               },
               {
                 "type": "text",
@@ -1079,7 +1079,7 @@
                   "end": { "offset": 875, "line": 7, "column": 362 }
                 },
                 "value": " and ",
-                "key": "JnrTJexKnG"
+                "key": "sR1oDcoh7U"
               },
               {
                 "type": "inlineMath",
@@ -1089,7 +1089,7 @@
                   "end": { "offset": 882, "line": 7, "column": 369 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span></span></span></span>",
-                "key": "QJRDYMXw9k"
+                "key": "NUFTyfcEj0"
               },
               {
                 "type": "text",
@@ -1098,7 +1098,7 @@
                   "end": { "offset": 883, "line": 7, "column": 370 }
                 },
                 "value": " — which is why we want to interpolate",
-                "key": "NwUILwxMx5"
+                "key": "sqFXM6Qv62"
               },
               {
                 "type": "footnoteReference",
@@ -1109,7 +1109,7 @@
                 },
                 "identifier": "zr2zs0vvul",
                 "number": 1,
-                "key": "EsU8xGM2mF"
+                "key": "G5VuJ9nENd"
               },
               {
                 "type": "footnoteDefinition",
@@ -1133,7 +1133,7 @@
                           "end": { "offset": 935, "line": 7, "column": 422 }
                         },
                         "value": "For this illustration, we generate ",
-                        "key": "aEiFobqAUY"
+                        "key": "hPxVevsqJQ"
                       },
                       {
                         "type": "inlineMath",
@@ -1143,7 +1143,7 @@
                           "end": { "offset": 970, "line": 7, "column": 457 }
                         },
                         "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>z</mi></mrow><annotation encoding=\"application/x-tex\">z</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.04398em;\">z</span></span></span></span>",
-                        "key": "uSy5lsjQf6"
+                        "key": "TUMpcLckkc"
                       },
                       {
                         "type": "text",
@@ -1152,10 +1152,10 @@
                           "end": { "offset": 971, "line": 7, "column": 458 }
                         },
                         "value": "’s arbitrarily using the function",
-                        "key": "DbCzkTOaqr"
+                        "key": "zpssTQvYra"
                       }
                     ],
-                    "key": "hs2bJbZP4I"
+                    "key": "IPdvmQd7EF"
                   },
                   {
                     "type": "math",
@@ -1166,12 +1166,12 @@
                     },
                     "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mi>y</mi><msup><mo stretchy=\"false\">)</mo><mrow><mn>1</mn><mi mathvariant=\"normal\">/</mi><mn>4</mn></mrow></msup><mi mathvariant=\"normal\">.</mi></mrow><annotation encoding=\"application/x-tex\">f(x,y) = (xy)^{1/4}.</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.10764em;\">f</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.188em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\"><span class=\"mclose\">)</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.938em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">1/4</span></span></span></span></span></span></span></span></span><span class=\"mord\">.</span></span></span></span></span>",
                     "enumerator": "1",
-                    "key": "OhGKFjSnJ8"
+                    "key": "S1Si2ke6Uz"
                   }
                 ],
                 "identifier": "zr2zs0vvul",
                 "number": 1,
-                "key": "lSqsaija6s"
+                "key": "GlUIVeFA9h"
               },
               {
                 "type": "text",
@@ -1180,7 +1180,7 @@
                   "end": { "offset": 1030, "line": 7, "column": 517 }
                 },
                 "value": ". These ",
-                "key": "B5LPSiV8V2"
+                "key": "K6mMF16mMX"
               },
               {
                 "type": "inlineMath",
@@ -1190,7 +1190,7 @@
                   "end": { "offset": 1054, "line": 7, "column": 541 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo separator=\"true\">,</mo><msub><mi>y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x_{ij},y_{ij})</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1.0361em;vertical-align:-0.2861em;\"></span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span></span></span></span>",
-                "key": "pNOkCSsLw3"
+                "key": "jNma6QHxyN"
               },
               {
                 "type": "text",
@@ -1199,10 +1199,10 @@
                   "end": { "offset": 1055, "line": 7, "column": 542 }
                 },
                 "value": " points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.",
-                "key": "znh0W0zfUw"
+                "key": "clOmGgxs7H"
               }
             ],
-            "key": "lAnIFta1LU"
+            "key": "UKG3x8sqNC"
           },
           {
             "type": "container",
@@ -1220,7 +1220,7 @@
                   "end": { "offset": 1316, "line": 11, "column": 19 }
                 },
                 "alt": "True function and curvilinear grid of points for which we know the value of the function.",
-                "key": "UC1eA2ZIR5"
+                "key": "jRacrKCVgp"
               },
               {
                 "type": "caption",
@@ -1247,13 +1247,13 @@
                           {
                             "type": "text",
                             "value": "Figure ",
-                            "key": "PgE5s5H3XU"
+                            "key": "OZJb2HiEpW"
                           },
-                          { "type": "text", "value": "1", "key": "PbcT0mPRdg" },
-                          { "type": "text", "value": ":", "key": "kt7OSRrVEn" }
+                          { "type": "text", "value": "1", "key": "muR4FfYqow" },
+                          { "type": "text", "value": ":", "key": "wB4DSqClXy" }
                         ],
                         "template": "Figure %s:",
-                        "key": "djtJL6yEnI"
+                        "key": "US7oYY02oX"
                       },
                       {
                         "type": "text",
@@ -1262,13 +1262,13 @@
                           "end": { "offset": 1387, "line": 12, "column": 16 }
                         },
                         "value": "True function and curvilinear grid of points for which we know the value of the function.",
-                        "key": "lxZRa6ggQV"
+                        "key": "QKkzfW3lb3"
                       }
                     ],
-                    "key": "Uqv4ytQpj0"
+                    "key": "k4vfevhrOS"
                   }
                 ],
-                "key": "OgorNp5pX3"
+                "key": "lrM9MHIMT3"
               }
             ],
             "align": "center",
@@ -1276,7 +1276,7 @@
             "identifier": "fig:warped_interp",
             "enumerator": "1",
             "html_id": "fig-warped-interp",
-            "key": "MbCVaGmIzs"
+            "key": "GxPR3VVvhC"
           },
           {
             "type": "paragraph",
@@ -1292,13 +1292,13 @@
                   "end": { "offset": 1537, "line": 16, "column": 3 }
                 },
                 "value": "In Figure ",
-                "key": "PY1LLfMRY3"
+                "key": "O5mXZnxOIr"
               },
               {
                 "type": "crossReference",
                 "label": "fig:warped_interp",
                 "children": [
-                  { "type": "text", "value": "1", "key": "XRQG17GCSC" }
+                  { "type": "text", "value": "1", "key": "kibPVJ9sJa" }
                 ],
                 "position": {
                   "start": { "offset": 1545, "line": 16, "column": 11 },
@@ -1309,7 +1309,7 @@
                 "template": "Figure %s",
                 "enumerator": "1",
                 "resolved": true,
-                "key": "EnEWqhwHPi"
+                "key": "Zi7QhzK8tE"
               },
               {
                 "type": "text",
@@ -1318,7 +1318,7 @@
                   "end": { "offset": 1569, "line": 16, "column": 35 }
                 },
                 "value": ", we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points’ position in the matrix, the ",
-                "key": "PZpuhxMwRL"
+                "key": "yGlpGemROt"
               },
               {
                 "type": "inlineMath",
@@ -1328,7 +1328,7 @@
                   "end": { "offset": 1794, "line": 16, "column": 260 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>i</mi><mo separator=\"true\">,</mo><mi>j</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(i,j)</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">i</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.05724em;\">j</span><span class=\"mclose\">)</span></span></span></span>",
-                "key": "oSk3F5PRSF"
+                "key": "C7FMuLBEtI"
               },
               {
                 "type": "text",
@@ -1337,10 +1337,10 @@
                   "end": { "offset": 1795, "line": 16, "column": 261 }
                 },
                 "value": " coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).",
-                "key": "mLMgsOiyLU"
+                "key": "wPY40HeqgL"
               }
             ],
-            "key": "wMRC8ij5Pe"
+            "key": "StXRMKFfex"
           },
           {
             "type": "paragraph",
@@ -1356,13 +1356,13 @@
                   "end": { "offset": 1951, "line": 18, "column": 3 }
                 },
                 "value": "In Figure ",
-                "key": "aI7UF4HVu0"
+                "key": "xlNzhtS3bC"
               },
               {
                 "type": "crossReference",
                 "label": "fig:homotopy",
                 "children": [
-                  { "type": "text", "value": "2", "key": "byo8Q5XyFX" }
+                  { "type": "text", "value": "2", "key": "Zho3Y5qVHn" }
                 ],
                 "position": {
                   "start": { "offset": 1959, "line": 18, "column": 11 },
@@ -1373,7 +1373,7 @@
                 "template": "Figure %s",
                 "enumerator": "2",
                 "resolved": true,
-                "key": "FLe0l6nmq2"
+                "key": "AQordNQ6p6"
               },
               {
                 "type": "text",
@@ -1382,10 +1382,10 @@
                   "end": { "offset": 1978, "line": 18, "column": 30 }
                 },
                 "value": " we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.",
-                "key": "AXCWDvW6qn"
+                "key": "eUBF2mAmCw"
               }
             ],
-            "key": "lh1ZpKJK5L"
+            "key": "aKWiQpLJRZ"
           },
           {
             "type": "container",
@@ -1403,7 +1403,7 @@
                   "end": { "offset": 2220, "line": 22, "column": 19 }
                 },
                 "alt": "Homotopy between the curvilinear grid and the index coordinates of the matrix.",
-                "key": "BDCgX9PAQ2"
+                "key": "hhOl5sLhjG"
               },
               {
                 "type": "caption",
@@ -1430,13 +1430,13 @@
                           {
                             "type": "text",
                             "value": "Figure ",
-                            "key": "dUVJxSs4c8"
+                            "key": "dR6If3rb13"
                           },
-                          { "type": "text", "value": "2", "key": "jQ55ityv7s" },
-                          { "type": "text", "value": ":", "key": "CSbAmg2BfD" }
+                          { "type": "text", "value": "2", "key": "C4Gw1yBZrL" },
+                          { "type": "text", "value": ":", "key": "VGoz8G1qJW" }
                         ],
                         "template": "Figure %s:",
-                        "key": "rEHDNHn4Ij"
+                        "key": "cPIXJlec40"
                       },
                       {
                         "type": "text",
@@ -1445,13 +1445,13 @@
                           "end": { "offset": 2284, "line": 23, "column": 20 }
                         },
                         "value": "Homotopy between the curvilinear grid and the index coordinates of the matrix.",
-                        "key": "Y5yQblulUQ"
+                        "key": "yFcarHsQuq"
                       }
                     ],
-                    "key": "Dxa5AT98Ln"
+                    "key": "VpxHZXPtNM"
                   }
                 ],
-                "key": "EGRzZFJBCf"
+                "key": "ajtF7fUQiy"
               }
             ],
             "align": "center",
@@ -1459,7 +1459,7 @@
             "identifier": "fig:homotopy",
             "enumerator": "2",
             "html_id": "fig-homotopy",
-            "key": "QhJ5vopzek"
+            "key": "DBGSjM35Tk"
           },
           {
             "type": "paragraph",
@@ -1475,7 +1475,7 @@
                   "end": { "offset": 2415, "line": 27, "column": 4 }
                 },
                 "value": "The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point ",
-                "key": "bfqPlsmdML"
+                "key": "jcUNuh6DWw"
               },
               {
                 "type": "inlineMath",
@@ -1485,7 +1485,7 @@
                   "end": { "offset": 2727, "line": 27, "column": 316 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x,y) = (3, 5)</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord\">3</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\">5</span><span class=\"mclose\">)</span></span></span></span>",
-                "key": "uktxuC4g0C"
+                "key": "GR6pKJPCfo"
               },
               {
                 "type": "text",
@@ -1494,13 +1494,13 @@
                   "end": { "offset": 2728, "line": 27, "column": 317 }
                 },
                 "value": " pictured Figure ",
-                "key": "MjZcqki9Jn"
+                "key": "QoIXDL2p1F"
               },
               {
                 "type": "crossReference",
                 "label": "fig:mapping",
                 "children": [
-                  { "type": "text", "value": "3", "key": "HI3zwOEXPS" }
+                  { "type": "text", "value": "3", "key": "g7SO1j43Vx" }
                 ],
                 "position": {
                   "start": { "offset": 2744, "line": 27, "column": 333 },
@@ -1511,7 +1511,7 @@
                 "template": "Figure %s",
                 "enumerator": "3",
                 "resolved": true,
-                "key": "P2VwNXfvvX"
+                "key": "B0AUcc8eiI"
               },
               {
                 "type": "text",
@@ -1520,7 +1520,7 @@
                   "end": { "offset": 2762, "line": 27, "column": 351 }
                 },
                 "value": ". If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the ",
-                "key": "hkmoLS9c2K"
+                "key": "eUNsNrioDh"
               },
               {
                 "type": "inlineMath",
@@ -1530,7 +1530,7 @@
                   "end": { "offset": 2893, "line": 27, "column": 482 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span>",
-                "key": "AOgNq91SZ5"
+                "key": "f566CmmbSt"
               },
               {
                 "type": "text",
@@ -1539,13 +1539,13 @@
                   "end": { "offset": 2894, "line": 27, "column": 483 }
                 },
                 "value": "-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in Figure ",
-                "key": "IGv4wq0eZW"
+                "key": "JCP4JIkMze"
               },
               {
                 "type": "crossReference",
                 "label": "fig:mapping",
                 "children": [
-                  { "type": "text", "value": "3", "key": "GlVlar8tj2" }
+                  { "type": "text", "value": "3", "key": "UYLSBVgoXr" }
                 ],
                 "position": {
                   "start": { "offset": 3248, "line": 27, "column": 837 },
@@ -1556,7 +1556,7 @@
                 "template": "Figure %s",
                 "enumerator": "3",
                 "resolved": true,
-                "key": "dZJeJuY9CX"
+                "key": "rdd5nglU6Y"
               },
               {
                 "type": "text",
@@ -1565,7 +1565,7 @@
                   "end": { "offset": 3266, "line": 27, "column": 855 }
                 },
                 "value": ", we have a corresponding pair ",
-                "key": "qRmfAISgzk"
+                "key": "UPJPiDBubJ"
               },
               {
                 "type": "inlineMath",
@@ -1575,7 +1575,7 @@
                   "end": { "offset": 3303, "line": 27, "column": 892 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(y,z)</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mopen\">(</span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.04398em;\">z</span><span class=\"mclose\">)</span></span></span></span>",
-                "key": "t6Wt3tO9Ic"
+                "key": "AKY3uoOJFO"
               },
               {
                 "type": "text",
@@ -1584,7 +1584,7 @@
                   "end": { "offset": 3304, "line": 27, "column": 893 }
                 },
                 "value": ", and we can interpolate in the y-direction to find the corresponding z-value for the point’s y-coordinate",
-                "key": "OH3y26gJNK"
+                "key": "eWYOEbNpBq"
               },
               {
                 "type": "footnoteReference",
@@ -1595,7 +1595,7 @@
                 },
                 "identifier": "xdmb4gvilg",
                 "number": 2,
-                "key": "ymqhY9aDQF"
+                "key": "vLDELnb1Ne"
               },
               {
                 "type": "footnoteDefinition",
@@ -1623,7 +1623,7 @@
                           "end": { "offset": 3422, "line": 27, "column": 1011 }
                         },
                         "value": "For more examples of the Warped Grid Interpolation method in action, see the github project ",
-                        "key": "xsve5ktStw"
+                        "key": "ohRFVPsUeh"
                       },
                       {
                         "type": "link",
@@ -1667,10 +1667,10 @@
                                   }
                                 },
                                 "value": "alanlujan91/multinterp",
-                                "key": "KtAQ1AxPWG"
+                                "key": "YiycEqThVV"
                               }
                             ],
-                            "key": "oM2bBNZGPU"
+                            "key": "RHeeydqk39"
                           }
                         ],
                         "urlSource": "https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb",
@@ -1684,7 +1684,7 @@
                         },
                         "internal": false,
                         "protocol": "github",
-                        "key": "PKOr9n2ru5"
+                        "key": "Vn6ULhmsqB"
                       },
                       {
                         "type": "text",
@@ -1697,15 +1697,15 @@
                           "end": { "offset": 3644, "line": 27, "column": 1233 }
                         },
                         "value": ".",
-                        "key": "pyiu3Guz6Q"
+                        "key": "T9sda8i93p"
                       }
                     ],
-                    "key": "LibW5MKCkC"
+                    "key": "eEmsEqlmgJ"
                   }
                 ],
                 "identifier": "xdmb4gvilg",
                 "number": 2,
-                "key": "Y2MEI1GFZj"
+                "key": "ApHvv4gNZ8"
               },
               {
                 "type": "text",
@@ -1714,10 +1714,10 @@
                   "end": { "offset": 3646, "line": 27, "column": 1235 }
                 },
                 "value": ".",
-                "key": "OHxKd544iW"
+                "key": "Kwx35XnMnG"
               }
             ],
-            "key": "syxKt4BDLT"
+            "key": "grs81yJXFm"
           },
           {
             "type": "container",
@@ -1735,7 +1735,7 @@
                   "end": { "offset": 3698, "line": 31, "column": 19 }
                 },
                 "alt": "The method consist of extending the loci of points in the x dimension to find the corresponding crossing points in the y dimension.",
-                "key": "IzuhX7Gb35"
+                "key": "IBRHFHJoXD"
               },
               {
                 "type": "caption",
@@ -1762,13 +1762,13 @@
                           {
                             "type": "text",
                             "value": "Figure ",
-                            "key": "gX8RXV8ioW"
+                            "key": "aQtH2jvBQB"
                           },
-                          { "type": "text", "value": "3", "key": "O0AJrhBHBF" },
-                          { "type": "text", "value": ":", "key": "SIFTANgU15" }
+                          { "type": "text", "value": "3", "key": "eYIjNnxpEx" },
+                          { "type": "text", "value": ":", "key": "gHWEwlH2ds" }
                         ],
                         "template": "Figure %s:",
-                        "key": "BF0UwZIxb1"
+                        "key": "c8ktD4bjgT"
                       },
                       {
                         "type": "text",
@@ -1777,7 +1777,7 @@
                           "end": { "offset": 3756, "line": 32, "column": 15 }
                         },
                         "value": "The method consist of extending the loci of points in the ",
-                        "key": "TnzAdDvJI7"
+                        "key": "cNpwySGXc8"
                       },
                       {
                         "type": "inlineMath",
@@ -1787,7 +1787,7 @@
                           "end": { "offset": 3814, "line": 32, "column": 73 }
                         },
                         "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span>",
-                        "key": "SQ58zSagG7"
+                        "key": "x8cpucUr4b"
                       },
                       {
                         "type": "text",
@@ -1796,7 +1796,7 @@
                           "end": { "offset": 3815, "line": 32, "column": 74 }
                         },
                         "value": " dimension to find the corresponding crossing points in the ",
-                        "key": "dBGI2r3DQT"
+                        "key": "Px0luq1BAw"
                       },
                       {
                         "type": "inlineMath",
@@ -1810,7 +1810,7 @@
                           "end": { "offset": 3877, "line": 32, "column": 136 }
                         },
                         "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.625em;vertical-align:-0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">y</span></span></span></span>",
-                        "key": "NwAKLJauQ7"
+                        "key": "DjyBZPHOim"
                       },
                       {
                         "type": "text",
@@ -1823,13 +1823,13 @@
                           "end": { "offset": 3878, "line": 32, "column": 137 }
                         },
                         "value": " dimension.",
-                        "key": "aMkBS2CzMB"
+                        "key": "sH988JZMJE"
                       }
                     ],
-                    "key": "Yaf0vPQ6jC"
+                    "key": "yOf4gVLY2h"
                   }
                 ],
-                "key": "A9QDd3nr6P"
+                "key": "HAEyZaEjKh"
               }
             ],
             "align": "center",
@@ -1837,7 +1837,7 @@
             "identifier": "fig:mapping",
             "enumerator": "3",
             "html_id": "fig-mapping",
-            "key": "CXchaFM2kN"
+            "key": "D6p3WyqqwH"
           },
           {
             "type": "heading",
@@ -1854,14 +1854,14 @@
                   "end": { "offset": 3973, "line": 38, "column": 25 }
                 },
                 "value": "Unstructured Grids",
-                "key": "rasGFYYCXH"
+                "key": "KFYR70Af0x"
               }
             ],
             "identifier": "unstructured-grids",
             "label": "Unstructured Grids",
             "html_id": "unstructured-grids",
             "implicit": true,
-            "key": "QSdKZqRy6F"
+            "key": "tVV6bdHIb6"
           },
           {
             "type": "paragraph",
@@ -1877,7 +1877,7 @@
                   "end": { "offset": 3996, "line": 40, "column": 13 }
                 },
                 "value": "Unstructured interpolation arises in many dynamic programming applications when using the Endogenous Grid Method because the first-order conditions might be highly non-linear and non-monotonic, or because boundary constraints induce kinks in the policy and value functions. In these cases, the grid points generated by the EGM step are not evenly spaced, leading to the need for curvilinear interpolation. We saw in the previous subsection an approach to curvilinear interpolation based on ",
-                "key": "gYq8ghLjKu"
+                "key": "Unt5XePmVS"
               },
               {
                 "type": "citeGroup",
@@ -1892,17 +1892,17 @@
                       {
                         "type": "text",
                         "value": "White (2015)",
-                        "key": "C9oMjWYGwa"
+                        "key": "ltXLpMY9Qi"
                       }
                     ],
-                    "key": "E8VfjEQzVR"
+                    "key": "m6scCWvpXi"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4474, "line": 40, "column": 491 },
                   "end": { "offset": 4479, "line": 40, "column": 496 }
                 },
-                "key": "RetDPwk8b9"
+                "key": "mDpq3zh5ES"
               },
               {
                 "type": "text",
@@ -1911,7 +1911,7 @@
                   "end": { "offset": 4491, "line": 40, "column": 508 }
                 },
                 "value": " that is incapable of interpolation on structured grids. A similar approach was presented in ",
-                "key": "aw29MrobQT"
+                "key": "Wa3hxcaN1G"
               },
               {
                 "type": "citeGroup",
@@ -1926,17 +1926,17 @@
                       {
                         "type": "text",
                         "value": "Ludwig & Schön (2018)",
-                        "key": "zlmSMAEp6a"
+                        "key": "puwxUsyMmx"
                       }
                     ],
-                    "key": "g6fogWK6nQ"
+                    "key": "CLw1JhAZIk"
                   }
                 ],
                 "position": {
                   "start": { "offset": 4583, "line": 40, "column": 600 },
                   "end": { "offset": 4588, "line": 40, "column": 605 }
                 },
-                "key": "dlfKwaJxHG"
+                "key": "ZnVzfTdKU1"
               },
               {
                 "type": "text",
@@ -1945,10 +1945,10 @@
                   "end": { "offset": 4601, "line": 40, "column": 618 }
                 },
                 "value": " which used Delaunay interpolation. However, this approach is not well suited for our purposes because triangulation can be computationally intensive and slow, often offsetting the efficiency gains from the Endogenous Grid Method.",
-                "key": "czFWDcu3M9"
+                "key": "dVMMonwpOZ"
               }
             ],
-            "key": "M1NQHrgcyW"
+            "key": "BIrQGvUUan"
           },
           {
             "type": "paragraph",
@@ -1964,7 +1964,7 @@
                   "end": { "offset": 4836, "line": 42, "column": 3 }
                 },
                 "value": "As an alternative to these methods, I introduce the use of Gaussian Process Regression (GPR) along with the Endogenous Grid Method. GPR is computationally efficient, and tools exist to easily parallelize and take advantage of hardware such as Graphics Processing Units (GPU)",
-                "key": "NlROsCvUsi"
+                "key": "WiJtPxQVgp"
               },
               {
                 "type": "footnoteReference",
@@ -1975,7 +1975,7 @@
                 },
                 "identifier": "qqkwa32k91",
                 "number": 3,
-                "key": "kGwtYmaEk1"
+                "key": "Y2BNEiS4Oc"
               },
               {
                 "type": "footnoteDefinition",
@@ -2005,7 +2005,7 @@
                               {
                                 "type": "text",
                                 "value": "Gardner ",
-                                "key": "pENHSL3KIc"
+                                "key": "DiU2qNimXc"
                               },
                               {
                                 "type": "emphasis",
@@ -2013,18 +2013,18 @@
                                   {
                                     "type": "text",
                                     "value": "et al.",
-                                    "key": "F8m2Xcbjav"
+                                    "key": "uNH8cPZZ01"
                                   }
                                 ],
-                                "key": "n9aoMtZn4l"
+                                "key": "UC6QjmZTZA"
                               },
                               {
                                 "type": "text",
                                 "value": " (2018)",
-                                "key": "vTOKq8Rjwk"
+                                "key": "VepqHjZTGO"
                               }
                             ],
-                            "key": "Bb9tm4KcLL"
+                            "key": "u8WGxmOhDD"
                           }
                         ],
                         "position": {
@@ -2035,15 +2035,15 @@
                           },
                           "end": { "offset": 5123, "line": 42, "column": 290 }
                         },
-                        "key": "oNBRLi111i"
+                        "key": "wHKwLWfNVk"
                       }
                     ],
-                    "key": "OdPi9b9OfU"
+                    "key": "qqLY4X4ncZ"
                   }
                 ],
                 "identifier": "qqkwa32k91",
                 "number": 3,
-                "key": "kAWwrJHmWA"
+                "key": "ut51gUuTTL"
               },
               {
                 "type": "text",
@@ -2052,10 +2052,10 @@
                   "end": { "offset": 5138, "line": 42, "column": 305 }
                 },
                 "value": ".",
-                "key": "EvYBInDQdg"
+                "key": "pNqNFkdDCg"
               }
             ],
-            "key": "wHRQYSpxln"
+            "key": "jVBBVui9Tx"
           },
           {
             "type": "heading",
@@ -2072,14 +2072,14 @@
                   "end": { "offset": 5222, "line": 46, "column": 24 }
                 },
                 "value": "Gaussian Process Regression",
-                "key": "JuG3qNProI"
+                "key": "zu3ihlSxtP"
               }
             ],
             "identifier": "gaussian-process-regression",
             "label": "Gaussian Process Regression",
             "html_id": "gaussian-process-regression",
             "implicit": true,
-            "key": "Gu6vijHgZT"
+            "key": "FPzkqXMN8F"
           },
           {
             "type": "paragraph",
@@ -2095,10 +2095,10 @@
                   "end": { "offset": 5247, "line": 48, "column": 2 }
                 },
                 "value": "A Gaussian Process is an infinite dimensional random process for which every subset of random variables is jointly Gaussian or has a multivariate normal distribution.",
-                "key": "GEPPfsqCck"
+                "key": "M4D2b7p1dS"
               }
             ],
-            "key": "DgbmxpvXQY"
+            "key": "mkUg21zORn"
           },
           {
             "type": "math",
@@ -2110,7 +2110,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mtable rowspacing=\"0.25em\" columnalign=\"center\" columnspacing=\"0em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mi mathvariant=\"bold\">X</mi><mo>∼</mo><mi mathvariant=\"script\">N</mi><mo stretchy=\"false\">(</mo><mi mathvariant=\"bold\">μ</mi><mo separator=\"true\">,</mo><mi mathvariant=\"bold\">Σ</mi><mo stretchy=\"false\">)</mo><mspace width=\"1em\"/><mtext>s.t.</mtext><mspace width=\"1em\"/><msub><mi>x</mi><mi>i</mi></msub><mo>∼</mo><mi mathvariant=\"script\">N</mi><mo stretchy=\"false\">(</mo><msub><mi>μ</mi><mi>i</mi></msub><mo separator=\"true\">,</mo><msub><mi>σ</mi><mrow><mi>i</mi><mi>i</mi></mrow></msub><mo stretchy=\"false\">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"true\"><mrow><mtext>and</mtext><mspace width=\"1em\"/><msub><mi>σ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mi mathvariant=\"double-struck\">E</mi><mo stretchy=\"false\">[</mo><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>μ</mi><mi>i</mi></msub><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo>−</mo><msub><mi>μ</mi><mi>j</mi></msub><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">]</mo><mspace width=\"1em\"/><mi mathvariant=\"normal\">∀</mi><mi>i</mi><mo separator=\"true\">,</mo><mi>j</mi><mo>∈</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mi>n</mi><mo stretchy=\"false\">}</mo><mi mathvariant=\"normal\">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{gathered}\r\n    \\mathbf{X} \\sim \\mathcal{N}(\\mathbf{\\mu}, \\mathbf{\\Sigma}) \\quad \\text{s.t.} \\quad x_i \\sim \\mathcal{N}(\\mu_i, \\sigma_{ii}) \\\\\r\n    \\text{and} \\quad  \\sigma_{ij} = \\Ex[(x_i - \\mu_i)(x_j - \\mu_j)] \\quad \\forall i,j \\in \\{1, \\ldots, n\\}.\r\n  \\end{gathered}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:3em;vertical-align:-1.25em;\"></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.75em;\"><span style=\"top:-3.91em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathbf\">X</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">∼</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord mathcal\" style=\"margin-right:0.14736em;\">N</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">μ</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathbf\">Σ</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:1em;\"></span><span class=\"mord text\"><span class=\"mord\">s.t.</span></span><span class=\"mspace\" style=\"margin-right:1em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">∼</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord mathcal\" style=\"margin-right:0.14736em;\">N</span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">μ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\">ii</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span></span></span><span style=\"top:-2.41em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">and</span></span><span class=\"mspace\" style=\"margin-right:1em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">ij</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mord mathbb\">E</span><span class=\"mopen\">[(</span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">μ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">j</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">μ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">j</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)]</span><span class=\"mspace\" style=\"margin-right:1em;\"></span><span class=\"mord\">∀</span><span class=\"mord mathnormal\">i</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.05724em;\">j</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">∈</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mopen\">{</span><span class=\"mord\">1</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"minner\">…</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\">n</span><span class=\"mclose\">}</span><span class=\"mord\">.</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.25em;\"><span></span></span></span></span></span></span></span></span></span></span></span>",
             "enumerator": "2",
-            "key": "LQxCjfyWIp"
+            "key": "xOOzoPNdtz"
           },
           {
             "type": "paragraph",
@@ -2126,10 +2126,10 @@
                   "end": { "offset": 5738, "line": 58, "column": 6 }
                 },
                 "value": "where",
-                "key": "mbHqcYbHkb"
+                "key": "KJUTcoMmtb"
               }
             ],
-            "key": "HQYYZxXuTE"
+            "key": "b8EqPrXiWJ"
           },
           {
             "type": "math",
@@ -2141,7 +2141,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi mathvariant=\"bold\">X</mi><mo>=</mo><mrow><mo fence=\"true\">[</mo><mtable rowspacing=\"0.16em\" columnalign=\"center\" columnspacing=\"1em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>x</mi><mn>1</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>x</mi><mn>2</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi><mi mathvariant=\"normal\">⋮</mi><mpadded height=\"0em\" voffset=\"0em\"><mspace mathbackground=\"black\" width=\"0em\" height=\"1.5em\"></mspace></mpadded></mi></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>x</mi><mi>n</mi></msub></mstyle></mtd></mtr></mtable><mo fence=\"true\">]</mo></mrow><mspace width=\"1em\"/><mi mathvariant=\"bold\">μ</mi><mo>=</mo><mrow><mo fence=\"true\">[</mo><mtable rowspacing=\"0.16em\" columnalign=\"center\" columnspacing=\"1em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>μ</mi><mn>1</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>μ</mi><mn>2</mn></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi><mi mathvariant=\"normal\">⋮</mi><mpadded height=\"0em\" voffset=\"0em\"><mspace mathbackground=\"black\" width=\"0em\" height=\"1.5em\"></mspace></mpadded></mi></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>μ</mi><mi>n</mi></msub></mstyle></mtd></mtr></mtable><mo fence=\"true\">]</mo></mrow><mspace width=\"1em\"/><mi mathvariant=\"bold\">Σ</mi><mo>=</mo><mrow><mo fence=\"true\">[</mo><mtable rowspacing=\"0.16em\" columnalign=\"center center center center\" columnspacing=\"1em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mn>11</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mn>12</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mo lspace=\"0em\" rspace=\"0em\">⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mrow><mn>1</mn><mi>n</mi></mrow></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mn>21</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mn>22</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mo lspace=\"0em\" rspace=\"0em\">⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mrow><mn>2</mn><mi>n</mi></mrow></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi><mi mathvariant=\"normal\">⋮</mi><mpadded height=\"0em\" voffset=\"0em\"><mspace mathbackground=\"black\" width=\"0em\" height=\"1.5em\"></mspace></mpadded></mi></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi><mi mathvariant=\"normal\">⋮</mi><mpadded height=\"0em\" voffset=\"0em\"><mspace mathbackground=\"black\" width=\"0em\" height=\"1.5em\"></mspace></mpadded></mi></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mo lspace=\"0em\" rspace=\"0em\">⋱</mo></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi><mi mathvariant=\"normal\">⋮</mi><mpadded height=\"0em\" voffset=\"0em\"><mspace mathbackground=\"black\" width=\"0em\" height=\"1.5em\"></mspace></mpadded></mi></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mrow><mi>n</mi><mn>1</mn></mrow></msub></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mrow><mi>n</mi><mn>2</mn></mrow></msub></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mo lspace=\"0em\" rspace=\"0em\">⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msub><mi>σ</mi><mrow><mi>n</mi><mi>n</mi></mrow></msub></mstyle></mtd></mtr></mtable><mo fence=\"true\">]</mo></mrow><mi mathvariant=\"normal\">.</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf{X} = \\begin{bmatrix}\r\n    x_1    \\\\\r\n    x_2    \\\\\r\n    \\vdots \\\\\r\n    x_n\r\n  \\end{bmatrix}\r\n  \\quad\r\n  \\mathbf{\\mu} = \\begin{bmatrix}\r\n    \\mu_1  \\\\\r\n    \\mu_2  \\\\\r\n    \\vdots \\\\\r\n    \\mu_n\r\n  \\end{bmatrix}\r\n  \\quad\r\n  \\mathbf{\\Sigma} = \\begin{bmatrix}\r\n    \\sigma_{11} &amp; \\sigma_{12} &amp; \\cdots &amp; \\sigma_{1n} \\\\\r\n    \\sigma_{21} &amp; \\sigma_{22} &amp; \\cdots &amp; \\sigma_{2n} \\\\\r\n    \\vdots      &amp; \\vdots      &amp; \\ddots &amp; \\vdots      \\\\\r\n    \\sigma_{n1} &amp; \\sigma_{n2} &amp; \\cdots &amp; \\sigma_{nn}\r\n  \\end{bmatrix}.</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6861em;\"></span><span class=\"mord mathbf\">X</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:5.46em;vertical-align:-2.48em;\"></span><span class=\"minner\"><span class=\"mopen\"><span class=\"delimsizing mult\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.95em;\"><span style=\"top:-2.011em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎣</span></span></span><span style=\"top:-3.158em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span style=\"height:1.816em;width:0.6667em;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width='0.6667em' height='1.816em' style='width:0.6667em' viewBox='0 0 666.67 1816' preserveAspectRatio='xMinYMin'><path d='M319 0 H403 V1816 H319z M319 0 H403 V1816 H319z'/></svg></span></span><span style=\"top:-5.6111em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎡</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.45em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.98em;\"><span style=\"top:-5.8275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-4.6275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-2.7675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord\">⋮</span><span class=\"mord rule\" style=\"border-right-width:0em;border-top-width:1.5em;bottom:0em;\"></span></span></span></span><span style=\"top:-1.5675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.1514em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.48em;\"><span></span></span></span></span></span></span></span><span class=\"mclose\"><span class=\"delimsizing mult\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.95em;\"><span style=\"top:-2.011em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎦</span></span></span><span style=\"top:-3.158em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span style=\"height:1.816em;width:0.6667em;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width='0.6667em' height='1.816em' style='width:0.6667em' viewBox='0 0 666.67 1816' preserveAspectRatio='xMinYMin'><path d='M263 0 H347 V1816 H263z M263 0 H347 V1816 H263z'/></svg></span></span><span style=\"top:-5.6111em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎤</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.45em;\"><span></span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:1em;\"></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathnormal\">μ</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:5.46em;vertical-align:-2.48em;\"></span><span class=\"minner\"><span class=\"mopen\"><span class=\"delimsizing mult\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.95em;\"><span style=\"top:-2.011em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎣</span></span></span><span style=\"top:-3.158em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span style=\"height:1.816em;width:0.6667em;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width='0.6667em' height='1.816em' style='width:0.6667em' viewBox='0 0 666.67 1816' preserveAspectRatio='xMinYMin'><path d='M319 0 H403 V1816 H319z M319 0 H403 V1816 H319z'/></svg></span></span><span style=\"top:-5.6111em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎡</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.45em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.98em;\"><span style=\"top:-5.8275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\">μ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-4.6275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\">μ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-2.7675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord\">⋮</span><span class=\"mord rule\" style=\"border-right-width:0em;border-top-width:1.5em;bottom:0em;\"></span></span></span></span><span style=\"top:-1.5675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\">μ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.1514em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.48em;\"><span></span></span></span></span></span></span></span><span class=\"mclose\"><span class=\"delimsizing mult\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.95em;\"><span style=\"top:-2.011em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎦</span></span></span><span style=\"top:-3.158em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span style=\"height:1.816em;width:0.6667em;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width='0.6667em' height='1.816em' style='width:0.6667em' viewBox='0 0 666.67 1816' preserveAspectRatio='xMinYMin'><path d='M263 0 H347 V1816 H263z M263 0 H347 V1816 H263z'/></svg></span></span><span style=\"top:-5.6111em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎤</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.45em;\"><span></span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:1em;\"></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathbf\">Σ</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:5.46em;vertical-align:-2.48em;\"></span><span class=\"minner\"><span class=\"mopen\"><span class=\"delimsizing mult\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.95em;\"><span style=\"top:-2.011em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎣</span></span></span><span style=\"top:-3.158em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span style=\"height:1.816em;width:0.6667em;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width='0.6667em' height='1.816em' style='width:0.6667em' viewBox='0 0 666.67 1816' preserveAspectRatio='xMinYMin'><path d='M319 0 H403 V1816 H319z M319 0 H403 V1816 H319z'/></svg></span></span><span style=\"top:-5.6111em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎡</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.45em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.98em;\"><span style=\"top:-5.8275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">11</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-4.6275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">21</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-2.7675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord\">⋮</span><span class=\"mord rule\" style=\"border-right-width:0em;border-top-width:1.5em;bottom:0em;\"></span></span></span></span><span style=\"top:-1.5675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\">n</span><span class=\"mord mtight\">1</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.48em;\"><span></span></span></span></span></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.98em;\"><span style=\"top:-5.8275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">12</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-4.6275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">22</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-2.7675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord\">⋮</span><span class=\"mord rule\" style=\"border-right-width:0em;border-top-width:1.5em;bottom:0em;\"></span></span></span></span><span style=\"top:-1.5675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\">n</span><span class=\"mord mtight\">2</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.48em;\"><span></span></span></span></span></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.98em;\"><span style=\"top:-5.64em;\"><span class=\"pstrut\" style=\"height:3.5em;\"></span><span class=\"mord\"><span class=\"minner\">⋯</span></span></span><span style=\"top:-4.44em;\"><span class=\"pstrut\" style=\"height:3.5em;\"></span><span class=\"mord\"><span class=\"minner\">⋯</span></span></span><span style=\"top:-2.58em;\"><span class=\"pstrut\" style=\"height:3.5em;\"></span><span class=\"mord\"><span class=\"minner\">⋱</span></span></span><span style=\"top:-1.38em;\"><span class=\"pstrut\" style=\"height:3.5em;\"></span><span class=\"mord\"><span class=\"minner\">⋯</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.48em;\"><span></span></span></span></span></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.98em;\"><span style=\"top:-5.8275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">1</span><span class=\"mord mathnormal mtight\">n</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-4.6275em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3011em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">2</span><span class=\"mord mathnormal mtight\">n</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span><span style=\"top:-2.7675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord\">⋮</span><span class=\"mord rule\" style=\"border-right-width:0em;border-top-width:1.5em;bottom:0em;\"></span></span></span></span><span style=\"top:-1.5675em;\"><span class=\"pstrut\" style=\"height:3.6875em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.1514em;\"><span style=\"top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\">nn</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.48em;\"><span></span></span></span></span></span></span></span><span class=\"mclose\"><span class=\"delimsizing mult\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.95em;\"><span style=\"top:-2.011em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎦</span></span></span><span style=\"top:-3.158em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span style=\"height:1.816em;width:0.6667em;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width='0.6667em' height='1.816em' style='width:0.6667em' viewBox='0 0 666.67 1816' preserveAspectRatio='xMinYMin'><path d='M263 0 H347 V1816 H263z M263 0 H347 V1816 H263z'/></svg></span></span><span style=\"top:-5.6111em;\"><span class=\"pstrut\" style=\"height:3.816em;\"></span><span class=\"delimsizinginner delim-size4\"><span>⎤</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:2.45em;\"><span></span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\">.</span></span></span></span></span>",
             "enumerator": "3",
-            "key": "vjVU1qzfyM"
+            "key": "FPOvAavA0K"
           },
           {
             "type": "paragraph",
@@ -2157,7 +2157,7 @@
                   "end": { "offset": 6291, "line": 83, "column": 6 }
                 },
                 "value": "Being infinitely dimensional, a Gaussian Process can be used to represent a probability distribution over the space of functions in ",
-                "key": "JN2BhqG9ry"
+                "key": "xv9eow4owD"
               },
               {
                 "type": "inlineMath",
@@ -2167,7 +2167,7 @@
                   "end": { "offset": 6421, "line": 83, "column": 136 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">n</span></span></span></span>",
-                "key": "pHgkeFzYCv"
+                "key": "C6DfbTKfit"
               },
               {
                 "type": "text",
@@ -2176,10 +2176,10 @@
                   "end": { "offset": 6422, "line": 83, "column": 137 }
                 },
                 "value": " dimensions. Thus, a Gaussian Process Regression is used to find the best fit function to a set of data points.",
-                "key": "yx5ShQjYQQ"
+                "key": "dCrOfG1VyW"
               }
             ],
-            "key": "humBXNjrqW"
+            "key": "gQ1zJdqbsx"
           },
           {
             "type": "math",
@@ -2191,7 +2191,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi mathvariant=\"double-struck\">P</mi><mo stretchy=\"false\">(</mo><mi mathvariant=\"bold\">f</mi><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"bold\">X</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi mathvariant=\"script\">N</mi><mo stretchy=\"false\">(</mo><mi mathvariant=\"bold\">f</mi><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"bold\">m</mi><mo separator=\"true\">,</mo><mi mathvariant=\"bold\">K</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\mathbb{P}(\\mathbf{f} | \\mathbf{X}) = \\mathcal{N}(\\mathbf{f} | \\mathbf{m}, \\mathbf{K})</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord mathbb\">P</span><span class=\"mopen\">(</span><span class=\"mord mathbf\" style=\"margin-right:0.10903em;\">f</span><span class=\"mord\">∣</span><span class=\"mord mathbf\">X</span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord mathcal\" style=\"margin-right:0.14736em;\">N</span><span class=\"mopen\">(</span><span class=\"mord mathbf\" style=\"margin-right:0.10903em;\">f</span><span class=\"mord\">∣</span><span class=\"mord mathbf\">m</span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord mathbf\">K</span><span class=\"mclose\">)</span></span></span></span></span>",
             "enumerator": "4",
-            "key": "oCAvN0nZvl"
+            "key": "sPDiM5S0gA"
           },
           {
             "type": "paragraph",
@@ -2207,7 +2207,7 @@
                   "end": { "offset": 6667, "line": 89, "column": 6 }
                 },
                 "value": "where ",
-                "key": "Qb0rJRYdaT"
+                "key": "UEH16cEbJq"
               },
               {
                 "type": "inlineMath",
@@ -2217,7 +2217,7 @@
                   "end": { "offset": 6680, "line": 89, "column": 19 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"bold\">f</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf{f}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6944em;\"></span><span class=\"mord mathbf\" style=\"margin-right:0.10903em;\">f</span></span></span></span>",
-                "key": "OYPwqPXQKq"
+                "key": "Xg5unmO8Kc"
               },
               {
                 "type": "text",
@@ -2226,7 +2226,7 @@
                   "end": { "offset": 6681, "line": 89, "column": 20 }
                 },
                 "value": " is the vector of function values at the points ",
-                "key": "YUjOsjUMQs"
+                "key": "GgiVKxsUZ9"
               },
               {
                 "type": "inlineMath",
@@ -2236,7 +2236,7 @@
                   "end": { "offset": 6740, "line": 89, "column": 79 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"bold\">X</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf{X}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6861em;\"></span><span class=\"mord mathbf\">X</span></span></span></span>",
-                "key": "L2lOVYPUaF"
+                "key": "aVII8pPGHM"
               },
               {
                 "type": "text",
@@ -2245,7 +2245,7 @@
                   "end": { "offset": 6741, "line": 89, "column": 80 }
                 },
                 "value": ", ",
-                "key": "HKglr85OmO"
+                "key": "hC5IMsVk6o"
               },
               {
                 "type": "inlineMath",
@@ -2255,7 +2255,7 @@
                   "end": { "offset": 6754, "line": 89, "column": 93 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"bold\">m</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf{m}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.4444em;\"></span><span class=\"mord mathbf\">m</span></span></span></span>",
-                "key": "jvzZBPl4Id"
+                "key": "WOV4F8cshK"
               },
               {
                 "type": "text",
@@ -2264,7 +2264,7 @@
                   "end": { "offset": 6755, "line": 89, "column": 94 }
                 },
                 "value": " is the mean of the function, and ",
-                "key": "okBTzbFCCV"
+                "key": "DREL61ykYC"
               },
               {
                 "type": "inlineMath",
@@ -2274,7 +2274,7 @@
                   "end": { "offset": 6800, "line": 89, "column": 139 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"bold\">K</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf{K}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6861em;\"></span><span class=\"mord mathbf\">K</span></span></span></span>",
-                "key": "EwmUMb9ez3"
+                "key": "z8t41TWvxa"
               },
               {
                 "type": "text",
@@ -2283,10 +2283,10 @@
                   "end": { "offset": 6801, "line": 89, "column": 140 }
                 },
                 "value": " is a kernel function that describes the covariance between the function values at different points.",
-                "key": "XpvLn0Tve5"
+                "key": "lVR1X5nT3O"
               }
             ],
-            "key": "VSQv52yTzN"
+            "key": "c1fftIs4wP"
           },
           {
             "type": "paragraph",
@@ -2302,10 +2302,10 @@
                   "end": { "offset": 6905, "line": 91, "column": 2 }
                 },
                 "value": "A standard kernel function is the squared exponential kernel, or the radial basis function kernel, which is defined as",
-                "key": "hpNHj1rEPu"
+                "key": "EK93wBEM03"
               }
             ],
-            "key": "r5pM4Qe1Dg"
+            "key": "K0PvqhEQoU"
           },
           {
             "type": "math",
@@ -2317,7 +2317,7 @@
             "enumerated": true,
             "html": "<span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><msub><mi mathvariant=\"bold\">x</mi><mi>i</mi></msub><mo separator=\"true\">,</mo><msub><mi mathvariant=\"bold\">x</mi><mi>j</mi></msub><mo stretchy=\"false\">)</mo><mo>=</mo><msubsup><mi>σ</mi><mi>f</mi><mn>2</mn></msubsup><mi>exp</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msup><mi>l</mi><mn>2</mn></msup></mrow></mfrac><mo stretchy=\"false\">(</mo><msub><mi mathvariant=\"bold\">x</mi><mi>i</mi></msub><mo>−</mo><msub><mi mathvariant=\"bold\">x</mi><mi>j</mi></msub><msup><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><msub><mi mathvariant=\"bold\">x</mi><mi>i</mi></msub><mo>−</mo><msub><mi mathvariant=\"bold\">x</mi><mi>j</mi></msub><mo stretchy=\"false\">)</mo><mo fence=\"true\">)</mo></mrow><mi mathvariant=\"normal\">.</mi></mrow><annotation encoding=\"application/x-tex\">k(\\mathbf{x}_i, \\mathbf{x}_j) = \\sigma^2_f \\exp\\left(-\\frac{1}{2l^2} (\\mathbf{x}_i - \\mathbf{x}_j)&#x27; (\\mathbf{x}_i - \\mathbf{x}_j)\\right).</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1.0361em;vertical-align:-0.2861em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.03148em;\">k</span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathbf\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mpunct\">,</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\"><span class=\"mord mathbf\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">j</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:2.4em;vertical-align:-0.95em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">σ</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8641em;\"><span style=\"top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.10764em;\">f</span></span></span><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3831em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mop\">exp</span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size3\">(</span></span><span class=\"mord\">−</span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.3214em;\"><span style=\"top:-2.314em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\">2</span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.01968em;\">l</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.7401em;\"><span style=\"top:-2.989em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span></span></span><span style=\"top:-3.23em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width:0.04em;\"></span></span><span style=\"top:-3.677em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.686em;\"><span></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathbf\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord\"><span class=\"mord mathbf\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">j</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mclose\"><span class=\"mclose\">)</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8019em;\"><span style=\"top:-3.113em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">′</span></span></span></span></span></span></span></span></span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathbf\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord\"><span class=\"mord mathbf\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\" style=\"margin-right:0.05724em;\">j</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2861em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span><span class=\"mclose delimcenter\" style=\"top:0em;\"><span class=\"delimsizing size3\">)</span></span></span><span class=\"mspace\" style=\"margin-right:0.1667em;\"></span><span class=\"mord\">.</span></span></span></span></span>",
             "enumerator": "5",
-            "key": "b2A6uIkQSA"
+            "key": "gq227B5qUv"
           },
           {
             "type": "paragraph",
@@ -2333,7 +2333,7 @@
                   "end": { "offset": 7208, "line": 97, "column": 6 }
                 },
                 "value": "Using GPR to interpolate a function ",
-                "key": "SOBMeGtuFg"
+                "key": "kddlDMYcBI"
               },
               {
                 "type": "inlineMath",
@@ -2343,7 +2343,7 @@
                   "end": { "offset": 7242, "line": 97, "column": 40 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.8889em;vertical-align:-0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.10764em;\">f</span></span></span></span>",
-                "key": "CkXbsjVF8Z"
+                "key": "vLffBG0qvv"
               },
               {
                 "type": "text",
@@ -2352,7 +2352,7 @@
                   "end": { "offset": 7243, "line": 97, "column": 41 }
                 },
                 "value": ", we can both predict the value of the function at a point ",
-                "key": "ZRMabKMyLk"
+                "key": "Tv2C0B5bMG"
               },
               {
                 "type": "inlineMath",
@@ -2362,7 +2362,7 @@
                   "end": { "offset": 7315, "line": 97, "column": 113 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"bold\">x</mi><mo>∗</mo></msub></mrow><annotation encoding=\"application/x-tex\">\\mathbf{x}_*</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.5944em;vertical-align:-0.15em;\"></span><span class=\"mord\"><span class=\"mord mathbf\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.1757em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mbin mtight\">∗</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span>",
-                "key": "M1HuGc9Lzc"
+                "key": "uJjvxIi09c"
               },
               {
                 "type": "text",
@@ -2371,10 +2371,10 @@
                   "end": { "offset": 7316, "line": 97, "column": 114 }
                 },
                 "value": " and the uncertainty in the prediction, which provides useful information as to the accuracy of the approximation.",
-                "key": "iYTz2dmzAV"
+                "key": "sbfTMfN7ug"
               }
             ],
-            "key": "DSZOYdBL32"
+            "key": "rnu8hiMrYE"
           },
           {
             "type": "heading",
@@ -2391,14 +2391,14 @@
                   "end": { "offset": 7450, "line": 99, "column": 18 }
                 },
                 "value": "An example of the GPR",
-                "key": "NnSfelvg9S"
+                "key": "USlzy0DUa8"
               }
             ],
             "identifier": "an-example-of-the-gpr",
             "label": "An example of the GPR",
             "html_id": "an-example-of-the-gpr",
             "implicit": true,
-            "key": "pXULPx1CcJ"
+            "key": "Nin3cL2bpz"
           },
           {
             "type": "paragraph",
@@ -2414,13 +2414,13 @@
                   "end": { "offset": 7476, "line": 101, "column": 3 }
                 },
                 "value": "In Figure ",
-                "key": "g3BNMakKPU"
+                "key": "XVu9eeYgdw"
               },
               {
                 "type": "crossReference",
                 "label": "fig:true_function",
                 "children": [
-                  { "type": "text", "value": "4", "key": "IV2ApKhLRD" }
+                  { "type": "text", "value": "4", "key": "HcA5lHTTCI" }
                 ],
                 "position": {
                   "start": { "offset": 7484, "line": 101, "column": 11 },
@@ -2431,7 +2431,7 @@
                 "template": "Figure %s",
                 "enumerator": "4",
                 "resolved": true,
-                "key": "BBRwU49NOy"
+                "key": "JjJdiDv75Y"
               },
               {
                 "type": "text",
@@ -2440,10 +2440,10 @@
                   "end": { "offset": 7508, "line": 101, "column": 35 }
                 },
                 "value": ", we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.",
-                "key": "osFVSrbkig"
+                "key": "a42bCZ1VsW"
               }
             ],
-            "key": "i4g1JUBkJ6"
+            "key": "YSnMle21fa"
           },
           {
             "type": "container",
@@ -2461,7 +2461,7 @@
                   "end": { "offset": 7827, "line": 105, "column": 19 }
                 },
                 "alt": "The true function that we are trying to approximate and a sample of data points.",
-                "key": "Gh9MUFvLss"
+                "key": "H6OOT5d5KE"
               },
               {
                 "type": "caption",
@@ -2488,13 +2488,13 @@
                           {
                             "type": "text",
                             "value": "Figure ",
-                            "key": "mD1STu77Kc"
+                            "key": "XxqAMqcLhR"
                           },
-                          { "type": "text", "value": "4", "key": "McgkbfypQV" },
-                          { "type": "text", "value": ":", "key": "KzX23MvQgd" }
+                          { "type": "text", "value": "4", "key": "ktEzkMLRft" },
+                          { "type": "text", "value": ":", "key": "fOpeoALm4q" }
                         ],
                         "template": "Figure %s:",
-                        "key": "BBBSH9jTM3"
+                        "key": "Ag954dtIZW"
                       },
                       {
                         "type": "text",
@@ -2507,13 +2507,13 @@
                           "end": { "offset": 7888, "line": 106, "column": 15 }
                         },
                         "value": "The true function that we are trying to approximate and a sample of data points.",
-                        "key": "ykIJC2oxHh"
+                        "key": "Rdl0FWBfbQ"
                       }
                     ],
-                    "key": "mLDasCkOmC"
+                    "key": "fj2P8MxruP"
                   }
                 ],
-                "key": "ZpP4pI108n"
+                "key": "yX1GwFec2z"
               }
             ],
             "align": "center",
@@ -2521,7 +2521,7 @@
             "identifier": "fig:true_function",
             "enumerator": "4",
             "html_id": "fig-true-function",
-            "key": "nc7qmaPtZU"
+            "key": "ull2NbTI5e"
           },
           {
             "type": "paragraph",
@@ -2537,13 +2537,13 @@
                   "end": { "offset": 8030, "line": 110, "column": 3 }
                 },
                 "value": "As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In Figure ",
-                "key": "KvewrvNwEz"
+                "key": "UmUl3CPMEK"
               },
               {
                 "type": "crossReference",
                 "label": "fig:gpr_sample",
                 "children": [
-                  { "type": "text", "value": "5", "key": "rsZf4BzGvc" }
+                  { "type": "text", "value": "5", "key": "iwCaWjG1e0" }
                 ],
                 "position": {
                   "start": { "offset": 8207, "line": 110, "column": 180 },
@@ -2554,7 +2554,7 @@
                 "template": "Figure %s",
                 "enumerator": "5",
                 "resolved": true,
-                "key": "GoTDyTWUlH"
+                "key": "CBD9NOGTBa"
               },
               {
                 "type": "text",
@@ -2563,10 +2563,10 @@
                   "end": { "offset": 8228, "line": 110, "column": 201 }
                 },
                 "value": ", we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.",
-                "key": "Ec4gYIiDiX"
+                "key": "Nzx6H8Con1"
               }
             ],
-            "key": "PN7USrCeJE"
+            "key": "J5B1xg7roD"
           },
           {
             "type": "container",
@@ -2584,7 +2584,7 @@
                   "end": { "offset": 8659, "line": 114, "column": 19 }
                 },
                 "alt": "A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.",
-                "key": "WDzzEeG2hs"
+                "key": "EeBFwMw8KQ"
               },
               {
                 "type": "caption",
@@ -2611,13 +2611,13 @@
                           {
                             "type": "text",
                             "value": "Figure ",
-                            "key": "IJ2TQQQFCY"
+                            "key": "GAPvfLdmKJ"
                           },
-                          { "type": "text", "value": "5", "key": "zsEA2dmZOa" },
-                          { "type": "text", "value": ":", "key": "Qzhk4xuvOS" }
+                          { "type": "text", "value": "5", "key": "rGjf5scjQk" },
+                          { "type": "text", "value": ":", "key": "y61lbtP3zA" }
                         ],
                         "template": "Figure %s:",
-                        "key": "gtNiXKKz2d"
+                        "key": "YJy1e0JyNM"
                       },
                       {
                         "type": "text",
@@ -2630,13 +2630,13 @@
                           "end": { "offset": 8715, "line": 115, "column": 13 }
                         },
                         "value": "A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.",
-                        "key": "nsS71RtmF7"
+                        "key": "NDixvHH6eO"
                       }
                     ],
-                    "key": "faDntEnr42"
+                    "key": "nCOC6BqdUY"
                   }
                 ],
-                "key": "eXcYlYsybm"
+                "key": "FtfPqfv59D"
               }
             ],
             "align": "center",
@@ -2644,7 +2644,7 @@
             "identifier": "fig:gpr_sample",
             "enumerator": "5",
             "html_id": "fig-gpr-sample",
-            "key": "rdV494LTws"
+            "key": "UM64RRmTys"
           },
           {
             "type": "paragraph",
@@ -2660,13 +2660,13 @@
                   "end": { "offset": 8911, "line": 119, "column": 3 }
                 },
                 "value": "In Figure ",
-                "key": "V2f2kf44Hm"
+                "key": "ItxvRTrJee"
               },
               {
                 "type": "crossReference",
                 "label": "fig:gpr",
                 "children": [
-                  { "type": "text", "value": "6", "key": "H9aW5lbqQq" }
+                  { "type": "text", "value": "6", "key": "kUaDCsR7C0" }
                 ],
                 "position": {
                   "start": { "offset": 8919, "line": 119, "column": 11 },
@@ -2677,7 +2677,7 @@
                 "template": "Figure %s",
                 "enumerator": "6",
                 "resolved": true,
-                "key": "bxuLRk98gp"
+                "key": "RmHYP9DmU1"
               },
               {
                 "type": "text",
@@ -2686,7 +2686,7 @@
                   "end": { "offset": 8933, "line": 119, "column": 25 }
                 },
                 "value": ", we see the result of GPR with a particular parametrization",
-                "key": "UeDIBOjhyO"
+                "key": "lGAFqYnwwr"
               },
               {
                 "type": "footnoteReference",
@@ -2697,7 +2697,7 @@
                 },
                 "identifier": "p31qzsj3kk",
                 "number": 4,
-                "key": "WD4POZ5mE0"
+                "key": "BANyRApSmB"
               },
               {
                 "type": "footnoteDefinition",
@@ -2725,15 +2725,15 @@
                           "end": { "offset": 9005, "line": 119, "column": 97 }
                         },
                         "value": "For details see notebook.",
-                        "key": "uTGDVqbJj9"
+                        "key": "oZKKZV2lJd"
                       }
                     ],
-                    "key": "PIeV52JXk8"
+                    "key": "NDzmXzhe9Q"
                   }
                 ],
                 "identifier": "p31qzsj3kk",
                 "number": 4,
-                "key": "giAPtXMyUE"
+                "key": "fW1cZYlb14"
               },
               {
                 "type": "text",
@@ -2742,10 +2742,10 @@
                   "end": { "offset": 9029, "line": 119, "column": 121 }
                 },
                 "value": " of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.",
-                "key": "vzoocJHTNz"
+                "key": "swXCOJ8MYT"
               }
             ],
-            "key": "ybVHhIKrWl"
+            "key": "BOTSU5d28W"
           },
           {
             "type": "container",
@@ -2763,7 +2763,7 @@
                   "end": { "offset": 9570, "line": 123, "column": 19 }
                 },
                 "alt": "GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.",
-                "key": "FYjrX9Fyo3"
+                "key": "DrCh6SzczI"
               },
               {
                 "type": "caption",
@@ -2790,13 +2790,13 @@
                           {
                             "type": "text",
                             "value": "Figure ",
-                            "key": "cEiQyFSlgW"
+                            "key": "TSqydOT3kd"
                           },
-                          { "type": "text", "value": "6", "key": "VB5npfqfBn" },
-                          { "type": "text", "value": ":", "key": "lYtpdOW5R0" }
+                          { "type": "text", "value": "6", "key": "aebmwHACTO" },
+                          { "type": "text", "value": ":", "key": "VhbCr0ufuS" }
                         ],
                         "template": "Figure %s:",
-                        "key": "nGPsgA2Et2"
+                        "key": "yhuJ4A6S7X"
                       },
                       {
                         "type": "text",
@@ -2809,13 +2809,13 @@
                           "end": { "offset": 9621, "line": 124, "column": 15 }
                         },
                         "value": "GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.",
-                        "key": "D8Oy8JiZs2"
+                        "key": "AsSzcjBjHN"
                       }
                     ],
-                    "key": "Kyia63MCI4"
+                    "key": "bSLfXWNMij"
                   }
                 ],
-                "key": "j9I9tBeje8"
+                "key": "YR4K4miUCx"
               }
             ],
             "align": "center",
@@ -2823,13 +2823,13 @@
             "identifier": "fig:gpr",
             "enumerator": "6",
             "html_id": "fig-gpr",
-            "key": "jctr7558id"
+            "key": "duLClyezRg"
           }
         ],
-        "key": "TELFznbDC8"
+        "key": "wHHemNaHpN"
       }
     ],
-    "key": "PF51nwVkTi"
+    "key": "tO6ka1Ycsa"
   },
   "references": {
     "cite": {

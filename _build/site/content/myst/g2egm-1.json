@@ -843,31 +843,31 @@
               {
                 "type": "text",
                 "value": "This notebook produces the timing and accuracy results for the comparison of ",
-                "key": "rqsfk5mBub"
+                "key": "AqiiCzDlaN"
               },
               {
                 "type": "strong",
                 "children": [
-                  { "type": "text", "value": "NEGM", "key": "DtUnfKfpE3" }
+                  { "type": "text", "value": "NEGM", "key": "J8Yqk69EKU" }
                 ],
-                "key": "oUF23OjGbF"
+                "key": "OcvHmbnxoJ"
               },
-              { "type": "text", "value": " and ", "key": "Y2WmKdUvfY" },
+              { "type": "text", "value": " and ", "key": "I3jdr0ZmTV" },
               {
                 "type": "strong",
                 "children": [
-                  { "type": "text", "value": "G", "key": "UHP1lyZXP8" },
+                  { "type": "text", "value": "G", "key": "NERqbGDL0R" },
                   {
                     "type": "inlineMath",
                     "value": "^2",
                     "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">^2</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.8141em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8141em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span></span></span></span>",
-                    "key": "tKi3LwO4BV"
+                    "key": "dJndNMuC5a"
                   },
-                  { "type": "text", "value": "EGM", "key": "zztJQpZiwn" }
+                  { "type": "text", "value": "EGM", "key": "WFvK65oouV" }
                 ],
-                "key": "GwsIZ3ZkLq"
+                "key": "QesmMOUte4"
               },
-              { "type": "text", "value": " in ", "key": "RanJZ1tqGW" },
+              { "type": "text", "value": " in ", "key": "pKV3JNV2oz" },
               {
                 "type": "cite",
                 "url": "https://doi.org/10.1007/s10614-020-10045-x",
@@ -875,7 +875,7 @@
                   {
                     "type": "text",
                     "value": "A Guide to Solve Non-Convex Consumption-Saving Models",
-                    "key": "DxWgNXgcc1"
+                    "key": "vctTKijMCV"
                   }
                 ],
                 "urlSource": "https://doi.org/10.1007/s10614-020-10045-x",
@@ -884,15 +884,15 @@
                 "protocol": "doi",
                 "kind": "narrative",
                 "label": "Druedahl_2020",
-                "key": "ZvcTDTj7kh"
+                "key": "nYRVorKImC"
               },
-              { "type": "text", "value": ".", "key": "jMnoz8Owie" }
+              { "type": "text", "value": ".", "key": "eBTHVklnvp" }
             ],
-            "key": "kZEMQ7S64h"
+            "key": "Um8HXE92cV"
           }
         ],
         "data": { "pycharm": { "name": "#%% md\n" } },
-        "key": "cqXL8ok5fd"
+        "key": "ZgOMkgQKYT"
       },
       {
         "type": "block",
@@ -909,17 +909,17 @@
               "end": { "line": 13, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "Setup", "key": "M24O6soPEL" }
+              { "type": "text", "value": "Setup", "key": "MTKnYZP1gm" }
             ],
             "identifier": "setup",
             "label": "Setup",
             "html_id": "setup",
             "implicit": true,
-            "key": "W6pFgRPLdo"
+            "key": "rj8NJHI2sA"
           }
         ],
         "data": { "pycharm": { "name": "#%% md\n" } },
-        "key": "HQlr6pQJmn"
+        "key": "JxESceSIz6"
       },
       {
         "type": "block",
@@ -936,7 +936,7 @@
               "start": { "line": 17, "column": 0 },
               "end": { "line": 26, "column": 0 }
             },
-            "key": "ZacKHDlwu7"
+            "key": "T046LqCsva"
           },
           {
             "type": "output",
@@ -954,11 +954,11 @@
                 }
               }
             ],
-            "key": "JDUH15FrNn"
+            "key": "uZxGiclnA1"
           }
         ],
         "data": { "pycharm": { "name": "#%%\n" } },
-        "key": "eKDOxmUTMM"
+        "key": "WRqdctksWZ"
       },
       {
         "type": "block",
@@ -975,11 +975,11 @@
               "start": { "line": 33, "column": 0 },
               "end": { "line": 38, "column": 0 }
             },
-            "key": "MhpZOxOYYQ"
+            "key": "lxW7FFX15A"
           }
         ],
         "data": { "pycharm": { "name": "#%%\n" } },
-        "key": "YlVOMQkXcF"
+        "key": "w5kzOnBjkC"
       },
       {
         "type": "block",
@@ -999,14 +999,14 @@
               {
                 "type": "text",
                 "value": "Choose number of threads in numba",
-                "key": "CrGFBcHhWC"
+                "key": "m9giBpmyzQ"
               }
             ],
             "identifier": "choose-number-of-threads-in-numba",
             "label": "Choose number of threads in numba",
             "html_id": "choose-number-of-threads-in-numba",
             "implicit": true,
-            "key": "FMk6H6WmiB"
+            "key": "Q4w1CdWIdS"
           },
           {
             "type": "paragraph",
@@ -1018,14 +1018,14 @@
               {
                 "type": "text",
                 "value": "nb.set_num_threads(10)",
-                "key": "Mf7PqprTTH"
+                "key": "vvZqINOcyY"
               }
             ],
-            "key": "ZIfxfnvlpq"
+            "key": "ESKHweQ33t"
           }
         ],
         "data": { "lines_to_next_cell": 2, "pycharm": { "name": "#%% md\n" } },
-        "key": "ULYRdTJVbw"
+        "key": "swRzhnznZQ"
       },
       {
         "type": "block",
@@ -1042,17 +1042,17 @@
               "end": { "line": 50, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "Settings", "key": "X1uL2cGtRZ" }
+              { "type": "text", "value": "Settings", "key": "wyXGYBqqX3" }
             ],
             "identifier": "settings",
             "label": "Settings",
             "html_id": "settings",
             "implicit": true,
-            "key": "LjgiWhv51R"
+            "key": "WIFRrmMMss"
           }
         ],
         "data": { "pycharm": { "name": "#%% md\n" } },
-        "key": "b1kCinvLL5"
+        "key": "OpGw0leZaY"
       },
       {
         "type": "block",
@@ -1069,11 +1069,11 @@
               "start": { "line": 54, "column": 0 },
               "end": { "line": 60, "column": 0 }
             },
-            "key": "PEnsQmjcuQ"
+            "key": "qeMEVCpflY"
           }
         ],
         "data": { "lines_to_next_cell": 2, "pycharm": { "name": "#%%\n" } },
-        "key": "SjRiw8UoDV"
+        "key": "Ynnon9CS8X"
       },
       {
         "type": "block",
@@ -1082,7 +1082,7 @@
           "end": { "line": 62, "column": 0 }
         },
         "data": {},
-        "key": "j4PHdGNnOl"
+        "key": "i8f9xYiJOJ"
       },
       {
         "type": "block",
@@ -1102,18 +1102,18 @@
               {
                 "type": "text",
                 "value": "Timing function",
-                "key": "LI4hAtYQPK"
+                "key": "mlGlRcWBKo"
               }
             ],
             "identifier": "timing-function",
             "label": "Timing function",
             "html_id": "timing-function",
             "implicit": true,
-            "key": "VUfUlrUDMi"
+            "key": "xK9XpIxWGK"
           }
         ],
         "data": { "lines_to_next_cell": 2, "pycharm": { "name": "#%% md\n" } },
-        "key": "V5Mr3nqeN1"
+        "key": "NkpnwQ3ZgV"
       },
       {
         "type": "block",
@@ -1130,11 +1130,11 @@
               "start": { "line": 72, "column": 0 },
               "end": { "line": 92, "column": 0 }
             },
-            "key": "jZPtkE77EH"
+            "key": "QClc1oAvBX"
           }
         ],
         "data": { "pycharm": { "name": "#%%\n" } },
-        "key": "HCWIcO8C9y"
+        "key": "eRlbGDBvVj"
       },
       {
         "type": "block",
@@ -1151,17 +1151,17 @@
               "end": { "line": 96, "column": 0 }
             },
             "children": [
-              { "type": "text", "value": "G2EGM", "key": "KRJosZEt8i" }
+              { "type": "text", "value": "G2EGM", "key": "ciRvnsQuE6" }
             ],
             "identifier": "g2egm",
             "label": "G2EGM",
             "html_id": "g2egm",
             "implicit": true,
-            "key": "fAMJbvpRCq"
+            "key": "yTAlJBFEn9"
           }
         ],
         "data": { "pycharm": { "name": "#%% md\n" } },
-        "key": "ZdksMSYCpb"
+        "key": "SlBwtegxIK"
       },
       {
         "type": "block",
@@ -1178,7 +1178,7 @@
               "start": { "line": 100, "column": 0 },
               "end": { "line": 114, "column": 0 }
             },
-            "key": "ltrUQX6tSU"
+            "key": "qm4BZ0qHmt"
           },
           {
             "type": "output",
@@ -1190,11 +1190,11 @@
                 "text": "0: 58.32 secs, euler: -6.627\n"
               }
             ],
-            "key": "E4WNhxnHlh"
+            "key": "fVE9UAiynD"
           }
         ],
         "data": { "lines_to_next_cell": 2, "pycharm": { "name": "#%%\n" } },
-        "key": "kXZyO3mIgV"
+        "key": "LlAVmwSQ9o"
       },
       {
         "type": "block",
@@ -1211,7 +1211,7 @@
               "start": { "line": 121, "column": 0 },
               "end": { "line": 124, "column": 0 }
             },
-            "key": "cAYdldXHna"
+            "key": "JByqqD65Bn"
           },
           {
             "type": "output",
@@ -1248,7 +1248,7 @@
                 }
               }
             ],
-            "key": "IPSIV9inzF"
+            "key": "O1ZaazRCoc"
           }
         ],
         "data": {
@@ -1256,7 +1256,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "VHI3LHJajl"
+        "key": "FeRu28HObd"
       },
       {
         "type": "block",
@@ -1273,7 +1273,7 @@
               "start": { "line": 131, "column": 0 },
               "end": { "line": 134, "column": 0 }
             },
-            "key": "bUOKg9ncwH"
+            "key": "wMMZ3JMJJP"
           },
           {
             "type": "output",
@@ -1370,7 +1370,7 @@
                 }
               }
             ],
-            "key": "Di9epylZ8L"
+            "key": "UUpCEONF3t"
           }
         ],
         "data": {
@@ -1378,7 +1378,7 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "wJrd7X9BBr"
+        "key": "RvG59gtTSa"
       },
       {
         "type": "block",
@@ -1395,7 +1395,7 @@
               "start": { "line": 141, "column": 0 },
               "end": { "line": 144, "column": 0 }
             },
-            "key": "DNqtzT4svT"
+            "key": "LKe1bzi0ci"
           },
           {
             "type": "output",
@@ -1417,7 +1417,7 @@
                 }
               }
             ],
-            "key": "vbbuMavNov"
+            "key": "iBZYFh9nE8"
           }
         ],
         "data": {
@@ -1425,10 +1425,10 @@
           "lines_to_next_cell": 2,
           "pycharm": { "name": "#%%\n" }
         },
-        "key": "lBGvvpBMpM"
+        "key": "MT6XLXGQkw"
       }
     ],
-    "key": "IcYjDeH8aj"
+    "key": "jAaFa7TFq5"
   },
   "references": {
     "cite": {

@@ -850,14 +850,14 @@
                   "end": { "offset": 19, "line": 1, "column": 20 }
                 },
                 "value": "Conclusion",
-                "key": "Z9mUZiz5vp"
+                "key": "No4aerLWIe"
               }
             ],
             "identifier": "conclusion",
             "label": "Conclusion",
             "html_id": "conclusion",
             "implicit": true,
-            "key": "ImCo0ky6Sn"
+            "key": "pGuxHQVxun"
           },
           {
             "type": "paragraph",
@@ -873,7 +873,7 @@
                   "end": { "offset": 249, "line": 5, "column": 5 }
                 },
                 "value": "This paper introduces a novel method for solving dynamic stochastic optimization problems called the Sequential Endogenous Grid Method (EGM",
-                "key": "IWvgplIZig"
+                "key": "gISLETip5d"
               },
               {
                 "type": "inlineMath",
@@ -883,7 +883,7 @@
                   "end": { "offset": 388, "line": 5, "column": 144 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
-                "key": "j1BGL1Bpa8"
+                "key": "rW1BpbVQ6I"
               },
               {
                 "type": "text",
@@ -892,10 +892,10 @@
                   "end": { "offset": 389, "line": 5, "column": 145 }
                 },
                 "value": "). Given a problem with multiple decisions (or control variables), the Sequential Endogenous Grid Method proposes separating the problem into a sequence of smaller subproblems that can be solved sequentially by using more than one EGM step. Then, depending on the resulting endogenous grid from each subproblem, this paper proposes different methods for interpolating functions on non-rectilinear grids, called the Warped Grid Interpolation (WGI) and the Gaussian Process Regression (GPR) method.",
-                "key": "Ih7MYAsQan"
+                "key": "W3qxiaqWSL"
               }
             ],
-            "key": "VTBUL1Yb5O"
+            "key": "r1IAjaS0jf"
           },
           {
             "type": "paragraph",
@@ -911,7 +911,7 @@
                   "end": { "offset": 891, "line": 7, "column": 4 }
                 },
                 "value": "EGM",
-                "key": "QmQPHaWJaV"
+                "key": "MEQMvSDL7E"
               },
               {
                 "type": "inlineMath",
@@ -921,7 +921,7 @@
                   "end": { "offset": 895, "line": 7, "column": 8 }
                 },
                 "html": "<span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">^n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6644em;\"></span><span class=\"mord\"><span></span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6644em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">n</span></span></span></span></span></span></span></span></span></span></span>",
-                "key": "vKXD2lbxCk"
+                "key": "m0u1e0QF0i"
               },
               {
                 "type": "text",
@@ -930,7 +930,7 @@
                   "end": { "offset": 896, "line": 7, "column": 9 }
                 },
                 "value": " is similar to the Nested Endogenous Grid Method (NEGM)",
-                "key": "gX5Xs5D2fJ"
+                "key": "CPBjzDo3ek"
               },
               {
                 "type": "footnoteReference",
@@ -941,7 +941,7 @@
                 },
                 "identifier": "xxojzhuckr",
                 "number": 1,
-                "key": "z8SHTPGmvl"
+                "key": "T6XRmt8Fmd"
               },
               {
                 "type": "footnoteDefinition",
@@ -971,17 +971,17 @@
                               {
                                 "type": "text",
                                 "value": "Druedahl (2021)",
-                                "key": "TnLnOVrZjd"
+                                "key": "q6Uz9c3Dv9"
                               }
                             ],
-                            "key": "yw4mlZokE3"
+                            "key": "Pt2iMPh0hv"
                           }
                         ],
                         "position": {
                           "start": { "offset": 960, "line": 7, "column": 73 },
                           "end": { "offset": 965, "line": 7, "column": 78 }
                         },
-                        "key": "dYZwq9rjQT"
+                        "key": "Kqs4L8mibx"
                       },
                       {
                         "type": "text",
@@ -990,15 +990,15 @@
                           "end": { "offset": 980, "line": 7, "column": 93 }
                         },
                         "value": ".",
-                        "key": "DKuLuXTPbe"
+                        "key": "wZsa5lSWIZ"
                       }
                     ],
-                    "key": "N2DsAfGK9V"
+                    "key": "hJDb4A1IEU"
                   }
                 ],
                 "identifier": "xxojzhuckr",
                 "number": 1,
-                "key": "lE6eF3nu6I"
+                "key": "JQxyL226QT"
               },
               {
                 "type": "text",
@@ -1007,7 +1007,7 @@
                   "end": { "offset": 982, "line": 7, "column": 95 }
                 },
                 "value": " and the Generalized Endogenous Grid Method (G2EGM)",
-                "key": "LkjvRQnqRG"
+                "key": "GDqPurZZOg"
               },
               {
                 "type": "footnoteReference",
@@ -1018,7 +1018,7 @@
                 },
                 "identifier": "saqifxawct",
                 "number": 2,
-                "key": "OzbaQXFA5f"
+                "key": "bORLgXFkMT"
               },
               {
                 "type": "footnoteDefinition",
@@ -1048,17 +1048,17 @@
                               {
                                 "type": "text",
                                 "value": "Druedahl & Jørgensen (2017)",
-                                "key": "O12Y7iR8EJ"
+                                "key": "D7MXosyQgo"
                               }
                             ],
-                            "key": "ZcO8BlnBiM"
+                            "key": "C5mgVclCeA"
                           }
                         ],
                         "position": {
                           "start": { "offset": 1042, "line": 7, "column": 155 },
                           "end": { "offset": 1047, "line": 7, "column": 160 }
                         },
-                        "key": "dCAu5abaNU"
+                        "key": "cAE3dfdMom"
                       },
                       {
                         "type": "text",
@@ -1067,15 +1067,15 @@
                           "end": { "offset": 1062, "line": 7, "column": 175 }
                         },
                         "value": ".",
-                        "key": "jJ7ekZML5L"
+                        "key": "HUKxUt6RTi"
                       }
                     ],
-                    "key": "qA0OwR9Dvp"
+                    "key": "d5Pv8rhXNm"
                   }
                 ],
                 "identifier": "saqifxawct",
                 "number": 2,
-                "key": "oxERSZcHwU"
+                "key": "T5aLBhVKEv"
               },
               {
                 "type": "text",
@@ -1084,16 +1084,16 @@
                   "end": { "offset": 1064, "line": 7, "column": 177 }
                 },
                 "value": " in that it can solve problems with multiple decisions, but it differs from these methods in that by choosing the subproblems strategically, we can take advantage of multiple sequential EGM steps to solve complex multidimensional models in a fast and efficient manner. Additionally, the use of machine learning tools such as the GPR overcomes bottlenecks seen in unstructured interpolation using Delauany triangulation and other similar methods.",
-                "key": "SqlaLlGAIE"
+                "key": "eF7GIHYh4H"
               }
             ],
-            "key": "faB37TbE4t"
+            "key": "N0oskHEZF9"
           }
         ],
-        "key": "PRMZlixDhi"
+        "key": "Mj3SzmYOJp"
       }
     ],
-    "key": "Hp9tj22X5o"
+    "key": "yJK7Z1HIhd"
   },
   "references": {
     "cite": {

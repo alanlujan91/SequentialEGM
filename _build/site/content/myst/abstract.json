@@ -845,7 +845,7 @@
                   "end": { "offset": 15, "line": 1, "column": 16 }
                 },
                 "value": "Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow. This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids. First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions. Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used. Software to reproduce these methods is available under the ",
-                "key": "HyWikBj3av"
+                "key": "Fxs68RljBn"
               },
               {
                 "type": "link",
@@ -869,14 +869,14 @@
                           "end": { "offset": 1284, "line": 7, "column": 103 }
                         },
                         "value": "Econ-ARK/HARK",
-                        "key": "sTHi2mDZKe"
+                        "key": "pX2JHOCROV"
                       }
                     ],
-                    "key": "IE0Hqn3fhc"
+                    "key": "te4ZPs30UE"
                   }
                 ],
                 "urlSource": "https://econ-ark.org/",
-                "key": "bKUWtwuyxi"
+                "key": "eOqXwZGYol"
               },
               {
                 "type": "text",
@@ -885,7 +885,7 @@
                   "end": { "offset": 1296, "line": 7, "column": 115 }
                 },
                 "value": " project for the ",
-                "key": "eVtP4icH5a"
+                "key": "MYX8bPua4h"
               },
               {
                 "type": "inlineCode",
@@ -901,10 +901,10 @@
                       "end": { "offset": 1326, "line": 7, "column": 145 }
                     },
                     "value": "python",
-                    "key": "sjGlospVc8"
+                    "key": "mnbI2axVkK"
                   }
                 ],
-                "key": "D5iwHRmGxW"
+                "key": "a6RZ58lDQa"
               },
               {
                 "type": "text",
@@ -913,16 +913,16 @@
                   "end": { "offset": 1328, "line": 7, "column": 147 }
                 },
                 "value": " programming language.",
-                "key": "ez7Bmi9O8P"
+                "key": "cXtgsOPdT8"
               }
             ],
-            "key": "kOvCT7LEqB"
+            "key": "hyxSafYnBf"
           }
         ],
-        "key": "bbYy9yi6wQ"
+        "key": "degOcU2r3y"
       }
     ],
-    "key": "azyDQIC3Y9"
+    "key": "XKF7nnB7WH"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }

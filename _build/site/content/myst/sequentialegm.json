@@ -1,7 +1,8 @@
 {
   "frontmatter": {
+    "title": "",
+    "short_title": "",
     "authors": [],
-    "github": "https://github.com/alanlujan91/SequentialEGM",
     "keywords": [],
     "math": {
       "\\CARA": "\\alpha",
@@ -808,18 +809,21 @@
       "\\Risky": "\\mathbf{R}",
       "\\risky": "\\mathbf{r}",
       "\\Seniority": "\\mathsf{X}",
-      "\\seniority": "\\mathsf{x}"
+      "\\seniority": "\\mathsf{x}",
+      "\\texname": "SequentialEGM"
     },
+    "bibliography": [],
+    "github": "https://github.com/alanlujan91/SequentialEGM",
     "exports": [
       {
-        "format": "md",
-        "filename": "SequentialEGM.md",
-        "url": "/SequentialEGM-e4d2c4f24482931e9afabf534315e50b.md"
+        "format": "tex",
+        "filename": "SequentialEGM.tex",
+        "url": "/SequentialEGM-b6f82ed27258b84bb2e7938fbcb18613.tex"
       }
     ]
   },
   "kind": "Article",
-  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\SequentialEGM.md",
+  "file": "C:\\Users\\alujan\\GitHub\\alanlujan91\\SequentialEGM\\SequentialEGM.tex",
   "sha256": "5bafb7d23d94f1d85bda827b89c80e1a6cb67e134ab89bf3d1e295b8c932c884",
   "slug": "sequentialegm",
   "mdast": {
@@ -829,354 +833,86 @@
         "type": "block",
         "children": [
           {
-            "type": "mystComment",
-            "value": "-_- mode: LaTeX; TeX-PDF-mode: t; -_- # Configure emacs auctex viewer",
-            "position": {
-              "start": { "line": 0, "column": 0 },
-              "end": { "line": 1, "column": 0 }
-            },
-            "key": "oj1y6pMSJD"
-          },
-          {
             "type": "paragraph",
             "position": {
-              "start": { "line": 1, "column": 0 },
-              "end": { "line": 2, "column": 0 }
+              "start": { "offset": 1187, "line": 31, "column": 10 },
+              "end": { "offset": 1200, "line": 31, "column": 23 }
             },
             "children": [
               {
                 "type": "text",
-                "value": "\\input{./econtexRoot.texinput} % Set paths (like, \\LaTeXInputs) to find resources",
-                "key": "S8XAPhxlpI"
+                "position": {
+                  "start": { "offset": 1187, "line": 31, "column": 10 },
+                  "end": { "offset": 1200, "line": 31, "column": 23 }
+                },
+                "value": "SequentialEGM-titlepage",
+                "key": "VnkdDtUgvk"
               }
             ],
-            "key": "DaWIo3j47F"
-          },
-          {
-            "type": "mystComment",
-            "value": "Document has title page and table of contents and header:",
-            "position": {
-              "start": { "line": 3, "column": 0 },
-              "end": { "line": 4, "column": 0 }
-            },
-            "key": "zreCgWyndv"
+            "key": "vmBpBJyz0f"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "line": 4, "column": 0 },
-              "end": { "line": 5, "column": 0 }
+              "start": { "offset": 1264, "line": 34, "column": 22 },
+              "end": { "offset": 1267, "line": 34, "column": 25 }
             },
             "children": [
               {
                 "type": "text",
-                "value": "\\documentclass[titlepage, headings=optiontotocandhead]{\\econtex} % \\econtex: see ./econtexRoot",
-                "key": "u5aBpU2I9s"
+                "position": {
+                  "start": { "offset": 1264, "line": 34, "column": 22 },
+                  "end": { "offset": 1267, "line": 34, "column": 25 }
+                },
+                "value": "TOCSequentialEGM-contents.texinput ",
+                "key": "wexeSzmht6"
               }
             ],
-            "key": "eYenSyZeBl"
-          },
-          {
-            "type": "mystComment",
-            "value": "Include the Appendix and Table of Contents?\n Change {true} to {false} to exclude",
-            "position": {
-              "start": { "line": 6, "column": 0 },
-              "end": { "line": 8, "column": 0 }
-            },
-            "key": "JSAAZk5i2g"
+            "key": "FMgasRyb50"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "line": 8, "column": 0 },
-              "end": { "line": 10, "column": 0 }
+              "start": { "offset": 1434, "line": 39, "column": 22 },
+              "end": { "offset": 1442, "line": 39, "column": 30 }
             },
             "children": [
               {
                 "type": "text",
-                "value": "\\provideboolean{Appendix}\\setboolean{Appendix}{true}\n\\provideboolean{TOC}\\setboolean{TOC}{true}",
-                "key": "Hi9d8flAXC"
+                "position": {
+                  "start": { "offset": 1434, "line": 39, "column": 22 },
+                  "end": { "offset": 1442, "line": 39, "column": 30 }
+                },
+                "value": "Appendix",
+                "key": "EnAlgOBsfD"
               }
             ],
-            "key": "ndrMAYS9Bm"
-          },
-          {
-            "type": "mystComment",
-            "value": "Keyname for paper (optional)",
-            "position": {
-              "start": { "line": 11, "column": 0 },
-              "end": { "line": 12, "column": 0 }
-            },
-            "key": "JXt5u4BdAp"
+            "key": "xHWBgtwIjp"
           },
           {
             "type": "paragraph",
             "position": {
-              "start": { "line": 12, "column": 0 },
-              "end": { "line": 13, "column": 0 }
+              "start": { "offset": 1464, "line": 40, "column": 19 },
+              "end": { "offset": 1472, "line": 40, "column": 27 }
             },
             "children": [
               {
                 "type": "text",
-                "value": "\\newcommand{\\texname}{SequentialEGM}",
-                "key": "yqeHiqhoKF"
+                "position": {
+                  "start": { "offset": 1464, "line": 40, "column": 19 },
+                  "end": { "offset": 1472, "line": 40, "column": 27 }
+                },
+                "value": "Subfiles/Appendix",
+                "key": "RPflY1i035"
               }
             ],
-            "key": "J3pgcToCpl"
-          },
-          {
-            "type": "mystComment",
-            "value": "Standard useful packages for economics",
-            "position": {
-              "start": { "line": 14, "column": 0 },
-              "end": { "line": 15, "column": 0 }
-            },
-            "key": "tOj3axyimJ"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 15, "column": 0 },
-              "end": { "line": 16, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\usepackage{\\econtexSetup,\\econark,\\econtexShortcuts} % Gets, configures often-used packages",
-                "key": "kaAMtTyzCU"
-              }
-            ],
-            "key": "eXhjNwvrYh"
-          },
-          {
-            "type": "mystComment",
-            "value": "Definitions unique to this paper (`\\texname` defined above)",
-            "position": {
-              "start": { "line": 16, "column": 0 },
-              "end": { "line": 17, "column": 0 }
-            },
-            "key": "dTYzdmr0KA"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 17, "column": 0 },
-              "end": { "line": 18, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\usepackage{\\LaTeXInputs/\\texname} % processes \\texname.sty",
-                "key": "fix2Pt5UlJ"
-              }
-            ],
-            "key": "iSDqyVUDwR"
-          },
-          {
-            "type": "mystComment",
-            "value": "When compiling Web version of paper, construct targets/anchors",
-            "position": {
-              "start": { "line": 19, "column": 0 },
-              "end": { "line": 20, "column": 0 }
-            },
-            "key": "pcC6Uljbqv"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 20, "column": 0 },
-              "end": { "line": 21, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\ifthenelse{\\boolean{Web}}{\\hypersetup{destlabel=true}}{}",
-                "key": "v1j0pPRGXn"
-              }
-            ],
-            "key": "rOQ0iYnQvq"
-          },
-          {
-            "type": "mystComment",
-            "value": "Custom author (year) bib style",
-            "position": {
-              "start": { "line": 22, "column": 0 },
-              "end": { "line": 23, "column": 0 }
-            },
-            "key": "pPRb8rlvvX"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 23, "column": 0 },
-              "end": { "line": 24, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\bibliographystyle{\\econtexBibStyle}",
-                "key": "syvNAGpUvU"
-              }
-            ],
-            "key": "wrCLVtbhAH"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 25, "column": 0 },
-              "end": { "line": 26, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\begin{document}",
-                "key": "l4Aa162c1n"
-              }
-            ],
-            "key": "KWhvU56Uep"
-          },
-          {
-            "type": "mystComment",
-            "value": "Tell subfiles they are not being compiled as standalone files",
-            "position": {
-              "start": { "line": 27, "column": 0 },
-              "end": { "line": 28, "column": 0 }
-            },
-            "key": "hL1nwtCG5t"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 28, "column": 0 },
-              "end": { "line": 29, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\input{\\LaTeXInputs/econtex_notinsubfile} % instead are part of a larger document",
-                "key": "GNAairwdjZ"
-              }
-            ],
-            "key": "ITs7oCJmLI"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 30, "column": 0 },
-              "end": { "line": 31, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\subfile{SequentialEGM-titlepage}\\pagebreak",
-                "key": "bWz3uQn09B"
-              }
-            ],
-            "key": "IWsuig5t6I"
-          },
-          {
-            "type": "mystComment",
-            "value": "Table of contents",
-            "position": {
-              "start": { "line": 32, "column": 0 },
-              "end": { "line": 33, "column": 0 }
-            },
-            "key": "hvJDmqv2eV"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 33, "column": 0 },
-              "end": { "line": 35, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\ifthenelse{\\boolean{TOC}}{\\subfile{SequentialEGM-contents.texinput}\\pagebreak }{}\n\\input{Subfiles.texinput} % Paper is composed of subfiles enumerated here",
-                "key": "zoV9DQIx4F"
-              }
-            ],
-            "key": "ERgPx7trVi"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 36, "column": 0 },
-              "end": { "line": 37, "column": 0 }
-            },
-            "children": [
-              { "type": "text", "value": "\\pagebreak", "key": "NYKYmwulAa" }
-            ],
-            "key": "u9aUSX3UxT"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 38, "column": 0 },
-              "end": { "line": 41, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\ifthenelse{\\boolean{Appendix}}{\n\\appendix\\subfile{Subfiles/Appendix}\\pagebreak\n}{}",
-                "key": "QJh6LUJrcJ"
-              }
-            ],
-            "key": "KP28VZ7Dr1"
-          },
-          {
-            "type": "mystComment",
-            "value": "Make the bibliography",
-            "position": {
-              "start": { "line": 42, "column": 0 },
-              "end": { "line": 43, "column": 0 }
-            },
-            "key": "wEYsHLAzcM"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 43, "column": 0 },
-              "end": { "line": 44, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\input{\\LaTeXInputs/bibliography_blend}",
-                "key": "YesB1LP9Qa"
-              }
-            ],
-            "key": "hbcylqukUf"
-          },
-          {
-            "type": "paragraph",
-            "position": {
-              "start": { "line": 45, "column": 0 },
-              "end": { "line": 46, "column": 0 }
-            },
-            "children": [
-              {
-                "type": "text",
-                "value": "\\end{document}",
-                "key": "zADYcUK4Ik"
-              }
-            ],
-            "key": "zVsn2f42e3"
-          },
-          {
-            "type": "mystComment",
-            "value": "Lines below help configure AucTeX if that is your editor\n\n Local Variables:\n TeX-master-file: t\n eval: (setq TeX-command-list (assq-delete-all (car (assoc \"BibTeX\" TeX-command-list)) TeX-command-list))\n eval: (setq TeX-command-list (assq-delete-all (car (assoc \"Biber\" TeX-command-list)) TeX-command-list))\n eval: (setq TeX-command-list (remove '(\"BibTeX\" \"%(bibtex) %s\" TeX-run-BibTeX nil t :help \"Run BibTeX\") TeX-command-list))\n eval: (setq TeX-command-list (remove '(\"BibTeX\" \"bibtex %s\" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help \"Run BibTeX\") TeX-command-list))\n eval: (setq TeX-command-list (remove '(\"BibTeX\" \"bibtex %s\" TeX-run-BibTeX nil t :help \"Run BibTeX\") TeX-command-list))\n eval: (add-to-list 'TeX-command-list '(\"BibTeX\" \"bibtex %s\" TeX-run-BibTeX nil t :help \"Run BibTeX\") t)\n eval: (add-to-list 'TeX-command-list '(\"BibTeX\" \"bibtex %s\" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help \"Run BibTeX\") t)\n TeX-PDF-mode: t\n TeX-file-line-error: t\n TeX-debug-warnings: t\n LaTeX-command-style: ((\"\" \"%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)\"))\n TeX-source-correlate-mode: t\n TeX-parse-self: t\n TeX-parse-all-errors: t\n eval: (cond ((string-equal system-type \"darwin\") (progn (setq TeX-view-program-list '((\"Skim\" \"/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b\"))))))\n eval: (cond ((string-equal system-type \"gnu/linux\") (progn (setq TeX-view-program-list '((\"Evince\" \"evince --page-index=%(outpage) %o\"))))))\n eval: (cond ((string-equal system-type \"gnu/linux\") (progn (setq TeX-view-program-selection '((output-pdf \"Evince\"))))))\n End:",
-            "position": {
-              "start": { "line": 47, "column": 0 },
-              "end": { "line": 69, "column": 0 }
-            },
-            "key": "eN3wmk6igg"
+            "key": "EnJClAI557"
           }
         ],
-        "key": "B0hwH9NqO6"
+        "key": "OxcUoPSptb"
       }
     ],
-    "key": "JGIMt2sdp7"
+    "key": "zPwbSAfbPb"
   },
   "references": { "cite": { "order": [], "data": {} } }
 }
