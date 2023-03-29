@@ -1,7 +1,7 @@
-(The EGM$^n$ in Higher Dimensions)=
+(higherdims)=
 # The EGM$^n$ in Higher Dimensions
 
-The problem in Section~\ref{sec:method} demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only one state variable and one post-decision state variable per stage. Can EGM$^n$ be used to solve higher dimensional problems? In short, yes, but it requires additional thought on interpolation.
+The problem in [Section %s](#method) demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only one state variable and one post-decision state variable per stage. Can EGM$^n$ be used to solve higher dimensional problems? In short, yes, but it requires additional thought on interpolation.
 
 (A more complex problem)=
 ## A more complex problem
@@ -147,7 +147,7 @@ To close the solution method, the envelope conditions are
 (Unstructured Grid Interpolation)=
 ## Unstructured Grid Interpolation
 
-As in Section~\ref{sec:method}, the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in Figure~\ref{fig:exog} that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain Figure~\ref{fig:endog} which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
+As in [Section %s](#method), the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in Figure~\ref{fig:exog} that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain Figure~\ref{fig:endog} which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
 
 \begin{figure}
   \centering
@@ -163,4 +163,4 @@ As in Section~\ref{sec:method}, the resulting endogenous grid is not rectilinear
   \notinsubfile{\label{fig:endog}}
 \end{figure}
 
-To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in \cite{Scheidegger2019}.
+To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in {cite:p}`Scheidegger2019`.

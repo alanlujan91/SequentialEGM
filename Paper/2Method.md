@@ -1,10 +1,10 @@
-(The Sequential Endogenous Grid Method)=
+(method)=
 # The Sequential Endogenous Grid Method
 
 % (A basic model)=
 ## A basic model
 
-The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^n$) is a discrete time version of \cite{Bodie1992} where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. The objective consists of maximizing the present discounted lifetime utility of consumption and leisure.
+The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^n$) is a discrete time version of {cite:p}`Bodie1992` where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. The objective consists of maximizing the present discounted lifetime utility of consumption and leisure.
 
 \begin{equation}
   \VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
@@ -16,18 +16,17 @@ In particular, this example makes use of a utility function that is based on Exa
   \utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
-where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in \cite{Mertens2011}. The use of additively separable utility is ad-hoc, as it will allow for the use of multiple EGM steps in the solution process, as we'll see later.
+where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in {cite:p}`Mertens2011`. The use of additively separable utility is ad-hoc, as it will allow for the use of multiple EGM steps in the solution process, as we'll see later.
 
 This model represents a consumer who begins the period with a level of bank balances $\bRat_{t}$ and a given wage offer $\tShkEmp_{t}$. Simultaneously, they are able to choose consumption, labor intensity, and a risky portfolio share with the objective of maximizing their utility of consumption and leisure, as well as their future wealth.
 
-The problem can be written in normalized recursive form\footnote{
-  As in \cite{Carroll2009}, where the utility of normalized consumption and leisure is defined as
+The problem can be written in normalized recursive form[^f2] as
 
-  \begin{equation}
-    \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
-  \end{equation}
+[^f2]: As in {cite:p}`Carroll2009`, where the utility of normalized consumption and leisure is defined as
 
-} as
+    \begin{equation}
+      \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
+    \end{equation}
 
 \begin{equation}
   \begin{split}
@@ -109,7 +108,7 @@ Finally, the risky portfolio problem is
   \end{split}
 \end{equation}
 
-This sequential approach is explicitly modeled after the nested approaches explored in  \cite{Clausen2020} and \cite{Druedahl2021}. However, I will offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
+This sequential approach is explicitly modeled after the nested approaches explored in {cite:p}`Clausen2020` and {cite:p}`Druedahl2021`. However, I will offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
 
 %\begin{equation}
 %	\begin{split}
@@ -156,7 +155,7 @@ Finding the optimal risky share requires numerical optimization and root-solving
   \vEnd_{t}'(\aRat_{t}) =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right].
 \end{equation}
 
-\subsubsection{A note on avoiding taking expectations more than once.}
+### A note on avoiding taking expectations more than once.
 
 We could instead define the portfolio choice subproblem as:
 
@@ -193,7 +192,7 @@ If we are clever, we can calculate both of these in one step. Now, the optimal r
 (The consumption-saving subproblem)=
 ## The consumption-saving subproblem
 
-The consumption-saving EGM follows \cite{Carroll2006} but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
+The consumption-saving EGM follows {cite:p}`Carroll2006` but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
 
 \begin{equation}
   \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
@@ -221,7 +220,7 @@ Given the utility function above, the marginal utility of consumption and its in
   \xRat^{-1/\CRRA}.
 \end{equation}
 
-\cite{Carroll2006} demonstrates that by using an exogenous grid of $\aMat$ points we can find the unique
+{cite:p}`Carroll2006` demonstrates that by using an exogenous grid of $\aMat$ points we can find the unique
 $\cEndFunc_{t}(\aMat)$ that optimizes the consumption-saving problem, since the first-order condition is necessary and sufficient.
 Further, using the market resources constraint, we can recover the exact amount
 of market resources that is consistent with this consumption-saving decision as
@@ -299,7 +298,7 @@ The envelope condition then provides a heterogeneous Frisch elasticity of labor 
 
 Although EGM$^n$ seems to be a simple approach, there is one important caveat that we have not discussed, which is the details of the interpolation. In the pure consumption-savings problem, a one-dimensional exogenous grid of post-decision liquid assets $\aMat$ results in a one-dimensional endogenous grid of total market resources $\mMat$. However, as we know from standard EGM, the spacing in the $\mMat$ grid is different from the spacing in the $\aMat$ grid as the inverted Euler equation is non-linear. This is no problem in a one-dimensional problem as we can simply use non-uniform linear interpolation.
 
-However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to \cite{White2015}'s approach but computationally more efficient and robust. The details of this interpolation method will be further explained in Section~\ref{sec:gpr}, but for now, we show the resulting warped endogenous grid for the labor-leisure problem.
+However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to {cite:p}`White2015`'s approach but computationally more efficient and robust. The details of this interpolation method will be further explained in [Section %s](#gpr), but for now, we show the resulting warped endogenous grid for the labor-leisure problem.
 
 % TODO: Add figure
 

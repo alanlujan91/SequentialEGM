@@ -1,12 +1,14 @@
-(Multivariate Interpolation on Non-Rectilinear Grids)=
+(gpr)=
 # Multivariate Interpolation on Non-Rectilinear Grids
 
-This section presents alternative interpolation methods for non-rectilinear grids. First, I present the relatively simple case of fast warped interpolation on a curvilinear grid, which improves upon the interpolation in \cite{White2015}. Then, I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in \cite{Scheidegger2019}.
+This section presents alternative interpolation methods for non-rectilinear grids. First, I present the relatively simple case of fast warped interpolation on a curvilinear grid, which improves upon the interpolation in {cite:p}`White2015`. Then, I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in {cite:p}`Scheidegger2019`.
 
 (Warped Grid Interpolation (WGI))=
 ## Warped Grid Interpolation (WGI)
 
-Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for which we have corresponding functional values in a third dimension, such that $f(x_{ij},y_{ij}) = z_{ij}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and $f(x_{ij},y_{ij})$ is unknown, so we are unable to compute them at other values of $x$ and $y$ --- which is why we want to interpolate\footnote{For this illustration, we generate $z$'s arbitrarily using the function $$f(x,y) = (xy)^{1/4}.$$}. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
+Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for which we have corresponding functional values in a third dimension, such that $f(x_{ij},y_{ij}) = z_{ij}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and $f(x_{ij},y_{ij})$ is unknown, so we are unable to compute them at other values of $x$ and $y$ --- which is why we want to interpolate[^f3]. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
+
+[^f3]: For this illustration, we generate $z$'s arbitrarily using the function $$f(x,y) = (xy)^{1/4}.$$
 
 \begin{figure}
   \centering
@@ -26,7 +28,9 @@ In Figure~\ref{fig:homotopy} we see the values of the function at their index co
   \notinsubfile{\label{fig:homotopy}}
 \end{figure}
 
-The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured Figure~\ref{fig:mapping}. If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in Figure~\ref{fig:mapping}, we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate\footnote{For more examples of the Warped Grid Interpolation method in action, see the github project \href{https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb}{\texttt{alanlujan91/multinterp}}.}.
+The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured Figure~\ref{fig:mapping}. If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in Figure~\ref{fig:mapping}, we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate[^f4].
+
+[^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project \href{https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb}{\texttt{alanlujan91/multinterp}}.
 
 \begin{figure}
   \centering
@@ -40,13 +44,15 @@ The objective is to be able to interpolate the value of the function at any poin
 (Unstructured Grids)=
 ## Unstructured Grids
 
-Unstructured interpolation arises in many dynamic programming applications when using the Endogenous Grid Method because the first-order conditions might be highly non-linear and non-monotonic, or because boundary constraints induce kinks in the policy and value functions. In these cases, the grid points generated by the EGM step are not evenly spaced, leading to the need for curvilinear interpolation. We saw in the previous subsection an approach to curvilinear interpolation based on \cite{White2015} that is incapable of interpolation on structured grids. A similar approach was presented in \cite{Ludwig2018} which used Delaunay interpolation. However, this approach is not well suited for our purposes because triangulation can be computationally intensive and slow, often offsetting the efficiency gains from the Endogenous Grid Method.
+Unstructured interpolation arises in many dynamic programming applications when using the Endogenous Grid Method because the first-order conditions might be highly non-linear and non-monotonic, or because boundary constraints induce kinks in the policy and value functions. In these cases, the grid points generated by the EGM step are not evenly spaced, leading to the need for curvilinear interpolation. We saw in the previous subsection an approach to curvilinear interpolation based on {cite:p}`White2015` that is incapable of interpolation on structured grids. A similar approach was presented in {cite:p}`Ludwig2018` which used Delaunay interpolation. However, this approach is not well suited for our purposes because triangulation can be computationally intensive and slow, often offsetting the efficiency gains from the Endogenous Grid Method.
 
-As an alternative to these methods, I introduce the use of Gaussian Process Regression (GPR) along with the Endogenous Grid Method. GPR is computationally efficient, and tools exist to easily parallelize and take advantage of hardware such as Graphics Processing Units (GPU)\footnote{\cite{Gardner2018}}.
+As an alternative to these methods, I introduce the use of Gaussian Process Regression (GPR) along with the Endogenous Grid Method. GPR is computationally efficient, and tools exist to easily parallelize and take advantage of hardware such as Graphics Processing Units (GPU)[^f5].
+
+[^f5]: {cite:p}`Gardner2018`
 
 %note: spell out GPU maybe or explain it in some way?
 
-\subsubsection{Gaussian Process Regression}
+### Gaussian Process Regression
 
 A Gaussian Process is an infinite dimensional random process for which every subset of random variables is jointly Gaussian or has a multivariate normal distribution.
 
@@ -99,7 +105,7 @@ A standard kernel function is the squared exponential kernel, or the radial basi
 
 Using GPR to interpolate a function $f$, we can both predict the value of the function at a point $\mathbf{x}_*$ and the uncertainty in the prediction, which provides useful information as to the accuracy of the approximation.
 
-\subsubsection{An example of the GPR}
+### An example of the GPR
 
 In Figure~\ref{fig:true_function}, we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
 
@@ -119,7 +125,9 @@ As we discussed, a Gaussian Process is an infinite dimensional random process wh
   \notinsubfile{\label{fig:gpr_sample}}
 \end{figure}
 
-In Figure~\ref{fig:gpr}, we see the result of GPR with a particular parametrization\footnote{For details see notebook.} of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
+In Figure~\ref{fig:gpr}, we see the result of GPR with a particular parametrization[^f6] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
+
+[^f6]: For details see notebook.
 
 \begin{figure}
   \centering

@@ -129,7 +129,7 @@ value function.
 (Solving the problem)=
 ## Solving the problem
 
-\subsubsection{Solving the Inner Consumption Saving Problem}
+### Solving the Inner Consumption Saving Problem
 
 Let's start with the pure consumption-saving problem, which we can summarize by
 substitution as
@@ -183,7 +183,7 @@ see, these will be useful when solving the next section.
     \end{split}
 \end{equation}
 
-\subsubsection{Solving the Outer Pension Deposit Problem}
+### Solving the Outer Pension Deposit Problem
 
 Now, we can move on to solving the deposit problem, which we can also summarize
 as
