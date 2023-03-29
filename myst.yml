@@ -4,9 +4,9 @@ project:
   title: "EGM$^n$: The Sequential Endogenous Grid Method"
   # description:
   keywords: []
-  authors: []
+  authors: ["Alan Lujan"]
   github: https://github.com/alanlujan91/SequentialEGM
-  # bibliography: []
+  bibliography: references.bib
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'

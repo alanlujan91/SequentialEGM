@@ -1,4 +1,5 @@
-\section{Conclusion}
+(Conclusion)=
+# Conclusion
 
 % Summarize the method: Begin your conclusion by summarizing the new computational method you developed or proposed. Provide a brief overview of the key features of the method and how it differs from existing methods.
 

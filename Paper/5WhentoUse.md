@@ -1,6 +1,8 @@
-\section{Conditions for using the Sequential Endogenous Grid Method}
+(Conditions for using the Sequential Endogenous Grid Method)=
+# Conditions for using the Sequential Endogenous Grid Method
 
-\subsection{Splitting the problem into subproblems}
+(Splitting the problem into subproblems)=
+## Splitting the problem into subproblems
 
 The first step in using the Sequential Endogenous Grid Method is to split the problem into subproblems. This process of splitting up the problem has to be strategic to not insert additional complexity into the original problem. If one is not careful when doing this, the subproblems can become more complex and intractable than the original problem.
 
@@ -56,7 +58,8 @@ In this particular problem, however, it turns out to make no difference how we o
 
 A good rule of thumb is that when splitting up a problem into subproblems, we should try to reduce the information set that is passed onto the next subproblem. In Section~\ref{sec:method}, choosing leisure-labor and realizing total market resources before consumption allows us to shed the wage rate offer state variable before the consumption problem, and we know that for the portfolio choice we only need to know liquid assets after expenditures (consumption). Thus, the order makes intuitive sense; agent first chooses leisure-labor, realizing total market resources, then chooses consumption and savings, and finally chooses their risky portfolio choice. In Section~\ref{sec:higherdims}, there are two expenditures that are independent of each other, consumption and deposit, and making one decision or the other first does not reduce the information set for the agent, thus the order of these subproblems does not matter.
 
-\subsection{The Endogenous Grid Method for Subproblems}
+(The Endogenous Grid Method for Subproblems)=
+## The Endogenous Grid Method for Subproblems
 
 Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections \ref{sec:method} and \ref{sec:higherdims}, the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
 

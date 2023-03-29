@@ -1,6 +1,8 @@
-\section{The Sequential Endogenous Grid Method}
+(The Sequential Endogenous Grid Method)=
+# The Sequential Endogenous Grid Method
 
-% \subsection{A basic model}
+% (A basic model)=
+## A basic model
 
 The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^n$) is a discrete time version of \cite{Bodie1992} where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. The objective consists of maximizing the present discounted lifetime utility of consumption and leisure.
 
@@ -59,7 +61,8 @@ in which $\labor_{t}$ is the time supplied to labor net of leisure, $\mRat_{t}$ 
 % 	\end{split}
 % \end{equation}
 
-\subsection{Restating the problem sequentially}
+(Restating the problem sequentially)=
+## Restating the problem sequentially
 
 We can make a few choices to create a sequential problem which will allow us to use multiple EGM steps in succession. First, the
 agent decides their labor-leisure trade-off and receives a wage. Their wage
@@ -126,7 +129,8 @@ This sequential approach is explicitly modeled after the nested approaches explo
 %	\end{split}
 %\end{equation}
 
-\subsection{The portfolio decision subproblem}
+(The portfolio decision subproblem)=
+## The portfolio decision subproblem
 
 As useful as it is to be able to use the EGM step more than once, there are clear problems where the EGM step is not applicable. This basic labor-portfolio choice problem demonstrates where we can use an additional EGM step, and where we can not. First, we go over a subproblem where we can not use the EGM step.
 
@@ -186,7 +190,8 @@ If we are clever, we can calculate both of these in one step. Now, the optimal r
   \text{E.C.:} \qquad \vEnd_{t}^{\aRat}(\aRat_{t}) = \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})
 \end{equation}
 
-\subsection{The consumption-saving subproblem}
+(The consumption-saving subproblem)=
+## The consumption-saving subproblem
 
 The consumption-saving EGM follows \cite{Carroll2006} but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
 
@@ -238,7 +243,8 @@ is defined here.
   \vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
 \end{equation}
 
-\subsection{The labor-leisure subproblem}
+(The labor-leisure subproblem)=
+## The labor-leisure subproblem
 
 The labor-leisure subproblem can  be restated more compactly as:
 
@@ -288,7 +294,8 @@ The envelope condition then provides a heterogeneous Frisch elasticity of labor 
   \h'(\leisure_{t})/\tShkEmp_{t}.
 \end{equation}
 
-\subsection{Curvilinear Grids}
+(Curvilinear Grids)=
+## Curvilinear Grids
 
 Although EGM$^n$ seems to be a simple approach, there is one important caveat that we have not discussed, which is the details of the interpolation. In the pure consumption-savings problem, a one-dimensional exogenous grid of post-decision liquid assets $\aMat$ results in a one-dimensional endogenous grid of total market resources $\mMat$. However, as we know from standard EGM, the spacing in the $\mMat$ grid is different from the spacing in the $\aMat$ grid as the inverted Euler equation is non-linear. This is no problem in a one-dimensional problem as we can simply use non-uniform linear interpolation.
 
@@ -296,7 +303,8 @@ However, the same is true of higher dimensional problems, where the exogenous gr
 
 % TODO: Add figure
 
-\subsection{Alternative Parametrization}
+(Alternative Parametrization)=
+## Alternative Parametrization
 
 An alternative formulation for the utility of leisure is to state it in terms
 of the disutility of labor as in (references)

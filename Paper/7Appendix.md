@@ -1,6 +1,8 @@
-\section{Solving the illustrative G2EGM model with EGM$^n$}
+(Solving the illustrative G2EGM model with EGM$^n$)=
+# Solving the illustrative G2EGM model with EGM$^n$
 
-\subsection{The problem for a retired household}
+(The problem for a retired household)=
+## The problem for a retired household
 
 I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at time $t$ with total resources $\mRat$. The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of $\underline{\tShkEmp}$.
 
@@ -18,7 +20,8 @@ I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at tim
 Notice that there is no uncertainty and the household receives a retirement
 income $\underline{\tShkEmp}$ every period until death.
 
-\subsection{The problem for a worker household}
+(The problem for a worker household)=
+## The problem for a worker household
 
 The value function of a worker household is
 
@@ -58,7 +61,8 @@ is
     \wFunc_{t}(\mRat_{t}+\nRat_{t})
 \end{equation}
 
-\subsection{Applying the Sequential EGM}
+(Applying the Sequential EGM)=
+## Applying the Sequential EGM
 
 The first step is to define a post-decision value function. Once the household
 decides their level of consumption and pension deposits, they are left with
@@ -122,7 +126,8 @@ Because we've already made the pension decision, the amount of pension assets
 does not change in this loop and it just passes through to the post-decision
 value function.
 
-\subsection{Solving the problem}
+(Solving the problem)=
+## Solving the problem
 
 \subsubsection{Solving the Inner Consumption Saving Problem}
 
@@ -244,7 +249,8 @@ To close the solution method, the envelope conditions are
     \end{split}
 \end{equation}
 
-\subsection{Is g invertible?}
+(Is g invertible?)=
+## Is g invertible?
 
 We've already seen that $\util'(\cdot)$ is invertible, but is $\gFunc$?
 
@@ -253,7 +259,8 @@ We've already seen that $\util'(\cdot)$ is invertible, but is $\gFunc$?
     \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
 \end{equation}
 
-\subsection{The Post-Decision Value and Marginal Value Functions}
+(The Post-Decision Value and Marginal Value Functions)=
+## The Post-Decision Value and Marginal Value Functions
 
 \begin{equation}
     \begin{split}
@@ -293,7 +300,8 @@ and
     \end{split}
 \end{equation}
 
-\subsection{Taste Shocks}
+(Taste Shocks)=
+## Taste Shocks
 
 From discrete choice theory and from DCEGM paper, we know that
 

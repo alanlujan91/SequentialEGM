@@ -1,8 +1,10 @@
 % -_- mode: LaTeX; TeX-PDF-mode: t; -_- # Configure emacs auctex viewer
-\input{./econtexRoot.texinput} % Set paths (like, \LaTeXInputs) to find resources
+\input{./econtexRoot.texinput}
+% Set paths (like, \LaTeXInputs) to find resources
 
 % Document has title page and table of contents and header:
-\documentclass[titlepage, headings=optiontotocandhead]{\econtex} % \econtex: see ./econtexRoot
+\documentclass[titlepage, headings=optiontotocandhead]{\econtex}
+% \econtex: see ./econtexRoot
 
 % Include the Appendix and Table of Contents?
 % Change {true} to {false} to exclude
@@ -13,9 +15,11 @@
 \newcommand{\texname}{SequentialEGM}
 
 % Standard useful packages for economics
-\usepackage{\econtexSetup,\econark,\econtexShortcuts} % Gets, configures often-used packages
+\usepackage{\econtexSetup,\econark,\econtexShortcuts}
+% Gets, configures often-used packages
 % Definitions unique to this paper (`\texname` defined above)
-\usepackage{\LaTeXInputs/\texname} % processes \texname.sty
+\usepackage{\LaTeXInputs/\texname}
+% processes \texname.sty
 
 % When compiling Web version of paper, construct targets/anchors
 \ifthenelse{\boolean{Web}}{\hypersetup{destlabel=true}}{}
@@ -26,13 +30,15 @@
 \begin{document}
 
 % Tell subfiles they are not being compiled as standalone files
-\input{\LaTeXInputs/econtex_notinsubfile} % instead are part of a larger document
+\input{\LaTeXInputs/econtex_notinsubfile}
+% instead are part of a larger document
 
 \subfile{SequentialEGM-titlepage}\pagebreak
 
 % Table of contents
 \ifthenelse{\boolean{TOC}}{\subfile{SequentialEGM-contents.texinput}\pagebreak }{}
-\input{Subfiles.texinput} % Paper is composed of subfiles enumerated here
+\input{Subfiles.texinput}
+% Paper is composed of subfiles enumerated here
 
 \pagebreak
 

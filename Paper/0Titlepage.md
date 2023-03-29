@@ -7,7 +7,8 @@
 
 \begin{document}
 % Attempted to make all lines used for Web version contain {Web} (or version with only single curly brace at end) so can be removed with sed
-\ifthenelse{\boolean{Web}}{\renewcommand{\versn}{Web}}{} % {Web}
+\ifthenelse{\boolean{Web}}{\renewcommand{\versn}{Web}}{}
+% {Web}
 
 \title{EGM$^n$: The Sequential Endogenous Grid Method}
 \subtitle{Solving Micro DSOPS using Unstructured Multivariate Interpolation}
@@ -49,26 +50,30 @@ Software to reproduce these methods is available under the \href{https://econ-ar
 % \texttt{~~~\REMARK:~} \= \= \texttt{\url{https://econ-ark.org/materials/SequentialEGM}} \\
 % \texttt{Dashboard:~} \> \> \texttt{\href{https://econ-ark.org/materials/SequentialEGM}{Click `Launch Dashboard' Button}} \\
 \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM/blob/master/SequentialEGM.pdf}{SequentialEGM.pdf (\textbf{Current Version})}} \\
-\texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/SequentialEGM/}{https://\owner.github.io/SequentialEGM/}} \\ % Owner is defined in Resources/owner.tex
+\texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/SequentialEGM/}{https://\owner.github.io/SequentialEGM/}} \\
+% Owner is defined in Resources/owner.tex
 % \texttt{~~~Slides:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM/blob/master/SequentialEGM-Slides.pdf}{SequentialEGM-Slides.pdf}} \\
 \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/SequentialEGM}{https://github.com/\owner/SequentialEGM}} \\
 \end{tabbing}
 \end{center}
-} % end \parbox{\textwidth}
+}
+% end \parbox{\textwidth}
 \end{footnotesize}
 
 \begin{authorsinfo}
 \noindent \name{\href{https://quantmacro.org}{Department of Economics, The Ohio State University}, \href{mailto:alanlujan91@gmail.com}{\texttt{alanlujan91@gmail.com}}.}
 \end{authorsinfo}
 
-\pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page
+\pagenumbering{gobble}
+% Prevent numbering for pages including the TOC and title page
 
 \ifthenelse{\boolean{Web}}{
 }{
 \begin{minipage}{0.9\textwidth}
 \footnotesize I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} toolkit (\cite{Carroll2018}). Additional libraries used in the production of this paper include but are not limited to: \href{https://www.scipy.org/}{\texttt{scipy}} (\cite{Virtanen2020}), \href{https://www.numpy.org/}{\texttt{numpy}} (\cite{Harris2020}), \href{https://numba.pydata.org/}{\texttt{numba}} (\cite{Lam2015}), \href{https://cupy.dev/}{\texttt{cupy}} (\cite{Okuta2017}), \href{https://scikit-learn.org/}{\texttt{scikit-learn}} (\cite{Pedregosa2011}), \href{https://pytorch.org/}{\texttt{pytorch}} (\cite{Paszke2019}), and \href{https://gpytorch.ai/}{\texttt{gpytorch}} (\cite{Gardner2018}).
 \end{minipage}
-} % {Web}
+}
+% {Web}
 
 \titlepagefinish
 
