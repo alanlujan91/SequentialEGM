@@ -7,8 +7,8 @@ This paper introduces a novel method for solving dynamic stochastic optimization
 
 EGM$^n$ is similar to the Nested Endogenous Grid Method (NEGM)[^NEGM] and the Generalized Endogenous Grid Method (G2EGM)[^G2EGM] in that it can solve problems with multiple decisions, but it differs from these methods in that by choosing the subproblems strategically, we can take advantage of multiple sequential EGM steps to solve complex multidimensional models in a fast and efficient manner. Additionally, the use of machine learning tools such as the GPR overcomes bottlenecks seen in unstructured interpolation using Delauany triangulation and other similar methods.
 
-[^NEGM]: {cite:p}`Druedahl2021`.
-[^G2EGM]: {cite:p}`Druedahl2017`.
+[^NEGM]: {cite:t}`Druedahl2021`.
+[^G2EGM]: {cite:t}`Druedahl2017`.
 
 % Evaluate the method: Evaluate the strengths and limitations of the new computational method you developed or proposed. Discuss how the method compares to existing methods in terms of accuracy, efficiency, and ease of use.
 

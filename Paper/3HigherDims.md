@@ -163,4 +163,4 @@ As in [Section %s](#method), the resulting endogenous grid is not rectilinear, a
   \notinsubfile{\label{fig:endog}}
 \end{figure}
 
-To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in {cite:p}`Scheidegger2019`.
+To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in {cite:t}`Scheidegger2019`.
