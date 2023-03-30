@@ -1,23 +1,4 @@
----
-title: The Sequential Endogenous Grid Method
-subject: Economics
-# subtitle: Evolve your markdown documents into structured data
-short_title: "EGM$^n$"
-authors:
-  - name: Alan Lujan
-    affiliations:
-      - The Ohio State University
-      - Econ-ARK
-    # orcid: 0000-0002-7859-8394
-    email: alanlujan91@gmail.com
-license: CC-BY-4.0
-keywords: Endogenous Grid Method, Gaussian Processes, Machine Learning, Stochastic Dynamic Programming
-exports:
-    - format: pdf
-      template: arxiv_nips
-      output: arxiv.zip
 
----
 
 +++ {"part": "abstract"}
 

@@ -3,10 +3,34 @@ version: 1
 project:
   title: "EGM$^n$: The Sequential Endogenous Grid Method"
   # description:
-  keywords: []
-  authors: ["Alan Lujan"]
-  github: https://github.com/alanlujan91/SequentialEGM
+  short_title: "EGM$^n$"
+  # name:
+  # date:
+  authors:
+    - name: Alan Lujan
+      # orcid: 0000-0002-7859-8394
+      corresponding: true
+      email:
+        - alanlujan91@gmail.com
+        - lujan.14@osu.edu
+      # roles:
+      affiliations:
+        - The Ohio State University
+        - Econ-ARK
+  # doi:
+  # arxiv:
+  open_access: true
+  license: CC-BY-4.0
+  github: alanlujan91/SequentialEGM
+  # binder:
+  subject: Economics
+  # venue:
   bibliography: references.bib
+  keywords: Endogenous Grid Method, Gaussian Processes, Machine Learning, Stochastic Dynamic Programming
+  exports:
+    - format: pdf
+      template: arxiv_nips
+      output: arxiv.zip
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'
