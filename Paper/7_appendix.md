@@ -1,7 +1,27 @@
-(Solving the illustrative G2EGM model with EGM$^n$)=
+---
+# title: The Sequential Endogenous Grid Method # a string (max 500 chars) page & project
+# description: # a string (max 500 chars) page & project
+short_title: Appendix # a string (max 40 chars) page & project
+# name:  # a string (max 500 chars) page & project
+# tags:  # a list of strings page only
+# thumbnail: # a link to a local or remote image page only
+# subtitle: # a string (max 500 chars) page only
+# date: # a valid date formatted string page can override project
+# authors:  # a list of author objects page can override project
+# doi:  # a valid DOI, either URL or id page can override project
+# arxiv: # a valid arXiv reference, either URL or id page can override project
+# open_access: # boolean (true/false) page can override project
+# license: # a license object or a string page can override project
+# github: # a valid GitHub URL or owner/reponame page can override project
+# binder: # any valid URL page can override project
+# subject: # a string (max 40 chars) page can override project
+# venue: # a venue object page can override project
+# biblio: # a biblio object with various fields page can override project
+---
+
+(appendix)=
 # Solving the illustrative G2EGM model with EGM$^n$
 
-(The problem for a retired household)=
 ## The problem for a retired household
 
 I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at time $t$ with total resources $\mRat$. The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of $\underline{\tShkEmp}$.
@@ -20,7 +40,6 @@ I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at tim
 Notice that there is no uncertainty and the household receives a retirement
 income $\underline{\tShkEmp}$ every period until death.
 
-(The problem for a worker household)=
 ## The problem for a worker household
 
 The value function of a worker household is
@@ -61,7 +80,6 @@ is
     \wFunc_{t}(\mRat_{t}+\nRat_{t})
 \end{equation}
 
-(Applying the Sequential EGM)=
 ## Applying the Sequential EGM
 
 The first step is to define a post-decision value function. Once the household
@@ -126,7 +144,6 @@ Because we've already made the pension decision, the amount of pension assets
 does not change in this loop and it just passes through to the post-decision
 value function.
 
-(Solving the problem)=
 ## Solving the problem
 
 ### Solving the Inner Consumption Saving Problem
@@ -249,7 +266,6 @@ To close the solution method, the envelope conditions are
     \end{split}
 \end{equation}
 
-(Is g invertible?)=
 ## Is g invertible?
 
 We've already seen that $\util'(\cdot)$ is invertible, but is $\gFunc$?
@@ -259,7 +275,6 @@ We've already seen that $\util'(\cdot)$ is invertible, but is $\gFunc$?
     \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
 \end{equation}
 
-(The Post-Decision Value and Marginal Value Functions)=
 ## The Post-Decision Value and Marginal Value Functions
 
 \begin{equation}
@@ -300,7 +315,6 @@ and
     \end{split}
 \end{equation}
 
-(Taste Shocks)=
 ## Taste Shocks
 
 From discrete choice theory and from DCEGM paper, we know that

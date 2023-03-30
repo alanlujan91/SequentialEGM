@@ -1,4 +1,23 @@
-
+---
+title: Abstract # a string (max 500 chars) page & project
+# description: # a string (max 500 chars) page & project
+short_title: Abstract # a string (max 40 chars) page & project
+# name:  # a string (max 500 chars) page & project
+# tags:  # a list of strings page only
+# thumbnail: # a link to a local or remote image page only
+# subtitle: # a string (max 500 chars) page only
+# date: # a valid date formatted string page can override project
+# authors:  # a list of author objects page can override project
+# doi:  # a valid DOI, either URL or id page can override project
+# arxiv: # a valid arXiv reference, either URL or id page can override project
+# open_access: # boolean (true/false) page can override project
+# license: # a license object or a string page can override project
+# github: # a valid GitHub URL or owner/reponame page can override project
+# binder: # any valid URL page can override project
+# subject: # a string (max 40 chars) page can override project
+# venue: # a venue object page can override project
+# biblio: # a biblio object with various fields page can override project
+---
 
 +++ {"part": "abstract"}
 
@@ -13,5 +32,7 @@ Software to reproduce these methods is available under the [`Econ-ARK/HARK`](htt
 +++
 
 +++ {"part": "acknowledgements"}
+
 I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit ({cite:t}`Carroll2018`). Additional libraries used in the production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) ({cite:t}`Virtanen2020`), [`numpy`](https://www.numpy.org/) ({cite:t}`Harris2020`), [`numba`](https://numba.pydata.org/) ({cite:t}`Lam2015`), [`cupy`](https://cupy.dev/) ({cite:t}`Okuta2017`), [`scikit-learn`](https://scikit-learn.org/) ({cite:t}`Pedregosa2011`), [`pytorch`](https://pytorch.org/) ({cite:t}`Paszke2019`), and [`gpytorch`](https://gpytorch.ai/) ({cite:t}`Gardner2018`)
+
 +++
