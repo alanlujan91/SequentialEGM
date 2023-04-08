@@ -4,6 +4,6 @@ jupyter==1.0.0
 jupyter_contrib_nbextensions==0.7.0
 matplotlib==3.7.1
 numpy==1.24.2
-pytest==7.2.2
+pytest==7.3.0
 runipy==0.1.5
 voila==0.5.0a3
