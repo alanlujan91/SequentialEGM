@@ -17,6 +17,7 @@ short_title: Abstract # a string (max 40 chars) page & project
 # subject: # a string (max 40 chars) page can override project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
+numbering: false
 ---
 
 +++ {"part": "abstract"}

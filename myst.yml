@@ -17,7 +17,8 @@ site:
   actions:
     - title: Learn more about Econ-ARK
       url: https://econ-ark.org
-  domains: []
+  domains: 
+    - alanlujan91.curve.space
 project:
   authors: []
   github: https://github.com/alanlujan91/SequentialEGM

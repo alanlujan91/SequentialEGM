@@ -2,8 +2,7 @@ version: 1
 project:
   title: "EGM\u207f: The Sequential Endogenous Grid Method"
   short_title: "EGM\u207f"
-  venue:
-    title: Working Paper
+  venue: Working Paper
   github: https://github.com/alanlujan91/SequentialEGM
   open_access: true
   license: CC-BY-4.0
@@ -16,6 +15,17 @@ project:
         - Econ-ARK
   bibliography:
     - references.bib
+  numbering:
+    figure: true
+    equation: true
+    code: true
+    table: true
+    heading_1: true
+    heading_2: true
+    heading_3: true
+    heading_4: false
+    heading_5: false
+    heading_6: false
   subject: Economics
   keywords:
     - Endogenous Grid Method
@@ -222,8 +232,8 @@ project:
     '\leisure': "z"
     '\SE': '\SRat^{e}'
     '\sE': '\sRat^{e}'
-    '\BRatE': "B}^{e"
-    '\bRatE': "b}^{e"
+    '\BRatE': "{B}^{e}"
+    '\bRatE': "{b}^{e}"
     '\CRatE': '\CRat^{e}'
     '\cRatE': '\cRat^{e}'
     '\DiscRate': '\vartheta'
@@ -253,8 +263,8 @@ project:
     '\RPRte': '\text{\thorn}_{\rfree}'
     '\deprRte': '\delta'
     '\Value': '\mathrm{V}'
-    '\VE': "V}^{e"
-    '\vE': "v}^{e"
+    '\VE': "{V}^{e}"
+    '\vE': "{v}^{e}"
     '\Save': "S"
     '\save': "s"
     '\RSave': '\underline{\Rfree}'
@@ -616,7 +626,7 @@ project:
     '\hours': '\mathfrak{h}'
     '\ASS': "A"
     '\aSS': "a"
-    '\cEss': "c}^{e"
+    '\cEss': "{c}^{e}"
     '\mEss': '\check{m}^{e}'
     '\vEss': '\check{v}^{e}'
     '\MSS': '\breve{M}'
@@ -715,25 +725,25 @@ project:
     '\fDist': '\mathcal{f}'
     '\Next': "t+1"
     '\tNext': "t+1"
-    '\BU': "B}^{u"
-    '\bU': "b}^{u"
+    '\BU': "{B}^{u}"
+    '\bU': "{b}^{u}"
     '\CU': '\CRat^{u}'
     '\cU': '\cRat^{u}'
     '\MPCU': '\MPC^{u}'
-    '\MU': "M}^{u"
-    '\mU': "m}^{u"
+    '\MU': "{M}^{u}"
+    '\mU': "{m}^{u}"
     '\PopU': '\mathcal{U}'
     '\SU': '\SRat^{u}'
     '\sU': '\sRat^{u}'
     '\PatU': '\text{\pmb{\Thorn}}_{\urate}'
     '\patu': '\text{\thorn}_{\urate}'
-    '\bRatU': "b}^{u"
+    '\bRatU': "{b}^{u}"
     '\CRatU': '\CRat^{u}'
     '\cRatU': '\cRat^{u}'
     '\SRatU': '\SRat^{u}'
     '\sRatU': '\sRat^{u}'
-    '\VU': "V}^{u"
-    '\vU': "v}^{u"
+    '\VU': "{V}^{u}"
+    '\vU': "{v}^{u}"
     '\BLevU': '\BLev^{u}'
     '\bLevU': '\bLev^{u}'
     '\CLevU': '\CLev^{u}'

@@ -17,6 +17,8 @@ short_title: Multidimensional # a string (max 40 chars) page & project
 # subject: # a string (max 40 chars) page can override project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
+numbering:
+  enumerator: 3.%s
 ---
 
 (multidimensional)=
