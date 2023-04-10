@@ -1,7 +1,7 @@
 version: 1
 site:
   template: book-theme
-  title: Alan Lujan - EGM$^n$
+  title: "Alan Lujan - EGM\u207f"
   logo: public/econ-ark-logo.png
   logo_text: Econ-ARK
   projects:
@@ -19,6 +19,6 @@ site:
       url: https://econ-ark.org
   domains: []
 project:
-  authors: Alan Lujan
-  github: alanlujan91/SequentialEGM
+  authors: []
+  github: https://github.com/alanlujan91/SequentialEGM
   keywords: []

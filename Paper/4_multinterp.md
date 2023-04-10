@@ -1,7 +1,7 @@
 ---
 # title: The Sequential Endogenous Grid Method # a string (max 500 chars) page & project
 # description: # a string (max 500 chars) page & project
-short_title: Multivariate Interpolation # a string (max 40 chars) page & project
+short_title: MultInterp # a string (max 40 chars) page & project
 # name:  # a string (max 500 chars) page & project
 # tags:  # a list of strings page only
 # thumbnail: # a link to a local or remote image page only
@@ -19,7 +19,7 @@ short_title: Multivariate Interpolation # a string (max 40 chars) page & project
 # biblio: # a biblio object with various fields page can override project
 ---
 
-(gpr)=
+(multinterp)=
 # Multivariate Interpolation on Non-Rectilinear Grids
 
 This section presents alternative interpolation methods for non-rectilinear grids. First, I present the relatively simple case of fast warped interpolation on a curvilinear grid, which improves upon the interpolation in {cite:t}`White2015`. Then, I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in {cite:t}`Scheidegger2019`.
@@ -132,22 +132,22 @@ In Figure~\ref{fig:true_function}, we see the function we are trying to approxim
   \notinsubfile{\label{fig:true_function}}
 \end{figure}
 
-As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In Figure~\ref{fig:gpr_sample}, we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
+As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In Figure~\ref{fig:multinterp_sample}, we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{Figures/gpr_sample.pdf}
+  \includegraphics[width=\linewidth]{Figures/multinterp_sample.pdf}
   \caption{A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.}
-  \notinsubfile{\label{fig:gpr_sample}}
+  \notinsubfile{\label{fig:multinterp_sample}}
 \end{figure}
 
-In Figure~\ref{fig:gpr}, we see the result of GPR with a particular parametrization[^f6] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
+In Figure~\ref{fig:multinterp}, we see the result of GPR with a particular parametrization[^f6] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
 
 [^f6]: For details see notebook.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{Figures/gpr.pdf}
+  \includegraphics[width=\linewidth]{Figures/multinterp.pdf}
   \caption{GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
-  \notinsubfile{\label{fig:gpr}}
+  \notinsubfile{\label{fig:multinterp}}
 \end{figure}

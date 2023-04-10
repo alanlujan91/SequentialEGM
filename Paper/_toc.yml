@@ -16,12 +16,12 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: 0Titlepage
+root: 0_titlepage
 chapters:
-  - file: 1Intro
-  - file: 2Method
-  - file: 3HigherDims
-  - file: 4UnstructuredInterp
-  - file: 5WhentoUse
-  - file: 6Conclusion
-  - file: 7Appendix
+  - file: 1_intro
+  - file: 2_method
+  - file: 3_multidimensional
+  - file: 4_multinterp
+  - file: 5_conditions
+  - file: 6_conclusion
+  - file: 7_appendix
