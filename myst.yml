@@ -5,11 +5,11 @@ site:
   logo: public/econ-ark-logo.png
   logo_text: Econ-ARK
   projects:
-    - slug: paper
+    - slug: Paper
       path: Paper
   nav:
     - title: Paper
-      url: /paper
+      url: /Paper
     - title: GitHub
       url: https://github.com/alanlujan91/SequentialEGM
     - title: Econ-ARK
@@ -17,7 +17,7 @@ site:
   actions:
     - title: Learn more about Econ-ARK
       url: https://econ-ark.org
-  domains: 
+  domains:
     - alanlujan91.curve.space
 project:
   authors: []
