@@ -10,6 +10,7 @@ dependencies:
   - estimagic
   - ipympl
   - jupyterlab
+  - jupyter-book
   - jupytext
   - matplotlib
   - networkx

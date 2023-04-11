@@ -17,21 +17,22 @@
 
 format: jb-book
 root: README
-chapters:
-  - file: Paper\0Titlepage
-    sections:
-      - file: Paper\1Intro
-      - file: Paper\2Method
-      - file: Paper\3HigherDims
-      - file: Paper\4UnstructuredInterp
-      - file: Paper\5WhentoUse
-      - file: Paper\6Conclusion
-      - file: Paper\7Appendix
-  - file: Code\README
-    sections:
-      - file: Code\EGMN\GPR_example
-      - file: Code\EGMN\LifecyclePensionRetirement
-      - file: Code\EGMN\PensionContrib
-      - file: Code\EGMN\PensionContrib_baseline
-      - file: Code\EGMN\example_ConsLaborPortfolioModel
-      - file: Code\EGMN\example_ConsRetPenContribModel
+parts:
+  - caption: Paper
+    chapters:
+      - file: Paper/0_titlepage
+      - file: Paper/1_intro
+      - file: Paper/2_method
+      - file: Paper/3_multidimensional
+      - file: Paper/4_multinterp
+      - file: Paper/5_conditions
+      - file: Paper/6_conclusion
+      - file: Paper/7_appendix
+  - caption: Code
+    chapters:
+      - file: Code/EGMN/GPR_example
+      - file: Code/EGMN/LifecyclePensionRetirement
+      - file: Code/EGMN/PensionContrib
+      - file: Code/EGMN/PensionContrib_baseline
+      - file: Code/EGMN/example_ConsLaborPortfolioModel
+      - file: Code/EGMN/example_ConsRetPenContribModel
