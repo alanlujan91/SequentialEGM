@@ -19,6 +19,8 @@ short_title: Conditions # a string (max 40 chars) page & project
 # biblio: # a biblio object with various fields page can override project
 numbering:
   enumerator: 5.%s
+exports:
+  - format: pdf
 ---
 
 (conditions)=
@@ -82,7 +84,7 @@ A good rule of thumb is that when splitting up a problem into subproblems, we sh
 
 ## The Endogenous Grid Method for Subproblems
 
-Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections \ref{sec:method} and \ref{sec:multidimensional}, the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
+Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections [Section %s](#method) and [Section %s](#multidimensional), the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
 
 ### Utility function
 

@@ -10,7 +10,7 @@ from HARK.ConsumptionSaving.ConsIndShockModel import (
 )
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
-from HARK.core import MetricObject, make_one_period_oo_solver
+from HARK.core import make_one_period_oo_solver
 from HARK.distribution import DiscreteDistribution, DiscreteDistributionLabeled
 from HARK.interpolation import (
     LinearFast,
@@ -19,6 +19,7 @@ from HARK.interpolation import (
     ValueFuncCRRA,
 )
 from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
+from HARK.metric import MetricObject
 from HARK.rewards import UtilityFuncCRRA, UtilityFunction
 from HARK.utilities import NullFunc, construct_assets_grid
 from scipy.optimize import Bounds, LinearConstraint, minimize

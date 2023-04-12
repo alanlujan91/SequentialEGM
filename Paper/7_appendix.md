@@ -45,8 +45,6 @@ income $\underline{\tShkEmp}$ every period until death.
 
 The value function of a worker household is
 
-\p
-
 \begin{equation}
     \VFunc_{t}(\mRat_{t}, \nRat_{t}) = \Ex_\error \max \left\{
     \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) + \sigma_{\error}
@@ -325,7 +323,7 @@ From discrete choice theory and from DCEGM paper, we know that
         \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}, \error_{t+1}) \right] =
     \sigma \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
         \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error}	\right) 	\right]
+            \Decision)}{\sigma_\error} \right)  \right]
 \end{equation}
 
 and
@@ -336,9 +334,9 @@ and
         \vFunc_{t + 1}(\mRat_{t+1}, \nRat_{t+1}, \Decision) /
         \sigma_\error
         \right)
-    }{  \sum\limits_{\Decision \in \{\Work, \Retire\}}	\exp \left(
+    }{  \sum\limits_{\Decision \in \{\Work, \Retire\}} \exp \left(
         \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error}	\right)}
+            \Decision)}{\sigma_\error} \right)}
 \end{equation}
 
 the first-order conditions are therefore

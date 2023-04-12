@@ -19,9 +19,11 @@ short_title: Conclusion # a string (max 40 chars) page & project
 # biblio: # a biblio object with various fields page can override project
 numbering:
   enumerator: 6.%s
+exports:
+  - format: pdf
 ---
 
-(Conclusion)=
+(conclusion)=
 # Conclusion
 
 % Summarize the method: Begin your conclusion by summarizing the new computational method you developed or proposed. Provide a brief overview of the key features of the method and how it differs from existing methods.

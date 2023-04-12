@@ -34,7 +34,6 @@ project:
     - Stochastic Dynamic Programming
   exports:
     - format: pdf
-      template: arxiv_nips
     - format: tex
       template: arxiv_nips
       output: arxiv.zip

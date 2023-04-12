@@ -19,6 +19,8 @@ short_title: Multidimensional # a string (max 40 chars) page & project
 # biblio: # a biblio object with various fields page can override project
 numbering:
   enumerator: 3.%s
+exports:
+  - format: pdf
 ---
 
 (multidimensional)=
@@ -97,8 +99,7 @@ First, we can rewrite the pension deposit problem more compactly:
 
 \begin{equation}
   \vFunc_{t}(\mRat_{t}, \nRat_{t}) = \max_{\dRat_{t}}
-  \vOpt_{t}(\mRat_{t}
-  - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
+  \vOpt_{t}(\mRat_{t} - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
 \end{equation}
 
 The first-order condition is
@@ -165,20 +166,20 @@ To close the solution method, the envelope conditions are
 
 ## Unstructured Grid Interpolation
 
-As in [Section %s](#method), the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in Figure~\ref{fig:exog} that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain Figure~\ref{fig:endog} which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
+```{figure} ../Figures/ExogenousGrid.svg
+:name: fig:exog
+:align: center
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{Figures/ExogenousGrid.pdf}
-  \caption{A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{t}$ and liquid assets after consumption $\lRat_{t}$.}
-  \notinsubfile{\label{fig:exog}}
-\end{figure}
+A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{t}$ and liquid assets after consumption $\lRat_{t}$.
+```
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{Figures/EndogenousGrid.pdf}
-  \caption{An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances before deposit $\nRat_{t}$.}
-  \notinsubfile{\label{fig:endog}}
-\end{figure}
+As in [Section %s](#method), the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in  [Figure %s](#fig:exog) that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain [Figure %s](#fig:endog) which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
+
+```{figure} ../Figures/EndogenousGrid.svg
+:name: fig:endog
+:align: center
+
+An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances before deposit $\nRat_{t}$.
+```
 
 To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in {cite:t}`Scheidegger2019`.

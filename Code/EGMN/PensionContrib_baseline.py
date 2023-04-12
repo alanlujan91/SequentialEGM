@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from ConsPensionContribModel import PensionContribConsumerType, init_pension_contrib
 
-figures_path = "../Figures/"
+figures_path = "../../Figures/"
 
 # %%
 baseline_params = init_pension_contrib.copy()
@@ -216,7 +216,7 @@ plot_scatter_hist(
     "Pension Deposit on Exogenous Grid",
     r"Market Resources $\ell$",
     "Retirement balance $b$",
-    "ExogenousGrid.pdf",
+    "ExogenousGrid.svg",
 )
 
 # %%
@@ -227,7 +227,7 @@ plot_scatter_hist(
     "Pension Deposit on Endogenous Grid",
     "Market Resources $m$",
     "Retirement balance $n$",
-    "EndogenousGrid.pdf",
+    "EndogenousGrid.svg",
 )
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
@@ -266,7 +266,7 @@ fig.suptitle("Pension Deposit on Endogenous Grid", fontsize=16)
 ax.set_xlabel("Market Resources $m$")
 ax.set_ylabel("Retirement Savings $n$")
 plt.show()
-# fig.savefig(figures_path + "EndogenousGrid.pdf")
+# fig.savefig(figures_path + "EndogenousGrid.svg")
 
 # %%
 fig, ax = plt.subplots()
@@ -308,7 +308,7 @@ scatter = ax.scatter(
 plt.title("Pension Deposits on Exogenous Post-Decision Grid")
 plt.xlabel(r"Liquid Wealth $\ell$")
 plt.ylabel("Retirement Balance $b$")
-fig.savefig(figures_path + "ExogenousGrid.pdf")
+fig.savefig(figures_path + "ExogenousGrid.svg")
 
 
 # %%

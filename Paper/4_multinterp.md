@@ -19,6 +19,8 @@ short_title: MultInterp # a string (max 40 chars) page & project
 # biblio: # a biblio object with various fields page can override project
 numbering:
   enumerator: 4.%s
+exports:
+  - format: pdf
 ---
 
 (multinterp)=
@@ -32,34 +34,34 @@ Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for w
 
 [^f3]: For this illustration, we generate $z$'s arbitrarily using the function $$f(x,y) = (xy)^{1/4}.$$
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{Figures/WarpedInterpolation.pdf}
-  \caption{True function and curvilinear grid of points for which we know the value of the function.}
-  \notinsubfile{\label{fig:warped_interp}}
-\end{figure}
+```{figure} ../Figures/WarpedInterpolation.svg
+:name: fig:warped_interp
+:align: center
 
-In Figure~\ref{fig:warped_interp}, we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
+True function and curvilinear grid of points for which we know the value of the function.
+```
 
-In Figure~\ref{fig:homotopy} we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
+In [Figure %s](#fig:warped_interp), we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{Figures/Homotopy.pdf}
-  \caption{Homotopy between the curvilinear grid and the index coordinates of the matrix.}
-  \notinsubfile{\label{fig:homotopy}}
-\end{figure}
+In [Figure %s](#fig:homotopy) we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
 
-The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured Figure~\ref{fig:mapping}. If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in Figure~\ref{fig:mapping}, we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate[^f4].
+```{figure} ../Figures/Homotopy.svg
+:name: fig:homotopy
+:align: center
+
+Homotopy between the curvilinear grid and the index coordinates of the matrix.
+```
+
+The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured [Figure %s](#fig:mapping). If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in [Figure %s](#fig:mapping), we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate[^f4].
 
 [^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project \href{https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb}{\texttt{alanlujan91/multinterp}}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{Figures/Mapping.pdf}
-  \caption{The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.}
-  \notinsubfile{\label{fig:mapping}}
-\end{figure}
+```{figure} ../Figures/Mapping.svg
+:name: fig:mapping
+:align: center
+
+The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.
+```
 
 ## Unstructured Grids
 
@@ -125,31 +127,31 @@ Using GPR to interpolate a function $f$, we can both predict the value of the fu
 
 ### An example of the GPR
 
-In Figure~\ref{fig:true_function}, we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
+In [Figure %s](#fig:true_function), we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{Figures/true_function.pdf}
-  \caption{The true function that we are trying to approximate and a sample of data points.}
-  \notinsubfile{\label{fig:true_function}}
-\end{figure}
+```{figure} ../Figures/true_function.svg
+:name: fig:true_function
+:align: center
 
-As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In Figure~\ref{fig:multinterp_sample}, we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
+The true function that we are trying to approximate and a sample of data points.
+```
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{Figures/multinterp_sample.pdf}
-  \caption{A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.}
-  \notinsubfile{\label{fig:multinterp_sample}}
-\end{figure}
+As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In [Figure %s](#fig:gpr_sample), we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
 
-In Figure~\ref{fig:multinterp}, we see the result of GPR with a particular parametrization[^f6] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
+```{figure} ../Figures/gpr_sample.svg
+:name: fig:gpr_sample
+:align: center
+
+A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.
+```
+
+In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametrization[^f6] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
 
 [^f6]: For details see notebook.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{Figures/multinterp.pdf}
-  \caption{GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
-  \notinsubfile{\label{fig:multinterp}}
-\end{figure}
+```{figure} ../Figures/gpr.svg
+:name: fig:gpr
+:align: center
+
+GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.
+```

@@ -19,6 +19,8 @@ short_title: Method # a string (max 40 chars) page & project
 # biblio: # a biblio object with various fields page can override project
 numbering:
   enumerator: 2.%s
+exports:
+- format: pdf
 ---
 
 (method)=
@@ -44,11 +46,11 @@ This model represents a consumer who begins the period with a level of bank bala
 
 The problem can be written in normalized recursive form[^f2] as
 
-[^f2]: As in {cite:t}`Carroll2009`, where the utility of normalized consumption and leisure is defined as
+  [^f2]: As in {cite:t}`Carroll2009`, where the utility of normalized consumption and leisure is defined as
 
-    \begin{equation}
-      \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
-    \end{equation}
+\begin{equation}
+  \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
+\end{equation}
 
 \begin{equation}
   \begin{split}
@@ -70,16 +72,16 @@ The problem can be written in normalized recursive form[^f2] as
 in which $\labor_{t}$ is the time supplied to labor net of leisure, $\mRat_{t}$ is the market resources totaling bank balances and labor income, $\aRat_{t}$ is the amount of saving assets held by the consumer, and $\riskyshare_{t}$ is the risky share of assets, which induce a $\Rport_{t+1}$ return on portfolio that results in next period's bank balances $\bRat_{t+1}$ normalized by next period's permanent income $\PGro_{t+1}$.
 
 % \begin{equation}
-% 	\begin{split}
-% 		\vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{\cRat_{t},
-% 			\leisure_{t}} \util(\cRat_{t}) + \h(\leisure_{t}) +
-% 		\vEnd_{t} (\aRat_{t})
-% 		\\
-% 		& \text{s.t.} \\
-% 		\labor_{t} & = 1 - \leisure_{t} \\
-% 		\mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
-% 		\aRat_{t} & = \mRat_{t} - \cRat_{t} \\
-% 	\end{split}
+%  \begin{split}
+%   \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{\cRat_{t},
+%    \leisure_{t}} \util(\cRat_{t}) + \h(\leisure_{t}) +
+%   \vEnd_{t} (\aRat_{t})
+%   \\
+%   & \text{s.t.} \\
+%   \labor_{t} & = 1 - \leisure_{t} \\
+%   \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
+%   \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
+%  \end{split}
 % \end{equation}
 
 ## Restating the problem sequentially
@@ -132,21 +134,21 @@ Finally, the risky portfolio problem is
 This sequential approach is explicitly modeled after the nested approaches explored in {cite:t}`Clausen2020` and {cite:t}`Druedahl2021`. However, I will offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
 
 %\begin{equation}
-%	\begin{split}
-%		\vFunc_{t}(\bRat_{t}) & = \max_{ \labor_{t}} \h(\leisure_{t}) + \Ex_{t} \left[ \vOpt_{t} (\mRat_{t}) \right] \\
-%		& \text{s.t.} \\
-%		\labor_{t} & = 1 - \leisure_{t} \\
-%		\mRat_{t} & = \bRat_{t} + \tShkEmp_{t+1}\labor_{t} \\
-%	\end{split}
+% \begin{split}
+%  \vFunc_{t}(\bRat_{t}) & = \max_{ \labor_{t}} \h(\leisure_{t}) + \Ex_{t} \left[ \vOpt_{t} (\mRat_{t}) \right] \\
+%  & \text{s.t.} \\
+%  \labor_{t} & = 1 - \leisure_{t} \\
+%  \mRat_{t} & = \bRat_{t} + \tShkEmp_{t+1}\labor_{t} \\
+% \end{split}
 %\end{equation}
 %
 %\begin{equation}
-%	\begin{split}
-%		\vOpt_{t}(\mRat_{t}) & = \max_{\aRat_{t}} \util(\cRat_{t}) + \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1} (\bRat_{t+1}) \right] \\
-%		& \text{s.t.} \\
-%		\aRat_{t} & = \mRat_{t} - \cRat_{t} \\
-%		\bRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}
-%	\end{split}
+% \begin{split}
+%  \vOpt_{t}(\mRat_{t}) & = \max_{\aRat_{t}} \util(\cRat_{t}) + \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1} (\bRat_{t+1}) \right] \\
+%  & \text{s.t.} \\
+%  \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
+%  \bRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}
+% \end{split}
 %\end{equation}
 
 ## The portfolio decision subproblem
@@ -175,7 +177,7 @@ Finding the optimal risky share requires numerical optimization and root-solving
   \vEnd_{t}'(\aRat_{t}) =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right].
 \end{equation}
 
-### A note on avoiding taking expectations more than once.
+### A note on avoiding taking expectations more than once
 
 We could instead define the portfolio choice subproblem as:
 
@@ -274,7 +276,7 @@ The labor-leisure subproblem can  be restated more compactly as:
 The first-order condition with respect to leisure implies the labor-leisure Euler equation
 
 \begin{equation}
-  \h'(\leisure_{t}) =	\vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
+  \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
 \end{equation}
 
 The marginal utility of leisure and its inverse are

@@ -19,7 +19,7 @@ import numpy as np
 from ConsPensionContribModel import PensionContribConsumerType
 from IPython import get_ipython
 
-figures_path = "../Figures/"
+figures_path = "../../Figures/"
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 agent = PensionContribConsumerType(cycles=19)
@@ -176,7 +176,7 @@ fig.suptitle("Pension Deposit on Endogenous Grid", fontsize=16)
 ax.set_xlabel("Market Resources $m$")
 ax.set_ylabel("Retirement Savings $n$")
 plt.show()
-fig.savefig(figures_path + "EndogenousGrid.pdf")
+fig.savefig(figures_path + "EndogenousGrid.svg")
 
 # %%
 grids = agent.solution[T].consumption_stage.grids_before_cleanup
@@ -220,7 +220,7 @@ cbar.ax.set_ylabel("Pension Deposits $d$")
 plt.title("Pension Deposits on Exogenous Post-Decision Grid")
 plt.xlabel(r"Liquid Wealth $\ell$")
 plt.ylabel("Retirement Balance $b$")
-fig.savefig(figures_path + "ExogenousGrid.pdf")
+fig.savefig(figures_path + "ExogenousGrid.svg")
 
 
 # %%

@@ -23,3 +23,7 @@ project:
   authors: []
   github: https://github.com/alanlujan91/SequentialEGM
   keywords: []
+  license:
+    content: CC-BY-4.0
+    code: MIT
+  open_access: true

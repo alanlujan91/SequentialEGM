@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 rng = np.random.RandomState(5)
-figures_path = "../Figures/"
+figures_path = "../../Figures/"
 
 
 # %%
@@ -58,7 +58,7 @@ plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.title("True function and randomly sampled points")
 plt.tight_layout()
-plt.savefig(figures_path + "true_function.pdf")
+plt.savefig(figures_path + "true_function.svg")
 
 
 # %%
@@ -104,7 +104,7 @@ plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.title("Gaussian process regression on a noisy dataset")
 plt.tight_layout()
-plt.savefig(figures_path + "gpr.pdf")
+plt.savefig(figures_path + "gpr.svg")
 
 # %%
 L = np.linalg.cholesky(K_test + 1e-6 * np.eye(n_test) - np.dot(Lk.T, Lk))
@@ -119,7 +119,7 @@ plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.title("Random sample of functions from the Gaussian Process posterior.")
 plt.tight_layout()
-plt.savefig(figures_path + "gpr_sample.pdf")
+plt.savefig(figures_path + "gpr_sample.svg")
 
 
 # %%
