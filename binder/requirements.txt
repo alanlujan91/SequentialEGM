@@ -6,4 +6,4 @@ matplotlib==3.7.1
 numpy==1.24.3
 pytest==7.3.0
 runipy==0.1.5
-voila==0.5.0a3
+voila==0.5.0a4
