@@ -20,11 +20,11 @@ root: README
 chapters:
   - title: Paper
     sections:
-      - file: paper\0_titlepage
-      - file: paper\1_intro
-      - file: paper\2_method
-      - file: paper\3_multidimensional
-      - file: paper\4_multinterp
-      - file: paper\5_conditions
-      - file: paper\6_conclusion
-      - file: paper\7_appendix
+      - file: content\paper\0_titlepage
+      - file: content\paper\1_intro
+      - file: content\paper\2_method
+      - file: content\paper\3_multidimensional
+      - file: content\paper\4_multinterp
+      - file: content\paper\5_conditions
+      - file: content\paper\6_conclusion
+      - file: content\paper\7_appendix

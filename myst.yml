@@ -4,26 +4,50 @@ version: 1
 
 site:
   template: book-theme
-  title: "Alan Lujan - EGM\u207f"
-  # subtitle:
-  short_title: "EGM\u207f"
-  # description:
-  # venue:
-  # authors:
-  github: alanlujan91/SequentialEGM
-  # keywords:
   logo: public/econ-ark-logo.png
   logo_text: Econ-ARK
-  favicon: public/econ-ark-logo-small.png
+  title: "Alan Lujan - EGM\u207f"
+  subtitle:
+  short_title: "EGM\u207f"
+  description:
+  authors:
+    userId:
+    name: Alan Lujan
+    orcid:
+    corresponding: true
+    email: alanlujan91@gmail.com
+    roles:
+    affiliations:
+      - The Ohio State University
+      - Econ-ARK
+    twitter:
+    github: alanlujan91
+    website: https://quantmacro.org
+  venue:
+    title: REMARK
+    url: https://github.com/econ-ark/REMARK
+  github: alanlujan91/SequentialEGM
+  keywords:
+    - endogenous grid method
+    - stochastic dynamic programming
+    - machine learning
+    - gaussian process regression
   projects:
-    - slug: myst
-      path: .
-  nav: []
+    - slug: egmn
+      path: content/paper
+  nav:
+    - title: Github
+      url: https://github.com/alanlujan91/SequentialEGM
+    - title: Econ-ARK
+      url: https://econ-ark.org
+    - title: My Website
+      url: https://quantmacro.org
   actions:
     - title: Learn about Econ-ARK
       url: https://github.com/econ-ark
   domains:
     - alanlujan91.curve.space
+  favicon: public/econ-ark-logo-small.png
 
 project:
   title: "EGM\u207f: The Sequential Endogenous Grid Method"
