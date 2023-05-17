@@ -475,3 +475,4 @@ TSWLatexianTemp*
 *.vsix
 
 _build
+.Rproj.user

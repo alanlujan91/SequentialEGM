@@ -87,7 +87,6 @@ std_prediction = np.sqrt(var_prediction)
 
 
 # %%
-
 plt.figure(figsize=(15, 5))
 plt.plot(X_true, y_true, label=latex_func, linestyle="dotted")
 plt.scatter(X_train, y_train, label="Observations")

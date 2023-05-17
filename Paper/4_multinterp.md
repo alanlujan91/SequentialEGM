@@ -17,10 +17,6 @@ short_title: MultInterp # a string (max 40 chars) page & project
 # subject: # a string (max 40 chars) page can override project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
-numbering:
-  enumerator: 4.%s
-exports:
-  - format: pdf
 ---
 
 (multinterp)=
@@ -54,7 +50,7 @@ Homotopy between the curvilinear grid and the index coordinates of the matrix.
 
 The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured [Figure %s](#fig:mapping). If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in [Figure %s](#fig:mapping), we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate[^f4].
 
-[^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project \href{https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb}{\texttt{alanlujan91/multinterp}}.
+[^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project [`alanlujan91/multinterp`](https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb).
 
 ```{figure} ../Figures/Mapping.svg
 :name: fig:mapping

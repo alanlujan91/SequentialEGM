@@ -17,10 +17,6 @@ short_title: Conclusion # a string (max 40 chars) page & project
 # subject: # a string (max 40 chars) page can override project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
-numbering:
-  enumerator: 6.%s
-exports:
-  - format: pdf
 ---
 
 (conclusion)=

@@ -1,42 +1,58 @@
+# See docs at: https://myst-tools.org/docs/mystjs/frontmatter
 version: 1
 project:
   title: "EGM\u207f: The Sequential Endogenous Grid Method"
+  subtitle:
   short_title: "EGM\u207f"
-  venue: Working Paper
-  github: https://github.com/alanlujan91/SequentialEGM
-  open_access: true
-  license: CC-BY-4.0
+  description:
   authors:
-    - name: Alan Lujan
-      corresponding: true
-      email: alanlujan91@gmail.com
-      affiliations:
-        - The Ohio State University
-        - Econ-ARK
-  bibliography:
-    - references.bib
+    userId:
+    name: Alan Lujan
+    orcid:
+    corresponding: true
+    email: alanlujan91@gmail.com
+    roles:
+    affiliations:
+      - The Ohio State University
+      - Econ-ARK
+    twitter:
+    github: alanlujan91
+    website: https://quantmacro.org
+  venue:
+  github: alanlujan91/SequentialEGM
+  keywords:
+    - endogenous grid method
+    - stochastic dynamic programming
+    - gaussian process
+  date:
+  name:
+  doi:
+  arxiv:
+  open_access: true
+  license:
+    code: MIT
+    content: CC-BY-4.0
+  binder:
+  source:
+  subject:
+  biblio:
+    volume:
+    issue:
+    first_page:
+    last_page:
+  oxa:
   numbering:
+    enumerator:
     figure: true
     equation: true
-    code: true
     table: true
+    code: true
     heading_1: true
     heading_2: true
     heading_3: true
-    heading_4: false
-    heading_5: false
-    heading_6: false
-  subject: Economics
-  keywords:
-    - Endogenous Grid Method
-    - Gaussian Processes
-    - Machine Learning
-    - Stochastic Dynamic Programming
-  exports:
-    - format: pdf
-    - format: tex
-      template: arxiv_nips
-      output: arxiv.zip
+    heading_4: true
+    heading_5: true
+    heading_6: true
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'
@@ -231,8 +247,8 @@ project:
     '\leisure': "z"
     '\SE': '\SRat^{e}'
     '\sE': '\sRat^{e}'
-    '\BRatE': "{B}^{e}"
-    '\bRatE': "{b}^{e}"
+    '\BRatE': "B}^{e"
+    '\bRatE': "b}^{e"
     '\CRatE': '\CRat^{e}'
     '\cRatE': '\cRat^{e}'
     '\DiscRate': '\vartheta'
@@ -262,8 +278,8 @@ project:
     '\RPRte': '\text{\thorn}_{\rfree}'
     '\deprRte': '\delta'
     '\Value': '\mathrm{V}'
-    '\VE': "{V}^{e}"
-    '\vE': "{v}^{e}"
+    '\VE': "V}^{e"
+    '\vE': "v}^{e"
     '\Save': "S"
     '\save': "s"
     '\RSave': '\underline{\Rfree}'
@@ -625,7 +641,7 @@ project:
     '\hours': '\mathfrak{h}'
     '\ASS': "A"
     '\aSS': "a"
-    '\cEss': "{c}^{e}"
+    '\cEss': "c}^{e"
     '\mEss': '\check{m}^{e}'
     '\vEss': '\check{v}^{e}'
     '\MSS': '\breve{M}'
@@ -724,25 +740,25 @@ project:
     '\fDist': '\mathcal{f}'
     '\Next': "t+1"
     '\tNext': "t+1"
-    '\BU': "{B}^{u}"
-    '\bU': "{b}^{u}"
+    '\BU': "B}^{u"
+    '\bU': "b}^{u"
     '\CU': '\CRat^{u}'
     '\cU': '\cRat^{u}'
     '\MPCU': '\MPC^{u}'
-    '\MU': "{M}^{u}"
-    '\mU': "{m}^{u}"
+    '\MU': "M}^{u"
+    '\mU': "m}^{u"
     '\PopU': '\mathcal{U}'
     '\SU': '\SRat^{u}'
     '\sU': '\sRat^{u}'
     '\PatU': '\text{\pmb{\Thorn}}_{\urate}'
     '\patu': '\text{\thorn}_{\urate}'
-    '\bRatU': "{b}^{u}"
+    '\bRatU': "b}^{u"
     '\CRatU': '\CRat^{u}'
     '\cRatU': '\cRat^{u}'
     '\SRatU': '\SRat^{u}'
     '\sRatU': '\sRat^{u}'
-    '\VU': "{V}^{u}"
-    '\vU': "{v}^{u}"
+    '\VU': "V}^{u"
+    '\vU': "v}^{u"
     '\BLevU': '\BLev^{u}'
     '\bLevU': '\bLev^{u}'
     '\CLevU': '\CLev^{u}'
@@ -843,3 +859,5 @@ project:
     '\risky': '\mathbf{r}'
     '\Seniority': '\mathsf{X}'
     '\seniority': '\mathsf{x}'
+  thebe:
+  references:
