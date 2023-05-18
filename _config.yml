@@ -100,5 +100,5 @@ sphinx:
   recursive_update: false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config: # key-value pairs to directly over-ride the Sphinx configuration
     bibtex_reference_style: author_year
-    bibtex_bibfiles: Paper/references.bib
+    bibtex_bibfiles: content/references.bib
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

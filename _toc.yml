@@ -18,13 +18,13 @@
 format: jb-book
 root: README
 chapters:
-  - title: Paper
+  - title: site
     sections:
-      - file: content\paper\0_titlepage
-      - file: content\paper\1_intro
-      - file: content\paper\2_method
-      - file: content\paper\3_multdim
-      - file: content\paper\4_multinterp
-      - file: content\paper\5_conditions
-      - file: content\paper\6_conclusion
-      - file: content\paper\7_appendix
+      - file: content/site/0_titlepage
+      - file: content/site/1_intro
+      - file: content/site/2_method
+      - file: content/site/3_multdim
+      - file: content/site/4_multinterp
+      - file: content/site/5_conditions
+      - file: content/site/6_conclusion
+      - file: content/site/7_appendix

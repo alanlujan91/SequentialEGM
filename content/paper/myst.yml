@@ -1,21 +1,20 @@
-# See docs at: https://myst-tools.org/docs/mystjs/frontmatter
 version: 1
 project:
-  title: "EGM\u207f: The Sequential Endogenous Grid Method"
-  short_title: "EGM\u207f"
+  title: "EGMⁿ: The Sequential Endogenous Grid Method"
+  short_title: EGM\u207f
   authors:
-    name: Alan Lujan
-    corresponding: true
-    email: alanlujan91@gmail.com
-    affiliations:
-      - The Ohio State University
-      - Econ-ARK
-    github: alanlujan91
-    website: https://quantmacro.org
+    - name: Alan Lujan
+      corresponding: false
+      email: alanlujan91@gmail.com
+      affiliations:
+        - The Ohio State University
+        - Econ-ARK
+      github: alanlujan91
+      website: https://quantmacro.org
   venue:
     title: REMARK
     url: https://github.com/econ-ark/REMARK
-  github: alanlujan91/SequentialEGM
+  github: https://github.com/alanlujan91/SequentialEGM
   keywords:
     - endogenous grid method
     - stochastic dynamic programming
@@ -23,11 +22,10 @@ project:
     - gaussian process regression
   open_access: true
   license:
-    code: MIT
     content: CC-BY-4.0
+    code: MIT
   subject: Economics
   numbering:
-    enumerator:
     figure: true
     equation: true
     table: true
@@ -38,7 +36,17 @@ project:
     heading_4: true
     heading_5: true
     heading_6: true
-  bibliography: references.bib
+  bibliography:
+    - ../references.bib
+  exports:
+    - format: pdf+tex
+      template: arxiv_nips
+      output: egmn.pdf
+      id: null
+      name: null
+      renderer: null
+      article: egmn.md
+      sub_articles: null
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'
