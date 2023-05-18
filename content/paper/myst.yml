@@ -41,7 +41,7 @@ project:
   exports:
     - format: pdf+tex
       template: arxiv_nips
-      output: egmn.pdf
+      output: ../../public/egmn.pdf
       id: null
       name: null
       renderer: null
@@ -70,10 +70,10 @@ project:
     '\RPFac': '\APFac_{\Rfree}'
     '\DeprFac': '\daleth'
     '\LivFac': '\Alive'
-    '\aVec': '\vec{\mathrm{\aNrm}}'
+    '\aVec': '\vec{\mathrm{a}}'
     '\bVec': '\vec{\mathrm{\bNrm}}'
     '\cVec': '\vec{\mathrm{\cNrm}}'
-    '\mVec': '\vec{\mathrm{\mNrm}}'
+    '\mVec': '\vec{\mathrm{m}}'
     '\yVec': '\vec{\mathrm{\yNrm}}'
     '\Inc': "Y"
     '\inc': "y"
@@ -219,7 +219,7 @@ project:
     '\wage': '\mathsf{w}'
     '\bTargE': '\check{b}^{e}'
     '\CTargE': '\CTarg^{\null}'
-    '\cTargE': '\Target{c}^{e}'
+    '\cTargE': '\check{c}^{e}'
     '\kTargE': '\Target{k}^{e}'
     '\STargE': '\Target{\SRat}^{\null}'
     '\sTargE': '\Target{\sRat}^{\null}'
@@ -241,8 +241,8 @@ project:
     '\leisure': "z"
     '\SE': '\SRat^{e}'
     '\sE': '\sRat^{e}'
-    '\BRatE': "B}^{e"
-    '\bRatE': "b}^{e"
+    '\BRatE': "{B}^{e}"
+    '\bRatE': "{b}^{e}"
     '\CRatE': '\CRat^{e}'
     '\cRatE': '\cRat^{e}'
     '\DiscRate': '\vartheta'
@@ -272,8 +272,8 @@ project:
     '\RPRte': '\text{\thorn}_{\rfree}'
     '\deprRte': '\delta'
     '\Value': '\mathrm{V}'
-    '\VE': "V}^{e"
-    '\vE': "v}^{e"
+    '\VE': "{V}^{e}"
+    '\vE': "{v}^{e}"
     '\Save': "S"
     '\save': "s"
     '\RSave': '\underline{\Rfree}'
@@ -339,7 +339,7 @@ project:
     '\PermLvlAgg': '\PLvl'
     '\zAgg': '\pmb{Z}'
     '\ShkMeanOneLog': '\theta'
-    '\mBalLog': '\BalGroRte{\mNrm}'
+    '\mBalLog': '\BalGroRte{m}'
     '\EpremLog': '\varphi'
     '\ShkLogZeroLog': '\cancel{\ShkMeanOneLog}'
     '\pLog': "p"
@@ -350,7 +350,7 @@ project:
     '\BTarg': '\check{B}'
     '\bTarg': '\check{b}'
     '\CTarg': '\Target{C}'
-    '\cTarg': '\Target{c}'
+    '\cTarg': '\check{c}'
     '\BTargTarg': '\Target{\Target{\BRat}}'
     '\bTargTarg': '\Target{\Target{\bRat}}'
     '\cTargTarg': '\Target{\Target{\cRat}}'
@@ -429,7 +429,7 @@ project:
     '\LLvl': '\mathbf{L}'
     '\ABalLvl': '\BalGroFac{\ALvl}'
     '\MBalLvl': '\BalGroFac{\MNrm}'
-    '\mBalLvl': '\BalGroFac{\mNrm}'
+    '\mBalLvl': '\BalGroFac{m}'
     '\MLvl': '\mathbf{M}'
     '\mLvl': '\mathbf{m}'
     '\PermLvl': '\pLvl'
@@ -474,7 +474,7 @@ project:
     '\FNrm': "F"
     '\fNrm': "f"
     '\bTrgNrm': '\TargetNrm{\bNrm}'
-    '\mTrgNrm': '\TargetNrm{\mNrm}'
+    '\mTrgNrm': '\TargetNrm{m}'
     '\HNrm': "H"
     '\hNrm': "h"
     '\INrm': "I"
@@ -635,7 +635,7 @@ project:
     '\hours': '\mathfrak{h}'
     '\ASS': "A"
     '\aSS': "a"
-    '\cEss': "c}^{e"
+    '\cEss': "{c}^{e}"
     '\mEss': '\check{m}^{e}'
     '\vEss': '\check{v}^{e}'
     '\MSS': '\breve{M}'
@@ -648,13 +648,13 @@ project:
     '\surplus': "z"
     '\TEat': '\TEnd'
     '\patpGrohat': '\hat{\text{\thorn}}_{\pGro}'
-    '\aMat': '[{\mathrm{\aNrm}}]'
-    '\bMat': '[{\mathrm{\bNrm}}]'
-    '\cMat': '[{\mathrm{\cNrm}}]'
-    '\tShkMat': '[{\mathrm{\tShkEmp}}]'
-    '\mMat': '[{\mathrm{\mNrm}}]'
-    '\xMat': '[{\mathrm{\xNrm}}]'
-    '\yMat': '[{\mathrm{\yNrm}}]'
+    '\aMat': '[\mathrm{a}]'
+    '\bMat': '[\mathrm{\bNrm}]'
+    '\cMat': '[\mathrm{\cNrm}]'
+    '\tShkMat': '[\mathrm{\tShkEmp}]'
+    '\mMat': '[\mathrm{m}]'
+    '\xMat': '[\mathrm{\xNrm}]'
+    '\yMat': '[\mathrm{\yNrm}]'
     '\Pat': '\text{\pmb{\Thorn}}'
     '\pat': '\text{\thorn}'
     '\ARat': "A"
@@ -715,7 +715,7 @@ project:
     '\DiscFacAlt': '\beth'
     '\DiscAlt': '\beth'
     '\ValAlt': '\mathcal{V}'
-    '\vOptAlt': '\Alt{\tilde{\mathfrak{v}}}'
+    '\vOptAlt': '\grave{\tilde{\mathfrak{v}}}'
     '\RiskyAlt': '\pmb{\mathfrak{R}}'
     '\riskyAlt': '\pmb{\mathfrak{r}}'
     '\uPmt': '\mu'
@@ -734,25 +734,25 @@ project:
     '\fDist': '\mathcal{f}'
     '\Next': "t+1"
     '\tNext': "t+1"
-    '\BU': "B}^{u"
-    '\bU': "b}^{u"
+    '\BU': "{B}^{u}"
+    '\bU': "{b}^{u}"
     '\CU': '\CRat^{u}'
     '\cU': '\cRat^{u}'
     '\MPCU': '\MPC^{u}'
-    '\MU': "M}^{u"
-    '\mU': "m}^{u"
+    '\MU': "{M}^{u}"
+    '\mU': "{m}^{u}"
     '\PopU': '\mathcal{U}'
     '\SU': '\SRat^{u}'
     '\sU': '\sRat^{u}'
     '\PatU': '\text{\pmb{\Thorn}}_{\urate}'
     '\patu': '\text{\thorn}_{\urate}'
-    '\bRatU': "b}^{u"
+    '\bRatU': "{b}^{u}"
     '\CRatU': '\CRat^{u}'
     '\cRatU': '\cRat^{u}'
     '\SRatU': '\SRat^{u}'
     '\sRatU': '\sRat^{u}'
-    '\VU': "V}^{u"
-    '\vU': "v}^{u"
+    '\VU': "{V}^{u}"
+    '\vU': "{v}^{u}"
     '\BLevU': '\BLev^{u}'
     '\bLevU': '\bLev^{u}'
     '\CLevU': '\CLev^{u}'
