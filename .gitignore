@@ -476,5 +476,7 @@ TSWLatexianTemp*
 
 _build
 .Rproj.user
+.Rhistory
+*.Rproj
 
 private
