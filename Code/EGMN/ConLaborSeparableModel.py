@@ -2,7 +2,6 @@ from copy import copy
 from dataclasses import dataclass
 
 import numpy as np
-from HARK import MetricObject
 from HARK.ConsumptionSaving.ConsIndShockModel import utility, utilityP, utilityP_inv
 from HARK.ConsumptionSaving.ConsLaborModel import (
     ConsumerLaborSolution,
@@ -12,14 +11,21 @@ from HARK.ConsumptionSaving.ConsLaborModel import (
 from HARK.core import make_one_period_oo_solver
 from HARK.distribution import DiscreteDistribution, calc_expectation
 from HARK.interpolation import LinearInterp, LinearInterpOnInterp1D, MargValueFuncCRRA
+from HARK.metric import MetricObject
 
 
-class SeparableLaborConsumerType(LaborIntMargConsumerType):
+class LaborSeparableConsumerType(LaborIntMargConsumerType):
     time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
-    time_inv_ += ["DisutlLabr", "LabrCnst", "LabrShare", "LesrCnst", "LesrShare"]
+    time_inv_ += [
+        "Disutility",
+        "LaborConstant",
+        "LaborShare",
+        "LeisureConstant",
+        "LeisureShare",
+    ]
 
     def __init__(self, **kwds):
-        params = init_separable_labor.copy()
+        params = init_labor_separable.copy()
         params.update(kwds)
 
         super().__init__(**params)
@@ -60,12 +66,12 @@ class SeparableLaborConsumerType(LaborIntMargConsumerType):
             # this is an egm step to find optimal leisure in the terminal period
             x = uPfunc_post_labr(mnrmat) * tshkmat
 
-            if self.DisutlLabr:
-                lbrmat = utilityP_inv(x / self.LabrCnst, -self.LabrShare)
+            if self.Disutility:
+                lbrmat = utilityP_inv(x / self.LaborConstant, -self.LaborShare)
                 lbrmat = np.clip(lbrmat, 0.0, 1.0)
                 lsrmat = 1 - lbrmat
             else:
-                lsrmat = utilityP_inv(x / self.LsrCnst, self.LsrShare)
+                lsrmat = utilityP_inv(x / self.LeisureConstant, self.LeisureShare)
                 lsrmat = np.clip(lsrmat, 0.0, 1.0)
                 lbrmat = 1 - lsrmat
 
@@ -116,17 +122,17 @@ class SeparableLaborConsumerType(LaborIntMargConsumerType):
 
 
 @dataclass
-class SeparableLaborSolver(MetricObject):
+class SeparableLaborSolver:
     solution_next: ConsumerLaborSolution
     TranShkDstn: DiscreteDistribution
     LivPrb: float
     DiscFac: float
     CRRA: float
-    DisutlLabr: bool
-    LabrCnst: float
-    LabrShare: float
-    LesrCnst: float
-    LesrShare: float
+    Disutility: bool
+    LaborConstant: float
+    LaborShare: float
+    LeisureConstant: float
+    LeisureShare: float
     Rfree: float
     PermGroFac: float
     BoroCnstArt: float
@@ -147,14 +153,18 @@ class SeparableLaborSolver(MetricObject):
         self.uP = lambda x: utilityP(x, self.CRRA)
         self.uPinv = lambda x: utilityP_inv(x, self.CRRA)
 
-        if self.DisutlLabr:
-            self.n = lambda x: -self.LabrCnst * utility(1 - x, -self.LabrShare)
-            self.nP = lambda x: self.LabrCnst * utilityP(1 - x, -self.LabrShare)
-            self.nPinv = lambda x: 1 - utilityP_inv(x / self.LabrCnst, -self.LabrShare)
+        if self.Disutility:
+            self.n = lambda x: -self.LaborConstant * utility(1 - x, -self.LaborShare)
+            self.nP = lambda x: self.LaborConstant * utilityP(1 - x, -self.LaborShare)
+            self.nPinv = lambda x: 1 - utilityP_inv(
+                x / self.LaborConstant, -self.LaborShare
+            )
         else:
-            self.n = lambda x: self.LesrCnst * utility(x, self.LesrShare)
-            self.nP = lambda x: self.LesrCnst * utilityP(x, self.LesrShare)
-            self.nPinv = lambda x: utilityP_inv(x / self.LabrCnst, self.LesrShare)
+            self.n = lambda x: self.LeisureConstant * utility(x, self.LeisureShare)
+            self.nP = lambda x: self.LeisureConstant * utilityP(x, self.LeisureShare)
+            self.nPinv = lambda x: utilityP_inv(
+                x / self.LaborConstant, self.LeisureShare
+            )
 
     def prepare_to_solve(self):
         # Unpack next period's solution
@@ -258,10 +268,10 @@ class SeparableLaborSolver(MetricObject):
         return self.solution
 
 
-init_separable_labor = init_labor_intensive.copy()
-init_separable_labor["DisutlLabr"] = True
-init_separable_labor["LabrCnst"] = 0.6
-init_separable_labor["LabrShare"] = 1.0
-init_separable_labor["LesrCnst"] = 0.0
-init_separable_labor["LesrShare"] = 0.0
-# init_separable_labor["UnempPrb"] = 0.0
+init_labor_separable = init_labor_intensive.copy()
+init_labor_separable["Disutility"] = True
+init_labor_separable["LaborConstant"] = 0.6
+init_labor_separable["LaborShare"] = 1.0
+init_labor_separable["LeisureConstant"] = 0.0
+init_labor_separable["LeisureShare"] = 0.0
+# init_labor_separable["UnempPrb"] = 0.0

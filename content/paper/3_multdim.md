@@ -1,7 +1,7 @@
 ---
 # title: The Sequential Endogenous Grid Method # a string (max 500 chars) page & project
 # description: # a string (max 500 chars) page & project
-short_title: Multidimensional # a string (max 40 chars) page & project
+short_title: MultDim # a string (max 40 chars) page & project
 # name:  # a string (max 500 chars) page & project
 # tags:  # a list of strings page only
 # thumbnail: # a link to a local or remote image page only
@@ -17,9 +17,11 @@ short_title: Multidimensional # a string (max 40 chars) page & project
 # subject: # a string (max 40 chars) page can override project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
+numbering:
+    enumerator: "3.%s"
 ---
 
-(multidimensional)=
+(multdim)=
 # The EGM$^n$ in Higher Dimensions
 
 The problem in [Section %s](#method) demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only one state variable and one post-decision state variable per stage. Can EGM$^n$ be used to solve higher dimensional problems? In short, yes, but it requires additional thought on interpolation.

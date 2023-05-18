@@ -1,874 +1,4 @@
----
-title: "EGM\u207f: The Sequential Endogenous Grid Method"
-subtitle:
-short_title: "EGM\u207f"
-description:
-authors:
-  userId:
-  name: Alan Lujan
-  orcid:
-  corresponding: true
-  email: alanlujan91@gmail.com
-  roles:
-  affiliations:
-    - The Ohio State University
-    - Econ-ARK
-  twitter:
-  github: alanlujan91
-  website: https://quantmacro.org
-venue:
-github: alanlujan91/SequentialEGM
-keywords:
-  - endogenous grid method
-  - stochastic dynamic programming
-  - gaussian process
-date:
-name:
-doi:
-arxiv:
-open_access: true
-license:
-  code: MIT
-  content: CC-BY-4.0
-binder:
-source:
-subject:
-biblio:
-  volume:
-  issue:
-  first_page:
-  last_page:
-oxa:
-numbering:
-  enumerator:
-  figure: true
-  equation: true
-  table: true
-  code: true
-  heading_1: true
-  heading_2: true
-  heading_3: true
-  heading_4: true
-  heading_5: true
-  heading_6: true
-math:
-  '\CARA': '\alpha'
-  '\CRRA': '\rho'
-  '\PtyLab': '\mathrm{Z}'
-  '\ptyLab': "z"
-  '\TaxComb': '\mathcal{T}'
-  '\Prob': '\mathbb{P}'
-  '\DiePrb': '\mathsf{D}'
-  '\diePrb': '\mathsf{d}'
-  '\LivPrb': '\cancel{\DiePrb}'
-  '\livPrb': '\cancel{\diePrb}'
-  '\DiscFac': '\beta'
-  '\DieFac': '\pDead'
-  '\GroFac': '\Omega'
-  '\BalGroFac': '\check'
-  '\permGroFac': '\Gamma'
-  '\PermGroFac': '\pmb{\Phi}'
-  '\PopnGroFac': '\Xi'
-  '\APFac': '\text{\pmb{\Thorn}}'
-  '\PopFac': '\PopGro'
-  '\RPFac': '\APFac_{\Rfree}'
-  '\DeprFac': '\daleth'
-  '\LivFac': '\Alive'
-  '\aVec': '\vec{\mathrm{\aNrm}}'
-  '\bVec': '\vec{\mathrm{\bNrm}}'
-  '\cVec': '\vec{\mathrm{\cNrm}}'
-  '\mVec': '\vec{\mathrm{\mNrm}}'
-  '\yVec': '\vec{\mathrm{\yNrm}}'
-  '\Inc': "Y"
-  '\inc': "y"
-  '\PInc': "P"
-  '\AFunc': '\mathrm{A}'
-  '\aFunc': '\mathrm{a}'
-  '\BFunc': '\mathrm{B}'
-  '\bFunc': '\mathrm{b}'
-  '\CFunc': '\mathrm{C}'
-  '\cFunc': '\mathrm{c}'
-  '\MPCFunc': '\pmb{\kappa}'
-  '\DFunc': '\mathrm{D}'
-  '\dFunc': '\mathrm{d}'
-  '\bEndFunc': '\mathfrak{b}'
-  '\CEndFunc': '\mathfrak{C}'
-  '\cEndFunc': '\mathfrak{c}'
-  '\dEndFunc': '\mathfrak{d}'
-  '\lEndFunc': '\mathfrak{l}'
-  '\mEndFunc': '\mathfrak{m}'
-  '\nEndFunc': '\mathfrak{n}'
-  '\VEndFunc': '\mathfrak{V}'
-  '\vEndFunc': '\mathfrak{v}'
-  '\zEndFunc': '\mathfrak{z}'
-  '\ProdFunc': '\mathrm{F}'
-  '\prodFunc': '\mathrm{f}'
-  '\EFunc': '\mathrm{E}'
-  '\eFunc': '\mathrm{e}'
-  '\FFunc': '\mathrm{F}'
-  '\fFunc': '\mathrm{f}'
-  '\GFunc': '\mathrm{G}'
-  '\gFunc': '\mathrm{g}'
-  '\vBegFunc': '\pmb{\upsilon}'
-  '\HFunc': '\mathrm{H}'
-  '\hFunc': '\mathrm{h}'
-  '\IFunc': '\mathrm{I}'
-  '\iFunc': '\mathrm{i}'
-  '\chiFunc': '\pmb{\chi}'
-  '\phiFunc': '\digamma'
-  '\JFunc': '\mathrm{J}'
-  '\jFunc': '\mathrm{j}'
-  '\KFunc': '\mathrm{K}'
-  '\kFunc': '\mathrm{k}'
-  '\LFunc': '\mathrm{L}'
-  '\utilFunc': '\mathrm{u}'
-  '\MFunc': '\mathrm{M}'
-  '\mFunc': '\mathrm{m}'
-  '\NFunc': '\mathrm{N}'
-  '\nFunc': '\mathrm{n}'
-  '\OFunc': '\mathrm{O}'
-  '\PFunc': '\mathrm{P}'
-  '\pFunc': '\mathrm{p}'
-  '\QFunc': '\mathrm{Q}'
-  '\RFunc': '\mathrm{R}'
-  '\rFunc': '\mathrm{r}'
-  '\SFunc': '\mathrm{S}'
-  '\sFunc': '\mathrm{s}'
-  '\MPSFunc': '\pmb{lambda}'
-  '\TFunc': '\mathrm{T}'
-  '\UFunc': '\mathrm{U}'
-  '\uFunc': '\mathrm{u}'
-  '\VFunc': '\mathrm{V}'
-  '\vFunc': '\mathrm{v}'
-  '\cPDVFunc': '\mathbb{C}'
-  '\pPDVFunc': '\mathbb{P}'
-  '\uPDVFunc': '\mathbb{U}'
-  '\cLevFunc': '\pmb{\cFunc}'
-  '\VLevFunc': '\pmb{\mathrm{V}}'
-  '\vLevFunc': '\pmb{\mathrm{v}}'
-  '\RevFunc': '\pmb{\Pi}'
-  '\revFunc': '\pmb{\pi}'
-  '\WFunc': '\mathrm{W}'
-  '\wFunc': '\mathrm{w}'
-  '\XFunc': '\mathrm{X}'
-  '\xFunc': '\mathrm{x}'
-  '\YFunc': '\mathrm{Y}'
-  '\yFunc': '\mathrm{y}'
-  '\ZFunc': '\mathrm{Z}'
-  '\zFunc': '\mathrm{z}'
-  '\MPC': '\kappa'
-  '\PIHMPC': '\varkappa'
-  '\MinMPC': '\uline{\kappa}'
-  '\MinMinMPC': '\underline{\kappa}'
-  '\MaxMinMPC': '\hat{\underline{\kappa}}'
-  '\MaxMPC': '\bar{\kappa}'
-  '\MaxMaxMPC': '\bar{\bar{\kappa}}'
-  '\itc': '\zeta'
-  '\kPriceAfterITC': '\mathscr{P}'
-  '\PostITC': '\cancel{\zeta}'
-  '\pDead': '\mathfrak{D}'
-  '\TaxPaid': "T"
-  '\WMid': '\BLev'
-  '\wMid': '\bLev'
-  '\Wmid': '\BRat'
-  '\wmid': '\bRat'
-  '\Dvdnd': '\mathbf{D}'
-  '\dvdnd': "d"
-  '\edvdnd': '\grave{\dvdnd}'
-  '\hEnd': '\mathfrak{h}'
-  '\GovSpend': "X"
-  '\govSpend': "x"
-  '\xpend': '\xi'
-  '\expend': '\xi'
-  '\TEnd': "T"
-  '\VEnd': '\mathfrak{V}'
-  '\vEnd': '\mathfrak{v}'
-  '\WEnd': '\ALev'
-  '\wEnd': '\aLev'
-  '\Wend': '\ARat'
-  '\wend': '\aRat'
-  '\permGroFacInd': '\pmb{\phi}'
-  '\permShkInd': '\psi'
-  '\tranShkInd': '\theta'
-  '\permLvlInd': '\mathrm{p}'
-  '\RCpnd': '\mathbf{R}'
-  '\Mod': '\tilde'
-  '\Rprod': '\mathscr{R}'
-  '\rprod': '\mathscr{r}'
-  '\RProd': '\mathsf{R}'
-  '\rProd': '\mathsf{r}'
-  '\tranShkIndStd': '\sigma_{\tranShkInd}'
-  '\tranShkAggStd': '\sigma_{\tranShkAgg}'
-  '\ShkMeanOneLogStd': '\sigma_{\ShkMeanOneLog}'
-  '\ShkLogZeroLogStd': '\sigma_{\cancel{\ShkMeanOneLog}}'
-  '\PermShkStd': '\sigma_{\PermShk}'
-  '\TranShkStd': '\sigma_{\TranShk}'
-  '\prud': '\eta'
-  '\tFwd': "n"
-  '\aE': '\aRat^{e}'
-  '\BE': '\BRat^{e}'
-  '\bE': '\bRat^{e}'
-  '\CE': '\CRat^{e}'
-  '\cE': '\cRat^{e}'
-  '\Price': '\mathsf{P}'
-  '\kPrice': '\mathsf{P}'
-  '\Severance': '\kappa'
-  '\MPCE': '\MPC^{e}'
-  '\Rfree': '\mathsf{R}'
-  '\rfree': '\mathsf{r}'
-  '\TaxFree': '\cancel{\Tax}'
-  '\Age': "Z"
-  '\age': "z"
-  '\Wage': '\mathsf{W}'
-  '\wage': '\mathsf{w}'
-  '\bTargE': '\check{b}^{e}'
-  '\CTargE': '\CTarg^{\null}'
-  '\cTargE': '\Target{c}^{e}'
-  '\kTargE': '\Target{k}^{e}'
-  '\STargE': '\Target{\SRat}^{\null}'
-  '\sTargE': '\Target{\sRat}^{\null}'
-  '\yTargE': '\check{y}^{e}'
-  '\ME': '\MRat^{e}'
-  '\mE': '\mRat^{e}'
-  '\TermTime': "T"
-  '\ShkMeanOne': '\Theta'
-  '\PopE': '\mathcal{E}'
-  '\popE': "e"
-  '\labShare': '\nu'
-  '\leiShare': '\zeta'
-  '\kapShare': '\alpha'
-  '\riskyshare': '\varsigma'
-  '\Retire': '\mathbb{R}'
-  '\WPre': "K"
-  '\wPre': "k"
-  '\Leisure': "Z"
-  '\leisure': "z"
-  '\SE': '\SRat^{e}'
-  '\sE': '\sRat^{e}'
-  '\BRatE': "B}^{e"
-  '\bRatE': "b}^{e"
-  '\CRatE': '\CRat^{e}'
-  '\cRatE': '\cRat^{e}'
-  '\DiscRate': '\vartheta'
-  '\pDeadRate': '\grave{\cancel{\mathsf{d}}}'
-  '\erate': '\cancel{\mho}'
-  '\pDieRate': '\grave{\mathsf{d}}'
-  '\timeRate': '\vartheta'
-  '\saveRate': '\grave{s}'
-  '\MRatE': '\MRat^{e}'
-  '\mRatE': '\mRat^{e}'
-  '\SRatE': '\SRat^{e}'
-  '\sRatE': '\sRat^{e}'
-  '\srate': '\varsigma'
-  '\urate': '\mho'
-  '\TaxRate': "t"
-  '\empState': '\xi'
-  '\discRte': '\tau'
-  '\DiscRte': '\vartheta'
-  '\GroRte': '\omega'
-  '\BalGroRte': '\tilde'
-  '\permGroRte': '\gamma'
-  '\PermGroRte': '\varphi'
-  '\PopnGroRte': '\xi'
-  '\APRte': '\text{\thorn}'
-  '\GPRte': '\text{\thorn}_{\PermGroRte}'
-  '\popRte': '\popGro'
-  '\RPRte': '\text{\thorn}_{\rfree}'
-  '\deprRte': '\delta'
-  '\Value': '\mathrm{V}'
-  '\VE': "V}^{e"
-  '\vE': "v}^{e"
-  '\Save': "S"
-  '\save': "s"
-  '\RSave': '\underline{\Rfree}'
-  '\rsave': '\underline{\rfree}'
-  '\Abve': '\bar'
-  '\BLevE': '\BLev^{e}'
-  '\bLevE': '\bLev^{e}'
-  '\CLevE': '\CLev^{e}'
-  '\cLevE': '\cLev^{e}'
-  '\mLevE': '\mLev^{e}'
-  '\SLevE': '\SLev^{e}'
-  '\sLevE': '\sLev^{e}'
-  '\Alive': '\mathcal{L}'
-  '\cFuncAbove': '\bar{\mathrm{c}}'
-  '\aRatBF': '\pmb{a}'
-  '\bRatBF': '\pmb{\mathrm{b}}'
-  '\cRatBF': '\pmb{c}'
-  '\mRatBF': '\pmb{\mathrm{m}}'
-  '\ALevBF': '\mathbf{A}'
-  '\aLevBF': '\mathbf{a}'
-  '\BLevBF': '\mathbf{B}'
-  '\bLevBF': '\mathbf{b}'
-  '\CLevBF': '\mathbf{C}'
-  '\cLevBF': '\mathbf{c}'
-  '\HLevBF': '\mathbf{H}'
-  '\hLevBF': '\mathbf{h}'
-  '\KLevBF': '\mathbf{K}'
-  '\kLevBF': '\mathbf{k}'
-  '\LLevBF': '\mathbf{L}'
-  '\lLevBF': '\pmb{\ell}'
-  '\MLevBF': '\mathbf{M}'
-  '\mLevBF': '\mathbf{m}'
-  '\OLevBF': '\mathbf{O}'
-  '\oLevBF': '\mathbf{o}'
-  '\PLevBF': '\mathbf{P}'
-  '\pLevBF': '\mathbf{p}'
-  '\SLevBF': '\mathbf{S}'
-  '\sLevBF': '\mathbf{s}'
-  '\vLevBF': '\mathbf{v}'
-  '\YLevBF': '\mathbf{Y}'
-  '\yLevBF': '\mathbf{y}'
-  '\ZLevBF': '\mathbf{Z}'
-  '\zLevBF': '\pmb{z}'
-  '\CDF': '\mathcal{F}'
-  '\SDF': '\MLev'
-  '\RfreeEff': '\bar{\Rfree}'
-  '\CGroPF': '\Lambda'
-  '\cGroPF': '\lambda'
-  '\WGroPF': '\mathrm{G}'
-  '\MPCPPF': '\Pi'
-  '\vBeg': '\upsilon'
-  '\WBeg': '\KLev'
-  '\wBeg': '\kLev'
-  '\aAgg': '\mathsf{A}'
-  '\cAgg': '\pmb{C}'
-  '\permGroFacAgg': '\Phi'
-  '\RfreeAgg': '\Agg{\Rfree}'
-  '\PermShkAgg': '\Psi'
-  '\permShkAgg': '\Psi'
-  '\TranShkAgg': '\Theta'
-  '\tranShkAgg': '\Theta'
-  '\permLvlAgg': '\mathrm{P}'
-  '\PermLvlAgg': '\PLvl'
-  '\zAgg': '\pmb{Z}'
-  '\ShkMeanOneLog': '\theta'
-  '\mBalLog': '\BalGroRte{\mNrm}'
-  '\EpremLog': '\varphi'
-  '\ShkLogZeroLog': '\cancel{\ShkMeanOneLog}'
-  '\pLog': "p"
-  '\ImpG': '\Im}_{\PGro'
-  '\impg': '\imath}_{\pGro'
-  '\ATarg': '\check{A}'
-  '\aTarg': '\check{a}'
-  '\BTarg': '\check{B}'
-  '\bTarg': '\check{b}'
-  '\CTarg': '\Target{C}'
-  '\cTarg': '\Target{c}'
-  '\BTargTarg': '\Target{\Target{\BRat}}'
-  '\bTargTarg': '\Target{\Target{\bRat}}'
-  '\cTargTarg': '\Target{\Target{\cRat}}'
-  '\STargTarg': '\Target{\Target{\SRat}}'
-  '\sTargTarg': '\Target{\Target{\sRat}}'
-  '\kTarg': '\Target{k}'
-  '\mTarg': '\check{m}'
-  '\STarg': '\Target{\SRat}'
-  '\sTarg': '\Target{\sRat}'
-  '\vTarg': '\Target{\vRat}'
-  '\yTarg': '\check{y}'
-  '\CGroOverG': '\Upsilon'
-  '\avg': '\bar'
-  '\h': "h"
-  '\Wealth': "O"
-  '\wealth': "o"
-  '\Hi': '\hat'
-  '\Chi': '\mathrm{X}'
-  '\NI': "Z"
-  '\TaxUI': '\tau'
-  '\adj': '\mathrm{j}'
-  '\PermGroFacAdj': '\underline{\PermGroFac}'
-  '\PGroAdj': '\underline{\PGro}'
-  '\pGroAdj': '\underline{\pGro}'
-  '\PatPGroAdj': '\text{\pmb{\Thorn}}_{\underline{\PGro}}'
-  '\patpGroAdj': '\text{\thorn}_{\underline{\pGro}}'
-  '\PermGroFacuAdj': '\underline{\underline{\PermGroFac}}'
-  '\PGrouAdj': '\underline{\underline{\PGro}}'
-  '\pGrouAdj': '\underline{\underline{\pGro}}'
-  '\DiscAltuAdj': '\underline{\underline{\beth}}'
-  '\TEndBak': '\mathsf{p}'
-  '\tBak': '\pmb{n}'
-  '\TEatBak': '\mathtt{q}'
-  '\ek': '\lambda'
-  '\Shk': '\Phi'
-  '\shk': '\phi'
-  '\PermShk': '\mathbf{\Psi}'
-  '\permShk': '\psi'
-  '\uInvEuPermShk': '\underline{\underline{\PermShk}}'
-  '\TranShk': '\pmb{\xi}'
-  '\PShk': '\Psi'
-  '\pShk': '\psi'
-  '\pshk': '\psi'
-  '\TShk': '\Xi'
-  '\tShk': '\xi'
-  '\tshk': '\xi'
-  '\Work': '\mathbb{W}'
-  '\vk': '\lambda'
-  '\util': "u"
-  '\TranShkAll': '\pmb{\xi}'
-  '\tShkAll': '\xi'
-  '\WAll': "O"
-  '\wAll': "o"
-  '\Lvl': '\mathbf'
-  '\ALvl': '\mathbf{A}'
-  '\aLvl': '\mathbf{a}'
-  '\BLvl': '\mathbf{B}'
-  '\bLvl': '\mathbf{b}'
-  '\CLvl': '\mathbf{C}'
-  '\cLvl': '\mathbf{c}'
-  '\DLvl': '\mathbf{D}'
-  '\dLvl': '\mathbf{d}'
-  '\ELvl': '\mathbf{E}'
-  '\eLvl': '\mathbf{e}'
-  '\FLvl': '\mathbf{F}'
-  '\fLvl': '\mathbf{f}'
-  '\GLvl': '\mathbf{G}'
-  '\HLvl': '\mathbf{H}'
-  '\hLvl': '\mathbf{h}'
-  '\ILvl': '\mathbf{I}'
-  '\iLvl': '\mathbf{i}'
-  '\JLvl': '\mathbf{J}'
-  '\jLvl': '\mathbf{j}'
-  '\KLvl': '\mathbf{K}'
-  '\kLvl': '\mathbf{k}'
-  '\LLvl': '\mathbf{L}'
-  '\ABalLvl': '\BalGroFac{\ALvl}'
-  '\MBalLvl': '\BalGroFac{\MNrm}'
-  '\mBalLvl': '\BalGroFac{\mNrm}'
-  '\MLvl': '\mathbf{M}'
-  '\mLvl': '\mathbf{m}'
-  '\PermLvl': '\pLvl'
-  '\NLvl': '\mathbf{N}'
-  '\PopnLvl': '\pmb{\mathrm{N}}'
-  '\OLvl': '\mathbf{O}'
-  '\PLvl': '\mathbf{P}'
-  '\pLvl': '\mathbf{p}'
-  '\QLvl': '\mathbf{Q}'
-  '\RLvl': '\mathbf{R}'
-  '\rLvl': '\mathbf{r}'
-  '\SLvl': '\mathbf{S}'
-  '\sLvl': '\mathbf{s}'
-  '\TLvl': '\mathbf{T}'
-  '\ULvl': '\mathbf{U}'
-  '\VLvl': '\mathbf{V}'
-  '\vLvl': '\mathbf{v}'
-  '\WLvl': '\mathbf{W}'
-  '\XLvl': '\mathbf{X}'
-  '\YLvl': '\mathbf{Y}'
-  '\yLvl': '\mathbf{y}'
-  '\ZLvl': '\mathbf{Z}'
-  '\zLvl': '\mathbf{z}'
-  '\Ham': '\mathcal{H}'
-  '\EPrem': '\Phi'
-  '\eprem': '\varphi'
-  '\tHorOfm': '\pmb{n}'
-  '\debtLim': '\mathsf{d}'
-  '\tTerm': "T"
-  '\vFirm': '\mathrm{e}'
-  '\ANrm': "A"
-  '\aNrm': "a"
-  '\BNrm': "B"
-  '\bNrm': "b"
-  '\CNrm': "C"
-  '\cNrm': "c"
-  '\GPFacNrm': '\APFac_{\PermGroFacAdj}'
-  '\DNrm': "D"
-  '\dNrm': "d"
-  '\ENrm': "E"
-  '\eNrm': "e"
-  '\FNrm': "F"
-  '\fNrm': "f"
-  '\bTrgNrm': '\TargetNrm{\bNrm}'
-  '\mTrgNrm': '\TargetNrm{\mNrm}'
-  '\HNrm': "H"
-  '\hNrm': "h"
-  '\INrm': "I"
-  '\iNrm': "i"
-  '\JNrm': "J"
-  '\jNrm': "j"
-  '\KNrm': "K"
-  '\kNrm': "k"
-  '\MNrm': "M"
-  '\mNrm': "m"
-  '\PNrm': "P"
-  '\pNrm': "p"
-  '\RNrm': '\mathcal{R}'
-  '\rNrm': "s"
-  '\SNrm': "S"
-  '\sNrm': "s"
-  '\TargetNrm': '\hat'
-  '\VNrm': "V"
-  '\vNrm': "v"
-  '\xNrm': "x"
-  '\YNrm': "Y"
-  '\yNrm': "y"
-  '\ZNrm': "Z"
-  '\zNrm': "z"
-  '\Rnorm': '\mathcal{R}'
-  '\rnorm': '\mathit{r}'
-  '\vNorm': '\mathrm{w}'
-  '\WHum': '\HLev'
-  '\wHum': '\hLev'
-  '\Whum': '\HRat'
-  '\whum': '\hRat'
-  '\Num': "N"
-  '\VNum': "V"
-  '\vNum': "v"
-  '\Mean': '\mathbb{M}'
-  '\tThen': '\tau'
-  '\valfn': '\mathrm{v}'
-  '\aMin': '\underline{\aRat}'
-  '\bMin': '\underline{\bRat}'
-  '\MPCmin': '\uline{\kappa}'
-  '\hEndMin': '\underline{\mathfrak{h}}'
-  '\aboveMin': '\blacktriangle'
-  '\hMin': '\underline{\h}'
-  '\HMin': '\underline{H}'
-  '\pShkMin': '\underline{\psi}'
-  '\whumMin': '\underline{\hRat}'
-  '\MPCminmin': '\underline{\kappa}'
-  '\TranShkEmpMin': '\underline{\TranShkEmp}'
-  '\tShkEmpMin': '\underline{\theta}'
-  '\MPSmin': '\pZero^{1/\CRRA} \RPFac'
-  '\MPCmaxmin': '\hat{\underline{\kappa}}'
-  '\Decision': '\mathbb{D}'
-  '\SeveranceRatio': '\varsigma'
-  '\Lo': '\check'
-  '\ShkLogZero': '\cancel{\ShkMeanOne}'
-  '\pZero': '\wp'
-  '\pNotZero': '(1-\pZero)'
-  '\LGro': '\Lambda'
-  '\lGro': '\lambda'
-  '\PGro': '\Gamma'
-  '\pGro': '\gamma'
-  '\GDPGro': '\gimel'
-  '\EmpGro': '\Xi'
-  '\empGro': '\xi'
-  '\PopGro': '\Xi'
-  '\popGro': '\xi'
-  '\PatPGro': '\text{\pmb{\Thorn}}_{\PGro}'
-  '\patpGro': '\text{\thorn}_{\pGro}'
-  '\XperGro': '\mathsf{X}'
-  '\xperGro': '\mathsf{x}'
-  '\DivGro': '\mathrm{G}'
-  '\divGro': '\mathsf{g}'
-  '\WGro': '\mathrm{G}'
-  '\wGro': '\mathsf{g}'
-  '\RnormWGro': '\mathcal{R}_{\WGro}'
-  '\rnormwGro': '\mathit{r}_{\wGro}'
-  '\PatWGro': '\text{\pmb{\Thorn}}_{\WGro}'
-  '\patwGro': '\text{\thorn}_{\wGro}'
-  '\PtyGro': '\Phi'
-  '\ptyGro': '\phi'
-  '\RBoro': '\bar{\Rfree}'
-  '\rboro': '\bar{\rfree}'
-  '\Pareto': '\zeta'
-  '\Kap': "K"
-  '\kap': "k"
-  '\EEndMap': '\mathsf{E}'
-  '\TMap': '\mathscr{T}'
-  '\cP': '\cons^{\prime}'
-  '\MPCP': '\pi'
-  '\taxDep': '\partial'
-  '\FP': '\mathrm{F}^{\prime}'
-  '\fP': '\mathrm{f}^{\prime}'
-  '\TranShkEmp': '\pmb{\theta}'
-  '\TShkEmp': '\Theta'
-  '\tShkEmp': '\theta'
-  '\IncUnemp': '\mu'
-  '\Pop': "L"
-  '\cPP': '\cons^{\prime\prime}'
-  '\FPP': '\mathrm{F}^{\prime\prime}'
-  '\fPP': '\mathrm{f}^{\prime\prime}'
-  '\cPPP': '\cons^{\prime\prime\prime}'
-  '\uPPP': '\mathrm{u}^{\prime\prime\prime}'
-  '\uPP': '\mathrm{u}^{\prime\prime}'
-  '\TaxCorp': '\Large \tau'
-  '\taxCorp': '\tau'
-  '\uP': '\mathrm{u}^{\prime}'
-  '\q': '\koppa'
-  '\adjPar': '\omega'
-  '\tranShkIndVar': '\sigma^{2}_{\tranShkInd}'
-  '\tranShkAggVar': '\sigma^{2}_{\tranShkAgg}'
-  '\ShkMeanOneLogVar': '\sigma^{2}_{\ShkMeanOneLog}'
-  '\ShkLogZeroLogVar': '\sigma_{\cancel{\ShkMeanOneLog}}^{2}'
-  '\PermShkVar': '\sigma^{2}_{\PermShk}'
-  '\TranShkVar': '\sigma^{2}_{\TranShk}'
-  '\sdr': '\mRat'
-  '\Estdr': '\sigma_{\risky}'
-  '\xFer': '\chi'
-  '\XFer': "X"
-  '\nIter': "n"
-  '\power': '\eta'
-  '\labor': '\ell'
-  '\Labor': '\mathrm{L}'
-  '\PLabor': "P"
-  '\Plabor': "P"
-  '\tHor': '\mathsf{n}'
-  '\error': '\epsilon'
-  '\Depr': '\daleth'
-  '\depr': '\delta'
-  '\ImpR': '\Im}_{\Rfree'
-  '\impr': '\imath}_{\rfree'
-  '\EVarr': '\sigma_{\Risky}^{2}'
-  '\Evarr': '\sigma_{\risky}^{2}'
-  '\Err': "Z"
-  '\err': "z"
-  '\CGroOverR': '\Phi'
-  '\corr': '\varrho'
-  '\curr': "1"
-  '\Curr': "t"
-  '\tCurr': "t"
-  '\PatR': '\text{\pmb{\Thorn}}_{\Rfree}'
-  '\patr': '\text{\thorn}_{\rfree}'
-  '\PDies': '\mathsf{D}'
-  '\pDies': '\mathsf{d}'
-  '\PLives': '\cancel{\PDies}'
-  '\pLives': '\cancel{\pDies}'
-  '\Stocks': "S"
-  '\stocks': "s"
-  '\TaxNetTrans': "Z"
-  '\taxNetTrans': "z"
-  '\unins': '\zeta'
-  '\Cons': "C"
-  '\cons': "c"
-  '\MPS': '\lambda'
-  '\MinMPS': '\pZero^{1/\CRRA} \PatR'
-  '\MaxMPS': '\PatR'
-  '\CGroPS': '\chi'
-  '\Hours': '\mathfrak{H}'
-  '\hours': '\mathfrak{h}'
-  '\ASS': "A"
-  '\aSS': "a"
-  '\cEss': "c}^{e"
-  '\mEss': '\check{m}^{e}'
-  '\vEss': '\check{v}^{e}'
-  '\MSS': '\breve{M}'
-  '\mSS': '\breve{m}'
-  '\RGross': '\breve{\mathsf{R}}'
-  '\rGross': '\breve{\mathsf{r}}'
-  '\tSS': "t"
-  '\effUnits': "X"
-  '\Surplus': "Z"
-  '\surplus': "z"
-  '\TEat': '\TEnd'
-  '\patpGrohat': '\hat{\text{\thorn}}_{\pGro}'
-  '\aMat': '[{\mathrm{\aNrm}}]'
-  '\bMat': '[{\mathrm{\bNrm}}]'
-  '\cMat': '[{\mathrm{\cNrm}}]'
-  '\tShkMat': '[{\mathrm{\tShkEmp}}]'
-  '\mMat': '[{\mathrm{\mNrm}}]'
-  '\xMat': '[{\mathrm{\xNrm}}]'
-  '\yMat': '[{\mathrm{\yNrm}}]'
-  '\Pat': '\text{\pmb{\Thorn}}'
-  '\pat': '\text{\thorn}'
-  '\ARat': "A"
-  '\aRat': "a"
-  '\NFARat': '\NRat'
-  '\BRat': "B"
-  '\bRat': "b"
-  '\CRat': "C"
-  '\cRat': "c"
-  '\ccRat': '\mathsf{c}'
-  '\dRat': "d"
-  '\WEndRat': '\ARat'
-  '\wEndRat': '\aRat'
-  '\HRat': "H"
-  '\hRat': "h"
-  '\IRat': "I"
-  '\iRat': "i"
-  '\KRat': "K"
-  '\kRat': "k"
-  '\LRat': "L"
-  '\lRat': "l"
-  '\WAllRat': "O"
-  '\wAllRat': "o"
-  '\MRat': "M"
-  '\mRat': "m"
-  '\NRat': "N"
-  '\nRat': "n"
-  '\ORat': "O"
-  '\oRat': "o"
-  '\pRat': "p"
-  '\GDPRat': "P"
-  '\gdpRat': "p"
-  '\SRat': "S"
-  '\sRat': "s"
-  '\VRat': "V"
-  '\vRat': "v"
-  '\WRat': "O"
-  '\wRat': "o"
-  '\XRat': "X"
-  '\xRat': "x"
-  '\YRat': "Y"
-  '\yRat': "y"
-  '\ZRat': "Z"
-  '\zRat': "z"
-  '\Debt': "D"
-  '\debt': "d"
-  '\Target': '\check'
-  '\WNet': "X"
-  '\wNet': "x"
-  '\straight': '\Pi'
-  '\weight': '\omega'
-  '\Habit': "H"
-  '\habit': "h"
-  '\WMkt': '\MLev'
-  '\wMkt': '\mLev'
-  '\wmkt': '\mLev'
-  '\Alt': '\grave'
-  '\DiscFacAlt': '\beth'
-  '\DiscAlt': '\beth'
-  '\ValAlt': '\mathcal{V}'
-  '\vOptAlt': '\Alt{\tilde{\mathfrak{v}}}'
-  '\RiskyAlt': '\pmb{\mathfrak{R}}'
-  '\riskyAlt': '\pmb{\mathfrak{r}}'
-  '\uPmt': '\mu'
-  '\SeverancePayment': '\mathcal{S}'
-  '\kapRent': '\varkappa'
-  '\Discount': '\beta'
-  '\tinyAmount': '\epsilon'
-  '\WTot': '\mathbf{O}'
-  '\wTot': '\mathbf{o}'
-  '\Wtot': "O"
-  '\wtot': "o"
-  '\vOpt': '\tilde{\mathfrak{v}}'
-  '\Rport': '\mathbb{R}'
-  '\rport': '\mathbb{r}'
-  '\FDist': '\mathcal{F}'
-  '\fDist': '\mathcal{f}'
-  '\Next': "t+1"
-  '\tNext': "t+1"
-  '\BU': "B}^{u"
-  '\bU': "b}^{u"
-  '\CU': '\CRat^{u}'
-  '\cU': '\cRat^{u}'
-  '\MPCU': '\MPC^{u}'
-  '\MU': "M}^{u"
-  '\mU': "m}^{u"
-  '\PopU': '\mathcal{U}'
-  '\SU': '\SRat^{u}'
-  '\sU': '\sRat^{u}'
-  '\PatU': '\text{\pmb{\Thorn}}_{\urate}'
-  '\patu': '\text{\thorn}_{\urate}'
-  '\bRatU': "b}^{u"
-  '\CRatU': '\CRat^{u}'
-  '\cRatU': '\cRat^{u}'
-  '\SRatU': '\SRat^{u}'
-  '\sRatU': '\sRat^{u}'
-  '\VU': "V}^{u"
-  '\vU': "v}^{u"
-  '\BLevU': '\BLev^{u}'
-  '\bLevU': '\bLev^{u}'
-  '\CLevU': '\CLev^{u}'
-  '\cLevU': '\cLev^{u}'
-  '\SLevU': '\SLev^{u}'
-  '\sLevU': '\sLev^{u}'
-  '\pSav': '\phi'
-  '\PDV': '\mathbb{P}'
-  '\CPDV': '\text{PDV($C$)}'
-  '\PPDV': '\text{PDV($P$)}'
-  '\ALev': "A"
-  '\aLev': "a"
-  '\NFALev': '\NLev'
-  '\BLev': "B"
-  '\bLev': "b"
-  '\CLev': "C"
-  '\cLev': "c"
-  '\DLev': "D"
-  '\ELev': "E"
-  '\FLev': "F"
-  '\fLev': "f"
-  '\GLev': "G"
-  '\HLev': '\pmb{H}'
-  '\hLev': '\pmb{h}'
-  '\ILev': "I"
-  '\iLev': "i"
-  '\JLev': "J"
-  '\KLev': "K"
-  '\kLev': "k"
-  '\lLev': '\ell'
-  '\LLev': "L"
-  '\WAllLev': '\mathbf{O}'
-  '\wAllLev': '\mathbf{o}'
-  '\MLev': "M"
-  '\mLev': "m"
-  '\NLev': "N"
-  '\nLev': "n"
-  '\oLev': '\pmb{o}'
-  '\OLev': "O"
-  '\pLev': '\pmb{p}'
-  '\PLev': "P"
-  '\GDPLev': '\pmb{P}'
-  '\gdpLev': '\pmb{p}'
-  '\PopLev': '\pmb{N}'
-  '\QLev': "Q"
-  '\RLev': "R"
-  '\SLev': "S"
-  '\sLev': "s"
-  '\TLev': "T"
-  '\ULev': "U"
-  '\uLev': "u"
-  '\VLev': "V"
-  '\vLev': "v"
-  '\wLev': '\pmb{w}'
-  '\WLev': "W"
-  '\XLev': "X"
-  '\xLev': "x"
-  '\TaxLev': "T"
-  '\YLev': "Y"
-  '\yLev': "y"
-  '\PtyLev': "A"
-  '\ptyLev': "a"
-  '\ZLev': "Z"
-  '\zLev': "z"
-  '\Rev': '\Pi'
-  '\rev': '\pi'
-  '\tPrev': "t-1"
-  '\Div': "D"
-  '\DiscFacLiv': '\underline{\DiscFacRaw}'
-  '\Inv': "I"
-  '\inv': "i"
-  '\TaxCombInv': '\mathcal{T}^{-1}'
-  '\EPermShkInv': '\Ex[\PermShk^{-1}]'
-  '\InvEPermShkInv': '\underline{\PermShk}'
-  '\EpShkInv': '\Ex[\pShk^{-1}]'
-  '\InvEpShkInv': '\underline{\psi}'
-  '\uInvEpShkuInv': '\underline{\underline{\psi}}'
-  '\VInv': '\Lambda'
-  '\vInv': '\scriptstyle \Lambda \displaystyle'
-  '\cov': '\textup{cov}'
-  '\DiscFacRaw': '\beta'
-  '\GPFacRaw': '\APFac_{\PermGroFac}'
-  '\Belw': '\ushort'
-  '\GovNW': "N"
-  '\govNW': "n"
-  '\cFuncBelow': '\uline{\mathrm{c}}'
-  '\tNow': "t"
-  '\cFuncMax': '\bar{\bar{\mathrm{c}}}'
-  '\MPCmax': '\bar{\kappa}'
-  '\MPSmax': '\RPFac'
-  '\MPCmaxmax': '\bar{\bar{\kappa}}'
-  '\Tax': '\tau'
-  '\tax': '\tau'
-  '\Ex': '\mathbb{E}'
-  '\prudEx': '\omega'
-  '\Steady': '\bar'
-  '\Risky': '\mathbf{R}'
-  '\risky': '\mathbf{r}'
-  '\Seniority': '\mathsf{X}'
-  '\seniority': '\mathsf{x}'
-thebe:
-references:
-exports:
-  format: pdf+tex
-  template:
-  ouptut:
-  id:
-  name:
-  renderer:
-  article:
-  sub_articles:
----
+
 
 +++ {"part": "abstract"}
 
@@ -967,7 +97,7 @@ Additionally, the Sequential Endogenous Grid Method often sheds light on the pro
 % "The first Section below presents a theoretical model that can be used to generate specific
 % hypotheses. Then [Section %s](#method) presents the econometric model, ..."
 
-[Section %s](#method) presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then [Section %s](#multidimensional) introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In [Section %s](#multinterp) I present the unstructured interpolation methods using machine learning in more detail. [Section %s](#conditions) discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, [Section %s](#conclusion) concludes with some limitations and future work.
+[Section %s](#method) presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then [Section %s](#multdim) introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In [Section %s](#multinterp) I present the unstructured interpolation methods using machine learning in more detail. [Section %s](#conditions) discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, [Section %s](#conclusion) concludes with some limitations and future work.
 
 (method)=
 # The Sequential Endogenous Grid Method
@@ -1434,7 +564,7 @@ To close the solution method, the envelope conditions are
 
 ## Unstructured Grid Interpolation
 
-```{figure} ../Figures/ExogenousGrid.svg
+```{figure} ../content/figures/ExogenousGrid.svg
 :name: fig:exog
 :align: center
 
@@ -1443,7 +573,7 @@ A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{
 
 As in [Section %s](#method), the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in  [Figure %s](#fig:exog) that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain [Figure %s](#fig:endog) which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
 
-```{figure} ../Figures/EndogenousGrid.svg
+```{figure} ../content/figures/EndogenousGrid.svg
 :name: fig:endog
 :align: center
 
@@ -1463,7 +593,7 @@ Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for w
 
 [^f3]: For this illustration, we generate $z$'s arbitrarily using the function $$f(x,y) = (xy)^{1/4}.$$
 
-```{figure} ../Figures/WarpedInterpolation.svg
+```{figure} ../content/figures/WarpedInterpolation.svg
 :name: fig:warped_interp
 :align: center
 
@@ -1474,7 +604,7 @@ In [Figure %s](#fig:warped_interp), we can see the true function in three-dimens
 
 In [Figure %s](#fig:homotopy) we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
 
-```{figure} ../Figures/Homotopy.svg
+```{figure} ../content/figures/Homotopy.svg
 :name: fig:homotopy
 :align: center
 
@@ -1485,7 +615,7 @@ The objective is to be able to interpolate the value of the function at any poin
 
 [^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project[`alanlujan91/multinterp`](https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb).
 
-```{figure} ../Figures/Mapping.svg
+```{figure} ../content/figures/Mapping.svg
 :name: fig:mapping
 :align: center
 
@@ -1558,7 +688,7 @@ Using GPR to interpolate a function $f$, we can both predict the value of the fu
 
 In [Figure %s](#fig:true_function), we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
 
-```{figure} ../Figures/true_function.svg
+```{figure} ../content/figures/true_function.svg
 :name: fig:true_function
 :align: center
 
@@ -1567,7 +697,7 @@ The true function that we are trying to approximate and a sample of data points.
 
 As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In [Figure %s](#fig:gpr_sample), we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
 
-```{figure} ../Figures/gpr_sample.svg
+```{figure} ../content/figures/gpr_sample.svg
 :name: fig:gpr_sample
 :align: center
 
@@ -1578,7 +708,7 @@ In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametriza
 
 [^f6]: For details see notebook.
 
-```{figure} ../Figures/gpr.svg
+```{figure} ../content/figures/gpr.svg
 :name: fig:gpr
 :align: center
 
@@ -1597,7 +727,7 @@ The first step in using the Sequential Endogenous Grid Method is to split the pr
 To split up the problem, we first count the number of control variables or decisions faced by the agent. Ideally, if the agent has $n$ control variables, then the problem should be split into $n$ subproblems, each handling a different control variable. For counting the number of control variables, it is important to not double count variables which are equivalent and have market clearing conditions. For example, the decision of how much to consume and how much to save may seem like two different choices, but because of the market clearing condition $\cRat + \aRat = \mRat$ they are resolved simultaneously and count as only one decision variable. Similarly, the
 choice between labor and leisure are simultaneous and count as only one decision.
 
-Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in [Section %s](#method) of the paper, or differentiable and invertible functions in the transition, as in [Section %s](#multidimensional) of the paper.
+Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in [Section %s](#method) of the paper, or differentiable and invertible functions in the transition, as in [Section %s](#multdim) of the paper.
 
 %note: Capitalize Section for all instances # DONE
 
@@ -1607,7 +737,7 @@ In [Section %s](#method), we have additively separable utility of consumption an
 
 As mentioned in that section, however, there are only two separable utility functions in the problem which have been assigned to two subproblems already. This leaves one control variable without a separable utility function. In that case, there is not another Endogenous Grid Method step to exploit, and this subproblem has to be handled by standard convex optimization techniques such as maximization of the value function (VFI) or finding the root of the Euler equation (PFI).
 
-%note: spell out small numbers except for when talking about a [Section %s](#multidimensional) etc
+%note: spell out small numbers except for when talking about a [Section %s](#multdim) etc
 
 Now that we have split the problem into conceptual subproblems, it is important to sequence them in such a way that they don't become more complex than the original problem. The key here is to avoid adding unnecessary state variables. For example, in the consumption-leisure-portfolio problem, if we were to choose consumption first, we would have to track the wage rate into the following leisure subproblem. This would mean that our consumption problem would be two-dimensional as well as our labor decision problem. As presented, the choice of order in [Section %s](#method) ensures that the consumption problem is one-dimensional, as we can shed the information about the wage rate offer after the agent has made their labor-leisure decision. If we did this the other way, the problem would be more complex and require additional computational resources.
 
@@ -1636,17 +766,17 @@ Therefore, strategic ordering of subproblems can greatly simplify the solution p
 
 ### Differentiable and invertible transition
 
-In [Section %s](#multidimensional), we see that a problem with a differentiable and invertible transition can also be used to embed an additional Endogenous Grid Method step. Because the transition applies independently to a state variable that is not related to the other control variable, consumption, it can be handled separately from the consumption subproblem.
+In [Section %s](#multdim), we see that a problem with a differentiable and invertible transition can also be used to embed an additional Endogenous Grid Method step. Because the transition applies independently to a state variable that is not related to the other control variable, consumption, it can be handled separately from the consumption subproblem.
 
 %note to check the tense of the entire text
 
 In this particular problem, however, it turns out to make no difference how we order the two subproblems. This is because the control variables, consumption and pension deposit, each affect a separate resource account, namely market resources and pension balance. Because of this, the two subproblems are independent of each other and can be solved in any order.
 
-A good rule of thumb is that when splitting up a problem into subproblems, we should try to reduce the information set that is passed onto the next subproblem. In [Section %s](#method), choosing leisure-labor and realizing total market resources before consumption allows us to shed the wage rate offer state variable before the consumption problem, and we know that for the portfolio choice we only need to know liquid assets after expenditures (consumption). Thus, the order makes intuitive sense; agent first chooses leisure-labor, realizing total market resources, then chooses consumption and savings, and finally chooses their risky portfolio choice. In [Section %s](#multidimensional), there are two expenditures that are independent of each other, consumption and deposit, and making one decision or the other first does not reduce the information set for the agent, thus the order of these subproblems does not matter.
+A good rule of thumb is that when splitting up a problem into subproblems, we should try to reduce the information set that is passed onto the next subproblem. In [Section %s](#method), choosing leisure-labor and realizing total market resources before consumption allows us to shed the wage rate offer state variable before the consumption problem, and we know that for the portfolio choice we only need to know liquid assets after expenditures (consumption). Thus, the order makes intuitive sense; agent first chooses leisure-labor, realizing total market resources, then chooses consumption and savings, and finally chooses their risky portfolio choice. In [Section %s](#multdim), there are two expenditures that are independent of each other, consumption and deposit, and making one decision or the other first does not reduce the information set for the agent, thus the order of these subproblems does not matter.
 
 ## The Endogenous Grid Method for Subproblems
 
-Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections [Section %s](#method) and [Section %s](#multidimensional), the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
+Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections [Section %s](#method) and [Section %s](#multdim), the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
 
 ### Utility function
 

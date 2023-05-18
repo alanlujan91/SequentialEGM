@@ -2,7 +2,6 @@ from copy import copy
 from dataclasses import dataclass
 
 import numpy as np
-from HARK import MetricObject
 from HARK.ConsumptionSaving.ConsLaborModel import (
     LaborIntMargConsumerType,
     init_labor_intensive,
@@ -19,6 +18,7 @@ from HARK.interpolation import (
     MargValueFuncCRRA,
     ValueFuncCRRA,
 )
+from HARK.metric import MetricObject
 from HARK.rewards import (
     CRRAutility,
     CRRAutilityP,

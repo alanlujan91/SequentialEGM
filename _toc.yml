@@ -23,7 +23,7 @@ chapters:
       - file: content\paper\0_titlepage
       - file: content\paper\1_intro
       - file: content\paper\2_method
-      - file: content\paper\3_multidimensional
+      - file: content\paper\3_multdim
       - file: content\paper\4_multinterp
       - file: content\paper\5_conditions
       - file: content\paper\6_conclusion

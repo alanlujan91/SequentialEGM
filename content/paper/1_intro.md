@@ -17,6 +17,8 @@ short_title: Intro # a string (max 40 chars) page & project
 # subject: # a string (max 40 chars) page can override project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
+numbering:
+    enumerator: "1.%s"
 ---
 
 (introduction)=
@@ -97,4 +99,4 @@ Additionally, the Sequential Endogenous Grid Method often sheds light on the pro
 % "The first Section below presents a theoretical model that can be used to generate specific
 % hypotheses. Then [Section %s](#method) presents the econometric model, ..."
 
-[Section %s](#method) presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then [Section %s](#multidimensional) introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In [Section %s](#multinterp) I present the unstructured interpolation methods using machine learning in more detail. [Section %s](#conditions) discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, [Section %s](#conclusion) concludes with some limitations and future work.
+[Section %s](#method) presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then [Section %s](#multdim) introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In [Section %s](#multinterp) I present the unstructured interpolation methods using machine learning in more detail. [Section %s](#conditions) discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, [Section %s](#conclusion) concludes with some limitations and future work.
