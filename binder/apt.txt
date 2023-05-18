@@ -1,7 +1,0 @@
-texlive-latex-recommended
-texlive-fonts-recommended
-texlive-fonts-extra
-texlive-lang-greek
-texlive-math-science
-latexmk
-dvipng

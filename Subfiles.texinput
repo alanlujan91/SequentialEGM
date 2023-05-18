@@ -1,7 +1,0 @@
-% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
-\subfile{Subfiles/1Intro}
-\subfile{Subfiles/2Method}
-\subfile{Subfiles/3HigherDims}
-\subfile{Subfiles/4UnstructuredInterp}
-\subfile{Subfiles/5WhentoUse}
-\subfile{Subfiles/6Conclusion}

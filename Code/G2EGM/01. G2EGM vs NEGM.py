@@ -34,7 +34,6 @@ import numpy as np
 np.seterr(all="ignore")  # ignoring all warnings
 
 # %% pycharm={"name": "#%%\n"}
-
 # load the G2EGMModel module
 from G2EGMModel import G2EGMModelClass
 
