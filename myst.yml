@@ -38,8 +38,9 @@ site:
     - title: My Website
       url: https://quantmacro.org
   actions:
-    - title: Learn about Econ-ARK
-      url: https://github.com/econ-ark
+    - title: Download paper
+      url: public/SequentialEGMn.pdf
+      static: true
   domains:
     - alanlujan91.curve.space
   favicon: public/econ-ark-logo-small.png

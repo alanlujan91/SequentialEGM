@@ -41,7 +41,7 @@ project:
   exports:
     - format: pdf+tex
       template: arxiv_nips
-      output: ../../public/egmn.pdf
+      output: ../../public/SequentialEGMn.pdf
       id: null
       name: null
       renderer: null
