@@ -147,10 +147,8 @@ vFunc_retiring = [retiring_solution[t].vFunc for t in range(agent.T_age)]
 # %% pycharm={"name": "#%%\n"}
 plot_retired(0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 t = 0
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Working
@@ -164,16 +162,13 @@ t = 0
 # wa
 plot_3d_func(dvdaEndOfPrdFunc_working[t].cFunc, 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 # wb
 plot_3d_func(dvdbEndOfPrdFunc_working[t].cFunc, 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 # w
 plot_3d_func(vEndOfPrdFunc_working[t].vFuncNvrs, 0.0, 10)
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # ## Consumption Stage
@@ -182,18 +177,14 @@ plot_3d_func(vEndOfPrdFunc_working[t].vFuncNvrs, 0.0, 10)
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(cInnerFunc_working[t], 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dvdlInnerFunc_working[t].cFunc, 0.1, 10)
-
 
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dvdbInnerFunc_working[t].cFunc, 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(vInnerFunc_working[t].vFuncNvrs, 0.0, 10)
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # ## Deposit Stage
@@ -202,22 +193,17 @@ plot_3d_func(vInnerFunc_working[t].vFuncNvrs, 0.0, 10)
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(cFunc_working[t], 0.1, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dFunc_working[t], 0.0, 10)
-
 
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dvdmFunc_working[t].cFunc, 0.1, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dvdnFunc_working[t].cFunc, 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(vFunc_working[t].vFuncNvrs, 0.1, 10)
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Retiring
@@ -226,14 +212,11 @@ plot_3d_func(vFunc_working[t].vFuncNvrs, 0.1, 10)
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(cFunc_retiring[t], 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(vPfunc_retiring[t].cFunc, 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(vFunc_retiring[t].vFuncNvrs, 0.0, 10)
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Worker
@@ -242,30 +225,23 @@ plot_3d_func(vFunc_retiring[t].vFuncNvrs, 0.0, 10)
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(cFunc_worker[t], 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dFunc_worker[t], 0.0, 10)
-
 
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dvdmFunc_worker[t].cFunc, 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(dvdnFunc_worker[t].cFunc, 0.0, 10)
-
 
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(vFunc_worker[t].vFuncNvrs, 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(prbWrkFunc_worker[t], 0.0, 10)
 
-
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(prbRetFunc_worker[t], 0.0, 10)
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 #

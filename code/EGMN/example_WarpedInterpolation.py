@@ -42,7 +42,6 @@ values = np.power(points[0] * points[1], 1 / 4)
 plt.scatter(points[0], points[1], c="b")
 plt.grid()
 
-
 # %% [markdown]
 # In the graph below, we can see the true function in 3D space, along with the points for which we actually know the value of the function.
 #
@@ -64,7 +63,6 @@ for i in range(9):
         c="b",
         alpha=0.5,
     )
-
 
 x = np.linspace(1, 9, 100)
 xmat, ymat = np.meshgrid(x, x, indexing="ij")
@@ -124,7 +122,6 @@ ax.plot_surface(coord_points[0], coord_points[1], values, alpha=0.5)
 ax.view_init(30, -130)
 
 ax.scatter(coord_points[0], coord_points[1], values, c="r")
-
 
 # %% [markdown]
 # The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured below. If we could find the correspoinding point in the coordinate grid, interpolation would be straightforward.
@@ -207,7 +204,6 @@ plt.grid()
 
 plt.subplot(1, 2, 2)
 
-
 plt.scatter(points[0], coord_points[1], c="b")
 plt.plot(points[0], coord_points[1], "g")
 plt.axvline(x=3, color="c", linestyle="--")
@@ -226,7 +222,6 @@ plt.plot(points[0].T, coord_points[1], "r")
 plt.axvline(x=3, color="c", linestyle="--")
 plt.scatter([3, 3], [0, 1], s=150, facecolors="none", edgecolors="m")
 plt.grid()
-
 
 # %%
 plt.scatter(points[0], points[1], c="b")

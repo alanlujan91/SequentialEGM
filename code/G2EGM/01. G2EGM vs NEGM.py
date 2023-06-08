@@ -93,7 +93,6 @@ model_NEGM = G2EGMModelClass(
 model_NEGM.precompile_numba()
 model_NEGM = timing(model_NEGM)
 
-
 # %% pycharm={"name": "#%%\n"}
 model_NEGM_shocks = G2EGMModelClass(
     name="NEGM_shocks",
@@ -108,7 +107,6 @@ model_NEGM_shocks = G2EGMModelClass(
 model_NEGM_shocks.precompile_numba()
 model_NEGM_shocks = timing(model_NEGM_shocks)
 
-
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # G2EGM
 #
@@ -119,7 +117,6 @@ model_G2EGM = G2EGMModelClass(
 )
 model_G2EGM.precompile_numba()
 model_G2EGM = timing(model_G2EGM)
-
 
 # %% pycharm={"name": "#%%\n"}
 model_G2EGM_shocks = G2EGMModelClass(
@@ -134,7 +131,6 @@ model_G2EGM_shocks = G2EGMModelClass(
 )
 model_G2EGM_shocks.precompile_numba()
 model_G2EGM_shocks = timing(model_G2EGM_shocks)
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Table

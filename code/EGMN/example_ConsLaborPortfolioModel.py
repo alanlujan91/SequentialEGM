@@ -16,7 +16,7 @@
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
-from ConsLaborPortfolioModel import LaborPortfolioConsumerType
+from ConsLaborSeparableModel import LaborPortfolioConsumerType
 from HARK.utilities import plot_funcs
 
 # %% pycharm={"name": "#%%\n"}
@@ -48,7 +48,6 @@ def plot_3d_func(func, lims_x, lims_y, n=100, label_x="x", label_y="y", label_z=
 # %% pycharm={"name": "#%%\n"}
 agent.solve()
 
-
 # %%
 share_func = agent.solution[0].portfolio_stage.share_func
 c_func = agent.solution[0].consumption_stage.c_func
@@ -71,7 +70,6 @@ plot_3d_func(
     label_z="labor",
 )
 
-
 # %%
 plot_3d_func(
     leisure_func,
@@ -84,6 +82,5 @@ plot_3d_func(
 
 # %% pycharm={"name": "#%%\n"}
 plot_funcs(agent.solution[0].consumption_stage.c_func, 0, 10)
-
 
 # %%

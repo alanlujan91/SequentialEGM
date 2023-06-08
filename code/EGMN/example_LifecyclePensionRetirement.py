@@ -22,15 +22,12 @@ from IPython import get_ipython
 
 plt.style.use("seaborn-whitegrid")
 
-
 # %%
 agent = PensionRetirementConsumerType()
 agent.solve()
 
-
 # %%
 plot_funcs(agent.solution[10].cFunc, 0, 40)
-
 
 # %%
 plot_funcs(agent.solution[0].consumption_stage.c_func.xInterpolators, 0, 40)
@@ -57,7 +54,6 @@ def plot_3d_func(func, min, max, n=100):
 
 # %%
 plot_3d_func(agent.solution[0].deposit_stage.c_func, 0, 40)
-
 
 # %%
 plot_3d_func(agent.solution[0].deposit_stage.d_func, 0, 40)
@@ -123,7 +119,6 @@ ax.set_xlabel("Market Resources $m$")
 ax.set_ylabel("Retirement Savings $n$")
 plt.show()
 fig.savefig("EndogenousGrid.pdf")
-
 
 # %%
 
