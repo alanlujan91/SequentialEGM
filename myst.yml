@@ -45,9 +45,9 @@ site:
     - alanlujan91.curve.space
   favicon: public/econ-ark-logo-small.png
 project:
-  authors: []
+  authors: [ ]
   github: alanlujan91/SequentialEGM
-  keywords: []
+  keywords: [ ]
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'

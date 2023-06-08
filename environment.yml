@@ -5,10 +5,12 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - python=3.10
   - black
   - cupy
   - estimagic
   - ipympl
+  - jupyter
   - jupyterlab
   - jupyter-book
   - jupytext
@@ -20,7 +22,6 @@ dependencies:
   - pandas
   - pip
   - pre-commit
-  - python=3.10
   - scikit-learn
   - scipy
   - seaborn
@@ -29,8 +30,10 @@ dependencies:
   - pytorch
   - gpytorch
   - skorch
+  - ruff
   - pip:
       - git+https://github.com/alanlujan91/HARK@map_coordinates
       - ConSav
       - EconModel
       - Tasmanian
+      - black[jupyter]
