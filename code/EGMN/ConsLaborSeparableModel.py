@@ -89,8 +89,7 @@ class UtilityFuncLeisure(UtilityFuncCRRA):
 
 
 class DisutilityFuncLabor(UtilityFuncLeisure):
-    def __call__(self, z, order=0):
-        return -1.0 * super().__call__(z, order=order)
+    pass
 
 
 class LaborSeparableConsumerType(LaborIntMargConsumerType):
@@ -109,7 +108,7 @@ class LaborSeparableConsumerType(LaborIntMargConsumerType):
 
         super().__init__(**params)
 
-        self.solve_one_period = make_one_period_oo_solver(SeparableLaborSolver)
+        self.solve_one_period = make_one_period_oo_solver(LaborSeparableSolver)
 
     def update(self):
         super().update()
@@ -160,7 +159,7 @@ class LaborSeparableConsumerType(LaborIntMargConsumerType):
         # and instead build a lower envelope to see what agents would do
         # if they were not constrained by the labor constraint
         # make sure leisure is not greater than 1.0
-        with np.errstate(divide="ignore", invalid="ignore"):
+        with np.errstate(all="ignore"):
             x = policyFuncUnc(mnrm_mat, tshk_mat)
             x = np.clip(x, 0.0, 1.0)
 
@@ -179,26 +178,27 @@ class LaborSeparableConsumerType(LaborIntMargConsumerType):
             # bank balances = cash on hand - wage * labor
             bnrm_mat = mnrm_mat - tshk_mat * labor_mat * wagerate
 
-            self.leisure_func_terminal = WarpedInterpOnInterp2D(
-                leisure_mat, [bnrm_mat, tshk_mat]
-            )
-
-            self.labor_func_terminal = WarpedInterpOnInterp2D(
-                labor_mat, [bnrm_mat, tshk_mat]
-            )
-
-            self.cFunc_terminal = WarpedInterpOnInterp2D(cnrmat, [bnrm_mat, tshk_mat])
-
             if self.Disutility:
                 vnrm_mat = nFunc(labor_mat) + v_func_cs(mnrm_mat)
             else:
                 vnrm_mat = nFunc(leisure_mat) + v_func_cs(mnrm_mat)
 
             vnrmnvrs_mat = uFunc.inverse(vnrm_mat)
-            vNvrs_func = WarpedInterpOnInterp2D(vnrmnvrs_mat, [bnrm_mat, tshk_mat])
-            self.vFunc_terminal = ValueFuncCRRA(vNvrs_func, self.CRRA)
 
-            self.vPfunc_terminal = MargValueFuncCRRA(self.cFunc_terminal, self.CRRA)
+        self.leisure_func_terminal = WarpedInterpOnInterp2D(
+            leisure_mat, [bnrm_mat, tshk_mat]
+        )
+
+        self.labor_func_terminal = WarpedInterpOnInterp2D(
+            labor_mat, [bnrm_mat, tshk_mat]
+        )
+
+        self.cFunc_terminal = WarpedInterpOnInterp2D(cnrmat, [bnrm_mat, tshk_mat])
+
+        vNvrs_func = WarpedInterpOnInterp2D(vnrmnvrs_mat, [bnrm_mat, tshk_mat])
+        self.vFunc_terminal = ValueFuncCRRA(vNvrs_func, self.CRRA)
+
+        self.vPfunc_terminal = MargValueFuncCRRA(self.cFunc_terminal, self.CRRA)
 
         ll_stage = LaborLeisureStage(
             labor_func=self.labor_func_terminal,
@@ -214,7 +214,7 @@ class LaborSeparableConsumerType(LaborIntMargConsumerType):
 
 
 @dataclass
-class SeparableLaborSolver:
+class LaborSeparableSolver:
     solution_next: ConsumerLaborSolution
     TranShkDstn: DiscreteDistribution
     LivPrb: float
@@ -251,7 +251,7 @@ class SeparableLaborSolver:
 
     def prepare_to_solve(self):
         # Unpack next period's solution
-        self.vPfunc_next = self.solution_next.labor_leisure.vp_func
+        self.vp_func_next = self.solution_next.labor_leisure.vp_func
 
     def prepare_to_calc_EndOfPrdvP(self):
         # we can add zero back because it's not the natural borrowing constraint
@@ -263,10 +263,10 @@ class SeparableLaborSolver:
             # This calculation is inefficient because it has to interpolate over shocks
             # because of the way this does expectations, there's no off-the-grid shocks
             # have to make sure shock and bnrm are same dimension
-            return self.vPfunc_next(bnrm, shock.repeat(bnrm.size))
+            return self.vp_func_next(bnrm, shock.repeat(bnrm.size))
 
         EndOfPrdvP_vals = calc_expectation(self.TranShkDstn, dvdb_func, self.bGrid)
-        EndOfPrdvP_nvrs = self.u.derinv(EndOfPrdvP_vals)
+        EndOfPrdvP_nvrs = self.u_func.derinv(EndOfPrdvP_vals)
         EndOfPrdvP_nvrs_func = LinearInterp(self.bGrid, EndOfPrdvP_nvrs)
         EndOfPrdvP_func = MargValueFuncCRRA(EndOfPrdvP_nvrs_func, self.CRRA)
 
@@ -296,7 +296,7 @@ class SeparableLaborSolver:
         mnrmat, tshkmat = np.meshgrid(mgrid, tshkgrid, indexing="ij")
 
         # this is the egm step, given exog m and tshk, find leisure
-        lsrmat = self.n.derinv(self.vPfuncEndOfPrd(mnrmat) * tshkmat)
+        lsrmat = self.n_func.derinv(self.vPfuncEndOfPrd(mnrmat) * tshkmat)
         # Make sure lsrgrid is not greater than 1.0
         lsrmat = np.clip(lsrmat, 0.0, 1.0)
         if zero_bound:
@@ -419,7 +419,7 @@ class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType
 
         PortfolioConsumerType.__init__(self, **params)
 
-        self.solve_one_period = make_one_period_oo_solver(ConsLaborPortfolioSolver)
+        self.solve_one_period = make_one_period_oo_solver(LaborPortfolioSolver)
 
     def update(self):
         LaborIntMargConsumerType.update(self)
@@ -458,7 +458,7 @@ class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType
 
 
 @dataclass
-class ConsLaborPortfolioSolver(MetricObject):
+class LaborPortfolioSolver(MetricObject):
     solution_next: LaborPortfolioSolution
     TranShkDstn: DiscreteDistribution
     ShockDstn: DiscreteDistribution
@@ -489,32 +489,9 @@ class ConsLaborPortfolioSolver(MetricObject):
         self.u = UtilityFuncCRRA(self.CRRA)
 
         if self.DisutilLabor:
-            # use these functions if model defined by disutility of labor
-            def n(x):
-                return -self.LaborFactor * CRRAutility(1 - x, -self.LaborCRRA)
-
-            def n_der(x):
-                return self.LaborFactor * CRRAutilityP(1 - x, -self.LaborCRRA)
-
-            def n_derinv(x):
-                return 1 - CRRAutilityP_inv(x / self.LaborFactor, -self.LaborCRRA)
-
             self.n = DisutilityFuncLabor(self.LaborCRRA, self.LaborFactor)
-
         else:
-            # use these functions if model defined by utility of leisure (default)
-            def n(x):
-                return self.LeisureFactor * CRRAutility(x, self.LeisureCRRA)
-
-            def n_der(x):
-                return self.LeisureFactor * CRRAutilityP(x, self.LeisureCRRA)
-
-            def n_derinv(x):
-                return CRRAutilityP_inv(x / self.LeisureFactor, self.LeisureCRRA)
-
             self.n = UtilityFuncLeisure(self.LeisureCRRA, self.LeisureFactor)
-
-        self.n = UtilityFunction(n, n_der, n_derinv)
 
     def prepare_to_solve(self):
         """
