@@ -25,6 +25,7 @@ dependencies:
   - scikit-learn
   - scipy
   - seaborn
+  - sympy
   - statsmodels
   - xarray
   - pytorch
