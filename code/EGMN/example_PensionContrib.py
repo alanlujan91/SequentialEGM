@@ -56,13 +56,11 @@ agent.solve()
 
 T = 0
 
-
 # %% [markdown]
 # ## Post Decision Stage
 
 # %%
 plot_3d_func(agent.solution[T].post_decision_stage.v_func.vFuncNvrs, 0, 5)
-
 
 # %%
 plot_3d_func(agent.solution[T].post_decision_stage.dvda_func.cFunc, 0, 5)
@@ -75,7 +73,6 @@ plot_3d_func(agent.solution[T].post_decision_stage.dvdb_func.cFunc, 0, 5)
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 plot_3d_func(agent.solution[T].consumption_stage.c_func, 0, 5)
-
 
 # %%
 plot_3d_func(agent.solution[T].consumption_stage.v_func.vFuncNvrs, 0, 5)
@@ -92,10 +89,8 @@ plot_3d_func(agent.solution[T].consumption_stage.dvdb_func.cFunc, 0, 5)
 # %%
 plot_3d_func(agent.solution[T].deposit_stage.d_func, 0, 5)
 
-
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 plot_3d_func(agent.solution[T].deposit_stage.c_func, 0, 5)
-
 
 # %%
 plot_3d_func(agent.solution[T].deposit_stage.v_func.vFuncNvrs, 0, 5)
@@ -103,10 +98,8 @@ plot_3d_func(agent.solution[T].deposit_stage.v_func.vFuncNvrs, 0, 5)
 # %%
 plot_3d_func(agent.solution[T].deposit_stage.dvdm_func.cFunc, 0, 5)
 
-
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 plot_3d_func(agent.solution[T].deposit_stage.dvdn_func.cFunc, 0, 5)
-
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 # %time
@@ -181,7 +174,6 @@ fig.savefig(figures_path + "EndogenousGrid.svg")
 # %%
 grids = agent.solution[T].consumption_stage.grids_before_cleanup
 
-
 # %%
 fig, ax = plt.subplots()
 plot = ax.scatter(
@@ -197,10 +189,8 @@ plot = ax.scatter(
 cbar = fig.colorbar(plot)
 cbar.ax.set_ylabel("Pension Deposits $d$")
 
-
 plt.xlim([-1, 10])
 plt.ylim([-1, 10])
-
 
 # %%
 fig, ax = plt.subplots()
@@ -222,7 +212,6 @@ plt.xlabel(r"Liquid Wealth $\ell$")
 plt.ylabel("Retirement Balance $b$")
 fig.savefig(figures_path + "ExogenousGrid.svg")
 
-
 # %%
 grids = agent.solution[T].consumption_stage.grids_before_cleanup
 
@@ -238,10 +227,8 @@ gauss_interp = GeneralizedRegressionUnstructuredInterp(
     model_kwargs={"normalize_y": True},
 )
 
-
 # %%
 get_ipython().run_line_magic("matplotlib", "widget")
 plot_3d_func(gauss_interp, 0, 5)
-
 
 # %%

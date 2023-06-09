@@ -104,17 +104,13 @@ model_G2EGM_shocks = G2EGMModelClass(
 model_G2EGM_shocks.precompile_numba()
 model_G2EGM_shocks = timing(model_G2EGM_shocks)
 
-
 # %% pycharm={"name": "#%%\n"}
 retirement(model_G2EGM_shocks)
-
 
 # %% pycharm={"name": "#%%\n"}
 decision_functions(model_G2EGM_shocks, 0)
 
-
 # %% pycharm={"name": "#%%\n"}
 segments(model_G2EGM_shocks, 0)
-
 
 # %% pycharm={"name": "#%%\n"}

@@ -14,9 +14,8 @@ from HARK.ConsumptionSaving.ConsIndShockModel import (
 )
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
-from HARK.core import MetricObject, make_one_period_oo_solver
+from HARK.core import make_one_period_oo_solver
 from HARK.distribution import DiscreteDistribution, calc_expectation
-from HARK.fast import BilinearInterpFast, LinearInterpFast
 from HARK.interpolation import (
     ConstantFunction,
     LinearInterpOnInterp1D,
@@ -24,6 +23,7 @@ from HARK.interpolation import (
     ValueFuncCRRA,
     calc_log_sum_choice_probs,
 )
+from HARK.metric import MetricObject
 from HARK.utilities import NullFunc, make_grid_exp_mult
 from scipy.interpolate import CloughTocher2DInterpolator
 

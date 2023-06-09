@@ -31,7 +31,6 @@ def f(x):
 # Define latex function
 latex_func = r"$f(x) = x \cos(1.5x)$"
 
-
 x_min = 0
 x_max = 10
 n_true = 1_000
@@ -85,7 +84,6 @@ mean_prediction = np.dot(Lk.T, np.linalg.solve(L, y_train)).ravel()
 var_prediction = np.diag(K_test) - np.sum(Lk**2, axis=0)
 std_prediction = np.sqrt(var_prediction)
 
-
 # %%
 plt.figure(figsize=(15, 5))
 plt.plot(X_true, y_true, label=latex_func, linestyle="dotted")
@@ -119,6 +117,5 @@ plt.ylabel("$f(x)$")
 plt.title("Random sample of functions from the Gaussian Process posterior.")
 plt.tight_layout()
 plt.savefig(figures_path + "gpr_sample.svg")
-
 
 # %%

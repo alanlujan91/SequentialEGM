@@ -683,7 +683,6 @@ init_pension_contrib["TasteShkStd"] = 0.10
 
 init_pension_contrib["epsilon"] = 1e-6
 
-
 init_pension_contrib["mCount"] = 100
 init_pension_contrib["mMax"] = 10
 init_pension_contrib["mNestFac"] = 2
