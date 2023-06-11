@@ -448,6 +448,11 @@ class RetirementPensionSolver:
         mMat = np.concatenate((mMat.flatten(), mMat2.flatten()))
         nMat = np.concatenate((nMat.flatten(), nMat2.flatten()))
 
+        cond = dMat > -1.0
+        dMat = dMat[cond]
+        nMat = nMat[cond]
+        mMat = mMat[cond]
+
         gaussian_interp = GeneralizedRegressionUnstructuredInterp(
             dMat,
             [mMat, nMat],
