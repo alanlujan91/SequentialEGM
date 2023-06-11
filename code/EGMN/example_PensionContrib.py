@@ -19,7 +19,7 @@ import numpy as np
 from ConsPensionContribModel import PensionContribConsumerType
 from IPython import get_ipython
 
-figures_path = "../../Figures/"
+figures_path = "../../content/figures"
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 agent = PensionContribConsumerType(cycles=19)

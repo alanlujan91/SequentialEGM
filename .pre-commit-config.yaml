@@ -14,7 +14,7 @@ repos:
         exclude: ^Code/.*\.ipynb$
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.4.0
+    rev: v3.6.0
     hooks:
       - id: pyupgrade
         args: ["--py310-plus"]

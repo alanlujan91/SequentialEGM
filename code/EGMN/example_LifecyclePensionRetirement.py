@@ -16,14 +16,14 @@
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
-from ConsPensionContribModel import PensionRetirementConsumerType
+from ConsPensionContribModel import RetirementPensionContribConsumerType
 from HARK.utilities import plot_funcs
 from IPython import get_ipython
 
 plt.style.use("seaborn-whitegrid")
 
 # %%
-agent = PensionRetirementConsumerType()
+agent = RetirementPensionContribConsumerType()
 agent.solve()
 
 # %%

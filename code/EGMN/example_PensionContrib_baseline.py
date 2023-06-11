@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from ConsPensionContribModel import PensionContribConsumerType, init_pension_contrib
 
-figures_path = "../../Figures/"
+figures_path = "../../content/figures/"
 
 # %%
 baseline_params = init_pension_contrib.copy()

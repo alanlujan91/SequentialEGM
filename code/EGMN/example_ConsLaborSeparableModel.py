@@ -15,10 +15,21 @@
 
 # %%
 from ConsLaborSeparableModel import LaborSeparableConsumerType
+from utilities import plot_warped_bilinear_flat
 
-agent = LaborSeparableConsumerType()
-
-# %%
+agent = LaborSeparableConsumerType(Disutility=True)
 from HARK.utilities import plot_funcs
 
-plot_funcs(agent.solution_terminal.cFunc, 0, 5)
+# %%
+plot_funcs(agent.solution_terminal.consumption_saving.vp_func, 0, 10)
+
+# %%
+plot_warped_bilinear_flat(agent.solution_terminal.labor_leisure.leisure_func, 0, 0.25)
+
+# %%
+agent.solution_terminal.labor_leisure.c_func.values.max()
+
+# %%
+agent.WageRte
+
+# %%

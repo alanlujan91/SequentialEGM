@@ -708,7 +708,7 @@ init_pension_contrib["bMax"] = 14
 init_pension_contrib["bNestFac"] = -1
 
 
-class PensionRetirementConsumerType(PensionContribConsumerType):
+class RetirementPensionContribConsumerType(PensionContribConsumerType):
     def __init__(self, verbose=False, quiet=False, **kwds):
         params = init_pension_retirement.copy()
         params.update(kwds)

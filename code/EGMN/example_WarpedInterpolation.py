@@ -22,7 +22,7 @@
 # %%
 import numpy as np
 
-figures_path = "../../Figures/"
+figures_path = "../../content/figures"
 
 # %% [markdown]
 # Assume we have a set of points indexed by $(i,j)$ in 2D space for which we have corresponding functional values in a 3rd dimension, such that $f(x_{i,j},y_{i,j}) = z_{i,j}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and we are unable to compute them at other values of $x$ and $y$ -- which is why we want to interpolate. For the callibration below, we will generate these $z$'s arbitrarily using the function

@@ -15,12 +15,11 @@
 
 # %%
 import matplotlib.pyplot as plt
-
-# %%
 import numpy as np
 
+# %%
 rng = np.random.RandomState(5)
-figures_path = "../../Figures/"
+figures_path = "../../content/figures/"
 
 
 # %%
@@ -49,15 +48,15 @@ y_train = f(X_train) + s * rng.randn(n_train).reshape(-1, 1)
 X_train.shape, y_train.shape
 
 # %%
-plt.figure(figsize=(15, 5))
-plt.plot(X_test, y_test, label=latex_func, linestyle="dotted")
-plt.scatter(X_train, y_train, label="Randomly sampled points", s=100)
-plt.legend()
-plt.xlabel("$x$")
-plt.ylabel("$f(x)$")
-plt.title("True function and randomly sampled points")
-plt.tight_layout()
-plt.savefig(figures_path + "true_function.svg")
+fig, ax = plt.subplots(figsize=(15, 5))
+ax.plot(X_test, y_test, label=latex_func, linestyle="dotted")
+ax.scatter(X_train, y_train, label="Randomly sampled points", s=100)
+ax.legend()
+ax.set_xlabel("$x$")
+ax.set_ylabel("$f(x)$")
+ax.set_title("True function and randomly sampled points")
+fig.tight_layout()
+fig.savefig(figures_path + "true_function.svg")
 
 
 # %%
@@ -85,37 +84,37 @@ var_prediction = np.diag(K_test) - np.sum(Lk**2, axis=0)
 std_prediction = np.sqrt(var_prediction)
 
 # %%
-plt.figure(figsize=(15, 5))
-plt.plot(X_true, y_true, label=latex_func, linestyle="dotted")
-plt.scatter(X_train, y_train, label="Observations")
-plt.plot(X_test, mean_prediction, label="Mean prediction")
-plt.gca().fill_between(
+fig, ax = plt.subplots(figsize=(15, 5))
+ax.plot(X_true, y_true, label=latex_func, linestyle="dotted")
+ax.scatter(X_train, y_train, label="Observations")
+ax.plot(X_test, mean_prediction, label="Mean prediction")
+ax.fill_between(
     X_test.ravel(),
     mean_prediction - 1.96 * std_prediction,
     mean_prediction + 1.96 * std_prediction,
     alpha=0.5,
     label=r"95% confidence interval",
 )
-plt.legend()
-plt.xlabel("$x$")
-plt.ylabel("$f(x)$")
-plt.title("Gaussian process regression on a noisy dataset")
-plt.tight_layout()
-plt.savefig(figures_path + "gpr.svg")
+ax.legend()
+ax.set_xlabel("$x$")
+ax.set_ylabel("$f(x)$")
+ax.set_title("Gaussian process regression on a noisy dataset")
+fig.tight_layout()
+fig.savefig(figures_path + "gpr.svg")
 
 # %%
 L = np.linalg.cholesky(K_test + 1e-6 * np.eye(n_test) - np.dot(Lk.T, Lk))
 f_post = mean_prediction.reshape(-1, 1) + np.dot(L, rng.normal(size=(n_test, 50)))
-plt.figure(figsize=(15, 5))
-plt.plot(X_true, y_true, label=latex_func, linestyle="dotted")
-plt.scatter(X_train, y_train, label="Observations")
-plt.plot(X_test, mean_prediction, label="Mean prediction")
-plt.plot(X_test, f_post, linewidth=0.8, alpha=0.5)
-plt.legend()
-plt.xlabel("$x$")
-plt.ylabel("$f(x)$")
-plt.title("Random sample of functions from the Gaussian Process posterior.")
-plt.tight_layout()
-plt.savefig(figures_path + "gpr_sample.svg")
 
 # %%
+fig, ax = plt.subplots(figsize=(15, 5))
+ax.plot(X_true, y_true, label=latex_func, linestyle="dotted")
+ax.scatter(X_train, y_train, label="Observations")
+ax.plot(X_test, mean_prediction, label="Mean prediction")
+ax.plot(X_test, f_post, linewidth=0.8, alpha=0.5)
+ax.legend()
+ax.set_xlabel("$x$")
+ax.set_ylabel("$f(x)$")
+ax.set_title("Random sample of functions from the Gaussian Process posterior.")
+fig.tight_layout()
+fig.savefig(figures_path + "gpr_sample.svg")

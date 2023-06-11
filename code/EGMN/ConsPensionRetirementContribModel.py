@@ -5,13 +5,6 @@ from dataclasses import dataclass
 
 import estimagic as em
 import numpy as np
-from fast import BilinearInterpFast, Curvilinear2DInterp, LinearInterpFast
-from HARK.ConsumptionSaving.ConsIndShockModel import (
-    utility,
-    utility_inv,
-    utilityP,
-    utilityP_inv,
-)
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
 from HARK.core import make_one_period_oo_solver
@@ -23,11 +16,14 @@ from HARK.distribution import (
 from HARK.interpolation import (
     BilinearInterp,
     ConstantFunction,
+    Curvilinear2DInterp,
+    LinearInterp,
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
     ValueFuncCRRA,
 )
 from HARK.metric import MetricObject
+from HARK.rewards import UtilityFuncCRRA, UtilityFuncStoneGeary
 from HARK.utilities import NullFunc, make_grid_exp_mult
 from scipy.interpolate import CloughTocher2DInterpolator
 from scipy.optimize import Bounds, LinearConstraint, minimize
@@ -79,12 +75,12 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         "TaxDeduct",
     ]
 
-    def __init__(self, verbose=False, quiet=False, **kwds):
+    def __init__(self, **kwds):
         params = init_retirement_pension.copy()
         params.update(kwds)
 
         # Initialize a basic AgentType
-        RiskyAssetConsumerType.__init__(self, verbose=verbose, quiet=quiet, **params)
+        RiskyAssetConsumerType.__init__(self, **params)
 
         # Add consumer-type specific objects, copying to create independent versions
         self.solve_one_period = make_one_period_oo_solver(PensionContribSolver)
@@ -101,8 +97,8 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
     def update_solution_terminal(self):
         cmat = self.mMat + self.nMat  # consume everything
         cmat_temp = np.insert(cmat, 0, 0.0, axis=0)
-        c_func_terminal = BilinearInterpFast(
-            cmat_temp, np.append(0.0, self.m_grid), self.nGrid
+        c_func_terminal = BilinearInterp(
+            cmat_temp, np.append(0.0, self.mGrid), self.nGrid
         )
         vp_func_terminal = MargValueFuncCRRA(c_func_terminal, self.CRRA)
         v_func_terminal = ValueFuncCRRA(c_func_terminal, self.CRRA)
@@ -139,11 +135,11 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         )
 
         # worker grids
-        self.m_grid = make_grid_exp_mult(
+        self.mGrid = make_grid_exp_mult(
             self.epsilon, self.mMax, self.mCount, self.mNestFac
         )
         self.nGrid = make_grid_exp_mult(0.0, self.nMax, self.nCount, self.nNestFac)
-        self.mMat, self.nMat = np.meshgrid(self.m_grid, self.nGrid, indexing="ij")
+        self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
 
         # pure consumption grids
         self.aGrid = make_grid_exp_mult(0.0, self.aMax, self.aCount, self.aNestFac)
@@ -160,7 +156,7 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         self.add_to_time_inv(
             "mRetGrid",
             "aRetGrid",
-            "m_grid",
+            "mGrid",
             "nGrid",
             "mMat",
             "nMat",
@@ -201,7 +197,7 @@ class PensionContribSolver(MetricObject):
     ShockDstn: DiscreteDistributionLabeled
     mRetGrid: np.array
     aRetGrid: np.array
-    m_grid: np.array
+    mGrid: np.array
     nGrid: np.array
     mMat: np.ndarray
     nMat: np.ndarray
@@ -218,17 +214,12 @@ class PensionContribSolver(MetricObject):
         self.def_utility_funcs()
 
     def def_utility_funcs(self):
-        self.u = lambda x: utility(x, self.CRRA)
-        self.u_inv = lambda x: utility_inv(x, self.CRRA)
-        self.mu = lambda x: utilityP(x, self.CRRA)
-        self.mu_inv = lambda x: utilityP_inv(x, self.CRRA)
+        self.u = UtilityFuncCRRA(self.CRRA)
 
         # pension deposit function: tax deduction from pension deposits
         # which is gradually decreasing in the level of deposits
 
-        self.g = lambda x: self.TaxDeduct * np.log(1 + x)
-        self.gp = lambda x: self.TaxDeduct / (1 + x)
-        self.gp_inv = lambda x: self.TaxDeduct / x - 1
+        self.g = UtilityFuncStoneGeary(self.DisutilLabor)
 
     def solve_retired_problem(self, retired_solution_next):
         vp_func_next = retired_solution_next.vp_func
@@ -237,33 +228,33 @@ class PensionContribSolver(MetricObject):
         # for retired problem
         # as long as there is retired income there is no risk of m_next = 0
         # and agent won't hit borrowing constraint
-        m_grid_next = self.aRetGrid * self.Rfree + self.IncUnempRet
-        vp_end_of_prd = self.DiscFac * self.Rfree * vp_func_next(m_grid_next)
-        vp_end_of_prd_nvrs = self.mu_inv(vp_end_of_prd)
-        vp_end_of_prd_nvrs_func = LinearInterpFast(self.aRetGrid, vp_end_of_prd_nvrs)
+        mGrid_next = self.aRetGrid * self.Rfree + self.IncUnempRet
+        vp_end_of_prd = self.DiscFac * self.Rfree * vp_func_next(mGrid_next)
+        vp_end_of_prd_nvrs = self.u.derinv(vp_end_of_prd)
+        vp_end_of_prd_nvrs_func = LinearInterp(self.aRetGrid, vp_end_of_prd_nvrs)
         vp_end_of_prd_func = MargValueFuncCRRA(vp_end_of_prd_nvrs_func, self.CRRA)
 
         c_grid = vp_end_of_prd_nvrs  # endogenous grid method
-        m_grid = c_grid + self.aRetGrid
+        mGrid = c_grid + self.aRetGrid
 
         # need to add artificial borrowing constraint at 0.0
-        c_func = LinearInterpFast(np.append(0.0, m_grid), np.append(0.0, c_grid))
+        c_func = LinearInterp(np.append(0.0, mGrid), np.append(0.0, c_grid))
         vp_func = MargValueFuncCRRA(c_func, self.CRRA)
 
         # make retired value function
         # start by creating v_end_of_prd_func
-        v_end_of_prd = self.DiscFac * v_func_next(m_grid_next)
+        v_end_of_prd = self.DiscFac * v_func_next(mGrid_next)
         # value transformed through inverse utility
-        v_end_of_prd_nvrs = self.uinv(v_end_of_prd)
-        v_end_of_prd_nvrs_func = LinearInterpFast(self.aRetGrid, v_end_of_prd_nvrs)
+        v_end_of_prd_nvrs = self.u.inv(v_end_of_prd)
+        v_end_of_prd_nvrs_func = LinearInterp(self.aRetGrid, v_end_of_prd_nvrs)
         v_end_of_prd_func = ValueFuncCRRA(v_end_of_prd_nvrs_func, self.CRRA)
 
-        # calculate current value using m_grid that is consistent with agrid
+        # calculate current value using mGrid that is consistent with agrid
         v_grid = self.u(c_grid) + v_end_of_prd
         # Construct the beginning-of-period value function
-        v_grid_nvrs = self.uinv(v_grid)  # value transformed through inverse utility
-        v_grid_nvrs_func = LinearInterpFast(
-            np.append(0.0, m_grid), np.append(0.0, v_grid_nvrs)
+        v_grid_nvrs = self.u.inv(v_grid)  # value transformed through inverse utility
+        v_grid_nvrs_func = LinearInterp(
+            np.append(0.0, mGrid), np.append(0.0, v_grid_nvrs)
         )
         v_func = ValueFuncCRRA(v_grid_nvrs_func, self.CRRA)
 
@@ -292,15 +283,15 @@ class PensionContribSolver(MetricObject):
         vRetiring = v_func_retired(mMat_temp + nMat_temp)
 
         # add when m = 0
-        m_grid_temp = np.append(0.0, self.m_grid)
+        mGrid_temp = np.append(0.0, self.mGrid)
 
-        c_func = BilinearInterpFast(cRetiring, m_grid_temp, self.nGrid)
+        c_func = BilinearInterp(cRetiring, mGrid_temp, self.nGrid)
         vp_func = MargValueFuncCRRA(c_func, self.CRRA)
 
-        v_nvrs = self.uinv(vRetiring)
-        v_nvrs_func = BilinearInterpFast(
+        v_nvrs = self.u.inv(vRetiring)
+        v_nvrs_func = BilinearInterp(
             v_nvrs,
-            m_grid_temp,
+            mGrid_temp,
             self.nGrid,
         )
         v_func = ValueFuncCRRA(v_nvrs_func, self.CRRA)
@@ -338,8 +329,8 @@ class PensionContribSolver(MetricObject):
             )
         )
 
-        dvda_end_of_prd_nvrs = self.mu_inv(dvda_end_of_prd)
-        dvda_end_of_prd_nvrs_func = BilinearInterpFast(
+        dvda_end_of_prd_nvrs = self.u.derinv(dvda_end_of_prd)
+        dvda_end_of_prd_nvrs_func = BilinearInterp(
             dvda_end_of_prd_nvrs, self.aGrid, self.bGrid
         )
         dvda_end_of_prd_func = MargValueFuncCRRA(dvda_end_of_prd_nvrs_func, self.CRRA)
@@ -361,8 +352,8 @@ class PensionContribSolver(MetricObject):
             labels=True,
         )
 
-        dvdb_end_of_prd_nvrs = self.mu_inv(dvdb_end_of_prd)
-        dvdb_end_of_prd_nvrs_func = BilinearInterpFast(
+        dvdb_end_of_prd_nvrs = self.u.derinv(dvdb_end_of_prd)
+        dvdb_end_of_prd_nvrs_func = BilinearInterp(
             dvdb_end_of_prd_nvrs, self.aGrid, self.bGrid
         )
         dvdb_end_of_prd_func = MargValueFuncCRRA(dvdb_end_of_prd_nvrs_func, self.CRRA)
@@ -383,8 +374,8 @@ class PensionContribSolver(MetricObject):
         )
 
         # value transformed through inverse utility
-        v_end_of_prd_nvrs = self.u_inv(v_end_of_prd)
-        v_end_of_prd_nvrs_func = BilinearInterpFast(
+        v_end_of_prd_nvrs = self.u.inv(v_end_of_prd)
+        v_end_of_prd_nvrs_func = BilinearInterp(
             v_end_of_prd_nvrs, self.aGrid, self.bGrid
         )
         v_end_of_prd_func = ValueFuncCRRA(v_end_of_prd_nvrs_func, self.CRRA)
@@ -416,7 +407,7 @@ class PensionContribSolver(MetricObject):
         c_innr_func_by_bbal = []
         for bi in range(self.bGrid.size):
             c_innr_func_by_bbal.append(
-                LinearInterpFast(
+                LinearInterp(
                     lmat_temp[:, bi],
                     cmat_temp[:, bi],
                 )
@@ -434,7 +425,7 @@ class PensionContribSolver(MetricObject):
         dvdb_innr_nvrs_func_by_bbal = []
         for bi in range(self.bGrid.size):
             dvdb_innr_nvrs_func_by_bbal.append(
-                LinearInterpFast(
+                LinearInterp(
                     lmat_temp[:, bi],
                     dvdb_end_of_prd_nvrs_temp[:, bi],
                 )
@@ -446,14 +437,14 @@ class PensionContribSolver(MetricObject):
 
         # make value function
         v_innr = self.u(cmat) - self.DisutilLabor + v_end_of_prd
-        v_innr_nvrs = self.u_inv(v_innr)
+        v_innr_nvrs = self.u.inv(v_innr)
         v_now_nvrs_temp = np.insert(v_innr_nvrs, 0, 0.0, axis=0)
 
         # bmat is regular grid so we can use LinearInterpOnInterp1D
         v_innr_nvrs_func_by_bbal = []
         for bi in range(self.bGrid.size):
             v_innr_nvrs_func_by_bbal.append(
-                LinearInterpFast(lmat_temp[:, bi], v_now_nvrs_temp[:, bi])
+                LinearInterp(lmat_temp[:, bi], v_now_nvrs_temp[:, bi])
             )
 
         v_innr_nvrs_func = LinearInterpOnInterp1D(v_innr_nvrs_func_by_bbal, self.bGrid)
@@ -478,7 +469,7 @@ class PensionContribSolver(MetricObject):
         dvdb_innr = dvdb_func_next(self.lMat, self.b2Mat)
 
         # endogenous grid method, again
-        dmat = self.gp_inv(dvdl_innr / dvdb_innr - 1.0)
+        dmat = self.g.derinv(dvdl_innr / dvdb_innr - 1.0)
 
         mmat = self.lMat + dmat
         nmat = self.b2Mat - dmat - self.g(dmat)
@@ -518,30 +509,30 @@ class PensionContribSolver(MetricObject):
         # evaluate c on common grid
         cmat = c_func_next(lmat, b2mat)
         # there is no consumption or deposit when there is no cash on hand
-        m_grid_temp = np.append(0.0, self.m_grid)
+        mGrid_temp = np.append(0.0, self.mGrid)
         dmat_temp = np.insert(dmat, 0, 0.0, axis=0)
         cmat_temp = np.insert(cmat, 0, 0.0, axis=0)
 
-        d_outr_func = BilinearInterpFast(dmat_temp, m_grid_temp, self.nGrid)
-        c_outr_func = BilinearInterpFast(cmat_temp, m_grid_temp, self.nGrid)
+        d_outr_func = BilinearInterp(dmat_temp, mGrid_temp, self.nGrid)
+        c_outr_func = BilinearInterp(cmat_temp, mGrid_temp, self.nGrid)
         dvdm_outr_func = MargValueFuncCRRA(c_outr_func, self.CRRA)
 
         dvdb_innr = dvdb_func_next(lmat, b2mat)
 
-        dvdn_outr_nvrs = self.mu_inv(dvdb_innr)
+        dvdn_outr_nvrs = self.u.derinv(dvdb_innr)
         dvdn_outr_nvrs_temp = np.insert(dvdn_outr_nvrs, 0, dvdn_outr_nvrs[0], axis=0)
-        dvdn_outr_nvrs_func = BilinearInterpFast(
-            dvdn_outr_nvrs_temp, m_grid_temp, self.nGrid
+        dvdn_outr_nvrs_func = BilinearInterp(
+            dvdn_outr_nvrs_temp, mGrid_temp, self.nGrid
         )
         dvdn_outr_func = MargValueFuncCRRA(dvdn_outr_nvrs_func, self.CRRA)
 
         # make value function
         v_outr = v_func_next(lmat, b2mat)
-        v_outr_nvrs = self.u_inv(v_outr)
+        v_outr_nvrs = self.u.inv(v_outr)
         # insert value of 0 at m = 0
         v_outr_nvrs_temp = np.insert(v_outr_nvrs, 0, 0.0, axis=0)
         # mmat and nmat are irregular grids so we need Curvilinear2DInterp
-        v_now_nvrs_func = BilinearInterpFast(v_outr_nvrs_temp, m_grid_temp, self.nGrid)
+        v_now_nvrs_func = BilinearInterp(v_outr_nvrs_temp, mGrid_temp, self.nGrid)
         v_outr_func = ValueFuncCRRA(v_now_nvrs_func, self.CRRA)
 
         deposit_stage = DepositStage(
@@ -586,9 +577,9 @@ class PensionContribSolver(MetricObject):
 
         dmat = res.params
 
-        # for mi in range(self.m_grid.size):
+        # for mi in range(self.mGrid.size):
         #     for ni in range(self.nGrid.size):
-        #         m_nrm = self.m_grid[mi]
+        #         m_nrm = self.mGrid[mi]
         #         n_nrm = self.nGrid[ni]
         #         res = minimize_scalar(
         #             objective,
@@ -604,7 +595,7 @@ class PensionContribSolver(MetricObject):
         # add d = 0 when no liquid cash
         dmat_temp = np.insert(dmat, 0, 0.0, axis=0)
 
-        d_func = BilinearInterpFast(dmat_temp, np.append(0.0, self.m_grid), self.nGrid)
+        d_func = BilinearInterp(dmat_temp, np.append(0.0, self.mGrid), self.nGrid)
 
         deposit_stage = DepositStage(
             d_func=d_func,
@@ -636,13 +627,13 @@ class PensionContribSolver(MetricObject):
             dvdl = dvdl_func_next(l_nrm, b_nrm)
             dvdb = dvdb_func_next(l_nrm, b_nrm)
 
-            return -dvdl + dvdb * (1 + self.gp(d_nrm))
+            return -dvdl + dvdb * (1 + self.g.der(d_nrm))
 
         dmat = np.empty_like(self.mMat)
 
-        for mi in range(self.m_grid.size):
+        for mi in range(self.mGrid.size):
             for ni in range(self.nGrid.size):
-                m_nrm = self.m_grid[mi]
+                m_nrm = self.mGrid[mi]
                 n_nrm = self.nGrid[ni]
                 res = minimize(
                     objective,
@@ -659,7 +650,7 @@ class PensionContribSolver(MetricObject):
         # add d = 0 when no liquid cash
         dmat_temp = np.insert(dmat, 0, 0.0, axis=0)
 
-        d_func = BilinearInterpFast(dmat_temp, np.append(0.0, self.m_grid), self.nGrid)
+        d_func = BilinearInterp(dmat_temp, np.append(0.0, self.mGrid), self.nGrid)
 
         deposit_stage = DepositStage(
             d_func=d_func,
@@ -681,9 +672,9 @@ class PensionContribSolver(MetricObject):
 
         cMat = np.empty_like(self.mMat)
         dMat = np.empty_like(self.mMat)
-        for mi in range(self.m_grid.size):
+        for mi in range(self.mGrid.size):
             for ni in range(self.nGrid.size):
-                m_nrm = self.m_grid[mi]
+                m_nrm = self.mGrid[mi]
                 n_nrm = self.nGrid[mi]
 
                 bounds = Bounds([0, m_nrm], [0, m_nrm])

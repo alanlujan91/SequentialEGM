@@ -22,7 +22,7 @@ from HARK.interpolation import (
     WarpedInterpOnInterp2D,
 )
 from HARK.metric import MetricObject
-from HARK.rewards import UtilityFuncCRRA, UtilityFunction
+from HARK.rewards import UtilityFuncCRRA
 from HARK.utilities import NullFunc
 
 
