@@ -43,40 +43,6 @@
   doi       = "10.2139/ssrn.4181302"
 }
 
-@ARTICLE{Gardner2018-mv,
-  title         = "{{GPyTorch}}: {Blackbox Matrix-matrix} Gaussian process
-                   inference with {GPU} acceleration",
-  author        = "Gardner, Jacob R and Pleiss, Geoff and Bindel, David and
-                   Weinberger, Kilian Q and Wilson, Andrew Gordon",
-  abstract      = "Despite advances in scalable models, the inference tools
-                   used for Gaussian processes (GPs) have yet to fully
-                   capitalize on developments in computing hardware. We present
-                   an efficient and general approach to GP inference based on
-                   Blackbox Matrix-Matrix multiplication (BBMM). BBMM inference
-                   uses a modified batched version of the conjugate gradients
-                   algorithm to derive all terms for training and inference in
-                   a single call. BBMM reduces the asymptotic complexity of
-                   exact GP inference from $O(n^3)$ to $O(n^2)$. Adapting this
-                   algorithm to scalable approximations and complex GP models
-                   simply requires a routine for efficient matrix-matrix
-                   multiplication with the kernel and its derivative. In
-                   addition, BBMM uses a specialized preconditioner to
-                   substantially speed up convergence. In experiments we show
-                   that BBMM effectively uses GPU hardware to dramatically
-                   accelerate both exact GP inference and scalable
-                   approximations. Additionally, we provide GPyTorch, a
-                   software platform for scalable GP inference via BBMM, built
-                   on PyTorch.",
-  month         =  sep,
-  year          =  2018,
-  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-  archivePrefix = "arXiv",
-  eprint        = "1809.11165",
-  primaryClass  = "cs.LG",
-  arxivid       = "1809.11165",
-  doi           = "10.48550/arXiv.1809.11165"
-}
-
 @ARTICLE{Maliar2022-nv,
   title     = "Deep learning classification: Modeling discrete labor choice",
   author    = "Maliar, Lilia and Maliar, Serguei",
@@ -269,45 +235,6 @@
   pages     = "2825--2830",
   year      =  2011,
   issn      = "1532-4435, 1533-7928"
-}
-
-@INCOLLECTION{Maliar2014-ia,
-  title     = "Numerical methods for {large-scale} dynamic economic models",
-  booktitle = "Handbook of Computational Economics Vol. 3",
-  author    = "Maliar, Lilia and Maliar, Serguei",
-  editor    = "Schmedders, Karl and Judd, Kenneth L",
-  abstract  = "We survey numerical methods that are tractable in dynamic
-               economic models with a finite, large number of continuous state
-               variables. (Examples of such models are new Keynesian models,
-               life-cycle models, heterogeneous-agents models, asset-pricing
-               models, multisector models, multicountry models, and climate
-               change models.) First, we describe the ingredients that help us
-               to reduce the cost of global solution methods. These are
-               efficient nonproduct techniques for interpolating and
-               approximating functions (Smolyak, stochastic simulation, and
-               $\epsilon$-distinguishable set grids), accurate low-cost
-               monomial integration formulas, derivative-free solvers, and
-               numerically stable regression methods. Second, we discuss
-               endogenous grid and envelope condition methods that reduce the
-               cost and increase accuracy of value function iteration. Third,
-               we show precomputation techniques that construct solution
-               manifolds for some models' variables outside the main iterative
-               cycle. Fourth, we review techniques that increase the accuracy
-               of perturbation methods: a change of variables and a hybrid of
-               local and global solutions. Finally, we show examples of
-               parallel computation using multiple CPUs and GPUs including
-               applications on a supercomputer. We illustrate the performance
-               of the surveyed methods using a multiagent model. Many codes are
-               publicly available.",
-  publisher = "Elsevier",
-  volume    =  3,
-  pages     = "325--477",
-  series    = "Handbook of computational economics",
-  month     =  jan,
-  year      =  2014,
-  issn      = "1574-0021, 1875-5658",
-  isbn      = "9780444529800",
-  doi       = "10.1016/b978-0-444-52980-0.00007-4"
 }
 
 @ARTICLE{Druedahl2021-op,
@@ -1045,4 +972,78 @@
   language  = "en",
   issn      = "0165-1889, 1879-1743",
   doi       = "10.1016/j.jedc.2016.11.005"
+}
+
+@INCOLLECTION{Maliar2014-ia,
+  title     = "Numerical methods for {large-scale} dynamic economic models",
+  booktitle = "Handbook of Computational Economics Vol. 3",
+  author    = "Maliar, Lilia and Maliar, Serguei",
+  editor    = "Schmedders, Karl and Judd, Kenneth L",
+  abstract  = "We survey numerical methods that are tractable in dynamic
+               economic models with a finite, large number of continuous state
+               variables. (Examples of such models are new Keynesian models,
+               life-cycle models, heterogeneous-agents models, asset-pricing
+               models, multisector models, multicountry models, and climate
+               change models.) First, we describe the ingredients that help us
+               to reduce the cost of global solution methods. These are
+               efficient nonproduct techniques for interpolating and
+               approximating functions (Smolyak, stochastic simulation, and
+               $\epsilon$-distinguishable set grids), accurate low-cost
+               monomial integration formulas, derivative-free solvers, and
+               numerically stable regression methods. Second, we discuss
+               endogenous grid and envelope condition methods that reduce the
+               cost and increase accuracy of value function iteration. Third,
+               we show precomputation techniques that construct solution
+               manifolds for some models' variables outside the main iterative
+               cycle. Fourth, we review techniques that increase the accuracy
+               of perturbation methods: a change of variables and a hybrid of
+               local and global solutions. Finally, we show examples of
+               parallel computation using multiple CPUs and GPUs including
+               applications on a supercomputer. We illustrate the performance
+               of the surveyed methods using a multiagent model. Many codes are
+               publicly available.",
+  publisher = "Elsevier",
+  volume    =  3,
+  pages     = "325--477",
+  series    = "Handbook of computational economics",
+  month     =  jan,
+  year      =  2014,
+  issn      = "1574-0021, 1875-5658",
+  isbn      = "9780444529800",
+  doi       = "10.1016/b978-0-444-52980-0.00007-4"
+}
+
+@ARTICLE{Gardner2018-qg,
+  title         = "{Gpytorch}: {Blackbox {matrix-matrix} gaussian process
+                   inference with {gpu} acceleration",
+  author        = "Gardner, Jacob R and Pleiss, Geoff and Bindel, David and
+                   Weinberger, Kilian Q and Wilson, Andrew Gordon",
+  abstract      = "Despite advances in scalable models, the inference tools
+                   used for Gaussian processes (GPs) have yet to fully
+                   capitalize on developments in computing hardware. We present
+                   an efficient and general approach to GP inference based on
+                   Blackbox Matrix-Matrix multiplication (BBMM). BBMM inference
+                   uses a modified batched version of the conjugate gradients
+                   algorithm to derive all terms for training and inference in
+                   a single call. BBMM reduces the asymptotic complexity of
+                   exact GP inference from $O(n^3)$ to $O(n^2)$. Adapting this
+                   algorithm to scalable approximations and complex GP models
+                   simply requires a routine for efficient matrix-matrix
+                   multiplication with the kernel and its derivative. In
+                   addition, BBMM uses a specialized preconditioner to
+                   substantially speed up convergence. In experiments we show
+                   that BBMM effectively uses GPU hardware to dramatically
+                   accelerate both exact GP inference and scalable
+                   approximations. Additionally, we provide GPyTorch, a
+                   software platform for scalable GP inference via BBMM, built
+                   on PyTorch.",
+  journal       = "Advances in neural information processing systems",
+  month         =  sep,
+  year          =  2018,
+  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+  archivePrefix = "arXiv",
+  eprint        = "1809.11165",
+  primaryClass  = "cs.LG",
+  arxivid       = "1809.11165",
+  doi           = "10.48550/arXiv.1809.11165"
 }
