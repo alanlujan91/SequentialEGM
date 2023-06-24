@@ -5,6 +5,8 @@
 % fonts
 \usepackage{lmodern}
 
+\linespread{1.3}
+
 % set page geometry
 \usepackage[verbose=true,letterpaper]{geometry}
 \AtBeginDocument{
@@ -42,8 +44,8 @@
 %Handling Keywords
 \def\keywordname{{\bfseries \emph{Keywords}}}%
 \def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
-\def\and{\ifhmode\unskip\nobreak\fi\ $\cdot$
-}\noindent\keywordname\enspace\ignorespaces#1\par}}
+    \def\and{\ifhmode\unskip\nobreak\fi\ $\cdot$
+    }\noindent\keywordname\enspace\ignorespaces#1\par}}
 
 % font sizes with reduced leading
 \renewcommand{\normalsize}{%
@@ -74,37 +76,37 @@
 \providecommand{\section}{}
 \renewcommand{\section}{%
   \@startsection{section}{1}{\z@}%
-                {-2.0ex \@plus -0.5ex \@minus -0.2ex}%
-                { 1.5ex \@plus  0.3ex \@minus  0.2ex}%
-                {\large\bf\raggedright}%
+  {-2.0ex \@plus -0.5ex \@minus -0.2ex}%
+  { 1.5ex \@plus  0.3ex \@minus  0.2ex}%
+  {\large\bf\raggedright}%
 }
 \providecommand{\subsection}{}
 \renewcommand{\subsection}{%
   \@startsection{subsection}{2}{\z@}%
-                {-1.8ex \@plus -0.5ex \@minus -0.2ex}%
-                { 0.8ex \@plus  0.2ex}%
-                {\normalsize\bf\raggedright}%
+  {-1.8ex \@plus -0.5ex \@minus -0.2ex}%
+  { 0.8ex \@plus  0.2ex}%
+  {\normalsize\bf\raggedright}%
 }
 \providecommand{\subsubsection}{}
 \renewcommand{\subsubsection}{%
   \@startsection{subsubsection}{3}{\z@}%
-                {-1.5ex \@plus -0.5ex \@minus -0.2ex}%
-                { 0.5ex \@plus  0.2ex}%
-                {\normalsize\bf\raggedright}%
+  {-1.5ex \@plus -0.5ex \@minus -0.2ex}%
+  { 0.5ex \@plus  0.2ex}%
+  {\normalsize\bf\raggedright}%
 }
 \providecommand{\paragraph}{}
 \renewcommand{\paragraph}{%
   \@startsection{paragraph}{4}{\z@}%
-                {1.5ex \@plus 0.5ex \@minus 0.2ex}%
-                {-1em}%
-                {\normalsize\bf}%
+  {1.5ex \@plus 0.5ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalsize\bf}%
 }
 \providecommand{\subparagraph}{}
 \renewcommand{\subparagraph}{%
   \@startsection{subparagraph}{5}{\z@}%
-                {1.5ex \@plus 0.5ex \@minus 0.2ex}%
-                {-1em}%
-                {\normalsize\bf}%
+  {1.5ex \@plus 0.5ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalsize\bf}%
 }
 \providecommand{\subsubsubsection}{}
 \renewcommand{\subsubsubsection}{%
@@ -125,10 +127,10 @@
 
 % swap above/belowcaptionskip lengths for tables
 \renewenvironment{table}
-  {\setlength{\abovecaptionskip}{\@belowcaptionskip}%
-   \setlength{\belowcaptionskip}{\@abovecaptionskip}%
-   \@float{table}}
-  {\end@float}
+{\setlength{\abovecaptionskip}{\@belowcaptionskip}%
+  \setlength{\belowcaptionskip}{\@abovecaptionskip}%
+  \@float{table}}
+{\end@float}
 
 % footnote formatting
 \setlength{\footnotesep }{6.65\p@}
@@ -153,46 +155,46 @@
 \setlength{\leftmarginv  }{0.5em}
 \def\@listi  {\leftmargin\leftmargini}
 \def\@listii {\leftmargin\leftmarginii
-              \labelwidth\leftmarginii
-              \advance\labelwidth-\labelsep
-              \topsep  2\p@ \@plus 1\p@    \@minus 0.5\p@
-              \parsep  1\p@ \@plus 0.5\p@ \@minus 0.5\p@
-              \itemsep \parsep}
+  \labelwidth\leftmarginii
+  \advance\labelwidth-\labelsep
+  \topsep  2\p@ \@plus 1\p@    \@minus 0.5\p@
+  \parsep  1\p@ \@plus 0.5\p@ \@minus 0.5\p@
+  \itemsep \parsep}
 \def\@listiii{\leftmargin\leftmarginiii
-              \labelwidth\leftmarginiii
-              \advance\labelwidth-\labelsep
-              \topsep    1\p@ \@plus 0.5\p@ \@minus 0.5\p@
-              \parsep    \z@
-              \partopsep 0.5\p@ \@plus 0\p@ \@minus 0.5\p@
-              \itemsep \topsep}
+  \labelwidth\leftmarginiii
+  \advance\labelwidth-\labelsep
+  \topsep    1\p@ \@plus 0.5\p@ \@minus 0.5\p@
+  \parsep    \z@
+  \partopsep 0.5\p@ \@plus 0\p@ \@minus 0.5\p@
+  \itemsep \topsep}
 \def\@listiv {\leftmargin\leftmarginiv
-              \labelwidth\leftmarginiv
-              \advance\labelwidth-\labelsep}
+  \labelwidth\leftmarginiv
+  \advance\labelwidth-\labelsep}
 \def\@listv  {\leftmargin\leftmarginv
-              \labelwidth\leftmarginv
-              \advance\labelwidth-\labelsep}
+  \labelwidth\leftmarginv
+  \advance\labelwidth-\labelsep}
 \def\@listvi {\leftmargin\leftmarginvi
-              \labelwidth\leftmarginvi
-              \advance\labelwidth-\labelsep}
+  \labelwidth\leftmarginvi
+  \advance\labelwidth-\labelsep}
 
 % create title
 \providecommand{\maketitle}{}
 \renewcommand{\maketitle}{%
   \par
   \begingroup
-    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-    % for perfect author name centering
-    \renewcommand{\@makefnmark}{\hbox to \z@{$^{\@thefnmark}$\hss}}
-    % The footnote-mark was overlapping the footnote-text,
-    % added the following to fix this problem               (MK)
-    \long\def\@makefntext##1{%
-      \parindent 1em\noindent
-      \hbox to 1.8em{\hss $\m@th ^{\@thefnmark}$}##1
-    }
-    \thispagestyle{empty}
-    \@maketitle
-    \@thanks
-    %\@notice
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+  % for perfect author name centering
+  \renewcommand{\@makefnmark}{\hbox to \z@{$^{\@thefnmark}$\hss}}
+  % The footnote-mark was overlapping the footnote-text,
+  % added the following to fix this problem               (MK)
+  \long\def\@makefntext##1{%
+    \parindent 1em\noindent
+    \hbox to 1.8em{\hss $\m@th ^{\@thefnmark}$}##1
+  }
+  \thispagestyle{empty}
+  \@maketitle
+  \@thanks
+  %\@notice
   \endgroup
   \let\maketitle\relax
   \let\thanks\relax
@@ -227,13 +229,13 @@
     \def\And{%
       \end{tabular}\hfil\linebreak[0]\hfil%
       \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
-    }
-    \def\AND{%
+        }
+        \def\AND{%
       \end{tabular}\hfil\linebreak[4]\hfil%
       \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
     }
     \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\@author\end{tabular}%
-  \vskip 0.1in \@minus 0.1in \center{\@date}   \vskip 0.2in
+    \vskip 0.1in \@minus 0.1in \center{\@date}   \vskip 0.2in
   }
 }
 
@@ -243,7 +245,7 @@
   % give a bit of extra room back to authors on first page
   \enlargethispage{2\baselineskip}%
   \@float{noticebox}[b]%
-    \footnotesize\@noticestring%
+  \footnotesize\@noticestring%
   \end@float%
 }
 
@@ -253,8 +255,8 @@
   \centerline
   {\large \bfseries \scshape Abstract}
   \begin{quote}
-}
-{
+    }
+    {
   \end{quote}
 }
 

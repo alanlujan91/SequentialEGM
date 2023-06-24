@@ -1,4 +1,4 @@
-% Created with jtex v.0.1.14
+% Created with jtex v.0.1.15
 \documentclass{article}
 \usepackage{arxiv}
 
@@ -90,55 +90,56 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \hypersetup{colorlinks = true,
-linkcolor = purple,
-urlcolor  = blue,
-citecolor = cyan,
-anchorcolor = black}
+    linkcolor = purple,
+    urlcolor  = blue,
+    citecolor = cyan,
+    anchorcolor = black}
 
-\title{}
+\title{EGMⁿ: The Sequential Endogenous Grid Method}
 
-\newdate{articleDate}{19}{5}{2023}
+\newdate{articleDate}{23}{6}{2023}
 \date{\displaydate{articleDate}}
 
 \makeatletter
 \let\@fnsymbol\@arabic
 \makeatother
 
-\author{Alan Lujan\\
-The Ohio State University\\Econ-ARK\\}
+\author{    Alan Lujan    \footnotemark[1]\\
+    Ohio State University\\Econ-ARK\\        }
 
 % Uncomment to override  the `A preprint' in the header
 \renewcommand{\headeright}{Economics}
 \renewcommand{\undertitle}{}
-\renewcommand{\shorttitle}{}
+\renewcommand{\shorttitle}{EGMⁿ}
 
 %% Add PDF metadata to help others organize their library
 %% Once the PDF is generated, you can check the metadata with
 %% $ pdfinfo template.pdf
 \hypersetup{
-pdftitle={\@title},
-pdfsubject={},
-pdfauthor={\@author},
-pdfkeywords={endogenous grid method,stochastic dynamic programming,machine learning,gaussian process regression},
-addtopdfcreator={Written in Curvenote}
+    pdftitle={\@title},
+    pdfsubject={},
+    pdfauthor={\@author},
+    pdfkeywords={endogenous grid method,stochastic dynamic programming,machine learning,gaussian process regression},
+    addtopdfcreator={Written in Curvenote}
 }
 
 \begin{document}
-\maketitle
+    \maketitle
+            \footnotetext[1]{Correspondence to: alanlujan91@gmail.com}
 
-\begin{abstract}
-Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.
+        \begin{abstract}
+    Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.
 This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids.
 First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods.
 Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process.
 Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions.
 Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used.
 Software to reproduce these methods is available under the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} project for the \texttt{python} programming language.
-\end{abstract}
+    \end{abstract}
 
-\keywords{endogenous grid method, stochastic dynamic programming, machine learning, gaussian process regression}
+        \keywords{endogenous grid method, stochastic dynamic programming, machine learning, gaussian process regression}
 
-I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} toolkit (\citet{Carroll2018}). Additional libraries used in the production of this paper include but are not limited to: \href{https://www.scipy.org/}{\texttt{scipy}} (\citet{Virtanen2020}), \href{https://www.numpy.org/}{\texttt{numpy}} (\citet{Harris2020}), \href{https://numba.pydata.org/}{\texttt{numba}} (\citet{Lam2015}), \href{https://cupy.dev/}{\texttt{cupy}} (\citet{Okuta2017}), \href{https://scikit-learn.org/}{\texttt{scikit-learn}} (\citet{Pedregosa2011}), \href{https://pytorch.org/}{\texttt{pytorch}} (\citet{Paszke2019}), and \href{https://gpytorch.ai/}{\texttt{gpytorch}} (\citet{Gardner2018})
+    I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} toolkit (\citet{Carroll2018}). Additional libraries used in the production of this paper include but are not limited to: \href{https://www.scipy.org/}{\texttt{scipy}} (\citet{Virtanen2020}), \href{https://www.numpy.org/}{\texttt{numpy}} (\citet{Harris2020}), \href{https://numba.pydata.org/}{\texttt{numba}} (\citet{Lam2015}), \href{https://cupy.dev/}{\texttt{cupy}} (\citet{Okuta2017}), \href{https://scikit-learn.org/}{\texttt{scikit-learn}} (\citet{Pedregosa2011}), \href{https://pytorch.org/}{\texttt{pytorch}} (\citet{Paszke2019}), and \href{https://gpytorch.ai/}{\texttt{gpytorch}} (\citet{Gardner2018})
 
 \section{Introduction}\label{introduction}
 
@@ -679,7 +680,7 @@ To close the solution method, the envelope conditions are
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/ExogenousGrid-7770c20c3689cfbe6eba33b4f42fa1e4.pdf}
+\includegraphics[width=0.7\linewidth]{files/ExogenousGrid-fb38ce0fcedcc67055b093be507feb54.pdf}
 \caption{A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{t}$ and liquid assets after consumption $\lRat_{t}$.}
 \label{fig:exog}
 \end{figure}
@@ -688,7 +689,7 @@ As in Section~\ref{method}, the resulting endogenous grid is not rectilinear, an
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/EndogenousGrid-cf25f520e818a6f166150a1edcbffcb0.pdf}
+\includegraphics[width=0.7\linewidth]{files/EndogenousGrid-22b932ec56cc6e92b2d54c983c003983.pdf}
 \caption{An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances before deposit $\nRat_{t}$.}
 \label{fig:endog}
 \end{figure}
@@ -709,7 +710,7 @@ f(x,y) = (xy)^{1/4}.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/WarpedInterpolation-9513f6495d5e15630bda755d5a675faf.pdf}
+\includegraphics[width=0.7\linewidth]{files/WarpedInterpolation-652e3d430890c81de1369250e79f605e.pdf}
 \caption{True function and curvilinear grid of points for which we know the value of the function.}
 \label{fig:warped_interp}
 \end{figure}
@@ -720,7 +721,7 @@ In Figure~\ref{fig:homotopy} we see the values of the function at their index co
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/Homotopy-b394e505e3f7dd8d05e911a79f145599.pdf}
+\includegraphics[width=0.7\linewidth]{files/Homotopy-94883ae0acd6544353c2cba160fb588f.pdf}
 \caption{Homotopy between the curvilinear grid and the index coordinates of the matrix.}
 \label{fig:homotopy}
 \end{figure}
@@ -729,7 +730,7 @@ The objective is to be able to interpolate the value of the function at any poin
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/Mapping-cd6f0ee772a7e079f475e7b52d4449d1.pdf}
+\includegraphics[width=0.7\linewidth]{files/Mapping-237da926c90b07df865672c9cd2fdcad.pdf}
 \caption{The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.}
 \label{fig:mapping}
 \end{figure}
@@ -800,7 +801,7 @@ In Figure~\ref{fig:true_function}, we see the function we are trying to approxim
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/true_function-01b57cd4c6548e84513aa8a8687433c4.pdf}
+\includegraphics[width=0.7\linewidth]{files/true_function-36fbba826bd6ba2f866c3b73e6cad33d.pdf}
 \caption{The true function that we are trying to approximate and a sample of data points.}
 \label{fig:true_function}
 \end{figure}
@@ -809,7 +810,7 @@ As we discussed, a Gaussian Process is an infinite dimensional random process wh
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/gpr_sample-17851f5bdfaff3738b8cf28827639b0d.pdf}
+\includegraphics[width=0.7\linewidth]{files/gpr_sample-5f73eae218af6fc463659c4451e6f48a.pdf}
 \caption{A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.}
 \label{fig:gpr_sample}
 \end{figure}
@@ -818,7 +819,7 @@ In Figure~\ref{fig:gpr}, we see the result of GPR with a particular parametrizat
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/gpr-752c36bb2492c4fd71d72e083cb8e5aa.pdf}
+\includegraphics[width=0.7\linewidth]{files/gpr-2f51189d1637a804ca908de90a849968.pdf}
 \caption{GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
 \label{fig:gpr}
 \end{figure}
@@ -1284,7 +1285,7 @@ the first-order conditions are therefore
 
 
 
-\bibliographystyle{unsrtnat}
-\bibliography{main.bib}
+        \bibliographystyle{unsrtnat}
+    \bibliography{main.bib}
 
 \end{document}
