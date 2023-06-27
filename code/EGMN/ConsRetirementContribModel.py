@@ -66,7 +66,7 @@ class RetiredSolution(MetricObject):
     v_func: ValueFuncCRRA = NullFunc()
 
 
-class PensionContribConsumerType(RiskyAssetConsumerType):
+class PensionConsumerType(RiskyAssetConsumerType):
     time_inv_ = deepcopy(RiskyAssetConsumerType.time_inv_)
     time_inv_ = time_inv_ + [
         "DisutilLabor",
@@ -83,7 +83,7 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         RiskyAssetConsumerType.__init__(self, **params)
 
         # Add consumer-type specific objects, copying to create independent versions
-        self.solve_one_period = make_one_period_oo_solver(PensionContribSolver)
+        self.solve_one_period = make_one_period_oo_solver(PensionSolver)
 
         self.update()  # Make assets grid, income process, terminal solution
 
@@ -184,7 +184,7 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
 
 
 @dataclass
-class PensionContribSolver(MetricObject):
+class PensionSolver(MetricObject):
     solution_next: WorkingSolution
     DiscFac: float
     CRRA: float

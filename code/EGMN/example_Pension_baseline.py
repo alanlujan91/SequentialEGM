@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.5
+#       jupytext_version: 1.14.6
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -16,7 +16,7 @@
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 import matplotlib.pyplot as plt
 import numpy as np
-from ConsPensionContribModel import PensionContribConsumerType, init_pension_contrib
+from ConsPensionModel import PensionConsumerType, init_pension_contrib
 
 figures_path = "../../content/figures/"
 
@@ -50,7 +50,7 @@ baseline_params["bNestFac"] = -1
 baseline_params["cycles"] = 1
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-agent = PensionContribConsumerType(**baseline_params)
+agent = PensionConsumerType(**baseline_params)
 
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}

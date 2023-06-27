@@ -83,14 +83,14 @@ class WorkerSolution(MetricObject):
 
 
 @dataclass
-class RetPenContribSolution(MetricObject):
+class RetirementSolution(MetricObject):
     worker_solution: WorkerSolution = WorkerSolution()
     retired_solution: RetiredSolution = RetiredSolution()
     working_solution: WorkingSolution = WorkingSolution()
     retiring_solution: RetiringSolution = RetiringSolution()
 
 
-class RetirementPensionConsumerType(RiskyAssetConsumerType):
+class RetirementConsumerType(RiskyAssetConsumerType):
     time_inv_ = deepcopy(RiskyAssetConsumerType.time_inv_)
     time_inv_ = time_inv_ + [
         "DisutilLabor",
@@ -109,7 +109,7 @@ class RetirementPensionConsumerType(RiskyAssetConsumerType):
         super().__init__(**params)
 
         # Add consumer-type specific objects, copying to create independent versions
-        self.solve_one_period = make_one_period_oo_solver(RetirementPensionSolver)
+        self.solve_one_period = make_one_period_oo_solver(RetirementSolver)
 
     def update(self):
         self.update_grids()
@@ -155,7 +155,7 @@ class RetirementPensionConsumerType(RiskyAssetConsumerType):
         # no need for  weighted average
         self.worker_solution = WorkerSolution(deposit_stage=deposit_stage)
 
-        self.solution_terminal = RetPenContribSolution(
+        self.solution_terminal = RetirementSolution(
             worker_solution=self.worker_solution,
             retired_solution=self.retired_solution,
             working_solution=self.working_solution,
@@ -207,8 +207,8 @@ class RetirementPensionConsumerType(RiskyAssetConsumerType):
 
 
 @dataclass
-class RetirementPensionSolver:
-    solution_next: RetPenContribSolution
+class RetirementSolver:
+    solution_next: RetirementSolution
     DiscFac: float
     CRRA: float
     DisutilLabor: float
@@ -612,7 +612,7 @@ class RetirementPensionSolver:
             self.working_solution, self.retiring_solution
         )
 
-        solution = RetPenContribSolution(
+        solution = RetirementSolution(
             worker_solution=self.worker_solution,
             retired_solution=self.retired_solution,
             working_solution=self.working_solution,

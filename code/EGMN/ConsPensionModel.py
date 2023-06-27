@@ -49,7 +49,7 @@ class DepositStage(MetricObject):
 
 
 @dataclass
-class PensionContribSolution(MetricObject):
+class PensionSolution(MetricObject):
     post_decision_stage: PostDecisionStage = PostDecisionStage()
     deposit_stage: DepositStage = DepositStage()
     consumption_stage: ConsumptionStage = ConsumptionStage()
@@ -62,7 +62,7 @@ GridParameters = namedtuple(
 )
 
 
-class PensionContribConsumerType(RiskyAssetConsumerType):
+class PensionConsumerType(RiskyAssetConsumerType):
     time_inv_ = deepcopy(RiskyAssetConsumerType.time_inv_)
     time_inv_ = time_inv_ + [
         "DisutilLabor",
@@ -79,7 +79,7 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
         RiskyAssetConsumerType.__init__(self, **params)
 
         # Add consumer-type specific objects, copying to create independent versions
-        self.solve_one_period = make_one_period_oo_solver(PensionContribSolver)
+        self.solve_one_period = make_one_period_oo_solver(PensionSolver)
 
         self.update()  # Make assets grid, income process, terminal solution
 
@@ -113,7 +113,7 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
             d_func=d_func, v_func=v_func, dvdm_func=vp_func, dvdn_func=vp_func
         )
 
-        self.solution_terminal = PensionContribSolution(
+        self.solution_terminal = PensionSolution(
             deposit_stage=deposit_stage,
             consumption_stage=consumption_stage,
         )
@@ -184,8 +184,8 @@ class PensionContribConsumerType(RiskyAssetConsumerType):
 
 
 @dataclass
-class PensionContribSolver(MetricObject):
-    solution_next: PensionContribSolution
+class PensionSolver(MetricObject):
+    solution_next: PensionSolution
     DiscFac: float
     CRRA: float
     DisutilLabor: float
@@ -648,7 +648,7 @@ class PensionContribSolver(MetricObject):
         consumption_solution = self.solve_consumption_decision(post_decision_solution)
         deposit_solution = self.solve_deposit_decision(consumption_solution)
 
-        solution = PensionContribSolution(
+        solution = PensionSolution(
             post_decision_stage=post_decision_solution,
             consumption_stage=consumption_solution,
             deposit_stage=deposit_solution,
@@ -708,18 +708,16 @@ init_pension_contrib["bMax"] = 14
 init_pension_contrib["bNestFac"] = -1
 
 
-class RetirementPensionContribConsumerType(PensionContribConsumerType):
+class RetirementConsumerType(PensionConsumerType):
     def __init__(self, verbose=False, quiet=False, **kwds):
         params = init_pension_retirement.copy()
         params.update(kwds)
 
         # Initialize a basic AgentType
-        PensionContribConsumerType.__init__(
-            self, verbose=verbose, quiet=quiet, **params
-        )
+        PensionConsumerType.__init__(self, verbose=verbose, quiet=quiet, **params)
 
         # Add consumer-type specific objects, copying to create independent versions
-        contrib_solver = make_one_period_oo_solver(PensionContribSolver)
+        contrib_solver = make_one_period_oo_solver(PensionSolver)
         retirement_solver = make_one_period_oo_solver(ConsIndShockSolver)
 
         solvers = []

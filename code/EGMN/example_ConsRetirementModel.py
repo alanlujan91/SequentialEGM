@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.5
+#       jupytext_version: 1.14.6
 #   kernelspec:
 #     display_name: egmn-dev
 #     language: python
@@ -16,10 +16,10 @@
 # %% pycharm={"name": "#%%\n"}
 import matplotlib.pyplot as plt
 import numpy as np
-from ConsRetirementPensionModel import RetirementPensionConsumerType
+from ConsRetirementModel import RetirementConsumerType
 
 # %% pycharm={"name": "#%%\n"}
-agent = RetirementPensionConsumerType(cycles=1)
+agent = RetirementConsumerType()
 
 # %%
 agent.solve()
@@ -273,7 +273,7 @@ x = agent.solution[0].working_solution.deposit_stage.interp.grids[0]
 y = agent.solution[0].working_solution.deposit_stage.interp.grids[1]
 color = agent.solution[0].working_solution.deposit_stage.interp.values
 
-cond = np.logical_and.reduce([x > 0, y > 0, x < 10, y < 10])
+cond = np.logical_and.reduce([x > 0, y > 0, x < 5, y < 5])
 x = x[cond]
 y = y[cond]
 color = color[cond]

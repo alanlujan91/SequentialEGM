@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.5
+#       jupytext_version: 1.14.6
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -16,13 +16,13 @@
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 import matplotlib.pyplot as plt
 import numpy as np
-from ConsPensionContribModel import PensionContribConsumerType
+from ConsPensionModel import PensionConsumerType
 from IPython import get_ipython
 
-figures_path = "../../content/figures"
+figures_path = "../../content/figures/"
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-agent = PensionContribConsumerType(cycles=19)
+agent = PensionConsumerType(cycles=19)
 
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}

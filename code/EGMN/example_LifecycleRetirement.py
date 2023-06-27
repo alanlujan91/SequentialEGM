@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.5
+#       jupytext_version: 1.14.6
 #   kernelspec:
 #     display_name: egmn-dev
 #     language: python
@@ -16,14 +16,14 @@
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
-from ConsPensionContribModel import RetirementPensionContribConsumerType
+from ConsPensionModel import RetirementConsumerType
 from HARK.utilities import plot_funcs
 from IPython import get_ipython
 
 plt.style.use("seaborn-whitegrid")
 
 # %%
-agent = RetirementPensionContribConsumerType()
+agent = RetirementConsumerType()
 agent.solve()
 
 # %%
