@@ -35,15 +35,12 @@ Software to reproduce these methods is available under the [`Econ-ARK/HARK`](htt
 
 +++ {"part": "acknowledgements"}
 
-I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit ({cite:t}`Carroll2018`). Additional libraries used in the production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) ({cite:t}`Virtanen2020`), [`numpy`](https://www.numpy.org/) ({cite:t}`Harris2020`), [`numba`](https://numba.pydata.org/) ({cite:t}`Lam2015`), [`cupy`](https://cupy.dev/) ({cite:t}`Okuta2017`), [`scikit-learn`](https://scikit-learn.org/) ({cite:t}`Pedregosa2011`), [`pytorch`](https://pytorch.org/) ({cite:t}`Paszke2019`), and [`gpytorch`](https://gpytorch.ai/) ({cite:t}`Gardner2018`)
+I would like to thank Chris Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit ({cite:t}`Carroll2018`). Additional libraries used in the production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) ({cite:t}`Virtanen2020`), [`numpy`](https://www.numpy.org/) ({cite:t}`Harris2020`), [`numba`](https://numba.pydata.org/) ({cite:t}`Lam2015`), [`cupy`](https://cupy.dev/) ({cite:t}`Okuta2017`), [`scikit-learn`](https://scikit-learn.org/) ({cite:t}`Pedregosa2011`), [`pytorch`](https://pytorch.org/) ({cite:t}`Paszke2019`), and [`gpytorch`](https://gpytorch.ai/) ({cite:t}`Gardner2018`)
 
 +++
 
-
 (introduction)=
 # Introduction
-
-## Background
 
 % Introduce the topic by providing a brief overview of the issue and why it is important to study it.
 
@@ -410,14 +407,6 @@ The envelope condition then provides a heterogeneous Frisch elasticity of labor 
   \h'(\leisure_{t})/\tShkEmp_{t}.
 \end{equation}
 
-## Curvilinear Grids
-
-Although EGM$^n$ seems to be a simple approach, there is one important caveat that we have not discussed, which is the details of the interpolation. In the pure consumption-savings problem, a one-dimensional exogenous grid of post-decision liquid assets $\aMat$ results in a one-dimensional endogenous grid of total market resources $\mMat$. However, as we know from standard EGM, the spacing in the $\mMat$ grid is different from the spacing in the $\aMat$ grid as the inverted Euler equation is non-linear. This is no problem in a one-dimensional problem as we can simply use non-uniform linear interpolation.
-
-However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to {cite:t}`White2015`'s approach but computationally more efficient and robust. The details of this interpolation method will be further explained in [Section %s](#multinterp), but for now, we show the resulting warped endogenous grid for the labor-leisure problem.
-
-% TODO: Add figure
-
 ## Alternative Parametrization
 
 An alternative formulation for the utility of leisure is to state it in terms
@@ -441,6 +430,48 @@ The marginal utility of leisure and its inverse are
   \h'^{-1}(\xRat) = 1 - (\xRat/\leiShare)^{1/\labShare}
 \end{equation}
 
+## Curvilinear Grids
+
+Although EGM$^n$ seems to be a simple approach, there is one important caveat that we have not discussed, which is the details of the interpolation. In the pure consumption-savings problem, a one-dimensional exogenous grid of post-decision liquid assets $\aMat$ results in a one-dimensional endogenous grid of total market resources $\mMat$. However, as we know from standard EGM, the spacing in the $\mMat$ grid is different from the spacing in the $\aMat$ grid as the inverted Euler equation is non-linear. This is no problem in a one-dimensional problem as we can simply use non-uniform linear interpolation.
+
+However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to {cite:t}`White2015`'s approach but computationally more efficient and robust.
+
+% TODO: Add figure
+
+## Warped Grid Interpolation (WGI)
+
+Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for which we have corresponding functional values in a third dimension, such that $f(x_{ij},y_{ij}) = z_{ij}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and $f(x_{ij},y_{ij})$ is unknown, so we are unable to compute them at other values of $x$ and $y$ --- which is why we want to interpolate[^f3]. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
+
+[^f3]: For this illustration, we generate $z$'s arbitrarily using the function $$f(x,y) = (xy)^{1/4}.$$
+
+```{figure} ../figures/WarpedInterpolation.*
+:name: fig:warped_interp
+:align: center
+
+True function and curvilinear grid of points for which we know the value of the function.
+```
+
+In [Figure %s](#fig:warped_interp), we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
+
+In [Figure %s](#fig:homotopy) we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
+
+```{figure} ../figures/Homotopy.*
+:name: fig:homotopy
+:align: center
+
+Homotopy between the curvilinear grid and the index coordinates of the matrix.
+```
+
+The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured [Figure %s](#fig:mapping). If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in [Figure %s](#fig:mapping), we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate[^f4].
+
+[^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project[`alanlujan91/multinterp`](https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb).
+
+```{figure} ../figures/Mapping.*
+:name: fig:mapping
+:align: center
+
+The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.
+```
 
 (multdim)=
 # The EGM$^n$ in Higher Dimensions
@@ -585,7 +616,7 @@ To close the solution method, the envelope conditions are
 
 ## Unstructured Grid Interpolation
 
-```{figure} ../figures/ExogenousGrid.svg
+```{figure} ../figures/ExogenousGrid.*
 :name: fig:exog
 :align: center
 
@@ -594,7 +625,7 @@ A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{
 
 As in [Section %s](#method), the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in  [Figure %s](#fig:exog) that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain [Figure %s](#fig:endog) which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
 
-```{figure} ../figures/EndogenousGrid.svg
+```{figure} ../figures/EndogenousGrid.*
 :name: fig:endog
 :align: center
 
@@ -604,44 +635,9 @@ An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and p
 To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in {cite:t}`Scheidegger2019`.
 
 (multinterp)=
-# Multivariate Interpolation on Non-Rectilinear Grids
+# Multivariate Interpolation on Unstructured Grids
 
-This section presents alternative interpolation methods for non-rectilinear grids. First, I present the relatively simple case of fast warped interpolation on a curvilinear grid, which improves upon the interpolation in {cite:t}`White2015`. Then, I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in {cite:t}`Scheidegger2019`.
-
-## Warped Grid Interpolation (WGI)
-
-Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for which we have corresponding functional values in a third dimension, such that $f(x_{ij},y_{ij}) = z_{ij}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and $f(x_{ij},y_{ij})$ is unknown, so we are unable to compute them at other values of $x$ and $y$ --- which is why we want to interpolate[^f3]. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
-
-[^f3]: For this illustration, we generate $z$'s arbitrarily using the function $$f(x,y) = (xy)^{1/4}.$$
-
-```{figure} ../figures/WarpedInterpolation.svg
-:name: fig:warped_interp
-:align: center
-
-True function and curvilinear grid of points for which we know the value of the function.
-```
-
-In [Figure %s](#fig:warped_interp), we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
-
-In [Figure %s](#fig:homotopy) we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
-
-```{figure} ../figures/Homotopy.svg
-:name: fig:homotopy
-:align: center
-
-Homotopy between the curvilinear grid and the index coordinates of the matrix.
-```
-
-The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured [Figure %s](#fig:mapping). If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in [Figure %s](#fig:mapping), we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate[^f4].
-
-[^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project[`alanlujan91/multinterp`](https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb).
-
-```{figure} ../figures/Mapping.svg
-:name: fig:mapping
-:align: center
-
-The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.
-```
+This section presents an alternative interpolation method for unstructured grids. I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in {cite:t}`Scheidegger2019`.
 
 ## Unstructured Grids
 
@@ -653,7 +649,7 @@ As an alternative to these methods, I introduce the use of Gaussian Process Regr
 
 %note: spell out GPU maybe or explain it in some way?
 
-### Gaussian Process Regression
+## Gaussian Process Regression
 
 A Gaussian Process is an infinite dimensional random process for which every subset of random variables is jointly Gaussian or has a multivariate normal distribution.
 
@@ -705,11 +701,11 @@ A standard kernel function is the squared exponential kernel, or the radial basi
 
 Using GPR to interpolate a function $f$, we can both predict the value of the function at a point $\mathbf{x}_*$ and the uncertainty in the prediction, which provides useful information as to the accuracy of the approximation.
 
-### An example of the GPR
+## An example of the GPR
 
 In [Figure %s](#fig:true_function), we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
 
-```{figure} ../figures/true_function.svg
+```{figure} ../figures/true_function.*
 :name: fig:true_function
 :align: center
 
@@ -718,7 +714,7 @@ The true function that we are trying to approximate and a sample of data points.
 
 As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In [Figure %s](#fig:gpr_sample), we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
 
-```{figure} ../figures/gpr_sample.svg
+```{figure} ../figures/gpr_sample.*
 :name: fig:gpr_sample
 :align: center
 
@@ -729,7 +725,7 @@ In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametriza
 
 [^f6]: For details see notebook.
 
-```{figure} ../figures/gpr.svg
+```{figure} ../figures/gpr.*
 :name: fig:gpr
 :align: center
 
@@ -870,7 +866,6 @@ EGM$^n$ is similar to the Nested Endogenous Grid Method (NEGM)[^NEGM] and the Ge
 % Discuss future directions: Provide suggestions for future research based on the new computational method you developed or proposed. This can include improvements to the method, potential extensions to other areas of research, or new applications of the method.
 
 % Conclude with final thoughts: End your conclusion with some final thoughts that tie together the main points of your paper. This will help leave a lasting impression on the reader.
-
 
 (appendix)=
 # Solving the illustrative G2EGM model with EGM$^n$
