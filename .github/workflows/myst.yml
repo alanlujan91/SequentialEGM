@@ -1,7 +1,7 @@
 name: MyST Deploy
 on:
   push:
-    branches: [main]
+    branches: [master]
 env:
   BASE_URL: /${{ github.event.repository.name }}
 jobs:
