@@ -155,7 +155,7 @@ The problem can be written in normalized recursive form[^f2] as
       \tShkEmp_{t+1}) \right] \\
     & \text{s.t.} \\
     \labor_{t} & = 1 - \leisure_{t} \\
-    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
+    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t} \\
     \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
     \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
     \riskyshare_{t} \\
@@ -194,7 +194,7 @@ Starting from the beginning of the period, we can define the labor-leisure probl
     & \text{s.t.} \\
     0 & \leq \leisure_{t} \leq 1 \\
     \labor_{t} & = 1 - \leisure_{t} \\
-    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t}.
+    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t}.
   \end{split}
 \end{equation}
 
@@ -271,9 +271,7 @@ Finding the optimal risky share requires numerical optimization and root-solving
   \vEnd_{t}'(\aRat_{t}) =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right].
 \end{equation}
 
-### A note on avoiding taking expectations more than once
-
-We could instead define the portfolio choice subproblem as:
+**A note on avoiding taking expectations more than once** We could instead define the portfolio choice subproblem as:
 
 \begin{equation}
   \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
@@ -344,7 +342,7 @@ of market resources that is consistent with this consumption-saving decision as
   \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
 \end{equation}
 
-This $\mEndFunc_{t}(\aMat)$ is the ``endogenous'' grid that is consistent
+This $\mEndFunc_{t}(\aMat)$ is the "endogenous" grid that is consistent
 with the exogenous decision grid $\aMat$. Now that we have a
 $(\mEndFunc_{t}(\aMat), \cEndFunc_{t}(\aMat))$ pair for each
 $\aRat \in \aMat$, we can construct an interpolating consumption function for
@@ -364,7 +362,7 @@ The labor-leisure subproblem can  be restated more compactly as:
 \begin{equation}
   \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
   \h(\leisure_{t}) + \vOpt_{t}(\bRat_{t} +
-  \tShkEmp_{t}(1-\leisure_{t}))
+  \tShkEmp_{t} \wage (1-\leisure_{t}))
 \end{equation}
 
 The first-order condition with respect to leisure implies the labor-leisure Euler equation
@@ -436,7 +434,12 @@ Although EGM$^n$ seems to be a simple approach, there is one important caveat th
 
 However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to {cite:t}`White2015`'s approach but computationally more efficient and robust.
 
-% TODO: Add figure
+```{figure} ../figures/warped_grid.*
+:name: fig:warped_grid
+:align: center
+
+Warped Curvlinear Grid that results from multivariate EGM. This grid can be interpolated by WGI.
+```
 
 ## Warped Grid Interpolation (WGI)
 
@@ -489,7 +492,7 @@ For a demonstration, we now turn to the problem of a worker saving up for retire
     \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
     \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t}) \\
     \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}  + \tShkEmp_{t+1} \\
-    \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / / \PGro_{t+1}
+    \nRat_{t+1} & = \bRat_{t} \Risky_{t+1}  / \PGro_{t+1}
   \end{split}
 \end{equation}
 

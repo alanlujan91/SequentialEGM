@@ -1,12 +1,28 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from HARK.interpolation import LinearInterp, LinearInterpOnInterp1D
+from matplotlib import rcParams
+
+rcParams.update({"figure.autolayout": True})
+
+figures_path = "../../content/figures/"
 
 
-def plot_hark_bilinear(function):
-    x_list = function.x_list
-    f_vals = function.f_values
+def plot_hark_bilinear(function, meta_data={}):
+    x_list = np.array(function.x_list)
+    f_vals = np.array(function.f_values)
+
+    default_data = {
+        "xlabel": "X-axis label",
+        "ylabel": "Y-axis label",
+        "title": "Title of the plot",
+    }
+    default_data.update(meta_data)
 
     plt.plot(x_list, f_vals)
+    plt.xlabel(default_data["xlabel"])
+    plt.ylabel(default_data["ylabel"])
+    plt.title(default_data["title"])
 
 
 def plot_warped_bilinear_flat(function, min_x=None, max_x=None, n=100):
@@ -23,64 +39,29 @@ def plot_warped_bilinear_flat(function, min_x=None, max_x=None, n=100):
         plt.plot(x_grid[:, i], values[:, i])
 
 
-def plot_3d_func(func, min, max, n=100):
-    # get_ipython().run_line_magic("matplotlib", "widget")
-    xgrid = np.linspace(min, max, n)
-    ygrid = xgrid
+def plot_3d_func(func, xlims, ylims, n=100, meta={}, savename=None):
+    xgrid = np.linspace(xlims[0], xlims[1], n)
+    ygrid = np.linspace(ylims[0], ylims[1], n)
 
     xMat, yMat = np.meshgrid(xgrid, ygrid, indexing="ij")
 
     zMat = func(xMat, yMat)
 
-    ax = plt.axes(projection="3d")
-    ax.plot_surface(xMat, yMat, zMat, cmap="viridis")
-    ax.set_title("surface")
-    ax.set_xlabel("m")
-    ax.set_ylabel("n")
-    ax.set_zlabel("f")
-    plt.show()
+    meta_data = {"title": "surface", "xlabel": "x", "ylabel": "y", "zlabel": "function"}
 
-
-def scatter_hist(x, y, color, ax, ax_histx, ax_histy):
-    # no labels
-    ax_histx.tick_params(axis="x", labelbottom=False)
-    ax_histy.tick_params(axis="y", labelleft=False)
-
-    # the scatter plot:
-    hist = ax.scatter(x, y, c=color, cmap="viridis", alpha=0.6)
-
-    # now determine nice limits by hand:
-    binwidth = 1.5
-    xymax = max(np.max(x), np.max(y))
-    xymin = min(np.min(x), np.min(y))
-    top = (int(xymax / binwidth) + 1) * binwidth
-    bottom = (int(xymin / binwidth) + 1) * binwidth
-
-    bins = np.arange(bottom, top + binwidth, binwidth)
-    ax_histx.hist(x, bins=bins)
-    ax_histy.hist(y, bins=bins, orientation="horizontal")
-
-    return hist
-
-
-def plot_3d_func(func, lims_x, lims_y, n=100, label_x="x", label_y="y", label_z="z"):
-    # get_ipython().run_line_magic("matplotlib", "widget")
-    xmin, xmax = lims_x
-    ymin, ymax = lims_y
-    xgrid = np.linspace(xmin, xmax, n)
-    ygrid = np.linspace(ymin, ymax, n)
-
-    xMat, yMat = np.meshgrid(xgrid, ygrid, indexing="ij")
-
-    zMat = func(xMat, yMat)
+    meta_data.update(meta)
 
     ax = plt.axes(projection="3d")
     ax.plot_surface(xMat, yMat, zMat, cmap="viridis")
-    ax.set_title("surface")
-    ax.set_xlabel(label_x)
-    ax.set_ylabel(label_y)
-    ax.set_zlabel(label_z)
+    ax.set_title(meta_data["title"])
+    ax.set_xlabel(meta_data["xlabel"])
+    ax.set_ylabel(meta_data["ylabel"])
+    ax.set_zlabel(meta_data["zlabel"])
     plt.show()
+
+    if savename is not None:
+        plt.savefig(figures_path + savename + ".svg")
+        plt.savefig(figures_path + savename + ".pdf")
 
 
 def plot_retired(min, max, n=100):
@@ -103,62 +84,6 @@ def plot_retired(min, max, n=100):
     for vFunc in vFunc_retired:
         plt.plot(mgrid, vFunc.vFuncNvrs(mgrid))
 
-    plt.show()
-
-
-def plot_3d_func(func, min, max, n=100):
-    xgrid = np.linspace(min, max, n)
-    ygrid = xgrid
-
-    xmat, ymat = np.meshgrid(xgrid, ygrid, indexing="ij")
-
-    zmat = func(xmat, ymat)
-
-    ax = plt.axes(projection="3d")
-    ax.plot_surface(xmat, ymat, zmat, cmap="viridis")
-    ax.set_title("surface")
-    ax.set_xlabel("m")
-    ax.set_ylabel("n")
-    ax.set_zlabel("f")
-    plt.show()
-
-
-def scatter_hist(x, y, color, ax, ax_histx, ax_histy, fig):
-    # no labels
-    ax_histx.tick_params(axis="x", labelbottom=False)
-    ax_histy.tick_params(axis="y", labelleft=False)
-
-    # the scatter plot:
-    plot = ax.scatter(x, y, c=color, cmap="jet")
-    fig.colorbar(plot)
-
-    # now determine nice limits by hand:
-    binwidth = 0.25
-    xymax = max(np.max(x), np.max(y))
-    xymin = min(np.min(x), np.min(y))
-    top = (int(xymax / binwidth) + 1) * binwidth
-    bottom = (int(xymin / binwidth) + 1) * binwidth
-
-    bins = np.arange(bottom, top + binwidth, binwidth)
-    ax_histx.hist(x, bins=bins)
-    ax_histy.hist(y, bins=bins, orientation="horizontal")
-
-
-def plot_3d_func(func, min, max, n=100):
-    get_ipython().run_line_magic("matplotlib", "widget")
-    xgrid = np.linspace(min, max, n)
-    ygrid = xgrid
-
-    xmat, ymat = np.meshgrid(xgrid, ygrid, indexing="ij")
-
-    zmat = func(xmat, ymat)
-
-    ax = plt.axes(projection="3d")
-    ax.plot_surface(xmat, ymat, zmat, cmap="viridis")
-    ax.set_title("surface")
-    ax.set_xlabel("m")
-    ax.set_ylabel("n")
-    ax.set_zlabel("f")
     plt.show()
 
 
@@ -219,3 +144,13 @@ def plot_scatter_hist(x, y, color, title, xlabel, ylabel, filename):
 
     plt.show()
     fig.savefig(figures_path + filename)
+
+
+def interp_on_interp(values, grids):
+    temp = []
+    x, y = grids
+    grid = y[0]
+    for i in range(grid.size):
+        temp.append(LinearInterp(x[:, i], values[:, i]))
+
+    return LinearInterpOnInterp1D(temp, grid)

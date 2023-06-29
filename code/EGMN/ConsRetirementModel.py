@@ -1,5 +1,3 @@
-# this code is outdated
-
 from copy import deepcopy
 from dataclasses import dataclass
 
@@ -644,30 +642,30 @@ init_retirement_pension["TasteShkStd"] = 0.1
 
 init_retirement_pension["epsilon"] = 1e-8
 
-init_retirement_pension["aRetCount"] = 100
+init_retirement_pension["aRetCount"] = 50
 init_retirement_pension["aRetMax"] = 25.0
 init_retirement_pension["aRetNestFac"] = 2
 
-init_retirement_pension["mCount"] = 100
+init_retirement_pension["mCount"] = 50
 init_retirement_pension["mMax"] = 10
 init_retirement_pension["mNestFac"] = 2
 
-init_retirement_pension["nCount"] = 100
+init_retirement_pension["nCount"] = 50
 init_retirement_pension["nMax"] = 10
 init_retirement_pension["nNestFac"] = 2
 
-init_retirement_pension["lCount"] = 100
+init_retirement_pension["lCount"] = 50
 init_retirement_pension["lMax"] = 10
 init_retirement_pension["lNestFac"] = 2
 
-init_retirement_pension["blCount"] = 100
+init_retirement_pension["blCount"] = 50
 init_retirement_pension["blMax"] = 10
 init_retirement_pension["blNestFac"] = 2
 
-init_retirement_pension["aCount"] = 100
+init_retirement_pension["aCount"] = 50
 init_retirement_pension["aMax"] = 10
 init_retirement_pension["aNestFac"] = 2
 
-init_retirement_pension["bCount"] = 100
+init_retirement_pension["bCount"] = 50
 init_retirement_pension["bMax"] = 10
 init_retirement_pension["bNestFac"] = 2

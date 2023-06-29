@@ -40,6 +40,7 @@
 \newcommand{\PLev}{P}
 \newcommand{\vFunc}{\mathrm{v}}
 \newcommand{\Rfree}{\mathsf{R}}
+\newcommand{\wage}{\mathsf{w}}
 \newcommand{\riskyshare}{\varsigma}
 \newcommand{\PGro}{\Gamma}
 \newcommand{\labor}{\ell}
@@ -90,22 +91,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \hypersetup{colorlinks = true,
-    linkcolor = purple,
-    urlcolor  = blue,
-    citecolor = cyan,
-    anchorcolor = black}
+linkcolor = purple,
+urlcolor  = blue,
+citecolor = cyan,
+anchorcolor = black}
 
 \title{EGMⁿ: The Sequential Endogenous Grid Method}
 
-\newdate{articleDate}{27}{6}{2023}
+\newdate{articleDate}{28}{6}{2023}
 \date{\displaydate{articleDate}}
 
 \makeatletter
 \let\@fnsymbol\@arabic
 \makeatother
 
-\author{    Alan Lujan    \footnotemark[1]\\
-    Ohio State University\\Econ-ARK\\        }
+\author{Alan Lujan\footnotemark[1]\\
+Ohio State University\\Econ-ARK\\}
 
 % Uncomment to override  the `A preprint' in the header
 \renewcommand{\headeright}{Economics}
@@ -116,30 +117,30 @@
 %% Once the PDF is generated, you can check the metadata with
 %% $ pdfinfo template.pdf
 \hypersetup{
-    pdftitle={\@title},
-    pdfsubject={},
-    pdfauthor={\@author},
-    pdfkeywords={endogenous grid method,stochastic dynamic programming,machine learning,gaussian process regression},
-    addtopdfcreator={Written in Curvenote}
+pdftitle={\@title},
+pdfsubject={},
+pdfauthor={\@author},
+pdfkeywords={endogenous grid method,stochastic dynamic programming,machine learning,gaussian process regression},
+addtopdfcreator={Written in Curvenote}
 }
 
 \begin{document}
-    \maketitle
-            \footnotetext[1]{Correspondence to: alanlujan91@gmail.com}
+\maketitle
+\footnotetext[1]{Correspondence to: alanlujan91@gmail.com}
 
-        \begin{abstract}
-    Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.
+\begin{abstract}
+Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.
 This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids.
 First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods.
 Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process.
 Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions.
 Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used.
 Software to reproduce these methods is available under the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} project for the \texttt{python} programming language.
-    \end{abstract}
+\end{abstract}
 
-        \keywords{endogenous grid method, stochastic dynamic programming, machine learning, gaussian process regression}
+\keywords{endogenous grid method, stochastic dynamic programming, machine learning, gaussian process regression}
 
-    I would like to thank Chris Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} toolkit (\citet{Carroll2018}). Additional libraries used in the production of this paper include but are not limited to: \href{https://www.scipy.org/}{\texttt{scipy}} (\citet{Virtanen2020}), \href{https://www.numpy.org/}{\texttt{numpy}} (\citet{Harris2020}), \href{https://numba.pydata.org/}{\texttt{numba}} (\citet{Lam2015}), \href{https://cupy.dev/}{\texttt{cupy}} (\citet{Okuta2017}), \href{https://scikit-learn.org/}{\texttt{scikit-learn}} (\citet{Pedregosa2011}), \href{https://pytorch.org/}{\texttt{pytorch}} (\citet{Paszke2019}), and \href{https://gpytorch.ai/}{\texttt{gpytorch}} (\citet{Gardner2018})
+I would like to thank Chris Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} toolkit (\citet{Carroll2018}). Additional libraries used in the production of this paper include but are not limited to: \href{https://www.scipy.org/}{\texttt{scipy}} (\citet{Virtanen2020}), \href{https://www.numpy.org/}{\texttt{numpy}} (\citet{Harris2020}), \href{https://numba.pydata.org/}{\texttt{numba}} (\citet{Lam2015}), \href{https://cupy.dev/}{\texttt{cupy}} (\citet{Okuta2017}), \href{https://scikit-learn.org/}{\texttt{scikit-learn}} (\citet{Pedregosa2011}), \href{https://pytorch.org/}{\texttt{pytorch}} (\citet{Paszke2019}), and \href{https://gpytorch.ai/}{\texttt{gpytorch}} (\citet{Gardner2018})
 
 \section{Introduction}\label{introduction}
 
@@ -251,7 +252,7 @@ The problem can be written in normalized recursive form\footnote{As in \citet{Ca
       \tShkEmp_{t+1}) \right] \\
     & \text{s.t.} \\
     \labor_{t} & = 1 - \leisure_{t} \\
-    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t} \\
+    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t} \\
     \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
     \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
     \riskyshare_{t} \\
@@ -290,7 +291,7 @@ Starting from the beginning of the period, we can define the labor-leisure probl
     & \text{s.t.} \\
     0 & \leq \leisure_{t} \leq 1 \\
     \labor_{t} & = 1 - \leisure_{t} \\
-    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t}\labor_{t}.
+    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t}.
   \end{split}
 \end{equation}
 
@@ -367,9 +368,7 @@ Finding the optimal risky share requires numerical optimization and root-solving
 \vEnd_{t}'(\aRat_{t}) =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right].
 \end{equation}
 
-\subsubsection{A note on avoiding taking expectations more than once}\label{A note on avoiding taking expectations more than once}
-
-We could instead define the portfolio choice subproblem as:
+\textbf{A note on avoiding taking expectations more than once} We could instead define the portfolio choice subproblem as:
 
 \begin{equation}
 \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
@@ -440,7 +439,7 @@ of market resources that is consistent with this consumption-saving decision as
 \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
 \end{equation}
 
-This $\mEndFunc_{t}(\aMat)$ is the ``endogenous'' grid that is consistent
+This $\mEndFunc_{t}(\aMat)$ is the "endogenous" grid that is consistent
 with the exogenous decision grid $\aMat$. Now that we have a
 $(\mEndFunc_{t}(\aMat), \cEndFunc_{t}(\aMat))$ pair for each
 $\aRat \in \aMat$, we can construct an interpolating consumption function for
@@ -460,7 +459,7 @@ The labor-leisure subproblem can  be restated more compactly as:
 \begin{equation}
 \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
   \h(\leisure_{t}) + \vOpt_{t}(\bRat_{t} +
-  \tShkEmp_{t}(1-\leisure_{t}))
+  \tShkEmp_{t} \wage (1-\leisure_{t}))
 \end{equation}
 
 The first-order condition with respect to leisure implies the labor-leisure Euler equation
@@ -532,7 +531,12 @@ Although EGM$^n$ seems to be a simple approach, there is one important caveat th
 
 However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to \citet{White2015}'s approach but computationally more efficient and robust.
 
-% TODO: Add figure
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/warped_grid-2ea43a7555cb71384214a04e54496b05.pdf}
+\caption{Warped Curvlinear Grid that results from multivariate EGM. This grid can be interpolated by WGI.}
+\label{fig:warped_grid}
+\end{figure}
 
 \subsection{Warped Grid Interpolation (WGI)}\label{Warped Grid Interpolation (WGI)}
 
@@ -544,7 +548,7 @@ f(x,y) = (xy)^{1/4}.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/WarpedInterpolation-408f6701cdebf478aa8559c8373a3025.pdf}
+\includegraphics[width=0.7\linewidth]{files/WarpedInterpolation-88054927016ee8680687ce01354f511c.pdf}
 \caption{True function and curvilinear grid of points for which we know the value of the function.}
 \label{fig:warped_interp}
 \end{figure}
@@ -555,7 +559,7 @@ In Figure~\ref{fig:homotopy} we see the values of the function at their index co
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/Homotopy-d646f3c3fbd79fa1616ab23f185ea716.pdf}
+\includegraphics[width=0.7\linewidth]{files/Homotopy-10dc56cada0d357bcab1d42b0c8c9dd8.pdf}
 \caption{Homotopy between the curvilinear grid and the index coordinates of the matrix.}
 \label{fig:homotopy}
 \end{figure}
@@ -564,7 +568,7 @@ The objective is to be able to interpolate the value of the function at any poin
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/Mapping-8901abed4cf13cf6f167297f87a8f27e.pdf}
+\includegraphics[width=0.7\linewidth]{files/Mapping-4511278fc86af0f488b465cdd0d3fa62.pdf}
 \caption{The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.}
 \label{fig:mapping}
 \end{figure}
@@ -584,7 +588,7 @@ For a demonstration, we now turn to the problem of a worker saving up for retire
     \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
     \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t}) \\
     \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}  + \tShkEmp_{t+1} \\
-    \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / / \PGro_{t+1}
+    \nRat_{t+1} & = \bRat_{t} \Risky_{t+1}  / \PGro_{t+1}
   \end{split}
 \end{equation}
 
@@ -713,7 +717,7 @@ To close the solution method, the envelope conditions are
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/ExogenousGrid-1327071c329af94ca01fc2e5abdd3eed.pdf}
+\includegraphics[width=0.7\linewidth]{files/ExogenousGrid-9af5e1b4f3fee05a588eb859e0269c67.pdf}
 \caption{A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{t}$ and liquid assets after consumption $\lRat_{t}$.}
 \label{fig:exog}
 \end{figure}
@@ -722,7 +726,7 @@ As in Section~\ref{method}, the resulting endogenous grid is not rectilinear, an
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/EndogenousGrid-1ee13ab9f6b5410a9683ff5c35d8253e.pdf}
+\includegraphics[width=0.7\linewidth]{files/EndogenousGrid-cf76e8c3015798d31c182ccfb1a61263.pdf}
 \caption{An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances before deposit $\nRat_{t}$.}
 \label{fig:endog}
 \end{figure}
@@ -799,7 +803,7 @@ In Figure~\ref{fig:true_function}, we see the function we are trying to approxim
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/true_function-35f17004b2f9b2f5acaedbaf5ee95879.pdf}
+\includegraphics[width=0.7\linewidth]{files/true_function-fcf81bda0b42e92c05d02ed379b9a21f.pdf}
 \caption{The true function that we are trying to approximate and a sample of data points.}
 \label{fig:true_function}
 \end{figure}
@@ -808,7 +812,7 @@ As we discussed, a Gaussian Process is an infinite dimensional random process wh
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/gpr_sample-76cbb93ea31df5f08328cc0452b2f629.pdf}
+\includegraphics[width=0.7\linewidth]{files/gpr_sample-25572a14ff55cd6733cb5857239f57ce.pdf}
 \caption{A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.}
 \label{fig:gpr_sample}
 \end{figure}
@@ -817,7 +821,7 @@ In Figure~\ref{fig:gpr}, we see the result of GPR with a particular parametrizat
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{files/gpr-2937ebcb72643a3aaed493f7141a76ce.pdf}
+\includegraphics[width=0.7\linewidth]{files/gpr-88767e8bf03ea4d705d7d6e3c4f1426a.pdf}
 \caption{GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
 \label{fig:gpr}
 \end{figure}
@@ -1283,7 +1287,7 @@ the first-order conditions are therefore
 
 
 
-        \bibliographystyle{unsrtnat}
-    \bibliography{main.bib}
+\bibliographystyle{unsrtnat}
+\bibliography{main.bib}
 
 \end{document}

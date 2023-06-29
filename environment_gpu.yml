@@ -1,10 +1,13 @@
 name: egmn-dev
 channels:
+  - pytorch
+  - nvidia
   - conda-forge
   - defaults
 dependencies:
   - python=3.10
   - black
+  - cupy
   - estimagic
   - ipympl
   - jupyter
@@ -25,9 +28,13 @@ dependencies:
   - sympy
   - statsmodels
   - xarray
+  - pytorch
+  - gpytorch
+  - skorch
   - ruff
   - pip:
       - git+https://github.com/alanlujan91/HARK@map_coordinates
       - ConSav
       - EconModel
+      - Tasmanian
       - black[jupyter]

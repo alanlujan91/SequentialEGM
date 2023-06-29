@@ -145,10 +145,10 @@ class PensionConsumerType(RiskyAssetConsumerType):
         self.lGrid = construct_assets_grid(
             GridParameters(self.epsilon, self.lMax, self.lCount, self.lNestFac)
         )
-        self.b2Grid = construct_assets_grid(
-            GridParameters(0.0, self.b2Max, self.b2Count, self.b2NestFac)
+        self.blGrid = construct_assets_grid(
+            GridParameters(0.0, self.blMax, self.blCount, self.blNestFac)
         )
-        self.lMat, self.b2Mat = np.meshgrid(self.lGrid, self.b2Grid, indexing="ij")
+        self.lMat, self.blMat = np.meshgrid(self.lGrid, self.blGrid, indexing="ij")
 
         self.add_to_time_inv(
             "mGrid",
@@ -160,9 +160,9 @@ class PensionConsumerType(RiskyAssetConsumerType):
             "aMat",
             "bMat",
             "lGrid",
-            "b2Grid",
+            "blGrid",
             "lMat",
-            "b2Mat",
+            "blMat",
         )
 
     def update_distributions(self):
@@ -204,9 +204,9 @@ class PensionSolver(MetricObject):
     aMat: np.ndarray
     bMat: np.ndarray
     lGrid: np.array
-    b2Grid: np.array
+    blGrid: np.array
     lMat: np.ndarray
-    b2Mat: np.array
+    blMat: np.array
 
     def __post_init__(self):
         self.def_utility_funcs()
@@ -344,7 +344,7 @@ class PensionSolver(MetricObject):
 
     def solve_consumption_decision(self, post_decision_stage):
         """
-        Should use lMat and b2Mat
+        Should use lMat and blMat
 
         Parameters
         ----------
@@ -416,27 +416,66 @@ class PensionSolver(MetricObject):
         return consumption_stage
 
     def solve_deposit_decision(self, consumption_stage):
-        dvdl_func_next = consumption_stage.dvdl_func
-        dvdb_func_next = consumption_stage.dvdb_func
         c_func_next = consumption_stage.c_func
         v_func_next = consumption_stage.v_func
+        dvdl_func_next = consumption_stage.dvdl_func
+        dvdb_func_next = consumption_stage.dvdb_func
 
-        dvdl_innr = dvdl_func_next(self.lMat, self.b2Mat)
-        dvdb_innr = dvdb_func_next(self.lMat, self.b2Mat)
+        dvdl_next = dvdl_func_next(self.lMat, self.blMat)
+        dvdb_next = dvdb_func_next(self.lMat, self.blMat)
 
         # endogenous grid method, again
-        dMat = self.g.inv(dvdl_innr / dvdb_innr - 1.0)
+        dMat = self.g.inv(dvdl_next / dvdb_next - 1.0)
 
         mMat = self.lMat + dMat
-        nMat = self.b2Mat - dMat - self.g(dMat)
+        nMat = self.blMat - dMat - self.g(dMat)
 
         consumption_stage.grids_before_cleanup = {
             "dMat": dMat,
             "mMat": mMat,
             "nMat": nMat,
             "lMat": self.lMat,
-            "b2Mat": self.b2Mat,
+            "blMat": self.blMat,
         }
+
+        gaussian_interp_grid0 = GeneralizedRegressionUnstructuredInterp(
+            self.lMat,
+            [mMat, nMat],
+            model="gaussian-process",
+            std=True,
+            model_kwargs={"normalize_y": True},
+        )
+
+        gaussian_interp_grid1 = GeneralizedRegressionUnstructuredInterp(
+            self.blMat,
+            [mMat, nMat],
+            model="gaussian-process",
+            std=True,
+            model_kwargs={"normalize_y": True},
+        )
+
+        # interpolate grids
+        lMat_temp = gaussian_interp_grid0(self.mMat, self.nMat)
+        blMat_temp = gaussian_interp_grid1(self.mMat, self.nMat)
+
+        # calculate derivatives
+        dvdl_next = dvdl_func_next(lMat_temp, blMat_temp)
+        dvdb_next = dvdb_func_next(lMat_temp, blMat_temp)
+
+        # endogenous grid method
+        dMat2 = self.g.inv(dvdl_next / dvdb_next - 1.0)
+        mMat2 = lMat_temp + dMat2
+        nMat2 = blMat_temp - dMat2 - self.g(dMat2)
+
+        # concatenate grids
+        dMat = np.concatenate((dMat.flatten(), dMat2.flatten()))
+        mMat = np.concatenate((mMat.flatten(), mMat2.flatten()))
+        nMat = np.concatenate((nMat.flatten(), nMat2.flatten()))
+
+        cond = dMat > -1.0
+        dMat = dMat[cond]
+        nMat = nMat[cond]
+        mMat = mMat[cond]
 
         gaussian_interp = GeneralizedRegressionUnstructuredInterp(
             dMat,
@@ -450,10 +489,10 @@ class PensionSolver(MetricObject):
         dMat = gaussian_interp(self.mMat, self.nMat)
         dMat = np.maximum(0.0, dMat)  # binding constraint
         lMat = self.mMat - dMat
-        b2Mat = self.nMat + dMat + self.g(dMat)
+        blMat = self.nMat + dMat + self.g(dMat)
 
         # evaluate c on common grid
-        cMat = c_func_next(lMat, b2Mat)
+        cMat = c_func_next(lMat, blMat)
         # there is no consumption or deposit when there is no cash on hand
         mGrid_temp = np.append(0.0, self.mGrid)
         dMat_temp = np.insert(dMat, 0, 0.0, axis=0)
@@ -463,15 +502,15 @@ class PensionSolver(MetricObject):
         c_outr_func = LinearFast(cMat_temp, [mGrid_temp, self.nGrid])
         dvdm_outr_func = MargValueFuncCRRA(c_outr_func, self.CRRA)
 
-        dvdb_innr = dvdb_func_next(lMat, b2Mat)
+        dvdb_next = dvdb_func_next(lMat, blMat)
 
-        dvdn_outr_nvrs = self.u.derinv(dvdb_innr)
+        dvdn_outr_nvrs = self.u.derinv(dvdb_next)
         dvdn_outr_nvrs_temp = np.insert(dvdn_outr_nvrs, 0, dvdn_outr_nvrs[0], axis=0)
         dvdn_outr_nvrs_func = LinearFast(dvdn_outr_nvrs_temp, [mGrid_temp, self.nGrid])
         dvdn_outr_func = MargValueFuncCRRA(dvdn_outr_nvrs_func, self.CRRA)
 
         # make value function
-        v_outr = v_func_next(lMat, b2Mat)
+        v_outr = v_func_next(lMat, blMat)
         v_outr_nvrs = self.u.inv(v_outr)
         # insert value of 0 at m = 0
         v_outr_nvrs_temp = np.insert(v_outr_nvrs, 0, 0.0, axis=0)
@@ -683,38 +722,38 @@ init_pension_contrib["TasteShkStd"] = 0.10
 
 init_pension_contrib["epsilon"] = 1e-6
 
-init_pension_contrib["mCount"] = 100
+init_pension_contrib["mCount"] = 50
 init_pension_contrib["mMax"] = 10
 init_pension_contrib["mNestFac"] = 2
 
-init_pension_contrib["nCount"] = 100
+init_pension_contrib["nCount"] = 50
 init_pension_contrib["nMax"] = 12
-init_pension_contrib["nNestFac"] = -1
+init_pension_contrib["nNestFac"] = 2
 
-init_pension_contrib["lCount"] = 100
+init_pension_contrib["lCount"] = 50
 init_pension_contrib["lMax"] = 9
 init_pension_contrib["lNestFac"] = 2
 
-init_pension_contrib["b2Count"] = 100
-init_pension_contrib["b2Max"] = 13
-init_pension_contrib["b2NestFac"] = -1
+init_pension_contrib["blCount"] = 50
+init_pension_contrib["blMax"] = 13
+init_pension_contrib["blNestFac"] = 2
 
-init_pension_contrib["aCount"] = 100
+init_pension_contrib["aCount"] = 50
 init_pension_contrib["aMax"] = 8
 init_pension_contrib["aNestFac"] = 2
 
-init_pension_contrib["bCount"] = 100
+init_pension_contrib["bCount"] = 50
 init_pension_contrib["bMax"] = 14
-init_pension_contrib["bNestFac"] = -1
+init_pension_contrib["bNestFac"] = 2
 
 
 class RetirementConsumerType(PensionConsumerType):
-    def __init__(self, verbose=False, quiet=False, **kwds):
+    def __init__(self, **kwds):
         params = init_pension_retirement.copy()
         params.update(kwds)
 
         # Initialize a basic AgentType
-        PensionConsumerType.__init__(self, verbose=verbose, quiet=quiet, **params)
+        PensionConsumerType.__init__(self, **params)
 
         # Add consumer-type specific objects, copying to create independent versions
         contrib_solver = make_one_period_oo_solver(PensionSolver)
