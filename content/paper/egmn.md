@@ -434,8 +434,8 @@ Although EGM$^n$ seems to be a simple approach, there is one important caveat th
 
 However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to {cite:t}`White2015`'s approach but computationally more efficient and robust.
 
-```{figure} ../figures/warped_grid.*
-:name: fig:warped_grid
+```{figure} ../figures/LaborSeparableWarpedGrid.*
+:name: fig:LaborSeparableWarpedGrid
 :align: center
 
 Warped Curvlinear Grid that results from multivariate EGM. This grid can be interpolated by WGI.
@@ -619,7 +619,7 @@ To close the solution method, the envelope conditions are
 
 ## Unstructured Grid Interpolation
 
-```{figure} ../figures/ExogenousGrid.*
+```{figure} ../figures/SparsePensionExogenousGrid.*
 :name: fig:exog
 :align: center
 
@@ -628,7 +628,7 @@ A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{
 
 As in [Section %s](#method), the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in  [Figure %s](#fig:exog) that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain [Figure %s](#fig:endog) which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
 
-```{figure} ../figures/EndogenousGrid.*
+```{figure} ../figures/PensionEndogenousGrid.*
 :name: fig:endog
 :align: center
 
@@ -708,7 +708,7 @@ Using GPR to interpolate a function $f$, we can both predict the value of the fu
 
 In [Figure %s](#fig:true_function), we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
 
-```{figure} ../figures/true_function.*
+```{figure} ../figures/GPR_True_Function.*
 :name: fig:true_function
 :align: center
 
@@ -717,7 +717,7 @@ The true function that we are trying to approximate and a sample of data points.
 
 As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In [Figure %s](#fig:gpr_sample), we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
 
-```{figure} ../figures/gpr_sample.*
+```{figure} ../figures/GPR_Posterior_Sample.*
 :name: fig:gpr_sample
 :align: center
 
@@ -728,7 +728,7 @@ In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametriza
 
 [^f6]: For details see notebook.
 
-```{figure} ../figures/gpr.*
+```{figure} ../figures/GaussianProcessRegression.*
 :name: fig:gpr
 :align: center
 
@@ -810,23 +810,29 @@ A generic subproblem with a differentiable and invertible utility function can b
     \end{split}
 \end{equation}
 
-For an interior solution, the first-order condition is thus
+where $\xRat \in \XLev$ is a particular point in the state space, $\yRat \in \PGro(\xRat)$ is a single control variable in the feasible set $\PGro(\xRat)$, $\aRat$ is the post-decision state, $\VFunc$ is the value function of $\xRat$, $\UFunc$ is the utility function which may depend on the state and control variables, $\WFunc$ is the continuation value function which depends on the post-decision state, and $\TFunc$ is the transition function which maps the state and control variables to the post-decision state.
+
+If the problem is concave, then the first order condition is necessary and sufficient for optimality. The first order condition is
 
 \begin{equation}
     \UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
 \end{equation}
 
+where $\UFunc'_{\yRat}$ is the derivative of $\UFunc$ with respect to $\yRat$, $\TFunc'_{\yRat}$ is the derivative of $\TFunc$ with respect to $\yRat$, and $\WFunc'$ is the derivative of $\WFunc$ with respect to $\aRat$.
+
 If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
 
 \begin{equation}
-    \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1} \left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
+    \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}_{\yRat} \left[ \xRat, - \DiscFac \WFunc'(\aRat) \TFunc'_{\yRat}(\xRat,\yRat)  \right]
 \end{equation}
+
+where $\left( \cdot \right)^{-1}_{\yRat}$ denotes the explicit inverse of a multivariate function with respect to $\yRat$ such that if $f(x,y) = z$ then $f^{-1}_{y}(x,z) = y$.
 
 By using an exogenous grid of the post-decision state $\aRat$, we can solve for the optimal decision rule $\yRat$ at each point on the grid. This is the Endogenous Grid Method step.
 
 ### Transition
 
-If the generic subproblem has no utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
+If the generic subproblem has no separable utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
 
 \begin{equation}
     \begin{split}
@@ -845,7 +851,7 @@ Here, the first-order condition is
 and the Endogenous Grid Method step is
 
 \begin{equation}
-    \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
+    \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1}_{\yRat} \left[ \xRat, 1 / \WFunc'(\aRat)\right]
 \end{equation}
 
 (conclusion)=

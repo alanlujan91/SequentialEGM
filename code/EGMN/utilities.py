@@ -143,7 +143,8 @@ def plot_scatter_hist(x, y, color, title, xlabel, ylabel, filename):
     ax.set_ylabel(ylabel)
 
     plt.show()
-    fig.savefig(figures_path + filename)
+    fig.savefig(figures_path + filename + ".svg")
+    fig.savefig(figures_path + filename + ".pdf")
 
 
 def interp_on_interp(values, grids):
