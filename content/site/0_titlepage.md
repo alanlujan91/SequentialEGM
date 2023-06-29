@@ -43,11 +43,10 @@ the `python` programming language.
 
 I would like to thank Christopher D. Carroll and Simon Scheidegger for their helpful comments and suggestions. The
 remaining errors are my own. All figures and other numerical results were produced using
-the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit ({cite:t}`Carroll2018`). Additional libraries used in the
-production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) ({cite:
-t}`Virtanen2020`), [`numpy`](https://www.numpy.org/) ({cite:t}`Harris2020`), [`numba`](https://numba.pydata.org/) (
-{cite:t}`Lam2015`), [`cupy`](https://cupy.dev/) ({cite:t}`Okuta2017`), [`scikit-learn`](https://scikit-learn.org/) (
-{cite:t}`Pedregosa2011`), [`pytorch`](https://pytorch.org/) ({cite:t}`Paszke2019`),
-and [`gpytorch`](https://gpytorch.ai/) ({cite:t}`Gardner2018`)
+the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit {cite:p}`Carroll2018`. Additional libraries used in the
+production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) {cite:p}`Virtanen2020`, [`numpy`](https://www.numpy.org/) {cite:p}`Harris2020`, [`numba`](https://numba.pydata.org/) (
+{cite:p}`Lam2015`, [`cupy`](https://cupy.dev/) {cite:p}`Okuta2017`, [`scikit-learn`](https://scikit-learn.org/) (
+{cite:p}`Pedregosa2011`, [`pytorch`](https://pytorch.org/) {cite:p}`Paszke2019`,
+and [`gpytorch`](https://gpytorch.ai/) {cite:p}`Gardner2018`
 
 +++
