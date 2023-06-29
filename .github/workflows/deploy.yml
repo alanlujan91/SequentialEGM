@@ -1,10 +1,10 @@
-name: Curvenote Deploy
+name: Deploy the blog
 on:
   push:
     branches:
       - master
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to curve.space
