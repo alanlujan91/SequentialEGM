@@ -18,6 +18,8 @@
 #
 #
 # import matplotlib.pyplot as plt
+#
+# import matplotlib.pyplot as plt
 
 # %%
 import numpy as np
@@ -73,6 +75,7 @@ ax.set_zlim(0, np.max(values))
 ax.view_init(30, -120)
 
 plt.savefig(figures_path + "WarpedInterpolation.svg")
+plt.savefig(figures_path + "WarpedInterpolation.pdf")
 
 # %% [markdown]
 # The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
@@ -112,6 +115,7 @@ plt.plot(coord_points[0].T, coord_points[1].T, "r")
 plt.grid()
 
 plt.savefig(figures_path + "Homotopy.svg")
+plt.savefig(figures_path + "Homotopy.pdf")
 
 # %% [markdown]
 # Below we graph values of the function at their index coordinate points in the matrix.
@@ -211,6 +215,7 @@ plt.scatter([3, 3], [0, 1], s=150, facecolors="none", edgecolors="m")
 plt.grid()
 
 plt.savefig(figures_path + "Mapping.svg")
+plt.savefig(figures_path + "Mapping.pdf")
 
 # %% [markdown]
 # We can do the same by connecting the points on the red line, and interpolating $(y, z)$ values for the point's x-coordinate.

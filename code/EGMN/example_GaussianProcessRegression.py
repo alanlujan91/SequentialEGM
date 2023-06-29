@@ -56,7 +56,8 @@ ax.set_xlabel("$x$")
 ax.set_ylabel("$f(x)$")
 ax.set_title("True function and randomly sampled points")
 fig.tight_layout()
-fig.savefig(figures_path + "true_function.svg")
+fig.savefig(figures_path + "GPR_True_Function.svg")
+fig.savefig(figures_path + "GPR_True_Function.pdf")
 
 
 # %%
@@ -100,7 +101,8 @@ ax.set_xlabel("$x$")
 ax.set_ylabel("$f(x)$")
 ax.set_title("Gaussian process regression on a noisy dataset")
 fig.tight_layout()
-fig.savefig(figures_path + "gpr.svg")
+fig.savefig(figures_path + "GaussianProcessRegression.svg")
+fig.savefig(figures_path + "GaussianProcessRegression.pdf")
 
 # %%
 L = np.linalg.cholesky(K_test + 1e-6 * np.eye(n_test) - np.dot(Lk.T, Lk))
@@ -117,4 +119,5 @@ ax.set_xlabel("$x$")
 ax.set_ylabel("$f(x)$")
 ax.set_title("Random sample of functions from the Gaussian Process posterior.")
 fig.tight_layout()
-fig.savefig(figures_path + "gpr_sample.svg")
+fig.savefig(figures_path + "GPR_Posterior_Sample.svg")
+fig.savefig(figures_path + "GPR_Posterior_Sample.pdf")

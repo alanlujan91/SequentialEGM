@@ -1,8 +1,8 @@
 ---
-title: "EGMⁿ: The Sequential Endogenous Grid Method"
+title: "EGM$^n$: The Sequential Endogenous Grid Method"
 subject: Economics
 # subtitle: Evolve your markdown documents into structured data
-short_title: EGMⁿ
+short_title: "EGM$^n$"
 authors:
   - name: Alan Lujan
     affiliations:

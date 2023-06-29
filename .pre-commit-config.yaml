@@ -5,26 +5,26 @@ repos:
       - id: jupytext
         args: [--sync, --set-formats, "ipynb,py:percent", --pipe, black]
         additional_dependencies: [jupytext, black, nbconvert]
-        files: ^Code/.*\.ipynb$
+        files: ^code/.*\.ipynb$
 
   - repo: https://github.com/psf/black
     rev: 23.3.0
     hooks:
       - id: black
-        exclude: ^Code/.*\.ipynb$
+        exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.6.0
     hooks:
       - id: pyupgrade
         args: ["--py310-plus"]
-        exclude: ^Code/.*\.ipynb$
+        exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/asottile/blacken-docs
     rev: 1.13.0
     hooks:
       - id: blacken-docs
-        exclude: ^Code/.*\.ipynb$
+        exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
@@ -32,7 +32,7 @@ repos:
       - id: isort
         name: isort (python)
         args: ["--profile", "black", "--filter-files", "--skip", "__init__.py"]
-        exclude: ^Code/.*\.ipynb$
+        exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
@@ -40,4 +40,4 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: requirements-txt-fixer
-        exclude: ^Code/.*\.ipynb$
+        exclude: ^code/.*\.ipynb$
