@@ -130,13 +130,13 @@ addtopdfcreator={Written in Curvenote}
 \footnotetext[1]{Correspondence to: alanlujan91@gmail.com}
 
 \begin{abstract}
-Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.
-This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids.
-First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods.
-Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process.
-Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions.
-Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used.
-Software to reproduce these methods is available under the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} project for the \texttt{python} programming language.
+  Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow.
+  This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids.
+  First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods.
+  Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process.
+  Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions.
+  Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used.
+  Software to reproduce these methods is available under the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} project for the \texttt{python} programming language.
 \end{abstract}
 
 \keywords{endogenous grid method, stochastic dynamic programming, machine learning, gaussian process regression}
@@ -225,13 +225,13 @@ Section~\ref{method} presents a basic model that illustrates the sequential Endo
 The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (EGM$^n$) is a discrete time version of \citet{Bodie1992} where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. The objective consists of maximizing the present discounted lifetime utility of consumption and leisure.
 
 \begin{equation}
-\VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
+  \VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
 \end{equation}
 
 In particular, this example makes use of a utility function that is based on Example 1 in the paper, which is that of additively separable utility of labor and leisure as
 
 \begin{equation}
-\utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
+  \utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
 where the term $\labShare^{1 -\CRRA}$ is introduced to allow for a balanced growth path as in \citet{Mertens2011}. The use of additively separable utility is ad-hoc, as it will allow for the use of multiple EGM steps in the solution process, as we'll see later.
@@ -240,12 +240,12 @@ This model represents a consumer who begins the period with a level of bank bala
 
 The problem can be written in normalized recursive form\footnote{As in \citet{Carroll2009}, where the utility of normalized consumption and leisure is defined as
 
-\begin{equation}
-\utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
-\end{equation}} as
+  \begin{equation}
+    \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
+  \end{equation}} as
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{\{\cRat_{t},
       \leisure_{t}, \riskyshare_{t}\}} \utilFunc(\cRat_{t}, \leisure_{t}) +
     \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
@@ -286,7 +286,7 @@ market resources, the agent makes a pure consumption-saving decision. Finally, g
 Starting from the beginning of the period, we can define the labor-leisure problem as
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{ \leisure_{t}}
     \h(\leisure_{t}) + \vOpt_{t} (\mRat_{t}) \\
     & \text{s.t.} \\
@@ -299,7 +299,7 @@ Starting from the beginning of the period, we can define the labor-leisure probl
 The pure consumption-saving problem is then
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vOpt_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac\vEnd_{t}(\aRat_{t}) \\
     & \text{s.t.} \\
     0 & \leq \cRat_{t} \leq \mRat_{t} \\
@@ -310,7 +310,7 @@ The pure consumption-saving problem is then
 Finally, the risky portfolio problem is
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vEnd_{t}(\aRat_{t}) & = \max_{\riskyshare_{t}}
     \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
       \vFunc_{t+1}(\bRat_{t+1},
@@ -352,7 +352,7 @@ In reorganizing the labor-portfolio problem into subproblems, we assigned the ut
 Restating the problem in compact form gives
 
 \begin{equation}
-\vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}}  \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
+  \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}}  \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
   \vFunc_{t+1}\left(\aRat_{t}(\Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}), \tShkEmp_{t+1}\right)
   \right].
 \end{equation}
@@ -360,25 +360,25 @@ Restating the problem in compact form gives
 The first-order condition with respect to the risky portfolio share is then
 
 \begin{equation}
-\Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) (\Risky_{t+1} - \Rfree)  \right] = 0.
+  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) (\Risky_{t+1} - \Rfree)  \right] = 0.
 \end{equation}
 
 Finding the optimal risky share requires numerical optimization and root-solving of the first-order condition. To close out the problem, we can calculate the envelope condition as
 
 \begin{equation}
-\vEnd_{t}'(\aRat_{t}) =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right].
+  \vEnd_{t}'(\aRat_{t}) =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}  \right].
 \end{equation}
 
 \textbf{A note on avoiding taking expectations more than once} We could instead define the portfolio choice subproblem as:
 
 \begin{equation}
-\vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
+  \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
 \end{equation}
 
 where
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vOptAlt_{t}(\aRat_{t}, \riskyshare_{t}) & =  \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right)   \right] \\
     \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t} \\
     \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
@@ -388,7 +388,7 @@ where
 In this case, the process is similar. The only difference is that we don't have to take expectations more than once. Given the next period's solution, we can calculate the marginal value functions as:
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1}   \right] \\
     \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & =  \Ex_{t} \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
   \end{split}
@@ -397,7 +397,7 @@ In this case, the process is similar. The only difference is that we don't have 
 If we are clever, we can calculate both of these in one step. Now, the optimal risky share can be found by the first-order condition and we can use it to evaluate the envelope condition.
 
 \begin{equation}
-\text{F.O.C.:} \qquad \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*})  = 0 \qquad
+  \text{F.O.C.:} \qquad \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*})  = 0 \qquad
   \text{E.C.:} \qquad \vEnd_{t}^{\aRat}(\aRat_{t}) = \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})
 \end{equation}
 
@@ -406,28 +406,28 @@ If we are clever, we can calculate both of these in one step. Now, the optimal r
 The consumption-saving EGM follows \citet{Carroll2006} but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
 
 \begin{equation}
-\vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
+  \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
   \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
 \end{equation}
 
 To solve, we derive the first-order condition with respect to $\cRat_{t}$ which gives the familiar Euler equation:
 
 \begin{equation}
-\utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
+  \utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
   \vEnd_{t}'(\aRat_{t})
 \end{equation}
 
 Inverting the above equation is the (first) EGM step.
 
 \begin{equation}
-\cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
+  \cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
   \right)
 \end{equation}
 
 Given the utility function above, the marginal utility of consumption and its inverse are
 
 \begin{equation}
-\utilFunc'(\cRat) = \cRat^{-\CRRA} \qquad \utilFunc'^{-1}(\xRat) =
+  \utilFunc'(\cRat) = \cRat^{-\CRRA} \qquad \utilFunc'^{-1}(\xRat) =
   \xRat^{-1/\CRRA}.
 \end{equation}
 
@@ -437,7 +437,7 @@ Further, using the market resources constraint, we can recover the exact amount
 of market resources that is consistent with this consumption-saving decision as
 
 \begin{equation}
-\mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
+  \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
 \end{equation}
 
 This $\mEndFunc_{t}(\aMat)$ is the "endogenous" grid that is consistent
@@ -450,7 +450,7 @@ The envelope condition will be useful in the next section, but for completeness
 is defined here.
 
 \begin{equation}
-\vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
+  \vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
 \end{equation}
 
 \subsection{The labor-leisure subproblem}\label{The labor-leisure subproblem}
@@ -458,7 +458,7 @@ is defined here.
 The labor-leisure subproblem can  be restated more compactly as:
 
 \begin{equation}
-\vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
+  \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
   \h(\leisure_{t}) + \vOpt_{t}(\bRat_{t} +
   \tShkEmp_{t} \wage (1-\leisure_{t}))
 \end{equation}
@@ -466,27 +466,27 @@ The labor-leisure subproblem can  be restated more compactly as:
 The first-order condition with respect to leisure implies the labor-leisure Euler equation
 
 \begin{equation}
-\h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
+  \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
 \end{equation}
 
 The marginal utility of leisure and its inverse are
 
 \begin{equation}
-\h'(\leisure) = \labShare\leisure^{-\leiShare} \qquad
+  \h'(\leisure) = \labShare\leisure^{-\leiShare} \qquad
   \h'^{-1}(\xRat) = (\xRat/\labShare)^{-1/\leiShare}
 \end{equation}
 
 Using an exogenous grid of $\mMat$ and $\tShkMat$, we can find leisure as
 
 \begin{equation}
-\zEndFunc_{t}(\mMat, \tShkMat) = \h'^{-1}\left(
+  \zEndFunc_{t}(\mMat, \tShkMat) = \h'^{-1}\left(
   \vOpt_{t}'(\mMat) \tShkMat \right)
 \end{equation}
 
 In this case, it's important to note that there are conditions for leisure itself. An agent with a small level of market resources $\mRat_{t}$ might want to work more than their available time endowment, especially at higher levels of income $\tShkEmp_{t}$, if the utility of leisure is not enough to compensate for their low wealth. In these situations, the optimal unconstrained leisure might be negative, so we must impose a constraint on the optimal leisure function. This is similar to the treatment of an artificial borrowing constraint in the pure consumption subproblem. From now on, let's call this constrained optimal function $\hat{\zEndFunc}_{t}(\mMat, \tShkMat)$, where
 
 \begin{equation}
-\hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc_{t}(\mMat, \tShkMat), 1 \right], 0 \right]
+  \hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc_{t}(\mMat, \tShkMat), 1 \right], 0 \right]
 \end{equation}
 
 Then, we derive labor as $\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = 1 -
@@ -499,7 +499,7 @@ balances as $\bEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = \mRat_{t} -
 The envelope condition then provides a heterogeneous Frisch elasticity of labor as simply
 
 \begin{equation}
-\vFunc_{t}^{b}(\bRat_{t}, \tShkEmp_{t}) = \vOpt_{t}'(\mRat_{t}) =
+  \vFunc_{t}^{b}(\bRat_{t}, \tShkEmp_{t}) = \vOpt_{t}'(\mRat_{t}) =
   \h'(\leisure_{t})/\tShkEmp_{t}.
 \end{equation}
 
@@ -509,20 +509,20 @@ An alternative formulation for the utility of leisure is to state it in terms
 of the disutility of labor as in (references)
 
 \begin{equation}
-\h(\labor) = - \leiShare \frac{\labor^{1+\labShare}}{1+\labShare}
+  \h(\labor) = - \leiShare \frac{\labor^{1+\labShare}}{1+\labShare}
 \end{equation}
 
 In this case, we can restate the problem as
 
 \begin{equation}
-\h(\leisure) = - \leiShare
+  \h(\leisure) = - \leiShare
   \frac{(1-\leisure)^{1+\labShare}}{1+\labShare}
 \end{equation}
 
 The marginal utility of leisure and its inverse are
 
 \begin{equation}
-\h'(\leisure) = \leiShare(1-\leisure)^{\labShare} \qquad
+  \h'(\leisure) = \leiShare(1-\leisure)^{\labShare} \qquad
   \h'^{-1}(\xRat) = 1 - (\xRat/\leiShare)^{1/\labShare}
 \end{equation}
 
@@ -533,25 +533,25 @@ Although EGM$^n$ seems to be a simple approach, there is one important caveat th
 However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to \citet{White2015}'s approach but computationally more efficient and robust.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/LaborSeparableWarped-9ccc6cd79ef86eff27837bd6d00bd9cc.pdf}
-\caption{Warped Curvlinear Grid that results from multivariate EGM. This grid can be interpolated by WGI.}
-\label{fig:LaborSeparableWarpedGrid}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/LaborSeparableWarped-9ccc6cd79ef86eff27837bd6d00bd9cc.pdf}
+  \caption{Warped Curvlinear Grid that results from multivariate EGM. This grid can be interpolated by WGI.}
+  \label{fig:LaborSeparableWarpedGrid}
 \end{figure}
 
 \subsection{Warped Grid Interpolation (WGI)}\label{Warped Grid Interpolation (WGI)}
 
 Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for which we have corresponding functional values in a third dimension, such that $f(x_{ij},y_{ij}) = z_{ij}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and $f(x_{ij},y_{ij})$ is unknown, so we are unable to compute them at other values of $x$ and $y$ --- which is why we want to interpolate\footnote{For this illustration, we generate $z$'s arbitrarily using the function
 
-\begin{equation}
-f(x,y) = (xy)^{1/4}.
-\end{equation}}. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
+  \begin{equation}
+    f(x,y) = (xy)^{1/4}.
+  \end{equation}}. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/WarpedInterpolation-cd95badbc737638779b6a5384d4afa7e.pdf}
-\caption{True function and curvilinear grid of points for which we know the value of the function.}
-\label{fig:warped_interp}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/WarpedInterpolation-cd95badbc737638779b6a5384d4afa7e.pdf}
+  \caption{True function and curvilinear grid of points for which we know the value of the function.}
+  \label{fig:warped_interp}
 \end{figure}
 
 In Figure~\ref{fig:warped_interp}, we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
@@ -559,19 +559,19 @@ In Figure~\ref{fig:warped_interp}, we can see the true function in three-dimensi
 In Figure~\ref{fig:homotopy} we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/Homotopy-6235fa12896a85670225f26a6b32ee88.pdf}
-\caption{Homotopy between the curvilinear grid and the index coordinates of the matrix.}
-\label{fig:homotopy}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/Homotopy-6235fa12896a85670225f26a6b32ee88.pdf}
+  \caption{Homotopy between the curvilinear grid and the index coordinates of the matrix.}
+  \label{fig:homotopy}
 \end{figure}
 
 The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured Figure~\ref{fig:mapping}. If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in Figure~\ref{fig:mapping}, we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate\footnote{For more examples of the Warped Grid Interpolation method in action, see the github project\href{https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb}{\texttt{alanlujan91/multinterp}}.}.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/Mapping-2d331fa56338ec9df0781ccfe49cf2cc.pdf}
-\caption{The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.}
-\label{fig:mapping}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/Mapping-2d331fa56338ec9df0781ccfe49cf2cc.pdf}
+  \caption{The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.}
+  \label{fig:mapping}
 \end{figure}
 
 \section{The EGM$^n$ in Higher Dimensions}\label{multdim}
@@ -583,7 +583,7 @@ The problem in Section~\ref{method} demonstrates the simplicity of solving probl
 For a demonstration, we now turn to the problem of a worker saving up for retirement. This worker must consume, save, and deposit resources into a tax-advantaged account that can not be liquidated until retirement. In the recursive problem, the worker begins a new period with a liquid account of market resources $\mRat_{t}$ and an illiquid account of retirement savings $\nRat_{t}$. The worker maximizes their utility by choosing consumption $\cRat_{t}$ and pension deposit $\dRat_{t}$. The pension deposit is set aside on a retirement account that is exposed to a risky return, while their post-consumption liquid assets accrue risk-free interest every period. The worker additionally receives an income that faces a permanent ($\PGro_{t+1}$) and a transitory ($\tShkEmp_{t+1}$) shock every period. At the age of 65, the worker is retired and their assets are liquidated, at which point the state reduces to one liquid account of market resources. The worker's recursive problem is:
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\cRat_{t}, \dRat_{t}} \util(\cRat_{t}) + \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
     & \text{s.t.} \quad \cRat_{t} \ge 0, \quad \dRat_{t} \ge 0 \\
     \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
@@ -596,7 +596,7 @@ For a demonstration, we now turn to the problem of a worker saving up for retire
 where
 
 \begin{equation}
-\gFunc(\dRat) = \xFer \log(1+\dRat).
+  \gFunc(\dRat) = \xFer \log(1+\dRat).
 \end{equation}
 
 This problem can subsequently be broken down into 3 stages: a pension deposit stage, a consumption stage, and an income shock stage.
@@ -606,7 +606,7 @@ This problem can subsequently be broken down into 3 stages: a pension deposit st
 In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$ by choosing a pension deposit $\dRat_{t}$, which must be positive. The retirement balance $\bRat$ is the cash value of their retirement account plus their pension deposit and an additional amount $g(\dRat_{t})$ that provides an incentive to save for retirement. As we'll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem.
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\dRat_{t}} \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
     & \text{s.t.}  \quad \dRat_{t} \ge 0 \\
     \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
@@ -617,7 +617,7 @@ In the deposit stage, the worker begins with market resources and a retirement s
 After making their pension decision, the worker begins their consumption stage with liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$. From their liquid wealth, the worker must choose a level of consumption to maximize utility and continuation value $\wFunc_{t}$. After consumption, the worker is left with post-decision states that represent liquid assets $\aRat_{t}$ and retirement balance $\bRat_{t}$, which passes through this problem unaffected because it can't be liquidated until retirement.
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac \wFunc_{t}(\aRat_{t}, \bRat_{t})  \\
     & \text{s.t.} \quad \cRat_{t} \ge 0 \\
     \aRat_{t} & = \lRat_{t} - \cRat_{t}
@@ -627,7 +627,7 @@ After making their pension decision, the worker begins their consumption stage w
 Finally, the post-decision value function $\wFunc_{t}$ represents the value of both liquid and illiquid account balances before the realization of uncertainty regarding the risky return and income shocks. Since we are dealing with a normalized problem, this stage handles the normalization of state variables and value functions into the next period.
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \wFunc_{t}(\aRat_{t}, \bRat_{t}) & = \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \mRat_{t+1}) \right] \\
     & \text{s.t.} \quad \aRat_{t} \ge 0, \quad \bRat_{t} \ge 0 \\
     \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}  + \tShkEmp_{t+1} \\
@@ -648,35 +648,35 @@ In the deposit stage, both the state variables and post-decision variables are d
 First, we can rewrite the pension deposit problem more compactly:
 
 \begin{equation}
-\vFunc_{t}(\mRat_{t}, \nRat_{t}) = \max_{\dRat_{t}}
+  \vFunc_{t}(\mRat_{t}, \nRat_{t}) = \max_{\dRat_{t}}
   \vOpt_{t}(\mRat_{t} - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
 \end{equation}
 
 The first-order condition is
 
 \begin{equation}
-\vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
+  \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
   \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0.
 \end{equation}
 
 Rearranging this equation gives
 
 \begin{equation}
-\gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+  \gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
     \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
 \end{equation}
 
 where
 
 \begin{equation}
-\gFunc'(\dRat) =
+  \gFunc'(\dRat) =
   \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
 \end{equation}
 
 Given that $\gFunc'(\dRat)$ exists and is invertible, we can find
 
 \begin{equation}
-\dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
+  \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
   \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
     \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
     \bRat_{t})} - 1 \right)
@@ -685,7 +685,7 @@ Given that $\gFunc'(\dRat)$ exists and is invertible, we can find
 Using this, we can back out $\nRat_{t}$ as
 
 \begin{equation}
-\nEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \bRat_{t} -
+  \nEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \bRat_{t} -
   \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) - \gFunc(\dEndFunc_{t}(\lRat_{t},
     \bRat_{t}))
 \end{equation}
@@ -693,7 +693,7 @@ Using this, we can back out $\nRat_{t}$ as
 and $\mRat_{t}$ as
 
 \begin{equation}
-\mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
+  \mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
   \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
 \end{equation}
 
@@ -706,7 +706,7 @@ create an interpolator for the decision rule $\dRat_{t}$.
 To close the solution method, the envelope conditions are
 
 \begin{equation}
-\begin{split}
+  \begin{split}
     \vFunc_{t}^{\mRat}(\mRat_{t}, \nRat_{t}) & =
     \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) \\
     \vFunc_{t}^{\nRat}(\mRat_{t}, \nRat_{t}) & =
@@ -717,19 +717,19 @@ To close the solution method, the envelope conditions are
 \subsection{Unstructured Grid Interpolation}\label{Unstructured Grid Interpolation}
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/SparsePensionExogeno-93d871550cdf5782d7ec3fd8bc716e7a.pdf}
-\caption{A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{t}$ and liquid assets after consumption $\lRat_{t}$.}
-\label{fig:exog}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/SparsePensionExogeno-93d871550cdf5782d7ec3fd8bc716e7a.pdf}
+  \caption{A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{t}$ and liquid assets after consumption $\lRat_{t}$.}
+  \label{fig:exog}
 \end{figure}
 
 As in Section~\ref{method}, the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in  Figure~\ref{fig:exog} that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain Figure~\ref{fig:endog} which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/PensionEndogenousGri-7f65683f98bfbf138cffb57b6fe7ff31.pdf}
-\caption{An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances before deposit $\nRat_{t}$.}
-\label{fig:endog}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/PensionEndogenousGri-7f65683f98bfbf138cffb57b6fe7ff31.pdf}
+  \caption{An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances before deposit $\nRat_{t}$.}
+  \label{fig:endog}
 \end{figure}
 
 To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in \citet{Scheidegger2019}.
@@ -751,7 +751,7 @@ As an alternative to these methods, I introduce the use of Gaussian Process Regr
 A Gaussian Process is an infinite dimensional random process for which every subset of random variables is jointly Gaussian or has a multivariate normal distribution.
 
 \begin{equation}
-\begin{gathered}
+  \begin{gathered}
     \mathbf{X} \sim \mathcal{N}(\mathbf{\mu}, \mathbf{\Sigma}) \quad \text{s.t.} \quad x_i \sim \mathcal{N}(\mu_i, \sigma_{ii}) \\
     \text{and} \quad  \sigma_{ij} = \Ex[(x_i - \mu_i)(x_j - \mu_j)] \quad \forall i,j \in \{1, \ldots, n\}.
   \end{gathered}
@@ -760,7 +760,7 @@ A Gaussian Process is an infinite dimensional random process for which every sub
 where
 
 \begin{equation}
-\mathbf{X} = \begin{bmatrix}
+  \mathbf{X} = \begin{bmatrix}
     x_1    \\
     x_2    \\
     \vdots \\
@@ -785,7 +785,7 @@ where
 Being infinitely dimensional, a Gaussian Process can be used to represent a probability distribution over the space of functions in $n$ dimensions. Thus, a Gaussian Process Regression is used to find the best fit function to a set of data points.
 
 \begin{equation}
-\mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
+  \mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
 \end{equation}
 
 where $\mathbf{f}$ is the vector of function values at the points $\mathbf{X}$, $\mathbf{m}$ is the mean of the function, and $\mathbf{K}$ is a kernel function that describes the covariance between the function values at different points.
@@ -793,7 +793,7 @@ where $\mathbf{f}$ is the vector of function values at the points $\mathbf{X}$, 
 A standard kernel function is the squared exponential kernel, or the radial basis function kernel, which is defined as
 
 \begin{equation}
-k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
+  k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
 \end{equation}
 
 Using GPR to interpolate a function $f$, we can both predict the value of the function at a point $\mathbf{x}_*$ and the uncertainty in the prediction, which provides useful information as to the accuracy of the approximation.
@@ -803,28 +803,28 @@ Using GPR to interpolate a function $f$, we can both predict the value of the fu
 In Figure~\ref{fig:true_function}, we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/GPR_True_Function-be3a4eca6238ad04cdeee7372b981441.pdf}
-\caption{The true function that we are trying to approximate and a sample of data points.}
-\label{fig:true_function}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/GPR_True_Function-be3a4eca6238ad04cdeee7372b981441.pdf}
+  \caption{The true function that we are trying to approximate and a sample of data points.}
+  \label{fig:true_function}
 \end{figure}
 
 As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In Figure~\ref{fig:gpr_sample}, we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/GPR_Posterior_Sample-ad215b4412ee6caed3721026e8067600.pdf}
-\caption{A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.}
-\label{fig:gpr_sample}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/GPR_Posterior_Sample-ad215b4412ee6caed3721026e8067600.pdf}
+  \caption{A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.}
+  \label{fig:gpr_sample}
 \end{figure}
 
 In Figure~\ref{fig:gpr}, we see the result of GPR with a particular parametrization\footnote{For details see notebook.} of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
 
 \begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.7\linewidth]{files/GaussianProcessRegre-35f70a6a9252250e3dc800ea29244aa9.pdf}
-\caption{GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
-\label{fig:gpr}
+  \centering
+  \includegraphics[width=0.7\linewidth]{files/GaussianProcessRegre-35f70a6a9252250e3dc800ea29244aa9.pdf}
+  \caption{GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
+  \label{fig:gpr}
 \end{figure}
 
 \section{Conditions for using the Sequential Endogenous Grid Method}\label{conditions}
@@ -855,22 +855,22 @@ Now that we have split the problem into conceptual subproblems, it is important 
 The consumption subproblem would be two-dimensional instead of one-dimensional, adding more complexity,
 
 \begin{equation}
-\begin{split}
-        \vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
-        & \text{s.t.}\\
-        \bRat' & = \bRat - \cRat \ge - \tShkEmp
-    \end{split}
+  \begin{split}
+    \vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
+    & \text{s.t.}\\
+    \bRat' & = \bRat - \cRat \ge - \tShkEmp
+  \end{split}
 \end{equation}
 
 while the labor-leisure subproblem would have an additional constraint
 
 \begin{equation}
-\begin{split}
-        \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
-        & \text{s.t.} \\
-        0 & \le \leisure \le 1 \\
-        \aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
-    \end{split}
+  \begin{split}
+    \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
+    & \text{s.t.} \\
+    0 & \le \leisure \le 1 \\
+    \aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
+  \end{split}
 \end{equation}
 
 Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce computational the burden.
@@ -894,11 +894,11 @@ Once we have strategically split the problem into subproblems, we can use the En
 A generic subproblem with a differentiable and invertible utility function can be characterized as follows:
 
 \begin{equation}
-\begin{split}
-        \VFunc(\xRat) &  = \max_{\yRat  \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
-        & \text{s.t.} \\
-        \aRat & = \TFunc(\xRat,\yRat)
-    \end{split}
+  \begin{split}
+    \VFunc(\xRat) &  = \max_{\yRat  \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
+    & \text{s.t.} \\
+    \aRat & = \TFunc(\xRat,\yRat)
+  \end{split}
 \end{equation}
 
 where $\xRat \in \XLev$ is a particular point in the state space, $\yRat \in \PGro(\xRat)$ is a single control variable in the feasible set $\PGro(\xRat)$, $\aRat$ is the post-decision state, $\VFunc$ is the value function of $\xRat$, $\UFunc$ is the utility function which may depend on the state and control variables, $\WFunc$ is the continuation value function which depends on the post-decision state, and $\TFunc$ is the transition function which maps the state and control variables to the post-decision state.
@@ -906,7 +906,7 @@ where $\xRat \in \XLev$ is a particular point in the state space, $\yRat \in \PG
 If the problem is concave, then the first order condition is necessary and sufficient for optimality. The first order condition is
 
 \begin{equation}
-\UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
+  \UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
 \end{equation}
 
 where $\UFunc'_{\yRat}$ is the derivative of $\UFunc$ with respect to $\yRat$, $\TFunc'_{\yRat}$ is the derivative of $\TFunc$ with respect to $\yRat$, and $\WFunc'$ is the derivative of $\WFunc$ with respect to $\aRat$.
@@ -914,7 +914,7 @@ where $\UFunc'_{\yRat}$ is the derivative of $\UFunc$ with respect to $\yRat$, $
 If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
 
 \begin{equation}
-\yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}_{\yRat} \left[ \xRat, - \DiscFac \WFunc'(\aRat) \TFunc'_{\yRat}(\xRat,\yRat)  \right]
+  \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}_{\yRat} \left[ \xRat, - \DiscFac \WFunc'(\aRat) \TFunc'_{\yRat}(\xRat,\yRat)  \right]
 \end{equation}
 
 where $\left( \cdot \right)^{ -1}_{\yRat}$ denotes the explicit inverse of a multivariate function with respect to $\yRat$ such that if $f(x,y) = z$ then $f^{ -1}_{y}(x,z) = y$.
@@ -926,23 +926,23 @@ By using an exogenous grid of the post-decision state $\aRat$, we can solve for 
 If the generic subproblem has no separable utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
 
 \begin{equation}
-\begin{split}
-        \VFunc(\xRat) &  = \max_{\yRat  \in \PGro(\xRat)}  \WFunc(\aRat) \\
-        & \text{s.t.} \\
-        \aRat & = \TFunc(\xRat,\yRat)
-    \end{split}
+  \begin{split}
+    \VFunc(\xRat) &  = \max_{\yRat  \in \PGro(\xRat)}  \WFunc(\aRat) \\
+    & \text{s.t.} \\
+    \aRat & = \TFunc(\xRat,\yRat)
+  \end{split}
 \end{equation}
 
 Here, the first-order condition is
 
 \begin{equation}
-\WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
+  \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
 \end{equation}
 
 and the Endogenous Grid Method step is
 
 \begin{equation}
-\yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1}_{\yRat} \left[ \xRat, 1 / \WFunc'(\aRat)\right]
+  \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1}_{\yRat} \left[ \xRat, 1 / \WFunc'(\aRat)\right]
 \end{equation}
 
 \section{Conclusion}\label{conclusion}
@@ -970,14 +970,14 @@ EGM$^n$ is similar to the Nested Endogenous Grid Method (NEGM)\footnote{\citet{D
 I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at time $t$ with total resources $\mRat$. The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of $\underline{\tShkEmp}$.
 
 \begin{equation}
-\begin{split}
-        \wFunc_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) +
-        \DiscFac \wFunc_{t+1}(\mRat_{t}) \\
-        & \text{s.t.} \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} +
-        \underline{\tShkEmp}
-    \end{split}
+  \begin{split}
+    \wFunc_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) +
+    \DiscFac \wFunc_{t+1}(\mRat_{t}) \\
+    & \text{s.t.} \\
+    \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
+    \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} +
+    \underline{\tShkEmp}
+  \end{split}
 \end{equation}
 
 Notice that there is no uncertainty and the household receives a retirement
@@ -988,37 +988,37 @@ income $\underline{\tShkEmp}$ every period until death.
 The value function of a worker household is
 
 \begin{equation}
-\VFunc_{t}(\mRat_{t}, \nRat_{t}) = \Ex_\error \max \left\{
-    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) + \sigma_{\error}
-    \error_{\Work} ,
-    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) + \sigma_{\error}
-    \error_{\Retire} \right\}
+  \VFunc_{t}(\mRat_{t}, \nRat_{t}) = \Ex_\error \max \left\{
+  \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) + \sigma_{\error}
+  \error_{\Work} ,
+  \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) + \sigma_{\error}
+  \error_{\Retire} \right\}
 \end{equation}
 
 where the choice specific problem for a working household that decides to
 continue working is
 
 \begin{equation}
-\begin{split}
-        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
-            \dRat_{t}} \util(\cRat_{t}) - \kapShare + \DiscFac
-        \Ex_{t} \left[
-            \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1})
-            \right] \\
-        & \text{s.t.} \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
-    \end{split}
+  \begin{split}
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
+      \dRat_{t}} \util(\cRat_{t}) - \kapShare + \DiscFac
+    \Ex_{t} \left[
+      \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1})
+      \right] \\
+    & \text{s.t.} \\
+    \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
+    \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
+    \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+    \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+  \end{split}
 \end{equation}
 
 and the choice specific problem for a working household that decides to retire
 is
 
 \begin{equation}
-\vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) =
-    \wFunc_{t}(\mRat_{t}+\nRat_{t})
+  \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) =
+  \wFunc_{t}(\mRat_{t}+\nRat_{t})
 \end{equation}
 
 \subsection{Applying the Sequential EGM}\label{Applying the Sequential EGM}
@@ -1030,25 +1030,25 @@ pension account which they can't access again until retirement. The
 post-decision value function can be defined as
 
 \begin{equation}
-\begin{split}
-        \vEnd_{t}(\aRat_{t}, \bRat_{t}) & =  \DiscFac
-        \Ex_{t} \left[ \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
-        & \text{s.t.} \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
-    \end{split}
+  \begin{split}
+    \vEnd_{t}(\aRat_{t}, \bRat_{t}) & =  \DiscFac
+    \Ex_{t} \left[ \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
+    & \text{s.t.} \\
+    \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+    \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+  \end{split}
 \end{equation}
 
 Then redefine the working agent's problem as
 
 \begin{equation}
-\begin{split}
-        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
-            \dRat_{t}} \util(\cRat_{t})  - \kapShare + \vEnd_{t}(\aRat_{t},
-        \bRat_{t}) \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
-    \end{split}
+  \begin{split}
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
+      \dRat_{t}} \util(\cRat_{t})  - \kapShare + \vEnd_{t}(\aRat_{t},
+    \bRat_{t}) \\
+    \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
+    \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
+  \end{split}
 \end{equation}
 
 Clearly, the structure of the problem remains the same, and this is the problem
@@ -1060,25 +1060,25 @@ agent will have net liquid assets
 of $\lRat_{t}$ and pension assets of $\bRat_{t}$.
 
 \begin{equation}
-\begin{split}
-        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\dRat_{t}}
-        \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
-        & \text{s.t.} \\
-        \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t})
-    \end{split}
+  \begin{split}
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\dRat_{t}}
+    \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
+    & \text{s.t.} \\
+    \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
+    \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t})
+  \end{split}
 \end{equation}
 
 Now, the agent can move on to picking their consumption and savings; we can call this
 the pure consumption problem or inner loop.
 
 \begin{equation}
-\begin{split}
-        \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}}
-        \util(\cRat_{t}) - \kapShare  + \vEnd_{t}(\aRat_{t}, \bRat_{t}) \\
-        & \text{s.t.} \\
-        \aRat_{t} & = \lRat_{t} - \cRat_{t} \\
-    \end{split}
+  \begin{split}
+    \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}}
+    \util(\cRat_{t}) - \kapShare  + \vEnd_{t}(\aRat_{t}, \bRat_{t}) \\
+    & \text{s.t.} \\
+    \aRat_{t} & = \lRat_{t} - \cRat_{t} \\
+  \end{split}
 \end{equation}
 
 Because we've already made the pension decision, the amount of pension assets
@@ -1093,52 +1093,52 @@ Let's start with the pure consumption-saving problem, which we can summarize by
 substitution as
 
 \begin{equation}
-\vOpt_{t}(\lRat_{t}, \bRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) - \kapShare +
-    \vEnd_{t}(\lRat_{t} - \cRat_{t}, \bRat_{t})
+  \vOpt_{t}(\lRat_{t}, \bRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) - \kapShare +
+  \vEnd_{t}(\lRat_{t} - \cRat_{t}, \bRat_{t})
 \end{equation}
 
 The first-order condition is
 
 \begin{equation}
-\util'(\cRat_{t}) = \vEnd_{t}^{\aRat}(\lRat_{t}-\cRat_{t}, \bRat_{t}) =
-    \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})
+  \util'(\cRat_{t}) = \vEnd_{t}^{\aRat}(\lRat_{t}-\cRat_{t}, \bRat_{t}) =
+  \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})
 \end{equation}
 
 We can invert this Euler equation as in standard EGM to obtain the consumption
 function.
 
 \begin{equation}
-\cEndFunc_{t}(\aRat_{t}, \bRat_{t}) =
-    \util'^{-1}\left(\vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})\right)
+  \cEndFunc_{t}(\aRat_{t}, \bRat_{t}) =
+  \util'^{-1}\left(\vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})\right)
 \end{equation}
 
 Again as before, $\lEndFunc_{t}(\aRat_{t}, \bRat_{t}) =
-    \cEndFunc_{t}(\aRat_{t}, \bRat_{t}) + \aRat_{t}$. To sum up, using an
+  \cEndFunc_{t}(\aRat_{t}, \bRat_{t}) + \aRat_{t}$. To sum up, using an
 exogenous
 grid of $(\aRat_{t}, \bRat_{t})$ we obtain the trio $(\cEndFunc_{t}(\aRat_{t},
-    \bRat_{t}), \lEndFunc_{t}(\aRat_{t},
-    \bRat_{t}), \bRat_{t})$ which
+  \bRat_{t}), \lEndFunc_{t}(\aRat_{t},
+  \bRat_{t}), \bRat_{t})$ which
 provides an
 interpolating function for our optimal consumption decision rule over the
 $(\lRat, \bRat)$ grid. Without loss of generality, assume $\lEndFunc_{t} =
-    \lEndFunc_{t}(\aRat_{t}, \bRat_{t})$ and define the interpolating
+  \lEndFunc_{t}(\aRat_{t}, \bRat_{t})$ and define the interpolating
 function as
 
 \begin{equation}
-\cTarg_{t}(\lEndFunc_{t}, \bRat_{t}) \equiv \cEndFunc_{t}(\aRat_{t},
-    \bRat_{t})
+  \cTarg_{t}(\lEndFunc_{t}, \bRat_{t}) \equiv \cEndFunc_{t}(\aRat_{t},
+  \bRat_{t})
 \end{equation}
 
 For completeness, we derive the envelope conditions as well, and as we will
 see, these will be useful when solving the next section.
 
 \begin{equation}
-\begin{split}
-        \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) & =
-        \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}) = \util'(\cRat_{t}) \\
-        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t}) & =
-        \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t})
-    \end{split}
+  \begin{split}
+    \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) & =
+    \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}) = \util'(\cRat_{t}) \\
+    \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t}) & =
+    \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t})
+  \end{split}
 \end{equation}
 
 \subsubsection{Solving the Outer Pension Deposit Problem}\label{Solving the Outer Pension Deposit Problem}
@@ -1147,64 +1147,64 @@ Now, we can move on to solving the deposit problem, which we can also summarize
 as
 
 \begin{equation}
-\vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) = \max_{\dRat_{t}}
-    \vOpt_{t}(\mRat_{t}
-    - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
+  \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) = \max_{\dRat_{t}}
+  \vOpt_{t}(\mRat_{t}
+  - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
 \end{equation}
 
 The first-order condition is
 
 \begin{equation}
-\vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
-    \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0
+  \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
+  \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0
 \end{equation}
 
 Rearranging this equation gives
 
 \begin{equation}
-\gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
-        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
+  \gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+    \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
 \end{equation}
 
 Assuming that $\gFunc'(\dRat)$ exists and is invertible, we can find
 
 \begin{equation}
-\dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
-    \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
-        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
-        \bRat_{t})} - 1 \right)
+  \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
+  \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+    \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
+    \bRat_{t})} - 1 \right)
 \end{equation}
 
 Using this, we can back out $\nRat_{t}$ as
 
 \begin{equation}
-\nEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \bRat_{t} -
-    \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) - \gFunc(\dEndFunc_{t}(\lRat_{t},
-        \bRat_{t}))
+  \nEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \bRat_{t} -
+  \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) - \gFunc(\dEndFunc_{t}(\lRat_{t},
+    \bRat_{t}))
 \end{equation}
 
 and $\mRat_{t}$ as
 
 \begin{equation}
-\mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
-    \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
+  \mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
+  \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
 \end{equation}
 
 In sum, given an exogenous grid $(\lRat_{t}, \bRat_{t})$ we obtain the triple
 $\left(\mEndFunc_{t}(\lRat_{t}, \bRat_{t}), \nEndFunc_{t}(\lRat_{t},
-        \bRat_{t}), \dEndFunc_{t}(\lRat_{t}, \bRat_{t})\right)$, which
+    \bRat_{t}), \dEndFunc_{t}(\lRat_{t}, \bRat_{t})\right)$, which
 we can use to
 create an interpolator for the decision rule $\dRat_{t}$.
 
 To close the solution method, the envelope conditions are
 
 \begin{equation}
-\begin{split}
-        \vFunc_{t}^{\mRat}(\mRat_{t}, \nRat_{t}, \Work) & =
-        \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) \\
-        \vFunc_{t}^{\nRat}(\mRat_{t}, \nRat_{t}, \Work) & =
-        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})
-    \end{split}
+  \begin{split}
+    \vFunc_{t}^{\mRat}(\mRat_{t}, \nRat_{t}, \Work) & =
+    \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) \\
+    \vFunc_{t}^{\nRat}(\mRat_{t}, \nRat_{t}, \Work) & =
+    \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})
+  \end{split}
 \end{equation}
 
 \subsection{Is g invertible?}\label{Is g invertible?}
@@ -1212,48 +1212,48 @@ To close the solution method, the envelope conditions are
 We've already seen that $\util'(\cdot)$ is invertible, but is $\gFunc$?
 
 \begin{equation}
-\gFunc(\dRat) = \xFer \log(1+\dRat) \qquad \gFunc'(\dRat) =
-    \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
+  \gFunc(\dRat) = \xFer \log(1+\dRat) \qquad \gFunc'(\dRat) =
+  \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
 \end{equation}
 
 \subsection{The Post-Decision Value and Marginal Value Functions}\label{The Post-Decision Value and Marginal Value Functions}
 
 \begin{equation}
-\begin{split}
-        \vEnd_{t}(\aRat, \bRat) & =  \DiscFac \Ex_{t} \left[
-            \VFunc(\mRat_{t+1}, \nRat_{t+1}) \right] \\
-        & \text{s.t.} \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
-    \end{split}
+  \begin{split}
+    \vEnd_{t}(\aRat, \bRat) & =  \DiscFac \Ex_{t} \left[
+      \VFunc(\mRat_{t+1}, \nRat_{t+1}) \right] \\
+    & \text{s.t.} \\
+    \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+    \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+  \end{split}
 \end{equation}
 
 and
 
 \begin{equation}
-\begin{split}
-        \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}) & =  \DiscFac
-        \Rfree_{\aRat} \Ex_{t} \left[ \VFunc^{\mRat}_{t+1}(\mRat_{t+1},
-            \nRat_{t+1})
-            \right] \\
-        & \text{s.t.} \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
-    \end{split}
+  \begin{split}
+    \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}) & =  \DiscFac
+    \Rfree_{\aRat} \Ex_{t} \left[ \VFunc^{\mRat}_{t+1}(\mRat_{t+1},
+      \nRat_{t+1})
+      \right] \\
+    & \text{s.t.} \\
+    \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+    \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+  \end{split}
 \end{equation}
 
 and
 
 \begin{equation}
-\begin{split}
-        \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t}) & =  \DiscFac
-        \Rfree_{\bRat} \Ex_{t} \left[ \VFunc^{\nRat}_{t+1}(\mRat_{t+1},
-            \nRat_{t+1})
-            \right] \\
-        & \text{s.t.} \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
-    \end{split}
+  \begin{split}
+    \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t}) & =  \DiscFac
+    \Rfree_{\bRat} \Ex_{t} \left[ \VFunc^{\nRat}_{t+1}(\mRat_{t+1},
+      \nRat_{t+1})
+      \right] \\
+    & \text{s.t.} \\
+    \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+    \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+  \end{split}
 \end{equation}
 
 \subsection{Taste Shocks}\label{Taste Shocks}
@@ -1261,38 +1261,36 @@ and
 From discrete choice theory and from DCEGM paper, we know that
 
 \begin{equation}
-\Ex_{t} \left[
-        \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}, \error_{t+1}) \right] =
-    \sigma \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
-        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error} \right)  \right]
+  \Ex_{t} \left[
+    \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}, \error_{t+1}) \right] =
+  \sigma \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
+    \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
+      \Decision)}{\sigma_\error} \right)  \right]
 \end{equation}
 
 and
 
 \begin{equation}
-\Prob_{t}(\Decision ~ \lvert ~ \mRat_{t+1}, \nRat_{t+1}) = \frac{\exp
-        \left(
-        \vFunc_{t + 1}(\mRat_{t+1}, \nRat_{t+1}, \Decision) /
-        \sigma_\error
-        \right)
-    }{  \sum\limits_{\Decision \in \{\Work, \Retire\}} \exp \left(
-        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error} \right)}
+  \Prob_{t}(\Decision ~ \lvert ~ \mRat_{t+1}, \nRat_{t+1}) = \frac{\exp
+    \left(
+    \vFunc_{t + 1}(\mRat_{t+1}, \nRat_{t+1}, \Decision) /
+    \sigma_\error
+    \right)
+  }{  \sum\limits_{\Decision \in \{\Work, \Retire\}} \exp \left(
+    \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
+      \Decision)}{\sigma_\error} \right)}
 \end{equation}
 
 the first-order conditions are therefore
 
 \begin{equation}
-\vOptAlt_{t}^{\mRat}(\mRat_{t+1}, \nRat_{t+1}) = \sum_{\Decision \in
-        \{\Work, \Retire\}} \Prob_{t}(\Decision ~
-    \lvert ~
-    \mRat_{t+1}, \nRat_{t+1}) \vFunc_{t+1}^{\mRat}(\mRat_{t+1},
-    \nRat_{t+1},
-    \Decision)
+  \vOptAlt_{t}^{\mRat}(\mRat_{t+1}, \nRat_{t+1}) = \sum_{\Decision \in
+    \{\Work, \Retire\}} \Prob_{t}(\Decision ~
+  \lvert ~
+  \mRat_{t+1}, \nRat_{t+1}) \vFunc_{t+1}^{\mRat}(\mRat_{t+1},
+  \nRat_{t+1},
+  \Decision)
 \end{equation}
-
-
 
 \bibliographystyle{unsrtnat}
 \bibliography{main.bib}

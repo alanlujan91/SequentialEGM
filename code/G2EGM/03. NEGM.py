@@ -55,7 +55,6 @@ Neta = 7
 var_eta = 0.01
 do_print = False
 
-
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Timing function
 #

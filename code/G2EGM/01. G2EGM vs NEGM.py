@@ -44,7 +44,6 @@ from G2EGMModel import G2EGMModelClass
 #
 # nb.set_num_threads(1)
 
-
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Settings
 #
@@ -54,7 +53,6 @@ T = 20
 Neta = 16
 var_eta = 0.1**2
 do_print = False
-
 
 # %% [markdown] pycharm={"name": "#%% md\n"}
 # # Timing function

@@ -81,7 +81,6 @@ plot_3d_func(agent.solution[T].deposit_stage.dvdn_func.cFunc, 0, 5)
 # %time
 plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, 0, 5)
 
-
 # %% [markdown]
 # ## Grids
 

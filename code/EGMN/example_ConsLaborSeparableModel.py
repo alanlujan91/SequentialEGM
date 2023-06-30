@@ -23,7 +23,6 @@ from utilities import plot_3d_func
 
 figures_path = "../../content/figures/"
 
-
 # %%
 agent = LaborSeparableConsumerType(aXtraNestFac=-1, aXtraCount=25, cycles=10)
 

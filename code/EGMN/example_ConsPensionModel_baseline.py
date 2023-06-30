@@ -114,7 +114,6 @@ plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, [0, 5], [0, 5])
 # ## Grids
 #
 
-
 # %%
 grids = agent.solution[T].consumption_stage.grids_before_cleanup
 
