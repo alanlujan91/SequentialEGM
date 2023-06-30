@@ -1,7 +1,7 @@
 ---
 jupytext:
   cell_metadata_filter: all
-  formats: ipynb,md:myst
+  formats: ipynb,py:percent,md:myst
   notebook_metadata_filter: all
   text_representation:
     extension: .md
@@ -24,19 +24,20 @@ language_info:
   version: 3.10.12
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 <h1 style="text-align:center"><strong>EGM$^n$: The Sequential Endogenous Grid Method</strong></h1>
 
-<h2 style="text-align:center">H2: Computational Methods III</h2>
-
 <p style="text-align:center">By</p>
-
-<h2 style="text-align:center"><strong>Alan E. Lujan Solis</strong></h2>
-
+<h1 style="text-align:center"><strong>Alan E. Lujan Solis</strong></h1>
 <h2 style="text-align:center">The Ohio State University</h2>
 <h2 style="text-align:center">Econ-ARK</h2>
-<h2 style="text-align:center">July 2023</h2>
+
+<h3 style="text-align:center">H2: Computational Methods III</h3>
+<h3 style="text-align:center">29th International Conference</h3>
+<h3 style="text-align:center">Computing in Economics and Finance</h3>
+<p style="text-align:center">Université Côte d’Azur – Nice, France</p>
+<p style="text-align:center">5 July 2023</p>
 
 $$
 \newcommand{\DiscFac}{\beta}
@@ -110,7 +111,7 @@ $$
 \newcommand{\Prob}{\mathbb{P}}
 $$
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ## The Endogenous Grid Method
 
@@ -126,7 +127,7 @@ $$
   - Can result in unstructured grids
   - Non-convexities can be problematic
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ## EGM$^n$: The Sequential Endogenous Grid Method
 
@@ -143,7 +144,7 @@ $$
 - Discrete Choices
   - Handle discrete choices with taste-shocks
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ## Consumption-Labor-Portfolio Choice Problem
 
@@ -172,7 +173,7 @@ Recursive Bellman equation in normalized form:
   \end{split}
 \end{equation}
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ### Breaking up the problem into sequences
 
@@ -216,7 +217,7 @@ Finally, the risky portfolio problem is
   \end{split}
 \end{equation}
 
-+++  {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ### Solving the Consumption-Saving Problem (EGM)
 
@@ -241,7 +242,7 @@ EGM consists of inverting the Euler equation to find the consumption function:
   \right)
 \end{equation}
 
-+++  {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ### Solving the Labor-Leisure Problem (EGM, Again)
 
@@ -272,7 +273,20 @@ Actual leisure function is bounded between 0 and 1:
 \hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc_{t}(\mMat, \tShkMat), 1 \right], 0 \right]
 \end{equation}
 
-+++  {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+
+### Pretty Simple, Right?
+
+<table><tr><td>
+  Exogenous Rectangular Grid <br>
+  <img src="../figures/LaborSeparableRectangularGrid.svg" alt="Exogenous Rectangular Grid">
+  </td><td>
+  Endogenous Curvilinear Grid <br>
+  <img src="../figures/LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
+</td></tr></table>
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ## A more complex problem: Consumption-Pension Problem
 
@@ -287,7 +301,7 @@ Actual leisure function is bounded between 0 and 1:
   \end{split}
 \end{equation}
 
-+++  {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ### Breaking up the problem makes it easier to solve
 
@@ -312,7 +326,7 @@ After, the consumer chooses how much to consume out of liquid savings:
   \end{split}
 \end{equation}
 
-+++  {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
 ### Solving the pension problem
 
@@ -346,14 +360,183 @@ Inverting, we can obtain the optimal choice of $\dRat_{t}$:
     \bRat_{t})} - 1 \right)
 \end{equation}
 
-+++  {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
-### Rectilinear Exogenous Grid
+### Rectilinear Exogenous Grid Results in **Unstructured** Endogenous Grid
 
-![Sparse Pension Exogenous Grid](../../content/figures/SparsePensionExogenousGrid.svg)
+<table><tr><td>
+  Exogenous Rectangular Grid <br>
+  <img src="../figures/SparsePensionExogenousGrid.svg" alt="Sparse Pension Exogenous Grid">
+  </td><td>
+  Endogenous Unstructured Grid <br>
+  <img src="../figures/PensionEndogenousGrid.svg" alt="Unstructured Pension Endogenous Grid">
+</td></tr></table>
 
-+++  {"slideshow": {"slide_type": "slide"}, "tags": [], "fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "15%", "top": "15%", "width": "85%", "height": "85%", "zoom": "125%"}}}}}
+### How do we **interpolate** on this grid?
 
-### Results in Unstructured Endogenous Grid
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
 
-![Unstructured Pension Endogenous Grid](../../content/figures/PensionEndogenousGrid.svg)
+## Gaussian Process Regression
+
+A Gaussian Process is an infinite dimensional random process
+
+\begin{equation}
+\begin{gathered}
+    \mathbf{X} \sim \mathcal{N}(\mathbf{\mu}, \mathbf{\Sigma}) \quad \text{s.t.} \quad x_i \sim \mathcal{N}(\mu_i, \sigma_{ii}) \\
+    \text{and} \quad  \sigma_{ij} = \Ex[(x_i - \mu_i)(x_j - \mu_j)] \quad \forall i,j \in \{1, \ldots, n\}.
+  \end{gathered}
+\end{equation}
+
+where
+
+\begin{equation}
+\mathbf{X} = \begin{bmatrix}
+    x_1    \\
+    x_2    \\
+    \vdots \\
+    x_n
+  \end{bmatrix}
+  \quad
+  \mathbf{\mu} = \begin{bmatrix}
+    \mu_1  \\
+    \mu_2  \\
+    \vdots \\
+    \mu_n
+  \end{bmatrix}
+  \quad
+  \mathbf{\Sigma} = \begin{bmatrix}
+    \sigma_{11} & \sigma_{12} & \cdots & \sigma_{1n} \\
+    \sigma_{21} & \sigma_{22} & \cdots & \sigma_{2n} \\
+    \vdots      & \vdots      & \ddots & \vdots      \\
+    \sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn}
+  \end{bmatrix}.
+\end{equation}
+
+A Gaussian Process Regression is used to find the best fit function to a set of data points
+
+\begin{equation}
+\mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
+\end{equation}
+
+We use standard kernel function, exploring alternatives is an active area of research
+
+\begin{equation}
+k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
+\end{equation}
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+## An example
+
+![True Function](../figures/GPR_True_Function.svg)
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+![Posterior Sample](../figures/GPR_Posterior_Sample.svg)
+
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+![Alt text](../figures/GaussianProcessRegression.svg)
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+## Back to the model
+
+### Second Stage Pension Endogenous Grid
+
+![](../figures/2ndStagePensionEndogenousGrid.svg)
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+### Some Results
+
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+## Conditions for using Sequential EGM
+
+- Model must be
+  - concave
+  - differentiable
+  - contiuous
+- Separable utility functions
+  - $\uFunc(\cRat, \leisure) = \uFunc(\cRat) + \h(\leisure)$
+- Continuous and differentiable transition
+  - $\bRat_{t}  = \nRat_{t} + \dRat_{t} + g(\dRat_{t})$
+
+
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+### How to handle discrete choices?
+
+- Taste Shocks
+
+\begin{equation}
+\begin{split}
+        \wFunc_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) +
+        \DiscFac \wFunc_{t+1}(\mRat_{t}) \\
+        & \text{s.t.} \\
+        \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
+        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} +
+        \underline{\tShkEmp}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+\VFunc_{t}(\mRat_{t}, \nRat_{t}) = \Ex_\error \max \left\{
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) + \sigma_{\error}
+    \error_{\Work} ,
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) + \sigma_{\error}
+    \error_{\Retire} \right\}
+\end{equation}
+
+where the choice specific problem for a working household that decides to
+continue working is
+
+\begin{equation}
+\begin{split}
+        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
+            \dRat_{t}} \util(\cRat_{t}) - \kapShare + \DiscFac
+        \Ex_{t} \left[
+            \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1})
+            \right] \\
+        & \text{s.t.} \\
+        \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
+        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+    \end{split}
+\end{equation}
+
+and the choice specific problem for a working household that decides to retire
+is
+
+\begin{equation}
+\vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) =
+    \wFunc_{t}(\mRat_{t}+\nRat_{t})
+\end{equation}
+
++++  {"slideshow": {"slide_type": "slide"}, "tags": [], "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "10%", "top": "15%", "width": "80%", "height": "85%", "zoom": "125%"}}}}}
+
+\begin{equation}
+\Ex_{t} \left[
+        \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}, \error_{t+1}) \right] =
+    \sigma \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
+        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
+            \Decision)}{\sigma_\error} \right)  \right]
+\end{equation}
+
+and
+
+\begin{equation}
+\Prob_{t}(\Decision ~ \lvert ~ \mRat_{t+1}, \nRat_{t+1}) = \frac{\exp
+        \left(
+        \vFunc_{t + 1}(\mRat_{t+1}, \nRat_{t+1}, \Decision) /
+        \sigma_\error
+        \right)
+    }{  \sum\limits_{\Decision \in \{\Work, \Retire\}} \exp \left(
+        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
+            \Decision)}{\sigma_\error} \right)}
+\end{equation}
