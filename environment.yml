@@ -9,6 +9,7 @@ dependencies:
   - ipympl
   - jupyter
   - jupyterlab
+  - jupyterlab-deck
   - jupyter-book
   - jupytext
   - matplotlib

@@ -18,38 +18,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from ConsPensionModel import PensionConsumerType
 from IPython import get_ipython
+from utilities import plot_3d_func
 
 figures_path = "../../content/figures/"
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 agent = PensionConsumerType(cycles=19)
 
-
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-def plot_bilinear(function):
-    x_list = function.x_list
-    f_vals = function.f_values
-
-    plt.plot(x_list, f_vals)
-
-
-def plot_3d_func(func, min, max, n=100):
-    # get_ipython().run_line_magic("matplotlib", "widget")
-    xgrid = np.linspace(min, max, n)
-    ygrid = xgrid
-
-    xMat, yMat = np.meshgrid(xgrid, ygrid, indexing="ij")
-
-    zMat = func(xMat, yMat)
-
-    ax = plt.axes(projection="3d")
-    ax.plot_surface(xMat, yMat, zMat, cmap="viridis")
-    ax.set_title("surface")
-    ax.set_xlabel("m")
-    ax.set_ylabel("n")
-    ax.set_zlabel("f")
-    plt.show()
-
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 agent.solve()

@@ -343,8 +343,12 @@ class LaborSeparableSolver:
 
         lsrFunc = interp_on_interp(lsrmat, [bnrmat, tshkmat])
         lbrFunc = interp_on_interp(lbrmat, [bnrmat, tshkmat])
-        leisure_func = lambda b, t: np.clip(lsrFunc(b, t), 0.0, 1.0)
-        labor_func = lambda b, t: np.clip(lbrFunc(b, t), 0.0, 1.0)
+
+        def leisure_func(b, t):
+            return np.clip(lsrFunc(b, t), 0.0, 1.0)
+
+        def labor_func(b, t):
+            return np.clip(lbrFunc(b, t), 0.0, 1.0)
 
         bmat = mnrmat
 

@@ -15,12 +15,11 @@
 
 # %%
 import matplotlib.pyplot as plt
-import numpy as np
 
 # %%
 from ConsLaborSeparableModel import LaborSeparableConsumerType
 from HARK.utilities import plot_funcs
-from utilities import plot_3d_func, plot_warped_bilinear_flat
+from utilities import plot_3d_func
 
 figures_path = "../../content/figures/"
 
