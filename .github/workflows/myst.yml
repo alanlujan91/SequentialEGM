@@ -22,25 +22,13 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_build/html
-          keep_files: true
-      - name: Deploy Presentation
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./content/presentation
-          keep_files: true
-      - name: Keep Figures
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./content/figures
-          destination_dir: ./figures
-          keep_files: true
-      - name: Keep Public
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          destination_dir: ./public
-          keep_files: true
+          publish_dir: |
+            ./_build/html
+            ./content/presentation
+            ./content/figures
+            ./public
+          destination_dir: |
+            ./
+            ./
+            ./figures
+            ./public
