@@ -64,7 +64,14 @@ def plot_3d_func(func, xlims, ylims, n=100, meta={}, savename=None):
         plt.savefig(figures_path + savename + ".pdf")
 
 
-def plot_retired(min, max, n=100):
+def plot_retired(
+    min,
+    max,
+    cFunc_retired,
+    vPFunc_retired,
+    vFunc_retired,
+    n=100,
+):
     plt.figure(figsize=(15, 6))
 
     mgrid = np.linspace(min, max, n)
@@ -127,7 +134,7 @@ def plot_scatter_hist(x, y, color, title, xlabel, ylabel, filename):
 
     # remove non-finite values
     idx = np.logical_and.reduce([np.isfinite(x), np.isfinite(y), np.isfinite(color)])
-    idx = np.logical_and.reduce([idx, x > 0, y > 0])
+    idx = np.logical_and.reduce([idx, x > 0, y > 0, x < 12, y < 15])
 
     x = x[idx]
     y = y[idx]

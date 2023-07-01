@@ -8,9 +8,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
+
   <title>presentation slides</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
   <script type="module">
     import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
@@ -293,6 +294,8 @@
 
     /* Literal.Number.Integer.Long */
   </style>
+
+
 
   <style type="text/css">
     /*-----------------------------------------------------------------------------
@@ -20289,11 +20292,8 @@ all of MD as it is not optimized for dense, information rich UIs.
                   <h2 style="text-align:center">The Ohio State University</h2>
                   <h2 style="text-align:center">Econ-ARK</h2>
 
-                  <h3 style="text-align:center">H2: Computational Methods III</h3>
-                  <h3 style="text-align:center">29th International Conference</h3>
-                  <h3 style="text-align:center">Computing in Economics and Finance</h3>
-                  <p style="text-align:center">Université Côte d’Azur – Nice, France</p>
-                  <p style="text-align:center">5 July 2023</p>
+                  <h3 style="text-align:center">Computing in Economics and Finance, July 2023</h3>
+                  <h3 style="text-align:center">Université Côte d’Azur – Nice, France</h3>
 
                   <p>$$
                     \newcommand{\DiscFac}{\beta}
@@ -20384,8 +20384,8 @@ all of MD as it is not optimized for dense, information rich UIs.
                 </div>
                 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput "
                   data-mime-type="text/markdown">
-                  <h2 id="The-Endogenous-Grid-Method">The Endogenous Grid Method<a class="anchor-link"
-                      href="#The-Endogenous-Grid-Method">&#182;</a></h2>
+                  <h2 id="The-Endogenous-Grid-Method-(Carroll-2006)">The Endogenous Grid Method (Carroll 2006)<a
+                      class="anchor-link" href="#The-Endogenous-Grid-Method-(Carroll-2006)">&#182;</a></h2>
                   <ul>
                     <li>
                       <p>Simple</p>
@@ -20502,6 +20502,11 @@ all of MD as it is not optimized for dense, information rich UIs.
                     \riskyshare_{t} \\
                     \bRat_{t+1} &amp; = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
                     \end{split}
+                    \end{equation}</p>
+                  <p>where</p>
+                  <p>\begin{equation}
+                    \utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} +
+                    \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
                     \end{equation}</p>
 
                 </div>
@@ -20620,16 +20625,16 @@ all of MD as it is not optimized for dense, information rich UIs.
                     \end{equation}</p>
                   <p>Interior solution must satisfy the first-order condition:</p>
                   <p>\begin{equation}
-                    \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
+                    \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \wage \tShkEmp_{t}
                     \end{equation}</p>
                   <p>EGM consists of inverting the first-order condition to find leisure function:</p>
                   <p>\begin{equation}
                     \zEndFunc_{t}(\mMat, \tShkMat) = \h'^{-1}\left(
-                    \vOpt_{t}'(\mMat) \tShkMat \right)
+                    \vOpt_{t}'(\mMat) \wage \tShkMat \right)
                     \end{equation}</p>
                   <p>Actual leisure function is bounded between 0 and 1:</p>
                   <p>\begin{equation}
-                    \hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc_{t}(\mMat, \tShkMat), 1
+                    \hat{\zEndFunc}_{t}(\bRat, \tShkEmp) = \max \left[ \min \left[ \zEndFunc_{t}(\mRat, \tShkEmp), 1
                     \right], 0 \right]
                     \end{equation}</p>
 
@@ -20652,6 +20657,9 @@ all of MD as it is not optimized for dense, information rich UIs.
                   data-mime-type="text/markdown">
                   <h3 id="Pretty-Simple,-Right?">Pretty Simple, Right?<a class="anchor-link"
                       href="#Pretty-Simple,-Right?">&#182;</a></h3>
+                  <ul>
+                    <li>Curvilinear Interpolation (White 2015)</li>
+                  </ul>
                   <table>
                     <tr>
                       <td>
@@ -20664,6 +20672,10 @@ all of MD as it is not optimized for dense, information rich UIs.
                       </td>
                     </tr>
                   </table>
+
+                  <ul>
+                    <li>Ours: Warped Grid Interpolation (simpler, faster, more details on paper)</li>
+                  </ul>
 
                 </div>
               </div>
@@ -20682,9 +20694,10 @@ all of MD as it is not optimized for dense, information rich UIs.
                 </div>
                 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput "
                   data-mime-type="text/markdown">
-                  <h2 id="A-more-complex-problem:-Consumption-Pension-Problem">A more complex problem:
-                    Consumption-Pension Problem<a class="anchor-link"
-                      href="#A-more-complex-problem:-Consumption-Pension-Problem">&#182;</a></h2>
+                  <h2 id="A-more-complex-problem:-Consumption-Pension-Deposit-Problem">A more complex problem:
+                    Consumption-Pension Deposit Problem<a class="anchor-link"
+                      href="#A-more-complex-problem:-Consumption-Pension-Deposit-Problem">&#182;</a></h2>
+                  <p>As in Druedahl and Jorgensen (2017)</p>
                   <p>\begin{equation}
                     \begin{split}
                     \vFunc_{t}(\mRat_{t}, \nRat_{t}) &amp; = \max_{\cRat_{t}, \dRat_{t}} \util(\cRat_{t}) + \DiscFac
@@ -20696,6 +20709,19 @@ all of MD as it is not optimized for dense, information rich UIs.
                     \nRat_{t+1} &amp; = \bRat_{t} \Risky_{t+1} / \PGro_{t+1}
                     \end{split}
                     \end{equation}</p>
+                  <p>where</p>
+                  <p>\begin{equation}
+                    \gFunc(\dRat) = \xFer \log(1+\dRat).
+                    \end{equation}</p>
+                  <p>is a tax-advantaged premium on pension contributions.</p>
+                  <ul>
+                    <li>If we try to use EGM:<ul>
+                        <li>2 first order conditions</li>
+                        <li>difficult to handle multiple constraints</li>
+                        <li>requires local triangulation interpolation</li>
+                      </ul>
+                    </li>
+                  </ul>
 
                 </div>
               </div>
@@ -21112,9 +21138,37 @@ all of MD as it is not optimized for dense, information rich UIs.
           </div>
         </section>
       </section>
+      <section>
+        <section>
+          <div id="cell-id=93e1302b" class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+            <div class="jp-Cell-inputWrapper">
+              <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+              </div>
+              <div class="jp-InputArea jp-Cell-inputArea">
+                <div class="jp-InputPrompt jp-InputArea-prompt">
+                </div>
+                <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput "
+                  data-mime-type="text/markdown">
+                  <center><img src="../../public/econ-ark-logo.png" align="center"></center>
+                  <center><img src="../../public/PoweredByEconARK.svg" align="center"></center>
+                  <h1 style="text-align:center"><strong>Thank you!</strong></h1>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 </body>
+
+
+
+
+
+
 
 <script>
   require(

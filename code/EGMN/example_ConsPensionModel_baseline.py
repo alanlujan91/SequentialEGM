@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.6
+#       jupytext_version: 1.14.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -15,6 +15,7 @@
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 import matplotlib.pyplot as plt
+import numpy as np
 from ConsPensionModel import PensionConsumerType, init_pension_contrib
 from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
 from utilities import plot_3d_func, plot_scatter_hist
@@ -113,6 +114,7 @@ plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, [0, 5], [0, 5])
 # %% [markdown]
 # ## Grids
 #
+
 
 # %%
 grids = agent.solution[T].consumption_stage.grids_before_cleanup

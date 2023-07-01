@@ -1,5 +1,6 @@
 # ---
 # jupyter:
+#   celltoolbar: Slideshow
 #   jupytext:
 #     cell_metadata_filter: all
 #     formats: ipynb,py:percent,md:myst
@@ -8,7 +9,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.6
+#       jupytext_version: 1.14.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -23,6 +24,9 @@
 #     nbconvert_exporter: python
 #     pygments_lexer: ipython3
 #     version: 3.10.12
+#   rise:
+#     theme: serif
+#     transition: zoom
 # ---
 
 # %% [markdown] slideshow={"slide_type": "slide"} tags=[]
@@ -33,11 +37,8 @@
 # <h2 style="text-align:center">The Ohio State University</h2>
 # <h2 style="text-align:center">Econ-ARK</h2>
 #
-# <h3 style="text-align:center">H2: Computational Methods III</h3>
-# <h3 style="text-align:center">29th International Conference</h3>
-# <h3 style="text-align:center">Computing in Economics and Finance</h3>
-# <p style="text-align:center">Université Côte d’Azur – Nice, France</p>
-# <p style="text-align:center">5 July 2023</p>
+# <h3 style="text-align:center">Computing in Economics and Finance, July 2023</h3>
+# <h3 style="text-align:center">Université Côte d’Azur – Nice, France</h3>
 #
 # $$
 # \newcommand{\DiscFac}{\beta}
@@ -112,7 +113,7 @@
 # $$
 
 # %% [markdown] slideshow={"slide_type": "slide"} tags=[]
-# ## The Endogenous Grid Method
+# ## The Endogenous Grid Method (Carroll 2006)
 #
 # - Simple
 #   - Inverted Euler equation
@@ -168,6 +169,12 @@
 #     \riskyshare_{t} \\
 #     \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
 #   \end{split}
+# \end{equation}
+#
+# where
+#
+# \begin{equation}
+#   \utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 # \end{equation}
 
 # %% [markdown] slideshow={"slide_type": "slide"} tags=[]
@@ -251,24 +258,26 @@
 # Interior solution must satisfy the first-order condition:
 #
 # \begin{equation}
-# \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
+# \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \wage \tShkEmp_{t}
 # \end{equation}
 #
 # EGM consists of inverting the first-order condition to find leisure function:
 #
 # \begin{equation}
 # \zEndFunc_{t}(\mMat, \tShkMat) = \h'^{-1}\left(
-#   \vOpt_{t}'(\mMat) \tShkMat \right)
+#   \vOpt_{t}'(\mMat) \wage \tShkMat \right)
 # \end{equation}
 #
 # Actual leisure function is bounded between 0 and 1:
 #
 # \begin{equation}
-# \hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc_{t}(\mMat, \tShkMat), 1 \right], 0 \right]
+# \hat{\zEndFunc}_{t}(\bRat, \tShkEmp) = \max \left[ \min \left[ \zEndFunc_{t}(\mRat, \tShkEmp), 1 \right], 0 \right]
 # \end{equation}
 
 # %% [markdown] slideshow={"slide_type": "slide"} tags=[]
 # ### Pretty Simple, Right?
+#
+# - Curvilinear Interpolation (White 2015)
 #
 # <table><tr><td>
 #   Exogenous Rectangular Grid <br>
@@ -277,9 +286,13 @@
 #   Endogenous Curvilinear Grid <br>
 #   <img src="../figures/LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
 # </td></tr></table>
+#
+# - Ours: Warped Grid Interpolation (simpler, faster, more details on paper)
 
 # %% [markdown] slideshow={"slide_type": "slide"} tags=[]
-# ## A more complex problem: Consumption-Pension Problem
+# ## A more complex problem: Consumption-Pension Deposit Problem
+#
+# As in Druedahl and Jorgensen (2017)
 #
 # \begin{equation}
 # \begin{split}
@@ -291,6 +304,19 @@
 #     \nRat_{t+1} & = \bRat_{t} \Risky_{t+1}  / \PGro_{t+1}
 #   \end{split}
 # \end{equation}
+#
+# where
+#
+# \begin{equation}
+#   \gFunc(\dRat) = \xFer \log(1+\dRat).
+# \end{equation}
+#
+# is a tax-advantaged premium on pension contributions.
+#
+# - If we try to use EGM:
+#   - 2 first order conditions
+#   - difficult to handle multiple constraints
+#   - requires local triangulation interpolation
 
 # %% [markdown] slideshow={"slide_type": "slide"} tags=[]
 # ### Breaking up the problem makes it easier to solve
@@ -515,3 +541,8 @@
 #         \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
 #             \Decision)}{\sigma_\error} \right)}
 # \end{equation}
+
+# %% [markdown] slideshow={"slide_type": "slide"} tags=[]
+# <center><img src="../../public/econ-ark-logo.png" align="center"></center>
+# <center><img src="../../public/PoweredByEconARK.svg" align="center"></center>
+# <h1 style="text-align:center"><strong>Thank you!</strong></h1>
