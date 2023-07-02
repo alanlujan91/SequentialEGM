@@ -592,6 +592,6 @@ class: center
 <center><img src="public/econ-ark-logo.png" align="center"></center>
 <center><img src="public/PoweredByEconARK.svg" align="center"></center>
 
-`github.com/alanlujan91/SequentialEGM`
-
 `github.com/econ-ark/HARK`
+
+`github.com/alanlujan91/SequentialEGM`
