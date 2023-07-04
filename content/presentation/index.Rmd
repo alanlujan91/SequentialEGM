@@ -28,9 +28,12 @@ output:
 --
 
 - Limitations
-  - Generally only works for one-dimensional problems/subproblems (nested)
-  - Can result in unstructured grids
-  - Non-convexities can be problematic
+  - **One-dimensional** problems/subproblems (nested)
+  - (GEGM) Barillas and Fernández-Villaverde [2007] (NEGM) Druedahl [2021]
+  - Can result in **unstructured grids**
+  - (Curvilinear) White [2015] (Triangular) Ludwig and Schön [2018]
+  - **Non-convexities** can be problematic
+  - (DCEGM) Iskhakov, Jørgensen, Rust, Schjerning [2017] (G2EGM) Druedahl and Jorgensen [2017]
 
 $$
 \newcommand{\DiscFac}{\beta}
@@ -106,29 +109,30 @@ $$
 
 ---
 
-# EGM<sup>n</sup>: The Sequential Endogenous Grid Method
+# EGM<sup>n</sup>
 
-- Simple
-  - Inverted Euler equation
-- Fast
-  - No root-finding or optimization required
-- Efficient
-  - Finds exact solution at each gridpoint
+- **Insight**: Problems in which agent makes several **simultaneous choices** can be decomposed into **sequence of problems**
+- **Problem**: Rectilinear exogenous grid results in **unstructured** endogenous grid
+- **Contribution**: Using machine learning (GPR) to **interpolate** on unstructured grids
 
 --
 
-- Multi-dimensional
+## The Sequential Endogenous Grid Method
+
+- **Simple, Fast, Efficient**
+  - Inherits properties of EGM
+- **Multi-dimensional**
   - Can be used for problems with multiple state variables and controls
-- Unstructured Grids
+- **Unstructured Grids**
   - New approach using Gaussian Process Regression
-- Discrete Choices
+- **Discrete Choices**
   - Handle discrete choices with taste-shocks
 
 ---
 
-# Consumption-Labor-Portfolio Choice
+# Consumption - Labor - Portfolio Choice
 
-Agent maximizes PDV of utility from consumption, leisure, and risky portfolio share
+Agent maximizes PDV of utility as in Bodie, Merton, and Samuelson [1992]
 
 $$\begin{equation}
 \VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
@@ -143,7 +147,6 @@ $$\begin{equation}
     \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
       \vFunc_{t+1} (\bRat_{t+1},
       \tShkEmp_{t+1}) \right] \\
-    & \text{s.t.} \\
     \labor_{t} & = 1 - \leisure_{t} \\
     \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t} \\
     \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
@@ -189,6 +192,8 @@ $$\begin{equation}
 
 ---
 
+# Breaking up the problem into sequences
+
 Finally, the risky portfolio problem is
 
 $$\begin{equation}
@@ -207,7 +212,7 @@ $$\begin{equation}
 
 ---
 
-# Solving the Consumption-Saving Problem (EGM)
+# Solving Consumption-Saving via EGM
 
 We can condense the consumption-saving problem into a single equation:
 
@@ -238,7 +243,7 @@ Constraint is handled by exogenous grid. $\aMat > \underline{\aRat}$.
 
 ---
 
-# Solving the Labor-Leisure Problem (EGM, Again)
+# Solving Labor-Leisure (EGM, Again)
 
 We can condense the labor-leisure problem into a single equation:
 
@@ -287,17 +292,19 @@ $$\begin{equation}
   <img src="figures/LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
 </td></tr></table>
 
---
+---
+
+# Warped Grid Interpolation
 
 - Ours: **Warped Grid Interpolation** (simpler, faster, more details on paper)
+
+![](figures/Warpednterpolation.svg)
 
 ---
 
 # A more complex problem
 
-##Consumption-Pension Deposit Problem
-
-As in Druedahl and Jorgensen [2017]
+Consumption - Pension Deposit Problem as in **Druedahl and Jorgensen [2017]**
 
 $$\begin{equation}
 \begin{split}
@@ -313,12 +320,14 @@ $$\begin{equation}
 where
 
 $$\begin{equation}
-  \gFunc(\dRat) = \xFer \log(1+\dRat).
+  \uFunc(\cRat) = \frac{\cRat^{1-\CRRA}}{1-\CRRA} \qquad \text{and} \qquad \gFunc(\dRat) = \xFer \log(1+\dRat).
 \end{equation}$$
 
 is a tax-advantaged premium on pension contributions.
 
---
+---
+
+# G2EGM from Druedahl and Jorgensen [2017]
 
 - If we try to use EGM:
   - 2 first order conditions
@@ -394,7 +403,7 @@ $$\begin{equation}
 
 # Unstructured Grids
 
-Rectilinear Exogenous Grid Results in **Unstructured** Endogenous Grid
+Problem: **Rectilinear** exogenous grid results in **unstructured** endogenous grid
 
 <table><tr><td>
   Exogenous Rectangular Grid <br>
@@ -500,12 +509,15 @@ Second Stage Pension Endogenous Grid
   - concave
   - differentiable
   - contiuous
+  - separable
+  
+### Need an **additional** function to exploit **invertibility**
 
 --
 
 Examples in this paper:
 
-- Separable utility functions
+- Separable utility function
   - $\uFunc(\cRat, \leisure) = \uFunc(\cRat) + \h(\leisure)$
 - Continuous and differentiable transition
   - $\bRat_{t}  = \nRat_{t} + \dRat_{t} + g(\dRat_{t})$
@@ -592,6 +604,6 @@ class: center
 <center><img src="public/econ-ark-logo.png" align="center"></center>
 <center><img src="public/PoweredByEconARK.svg" align="center"></center>
 
-`github.com/econ-ark/HARK`
+[`github.com/econ-ark/HARK`](https://github.com/econ-ark/HARK)
 
-`github.com/alanlujan91/SequentialEGM`
+[`github.com/alanlujan91/SequentialEGM`](https://github.com/alanlujan91/SequentialEGM)
