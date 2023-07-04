@@ -609,6 +609,8 @@ class: center
 <center><img src="public/econ-ark-logo.png" align="center"></center>
 <center><img src="public/PoweredByEconARK.svg" align="center"></center>
 
-[`github.com/econ-ark/HARK`](https://github.com/econ-ark/HARK)
+[`engine: github.com/econ-ark/HARK`](https://github.com/econ-ark/HARK)
 
-[`github.com/alanlujan91/SequentialEGM`](https://github.com/alanlujan91/SequentialEGM)
+[`code: github.com/alanlujan91/SequentialEGM`](https://github.com/alanlujan91/SequentialEGM)
+
+[`website: alanlujan91.github.io/SequentialEGM/egmn`](https://alanlujan91.github.io/SequentialEGM/egmn)
