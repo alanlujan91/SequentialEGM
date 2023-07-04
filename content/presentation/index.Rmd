@@ -489,6 +489,11 @@ Gaussian Process Regression finds the function that best fits the data
 
 ![Alt text](figures/GaussianProcessRegression.svg)
 
+- **Gaussian Process Regression** gives us
+  - **Mean** function of the posterior distribution
+  - **Uncertainty quantification** of the mean function
+  - Can be useful to predict ex-post where we might need more points
+
 ---
 
 # Back to the model

@@ -47,11 +47,11 @@ class: center, middle, inverse, title-slide
 
 - Limitations
   - **One-dimensional** problems/subproblems (nested)
-  - Barillas and Fernández-Villaverde [2007] Druedahl [2021]
+  - (GEGM) Barillas and Fernández-Villaverde [2007] (NEGM) Druedahl [2021]
   - Can result in **unstructured grids**
-  - White [2015] Ludwig and Schön [2018]
+  - (Curvilinear) White [2015] (Triangular) Ludwig and Schön [2018]
   - **Non-convexities** can be problematic
-  - Iskhakov, Jørgensen, Rust, Schjerning [2017]
+  - (DCEGM) Iskhakov, Jørgensen, Rust, Schjerning [2017] (G2EGM) Druedahl and Jorgensen [2017]
 
 $$
 \newcommand{\DiscFac}{\beta}
@@ -130,8 +130,8 @@ $$
 # EGM&lt;sup&gt;n&lt;/sup&gt;
 
 - **Insight**: Problems in which agent makes several **simultaneous choices** can be decomposed into **sequence of problems**
-- **Problem**: Rectilinear exogenous grid results in unstructured endogenous grid
-- **Contribution**: Using machine learning to interpolate on unstructured grids
+- **Problem**: Rectilinear exogenous grid results in **unstructured** endogenous grid
+- **Contribution**: Using machine learning (GPR) to **interpolate** on unstructured grids
 
 --
 
@@ -150,7 +150,7 @@ $$
 
 # Consumption - Labor - Portfolio Choice
 
-Agent maximizes PDV of utility from consumption, leisure, and risky portfolio share as in Bodie, Merton, and Samuelson [1992]
+Agent maximizes PDV of utility as in Bodie, Merton, and Samuelson [1992]
 
 `$$\begin{equation}
 \VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
@@ -209,6 +209,8 @@ The pure consumption-saving problem is then
 \end{equation}$$`
 
 ---
+
+# Breaking up the problem into sequences
 
 Finally, the risky portfolio problem is
 
@@ -314,13 +316,13 @@ Actual leisure function is bounded between 0 and 1:
 
 - Ours: **Warped Grid Interpolation** (simpler, faster, more details on paper)
 
+![](figures/Warpednterpolation.svg)
+
 ---
 
 # A more complex problem
 
-## Consumption - Pension Deposit Problem
-
-As in **Druedahl and Jorgensen [2017]**
+Consumption - Pension Deposit Problem as in **Druedahl and Jorgensen [2017]**
 
 `$$\begin{equation}
 \begin{split}
@@ -419,7 +421,7 @@ Inverting, we can obtain the optimal choice of `\(\dRat_{t}\)`:
 
 # Unstructured Grids
 
-Problem: **Rectilinear** Exogenous Grid Results in **Unstructured** Endogenous Grid
+Problem: **Rectilinear** exogenous grid results in **unstructured** endogenous grid
 
 &lt;table&gt;&lt;tr&gt;&lt;td&gt;
   Exogenous Rectangular Grid &lt;br&gt;
@@ -505,6 +507,11 @@ Gaussian Process Regression finds the function that best fits the data
 
 ![Alt text](figures/GaussianProcessRegression.svg)
 
+- **Gaussian Process Regression** gives us
+  - **Mean** function of the posterior distribution
+  - **Uncertainty quantification** of the mean function
+  - Can be useful to predict ex-post where we might need more points
+
 ---
 
 # Back to the model
@@ -527,7 +534,7 @@ Second Stage Pension Endogenous Grid
   - contiuous
   - separable
   
-Need an additional function to exploit
+### Need an **additional** function to exploit **invertibility**
 
 --
 
@@ -620,9 +627,9 @@ class: center
 &lt;center&gt;&lt;img src="public/econ-ark-logo.png" align="center"&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="public/PoweredByEconARK.svg" align="center"&gt;&lt;/center&gt;
 
-`github.com/econ-ark/HARK`
+[`github.com/econ-ark/HARK`](https://github.com/econ-ark/HARK)
 
-`github.com/alanlujan91/SequentialEGM`
+[`github.com/alanlujan91/SequentialEGM`](https://github.com/alanlujan91/SequentialEGM)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
