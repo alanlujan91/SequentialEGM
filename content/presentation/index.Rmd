@@ -124,9 +124,7 @@ $$
 - **Multi-dimensional**
   - Can be used for problems with multiple state variables and controls
 - **Unstructured Grids**
-  - New approach using Gaussian Process Regression
-- **Discrete Choices**
-  - Handle discrete choices with taste-shocks
+  - Interpolation approach using Gaussian Process Regression
 
 ---
 
@@ -235,11 +233,17 @@ $$\begin{equation}
 EGM consists of inverting the Euler equation to find the consumption function:
 
 $$\begin{equation}
-\cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
+\cEndFunc_{t}(\aMat) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aMat)
   \right)
 \end{equation}$$
 
-Constraint is handled by exogenous grid. $\aMat > \underline{\aRat}$.
+Then using budget contraint we obtain endogenous grid:
+
+$$\begin{equation}
+  \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
+\end{equation}$$
+
+Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution.
 
 ---
 
@@ -272,17 +276,26 @@ $$\begin{equation}
 
 --
 
-Actual leisure function is bounded between 0 and 1:
+Using market resources condition we obtain endogenous grid: 
+
+$$\bEndFunc_{t}(\mMat, \tShkMat) = \mMat -
+  \tShkMat\wage(1-\zEndFunc_{t}(\mMat, \tShkMat))$$
+
+--
+
+So we construct $\leisure_t([\bEndFunc_t], \tShkMat)$. Actual leisure function is bounded between 0 and 1: 
 
 $$\begin{equation}
-\hat{\zEndFunc}_{t}(\bRat, \tShkEmp) = \max \left[ \min \left[ \zEndFunc_{t}(\mRat, \tShkEmp), 1 \right], 0 \right]
+\hat{\leisure}_{t}(\bRat, \tShkEmp) = \max \left[ \min \left[ \leisure_{t}(\bRat, \tShkEmp), 1 \right], 0 \right]
 \end{equation}$$
 
 ---
 
 # Pretty Simple, Right?
 
-- Curvilinear Interpolation: White [2015]
+## What is the problem?
+
+--
 
 <table><tr><td>
   Exogenous Rectangular Grid <br>
@@ -292,13 +305,17 @@ $$\begin{equation}
   <img src="figures/LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
 </td></tr></table>
 
+--
+
+One solution: Curvilinear Interpolation by  White [2015]
+
 ---
 
 # Warped Grid Interpolation
 
 - Ours: **Warped Grid Interpolation** (simpler, faster, more details on paper)
 
-![](figures/Warpednterpolation.svg)
+![](figures/WarpedInterpolation.svg)
 
 ---
 
@@ -375,15 +392,6 @@ $$\begin{equation}
 Interior solution must satisfy the first-order condition:
 
 $$\begin{equation}
-\vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
-  \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0.
-\end{equation}$$
-
---
-
-Re-arranging, we obtain:
-
-$$\begin{equation}
 \gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
     \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
 \end{equation}$$
@@ -397,6 +405,18 @@ $$\begin{equation}
   \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
     \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
     \bRat_{t})} - 1 \right)
+\end{equation}$$
+
+--
+
+Using resource constraints we obtain endogenous grids:
+
+$$\begin{equation}
+  \nEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \bRat_{t} -
+  \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) - \gFunc(\dEndFunc_{t}(\lRat_{t},
+    \bRat_{t})) \\
+  \mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
+  \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
 \end{equation}$$
 
 ---
@@ -513,7 +533,7 @@ Second Stage Pension Endogenous Grid
 - Model must be
   - concave
   - differentiable
-  - contiuous
+  - continuous
   - separable
   
 ### Need an **additional** function to exploit **invertibility**
@@ -526,80 +546,6 @@ Examples in this paper:
   - $\uFunc(\cRat, \leisure) = \uFunc(\cRat) + \h(\leisure)$
 - Continuous and differentiable transition
   - $\bRat_{t}  = \nRat_{t} + \dRat_{t} + g(\dRat_{t})$
-
----
-
-# How to handle discrete choices?
-
-- Via Taste Shocks where the choice specific problem for a working household that decides to
-continue working is
-
-$$\begin{equation}
-\begin{split}
-        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
-            \dRat_{t}} \util(\cRat_{t}) - \kapShare + \DiscFac
-        \Ex_{t} \left[
-            \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1})
-            \right] \\
-        & \text{s.t.} \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
-    \end{split}
-\end{equation}$$
-
-and the choice specific problem for a working household that decides to retire
-is
-
-$$\begin{equation}
-\vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) =
-    \wFunc_{t}(\mRat_{t}+\nRat_{t})
-\end{equation}$$
-
-$$\begin{equation}
-\begin{split}
-        \wFunc_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) +
-        \DiscFac \wFunc_{t+1}(\mRat_{t}) \\
-        & \text{s.t.} \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} +
-        \underline{\tShkEmp}
-    \end{split}
-\end{equation}$$
-
----
-
-$$\begin{equation}
-\VFunc_{t}(\mRat_{t}, \nRat_{t}) = \Ex_\error \max \left\{
-    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) + \sigma_{\error}
-    \error_{\Work} ,
-    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) + \sigma_{\error}
-    \error_{\Retire} \right\}
-\end{equation}$$
-
-$$\begin{equation}
-\Ex_{t} \left[
-        \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}, \error_{t+1}) \right] =
-    \sigma \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
-        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error} \right)  \right]
-\end{equation}$$
-
-and
-
-$$\begin{equation}
-\Prob_{t}(\Decision ~ \lvert ~ \mRat_{t+1}, \nRat_{t+1}) = \frac{\exp
-        \left(
-        \vFunc_{t + 1}(\mRat_{t+1}, \nRat_{t+1}, \Decision) /
-        \sigma_\error
-        \right)
-    }{  \sum\limits_{\Decision \in \{\Work, \Retire\}} \exp \left(
-        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error} \right)}
-\end{equation}$$
-
-- If $\sigma$ is sufficiently large, value and marginal value functions are continuous and differentiable
 
 ---
 class: center
