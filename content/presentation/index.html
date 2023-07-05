@@ -154,6 +154,8 @@ Agent maximizes PDV of utility as in Bodie, Merton, and Samuelson [1992]
 \VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
 \end{equation}$$`
 
+--
+
 Recursive Bellman equation in normalized form:
 
 `$$\begin{equation}
@@ -194,6 +196,8 @@ Starting from the beginning of the period, we can define the labor-leisure probl
     \mRat_{t} &amp; = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t}.
   \end{split}
 \end{equation}$$`
+
+--
 
 The pure consumption-saving problem is then
 
@@ -255,11 +259,15 @@ EGM consists of inverting the Euler equation to find the consumption function:
   \right)
 \end{equation}$$`
 
+--
+
 Then using budget contraint we obtain endogenous grid:
 
 `$$\begin{equation}
   \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
 \end{equation}$$`
+
+--
 
 Using points `\([\mEndFunc_t]\)` and `\([\cEndFunc_t]\)` we can build a linear interpolator `\(\cRat_t(\mRat)\)`. The constraint is handled by exogenous grid `\(\aMat \ge \underline{\aRat}\)` and we can add an anchor point `\(\cRat_t(\mRat = 0) = 0\)` for the linear interpolator to complete our solution.
 
@@ -311,9 +319,11 @@ So we construct `\(\leisure_t([\bEndFunc_t], \tShkMat)\)`. Actual leisure functi
 
 # Pretty Simple, Right?
 
-## What is the problem?
+What is the **problem**?
+
 
 --
+
 
 &lt;table&gt;&lt;tr&gt;&lt;td&gt;
   Exogenous Rectangular Grid &lt;br&gt;
@@ -328,10 +338,11 @@ So we construct `\(\leisure_t([\bEndFunc_t], \tShkMat)\)`. Actual leisure functi
 One solution: Curvilinear Interpolation by  White [2015]
 
 ---
+class: middle, center
 
 # Warped Grid Interpolation
 
-- Ours: **Warped Grid Interpolation** (simpler, faster, more details on paper)
+- Our solution: **Warped Grid Interpolation** (simpler, faster, more details on paper)
 
 ![](figures/WarpedInterpolation.svg)
 
@@ -383,6 +394,8 @@ Consider the problem of a consumer who chooses how much to put into a pension ac
     \bRat_{t} &amp; = \nRat_{t} + \dRat_{t} + g(\dRat_{t})
   \end{split}
 \end{equation}$$`
+
+--
 
 After, the consumer chooses how much to consume out of liquid savings:
 
@@ -457,7 +470,7 @@ How do we **interpolate** on this grid?
 
 # Gaussian Process Regression
 
-A Gaussian Process is an infinite dimensional random process
+A Gaussian Process is a probability distribution over functions
 
 `$$\begin{equation}
 \begin{gathered}
@@ -491,13 +504,13 @@ where
   \end{bmatrix}.
 \end{equation}$$`
 
-A Gaussian Process Regression is used to find the best fit function to a set of data points
+A Gaussian Process Regression is used to find the function that best fits a set of data points
 
 `$$\begin{equation}
 \mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
 \end{equation}$$`
 
-We use standard kernel function, exploring alternatives is an active area of research
+We use standard covariance function, exploring alternatives is an active area of research
 
 `$$\begin{equation}
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
@@ -530,7 +543,7 @@ Gaussian Process Regression finds the function that best fits the data
 - **Gaussian Process Regression** gives us
   - **Mean** function of the posterior distribution
   - **Uncertainty quantification** of the mean function
-  - Can be useful to predict ex-post where we might need more points
+  - Can be useful to predict ex-post where we might need **more points**
 
 ---
 
@@ -544,6 +557,14 @@ Second Stage Pension Endogenous Grid
 
 # Some Results
 
+&lt;table&gt;&lt;tr&gt;&lt;td&gt;
+  Consumption Function &lt;br&gt;
+  &lt;img src="figures/PensionConsumptionFunction.svg" alt="Pension Consumption Function"&gt;
+  &lt;/td&gt;&lt;td&gt;
+  Deposit Function &lt;br&gt;
+  &lt;img src="figures/PensionDepositFunction.svg" alt="Pension Deposit Function"&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 ---
 
 # Conditions for using Sequential EGM
@@ -554,7 +575,7 @@ Second Stage Pension Endogenous Grid
   - continuous
   - separable
   
-### Need an **additional** function to exploit **invertibility**
+Need an **additional** function to exploit **invertibility**
 
 --
 
