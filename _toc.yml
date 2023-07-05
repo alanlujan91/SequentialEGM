@@ -18,7 +18,7 @@
 format: jb-book
 root: README
 chapters:
-  - title: site
+  - title: EGMN
     sections:
       - file: content/site/0_titlepage
       - file: content/site/1_intro
@@ -28,3 +28,15 @@ chapters:
       - file: content/site/5_conditions
       - file: content/site/6_conclusion
       - file: content/site/7_appendix
+  - title: Code
+    sections:
+      - file: code/README
+      - title: EGMN
+        sections:
+          - file: code/EGMN/example_ConsLaborPortfolioModel
+          - file: code/EGMN/example_ConsLaborSeparableModel
+          - file: code/EGMN/example_ConsPensionModel
+          - file: code/EGMN/example_ConsPensionModel_baseline
+          - file: code/EGMN/example_ConsRetirementModel
+          - file: code/EGMN/example_GaussianProcessRegression
+          - file: code/EGMN/example_WarpedInterpolation
