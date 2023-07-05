@@ -30,6 +30,8 @@ site:
       path: content/site
     - slug: paper
       path: content/paper
+    - slug: notebooks
+      path: code/EGMN
   nav:
     - title: Home
       url: /egmn
