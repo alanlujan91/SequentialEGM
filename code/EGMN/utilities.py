@@ -57,11 +57,12 @@ def plot_3d_func(func, xlims, ylims, n=100, meta={}, savename=None):
     ax.set_xlabel(meta_data["xlabel"])
     ax.set_ylabel(meta_data["ylabel"])
     ax.set_zlabel(meta_data["zlabel"])
-    plt.show()
 
     if savename is not None:
         plt.savefig(figures_path + savename + ".svg")
         plt.savefig(figures_path + savename + ".pdf")
+
+    plt.show()
 
 
 def plot_retired(

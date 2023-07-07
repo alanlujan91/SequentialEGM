@@ -14,8 +14,6 @@
 # ---
 
 # %% pycharm={"name": "#%%\n"}
-import matplotlib.pyplot as plt
-import numpy as np
 from ConsRetirementModel import RetirementConsumerType
 from utilities import plot_3d_func, plot_retired
 

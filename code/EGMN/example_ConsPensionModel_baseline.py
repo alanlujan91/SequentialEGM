@@ -15,7 +15,6 @@
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 import matplotlib.pyplot as plt
-import numpy as np
 from ConsPensionModel import PensionConsumerType, init_pension_contrib
 from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
 from utilities import plot_3d_func, plot_scatter_hist

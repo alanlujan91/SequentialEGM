@@ -14,10 +14,7 @@
 # ---
 
 # %% jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-import matplotlib.pyplot as plt
-import numpy as np
 from ConsPensionModel import PensionConsumerType
-from IPython import get_ipython
 from utilities import plot_3d_func, plot_scatter_hist
 
 figures_path = "../../content/figures/"
