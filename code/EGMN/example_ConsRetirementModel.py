@@ -196,7 +196,4 @@ plot_3d_func(prbRet_func_worker[t], [0, 5], [0, 5])
 # %% pycharm={"name": "#%%\n"}
 plot_3d_func(agent.solution[0].working_solution.deposit_stage.interp, [0, 5], [0, 5])
 
-# %% pycharm={"name": "#%%\n"}
-grids = agent.solution[0].consumption_stage.grids_before_cleanup
-
 # %%

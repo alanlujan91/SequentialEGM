@@ -443,7 +443,7 @@ class LaborPortfolioSolution(MetricObject):
 class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType):
     time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
     time_inv_ += [
-        "DisutilLabor",
+        "Disutility",
         "LaborFactor",
         "LaborCRRA",
         "LeisureFactor",
@@ -502,7 +502,7 @@ class LaborPortfolioSolver(MetricObject):
     LivPrb: float
     DiscFac: float
     CRRA: float
-    DisutilLabor: bool
+    Disutility: bool
     LaborFactor: float
     LaborCRRA: float
     LeisureFactor: float
@@ -525,7 +525,7 @@ class LaborPortfolioSolver(MetricObject):
 
         self.u = UtilityFuncCRRA(self.CRRA)
 
-        if self.DisutilLabor:
+        if self.Disutility:
             self.n = DisutilityFuncLabor(self.LaborCRRA, self.LaborFactor)
         else:
             self.n = UtilityFuncLeisure(self.LeisureCRRA, self.LeisureFactor)
