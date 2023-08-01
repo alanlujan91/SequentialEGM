@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/mwouts/jupytext
-    rev: v1.14.7
+    rev: v1.15.0
     hooks:
       - id: jupytext
         args: [--sync, --set-formats, "ipynb,py:percent", --pipe, black]
@@ -8,20 +8,20 @@ repos:
         files: ^code/.*\.ipynb$
 
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.7.0
     hooks:
       - id: black
         exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.7.0
+    rev: v3.10.1
     hooks:
       - id: pyupgrade
         args: ["--py310-plus"]
         exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/asottile/blacken-docs
-    rev: 1.14.0
+    rev: 1.15.0
     hooks:
       - id: blacken-docs
         exclude: ^code/.*\.ipynb$
