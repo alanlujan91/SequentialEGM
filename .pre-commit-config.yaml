@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/mwouts/jupytext
-    rev: v1.15.0
+    rev: v1.15.1
     hooks:
       - id: jupytext
         args: [--sync, --set-formats, "ipynb,py:percent", --pipe, black]
@@ -8,7 +8,7 @@ repos:
         files: ^code/.*\.ipynb$
 
   - repo: https://github.com/psf/black
-    rev: 23.7.0
+    rev: 23.9.1
     hooks:
       - id: black
         exclude: ^code/.*\.ipynb$
@@ -21,7 +21,7 @@ repos:
         exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/asottile/blacken-docs
-    rev: 1.15.0
+    rev: 1.16.0
     hooks:
       - id: blacken-docs
         exclude: ^code/.*\.ipynb$
