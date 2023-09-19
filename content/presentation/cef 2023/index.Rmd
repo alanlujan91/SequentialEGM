@@ -2,56 +2,21 @@
 title: "EGM<sup>n</sup>"
 subtitle: "The Sequential Endogenous Grid Method"
 author: "Alan E. Lujan Solis"
-institute: "Johns Hopkins University <br> Econ-ARK"
-date: "September 29, 2023"
-date-format: long
-format:
-  revealjs:
-    fontsize: "25pt"
-    theme: serif
-    logo: econ-ark-logo.png
-    footer: "Powered by **Econ-ARK**"
+institute: "The Ohio State University <br> Econ-ARK"
+date: "Computing in Economics and Finance, July 2023 <br> Outstanding Graduate Student Paper Award"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
-# Interpolation in Economics
+# The Endogenous Grid Method
 
----
-
-### Univariate Interpolation on a Uniform Grid
-
-{{< video manim_videos/LinearInterpolation.mp4 >}}
-
----
-
-### Univariate Interpolation on a Non-linear Grid
-
-{{< video manim_videos/LinearTransform.mp4 >}}
-
----
-
-### Bilinear Interpolation
-
-{{< video manim_videos/MeshGridTransform.mp4 >}}
-
----
-
-### Curvilinear (Warped) Grid Interpolation
-
-{{< video manim_videos/CurvilinearTransform.mp4 >}}
-
----
-
-### What about Unstructured Grids?
-
-{{< video manim_videos/UnstructuredGrid.mp4 >}}
-
----
-
-# Machine Learning in Economics
-
----
-
-### The Endogenous Grid Method by Carroll [2006]
+## Carroll [2006]
 
 - Simple
   - Inverted Euler equation
@@ -59,6 +24,16 @@ format:
   - No root-finding or optimization required
 - Efficient
   - Finds exact solution at each gridpoint
+
+--
+
+- Limitations
+  - **One-dimensional** problems/subproblems (nested)
+  - (GEGM) Barillas and Fernández-Villaverde [2007] (NEGM) Druedahl [2021]
+  - Can result in **unstructured grids**
+  - (Curvilinear) White [2015] (Triangular) Ludwig and Schön [2018]
+  - **Non-convexities** can be problematic
+  - (DCEGM) Iskhakov, Jørgensen, Rust, Schjerning [2017] (G2EGM) Druedahl and Jorgensen [2017]
 
 $$
 \newcommand{\DiscFac}{\beta}
@@ -70,8 +45,6 @@ $$
 \newcommand{\tShkEmp}{\theta}
 \newcommand{\BLev}{B}
 \newcommand{\CLev}{C}
-\newcommand{\MLev}{M}
-\newcommand{\ALev}{A}
 \newcommand{\Ex}{\mathbb{E}}
 \newcommand{\CRRA}{\rho}
 \newcommand{\labShare}{\nu}
@@ -136,59 +109,34 @@ $$
 
 ---
 
-### Limitations of EGM
-
-  - **One-dimensional** problems/subproblems (nested)
-    - (GEGM) Barillas and Fernández-Villaverde [2007]
-    - (NEGM) Druedahl [2021]
-  - Can result in **non-rectangular grids**
-    - (Curvilinear) White [2015]
-    - (Triangular) Ludwig and Schön [2018]
-  - **Non-convexities** can be problematic
-    - (DCEGM) Iskhakov, Jørgensen, Rust, Schjerning [2017]
-    - (G2EGM) Druedahl and Jorgensen [2017]
-
----
-
-###  EGM<sup>n</sup>
+# EGM<sup>n</sup>
 
 - **Insight**: Problems in which agent makes several **simultaneous choices** can be decomposed into **sequence of problems**
 - **Problem**: Rectilinear exogenous grid results in **unstructured** endogenous grid
 - **Contribution**: Using machine learning (GPR) to **interpolate** on unstructured grids
 
----
+--
 
-###  The Sequential Endogenous Grid Method
+## The Sequential Endogenous Grid Method
 
 - **Simple, Fast, Efficient**
   - Inherits properties of EGM
 - **Multi-dimensional**
   - Can be used for problems with multiple state variables and controls
-- **Cutting-edge**
-  - Interpolation approach using a Gaussian Process Regression
+- **Unstructured Grids**
+  - Interpolation approach using Gaussian Process Regression
 
 ---
 
-### Consumption - Labor - Portfolio Choice
+# Consumption - Labor - Portfolio Choice
 
-Agent maximizes PDV of lifetime utility as in Bodie, Merton, and Samuelson [1992]
-
-$$\begin{equation}
-\VFunc_0(\BLev_0, \tShkEmp_0) = \max_{\CLev_{t}, \Leisure_{t}, \riskyshare_{t}} \Ex_{t} \left[ \sum_{t = 0}^{T} \DiscFac^{t} \utilFunc(\CLev_{t}, \Leisure_{t})  \right]
-\end{equation}$$
-
-where
+Agent maximizes PDV of utility as in Bodie, Merton, and Samuelson [1992]
 
 $$\begin{equation}
-\begin{split}
-    \MLev_{t} & = \BLev_{t} + \PGro_{t} \tShkEmp_{t} (1 - \Leisure_{t}) \\
-    \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
-    \riskyshare_{t} \\
-    \BLev_{t+1} & = (\MLev_{t} - \CLev_{t}) \Rport_{t+1}
-  \end{split}
+\VFunc_0(\BLev_0, \tShkEmp_0) = \max \Ex_{t} \left[ \sum_{n = 0}^{T-t} \DiscFac^{n} \utilFunc(\CLev_{t+n}, \Leisure_{t+n})  \right]
 \end{equation}$$
 
----
+--
 
 Recursive Bellman equation in normalized form:
 
@@ -216,7 +164,7 @@ $$\begin{equation}
 
 ---
 
-### Breaking up the problem into sequences
+# Breaking up the problem into sequences
 
 Starting from the beginning of the period, we can define the labor-leisure problem as
 
@@ -231,9 +179,7 @@ $$\begin{equation}
   \end{split}
 \end{equation}$$
 
----
-
-### Breaking up the problem into sequences
+--
 
 The pure consumption-saving problem is then
 
@@ -248,7 +194,7 @@ $$\begin{equation}
 
 ---
 
-### Breaking up the problem into sequences
+# Breaking up the problem into sequences
 
 Finally, the risky portfolio problem is
 
@@ -268,7 +214,7 @@ $$\begin{equation}
 
 ---
 
-### Solving Consumption-Saving via EGM
+# Solving Consumption-Saving via EGM
 
 We can condense the consumption-saving problem into a single equation:
 
@@ -277,12 +223,16 @@ $$\begin{equation}
   \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
 \end{equation}$$
 
+--
+
 Interior solution must satisfy the Euler equation:
 
 $$\begin{equation}
 \utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
   \vEnd_{t}'(\aRat_{t})
 \end{equation}$$
+
+--
 
 EGM consists of inverting the Euler equation to find the consumption function:
 
@@ -291,7 +241,7 @@ $$\begin{equation}
   \right)
 \end{equation}$$
 
----
+--
 
 Then using budget contraint we obtain endogenous grid:
 
@@ -299,13 +249,13 @@ $$\begin{equation}
   \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
 \end{equation}$$
 
-. . .
+--
 
 Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution.
 
 ---
 
-### Solving Labor-Leisure (EGM, Again)
+# Solving Labor-Leisure (EGM, Again)
 
 We can condense the labor-leisure problem into a single equation:
 
@@ -315,7 +265,7 @@ $$\begin{equation}
   \tShkEmp_{t} \wage (1-\leisure_{t}))
 \end{equation}$$
 
-. . .
+--
 
 Interior solution must satisfy the first-order condition:
 
@@ -323,7 +273,7 @@ $$\begin{equation}
 \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \wage \tShkEmp_{t}
 \end{equation}$$
 
-. . .
+--
 
 EGM consists of inverting the first-order condition to find leisure function:
 
@@ -332,14 +282,14 @@ $$\begin{equation}
   \vOpt_{t}'(\mMat) \wage \tShkMat \right)
 \end{equation}$$
 
----
+--
 
 Using market resources condition we obtain endogenous grid:
 
 $$\bEndFunc_{t}(\mMat, \tShkMat) = \mMat -
   \tShkMat\wage(1-\zEndFunc_{t}(\mMat, \tShkMat))$$
 
-. . .
+--
 
 So we construct $\leisure_t([\bEndFunc_t], \tShkMat)$. Actual leisure function is bounded between 0 and 1:
 
@@ -349,11 +299,11 @@ $$\begin{equation}
 
 ---
 
-### Pretty Simple, Right?
+# Pretty Simple, Right?
 
 What is the **problem**?
 
-. . .
+--
 
 <table><tr><td>
   Exogenous Rectangular Grid <br>
@@ -363,13 +313,14 @@ What is the **problem**?
   <img src="figures/LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
 </td></tr></table>
 
-. . .
+--
 
 One solution: Curvilinear Interpolation by  White [2015]
 
 ---
+class: middle, center
 
-### Warped Grid Interpolation
+# Warped Grid Interpolation
 
 - Our solution: **Warped Grid Interpolation** (simpler, faster, more details on paper)
 
@@ -377,7 +328,7 @@ One solution: Curvilinear Interpolation by  White [2015]
 
 ---
 
-### A more complex problem {.smaller}
+# A more complex problem
 
 Consumption - Pension Deposit Problem as in **Druedahl and Jorgensen [2017]**
 
@@ -402,7 +353,7 @@ is a tax-advantaged premium on pension contributions.
 
 ---
 
-### G2EGM from Druedahl and Jorgensen [2017]
+# G2EGM from Druedahl and Jorgensen [2017]
 
 - If we try to use EGM:
   - 2 first order conditions
@@ -411,7 +362,7 @@ is a tax-advantaged premium on pension contributions.
 
 ---
 
-### Breaking up the problem makes it easier to solve
+# Breaking up the problem makes it easier to solve
 
 Consider the problem of a consumer who chooses how much to put into a pension account:
 
@@ -424,7 +375,7 @@ $$\begin{equation}
   \end{split}
 \end{equation}$$
 
-. . .
+--
 
 After, the consumer chooses how much to consume out of liquid savings:
 
@@ -438,7 +389,7 @@ $$\begin{equation}
 
 ---
 
-### Solving the pension problem
+# Solving the pension problem
 
 The pension problem, more compactly
 
@@ -447,7 +398,7 @@ $$\begin{equation}
   \vOpt_{t}(\mRat_{t} - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
 \end{equation}$$
 
-. . .
+--
 
 Interior solution must satisfy the first-order condition:
 
@@ -456,7 +407,7 @@ $$\begin{equation}
     \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
 \end{equation}$$
 
-. . .
+--
 
 Inverting, we can obtain the optimal choice of $\dRat_{t}$:
 
@@ -467,7 +418,7 @@ $$\begin{equation}
     \bRat_{t})} - 1 \right)
 \end{equation}$$
 
-. . .
+--
 
 Using resource constraints we obtain endogenous grids:
 
@@ -481,7 +432,7 @@ $$\begin{equation}
 
 ---
 
-### Unstructured Grids
+# Unstructured Grids
 
 Problem: **Rectilinear** exogenous grid results in **unstructured** endogenous grid
 
@@ -497,7 +448,7 @@ How do we **interpolate** on this grid?
 
 ---
 
-### Gaussian Process Regression
+# Gaussian Process Regression
 
 A Gaussian Process is a probability distribution over functions
 
@@ -547,7 +498,7 @@ k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}
 
 ---
 
-### An example
+# An example
 
 Consider the true function $f(x) = x \cos(1.5x)$ sampled at random points
 
@@ -555,7 +506,7 @@ Consider the true function $f(x) = x \cos(1.5x)$ sampled at random points
 
 ---
 
-### An Example
+# An Example
 
 A random sample of the GP posterior distribution of functions
 
@@ -563,7 +514,7 @@ A random sample of the GP posterior distribution of functions
 
 ---
 
-### An Example
+# An Example
 
 Gaussian Process Regression finds the function that best fits the data
 
@@ -576,7 +527,7 @@ Gaussian Process Regression finds the function that best fits the data
 
 ---
 
-### Back to the model
+# Back to the model
 
 Second Stage Pension Endogenous Grid
 
@@ -584,7 +535,7 @@ Second Stage Pension Endogenous Grid
 
 ---
 
-### Some Results
+# Some Results
 
 <table><tr><td>
   Consumption Function <br>
@@ -596,7 +547,7 @@ Second Stage Pension Endogenous Grid
 
 ---
 
-### Conditions for using Sequential EGM
+# Conditions for using Sequential EGM
 
 - Model must be
   - concave
@@ -606,7 +557,7 @@ Second Stage Pension Endogenous Grid
 
 Need an **additional** function to exploit **invertibility**
 
-. . .
+--
 
 Examples in this paper:
 
@@ -616,8 +567,9 @@ Examples in this paper:
   - $\bRat_{t}  = \nRat_{t} + \dRat_{t} + g(\dRat_{t})$
 
 ---
+class: center
 
-### Thank you!
+# Thank you!
 
 <center><img src="public/econ-ark-logo.png" align="center"></center>
 <center><img src="public/PoweredByEconARK.svg" align="center"></center>

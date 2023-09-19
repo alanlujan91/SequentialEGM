@@ -1,0 +1,7 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/CurvilinearTransform/274514146_3453319617_223132457.mp4'
+file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/CurvilinearTransform/2789044632_1552902302_3328098519.mp4'
+file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/CurvilinearTransform/2789044632_3097537234_2724519066.mp4'
+file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/CurvilinearTransform/207390714_345352296_2197164457.mp4'
+file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/CurvilinearTransform/2789044632_3248697879_3938064091.mp4'
+file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/CurvilinearTransform/2789044632_190800790_2435312158.mp4'
