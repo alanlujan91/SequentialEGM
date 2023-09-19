@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/mwouts/jupytext
-    rev: v1.15.1
+    rev: v1.15.2
     hooks:
       - id: jupytext
         args: [--sync, --set-formats, "ipynb,py:percent", --pipe, black]
@@ -14,7 +14,7 @@ repos:
         exclude: ^code/.*\.ipynb$
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.10.1
+    rev: v3.11.0
     hooks:
       - id: pyupgrade
         args: ["--py310-plus"]
