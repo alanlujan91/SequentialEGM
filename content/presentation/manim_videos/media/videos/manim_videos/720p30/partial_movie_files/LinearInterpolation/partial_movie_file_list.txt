@@ -1,8 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/LinearInterpolation/274514146_3866151353_223132457.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/LinearInterpolation/207390714_1735324301_3771178900.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/LinearInterpolation/207390714_345352296_3519616567.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/LinearInterpolation/2789044632_522318910_481112024.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/LinearInterpolation/2789044632_345352296_1016515016.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/LinearInterpolation/2789044632_3718854628_448426827.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/LinearInterpolation/207390714_190800790_2865888191.mp4'

@@ -32,7 +32,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -345,60 +364,8 @@ Alan E. Lujan Solis
   <p class="date">September 29, 2023</p>
 </section>
 <section>
-<section id="interpolation-in-economics" class="title-slide slide level1 center">
-<h1>Interpolation in Economics</h1>
-
-</section>
-<section class="slide level2">
-
-<h3 id="univariate-interpolation-on-a-uniform-grid">Univariate Interpolation on a Uniform Grid</h3>
-<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="manim_videos/LinearInterpolation.mp4"></video>
-</section>
-<section class="slide level2">
-
-<h3 id="univariate-interpolation-on-a-non-linear-grid">Univariate Interpolation on a Non-linear Grid</h3>
-<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="manim_videos/LinearTransform.mp4"></video>
-</section>
-<section class="slide level2">
-
-<h3 id="bilinear-interpolation">Bilinear Interpolation</h3>
-<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="manim_videos/MeshGridTransform.mp4"></video>
-</section>
-<section class="slide level2">
-
-<h3 id="curvilinear-warped-grid-interpolation">Curvilinear (Warped) Grid Interpolation</h3>
-<video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="manim_videos/CurvilinearTransform.mp4"></video>
-</section>
-<section class="slide level2">
-
-<h3 id="what-about-unstructured-grids">What about Unstructured Grids?</h3>
-<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="manim_videos/UnstructuredGrid.mp4"></video>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="machine-learning-in-economics" class="title-slide slide level1 center">
-<h1>Machine Learning in Economics</h1>
-
-</section>
-<section class="slide level2">
-
-<h3 id="the-endogenous-grid-method-by-carroll-2006">The Endogenous Grid Method by Carroll [2006]</h3>
-<ul>
-<li>Simple
-<ul>
-<li>Inverted Euler equation</li>
-</ul></li>
-<li>Fast
-<ul>
-<li>No root-finding or optimization required</li>
-</ul></li>
-<li>Efficient
-<ul>
-<li>Finds exact solution at each gridpoint</li>
-</ul></li>
-</ul>
+<section id="functional-approximation-in-economics" class="title-slide slide level1 center">
+<h1>Functional Approximation <br> in Economics</h1>
 <p><span class="math display">\[
 \newcommand{\DiscFac}{\beta}
 \newcommand{\utilFunc}{\mathrm{u}}
@@ -473,24 +440,182 @@ Alan E. Lujan Solis
 \newcommand{\Prob}{\mathbb{P}}
 \]</span></p>
 </section>
+<section id="linear-interpolation-on-a-uniform-grid" class="slide level2">
+<h2>Linear Interpolation on a Uniform Grid</h2>
+<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearInterpolation.mp4"></video>
+</section>
+<section id="linear-interpolation-on-a-non-linear-grid" class="slide level2">
+<h2>Linear Interpolation on a Non-linear Grid</h2>
+<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearTransform.mp4"></video>
+</section>
+<section id="bilinear-interpolation" class="slide level2">
+<h2>Bilinear Interpolation</h2>
+<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/MeshGridTransform.mp4"></video>
+</section>
+<section id="curvilinear-warped-grid-interpolation" class="slide level2 smaller">
+<h2>Curvilinear (Warped) Grid Interpolation</h2>
+<video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/CurvilinearTransform.mp4"></video>
+<p>See: <span class="citation" data-cites="White2015">White (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p>
+</section>
+<section id="what-about-unstructured-grids" class="slide level2 smaller">
+<h2>What about Unstructured Grids?</h2>
+<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/UnstructuredGrid.mp4"></video>
+<p>See: <span class="citation" data-cites="Ludwig2018">Ludwig and Schön (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="machine-learning-in-economics" class="title-slide slide level1 center">
+<h1>Machine Learning <br> in Economics</h1>
+
+</section>
+<section id="artificial-neural-networks" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Artificial Neural Networks</h2>
+
+<img data-src="multilayerperceptron_network.png" class="r-stretch quarto-figure-center"><p class="caption">Figure 1: ANN (Source: scikit-learn.org)</p></section>
+<section id="artificial-neural-networks-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Artificial Neural Networks</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="multilayerperceptron_network.png"></p>
+<figcaption>Figure 1: ANN (Source: scikit-learn.org)</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Based on biological neural networks (neurons in a brain)</li>
+<li>Learns function <span class="math inline">\(f(X): R^n \rightarrow R^m\)</span></li>
+<li>Consists of
+<ul>
+<li>input (features) <span class="math inline">\(X\)</span></li>
+<li>hidden layers <span class="math inline">\(g(\cdots)\)</span></li>
+<li>output (target) <span class="math inline">\(y = f(X)\)</span></li>
+</ul></li>
+<li>Hidden layers can have many nodes</li>
+<li>Neural nets can have many hidden layers (deep learning)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="a-single-neuron-and-a-bit-of-math" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">A single neuron, and a bit of math</h2>
+
+<img data-src="perceptron.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure 2: Perceptron</p><p><span class="math display">\[\begin{equation}
+y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
+\end{equation}\]</span></p>
+</section>
+<section id="a-single-neuron-and-a-bit-of-math-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">A single neuron, and a bit of math</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="perceptron.png"></p>
+<figcaption>Figure 2: Perceptron</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:70%;">
+<p><span class="math display">\[\begin{equation}
+y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
+\end{equation}\]</span></p>
+</div>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><span class="math inline">\(y\)</span> is the output or target</li>
+<li><span class="math inline">\(x_i\)</span> are the inputs or features</li>
+<li><span class="math inline">\(w_0\)</span> is the bias</li>
+<li><span class="math inline">\(w_i\)</span> are the weights</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<ul>
+<li><span class="math inline">\(g(\cdot)\)</span> is the activation function (non-linear) <span class="math display">\[\begin{equation}
+g(z) = \frac{1}{1 + e^{-z}}
+\end{equation}\]</span></li>
+<li>usually a sigmoid, but there are many others</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="training-a-neural-network" class="slide level2">
+<h2>Training a Neural Network</h2>
+<p>Mean Squared Error (MSE)</p>
+<p><span class="math display">\[\begin{equation}
+J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n (y_i - f(\mathbf{x}^{(i)}
+; \mathbf{w}))^2
+\end{equation}\]</span></p>
+<div class="fragment">
+<p>Objective</p>
+<p><span class="math display">\[\begin{equation}
+\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
+\end{equation}\]</span></p>
+</div>
+<div class="fragment">
+<p>Gradient Descent</p>
+<p><span class="math display">\[\begin{equation}
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla J(\mathbf{w}^{(t)})
+\end{equation}\]</span></p>
+</div>
+</section>
+<section id="stochastic-gradient-descent" class="slide level2">
+<h2>Stochastic Gradient Descent</h2>
+<p><span class="math display">\[\begin{equation}
+\widetilde{\nabla} J(\mathbf{w}^{(t)}) = \frac{1}{B} \sum_{i=1}^B \nabla_i J(\mathbf{w}^{(t)})
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
+\end{equation}\]</span></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="dynamic-programming" class="title-slide slide level1 center">
+<h1>Dynamic Programming</h1>
+<p><a href="https://playground.tensorflow.org/" data-preview-link="true">Preview</a></p>
+</section>
+<section class="slide level2">
+
+<h3 id="the-endogenous-grid-method-by-carroll2006-ag">The Endogenous Grid Method by <span class="citation" data-cites="Carroll2006-ag">Carroll (<a href="#/references" role="doc-biblioref" onclick="">2006</a>)</span></h3>
+<ul>
+<li>Simple
+<ul>
+<li>Inverted Euler equation</li>
+</ul></li>
+<li>Fast
+<ul>
+<li>No root-finding or optimization required</li>
+</ul></li>
+<li>Efficient
+<ul>
+<li>Finds exact solution at each gridpoint</li>
+</ul></li>
+</ul>
+</section>
 <section class="slide level2">
 
 <h3 id="limitations-of-egm">Limitations of EGM</h3>
 <ul>
 <li><strong>One-dimensional</strong> problems/subproblems (nested)
 <ul>
-<li>(GEGM) Barillas and Fernández-Villaverde [2007]</li>
-<li>(NEGM) Druedahl [2021]</li>
+<li>(GEGM) <span class="citation" data-cites="Barillas2007">Barillas and Fernández-Villaverde (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span></li>
+<li>(NEGM) <span class="citation" data-cites="Druedahl2021">Druedahl (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></li>
 </ul></li>
 <li>Can result in <strong>non-rectangular grids</strong>
 <ul>
-<li>(Curvilinear) White [2015]</li>
-<li>(Triangular) Ludwig and Schön [2018]</li>
+<li>(Curvilinear) <span class="citation" data-cites="White2015">White (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></li>
+<li>(Triangular) <span class="citation" data-cites="Ludwig2018">Ludwig and Schön (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></li>
 </ul></li>
 <li><strong>Non-convexities</strong> can be problematic
 <ul>
-<li>(DCEGM) Iskhakov, Jørgensen, Rust, Schjerning [2017]</li>
-<li>(G2EGM) Druedahl and Jorgensen [2017]</li>
+<li>(DCEGM) <span class="citation" data-cites="Iskhakov2017-af">Iskhakov et al. (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></li>
+<li>(G2EGM) <span class="citation" data-cites="Druedahl2017-ac">Druedahl and Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></li>
 </ul></li>
 </ul>
 </section>
@@ -517,14 +642,14 @@ Alan E. Lujan Solis
 </ul></li>
 <li><strong>Cutting-edge</strong>
 <ul>
-<li>Interpolation approach using a Gaussian Process Regression</li>
+<li>Functional approximation and uncertainty quantification approach using a Gaussian Process Regression</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="consumption---labor---portfolio-choice">Consumption - Labor - Portfolio Choice</h3>
-<p>Agent maximizes PDV of lifetime utility as in Bodie, Merton, and Samuelson [1992]</p>
+<p>Agent maximizes PDV of lifetime utility as in <span class="citation" data-cites="Bodie1992">Bodie, Merton, and Samuelson (<a href="#/references" role="doc-biblioref" onclick="">1992</a>)</span></p>
 <p><span class="math display">\[\begin{equation}
 \VFunc_0(\BLev_0, \tShkEmp_0) = \max_{\CLev_{t}, \Leisure_{t}, \riskyshare_{t}} \Ex_{t} \left[ \sum_{t = 0}^{T} \DiscFac^{t} \utilFunc(\CLev_{t}, \Leisure_{t})  \right]
 \end{equation}\]</span></p>
@@ -687,7 +812,9 @@ Endogenous Curvilinear Grid <br> <img src="figures/LaborSeparableWarpedGrid.svg"
 
 </tbody></table>
 <p>. . .</p>
-<p>One solution: Curvilinear Interpolation by White [2015]</p>
+<ul>
+<li><strong>One solution:</strong> Curvilinear Interpolation by <span class="citation" data-cites="White2015">White (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -917,7 +1044,7 @@ Deposit Function <br> <img src="figures/PensionDepositFunction.svg" alt="Pension
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
+<section class="slide level2 smaller scrollable" id="references">
 
 <h3 id="thank-you">Thank you!</h3>
 <center>
@@ -932,6 +1059,32 @@ Deposit Function <br> <img src="figures/PensionDepositFunction.svg" alt="Pension
 <p><img src="econ-ark-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>Powered by <strong>Econ-ARK</strong></p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Barillas2007" class="csl-entry" role="listitem">
+Barillas, Francisco, and Jesús Fernández-Villaverde. 2007. <span>“A Generalization of the Endogenous Grid Method.”</span> <em>Journal of Economic Dynamics &amp; Control</em> 31 (8): 2698–2712. <a href="https://doi.org/10.1016/j.jedc.2006.08.005">https://doi.org/10.1016/j.jedc.2006.08.005</a>.
+</div>
+<div id="ref-Bodie1992" class="csl-entry" role="listitem">
+Bodie, Zvi, Robert C Merton, and William F Samuelson. 1992. <span>“Labor Supply Flexibility and Portfolio Choice in a Life Cycle Model.”</span> <em>Journal of Economic Dynamics &amp; Control</em> 16 (3-4): 427–49. <a href="https://doi.org/10.1016/0165-1889(92)90044-f">https://doi.org/10.1016/0165-1889(92)90044-f</a>.
+</div>
+<div id="ref-Carroll2006-ag" class="csl-entry" role="listitem">
+Carroll, Christopher D. 2006. <span>“The Method of Endogenous Gridpoints for Solving Dynamic Stochastic Optimization Problems.”</span> <em>Economics Letters</em> 91 (3): 312–20. <a href="https://doi.org/10.1016/j.econlet.2005.09.013">https://doi.org/10.1016/j.econlet.2005.09.013</a>.
+</div>
+<div id="ref-Druedahl2021" class="csl-entry" role="listitem">
+Druedahl, Jeppe. 2021. <span>“A Guide on Solving Non-Convex <span class="nocase">consumption-saving</span> Models.”</span> <em>Computational Economics</em> 58 (3): 747–75. <a href="https://doi.org/10.1007/s10614-020-10045-x">https://doi.org/10.1007/s10614-020-10045-x</a>.
+</div>
+<div id="ref-Druedahl2017-ac" class="csl-entry" role="listitem">
+Druedahl, Jeppe, and Thomas Høgholm Jørgensen. 2017. <span>“A General Endogenous Grid Method for Multi-Dimensional Models with Non-Convexities and Constraints.”</span> <em>Journal of Economic Dynamics &amp; Control</em> 74 (January): 87–107. <a href="https://doi.org/10.1016/j.jedc.2016.11.005">https://doi.org/10.1016/j.jedc.2016.11.005</a>.
+</div>
+<div id="ref-Iskhakov2017-af" class="csl-entry" role="listitem">
+Iskhakov, Fedor, Thomas H Jørgensen, John Rust, and Bertel Schjerning. 2017. <span>“The Endogenous Grid Method for Discrete-Continuous Dynamic Choice Models with (or Without) Taste Shocks: <span>DC-EGM</span> Method for Dynamic Choice Models.”</span> <em>Quantitative Economics</em> 8 (2): 317–65. <a href="https://doi.org/10.3982/qe643">https://doi.org/10.3982/qe643</a>.
+</div>
+<div id="ref-Ludwig2018" class="csl-entry" role="listitem">
+Ludwig, Alexander, and Matthias Schön. 2018. <span>“Endogenous Grids in Higher Dimensions: <span>Delaunay</span> Interpolation and Hybrid Methods.”</span> <em>Computational Economics</em> 51 (3): 463–92. <a href="https://doi.org/10.1007/s10614-016-9611-2">https://doi.org/10.1007/s10614-016-9611-2</a>.
+</div>
+<div id="ref-White2015" class="csl-entry" role="listitem">
+White, Matthew N. 2015. <span>“The Method of Endogenous Gridpoints in Theory and Practice.”</span> <em>Journal of Economic Dynamics &amp; Control</em> 60 (November): 26–41. <a href="https://doi.org/10.1016/j.jedc.2015.08.001">https://doi.org/10.1016/j.jedc.2015.08.001</a>.
+</div>
 </div>
 </section></section>
     </div>
@@ -1145,44 +1298,6 @@ Deposit Function <br> <img src="figures/PensionDepositFunction.svg" alt="Pension
         ]
       });
     </script>
-
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

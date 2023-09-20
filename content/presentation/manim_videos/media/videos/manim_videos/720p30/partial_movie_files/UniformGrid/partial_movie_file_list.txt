@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/UniformGrid/274514146_2306024877_2358810818.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/UniformGrid/2789044632_3486751702_1853976441.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/UniformGrid/2789044632_2077474923_3448737011.mp4'
-file 'file:C:/Users/alujan/GitHub/alanlujan91/SequentialEGM/content/presentation/manim_videos/media/videos/manim_videos/720p30/partial_movie_files/UniformGrid/2789044632_190800790_460305135.mp4'
