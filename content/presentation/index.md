@@ -12,9 +12,51 @@ format:
     theme: serif
     logo: econ-ark-logo.png
     footer: "Powered by **Econ-ARK**"
+    auto-play-media: true
 ---
 
-# Functional Approximation <br> in Economics
+---
+
+## Motivation
+
+. . .
+
+- Structural Economics for modeling **decision-making under uncertainty**
+  - household: consumption, savings, labor, portfolio, retirement
+  - firms: production, investment, hiring, entry/exit
+  - governments: fiscal and monetary policy, taxation, redistribution
+  - interdisciplinary: climate change, public health, education, etc.
+
+. . .
+
+- Structural modeling is **hard**
+  - modern economics requires solving complex problems
+  - with many state variables, many decisions, and non-convexities
+  - computationally challenging and time-consuming
+
+---
+
+## Outline {.smaller}
+
+- Function Approximation
+  - Interpolation on different spaces/dimensions
+  - Conventional techniques are **insufficient** for complex problems
+- Machine Learning in Economics
+  - Neural Nets as **function approximators**
+  - The Deep Learning Revolution
+- Dynamic Programming
+  - The Endogenous Grid Method
+  - The **Sequential** Endogenous Grid Method
+- Uncertainty Quantification
+  - Gaussian Process Regression
+  - Bayesian **Adaptive Learning**
+- Conclusion
+  - Computational Economics solving increasingly complex problems
+  - Econ-ARK provides **open source** tools for researchers
+
+---
+
+# Functional Approximation
 
 $$
 \newcommand{\DiscFac}{\beta}
@@ -143,7 +185,8 @@ See: @Ludwig2018
 :::
 
 ::: {.column width="60%"}
-- Based on biological neural networks (neurons in a brain)
+
+- Based on biological neural pathways (neurons in a brain)
 - Learns function $f(X): R^n \rightarrow R^m$
 - Consists of
   - input (features) $X$
@@ -214,13 +257,12 @@ g(z) = \frac{1}{1 + e^{-z}}
 
 ---
 
-## Training a Neural Network
+## Training a Neural Network {auto-animate=true}
 
 Mean Squared Error (MSE)
 
 $$\begin{equation}
-J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n (y_i - f(\mathbf{x}^{(i)}
-; \mathbf{w}))^2
+J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
 \end{equation}$$
 
 . . .
@@ -231,7 +273,31 @@ $$\begin{equation}
 \mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
 \end{equation}$$
 
-. . .
+## Training a Neural Network {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+Mean Squared Error (MSE)
+
+$$\begin{equation}
+J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
+\end{equation}$$
+
+:::
+
+::: {.column width="40%"}
+
+Objective
+
+$$\begin{equation}
+\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
+\end{equation}$$
+
+:::
+
+::::
 
 Gradient Descent
 
@@ -239,12 +305,36 @@ $$\begin{equation}
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla J(\mathbf{w}^{(t)})
 \end{equation}$$
 
----
+## Training a Neural Network {auto-animate=true}
 
-## Stochastic Gradient Descent
+:::: {.columns}
+
+::: {.column width="60%"}
+
+Mean Squared Error (MSE)
 
 $$\begin{equation}
-\widetilde{\nabla} J(\mathbf{w}^{(t)}) = \frac{1}{B} \sum_{i=1}^B \nabla_i J(\mathbf{w}^{(t)})
+J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
+\end{equation}$$
+
+:::
+
+::: {.column width="40%"}
+
+Objective
+
+$$\begin{equation}
+\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
+\end{equation}$$
+
+:::
+
+::::
+
+Stochastic Gradient Descent
+
+$$\begin{equation}
+\widetilde{\nabla} J(\mathbf{w}^{(t)}) = \frac{1}{B} \sum_{i=1}^B \nabla J_i(\mathbf{w}^{(t)})
 \end{equation}$$
 
 $$\begin{equation}
@@ -253,9 +343,35 @@ $$\begin{equation}
 
 ---
 
-# Dynamic Programming
+## The Deep Learning Revolution
 
-[Preview](https://playground.tensorflow.org/){preview-link="true"}
+. . .
+
+- Most of these ideas are not new
+  - Perceptron (1957)
+  - Deep Learning (1965)
+  - Stochastic Gradient Descent (1967)
+
+. . .
+
+- What changed?
+  - **Big data** (more data)
+  - More computing power (**GPUs**, TPUs, etc.)
+  - **Algorithmic** innovations (ReLU, Adam, regularization, etc.)
+  - Better and **open source** software (scikit-learn, TensorFlow, PyTorch, etc.)
+
+---
+
+## Resources
+
+- An Introduction to Statistical Learning [`statlearning.com`](https://www.statlearning.com/)
+- Neural Networks and Deep Learning [`neuralnetworksanddeeplearning.com`](http://neuralnetworksanddeeplearning.com/)
+- Deep Learning [`deeplearningbook.org`](https://www.deeplearningbook.org)
+- Probabilistic machine learning  [`probml.github.io/pml-book`](https://probml.github.io/pml-book)
+- A Neural Network Playground [`playground.tensorflow.org`](https://playground.tensorflow.org){preview-link="true"}
+
+
+# Dynamic Programming
 
 ---
 
@@ -272,19 +388,19 @@ $$\begin{equation}
 
 ### Limitations of EGM
 
-  - **One-dimensional** problems/subproblems (nested)
-    - (GEGM) @Barillas2007
-    - (NEGM) @Druedahl2021
-  - Can result in **non-rectangular grids**
-    - (Curvilinear) @White2015
-    - (Triangular) @Ludwig2018
-  - **Non-convexities** can be problematic
-    - (DCEGM) @Iskhakov2017-af
-    - (G2EGM) @Druedahl2017-ac
+- **One-dimensional** problems/subproblems (nested)
+  - (GEGM) @Barillas2007
+  - (NEGM) @Druedahl2021
+- Can result in **non-rectangular grids**
+  - (Curvilinear) @White2015
+  - (Triangular) @Ludwig2018
+- **Non-convexities** can be problematic
+  - (DCEGM) @Iskhakov2017-af
+  - (G2EGM) @Druedahl2017-ac
 
 ---
 
-###  EGM<sup>n</sup>
+### EGM<sup>n</sup>
 
 - **Insight**: Problems in which agent makes several **simultaneous choices** can be decomposed into **sequence of problems**
 - **Problem**: Rectilinear exogenous grid results in **unstructured** endogenous grid
@@ -292,7 +408,7 @@ $$\begin{equation}
 
 ---
 
-###  The Sequential Endogenous Grid Method
+### The Sequential Endogenous Grid Method
 
 - **Simple, Fast, Efficient**
   - Inherits properties of EGM
@@ -631,7 +747,11 @@ How do we **interpolate** on this grid?
 
 ---
 
-### Gaussian Process Regression
+# Uncertainty Quantification
+
+--
+
+## Gaussian Process Regression
 
 A Gaussian Process is a probability distribution over functions
 
@@ -751,7 +871,7 @@ Examples in this paper:
 
 ---
 
-### Thank you!
+### Thank you
 
 <center><img src="public/econ-ark-logo.png" align="center"></center>
 <center><img src="public/PoweredByEconARK.svg" align="center"></center>

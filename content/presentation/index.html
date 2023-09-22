@@ -363,9 +363,66 @@ Alan E. Lujan Solis
 
   <p class="date">September 29, 2023</p>
 </section>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<div class="fragment">
+<ul>
+<li>Structural Economics for modeling <strong>decision-making under uncertainty</strong>
+<ul>
+<li>household: consumption, savings, labor, portfolio, retirement</li>
+<li>firms: production, investment, hiring, entry/exit</li>
+<li>governments: fiscal and monetary policy, taxation, redistribution</li>
+<li>interdisciplinary: climate change, public health, education, etc.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Structural modeling is <strong>hard</strong>
+<ul>
+<li>modern economics requires solving complex problems</li>
+<li>with many state variables, many decisions, and non-convexities</li>
+<li>computationally challenging and time-consuming</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="outline" class="slide level2 smaller">
+<h2>Outline</h2>
+<ul>
+<li>Function Approximation
+<ul>
+<li>Interpolation on different spaces/dimensions</li>
+<li>Conventional techniques are <strong>insufficient</strong> for complex problems</li>
+</ul></li>
+<li>Machine Learning in Economics
+<ul>
+<li>Neural Nets as <strong>function approximators</strong></li>
+<li>The Deep Learning Revolution</li>
+</ul></li>
+<li>Dynamic Programming
+<ul>
+<li>The Endogenous Grid Method</li>
+<li>The <strong>Sequential</strong> Endogenous Grid Method</li>
+</ul></li>
+<li>Uncertainty Quantification
+<ul>
+<li>Gaussian Process Regression</li>
+<li>Bayesian <strong>Adaptive Learning</strong></li>
+</ul></li>
+<li>Conclusion
+<ul>
+<li>Computational Economics solving increasingly complex problems</li>
+<li>Econ-ARK provides <strong>open source</strong> tools for researchers</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section>
 <section>
-<section id="functional-approximation-in-economics" class="title-slide slide level1 center">
-<h1>Functional Approximation <br> in Economics</h1>
+<section id="functional-approximation" class="title-slide slide level1 center">
+<h1>Functional Approximation</h1>
 <p><span class="math display">\[
 \newcommand{\DiscFac}{\beta}
 \newcommand{\utilFunc}{\mathrm{u}}
@@ -486,7 +543,7 @@ Alan E. Lujan Solis
 </div>
 </div><div class="column" style="width:60%;">
 <ul>
-<li>Based on biological neural networks (neurons in a brain)</li>
+<li>Based on biological neural pathways (neurons in a brain)</li>
 <li>Learns function <span class="math inline">\(f(X): R^n \rightarrow R^m\)</span></li>
 <li>Consists of
 <ul>
@@ -543,12 +600,11 @@ g(z) = \frac{1}{1 + e^{-z}}
 </div>
 </div>
 </section>
-<section id="training-a-neural-network" class="slide level2">
-<h2>Training a Neural Network</h2>
+<section id="training-a-neural-network" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Training a Neural Network</h2>
 <p>Mean Squared Error (MSE)</p>
 <p><span class="math display">\[\begin{equation}
-J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n (y_i - f(\mathbf{x}^{(i)}
-; \mathbf{w}))^2
+J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
 \end{equation}\]</span></p>
 <div class="fragment">
 <p>Objective</p>
@@ -556,29 +612,88 @@ J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n (y_i - f(\mathbf{x}^{(i)}
 \mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
 \end{equation}\]</span></p>
 </div>
-<div class="fragment">
+</section>
+<section id="training-a-neural-network-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Training a Neural Network</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Mean Squared Error (MSE)</p>
+<p><span class="math display">\[\begin{equation}
+J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
+\end{equation}\]</span></p>
+</div><div class="column" style="width:40%;">
+<p>Objective</p>
+<p><span class="math display">\[\begin{equation}
+\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
+\end{equation}\]</span></p>
+</div>
+</div>
 <p>Gradient Descent</p>
 <p><span class="math display">\[\begin{equation}
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla J(\mathbf{w}^{(t)})
 \end{equation}\]</span></p>
-</div>
 </section>
-<section id="stochastic-gradient-descent" class="slide level2">
-<h2>Stochastic Gradient Descent</h2>
+<section id="training-a-neural-network-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Training a Neural Network</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Mean Squared Error (MSE)</p>
 <p><span class="math display">\[\begin{equation}
-\widetilde{\nabla} J(\mathbf{w}^{(t)}) = \frac{1}{B} \sum_{i=1}^B \nabla_i J(\mathbf{w}^{(t)})
+J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
+\end{equation}\]</span></p>
+</div><div class="column" style="width:40%;">
+<p>Objective</p>
+<p><span class="math display">\[\begin{equation}
+\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
+\end{equation}\]</span></p>
+</div>
+</div>
+<p>Stochastic Gradient Descent</p>
+<p><span class="math display">\[\begin{equation}
+\widetilde{\nabla} J(\mathbf{w}^{(t)}) = \frac{1}{B} \sum_{i=1}^B \nabla J_i(\mathbf{w}^{(t)})
 \end{equation}\]</span></p>
 <p><span class="math display">\[\begin{equation}
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
 \end{equation}\]</span></p>
 </section>
-<section class="slide level2">
-
+<section id="the-deep-learning-revolution" class="slide level2">
+<h2>The Deep Learning Revolution</h2>
+<div class="fragment">
+<ul>
+<li>Most of these ideas are not new
+<ul>
+<li>Perceptron (1957)</li>
+<li>Deep Learning (1965)</li>
+<li>Stochastic Gradient Descent (1967)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>What changed?
+<ul>
+<li><strong>Big data</strong> (more data)</li>
+<li>More computing power (<strong>GPUs</strong>, TPUs, etc.)</li>
+<li><strong>Algorithmic</strong> innovations (ReLU, Adam, regularization, etc.)</li>
+<li>Better and <strong>open source</strong> software (scikit-learn, TensorFlow, PyTorch, etc.)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li>An Introduction to Statistical Learning <a href="https://www.statlearning.com/"><code>statlearning.com</code></a></li>
+<li>Neural Networks and Deep Learning <a href="http://neuralnetworksanddeeplearning.com/"><code>neuralnetworksanddeeplearning.com</code></a></li>
+<li>Deep Learning <a href="https://www.deeplearningbook.org"><code>deeplearningbook.org</code></a></li>
+<li>Probabilistic machine learning <a href="https://probml.github.io/pml-book"><code>probml.github.io/pml-book</code></a></li>
+<li>A Neural Network Playground <a href="https://playground.tensorflow.org" data-preview-link="true"><code>playground.tensorflow.org</code></a></li>
+</ul>
 </section></section>
 <section>
 <section id="dynamic-programming" class="title-slide slide level1 center">
 <h1>Dynamic Programming</h1>
-<p><a href="https://playground.tensorflow.org/" data-preview-link="true">Preview</a></p>
+
 </section>
 <section class="slide level2">
 
@@ -930,7 +1045,14 @@ Endogenous Unstructured Grid <br> <img src="figures/PensionEndogenousGrid.svg" a
 </section>
 <section class="slide level2">
 
-<h3 id="gaussian-process-regression">Gaussian Process Regression</h3>
+</section></section>
+<section>
+<section id="uncertainty-quantification" class="title-slide slide level1 center">
+<h1>Uncertainty Quantification</h1>
+<p>–</p>
+</section>
+<section id="gaussian-process-regression" class="slide level2">
+<h2>Gaussian Process Regression</h2>
 <p>A Gaussian Process is a probability distribution over functions</p>
 <p><span class="math display">\[\begin{equation}
 \begin{gathered}
@@ -1046,7 +1168,7 @@ Deposit Function <br> <img src="figures/PensionDepositFunction.svg" alt="Pension
 </section>
 <section class="slide level2 smaller scrollable" id="references">
 
-<h3 id="thank-you">Thank you!</h3>
+<h3 id="thank-you">Thank you</h3>
 <center>
 <img src="public/econ-ark-logo.png" align="center">
 </center>
@@ -1207,7 +1329,7 @@ White, Matthew N. 2015. <span>“The Method of Endogenous Gridpoints in Theory a
         showNotes: false,
 
         // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
+        autoPlayMedia: true,
 
         // Global override for preloading lazy-loaded iframes (null/true/false)
         preloadIframes: null,
