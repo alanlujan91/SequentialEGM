@@ -390,15 +390,15 @@ Alan E. Lujan Solis
 <section id="outline" class="slide level2 smaller">
 <h2>Outline</h2>
 <ul>
-<li>Functional Approximation
-<ul>
-<li>Interpolation on different spaces/dimensions</li>
-<li>Conventional techniques are <strong>insufficient</strong> for complex problems</li>
-</ul></li>
 <li>Dynamic Programming
 <ul>
 <li>The Endogenous Grid Method</li>
 <li>The <strong>Sequential</strong> Endogenous Grid Method</li>
+</ul></li>
+<li>Functional Approximation
+<ul>
+<li>Interpolation on different spaces/dimensions</li>
+<li>Conventional techniques are <strong>insufficient</strong> for complex problems</li>
 </ul></li>
 <li>Machine Learning in Economics
 <ul>
@@ -417,36 +417,6 @@ Alan E. Lujan Solis
 
 </section>
 <section>
-<section id="functional-approximation" class="title-slide slide level1 center">
-<h1>Functional Approximation</h1>
-
-</section>
-<section id="linear-interpolation-on-a-uniform-grid" class="slide level2">
-<h2>Linear Interpolation on a Uniform Grid</h2>
-<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearInterpolationUniform.mp4"></video>
-</section>
-<section id="linear-interpolation-on-a-non-linear-grid" class="slide level2">
-<h2>Linear Interpolation on a Non-linear Grid</h2>
-<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearInterpolationGeometric.mp4"></video>
-</section>
-<section id="bilinear-interpolation" class="slide level2">
-<h2>Bilinear Interpolation</h2>
-<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/BilinearInterpolation.mp4"></video>
-</section>
-<section id="curvilinear-warped-grid-interpolation" class="slide level2 smaller">
-<h2>Curvilinear (Warped) Grid Interpolation</h2>
-<video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/CurvilinearInterpolation.mp4"></video>
-<p>See: <span class="citation" data-cites="White2015">White (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p>
-</section>
-<section id="what-about-unstructured-grids" class="slide level2 smaller">
-<h2>What about Unstructured Grids?</h2>
-<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/UnstructuredGrid.mp4"></video>
-<p>See: <span class="citation" data-cites="Ludwig2018">Ludwig and Schön (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
 <section id="dynamic-programming" class="title-slide slide level1 center">
 <h1>Dynamic Programming</h1>
 
@@ -455,14 +425,14 @@ Alan E. Lujan Solis
 <h2 data-id="quarto-animate-title">A simple consumption-savings problem</h2>
 <p>Agent maximizes present discounted value (PDV) of lifetime utility</p>
 <p><span class="math display">\[\begin{equation}
-\sum_{t=0}^{\infty} \beta^t \mathrm{u}(c_t)
+\max_{c_t} \sum_{t=0}^{\infty} \beta^t \mathrm{u}(c_t)
 \end{equation}\]</span></p>
 <div class="fragment">
 <p>Recursive Bellman equation</p>
 <p><span class="math display">\[\begin{equation}
 \begin{split}
-v_t(m) &amp; = \max_{c_t} \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(m_{t+1}) \right] \\
-\text{s.t.} &amp; \quad 0  \leq c_t \leq m_t \\
+v_t(m_t) &amp; = \max_{c_t} \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(m_{t+1}) \right] \\
+\text{s.t.} &amp; \quad 0  &lt; c_t \leq m_t \\
 a_t &amp; = m_t - c_t \\
 m_{t+1} &amp; = \mathsf{R}a_t + \theta_{t+1}
 \end{split}
@@ -474,8 +444,8 @@ m_{t+1} &amp; = \mathsf{R}a_t + \theta_{t+1}
 <p>Recursive Bellman equation</p>
 <p><span class="math display">\[\begin{equation}
 \begin{split}
-v_t(m) &amp; = \max_{c_t} \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(m_{t+1}) \right] \\
-\text{s.t.} &amp; \quad 0  \leq c_t \leq m_t \\
+v_t(m_t) &amp; = \max_{c_t} \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(m_{t+1}) \right] \\
+\text{s.t.} &amp; \quad 0  &lt; c_t \leq m_t \\
 a_t &amp; = m_t - c_t \\
 m_{t+1} &amp; = \mathsf{R}a_t + \theta_{t+1}
 \end{split}
@@ -489,26 +459,37 @@ m_{t+1} &amp; = \mathsf{R}a_t + \theta_{t+1}
 </ul></li>
 </ul>
 </section>
-<section id="the-endogenous-grid-method-by-carroll2006-ag" class="slide level2">
+<section id="the-endogenous-grid-method-by-carroll2006-ag" class="slide level2 smaller">
 <h2>The Endogenous Grid Method <br> by <span class="citation" data-cites="Carroll2006-ag">Carroll (<a href="#/references" role="doc-biblioref" onclick="">2006</a>)</span></h2>
 <div class="fragment">
 <p><span class="math display">\[\begin{equation}
-c_t = \mathrm{u}'^{-1} \left( \beta\mathbb{E}_t \left[ v_{t+1}'(\mathsf{R}a_t + \theta_{t+1}) \right] \right)
+v_t(m_t) = \max_{c_t} \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(\mathsf{R}(m_t - c_t) + \theta_{t+1}) \right]
 \end{equation}\]</span></p>
 </div>
 <div class="fragment">
+<p><span class="math display">\[\begin{equation}
+u'(c_t) - \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\mathsf{R}(m_t - c_t) + \theta_{t+1}) \right] = 0
+\end{equation}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\begin{equation}
+c_t = \mathrm{u}'^{-1} \left( \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\mathsf{R}a_t + \theta_{t+1}) \right] \right)
+\end{equation}\]</span></p>
+</div>
+<div class="fragment">
+<p>Contribution:</p>
 <ul>
 <li>Simple
 <ul>
-<li>Inverted Euler equation</li>
+<li><strong>Inverted Euler</strong> equation</li>
 </ul></li>
 <li>Fast
 <ul>
-<li>No root-finding or grid search optimization required</li>
+<li>No <strong>root-finding</strong> or <strong>grid search</strong> optimization required</li>
 </ul></li>
 <li>Efficient
 <ul>
-<li>Finds exact solution at each gridpoint</li>
+<li>Finds <strong>exact solution</strong> at each gridpoint</li>
 </ul></li>
 </ul>
 </div>
@@ -788,12 +769,12 @@ What is the **problem**?
 <p>Consumption - Pension Deposit Problem as in <span class="citation" data-cites="Druedahl2017-ac">Druedahl and Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></p>
 <p><span class="math display">\[\begin{equation}
 \begin{split}
-    \mathrm{v}_{t}(m_{t}, n_{t}) &amp; = \max_{c_{t}, d_{t}} u(c_{t}) + \beta\mathbb{E}_{t} \left[ \Gamma_{t+1}^{1-\rho} \mathrm{v}_{t+1}(m_{t+1}, n_{t+1}) \right] \\
+    \mathrm{v}_{t}(m_{t}, n_{t}) &amp; = \max_{c_{t}, d_{t}} u(c_{t}) + \beta\mathbb{E}_{t} \left[  \mathrm{v}_{t+1}(m_{t+1}, n_{t+1}) \right] \\
     &amp; \text{s.t.} \quad c_{t} &gt; 0, \quad d_{t} \ge 0 \\
     a_{t} &amp; = m_{t} - c_{t} - d_{t} \\
     b_{t} &amp; = n_{t} + d_{t} + g(d_{t}) \\
-    m_{t+1} &amp; = a_{t} \mathsf{R}/ \Gamma_{t+1}  + \theta_{t+1} \\
-    n_{t+1} &amp; = b_{t} \mathbf{R}_{t+1}  / \Gamma_{t+1}
+    m_{t+1} &amp; = a_{t} \mathsf{R}+ \theta_{t+1} \\
+    n_{t+1} &amp; = b_{t} \mathbf{R}_{t+1}
   \end{split}
 \end{equation}\]</span></p>
 <p>where</p>
@@ -802,24 +783,26 @@ What is the **problem**?
 \end{equation}\]</span></p>
 <p>is a tax-advantaged premium on pension contributions.</p>
 </section>
-<section class="slide level2">
-
-<!-- ## G2EGM from <br> @Druedahl2017-ac
-
-- If we try to use EGM:
-  - 2 first order conditions
-  - difficult to handle multiple constraints
-  - requires local triangulation interpolation
-
---- -->
+<section id="g2egm-from-druedahl2017-ac" class="slide level2">
+<h2>G2EGM from <br> <span class="citation" data-cites="Druedahl2017-ac">Druedahl and Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></h2>
+<ul>
+<li>If we try to use EGM:
+<ul>
+<li>2 first order conditions</li>
+<li>multiple constraints difficult to handle</li>
+<li>segments: combinations of first order conditions and constraints</li>
+<li><span class="math inline">\(2^{d}\)</span> segments where <span class="math inline">\(d\)</span> is number of control variables</li>
+<li>requires local triangulation interpolation</li>
+</ul></li>
+</ul>
 </section>
-<section id="breaking-up-the-problem-makes-it-easier-to-solve-it" class="slide level2 smaller">
-<h2>Breaking up the problem makes it easier to solve it</h2>
+<section id="breaking-up-the-problem-makes-it-easier" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Breaking up the problem makes it easier</h2>
 <p>Consider the problem of a consumer who chooses how much to put into a pension account:</p>
 <p><span class="math display">\[\begin{equation}
 \begin{split}
     \mathrm{v}_{t}(m_{t}, n_{t}) &amp; = \max_{d_{t}} \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) \\
-    &amp; \text{s.t.}  \quad d_{t} \ge 0 \\
+    &amp; \text{s.t.}  \quad 0 \le d_{t} \le m_t \\
     l_{t} &amp; = m_{t} - d_{t} \\
     b_{t} &amp; = n_{t} + d_{t} + g(d_{t})
   \end{split}
@@ -829,14 +812,97 @@ What is the **problem**?
 <p><span class="math display">\[\begin{equation}
 \begin{split}
     \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) &amp; = \max_{c_{t}} u(c_{t}) + \beta\mathrm{w}_{t}(a_{t}, b_{t})  \\
-    &amp; \text{s.t.} \quad c_{t} \ge 0 \\
+    &amp; \text{s.t.} \quad 0 &lt; c_{t} \le m_t
+     \\
     a_{t} &amp; = l_{t} - c_{t}
   \end{split}
 \end{equation}\]</span></p>
 </div>
 </section>
-<section id="solving-the-pension-problem" class="slide level2">
-<h2>Solving the pension problem</h2>
+<section id="breaking-up-the-problem-makes-it-easier-1" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Breaking up the problem makes it easier</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Consider the problem of a consumer who chooses how much to put into a pension account:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+    \mathrm{v}_{t}(m_{t}, n_{t}) &amp; = \max_{d_{t}} \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) \\
+    &amp; \text{s.t.}  \quad 0 \le d_{t} \le m_t \\
+    l_{t} &amp; = m_{t} - d_{t} \\
+    b_{t} &amp; = n_{t} + d_{t} + g(d_{t})
+  \end{split}
+\end{equation}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p>After, the consumer chooses how much to consume out of liquid savings:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+    \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) &amp; = \max_{c_{t}} u(c_{t}) + \beta\mathrm{w}_{t}(a_{t}, b_{t})  \\
+    &amp; \text{s.t.} \quad 0 &lt; c_{t} \le m_t
+     \\
+    a_{t} &amp; = l_{t} - c_{t}
+  \end{split}
+\end{equation}\]</span></p>
+</div>
+</div>
+<p>And the post-decision value function is defined as:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+  \mathrm{w}_t(a_t, b_t) &amp; = \mathbb{E}_{t} \left[ \mathrm{v}_{t+1}(m_{t+1}, n_{t+1}) \right] \\
+  &amp; \text{s.t.} \\
+  m_{t+1} &amp; = a_{t} \mathsf{R}+ \theta_{t+1} \\
+  n_{t+1} &amp; = b_{t} \mathbf{R}_{t+1}
+\end{split}
+\end{equation}\]</span></p>
+</section>
+<section id="breaking-up-the-problem-makes-it-easier-2" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Breaking up the problem makes it easier</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Consider the problem of a consumer who chooses how much to put into a pension account:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+    \mathrm{v}_{t}(m_{t}, n_{t}) &amp; = \max_{d_{t}} \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) \\
+    &amp; \text{s.t.}  \quad 0 \le d_{t} \le m_t \\
+    l_{t} &amp; = m_{t} - d_{t} \\
+    b_{t} &amp; = n_{t} + d_{t} + g(d_{t})
+  \end{split}
+\end{equation}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p>After, the consumer chooses how much to consume out of liquid savings:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+    \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) &amp; = \max_{c_{t}} u(c_{t}) + \beta\mathrm{w}_{t}(a_{t}, b_{t})  \\
+    &amp; \text{s.t.} \quad 0 &lt; c_{t} \le m_t
+     \\
+    a_{t} &amp; = l_{t} - c_{t}
+  \end{split}
+\end{equation}\]</span></p>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>And the post-decision value function is defined as:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+  \mathrm{w}_t(a_t, b_t) &amp; = \mathbb{E}_{t} \left[ \mathrm{v}_{t+1}(m_{t+1}, n_{t+1}) \right] \\
+  &amp; \text{s.t.} \\
+  m_{t+1} &amp; = a_{t} \mathsf{R}+ \theta_{t+1} \\
+  n_{t+1} &amp; = b_{t} \mathbf{R}_{t+1}
+\end{split}
+\end{equation}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p>Steps:</p>
+<ol type="1">
+<li>Compute <span class="math inline">\(\mathrm{w}_t(a_t, b_t)\)</span></li>
+<li>Solve consumption problem (EGM)</li>
+<li>Solve pension problem (EGM, again)</li>
+<li>Done!</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="solving-the-pension-problem" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solving the pension problem</h2>
 <p>The pension problem, more compactly</p>
 <p><span class="math display">\[\begin{equation}
 \mathrm{v}_{t}(m_{t}, n_{t}) = \max_{d_{t}}
@@ -849,9 +915,7 @@ What is the **problem**?
     b_{t})}{\tilde{\mathfrak{v}}_{t}^{b}(l_{t}, b_{t})} - 1
 \end{equation}\]</span></p>
 </div>
-</section>
-<section id="solving-the-pension-problem-1" class="slide level2">
-<h2>Solving the pension problem</h2>
+<div class="fragment">
 <p>Inverting, we can obtain the optimal choice of <span class="math inline">\(d_{t}\)</span>:</p>
 <p><span class="math display">\[\begin{equation}
 \mathfrak{d}_{t}(l_{t}, b_{t}) = \mathrm{g}'^{-1}\left(
@@ -859,7 +923,17 @@ What is the **problem**?
     b_{t})}{\tilde{\mathfrak{v}}_{t}^{b}(l_{t},
     b_{t})} - 1 \right)
 \end{equation}\]</span></p>
-<div class="fragment">
+</div>
+</section>
+<section id="solving-the-pension-problem-1" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solving the pension problem</h2>
+<p>Inverting, we can obtain the optimal choice of <span class="math inline">\(d_{t}\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+\mathfrak{d}_{t}(l_{t}, b_{t}) = \mathrm{g}'^{-1}\left(
+  \frac{\tilde{\mathfrak{v}}_{t}^{l}(l_{t},
+    b_{t})}{\tilde{\mathfrak{v}}_{t}^{b}(l_{t},
+    b_{t})} - 1 \right)
+\end{equation}\]</span></p>
 <p>Using resource constraints we obtain endogenous grids:</p>
 <p><span class="math display">\[\begin{equation}
   \mathfrak{n}_{t}(l_{t}, b_{t}) = b_{t} -
@@ -867,6 +941,15 @@ What is the **problem**?
     b_{t})) \\
   \mathfrak{m}_{t}(l_{t}, b_{t}) = l_{t} +
   \mathfrak{d}_{t}(l_{t}, b_{t})
+\end{equation}\]</span></p>
+<div class="fragment">
+<p>Now we have the triple <span class="math inline">\(\{\mathfrak{m}_t, \mathfrak{n}_t, \mathfrak{d}_t\}\)</span> where <span class="math inline">\(\mathfrak{d}_t\)</span> is the unconstrained approx. of optimal deposit for each <span class="math inline">\((\mathfrak{m}_t, \mathfrak{n}_t)\)</span> corresponding to each <span class="math inline">\((l_t, b_t)\)</span>. Generally, we can construct an interpolator as follows:</p>
+<p><span class="math display">\[\begin{equation}
+\hat{d_t}(\mathfrak{m}_t, \mathfrak{n}_t) = \begin{cases}
+0 &amp; \text{if } \mathfrak{d}_t &lt; 0 \\
+\mathfrak{d}_t &amp; \text{if } 0 \le \mathfrak{d}_t \le \mathfrak{m}_t \\
+\mathfrak{m}_t &amp; \text{if } \mathfrak{d}_t &gt; \mathfrak{m}_t
+\end{cases}
 \end{equation}\]</span></p>
 </div>
 </section>
@@ -881,6 +964,36 @@ What is the **problem**?
 </div>
 </div>
 <p>How do we <strong>interpolate</strong> on this grid?</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="functional-approximation" class="title-slide slide level1 center">
+<h1>Functional Approximation</h1>
+
+</section>
+<section id="linear-interpolation-on-a-uniform-grid" class="slide level2">
+<h2>Linear Interpolation on a Uniform Grid</h2>
+<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearInterpolationUniform.mp4"></video>
+</section>
+<section id="linear-interpolation-on-a-non-linear-grid" class="slide level2">
+<h2>Linear Interpolation on a Non-linear Grid</h2>
+<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearInterpolationGeometric.mp4"></video>
+</section>
+<section id="bilinear-interpolation" class="slide level2">
+<h2>Bilinear Interpolation</h2>
+<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/BilinearInterpolation.mp4"></video>
+</section>
+<section id="curvilinear-warped-grid-interpolation" class="slide level2 smaller">
+<h2>Curvilinear (Warped) Grid Interpolation</h2>
+<video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/CurvilinearInterpolation.mp4"></video>
+<p>See: <span class="citation" data-cites="White2015">White (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p>
+</section>
+<section id="what-about-unstructured-grids" class="slide level2 smaller">
+<h2>What about Unstructured Grids?</h2>
+<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/UnstructuredGrid.mp4"></video>
+<p>See: <span class="citation" data-cites="Ludwig2018">Ludwig and Schön (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></p>
 </section>
 <section class="slide level2">
 

@@ -36,12 +36,12 @@ format:
 
 ## Outline {.smaller}
 
-- Functional Approximation
-  - Interpolation on different spaces/dimensions
-  - Conventional techniques are **insufficient** for complex problems
 - Dynamic Programming
   - The Endogenous Grid Method
   - The **Sequential** Endogenous Grid Method
+- Functional Approximation
+  - Interpolation on different spaces/dimensions
+  - Conventional techniques are **insufficient** for complex problems
 - Machine Learning in Economics
   - Neural Nets as **function approximators**
   - The Deep Learning Revolution
@@ -52,8 +52,7 @@ format:
 
 ---
 
-# Functional Approximation
-
+# Dynamic Programming
 
 \newcommand{\DiscFac}{\beta}
 \newcommand{\utilFunc}{\mathrm{u}}
@@ -127,45 +126,6 @@ format:
 \newcommand{\Decision}{\mathbb{D}}
 \newcommand{\Prob}{\mathbb{P}}
 
-
----
-
-## Linear Interpolation on a Uniform Grid
-
-{{< video videos/LinearInterpolationUniform.mp4 >}}
-
----
-
-## Linear Interpolation on a Non-linear Grid
-
-{{< video videos/LinearInterpolationGeometric.mp4 >}}
-
----
-
-## Bilinear Interpolation
-
-{{< video videos/BilinearInterpolation.mp4 >}}
-
----
-
-## Curvilinear (Warped) Grid Interpolation {.smaller}
-
-{{< video videos/CurvilinearInterpolation.mp4 >}}
-
-See: @White2015
-
----
-
-## What about Unstructured Grids? {.smaller}
-
-{{< video videos/UnstructuredGrid.mp4 >}}
-
-See: @Ludwig2018
-
----
-
-# Dynamic Programming
-
 ---
 
 ## A simple consumption-savings problem {auto-animate=true}
@@ -173,7 +133,7 @@ See: @Ludwig2018
 Agent maximizes present discounted value (PDV) of lifetime utility
 
 \begin{equation}
-\sum_{t=0}^{\infty} \DiscFac^t \utilFunc(\cRat_t)
+\max_{c_t} \sum_{t=0}^{\infty} \DiscFac^t \utilFunc(\cRat_t)
 \end{equation}
 
 . . .
@@ -182,8 +142,8 @@ Recursive Bellman equation
 
 \begin{equation}
 \begin{split}
-v_t(\mRat) & = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\mRat_{t+1}) \right] \\
- \text{s.t.} & \quad 0  \leq \cRat_t \leq \mRat_t \\
+v_t(\mRat_t) & = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\mRat_{t+1}) \right] \\
+ \text{s.t.} & \quad 0  < \cRat_t \leq \mRat_t \\
 \aRat_t & = \mRat_t - \cRat_t \\
  \mRat_{t+1} & = \Rfree \aRat_t + \tShkEmp_{t+1}
 \end{split}
@@ -195,8 +155,8 @@ Recursive Bellman equation
 
 \begin{equation}
 \begin{split}
-v_t(\mRat) & = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\mRat_{t+1}) \right] \\
- \text{s.t.} & \quad 0  \leq \cRat_t \leq \mRat_t \\
+v_t(\mRat_t) & = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\mRat_{t+1}) \right] \\
+ \text{s.t.} & \quad 0  < \cRat_t \leq \mRat_t \\
 \aRat_t & = \mRat_t - \cRat_t \\
  \mRat_{t+1} & = \Rfree \aRat_t + \tShkEmp_{t+1}
 \end{split}
@@ -210,22 +170,36 @@ How do we solve this problem?
 
 ---
 
-## The Endogenous Grid Method <br> by @Carroll2006-ag
+## The Endogenous Grid Method <br> by @Carroll2006-ag {.smaller}
 
 . . .
 
 \begin{equation}
-\cRat_t = \utilFunc'^{-1} \left( \DiscFac \Ex_t \left[ v_{t+1}'(\Rfree \aRat_t + \tShkEmp_{t+1}) \right] \right)
+v_t(\mRat_t) = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right]
 \end{equation}
 
 . . .
 
+\begin{equation}
+u'(\cRat_t) - \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right] = 0
+\end{equation}
+
+. . .
+
+\begin{equation}
+\cRat_t = \utilFunc'^{-1} \left( \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree \aRat_t + \tShkEmp_{t+1}) \right] \right)
+\end{equation}
+
+. . .
+
+Contribution:
+
 - Simple
-  - Inverted Euler equation
+  - **Inverted Euler** equation
 - Fast
-  - No root-finding or grid search optimization required
+  - No **root-finding** or **grid search** optimization required
 - Efficient
-  - Finds exact solution at each gridpoint
+  - Finds **exact solution** at each gridpoint
 
 ---
 
@@ -482,12 +456,12 @@ Consumption - Pension Deposit Problem as in @Druedahl2017-ac
 
 \begin{equation}
 \begin{split}
-    \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\cRat_{t}, \dRat_{t}} \util(\cRat_{t}) + \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\cRat_{t}, \dRat_{t}} \util(\cRat_{t}) + \DiscFac \Ex_{t} \left[  \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
     & \text{s.t.} \quad \cRat_{t} > 0, \quad \dRat_{t} \ge 0 \\
     \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
     \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t}) \\
-    \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}  + \tShkEmp_{t+1} \\
-    \nRat_{t+1} & = \bRat_{t} \Risky_{t+1}  / \PGro_{t+1}
+    \mRat_{t+1} & = \aRat_{t} \Rfree   + \tShkEmp_{t+1} \\
+    \nRat_{t+1} & = \bRat_{t} \Risky_{t+1}
   \end{split}
 \end{equation}
 
@@ -501,23 +475,25 @@ is a tax-advantaged premium on pension contributions.
 
 ---
 
-<!-- ## G2EGM from <br> @Druedahl2017-ac
+## G2EGM from <br> @Druedahl2017-ac
 
 - If we try to use EGM:
   - 2 first order conditions
-  - difficult to handle multiple constraints
+  - multiple constraints difficult to handle
+  - segments: combinations of first order conditions and constraints
+  - $2^{d}$ segments where $d$ is number of control variables
   - requires local triangulation interpolation
 
---- -->
+---
 
-## Breaking up the problem makes it easier to solve it {.smaller}
+## Breaking up the problem makes it easier {.smaller auto-animate=true}
 
 Consider the problem of a consumer who chooses how much to put into a pension account:
 
 \begin{equation}
 \begin{split}
     \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\dRat_{t}} \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
-    & \text{s.t.}  \quad \dRat_{t} \ge 0 \\
+    & \text{s.t.}  \quad 0 \le \dRat_{t} \le \mRat_t \\
     \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
     \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t})
   \end{split}
@@ -530,14 +506,128 @@ After, the consumer chooses how much to consume out of liquid savings:
 \begin{equation}
 \begin{split}
     \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac \wFunc_{t}(\aRat_{t}, \bRat_{t})  \\
-    & \text{s.t.} \quad \cRat_{t} \ge 0 \\
+    & \text{s.t.} \quad 0 < \cRat_{t} \le \mRat_t
+     \\
     \aRat_{t} & = \lRat_{t} - \cRat_{t}
   \end{split}
 \end{equation}
 
+## Breaking up the problem makes it easier {.smaller auto-animate=true}
+
+:::: {.columns}
+
+:::  {.column width="50%"}
+
+Consider the problem of a consumer who chooses how much to put into a pension account:
+
+\begin{equation}
+\begin{split}
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\dRat_{t}} \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
+    & \text{s.t.}  \quad 0 \le \dRat_{t} \le \mRat_t \\
+    \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
+    \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t})
+  \end{split}
+\end{equation}
+
+:::
+
+:::  {.column width="50%"}
+
+After, the consumer chooses how much to consume out of liquid savings:
+
+\begin{equation}
+\begin{split}
+    \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac \wFunc_{t}(\aRat_{t}, \bRat_{t})  \\
+    & \text{s.t.} \quad 0 < \cRat_{t} \le \mRat_t
+     \\
+    \aRat_{t} & = \lRat_{t} - \cRat_{t}
+  \end{split}
+\end{equation}
+
+:::
+
+::::
+
+And the post-decision value function is defined as:
+
+\begin{equation}
+\begin{split}
+  \wFunc_t(a_t, b_t) & = \Ex_{t} \left[ \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
+  & \text{s.t.} \\
+  \mRat_{t+1} & = \aRat_{t} \Rfree   + \tShkEmp_{t+1} \\
+  \nRat_{t+1} & = \bRat_{t} \Risky_{t+1}
+\end{split}
+\end{equation}
+
+## Breaking up the problem makes it easier {.smaller auto-animate=true}
+
+:::: {.columns}
+
+:::  {.column width="50%"}
+
+Consider the problem of a consumer who chooses how much to put into a pension account:
+
+\begin{equation}
+\begin{split}
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\dRat_{t}} \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
+    & \text{s.t.}  \quad 0 \le \dRat_{t} \le \mRat_t \\
+    \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
+    \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t})
+  \end{split}
+\end{equation}
+
+:::
+
+:::  {.column width="50%"}
+
+After, the consumer chooses how much to consume out of liquid savings:
+
+\begin{equation}
+\begin{split}
+    \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac \wFunc_{t}(\aRat_{t}, \bRat_{t})  \\
+    & \text{s.t.} \quad 0 < \cRat_{t} \le \mRat_t
+     \\
+    \aRat_{t} & = \lRat_{t} - \cRat_{t}
+  \end{split}
+\end{equation}
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+And the post-decision value function is defined as:
+
+\begin{equation}
+\begin{split}
+  \wFunc_t(a_t, b_t) & = \Ex_{t} \left[ \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
+  & \text{s.t.} \\
+  \mRat_{t+1} & = \aRat_{t} \Rfree   + \tShkEmp_{t+1} \\
+  \nRat_{t+1} & = \bRat_{t} \Risky_{t+1}
+\end{split}
+\end{equation}
+
+:::
+
+::: {.column width="50%"}
+
+Steps:
+
+1. Compute $\wFunc_t(a_t, b_t)$
+2. Solve consumption problem (EGM)
+3. Solve pension problem (EGM, again)
+4. Done!
+
+:::
+
+::::
+
 ---
 
-## Solving the pension problem
+## Solving the pension problem {.smaller auto-animate=true}
 
 The pension problem, more compactly
 
@@ -555,10 +645,7 @@ Interior solution must satisfy the first-order condition:
     \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
 \end{equation}
 
-
----
-
-## Solving the pension problem
+. . .
 
 Inverting, we can obtain the optimal choice of $\dRat_{t}$:
 
@@ -569,7 +656,16 @@ Inverting, we can obtain the optimal choice of $\dRat_{t}$:
     \bRat_{t})} - 1 \right)
 \end{equation}
 
-. . .
+## Solving the pension problem {.smaller auto-animate=true}
+
+Inverting, we can obtain the optimal choice of $\dRat_{t}$:
+
+\begin{equation}
+\dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
+  \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+    \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
+    \bRat_{t})} - 1 \right)
+\end{equation}
 
 Using resource constraints we obtain endogenous grids:
 
@@ -579,6 +675,18 @@ Using resource constraints we obtain endogenous grids:
     \bRat_{t})) \\
   \mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
   \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
+\end{equation}
+
+. . .
+
+Now we have the triple $\{\mEndFunc_t, \nEndFunc_t, \dEndFunc_t\}$ where $\dEndFunc_t$ is the unconstrained approx. of optimal deposit for each $(\mEndFunc_t, \nEndFunc_t)$ corresponding to  each $(\lRat_t, \bRat_t)$. Generally, we can construct an interpolator as follows:
+
+\begin{equation}
+\hat{\dRat_t}(\mEndFunc_t, \nEndFunc_t) = \begin{cases}
+0 & \text{if } \dEndFunc_t < 0 \\
+\dEndFunc_t & \text{if } 0 \le \dEndFunc_t \le \mEndFunc_t \\
+\mEndFunc_t & \text{if } \dEndFunc_t > \mEndFunc_t
+\end{cases}
 \end{equation}
 
 ---
@@ -606,6 +714,44 @@ Endogenous Unstructured Grid <br>
 ::::
 
 How do we **interpolate** on this grid?
+
+---
+
+# Functional Approximation
+
+---
+
+## Linear Interpolation on a Uniform Grid
+
+{{< video videos/LinearInterpolationUniform.mp4 >}}
+
+---
+
+## Linear Interpolation on a Non-linear Grid
+
+{{< video videos/LinearInterpolationGeometric.mp4 >}}
+
+---
+
+## Bilinear Interpolation
+
+{{< video videos/BilinearInterpolation.mp4 >}}
+
+---
+
+## Curvilinear (Warped) Grid Interpolation {.smaller}
+
+{{< video videos/CurvilinearInterpolation.mp4 >}}
+
+See: @White2015
+
+---
+
+## What about Unstructured Grids? {.smaller}
+
+{{< video videos/UnstructuredGrid.mp4 >}}
+
+See: @Ludwig2018
 
 ---
 
