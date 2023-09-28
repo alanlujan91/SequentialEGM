@@ -363,6 +363,10 @@ Alan E. Lujan Solis
 
   <p class="date">September 29, 2023</p>
 </section>
+<section class="slide level2">
+
+
+</section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
 <div class="fragment">
@@ -404,7 +408,7 @@ Alan E. Lujan Solis
 <ul>
 <li>Neural Nets as <strong>function approximators</strong></li>
 <li>The Deep Learning Revolution</li>
-<li><strong>Uncertainty Quantification</strong></li>
+<li><strong>Gaussian Process</strong> Regression</li>
 </ul></li>
 <li>Conclusion
 <ul>
@@ -413,9 +417,6 @@ Alan E. Lujan Solis
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
-
-</section>
 <section>
 <section id="dynamic-programming" class="title-slide slide level1 center">
 <h1>Dynamic Programming</h1>
@@ -423,10 +424,12 @@ Alan E. Lujan Solis
 </section>
 <section id="a-simple-consumption-savings-problem" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">A simple consumption-savings problem</h2>
+<div class="fragment">
 <p>Agent maximizes present discounted value (PDV) of lifetime utility</p>
 <p><span class="math display">\[\begin{equation}
 \max_{c_t} \sum_{t=0}^{\infty} \beta^t \mathrm{u}(c_t)
 \end{equation}\]</span></p>
+</div>
 <div class="fragment">
 <p>Recursive Bellman equation</p>
 <p><span class="math display">\[\begin{equation}
@@ -496,8 +499,9 @@ c_t = \mathrm{u}'^{-1} \left( \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\maths
 </section>
 <section id="limitations-of-egm" class="slide level2">
 <h2>Limitations of EGM</h2>
+<div class="fragment">
 <ul>
-<li><strong>One-dimensional</strong> problems/subproblems (nested)
+<li><strong>One-dimensional</strong> problems/sub-problems (nested)
 <ul>
 <li>(GEGM) <span class="citation" data-cites="Barillas2007">Barillas and Fernández-Villaverde (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span></li>
 <li>(NEGM) <span class="citation" data-cites="Druedahl2021">Druedahl (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></li>
@@ -513,6 +517,7 @@ c_t = \mathrm{u}'^{-1} \left( \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\maths
 <li>(G2EGM) <span class="citation" data-cites="Druedahl2017-ac">Druedahl and Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="egmn-the-sequential-endogenous-grid-method" class="slide level2 smaller">
 <h2>EGM<sup>n</sup>: The Sequential <br> Endogenous Grid Method</h2>
@@ -539,10 +544,6 @@ c_t = \mathrm{u}'^{-1} \left( \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\maths
 <li>Functional approximation and uncertainty quantification approach using Gaussian Process Regression</li>
 </ul></li>
 </ul>
-</div>
-</section>
-<section class="slide level2">
-
 <!-- ## Consumption - Labor - Portfolio Choice
 
 Agent maximizes PDV of lifetime utility as in @Bodie1992
@@ -561,8 +562,6 @@ where
     \BLev_{t+1} & = (\MLev_{t} - \CLev_{t}) \Rport_{t+1}
   \end{split}
 \end{equation}
-
----
 
 Recursive Bellman equation in normalized form:
 
@@ -588,8 +587,6 @@ where
   \utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
----
-
 ## Breaking up the problem into sequences
 
 Starting from the beginning of the period, we can define the labor-leisure problem as
@@ -605,8 +602,6 @@ Starting from the beginning of the period, we can define the labor-leisure probl
   \end{split}
 \end{equation}
 
----
-
 ## Breaking up the problem into sequences
 
 The pure consumption-saving problem is then
@@ -619,8 +614,6 @@ The pure consumption-saving problem is then
     \aRat_{t} & = \mRat_{t} - \cRat_{t}.
   \end{split}
 \end{equation}
-
----
 
 ## Breaking up the problem into sequences
 
@@ -639,8 +632,6 @@ Finally, the risky portfolio problem is
     \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}.
   \end{split}
 \end{equation}
-
----
 
 ## Solving Consumption-Saving via EGM
 
@@ -665,8 +656,6 @@ EGM consists of inverting the Euler equation to find the consumption function:
   \right)
 \end{equation}
 
----
-
 ## Solving Consumption-Saving via EGM
 
 Then using budget contraint we obtain endogenous grid:
@@ -678,8 +667,6 @@ Then using budget contraint we obtain endogenous grid:
 . . .
 
 Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution.
-
----
 
 ## Solving Labor-Leisure (EGM, Again)
 
@@ -708,8 +695,6 @@ EGM consists of inverting the first-order condition to find leisure function:
   \vOpt_{t}'(\mMat) \wage \tShkMat \right)
 \end{equation}
 
----
-
 ## Solving Labor-Leisure (EGM, Again)
 
 Using market resources condition we obtain endogenous grid:
@@ -724,8 +709,6 @@ So we construct $\leisure_t([\bEndFunc_t], \tShkMat)$. Actual leisure function i
 \begin{equation}
 \hat{\leisure}_{t}(\bRat, \tShkEmp) = \max \left[ \min \left[ \leisure_{t}(\bRat, \tShkEmp), 1 \right], 0 \right]
 \end{equation}
-
----
 
 ## Pretty Simple, Right?
 
@@ -754,18 +737,18 @@ What is the **problem**?
 
 - **One solution:** Curvilinear Interpolation by @White2015
 
----
-
 ## Warped Grid Interpolation
 
 - Our solution: **Warped Grid Interpolation** (simpler, faster, more details on paper)
 
 ![](figures/WarpedInterpolation.svg)
 
---- -->
+ -->
+</div>
 </section>
 <section id="a-more-complex-problem" class="slide level2 smaller">
 <h2>A more complex problem</h2>
+<div class="fragment">
 <p>Consumption - Pension Deposit Problem as in <span class="citation" data-cites="Druedahl2017-ac">Druedahl and Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></p>
 <p><span class="math display">\[\begin{equation}
 \begin{split}
@@ -777,14 +760,18 @@ What is the **problem**?
     n_{t+1} &amp; = b_{t} \mathbf{R}_{t+1}
   \end{split}
 \end{equation}\]</span></p>
+</div>
+<div class="fragment">
 <p>where</p>
 <p><span class="math display">\[\begin{equation}
   \mathrm{u}(c) = \frac{c^{1-\rho}}{1-\rho} \qquad \text{and} \qquad \mathrm{g}(d) = \chi\log(1+d).
 \end{equation}\]</span></p>
 <p>is a tax-advantaged premium on pension contributions.</p>
+</div>
 </section>
 <section id="g2egm-from-druedahl2017-ac" class="slide level2">
 <h2>G2EGM from <br> <span class="citation" data-cites="Druedahl2017-ac">Druedahl and Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></h2>
+<div class="fragment">
 <ul>
 <li>If we try to use EGM:
 <ul>
@@ -795,9 +782,11 @@ What is the **problem**?
 <li>requires local triangulation interpolation</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="breaking-up-the-problem-makes-it-easier" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Breaking up the problem makes it easier</h2>
+<div class="fragment">
 <p>Consider the problem of a consumer who chooses how much to put into a pension account:</p>
 <p><span class="math display">\[\begin{equation}
 \begin{split}
@@ -807,6 +796,7 @@ What is the **problem**?
     b_{t} &amp; = n_{t} + d_{t} + g(d_{t})
   \end{split}
 \end{equation}\]</span></p>
+</div>
 <div class="fragment">
 <p>After, the consumer chooses how much to consume out of liquid savings:</p>
 <p><span class="math display">\[\begin{equation}
@@ -903,11 +893,13 @@ What is the **problem**?
 </section>
 <section id="solving-the-pension-problem" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Solving the pension problem</h2>
+<div class="fragment">
 <p>The pension problem, more compactly</p>
 <p><span class="math display">\[\begin{equation}
 \mathrm{v}_{t}(m_{t}, n_{t}) = \max_{d_{t}}
   \tilde{\mathfrak{v}}_{t}(m_{t} - d_{t}, n_{t} + d_{t} + \mathrm{g}(d_{t}))
 \end{equation}\]</span></p>
+</div>
 <div class="fragment">
 <p>Interior solution must satisfy the first-order condition:</p>
 <p><span class="math display">\[\begin{equation}
@@ -955,18 +947,29 @@ What is the **problem**?
 </section>
 <section id="unstructured-grids" class="slide level2 smaller">
 <h2>Unstructured Grids</h2>
+<div class="fragment">
 <p>Problem: <strong>Rectilinear</strong> exogenous grid results in <strong>unstructured</strong> endogenous grid</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Exogenous Rectangular Grid <br> <img src="figures/SparsePensionExogenousGrid.svg" alt="Sparse Pension Exogenous Grid"></p>
+<p>Exogenous Rectangular Grid <br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SparsePensionExogenousGrid.svg"></p>
+<figcaption>Sparse Pension Exogenous Grid</figcaption>
+</figure>
+</div>
 </div><div class="column" style="width:50%;">
-<p>Endogenous Unstructured Grid <br> <img src="figures/PensionEndogenousGrid.svg" alt="Unstructured Pension Endogenous Grid"></p>
+<p>Endogenous Unstructured Grid <br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/PensionEndogenousGrid.svg"></p>
+<figcaption>Unstructured Pension Endogenous Grid</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <p>How do we <strong>interpolate</strong> on this grid?</p>
-</section>
-<section class="slide level2">
-
+</div>
 </section></section>
 <section>
 <section id="functional-approximation" class="title-slide slide level1 center">
@@ -994,9 +997,6 @@ What is the **problem**?
 <h2>What about Unstructured Grids?</h2>
 <video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/UnstructuredGrid.mp4"></video>
 <p>See: <span class="citation" data-cites="Ludwig2018">Ludwig and Schön (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></p>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="machine-learning-in-economics" class="title-slide slide level1 center">
@@ -1005,8 +1005,15 @@ What is the **problem**?
 </section>
 <section id="artificial-neural-networks" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artificial Neural Networks</h2>
-
-<img data-src="figures/multilayerperceptron_network.png" class="r-stretch quarto-figure-center"><p class="caption">Figure 1: ANN (Source: scikit-learn.org)</p></section>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/multilayerperceptron_network.png" style="height:5.5in"></p>
+<figcaption>Figure 1: ANN (Source: scikit-learn.org)</figcaption>
+</figure>
+</div>
+</div>
+</section>
 <section id="artificial-neural-networks-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artificial Neural Networks</h2>
 <div class="columns">
@@ -1035,10 +1042,17 @@ What is the **problem**?
 </section>
 <section id="a-single-neuron-and-a-bit-of-math" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">A single neuron, and a bit of math</h2>
-
-<img data-src="figures/perceptron.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure 2: Perceptron</p><p><span class="math display">\[\begin{equation}
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/perceptron.png" style="width:50.0%"></p>
+<figcaption>Figure 2: Perceptron</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\begin{equation}
 y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
 \end{equation}\]</span></p>
+</div>
 </section>
 <section id="a-single-neuron-and-a-bit-of-math-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">A single neuron, and a bit of math</h2>
@@ -1074,10 +1088,6 @@ g(z) = \frac{1}{1 + e^{-z}}
 </ul>
 </div>
 </div>
-</div>
-</section>
-<section class="slide level2">
-
 <!-- ## Training a Neural Network {auto-animate=true}
 
 Mean Squared Error (MSE)
@@ -1162,7 +1172,8 @@ Stochastic Gradient Descent
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
 \end{equation}
 
---- -->
+ -->
+</div>
 </section>
 <section id="the-deep-learning-revolution" class="slide level2">
 <h2>The Deep Learning Revolution</h2>
@@ -1190,60 +1201,64 @@ Stochastic Gradient Descent
 </section>
 <section id="gaussian-process-regression" class="slide level2 smaller">
 <h2>Gaussian Process Regression</h2>
-<p>A Gaussian Process is a probability distribution over functions</p>
+<div class="fragment">
+<p>A Gaussian Process is a <strong>probability distribution over functions</strong></p>
 <p><span class="math display">\[\begin{equation}
 \begin{gathered}
-    \mathbf{X} \sim \mathcal{N}(\mathbf{\mu}, \mathbf{\Sigma}) \quad \text{s.t.} \quad x_i \sim \mathcal{N}(\mu_i, \sigma_{ii}) \\
-    \text{and} \quad  \sigma_{ij} = \mathbb{E}[(x_i - \mu_i)(x_j - \mu_j)] \quad \forall i,j \in \{1, \ldots, n\}.
+    f(x) \sim \mathcal{GP}(m(x), k(x, x')) \\
+    \text{where} \quad m(x) = \mathbb{E}[f(x)] \\
+    \text{and} \quad k(x, x') = \mathbb{E}[(f(x) - m(x))(f(x') - m(x'))]
   \end{gathered}
 \end{equation}\]</span></p>
-<p>where</p>
-<p><span class="math display">\[\begin{equation}
-\mathbf{X} = \begin{bmatrix}
-    x_1    \\
-    x_2    \\
-    \vdots \\
-    x_n
-  \end{bmatrix}
-  \quad
-  \mathbf{\mu} = \begin{bmatrix}
-    \mu_1  \\
-    \mu_2  \\
-    \vdots \\
-    \mu_n
-  \end{bmatrix}
-  \quad
-  \mathbf{\Sigma} = \begin{bmatrix}
-    \sigma_{11} &amp; \sigma_{12} &amp; \cdots &amp; \sigma_{1n} \\
-    \sigma_{21} &amp; \sigma_{22} &amp; \cdots &amp; \sigma_{2n} \\
-    \vdots      &amp; \vdots      &amp; \ddots &amp; \vdots      \\
-    \sigma_{n1} &amp; \sigma_{n2} &amp; \cdots &amp; \sigma_{nn}
-  \end{bmatrix}.
-\end{equation}\]</span></p>
-<p>A Gaussian Process Regression is used to find the function that best fits a set of data points</p>
+</div>
+<div class="fragment">
+<p>A Gaussian Process <strong>Regression</strong> is used to find the function that <strong>best fits</strong> a set of data points</p>
 <p><span class="math display">\[\begin{equation}
 \mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
 \end{equation}\]</span></p>
+</div>
+<div class="fragment">
 <p>I use standard covariance function, exploring alternatives is an active area of research</p>
 <p><span class="math display">\[\begin{equation}
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
 \end{equation}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Universal Approximation Theorem:</strong> A single hidden-layer ANN can <strong>approximate</strong> any continuous function <strong>arbitrarily closely</strong> as the number of neurons in the hidden layer <strong>increases</strong>. Notably, a Gaussian Process (GP) can be viewed as the <strong>limit</strong> of a single hidden-layer ANN with an <strong>infinite</strong> number of neurons (<strong>infinite width</strong>).</p>
+</div>
 </section>
 <section id="an-example" class="slide level2">
 <h2>An example</h2>
+<div class="fragment">
 <p>Consider the true function <span class="math inline">\(f(x) = x \cos(1.5x)\)</span> sampled at random points</p>
-
-<img data-src="figures/GPR_True_Function.svg" class="r-stretch quarto-figure-center"><p class="caption">True Function</p></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/GPR_True_Function.svg"></p>
+<figcaption>True Function</figcaption>
+</figure>
+</div>
+</div>
+</section>
 <section id="an-example-1" class="slide level2">
 <h2>An example</h2>
+<div class="fragment">
 <p>A random sample of the GP posterior distribution of functions</p>
-
-<img data-src="figures/GPR_Posterior_Sample.svg" class="r-stretch quarto-figure-center"><p class="caption">Posterior Sample</p></section>
-<section id="an-example-2" class="slide level2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/GPR_Posterior_Sample.svg"></p>
+<figcaption>Posterior Sample</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="an-example-2" class="slide level2 smaller">
 <h2>An example</h2>
+<div class="fragment">
 <p>Gaussian Process Regression finds the function that best fits the data</p>
-
-<img data-src="figures/GaussianProcessRegression.svg" class="r-stretch quarto-figure-center"><p class="caption">Alt text</p><ul>
+<p><img data-src="figures/GaussianProcessRegression.svg"></p>
+</div>
+<div class="fragment">
+<ul>
 <li><strong>Gaussian Process Regression</strong> gives us
 <ul>
 <li><strong>Mean</strong> function of the posterior distribution</li>
@@ -1251,24 +1266,44 @@ k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}
 <li>Can be useful to predict ex-post where we might need <strong>more points</strong></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="back-to-the-model" class="slide level2">
 <h2>Back to the model</h2>
+<div class="fragment">
 <p>Second Stage Pension Endogenous Grid</p>
-
-<img data-src="figures/2ndStagePensionEndogenousGrid.svg" class="r-stretch"></section>
-<section id="some-results" class="slide level2">
-<h2>Some Results</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Consumption Function <br> <img src="figures/PensionConsumptionFunction.svg" alt="Pension Consumption Function"></p>
+<p><img data-src="figures/PensionEndogenousGrid.svg"></p>
 </div><div class="column" style="width:50%;">
-<p>Deposit Function <br> <img src="figures/PensionDepositFunction.svg" alt="Pension Deposit Function"></p>
+<p><img data-src="figures/2ndStagePensionEndogenousGrid.svg"></p>
+</div>
 </div>
 </div>
 </section>
-<section class="slide level2">
-
+<section id="some-results" class="slide level2">
+<h2>Some Results</h2>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Consumption Function <br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/PensionConsumptionFunction.svg"></p>
+<figcaption>Pension Consumption Function</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Deposit Function <br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/PensionDepositFunction.svg"></p>
+<figcaption>Penstion Deposit Function</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="conclusion" class="title-slide slide level1 center">
@@ -1307,25 +1342,32 @@ k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
+<div class="fragment">
 <ul>
 <li>An Introduction to Statistical Learning <a href="https://www.statlearning.com/" target="_blank"><code>statlearning.com</code></a></li>
 <li>Neural Networks and Deep Learning <a href="http://neuralnetworksanddeeplearning.com/" target="_blank"><code>neuralnetworksanddeeplearning.com</code></a></li>
 <li>Deep Learning <a href="https://www.deeplearningbook.org" target="_blank"><code>deeplearningbook.org</code></a></li>
 <li>Probabilistic machine learning <a href="https://probml.github.io/pml-book" target="_blank"><code>probml.github.io/pml-book</code></a></li>
 <li>A Neural Network Playground <a href="https://playground.tensorflow.org" target="_blank"><code>playground.tensorflow.org</code></a></li>
+<li>The Gaussian Process Web Site <a href="http://www.gaussianprocess.org" target="_blank"><code>gaussianprocess.org</code></a></li>
+<li>A Visual Exploration of Gaussian Processes <a href="https://distill.pub/2019/visual-exploration-gaussian-processes" target="_blank"><code>distill.pub/2019</code></a></li>
+<li>Interactive Gaussian Process Visualization <a href="http://www.infinitecuriosity.org/vizgp" target="_blank"><code>http://www.infinitecuriosity.org/vizgp</code></a></li>
 </ul>
+</div>
 </section>
 <section id="thank-you" class="slide level2 center">
 <h2>Thank you!</h2>
+<div class="fragment">
 <center>
-<img src="figures/econ-ark-logo.png" align="center">
+<a href="https://econ-ark.org/"><img data-src="figures/econ-ark-logo.png"></a>
 </center>
 <center>
-<img src="figures/PoweredByEconARK.svg" align="center">
+<img data-src="figures/PoweredByEconARK.svg">
 </center>
 <p><a href="https://github.com/econ-ark/HARK" target="_blank"><code>engine: github.com/econ-ark/HARK</code></a></p>
 <p><a href="https://github.com/alanlujan91/SequentialEGM" target="_blank"><code>code: github.com/alanlujan91/SequentialEGM</code></a></p>
 <p><a href="https://alanlujan91.github.io/SequentialEGM/egmn" target="_blank"><code>website: alanlujan91.github.io/SequentialEGM/egmn</code></a></p>
+</div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>

@@ -15,45 +15,6 @@ format:
     auto-play-media: true
 ---
 
-## Motivation
-
-. . .
-
-- Structural Economics for modeling **decision-making under uncertainty**
-  - household: consumption, savings, labor, portfolio, retirement
-  - firms: production, investment, hiring, entry/exit
-  - governments: fiscal and monetary policy, taxation, redistribution
-  - interdisciplinary: climate change, public health, education, etc.
-
-. . .
-
-- Structural modeling is **hard**
-  - modern economics requires solving complex problems
-  - with many state variables, many decisions, and non-convexities
-  - computationally challenging and time-consuming
-
----
-
-## Outline {.smaller}
-
-- Dynamic Programming
-  - The Endogenous Grid Method
-  - The **Sequential** Endogenous Grid Method
-- Functional Approximation
-  - Interpolation on different spaces/dimensions
-  - Conventional techniques are **insufficient** for complex problems
-- Machine Learning in Economics
-  - Neural Nets as **function approximators**
-  - The Deep Learning Revolution
-  - **Uncertainty Quantification**
-- Conclusion
-  - Computational Economics solving increasingly complex problems
-  - **Econ-ARK** provides **open source** tools for researchers
-
----
-
-# Dynamic Programming
-
 \newcommand{\DiscFac}{\beta}
 \newcommand{\utilFunc}{\mathrm{u}}
 \newcommand{\VFunc}{\mathrm{V}}
@@ -126,9 +87,44 @@ format:
 \newcommand{\Decision}{\mathbb{D}}
 \newcommand{\Prob}{\mathbb{P}}
 
----
+## Motivation
+
+. . .
+
+- Structural Economics for modeling **decision-making under uncertainty**
+  - household: consumption, savings, labor, portfolio, retirement
+  - firms: production, investment, hiring, entry/exit
+  - governments: fiscal and monetary policy, taxation, redistribution
+  - interdisciplinary: climate change, public health, education, etc.
+
+. . .
+
+- Structural modeling is **hard**
+  - modern economics requires solving complex problems
+  - with many state variables, many decisions, and non-convexities
+  - computationally challenging and time-consuming
+
+## Outline {.smaller}
+
+- Dynamic Programming
+  - The Endogenous Grid Method
+  - The **Sequential** Endogenous Grid Method
+- Functional Approximation
+  - Interpolation on different spaces/dimensions
+  - Conventional techniques are **insufficient** for complex problems
+- Machine Learning in Economics
+  - Neural Nets as **function approximators**
+  - The Deep Learning Revolution
+  - **Gaussian Process** Regression
+- Conclusion
+  - Computational Economics solving increasingly complex problems
+  - **Econ-ARK** provides **open source** tools for researchers
+
+# Dynamic Programming
 
 ## A simple consumption-savings problem {auto-animate=true}
+
+. . .
 
 Agent maximizes present discounted value (PDV) of lifetime utility
 
@@ -168,8 +164,6 @@ How do we solve this problem?
   - Discretize state space (interpolation)
   - Grid search optimization (brute force, iterative)
 
----
-
 ## The Endogenous Grid Method <br> by @Carroll2006-ag {.smaller}
 
 . . .
@@ -201,11 +195,11 @@ Contribution:
 - Efficient
   - Finds **exact solution** at each gridpoint
 
----
-
 ## Limitations of EGM
 
-- **One-dimensional** problems/subproblems (nested)
+. . .
+
+- **One-dimensional** problems/sub-problems (nested)
   - (GEGM) @Barillas2007
   - (NEGM) @Druedahl2021
 - Can result in **non-rectangular grids**
@@ -214,8 +208,6 @@ Contribution:
 - **Non-convexities** (discrete choices) can be problematic
   - (DCEGM) @Iskhakov2017-af
   - (G2EGM) @Druedahl2017-ac
-
----
 
 ## EGM<sup>n</sup>: The Sequential <br> Endogenous Grid Method {.smaller}
 
@@ -236,8 +228,6 @@ Contribution:
 - **Cutting-edge**
   - Functional approximation and uncertainty quantification approach using Gaussian Process Regression
 
----
-
 <!-- ## Consumption - Labor - Portfolio Choice
 
 Agent maximizes PDV of lifetime utility as in @Bodie1992
@@ -256,8 +246,6 @@ where
     \BLev_{t+1} & = (\MLev_{t} - \CLev_{t}) \Rport_{t+1}
   \end{split}
 \end{equation}
-
----
 
 Recursive Bellman equation in normalized form:
 
@@ -283,8 +271,6 @@ where
   \utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
----
-
 ## Breaking up the problem into sequences
 
 Starting from the beginning of the period, we can define the labor-leisure problem as
@@ -300,8 +286,6 @@ Starting from the beginning of the period, we can define the labor-leisure probl
   \end{split}
 \end{equation}
 
----
-
 ## Breaking up the problem into sequences
 
 The pure consumption-saving problem is then
@@ -314,8 +298,6 @@ The pure consumption-saving problem is then
     \aRat_{t} & = \mRat_{t} - \cRat_{t}.
   \end{split}
 \end{equation}
-
----
 
 ## Breaking up the problem into sequences
 
@@ -334,8 +316,6 @@ Finally, the risky portfolio problem is
     \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}.
   \end{split}
 \end{equation}
-
----
 
 ## Solving Consumption-Saving via EGM
 
@@ -360,8 +340,6 @@ EGM consists of inverting the Euler equation to find the consumption function:
   \right)
 \end{equation}
 
----
-
 ## Solving Consumption-Saving via EGM
 
 Then using budget contraint we obtain endogenous grid:
@@ -373,8 +351,6 @@ Then using budget contraint we obtain endogenous grid:
 . . .
 
 Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution.
-
----
 
 ## Solving Labor-Leisure (EGM, Again)
 
@@ -403,8 +379,6 @@ EGM consists of inverting the first-order condition to find leisure function:
   \vOpt_{t}'(\mMat) \wage \tShkMat \right)
 \end{equation}
 
----
-
 ## Solving Labor-Leisure (EGM, Again)
 
 Using market resources condition we obtain endogenous grid:
@@ -419,8 +393,6 @@ So we construct $\leisure_t([\bEndFunc_t], \tShkMat)$. Actual leisure function i
 \begin{equation}
 \hat{\leisure}_{t}(\bRat, \tShkEmp) = \max \left[ \min \left[ \leisure_{t}(\bRat, \tShkEmp), 1 \right], 0 \right]
 \end{equation}
-
----
 
 ## Pretty Simple, Right?
 
@@ -440,17 +412,17 @@ What is the **problem**?
 
 - **One solution:** Curvilinear Interpolation by @White2015
 
----
-
 ## Warped Grid Interpolation
 
 - Our solution: **Warped Grid Interpolation** (simpler, faster, more details on paper)
 
 ![](figures/WarpedInterpolation.svg)
 
---- -->
+ -->
 
 ## A more complex problem {.smaller}
+
+. . .
 
 Consumption - Pension Deposit Problem as in @Druedahl2017-ac
 
@@ -465,6 +437,8 @@ Consumption - Pension Deposit Problem as in @Druedahl2017-ac
   \end{split}
 \end{equation}
 
+. . .
+
 where
 
 \begin{equation}
@@ -473,9 +447,9 @@ where
 
 is a tax-advantaged premium on pension contributions.
 
----
-
 ## G2EGM from <br> @Druedahl2017-ac
+
+. . .
 
 - If we try to use EGM:
   - 2 first order conditions
@@ -484,9 +458,9 @@ is a tax-advantaged premium on pension contributions.
   - $2^{d}$ segments where $d$ is number of control variables
   - requires local triangulation interpolation
 
----
-
 ## Breaking up the problem makes it easier {.smaller auto-animate=true}
+
+. . .
 
 Consider the problem of a consumer who chooses how much to put into a pension account:
 
@@ -625,9 +599,9 @@ Steps:
 
 ::::
 
----
-
 ## Solving the pension problem {.smaller auto-animate=true}
+
+. . .
 
 The pension problem, more compactly
 
@@ -689,9 +663,9 @@ Now we have the triple $\{\mEndFunc_t, \nEndFunc_t, \dEndFunc_t\}$ where $\dEndF
 \end{cases}
 \end{equation}
 
----
-
 ## Unstructured Grids {.smaller}
+
+. . .
 
 Problem: **Rectilinear** exogenous grid results in **unstructured** endogenous grid
 
@@ -700,14 +674,16 @@ Problem: **Rectilinear** exogenous grid results in **unstructured** endogenous g
 ::: {.column width="50%"}
 
 Exogenous Rectangular Grid <br>
-<img src="figures/SparsePensionExogenousGrid.svg" alt="Sparse Pension Exogenous Grid">
+
+![Sparse Pension Exogenous Grid](figures/SparsePensionExogenousGrid.svg)
 
 :::
 
 ::: {.column width="50%"}
 
 Endogenous Unstructured Grid <br>
-<img src="figures/PensionEndogenousGrid.svg" alt="Unstructured Pension Endogenous Grid">
+
+![Unstructured Pension Endogenous Grid](figures/PensionEndogenousGrid.svg)
 
 :::
 
@@ -715,29 +691,19 @@ Endogenous Unstructured Grid <br>
 
 How do we **interpolate** on this grid?
 
----
-
 # Functional Approximation
-
----
 
 ## Linear Interpolation on a Uniform Grid
 
 {{< video videos/LinearInterpolationUniform.mp4 >}}
 
----
-
 ## Linear Interpolation on a Non-linear Grid
 
 {{< video videos/LinearInterpolationGeometric.mp4 >}}
 
----
-
 ## Bilinear Interpolation
 
 {{< video videos/BilinearInterpolation.mp4 >}}
-
----
 
 ## Curvilinear (Warped) Grid Interpolation {.smaller}
 
@@ -745,23 +711,19 @@ How do we **interpolate** on this grid?
 
 See: @White2015
 
----
-
 ## What about Unstructured Grids? {.smaller}
 
 {{< video videos/UnstructuredGrid.mp4 >}}
 
 See: @Ludwig2018
 
----
-
 # Machine Learning <br> in Economics
-
----
 
 ## Artificial Neural Networks {auto-animate=true}
 
-![Figure 1: ANN (Source: scikit-learn.org)](figures/multilayerperceptron_network.png)
+. . .
+
+![Figure 1: ANN (Source: scikit-learn.org)](figures/multilayerperceptron_network.png){height=5.5in}
 
 ## Artificial Neural Networks {auto-animate=true}
 
@@ -785,17 +747,15 @@ See: @Ludwig2018
 
 ::::
 
----
-
 ## A single neuron, and a bit of math {auto-animate=true}
+
+. . .
 
 ![Figure 2: Perceptron](figures/perceptron.png){width=50%}
 
 \begin{equation}
 y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
 \end{equation}
-
----
 
 ## A single neuron, and a bit of math {auto-animate=true}
 
@@ -841,8 +801,6 @@ g(z) = \frac{1}{1 + e^{-z}}
 :::
 
 ::::
-
----
 
 <!-- ## Training a Neural Network {auto-animate=true}
 
@@ -928,7 +886,7 @@ Stochastic Gradient Descent
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
 \end{equation}
 
---- -->
+ -->
 
 ## The Deep Learning Revolution
 
@@ -947,49 +905,29 @@ Stochastic Gradient Descent
   - **Algorithmic** innovations (ReLU, Adam, regularization, etc.)
   - Better and **open source** software (scikit-learn, TensorFlow, PyTorch, etc.)
 
----
-
 ## Gaussian Process Regression {.smaller}
 
-A Gaussian Process is a probability distribution over functions
+. . .
+
+A Gaussian Process is a **probability distribution over functions**
 
 \begin{equation}
 \begin{gathered}
-    \mathbf{X} \sim \mathcal{N}(\mathbf{\mu}, \mathbf{\Sigma}) \quad \text{s.t.} \quad x_i \sim \mathcal{N}(\mu_i, \sigma_{ii}) \\
-    \text{and} \quad  \sigma_{ij} = \Ex[(x_i - \mu_i)(x_j - \mu_j)] \quad \forall i,j \in \{1, \ldots, n\}.
+    f(x) \sim \mathcal{GP}(m(x), k(x, x')) \\
+    \text{where} \quad m(x) = \mathbb{E}[f(x)] \\
+    \text{and} \quad k(x, x') = \mathbb{E}[(f(x) - m(x))(f(x') - m(x'))]
   \end{gathered}
 \end{equation}
 
-where
+. . .
 
-\begin{equation}
-\mathbf{X} = \begin{bmatrix}
-    x_1    \\
-    x_2    \\
-    \vdots \\
-    x_n
-  \end{bmatrix}
-  \quad
-  \mathbf{\mu} = \begin{bmatrix}
-    \mu_1  \\
-    \mu_2  \\
-    \vdots \\
-    \mu_n
-  \end{bmatrix}
-  \quad
-  \mathbf{\Sigma} = \begin{bmatrix}
-    \sigma_{11} & \sigma_{12} & \cdots & \sigma_{1n} \\
-    \sigma_{21} & \sigma_{22} & \cdots & \sigma_{2n} \\
-    \vdots      & \vdots      & \ddots & \vdots      \\
-    \sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn}
-  \end{bmatrix}.
-\end{equation}
-
-A Gaussian Process Regression is used to find the function that best fits a set of data points
+A Gaussian Process **Regression** is used to find the function that **best fits** a set of data points
 
 \begin{equation}
 \mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
 \end{equation}
+
+. . .
 
 I use standard covariance function, exploring alternatives is an active area of research
 
@@ -997,70 +935,88 @@ I use standard covariance function, exploring alternatives is an active area of 
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
 \end{equation}
 
----
+. . .
+
+**Universal Approximation Theorem:** A single hidden-layer ANN can **approximate** any continuous function **arbitrarily closely** as the number of neurons in the hidden layer **increases**. Notably, a Gaussian Process (GP) can be viewed as the **limit** of a single hidden-layer ANN with an **infinite** number of neurons (**infinite width**).
 
 ## An example
+
+. . .
 
 Consider the true function $f(x) = x \cos(1.5x)$ sampled at random points
 
 ![True Function](figures/GPR_True_Function.svg)
 
----
-
 ## An example
+
+. . .
 
 A random sample of the GP posterior distribution of functions
 
 ![Posterior Sample](figures/GPR_Posterior_Sample.svg)
 
----
+## An example {.smaller}
 
-## An example
+. . .
 
 Gaussian Process Regression finds the function that best fits the data
 
-![Alt text](figures/GaussianProcessRegression.svg)
+![](figures/GaussianProcessRegression.svg)
+
+. . .
 
 - **Gaussian Process Regression** gives us
   - **Mean** function of the posterior distribution
   - **Uncertainty quantification** of the mean function
   - Can be useful to predict ex-post where we might need **more points**
 
----
-
 ## Back to the model
+
+. . .
 
 Second Stage Pension Endogenous Grid
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](figures/PensionEndogenousGrid.svg)
+
+:::
+
+::: {.column width="50%"}
+
 ![](figures/2ndStagePensionEndogenousGrid.svg)
 
----
+:::
+
+::::
 
 ## Some Results
+
+. . .
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 
 Consumption Function <br>
-<img src="figures/PensionConsumptionFunction.svg" alt="Pension Consumption Function">
+
+![Pension Consumption Function](figures/PensionConsumptionFunction.svg)
 
 :::
 
 ::: {.column width="50%"}
 
 Deposit Function <br>
-<img src="figures/PensionDepositFunction.svg" alt="Pension Deposit Function">
+
+![Penstion Deposit Function](figures/PensionDepositFunction.svg)
 
 :::
 
 ::::
 
----
-
 # Conclusion
-
----
 
 ## Conditions for using Sequential EGM {.smaller}
 
@@ -1085,30 +1041,32 @@ Examples in this paper:
 - Continuous and differentiable transition
   - $\bRat_{t}  = \nRat_{t} + \dRat_{t} + g(\dRat_{t})$
 
----
-
 ## Resources
+
+. . .
 
 - An Introduction to Statistical Learning [`statlearning.com`](https://www.statlearning.com/){target="_blank"}
 - Neural Networks and Deep Learning [`neuralnetworksanddeeplearning.com`](http://neuralnetworksanddeeplearning.com/){target="_blank"}
 - Deep Learning [`deeplearningbook.org`](https://www.deeplearningbook.org){target="_blank"}
 - Probabilistic machine learning  [`probml.github.io/pml-book`](https://probml.github.io/pml-book){target="_blank"}
 - A Neural Network Playground [`playground.tensorflow.org`](https://playground.tensorflow.org){target="_blank"}
-
----
+- The Gaussian Process Web Site [`gaussianprocess.org`](http://www.gaussianprocess.org){target="_blank"}
+- A Visual Exploration of Gaussian Processes [`distill.pub/2019`](https://distill.pub/2019/visual-exploration-gaussian-processes){target="_blank"}
+- Interactive Gaussian Process Visualization
+ [`http://www.infinitecuriosity.org/vizgp`](http://www.infinitecuriosity.org/vizgp){target="_blank"}
 
 ## Thank you! {.center}
 
-<center><img src="figures/econ-ark-logo.png" align="center"></center>
-<center><img src="figures/PoweredByEconARK.svg" align="center"></center>
+. . .
+
+<center>[![](figures/econ-ark-logo.png)](https://econ-ark.org/)</center>
+<center>![](figures/PoweredByEconARK.svg)</center>
 
 [`engine: github.com/econ-ark/HARK`](https://github.com/econ-ark/HARK){target="_blank"}
 
 [`code: github.com/alanlujan91/SequentialEGM`](https://github.com/alanlujan91/SequentialEGM){target="_blank"}
 
 [`website: alanlujan91.github.io/SequentialEGM/egmn`](https://alanlujan91.github.io/SequentialEGM/egmn){target="_blank"}
-
----
 
 ## References {.smaller}
 
