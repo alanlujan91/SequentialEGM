@@ -22,7 +22,6 @@ numbering:
 ---
 
 (introduction)=
-
 # Introduction
 
 ## Background

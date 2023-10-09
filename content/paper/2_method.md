@@ -22,7 +22,6 @@ numbering:
 ---
 
 (method)=
-
 # The Sequential Endogenous Grid Method
 
 ## A basic model

@@ -22,7 +22,6 @@ numbering:
 ---
 
 (multinterp)=
-
 # Multivariate Interpolation on Non-Rectilinear Grids
 
 This section presents alternative interpolation methods for non-rectilinear grids. First, I present the relatively simple case of fast warped interpolation on a curvilinear grid, which improves upon the interpolation in {cite:t}`White2015`. Then, I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in {cite:t}`Scheidegger2019`.

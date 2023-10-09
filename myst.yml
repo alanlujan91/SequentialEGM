@@ -33,7 +33,7 @@ site:
   nav:
     - title: Home
       url: /egmn
-    - title: Github
+    - title: GitHub
       url: https://github.com/alanlujan91/SequentialEGM
     - title: Econ-ARK
       url: https://econ-ark.org

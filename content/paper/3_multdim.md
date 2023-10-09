@@ -22,7 +22,6 @@ numbering:
 ---
 
 (multdim)=
-
 # The EGM$^n$ in Higher Dimensions
 
 The problem in [Section %s](#method) demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only one state variable and one post-decision state variable per stage. Can EGM$^n$ be used to solve higher dimensional problems? In short, yes, but it requires additional thought on interpolation.

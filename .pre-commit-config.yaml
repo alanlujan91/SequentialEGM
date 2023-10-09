@@ -1,43 +1,70 @@
+ci:
+  autoupdate_commit_msg: "chore: update pre-commit hooks"
+  autofix_commit_msg: "style: pre-commit fixes"
+  autoupdate_schedule: "quarterly"
+
 repos:
-  - repo: https://github.com/mwouts/jupytext
-    rev: v1.15.2
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: "23.9.1"
     hooks:
-      - id: jupytext
-        args: [--sync, --set-formats, "ipynb,py:percent", --pipe, black]
-        additional_dependencies: [jupytext, black, nbconvert]
-        files: ^code/.*\.ipynb$
+      - id: black-jupyter
 
-  - repo: https://github.com/psf/black
-    rev: 23.9.1
-    hooks:
-      - id: black
-        exclude: ^code/.*\.ipynb$
-
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.14.0
-    hooks:
-      - id: pyupgrade
-        args: ["--py310-plus"]
-        exclude: ^code/.*\.ipynb$
-
-  - repo: https://github.com/asottile/blacken-docs
-    rev: 1.16.0
+  - repo: https://github.com/adamchainz/blacken-docs
+    rev: "1.16.0"
     hooks:
       - id: blacken-docs
-        exclude: ^code/.*\.ipynb$
+        additional_dependencies: [black==23.7.0]
 
-  - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.0.292"
     hooks:
-      - id: isort
-        name: isort (python)
-        args: ["--profile", "black", "--filter-files", "--skip", "__init__.py"]
-        exclude: ^code/.*\.ipynb$
+      - id: ruff
+        args: ["--fix", "--show-fixes"]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: "v4.5.0"
     hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-yaml
+      - id: debug-statements
       - id: end-of-file-fixer
-      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: name-tests-test
+        args: ["--pytest-test-first"]
       - id: requirements-txt-fixer
-        exclude: ^code/.*\.ipynb$
+      - id: trailing-whitespace
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: "v1.10.0"
+    hooks:
+      - id: rst-backticks
+      - id: rst-directive-colons
+      - id: rst-inline-touching-normal
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v3.0.3"
+    hooks:
+      - id: prettier
+        types_or: [yaml, html, css, scss, javascript, json]
+        args: [--prose-wrap=never]
+
+  - repo: local
+    hooks:
+      - id: disallow-caps
+        name: Disallow improper capitalization
+        language: pygrep
+        entry: PyBind|Numpy|Cmake|CCache|Github|PyTest
+        exclude: (.pre-commit-config.yaml|docs/pages/guides/style\.md)$
+      - id: disallow-bad-permalinks
+        name: Disallow _ in permalinks
+        language: pygrep
+        entry: "^permalink:.*_.*"
+      - id: cog
+        name: Cog the pages
+        language: python
+        entry: cog -P -r -I ./helpers
+        files: "^docs/pages/guides/(packaging_compiled|docs|tasks).md|^copier.yml"
+        additional_dependencies: [cogapp, cookiecutter]

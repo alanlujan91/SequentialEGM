@@ -22,7 +22,6 @@ numbering:
 ---
 
 (conditions)=
-
 # Conditions for using the Sequential Endogenous Grid Method
 
 ## Splitting the problem into subproblems
