@@ -1,10 +1,10 @@
 ---
-title: "EGM$^n$: The Sequential Endogenous Grid Method"
+title: "EGMⁿ: The Sequential Endogenous Grid Method"
 author: "Alan Lujan"
 date: 2023/02/15
 ---
 
-# EGM$^n$: The Sequential Endogenous Grid Method
+# EGMⁿ: The Sequential Endogenous Grid Method
 
 ## Abstract
 

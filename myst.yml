@@ -3,9 +3,9 @@ site:
   template: book-theme
   logo: public/econ-ark-logo.png
   logo_text: Econ-ARK
-  title: Alan Lujan - EGM\u207f
+  title: Alan Lujan - EGMⁿ
   subtitle: null
-  short_title: EGM\u207f
+  short_title: EGMⁿ
   description: null
   authors:
     - name: Alan Lujan
@@ -45,7 +45,15 @@ site:
     - alanlujan91.curve.space
   favicon: public/econ-ark-logo-small.png
 project:
-  authors: []
+  authors:
+    - name: Alan Lujan
+      corresponding: false
+      email: alanlujan91@gmail.com
+      affiliations:
+        - The Ohio State University
+        - Econ-ARK
+      github: alanlujan91
+      website: https://quantmacro.org
   github: alanlujan91/SequentialEGM
   keywords: []
   math:

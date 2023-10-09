@@ -1,7 +1,7 @@
 version: 1
 project:
   title: "EGMⁿ: The Sequential Endogenous Grid Method"
-  short_title: EGM\u207f
+  short_title: EGMⁿ
   authors:
     - name: Alan Lujan
       corresponding: false

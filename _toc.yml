@@ -18,7 +18,7 @@
 format: jb-book
 root: README
 chapters:
-  - title: EGMN
+  - title: EGMⁿ
     sections:
       - file: content/paper/0_titlepage
       - file: content/paper/1_intro
@@ -31,7 +31,7 @@ chapters:
   - title: Code
     sections:
       - file: code/README
-      - title: EGMN
+      - title: EGMⁿ
         sections:
           - file: code/EGMN/example_ConsLaborPortfolioModel
           - file: code/EGMN/example_ConsLaborSeparableModel

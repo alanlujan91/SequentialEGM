@@ -1,7 +1,7 @@
 import glob
 
 # Get 'egmn.md' file
-egmn_file = "content/paper/egmn.md"
+egmn_file = "public/egmn.md"
 
 # Read 'egmn.md' and keep only the metadata
 with open(egmn_file, "r") as f:
