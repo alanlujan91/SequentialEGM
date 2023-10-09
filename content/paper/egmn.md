@@ -4,21 +4,21 @@ subject: Economics
 # subtitle: Evolve your markdown documents into structured data
 short_title: "EGM$^n$"
 authors:
-- name: Alan Lujan
-affiliations:
-- Ohio State University
-- Econ-ARK
-email: alanlujan91@gmail.com
+  - name: Alan Lujan
+    affiliations:
+      - Ohio State University
+      - Econ-ARK
+    email: alanlujan91@gmail.com
 license: CC-BY-4.0
 keywords:
-- endogenous grid method
-- stochastic dynamic programming
-- machine learning
-- gaussian process regression
+    - endogenous grid method
+    - stochastic dynamic programming
+    - machine learning
+    - gaussian process regression
 exports:
-- format: tex+pdf
-template: arxiv_nips
-show_date: true
+  - format: tex+pdf
+    template: arxiv_nips
+    show_date: true
 ---
 
 
@@ -471,6 +471,7 @@ The method consist of extending the loci of points in the $x$ dimension to find 
 ```
 
 
+
 (multdim)=
 # The EGM$^n$ in Higher Dimensions
 
@@ -723,7 +724,7 @@ A random sample of functions from the GPR posterior that fit the data. The goal 
 
 In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametrization[^f6] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
 
-    [^f6]: For details see notebook.
+[^f6]: For details see notebook.
 
 ```{figure} ../figures/GaussianProcessRegression.*
 :name: fig:gpr
@@ -858,7 +859,7 @@ This paper introduces a novel method for solving dynamic stochastic optimization
 
 EGM$^n$ is similar to the Nested Endogenous Grid Method (NEGM)[^NEGM] and the Generalized Endogenous Grid Method (G2EGM)[^G2EGM] in that it can solve problems with multiple decisions, but it differs from these methods in that by choosing the subproblems strategically, we can take advantage of multiple sequential EGM steps to solve complex multidimensional models in a fast and efficient manner. Additionally, the use of machine learning tools such as the GPR overcomes bottlenecks seen in unstructured interpolation using Delauany triangulation and other similar methods.
 
-    [^NEGM]: {cite:t}`Druedahl2021`.
+[^NEGM]: {cite:t}`Druedahl2021`.
 
 [^G2EGM]: {cite:t}`Druedahl2017`.
 

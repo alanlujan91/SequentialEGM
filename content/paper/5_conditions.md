@@ -18,7 +18,7 @@ short_title: Conditions # a string (max 40 chars) page & project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
 numbering:
-enumerator: "5.%s"
+    enumerator: "5.%s"
 ---
 
 (conditions)=

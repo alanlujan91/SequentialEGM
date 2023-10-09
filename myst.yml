@@ -26,8 +26,6 @@ site:
     - machine learning
     - gaussian process regression
   projects:
-    - slug: egmn
-      path: content/site
     - slug: paper
       path: content/paper
   nav:

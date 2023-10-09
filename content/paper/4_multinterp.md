@@ -18,7 +18,7 @@ short_title: MultInterp # a string (max 40 chars) page & project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
 numbering:
-enumerator: "4.%s"
+    enumerator: "4.%s"
 ---
 
 (multinterp)=
@@ -112,7 +112,7 @@ A random sample of functions from the GPR posterior that fit the data. The goal 
 
 In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametrization[^f6] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
 
-    [^f6]: For details see notebook.
+[^f6]: For details see notebook.
 
 ```{figure} ../figures/GaussianProcessRegression.*
 :name: fig:gpr
