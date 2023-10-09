@@ -18,7 +18,7 @@ short_title: Conditions # a string (max 40 chars) page & project
 # venue: # a venue object page can override project
 # biblio: # a biblio object with various fields page can override project
 numbering:
-    enumerator: "5.%s"
+enumerator: "5.%s"
 ---
 
 (conditions)=
@@ -49,22 +49,22 @@ Now that we have split the problem into conceptual subproblems, it is important 
 The consumption subproblem would be two-dimensional instead of one-dimensional, adding more complexity,
 
 \begin{equation}
-\begin{split}
-\vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
-& \text{s.t.}\\
-\bRat' & = \bRat - \cRat \ge - \tShkEmp
-\end{split}
+    \begin{split}
+        \vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
+        & \text{s.t.}\\
+        \bRat' & = \bRat - \cRat \ge - \tShkEmp
+    \end{split}
 \end{equation}
 
 while the labor-leisure subproblem would have an additional constraint
 
 \begin{equation}
-\begin{split}
-\vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
-& \text{s.t.} \\
-0 & \le \leisure \le 1 \\
-\aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
-\end{split}
+    \begin{split}
+        \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
+        & \text{s.t.} \\
+        0 & \le \leisure \le 1 \\
+        \aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
+    \end{split}
 \end{equation}
 
 Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce computational the burden.
@@ -81,56 +81,55 @@ A good rule of thumb is that when splitting up a problem into subproblems, we sh
 
 ## The Endogenous Grid Method for Subproblems
 
-Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections [Section %s](#method)
-and [Section %s](#multdim), the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
+Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections [Section %s](#method) and [Section %s](#multdim), the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
 
 ### Utility function
 
 A generic subproblem with a differentiable and invertible utility function can be characterized as follows:
 
 \begin{equation}
-\begin{split}
-\VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
-& \text{s.t.} \\
-\aRat & = \TFunc(\xRat,\yRat)
-\end{split}
+    \begin{split}
+        \VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
+        & \text{s.t.} \\
+        \aRat & = \TFunc(\xRat,\yRat)
+    \end{split}
 \end{equation}
 
 For an interior solution, the first-order condition is thus
 
 \begin{equation}
-\UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
+    \UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
 \end{equation}
 
 If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
 
 \begin{equation}
-\yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}
-\left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
+    \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}
+    \left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
 \end{equation}
 
 By using an exogenous grid of the post-decision state $\aRat$, we can solve for the optimal decision rule $\yRat$ at each point on the grid. This is the Endogenous Grid Method step.
 
 ### Transition
 
-If the generic subproblem has no utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
+If the generic subproblem has no separable utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
 
 \begin{equation}
-\begin{split}
-\VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \WFunc(\aRat) \\
-& \text{s.t.} \\
-\aRat & = \TFunc(\xRat,\yRat)
-\end{split}
+    \begin{split}
+        \VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \WFunc(\aRat) \\
+        & \text{s.t.} \\
+        \aRat & = \TFunc(\xRat,\yRat)
+    \end{split}
 \end{equation}
 
 Here, the first-order condition is
 
 \begin{equation}
-\WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
+    \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
 \end{equation}
 
 and the Endogenous Grid Method step is
 
 \begin{equation}
-\yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
+    \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
 \end{equation}
