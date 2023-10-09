@@ -10,7 +10,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-# dist/
+dist/
 downloads/
 eggs/
 .eggs/
@@ -475,8 +475,3 @@ TSWLatexianTemp*
 *.vsix
 
 _build
-.Rproj.user
-.Rhistory
-*.Rproj
-
-private
