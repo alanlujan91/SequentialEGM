@@ -12,7 +12,7 @@ site:
       corresponding: false
       email: alanlujan91@gmail.com
       affiliations:
-        - The Ohio State University
+        - Johns Hopkins University
         - Econ-ARK
       github: alanlujan91
       website: https://quantmacro.org
@@ -25,9 +25,6 @@ site:
     - stochastic dynamic programming
     - machine learning
     - gaussian process regression
-  projects:
-    - slug: paper
-      path: content/paper
   nav:
     - title: Home
       url: /egmn
@@ -50,7 +47,7 @@ project:
       corresponding: false
       email: alanlujan91@gmail.com
       affiliations:
-        - The Ohio State University
+        - Johns Hopkins University
         - Econ-ARK
       github: alanlujan91
       website: https://quantmacro.org
