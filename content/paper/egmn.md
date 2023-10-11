@@ -11,10 +11,10 @@ authors:
     email: alanlujan91@gmail.com
 license: CC-BY-4.0
 keywords:
-    - endogenous grid method
-    - stochastic dynamic programming
-    - machine learning
-    - gaussian process regression
+  - endogenous grid method
+  - stochastic dynamic programming
+  - machine learning
+  - gaussian process regression
 exports:
   - format: tex+pdf
     template: arxiv_nips
