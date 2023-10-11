@@ -19,6 +19,7 @@ exports:
   - format: tex+pdf
     template: arxiv_nips
     show_date: true
+    output: ../../public/SequentialEGMn.pdf
 ---
 
 

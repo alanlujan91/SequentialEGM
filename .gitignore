@@ -475,3 +475,5 @@ TSWLatexianTemp*
 *.vsix
 
 _build
+*_pdf_logs
+*_pdf_tex

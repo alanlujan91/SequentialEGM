@@ -5,7 +5,7 @@ if python3 reproduce_paper.py; then
     echo "reproduce_paper.py ran successfully. Now running myst build..."
 
     # Run myst build command and check if it was successful
-    if myst build public/egmn.md --pdf; then
+    if myst build content/paper/egmn.md --pdf; then
         echo "myst build completed successfully."
     else
         echo "myst build failed."
