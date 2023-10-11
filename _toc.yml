@@ -17,26 +17,25 @@
 
 format: jb-book
 root: README
-chapters:
-  - title: EGMN
-    sections:
-      - file: content/site/0_titlepage
-      - file: content/site/1_intro
-      - file: content/site/2_method
-      - file: content/site/3_multdim
-      - file: content/site/4_multinterp
-      - file: content/site/5_conditions
-      - file: content/site/6_conclusion
-      - file: content/site/7_appendix
-  - title: Code
-    sections:
-      - file: code/README
-      - title: EGMN
+parts:
+  - caption: Content
+    chapters:
+      - file: content/paper/0_titlepage
+        sections:
+          - file: content/paper/1_intro
+          - file: content/paper/2_method
+          - file: content/paper/3_multdim
+          - file: content/paper/4_multinterp
+          - file: content/paper/5_conditions
+          - file: content/paper/6_conclusion
+          - file: content/paper/7_appendix
+  - caption: Code
+    chapters:
+      - file: code/EGMN/example_ConsPensionModel_baseline
         sections:
           - file: code/EGMN/example_ConsLaborPortfolioModel
           - file: code/EGMN/example_ConsLaborSeparableModel
           - file: code/EGMN/example_ConsPensionModel
-          - file: code/EGMN/example_ConsPensionModel_baseline
           - file: code/EGMN/example_ConsRetirementModel
           - file: code/EGMN/example_GaussianProcessRegression
           - file: code/EGMN/example_WarpedInterpolation
