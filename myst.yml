@@ -87,6 +87,13 @@ project:
       renderer: null
       article: content/paper/egmn.md
       sub_articles: null
+  abbreviations:
+    GP: Gaussian Process
+    GPR: Gaussian Process Regression
+    EGM: Endogenous Grid Method
+    NEGM: Nested Endogenous Grid Method
+    G2EGM: Generalized Endogenous Grid Method
+    DCEGM: Discrete Choice Endogenous Grid Method
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'
