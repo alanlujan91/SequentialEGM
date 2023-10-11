@@ -4,12 +4,12 @@ site:
   logo: public/econ-ark-logo.png
   logo_text: Econ-ARK
   title: Alan Lujan - EGMⁿ
-  subtitle: null
+  subtitle: The Sequential Endogenous Grid Method
   short_title: EGMⁿ
   description: null
   authors:
     - name: Alan Lujan
-      corresponding: false
+      corresponding: true
       email: alanlujan91@gmail.com
       affiliations:
         - Johns Hopkins University
@@ -26,8 +26,6 @@ site:
     - machine learning
     - gaussian process regression
   nav:
-    - title: Home
-      url: /egmn
     - title: GitHub
       url: https://github.com/alanlujan91/SequentialEGM
     - title: Econ-ARK
@@ -42,6 +40,8 @@ site:
     - alanlujan91.curve.space
   favicon: public/econ-ark-logo-small.png
 project:
+  title: "EGMⁿ: The Sequential Endogenous Grid Method"
+  short_title: EGMⁿ
   authors:
     - name: Alan Lujan
       corresponding: false
@@ -51,8 +51,42 @@ project:
         - Econ-ARK
       github: alanlujan91
       website: https://quantmacro.org
-  github: alanlujan91/SequentialEGM
-  keywords: []
+  venue:
+    title: REMARK
+    url: https://github.com/econ-ark/REMARK
+  github: https://github.com/alanlujan91/SequentialEGM
+  keywords:
+    - endogenous grid method
+    - stochastic dynamic programming
+    - machine learning
+    - gaussian process regression
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: MIT
+  subject: Economics
+  numbering:
+    figure: true
+    equation: true
+    table: true
+    code: true
+    heading_1: true
+    heading_2: true
+    heading_3: true
+    heading_4: true
+    heading_5: true
+    heading_6: true
+  bibliography:
+    - content/references.bib
+  exports:
+    - format: pdf+tex
+      template: arxiv_nips
+      output: ../../public/SequentialEGMn.pdf
+      id: null
+      name: null
+      renderer: null
+      article: content/paper/egmn.md
+      sub_articles: null
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'
