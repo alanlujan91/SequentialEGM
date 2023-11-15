@@ -32,6 +32,8 @@ site:
       url: https://econ-ark.org
     - title: My Website
       url: https://quantmacro.org
+    - title: Slides
+      url: https://alanlujan91.github.io/SequentialEGM/slides
   actions:
     - title: Download paper
       url: public/SequentialEGMn.pdf
