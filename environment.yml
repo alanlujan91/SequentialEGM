@@ -4,29 +4,22 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - black
-  - estimagic
+  - scipy
+  - matplotlib
+  - numpy
+  - numba
+  - scikit-learn
+  - pandas
+  - sympy
   - ipympl
   - jupyter
   - jupyterlab
-  - jupyterlab-deck
   - jupyter-book
   - jupytext
-  - matplotlib
-  - networkx
   - notebook
-  - numba
-  - numpy
-  - pandas
-  - pip
   - pre-commit
-  - scikit-learn
-  - scipy
-  - seaborn
-  - sympy
-  - statsmodels
-  - xarray
   - ruff
+  - pip
   - pip:
       - git+https://github.com/alanlujan91/HARK@map_coordinates
       - ConSav

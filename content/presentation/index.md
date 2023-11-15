@@ -2,8 +2,8 @@
 title: "EGM<sup>n</sup>"
 subtitle: "The Sequential Endogenous Grid Method"
 author: "Alan E. Lujan Solis"
-institute: "Johns Hopkins University <br> Econ-ARK"
-date: "September 29, 2023"
+institute: "Johns Hopkins University"
+date: "November 16, 2023"
 date-format: long
 bibliography: https://paperpile.com/eb/jAmePXcJLW/paperpile.bib
 format:
@@ -14,6 +14,21 @@ format:
     footer: "Powered by **Econ-ARK**"
     auto-play-media: true
 ---
+
+## Motivation
+
+- Structural Economics for modeling **decision-making under uncertainty**
+  - household: consumption, savings, labor, portfolio, retirement
+  - firms: production, investment, hiring, entry/exit
+  - governments: fiscal and monetary policy, taxation, redistribution
+  - interdisciplinary: climate change, public health, education, etc.
+
+. . .
+
+- Structural modeling is **hard**
+  - modern economics requires solving complex problems
+  - with many state variables, many decisions, and non-convexities
+  - computationally challenging and time-consuming
 
 \newcommand{\DiscFac}{\beta}
 \newcommand{\utilFunc}{\mathrm{u}}
@@ -87,44 +102,22 @@ format:
 \newcommand{\Decision}{\mathbb{D}}
 \newcommand{\Prob}{\mathbb{P}}
 
-## Motivation
-
-. . .
-
-- Structural Economics for modeling **decision-making under uncertainty**
-  - household: consumption, savings, labor, portfolio, retirement
-  - firms: production, investment, hiring, entry/exit
-  - governments: fiscal and monetary policy, taxation, redistribution
-  - interdisciplinary: climate change, public health, education, etc.
-
-. . .
-
-- Structural modeling is **hard**
-  - modern economics requires solving complex problems
-  - with many state variables, many decisions, and non-convexities
-  - computationally challenging and time-consuming
-
-## Outline {.smaller}
+## Outline
 
 - Dynamic Programming
   - The Endogenous Grid Method
   - The **Sequential** Endogenous Grid Method
 - Functional Approximation
-  - Interpolation on different spaces/dimensions
   - Conventional techniques are **insufficient** for complex problems
-- Machine Learning in Economics
   - Neural Nets as **function approximators**
-  - The Deep Learning Revolution
   - **Gaussian Process** Regression
 - Conclusion
-  - Computational Economics solving increasingly complex problems
-  - **Econ-ARK** provides **open source** tools for researchers
+  - Sequential problems are easier to solve
+  - GPR is a powerful tool for **interpolation** on unstructured grids
 
 # Dynamic Programming
 
 ## A simple consumption-savings problem {auto-animate=true}
-
-. . .
 
 Agent maximizes present discounted value (PDV) of lifetime utility
 
@@ -166,8 +159,6 @@ How do we solve this problem?
 
 ## The Endogenous Grid Method <br> by @Carroll2006-ag {.smaller}
 
-. . .
-
 \begin{equation}
 v_t(\mRat_t) = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right]
 \end{equation}
@@ -175,29 +166,30 @@ v_t(\mRat_t) = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}
 . . .
 
 \begin{equation}
-u'(\cRat_t) - \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right] = 0
+u'(\cRat_t) = \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right]
 \end{equation}
 
 . . .
 
 \begin{equation}
-\cRat_t = \utilFunc'^{-1} \left( \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree \aRat_t + \tShkEmp_{t+1}) \right] \right)
+\cEndFunc_t(\aMat) = \utilFunc'^{-1} \left( \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree \aMat + \tShkEmp_{t+1}) \right] \right)
 \end{equation}
 
 . . .
 
-Contribution:
-
-- Simple
-  - **Inverted Euler** equation
-- Fast
-  - No **root-finding** or **grid search** optimization required
-- Efficient
-  - Finds **exact solution** at each gridpoint
-
-## Limitations of EGM
+\begin{equation}
+\mEndFunc_t(\aMat) = \cEndFunc_t(\aMat) + \aMat
+\end{equation}
 
 . . .
+
+Contribution: $(\mEndFunc_t, \cEndFunc_t) \quad \Rightarrow \quad \hat{\cRat}_t(\mEndFunc_t) = \cEndFunc_t$
+
+- Simple: **Inverted Euler** equation
+- Fast: No **root-finding** or **grid search** optimization required
+- Efficient: Finds **exact solution** at each gridpoint
+
+## Limitations of EGM
 
 - **One-dimensional** problems/sub-problems (nested)
   - (GEGM) @Barillas2007
@@ -211,57 +203,61 @@ Contribution:
 
 ## EGM<sup>n</sup>: The Sequential <br> Endogenous Grid Method {.smaller}
 
-. . .
-
 - **Insight**: Problems in which agent makes several **simultaneous choices** can be decomposed into **sequence of problems**
-- **Problem**: Rectilinear exogenous grid results in **unstructured** endogenous grid
-- **Solution**: Using machine learning to **interpolate** on unstructured grids
+- **Challenge**: Rectilinear exogenous grid results in **unstructured** endogenous grid
+- **Solution**: Use machine learning to **interpolate** on unstructured grids
 
 . . .
 
 Contribution:
 
-- **Simple, Fast, Efficient**
-  - Inherits properties of EGM
-- **Multi-dimensional**
-  - Can be used for problems with multiple state variables and decisions
-- **Cutting-edge**
-  - Functional approximation and uncertainty quantification approach using Gaussian Process Regression
+- **Simple, Fast, Efficient**: Inherits properties of EGM
+- **Multi-dimensional**: Can be used for problems with multiple state variables and decisions
+- **Cutting-edge**: Functional approximation and uncertainty quantification approach using Gaussian Process Regression
 
-<!-- ## Consumption - Labor - Portfolio Choice
+## A consumption - leisure problem {auto-animate=true}
 
-Agent maximizes PDV of lifetime utility as in @Bodie1992
+Agent maximizes PDV of lifetime utility
 
 \begin{equation}
-\VFunc_0(\BLev_0, \tShkEmp_0) = \max_{\CLev_{t}, \Leisure_{t}, \riskyshare_{t}} \Ex_{t} \left[ \sum_{t = 0}^{T} \DiscFac^{t} \utilFunc(\CLev_{t}, \Leisure_{t})  \right]
+\VFunc_0(\BLev_0, \tShkEmp_0) = \max_{\CLev_{t}, \Leisure_{t}} \Ex_{t} \left[ \sum_{t = 0}^{T} \DiscFac^{t} \utilFunc(\CLev_{t}, \Leisure_{t})  \right]
 \end{equation}
 
-where
-
-\begin{equation}
-\begin{split}
-    \MLev_{t} & = \BLev_{t} + \PGro_{t} \tShkEmp_{t} (1 - \Leisure_{t}) \\
-    \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
-    \riskyshare_{t} \\
-    \BLev_{t+1} & = (\MLev_{t} - \CLev_{t}) \Rport_{t+1}
-  \end{split}
-\end{equation}
+. . .
 
 Recursive Bellman equation in normalized form:
 
 \begin{equation}
 \begin{split}
     \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{\{\cRat_{t},
-      \leisure_{t}, \riskyshare_{t}\}} \utilFunc(\cRat_{t}, \leisure_{t}) +
+      \leisure_{t}\}} \utilFunc(\cRat_{t}, \leisure_{t}) +
     \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
       \vFunc_{t+1} (\bRat_{t+1},
       \tShkEmp_{t+1}) \right] \\
     \labor_{t} & = 1 - \leisure_{t} \\
     \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t} \\
     \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
-    \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
-    \riskyshare_{t} \\
-    \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
+
+    \bRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}
+  \end{split}
+\end{equation}
+
+## A consumption - leisure problem {auto-animate=true}
+
+Recursive Bellman equation in normalized form:
+
+\begin{equation}
+\begin{split}
+    \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{\{\cRat_{t},
+      \leisure_{t}\}} \utilFunc(\cRat_{t}, \leisure_{t}) +
+    \DiscFac \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
+      \vFunc_{t+1} (\bRat_{t+1},
+      \tShkEmp_{t+1}) \right] \\
+    \labor_{t} & = 1 - \leisure_{t} \\
+    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t} \\
+    \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
+
+    \bRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}
   \end{split}
 \end{equation}
 
@@ -271,7 +267,7 @@ where
   \utilFunc(\CLev, \Leisure) = \util(\CLev) + \h(\Leisure) = \frac{C^{1-\CRRA}}{1-\CRRA} + \labShare^{1-\CRRA} \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
-## Breaking up the problem into sequences
+## Breaking up the problem into sequences {.smaller auto-animate=true}
 
 Starting from the beginning of the period, we can define the labor-leisure problem as
 
@@ -286,7 +282,7 @@ Starting from the beginning of the period, we can define the labor-leisure probl
   \end{split}
 \end{equation}
 
-## Breaking up the problem into sequences
+. . .
 
 The pure consumption-saving problem is then
 
@@ -299,25 +295,58 @@ The pure consumption-saving problem is then
   \end{split}
 \end{equation}
 
-## Breaking up the problem into sequences
+## Breaking up the problem into sequences {.smaller auto-animate=true}
 
-Finally, the risky portfolio problem is
+:::: {.columns}
+
+:::  {.column width="50%"}
+
+Starting from the beginning of the period, we can define the labor-leisure problem as
 
 \begin{equation}
 \begin{split}
-    \vEnd_{t}(\aRat_{t}) & = \max_{\riskyshare_{t}}
+    \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{ \leisure_{t}}
+    \h(\leisure_{t}) + \vOpt_{t} (\mRat_{t}) \\
+    & \text{s.t.} \\
+    0 & \leq \leisure_{t} \leq 1 \\
+    \labor_{t} & = 1 - \leisure_{t} \\
+    \mRat_{t} & = \bRat_{t} + \tShkEmp_{t} \wage \labor_{t}.
+  \end{split}
+\end{equation}
+
+:::
+
+:::  {.column width="50%"}
+
+The pure consumption-saving problem is then
+
+\begin{equation}
+\begin{split}
+    \vOpt_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac\vEnd_{t}(\aRat_{t}) \\
+    & \text{s.t.} \\
+    0 & \leq \cRat_{t} \leq \mRat_{t} \\
+    \aRat_{t} & = \mRat_{t} - \cRat_{t}.
+  \end{split}
+\end{equation}
+
+:::
+
+::::
+
+Finally, the post-decision value function is
+
+\begin{equation}
+\begin{split}
+    \vEnd_{t}(\aRat_{t}) & =
     \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
       \vFunc_{t+1}(\bRat_{t+1},
       \tShkEmp_{t+1}) \right] \\
     & \text{s.t.} \\
-    0 & \leq \riskyshare_{t} \leq 1 \\
-    \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree)
-    \riskyshare_{t} \\
-    \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}.
+    \bRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1}.
   \end{split}
 \end{equation}
 
-## Solving Consumption-Saving via EGM
+<!-- ## Solving Consumption-Saving via EGM
 
 We can condense the consumption-saving problem into a single equation:
 
@@ -350,7 +379,7 @@ Then using budget contraint we obtain endogenous grid:
 
 . . .
 
-Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution.
+Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution. -->
 
 ## Solving Labor-Leisure (EGM, Again)
 
@@ -367,7 +396,7 @@ We can condense the labor-leisure problem into a single equation:
 Interior solution must satisfy the first-order condition:
 
 \begin{equation}
-\h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \wage \tShkEmp_{t}
+\h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t})  \tShkEmp_{t} \wage
 \end{equation}
 
 . . .
@@ -388,7 +417,13 @@ $$\bEndFunc_{t}(\mMat, \tShkMat) = \mMat -
 
 . . .
 
-So we construct $\leisure_t([\bEndFunc_t], \tShkMat)$. Actual leisure function is bounded between 0 and 1:
+So now we have the triple $(\zEndFunc_t, \bEndFunc_t, \tShkEmp)$, where $\zEndFunc_t$ is the unconstrained approx. of optimal leisure for each $(\bEndFunc_t, \tShkEmp)$ corresponding to  each $(\mMat, \tShkMat)$. Generally, we can construct an interpolator as follows:
+
+$$\leisure_t(\bEndFunc_t, \tShkEmp) = \zEndFunc_t$$
+
+. . .
+
+Actual leisure function is bounded between 0 and 1:
 
 \begin{equation}
 \hat{\leisure}_{t}(\bRat, \tShkEmp) = \max \left[ \min \left[ \leisure_{t}(\bRat, \tShkEmp), 1 \right], 0 \right]
@@ -418,11 +453,7 @@ What is the **problem**?
 
 ![](figures/WarpedInterpolation.svg)
 
- -->
-
 ## A more complex problem {.smaller}
-
-. . .
 
 Consumption - Pension Deposit Problem as in @Druedahl2017-ac
 
@@ -449,8 +480,6 @@ is a tax-advantaged premium on pension contributions.
 
 ## G2EGM from <br> @Druedahl2017-ac
 
-. . .
-
 - If we try to use EGM:
   - 2 first order conditions
   - multiple constraints difficult to handle
@@ -459,8 +488,6 @@ is a tax-advantaged premium on pension contributions.
   - requires local triangulation interpolation
 
 ## Breaking up the problem makes it easier {.smaller auto-animate=true}
-
-. . .
 
 Consider the problem of a consumer who chooses how much to put into a pension account:
 
@@ -601,8 +628,6 @@ Steps:
 
 ## Solving the pension problem {.smaller auto-animate=true}
 
-. . .
-
 The pension problem, more compactly
 
 \begin{equation}
@@ -665,8 +690,6 @@ Now we have the triple $\{\mEndFunc_t, \nEndFunc_t, \dEndFunc_t\}$ where $\dEndF
 
 ## Unstructured Grids {.smaller}
 
-. . .
-
 Problem: **Rectilinear** exogenous grid results in **unstructured** endogenous grid
 
 :::: {.columns}
@@ -717,11 +740,7 @@ See: @White2015
 
 See: @Ludwig2018
 
-# Machine Learning <br> in Economics
-
 ## Artificial Neural Networks {auto-animate=true}
-
-. . .
 
 ![Figure 1: ANN (Source: scikit-learn.org)](figures/multilayerperceptron_network.png){height=5.5in}
 
@@ -748,8 +767,6 @@ See: @Ludwig2018
 ::::
 
 ## A single neuron, and a bit of math {auto-animate=true}
-
-. . .
 
 ![Figure 2: Perceptron](figures/perceptron.png){width=50%}
 
@@ -802,7 +819,7 @@ g(z) = \frac{1}{1 + e^{-z}}
 
 ::::
 
-<!-- ## Training a Neural Network {auto-animate=true}
+## Training a Neural Network {auto-animate=true}
 
 Mean Squared Error (MSE)
 
@@ -886,11 +903,9 @@ Stochastic Gradient Descent
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
 \end{equation}
 
- -->
 
-## The Deep Learning Revolution
 
-. . .
+<!-- ## The Deep Learning Revolution
 
 - Most of these ideas are not new
   - Perceptron (1957)
@@ -903,11 +918,9 @@ Stochastic Gradient Descent
   - **Big data** (more data)
   - More computing power (**GPUs**, TPUs, etc.)
   - **Algorithmic** innovations (ReLU, Adam, regularization, etc.)
-  - Better and **open source** software (scikit-learn, TensorFlow, PyTorch, etc.)
+  - Better and **open source** software (scikit-learn, TensorFlow, PyTorch, jax, etc.) -->
 
 ## Gaussian Process Regression {.smaller}
-
-. . .
 
 A Gaussian Process is a **probability distribution over functions**
 
@@ -941,23 +954,17 @@ k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}
 
 ## An example
 
-. . .
-
 Consider the true function $f(x) = x \cos(1.5x)$ sampled at random points
 
 ![True Function](figures/GPR_True_Function.svg)
 
 ## An example
 
-. . .
-
 A random sample of the GP posterior distribution of functions
 
 ![Posterior Sample](figures/GPR_Posterior_Sample.svg)
 
 ## An example {.smaller}
-
-. . .
 
 Gaussian Process Regression finds the function that best fits the data
 
@@ -971,8 +978,6 @@ Gaussian Process Regression finds the function that best fits the data
   - Can be useful to predict ex-post where we might need **more points**
 
 ## Back to the model
-
-. . .
 
 Second Stage Pension Endogenous Grid
 
@@ -993,8 +998,6 @@ Second Stage Pension Endogenous Grid
 ::::
 
 ## Some Results
-
-. . .
 
 :::: {.columns}
 
@@ -1020,8 +1023,6 @@ Deposit Function <br>
 
 ## Conditions for using Sequential EGM {.smaller}
 
-. . .
-
 - Model must be
   - concave
   - differentiable
@@ -1043,8 +1044,6 @@ Examples in this paper:
 
 ## Resources
 
-. . .
-
 - An Introduction to Statistical Learning [`statlearning.com`](https://www.statlearning.com/){target="_blank"}
 - Neural Networks and Deep Learning [`neuralnetworksanddeeplearning.com`](http://neuralnetworksanddeeplearning.com/){target="_blank"}
 - Deep Learning [`deeplearningbook.org`](https://www.deeplearningbook.org){target="_blank"}
@@ -1056,8 +1055,6 @@ Examples in this paper:
  [`http://www.infinitecuriosity.org/vizgp`](http://www.infinitecuriosity.org/vizgp){target="_blank"}
 
 ## Thank you! {.center}
-
-. . .
 
 <center>[![](figures/econ-ark-logo.png)](https://econ-ark.org/)</center>
 <center>![](figures/PoweredByEconARK.svg)</center>

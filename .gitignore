@@ -474,6 +474,7 @@ TSWLatexianTemp*
 # Built Visual Studio Code Extensions
 *.vsix
 
-_build
+*_build
 *_pdf_logs
 *_pdf_tex
+*index_files
