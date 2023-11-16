@@ -23,40 +23,39 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build/html
-          destination_dir: ./paper
           keep_files: true
       - name: Deploy Presentation
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./content/presentation
-          destination_dir: .
+          destination_dir: ./slides
           keep_files: true
       - name: Keep Figures
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./content/figures
-          destination_dir: ./figures
+          destination_dir: ./slides/figures
           keep_files: true
       - name: Keep Videos
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./content/presentation/videos
-          destination_dir: ./videos
+          destination_dir: ./slides/videos
           keep_files: true
       - name: Keep revealjs files
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./content/presentation/index_files
-          destination_dir: ./index_files
+          destination_dir: ./slides/index_files
           keep_files: true
       - name: Keep Public
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          destination_dir: ./public
+          destination_dir: ./slides/public
           keep_files: true
