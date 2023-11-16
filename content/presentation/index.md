@@ -896,19 +896,24 @@ I use standard covariance function, exploring alternatives is an active area of 
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
 \end{equation}
 
-## Universal Approximation
+## Approximation
 
 ::: {.callout-note}
 
-**Gaussian Processes** are mathematically equivalent to **neural networks** with an **infinite width**, allowing them to model a vast range of functions and provide robust uncertainty estimates.
+**Gaussian Processes** 
 
-::: 
+- mathematically equivalent to **neural networks** with an **infinite width**
+- do not require **as much data** as neural networks
+- offers **uncertainty quantification** of the mean function
+- can be used to **approximate** any function **arbitrarily closely**
+
+:::
 
 ::: {.callout-tip}
 
-## Theorem
+## Universal Approximation Theorem
 
-A single hidden-layer ANN can **approximate** any continuous function **arbitrarily closely** as the number of neurons in the hidden layer **increases**. Notably, a Gaussian Process (GP) can be viewed as the **limit** of a single hidden-layer ANN with an **infinite** number of neurons (**infinite width**).
+A single hidden-layer ANN can **approximate** any continuous function **arbitrarily closely** as the number of neurons in the hidden layer **increases**.
 
 :::
 
