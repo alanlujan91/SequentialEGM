@@ -346,41 +346,6 @@ Finally, the post-decision value function is
   \end{split}
 \end{equation}
 
-<!-- ## Solving Consumption-Saving via EGM
-
-We can condense the consumption-saving problem into a single equation:
-
-\begin{equation}
-\vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
-  \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
-\end{equation}
-
-Interior solution must satisfy the Euler equation:
-
-\begin{equation}
-\utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
-  \vEnd_{t}'(\aRat_{t})
-\end{equation}
-
-EGM consists of inverting the Euler equation to find the consumption function:
-
-\begin{equation}
-\cEndFunc_{t}(\aMat) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aMat)
-  \right)
-\end{equation}
-
-## Solving Consumption-Saving via EGM
-
-Then using budget contraint we obtain endogenous grid:
-
-\begin{equation}
-  \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
-\end{equation}
-
-. . .
-
-Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution. -->
-
 ## Solving Labor-Leisure (EGM, Again)
 
 We can condense the labor-leisure problem into a single equation:
@@ -903,24 +868,7 @@ Stochastic Gradient Descent
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
 \end{equation}
 
-
-
-<!-- ## The Deep Learning Revolution
-
-- Most of these ideas are not new
-  - Perceptron (1957)
-  - Deep Learning (1965)
-  - Stochastic Gradient Descent (1967)
-
-. . .
-
-- What changed?
-  - **Big data** (more data)
-  - More computing power (**GPUs**, TPUs, etc.)
-  - **Algorithmic** innovations (ReLU, Adam, regularization, etc.)
-  - Better and **open source** software (scikit-learn, TensorFlow, PyTorch, jax, etc.) -->
-
-## Gaussian Process Regression {.smaller}
+## Gaussian Process Regression
 
 A Gaussian Process is a **probability distribution over functions**
 
@@ -948,9 +896,21 @@ I use standard covariance function, exploring alternatives is an active area of 
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
 \end{equation}
 
-. . .
+## Universal Approximation
 
-**Universal Approximation Theorem:** A single hidden-layer ANN can **approximate** any continuous function **arbitrarily closely** as the number of neurons in the hidden layer **increases**. Notably, a Gaussian Process (GP) can be viewed as the **limit** of a single hidden-layer ANN with an **infinite** number of neurons (**infinite width**).
+::: {.callout-note}
+
+**Gaussian Processes** are mathematically equivalent to **neural networks** with an **infinite width**, allowing them to model a vast range of functions and provide robust uncertainty estimates.
+
+::: 
+
+::: {.callout-tip}
+
+## Theorem
+
+A single hidden-layer ANN can **approximate** any continuous function **arbitrarily closely** as the number of neurons in the hidden layer **increases**. Notably, a Gaussian Process (GP) can be viewed as the **limit** of a single hidden-layer ANN with an **infinite** number of neurons (**infinite width**).
+
+:::
 
 ## An example
 
@@ -975,7 +935,7 @@ Gaussian Process Regression finds the function that best fits the data
 - **Gaussian Process Regression** gives us
   - **Mean** function of the posterior distribution
   - **Uncertainty quantification** of the mean function
-  - Can be useful to predict ex-post where we might need **more points**
+  - Can be useful to predict where we might need **more points** and update the grid
 
 ## Back to the model
 

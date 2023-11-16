@@ -22,7 +22,6 @@ exports:
     output: public/SequentialEGMn.pdf
 ---
 
-
 +++ {"part": "abstract"}
 
 Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow. This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids. First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions. Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used. Software to reproduce these methods is available under the [`Econ-ARK/HARK`](https://econ-ark.org/) project for the `python` programming language.
@@ -34,8 +33,6 @@ Heterogeneous agent models with multiple decisions are often solved using ineffi
 I would like to thank Chris Carroll and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit {cite:p}`Carroll2018`. Additional libraries used in the production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) {cite:p}`Virtanen2020`, [`numpy`](https://www.numpy.org/) {cite:p}`Harris2020`, [`numba`](https://numba.pydata.org/) {cite:p}`Lam2015`, [`cupy`](https://cupy.dev/) {cite:p}`Okuta2017`, [`scikit-learn`](https://scikit-learn.org/) {cite:p}`Pedregosa2011`, [`pytorch`](https://pytorch.org/) {cite:p}`Paszke2019`, and [`gpytorch`](https://gpytorch.ai/) {cite:p}`Gardner2018`
 
 +++
-
-
 
 (introduction)=
 # Introduction
@@ -114,8 +111,6 @@ Additionally, the Sequential Endogenous Grid Method often sheds light on the pro
 % hypotheses. Then [Section %s](#method) presents the econometric model, ..."
 
 [Section %s](#method) presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then [Section %s](#multdim) introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In [Section %s](#multinterp) I present the unstructured interpolation methods using machine learning in more detail. [Section %s](#conditions) discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, [Section %s](#conclusion) concludes with some limitations and future work.
-
-
 
 (method)=
 # The Sequential Endogenous Grid Method
@@ -471,8 +466,6 @@ The objective is to be able to interpolate the value of the function at any poin
 The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.
 ```
 
-
-
 (multdim)=
 # The EGM$^n$ in Higher Dimensions
 
@@ -632,8 +625,6 @@ An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and p
 
 To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in {cite:t}`Scheidegger2019`.
 
-
-
 (multinterp)=
 # Multivariate Interpolation on Unstructured Grids
 
@@ -733,8 +724,6 @@ In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametriza
 
 GPR finds the function that best fits the data given some hyperparameters. GPR then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.
 ```
-
-
 
 (conditions)=
 # Conditions for using the Sequential Endogenous Grid Method
@@ -849,8 +838,6 @@ and the Endogenous Grid Method step is
     \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
 \end{equation}
 
-
-
 (conclusion)=
 # Conclusion
 
@@ -873,8 +860,6 @@ EGM$^n$ is similar to the Nested Endogenous Grid Method (NEGM)[^NEGM] and the Ge
 % Discuss future directions: Provide suggestions for future research based on the new computational method you developed or proposed. This can include improvements to the method, potential extensions to other areas of research, or new applications of the method.
 
 % Conclude with final thoughts: End your conclusion with some final thoughts that tie together the main points of your paper. This will help leave a lasting impression on the reader.
-
-
 
 (appendix)=
 # Solving the illustrative G2EGM model with EGM$^n$
