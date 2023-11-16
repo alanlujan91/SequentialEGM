@@ -1,9 +1,2580 @@
-<!DOCTYPE html><html lang="en" class="light" style="scroll-padding:60px"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>EGMⁿ: The Sequential Endogenous Grid Method - Alan Lujan - EGMⁿ</title><meta property="og:title" content="EGMⁿ: The Sequential Endogenous Grid Method - Alan Lujan - EGMⁿ"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="EGMⁿ: The Sequential Endogenous Grid Method - Alan Lujan - EGMⁿ"/><meta name="twitter:alt" content="EGMⁿ: The Sequential Endogenous Grid Method - Alan Lujan - EGMⁿ"/><link rel="stylesheet" href="/SequentialEGM/build/_assets/app-VY3R3KWP.css"/><link rel="stylesheet" href="/SequentialEGM/build/_assets/thebe-core-OX2DMXEZ.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jupyter-matplotlib@0.11.3/css/mpl_widget.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous"/></head><body class="m-0 transition-colors duration-500 bg-white dark:bg-stone-900"><div class="fixed top-1 left-1 h-[0px] w-[0px] focus-within:z-40 focus-within:h-auto focus-within:w-auto bg-white overflow-hidden focus-within:p-2 focus-within:ring-1" aria-label="skip to content options"><a href="#skip-to-frontmatter" class="block px-2 py-1 text-black underline">Skip to article frontmatter</a><a href="#skip-to-article" class="block px-2 py-1 text-black underline">Skip to article content</a></div><div class="bg-white/80 backdrop-blur dark:bg-stone-900/80 shadow dark:shadow-stone-700 p-3 md:px-8 fixed w-screen top-0 z-30 h-[60px]"><nav class="flex items-center justify-between flex-wrap max-w-[1440px] mx-auto"><div class="flex flex-row xl:min-w-[19.5rem] mr-2 sm:mr-7 justify-start items-center"><div class="block xl:hidden"><button class="flex items-center border-stone-400 text-stone-800 hover:text-stone-900 dark:text-stone-200 hover:dark:text-stone-100"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="2rem" height="2rem" class="m-1"><path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd"></path></svg><span class="sr-only">Open Menu</span></button></div><a class="flex items-center ml-3 dark:text-white w-fit md:ml-5 xl:ml-7" href="/SequentialEGM/"><div class="p-1 mr-3 dark:bg-white dark:rounded"><img src="/SequentialEGM/build/econ-ark-logo-2119e74e809f58538dc1879c8908ae5c.png" class="h-9" alt="Econ-ARK" height="2.25rem"/></div><span class="text-md sm:text-xl tracking-tight sm:mr-5">Econ-ARK</span></a></div><div class="flex items-center flex-grow w-auto"><div class="flex-grow hidden text-md lg:block"><div class="relative inline-block mx-2 grow-0"><a href="https://github.com/alanlujan91/SequentialEGM" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">GitHub</a></div><div class="relative inline-block mx-2 grow-0"><a href="https://econ-ark.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">Econ-ARK</a></div><div class="relative inline-block mx-2 grow-0"><a href="https://quantmacro.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">My Website</a></div><div class="relative inline-block mx-2 grow-0"><a href="https://alanlujan91.github.io/SequentialEGM/slides" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">Slides</a></div></div><div class="flex-grow block"></div><button class="theme rounded-full border border-stone-700 dark:border-white hover:bg-neutral-100 border-solid overflow-hidden text-stone-700 dark:text-white hover:text-stone-500 dark:hover:text-neutral-800 w-8 h-8 mx-3" title="Change theme to dark mode." aria-label="Change theme to dark mode."><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-full w-full p-0.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path></svg></button><div class="block sm:hidden"><div class="relative" data-headlessui-state=""><div><button class="flex text-sm bg-transparent rounded-full focus:outline-none" id="headlessui-menu-button-:Rciop:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state=""><span class="sr-only">Open Menu</span><div class="flex items-center text-stone-200 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="2rem" height="2rem" class="p-1"><path fill-rule="evenodd" d="M10.5 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" clip-rule="evenodd"></path></svg></div></button></div></div></div><div class="hidden sm:block"><a class="inline-block px-4 py-2 mx-1 mt-0 leading-none border rounded text-md border-stone-700 dark:border-white text-stone-700 dark:text-white hover:text-stone-500 dark:hover:text-neutral-800 hover:bg-neutral-100" href="/SequentialEGM/build/SequentialEGMn-171cec5d5603ac46e3fc0da3337129ba.pdf">Download paper</a></div></div></nav></div><div class="fixed xl:article-grid grid-gap xl:w-screen xl:pointer-events-none overflow-auto max-xl:min-w-[300px] hidden z-10" style="top:60px"><div class="pointer-events-auto xl:col-margin-left flex-col overflow-hidden hidden xl:flex"><nav aria-label="Table of Contents" class="flex-grow overflow-y-auto transition-opacity mt-6 pb-3 ml-3 xl:ml-0 mr-3 max-w-[350px]"><div class="w-full px-1 dark:text-white"><a title="EGMⁿ: The Sequential Endogenous Grid Method" class="block break-words focus:outline outline-blue-200 outline-2 rounded p-2 my-1 rounded-lg hover:bg-slate-300/30 font-bold" href="/SequentialEGM/">EGMⁿ</a><div data-state="closed" class="w-full"><div class="flex flex-row w-full gap-2 px-2 my-1 text-left rounded-lg outline-none hover:bg-slate-300/30"><div title="Content" class="block break-words rounded py-2 grow cursor-pointer">Content</div><button class="self-center flex-none rounded-md group hover:bg-slate-300/30 focus:outline outline-blue-200 outline-2" type="button" aria-controls="radix-:R2d8p:" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="transition-transform duration-300 group-data-[state=open]:rotate-90 text-text-slate-700 dark:text-slate-100" height="1.5rem" width="1.5rem"><path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clip-rule="evenodd"></path></svg></button></div><div data-state="closed" id="radix-:R2d8p:" hidden="" class="pl-3 pr-[2px] collapsible-content"></div></div><div data-state="closed" class="w-full"><div class="flex flex-row w-full gap-2 px-2 my-1 text-left rounded-lg outline-none hover:bg-slate-300/30"><div title="Code" class="block break-words rounded py-2 grow cursor-pointer">Code</div><button class="self-center flex-none rounded-md group hover:bg-slate-300/30 focus:outline outline-blue-200 outline-2" type="button" aria-controls="radix-:R3d8p:" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="transition-transform duration-300 group-data-[state=open]:rotate-90 text-text-slate-700 dark:text-slate-100" height="1.5rem" width="1.5rem"><path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clip-rule="evenodd"></path></svg></button></div><div data-state="closed" id="radix-:R3d8p:" hidden="" class="pl-3 pr-[2px] collapsible-content"></div></div></div></nav><div class="flex-none py-4 transition-all duration-700 translate-y-6 opacity-0"><a class="flex mx-auto text-gray-700 w-fit hover:text-blue-700 dark:text-gray-200 dark:hover:text-blue-400" href="https://mystmd.org/made-with-myst" target="_blank" rel="noreferrer"><svg style="width:24px;height:24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke="none"><g id="icon"><path fill="currentColor" d="M23.8,54.8v-3.6l4.7-0.8V17.5l-4.7-0.8V13H36l13.4,31.7h0.2l13-31.7h12.6v3.6l-4.7,0.8v32.9l4.7,0.8v3.6h-15
-          v-3.6l4.9-0.8V20.8H65L51.4,53.3h-3.8l-14-32.5h-0.1l0.2,17.4v12.1l5,0.8v3.6H23.8z"></path><path fill="#F37726" d="M47,86.9c0-5.9-3.4-8.8-10.1-8.8h-8.4c-5.2,0-9.4-1.3-12.5-3.8c-3.1-2.5-5.4-6.2-6.8-11l4.8-1.6
-          c1.8,5.6,6.4,8.6,13.8,8.8h9.2c6.4,0,10.8,2.5,13.1,7.5c2.3-5,6.7-7.5,13.1-7.5h8.4c7.8,0,12.7-2.9,14.6-8.7l4.8,1.6
-          c-1.4,4.9-3.6,8.6-6.8,11.1c-3.1,2.5-7.3,3.7-12.4,3.8H63c-6.7,0-10,2.9-10,8.8"></path></g></svg><span class="self-center ml-2 text-sm">Made with MyST</span></a></div></div></div><article class="article content article-grid grid-gap" style="margin-top:60px"><main class="article-grid subgrid-gap col-screen"><div class="sticky z-10 hidden h-0 col-margin-right-inset lg:block" style="top:60px"><nav></nav></div><div class="hidden"></div><div id="skip-to-frontmatter" aria-label="article frontmatter" class="pt-5 mb-8"><div class="flex items-center h-6 mt-3 mb-5 text-sm font-light"><div class="flex-none pr-2 smallcaps border-r mr-2">Economics</div><div class="flex-none mr-2"><a href="https://github.com/econ-ark/REMARK" class="font-semibold no-underline smallcaps" title="REMARK">REMARK</a></div><div class="flex-grow"></div><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100 text-inherit hover:text-inherit" aria-label="Content License: Creative Commons Attribution 4.0 International (CC-BY-4.0)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="1.25rem" height="1.25rem" class="inline-block mx-1"><title>Content License: Creative Commons Attribution 4.0 International (CC-BY-4.0)</title><path d="M12 2.2c2.7 0 5 1 7 2.9.9.9 1.6 2 2.1 3.1.5 1.2.7 2.4.7 3.8 0 1.3-.2 2.6-.7 3.8-.5 1.2-1.2 2.2-2.1 3.1-1 .9-2 1.7-3.2 2.2-1.2.5-2.5.7-3.7.7s-2.6-.3-3.8-.8c-1.2-.5-2.2-1.2-3.2-2.1s-1.6-2-2.1-3.2-.8-2.4-.8-3.7c0-1.3.2-2.5.7-3.7S4.2 6 5.1 5.1C7 3.2 9.3 2.2 12 2.2zM12 4c-2.2 0-4.1.8-5.6 2.3C5.6 7.1 5 8 4.6 9c-.4 1-.6 2-.6 3s.2 2.1.6 3c.4 1 1 1.8 1.8 2.6S8 19 9 19.4c1 .4 2 .6 3 .6s2.1-.2 3-.6c1-.4 1.9-1 2.7-1.8 1.5-1.5 2.3-3.3 2.3-5.6 0-1.1-.2-2.1-.6-3.1-.4-1-1-1.8-1.7-2.6C16.1 4.8 14.2 4 12 4zm-.1 6.4l-1.3.7c-.1-.3-.3-.5-.5-.6-.2-.1-.4-.2-.6-.2-.9 0-1.3.6-1.3 1.7 0 .5.1.9.3 1.3.2.3.5.5 1 .5.6 0 1-.3 1.2-.8l1.2.6c-.3.5-.6.9-1.1 1.1-.5.3-1 .4-1.5.4-.9 0-1.6-.3-2.1-.8-.5-.6-.8-1.3-.8-2.3 0-.9.3-1.7.8-2.2.6-.6 1.3-.8 2.1-.8 1.2 0 2.1.4 2.6 1.4zm5.6 0l-1.3.7c-.1-.3-.3-.5-.5-.6-.2-.1-.4-.2-.6-.2-.9 0-1.3.6-1.3 1.7 0 .5.1.9.3 1.3.2.3.5.5 1 .5.6 0 1-.3 1.2-.8l1.2.6c-.3.5-.6.9-1.1 1.1-.4.2-.9.3-1.4.3-.9 0-1.6-.3-2.1-.8s-.8-1.3-.8-2.2c0-.9.3-1.7.8-2.2.5-.5 1.2-.8 2-.8 1.2 0 2.1.4 2.6 1.4z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="1.25rem" height="1.25rem" class="inline-block mr-1"><title>Credit must be given to the creator</title><path d="M12 2.2c2.7 0 5 .9 6.9 2.8 1.9 1.9 2.8 4.2 2.8 6.9s-.9 5-2.8 6.8c-2 1.9-4.3 2.9-7 2.9-2.6 0-4.9-1-6.9-2.9-1.8-1.7-2.8-4-2.8-6.7s1-5 2.9-6.9C7 3.2 9.3 2.2 12 2.2zM12 4c-2.2 0-4.1.8-5.6 2.3C4.8 8 4 9.9 4 12c0 2.2.8 4 2.4 5.6C8 19.2 9.8 20 12 20c2.2 0 4.1-.8 5.7-2.4 1.5-1.5 2.3-3.3 2.3-5.6 0-2.2-.8-4.1-2.3-5.7C16.1 4.8 14.2 4 12 4zm2.6 5.6v4h-1.1v4.7h-3v-4.7H9.4v-4c0-.2.1-.3.2-.4.1-.2.2-.2.4-.2h4c.2 0 .3.1.4.2.2.1.2.2.2.4zm-4-2.5c0-.9.5-1.4 1.4-1.4s1.4.5 1.4 1.4c0 .9-.5 1.4-1.4 1.4s-1.4-.5-1.4-1.4z"></path></svg></a><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" title="Code License: MIT License (MIT)" class="text-inherit hover:text-inherit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="1.25rem" height="1.25rem" class="mx-1 inline-block opacity-60 hover:opacity-100 hover:text-[#599F46]"><path d="M13.2 15.6c1.4-.5 2.1-1.6 2.1-3.3S13.8 8.9 12 8.9c-1.9 0-3.3 1.6-3.3 3.3 0 1.8.8 3 2.2 3.4l-2.3 5.9c-3.1-.8-6.3-4.6-6.3-9.3 0-5.5 4.3-10 9.7-10s9.8 4.5 9.8 10c0 4.7-3.1 8.5-6.3 9.3l-2.3-5.9z"></path></svg></a><a href="https://en.wikipedia.org/wiki/Open_access" target="_blank" rel="noopener noreferrer" title="Open Access" class="text-inherit hover:text-inherit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="1.25rem" height="1.25rem" class="mr-1 inline-block opacity-60 hover:opacity-100 hover:text-[#E18435]"><path d="M17.1 12.6h-2V7.5c0-1.7-1.4-3.1-3-3.1-.8 0-1.6.3-2.2.9-.6.5-.9 1.3-.9 2.2v.7H7v-.7c0-1.4.5-2.7 1.5-3.7s2.2-1.5 3.6-1.5 2.6.5 3.6 1.5 1.5 2.3 1.5 3.7v5.1z"></path><path d="M12 21.8c-.8 0-1.6-.2-2.3-.5-.7-.3-1.4-.8-1.9-1.3-.6-.6-1-1.2-1.3-2-.3-.8-.5-1.6-.5-2.4s.2-1.6.5-2.4c.3-.7.7-1.4 1.3-2s1.2-1 1.9-1.3c.7-.3 1.5-.5 2.3-.5.8 0 1.6.2 2.3.5.7.3 1.4.8 1.9 1.3.6.6 1 1.2 1.3 2 .3.8.5 1.6.5 2.4s-.2 1.6-.5 2.4c-.3.7-.7 1.4-1.3 2-.6.6-1.2 1-1.9 1.3-.7.3-1.5.5-2.3.5zm0-10.3c-2.2 0-4 1.8-4 4.1s1.8 4.1 4 4.1 4-1.8 4-4.1-1.8-4.1-4-4.1z"></path><circle cx="12" cy="15.6" r="1.7"></circle></svg></a><a href="https://github.com/alanlujan91/SequentialEGM" title="GitHub Repository: alanlujan91/SequentialEGM" target="_blank" rel="noopener noreferrer" class="text-inherit hover:text-inherit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="1.25rem" height="1.25rem" class="inline-block mr-1 opacity-60 hover:opacity-100"><path d="M12 2.5c-5.4 0-9.8 4.4-9.8 9.7 0 4.3 2.8 8 6.7 9.2.5.1.7-.2.7-.5v-1.8c-2.4.5-3.1-.6-3.3-1.1-.1-.3-.6-1.1-1-1.4-.3-.2-.8-.6 0-.6s1.3.7 1.5 1c.9 1.5 2.3 1.1 2.8.8.1-.6.3-1.1.6-1.3-2.2-.2-4.4-1.1-4.4-4.8 0-1.1.4-1.9 1-2.6-.1-.2-.4-1.2.1-2.6 0 0 .8-.3 2.7 1 .8-.2 1.6-.3 2.4-.3.8 0 1.7.1 2.4.3 1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.5 1 2.6 0 3.7-2.3 4.6-4.4 4.8.4.3.7.9.7 1.8V21c0 .3.2.6.7.5 3.9-1.3 6.6-4.9 6.6-9.2 0-5.4-4.4-9.8-9.8-9.8z"></path></svg></a><div class="relative flex inline-block mx-1 grow-0" data-headlessui-state=""><button class="relative" id="headlessui-menu-button-:R1khtop:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state=""><span class="sr-only">Downloads</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="1.25rem" height="1.25rem" class="ml-2 -mr-1"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg></button></div></div><h1 class="mb-0">EGMⁿ: The Sequential Endogenous Grid Method</h1><header class="mt-4 not-prose"><div><span class="font-semibold text-sm inline-block"><button class="focus:shadow-[0_0_0_2px] focus:shadow-black outline-none hover:underline" aria-label="Author Details" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:Rehtop:" data-state="closed">Alan Lujan</button></span></div></header><div class="flex mt-2 text-sm font-light"><time dateTime="2023/02/15" class="">February 15, 2023</time></div></div><div id="skip-to-article"></div><div id="DllUcOWnL1" class="relative group/block article-grid subgrid-gap col-screen"><h2 id="abstract" class="relative group"><span class="mr-3 select-none">1</span><span class="heading-text">Abstract</span><a class="select-none no-underline text-inherit hover:text-inherit px-2 font-normal transition-opacity opacity-0 focus:opacity-100 group-hover:opacity-70" href="#abstract" title="Link to this Section" aria-label="Link to this Section">¶</a></h2><p>Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require a large number of points and are time intensive. This paper provides a novel method for solving such models using an extension of the endogenous grid method (<abbr aria-label="Endogenous Grid Method" class="border-b border-dotted cursor-help" data-state="closed">EGM</abbr>) that uses Gaussian Process Regression (<abbr aria-label="Gaussian Process" class="border-b border-dotted cursor-help" data-state="closed">GP</abbr>R) to interpolate functions on unstructured grids. First, separating models into smaller, sequential problems allows the problems to be more tractable and easily analyzed. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be curvilinear at best and unstructured at worst, <abbr aria-label="Gaussian Process" class="border-b border-dotted cursor-help" data-state="closed">GP</abbr>R provides an efficient and accurate method for interpolating the value, marginal value, and policy functions. Applied sequentially to each decision within the overarching problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard grid search methods currently used. This paper also illustrates how this method can be applied to a number of increasingly complex models. Software is provided in the form of a Python module under the <code>HARK</code> package.</p></div><div class="flex pt-10 mb-10 space-x-4"><a class="flex-1 block p-4 font-normal text-gray-600 no-underline border border-gray-200 rounded shadow-sm group hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 dark:text-gray-100 dark:border-gray-500 hover:shadow-lg dark:shadow-neutral-700" href="/SequentialEGM/titlepage"><div class="flex h-full align-middle"><div class="flex-grow"><div class="text-xs text-gray-500 dark:text-gray-400">Content</div>Abstract</div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="1.5rem" height="1.5rem" class="self-center transition-transform group-hover:translate-x-1 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg></div></a></div></main></article><script>((o,u)=>{if(!window.history.state||!window.history.state.key){let h=Math.random().toString(32).slice(2);window.history.replaceState({key:h},"")}try{let p=JSON.parse(sessionStorage.getItem(o)||"{}")[u||window.history.state.key];typeof p=="number"&&window.scrollTo(0,p)}catch(h){console.error(h),sessionStorage.removeItem(o)}})("positions", null)</script><link rel="modulepreload" href="/SequentialEGM/build/entry.client-JHWH3KUY.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-OXM6VUU4.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-RAQ24GF6.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-FBKEUWEC.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-KDXZNC3T.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-CBNYJD3L.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-GRTCJZI2.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-XIW7RL3H.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-I634YBN3.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-F54WYA2H.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-HWLV2QNP.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-YGE2XP32.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-UZHI4RYQ.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-RTIGS2T3.js"/><link rel="modulepreload" href="/SequentialEGM/build/root-JVCWRHY5.js"/><link rel="modulepreload" href="/SequentialEGM/build/_shared/chunk-A3OJZ7O3.js"/><link rel="modulepreload" href="/SequentialEGM/build/routes/$-SAQ33C6I.js"/><script>window.__remixContext = {"url":"/readme","state":{"loaderData":{"root":{"theme":"light","config":{"title":"Alan Lujan - EGMⁿ","short_title":"EGMⁿ","subtitle":"The Sequential Endogenous Grid Method","venue":{"title":"REMARK","url":"https://github.com/econ-ark/REMARK"},"github":"https://github.com/alanlujan91/SequentialEGM","keywords":["endogenous grid method","stochastic dynamic programming","machine learning","gaussian process regression"],"options":{"logo":"/SequentialEGM/build/econ-ark-logo-2119e74e809f58538dc1879c8908ae5c.png","logo_text":"Econ-ARK"},"authors":[{"id":"contributors-myst-generated-uid-0","nameParsed":{"literal":"Alan Lujan","given":"Alan","family":"Lujan"},"name":"Alan Lujan","corresponding":true,"email":"alanlujan91@gmail.com","affiliations":["Johns Hopkins University","Econ-ARK"],"github":"alanlujan91","url":"https://quantmacro.org"}],"affiliations":[{"id":"Johns Hopkins University","name":"Johns Hopkins University"},{"id":"Econ-ARK","name":"Econ-ARK"}],"myst":"1.1.28","nav":[{"title":"GitHub","url":"https://github.com/alanlujan91/SequentialEGM"},{"title":"Econ-ARK","url":"https://econ-ark.org"},{"title":"My Website","url":"https://quantmacro.org"},{"title":"Slides","url":"https://alanlujan91.github.io/SequentialEGM/slides"}],"actions":[{"title":"Download paper","filename":"SequentialEGMn.pdf","url":"/SequentialEGM/build/SequentialEGMn-171cec5d5603ac46e3fc0da3337129ba.pdf","static":true}],"projects":[{"open_access":true,"license":{"content":{"id":"CC-BY-4.0","name":"Creative Commons Attribution 4.0 International","free":true,"CC":true,"url":"https://creativecommons.org/licenses/by/4.0/"},"code":{"id":"MIT","name":"MIT License","osi":true,"free":true,"url":"https://opensource.org/licenses/MIT"}},"subject":"Economics","numbering":{"figure":true,"equation":true,"table":true,"code":true,"heading_1":true,"heading_2":true,"heading_3":true,"heading_4":true,"heading_5":true,"heading_6":true},"bibliography":["/home/runner/work/SequentialEGM/SequentialEGM/content/references.bib"],"math":{"\\CARA":"\\alpha","\\CRRA":"\\rho","\\PtyLab":"\\mathrm{Z}","\\ptyLab":"z","\\TaxComb":"\\mathcal{T}","\\Prob":"\\mathbb{P}","\\DiePrb":"\\mathsf{D}","\\diePrb":"\\mathsf{d}","\\LivPrb":"\\cancel{\\DiePrb}","\\livPrb":"\\cancel{\\diePrb}","\\DiscFac":"\\beta","\\DieFac":"\\pDead","\\GroFac":"\\Omega","\\BalGroFac":"\\check","\\permGroFac":"\\Gamma","\\PermGroFac":"\\pmb{\\Phi}","\\PopnGroFac":"\\Xi","\\APFac":"\\text{\\pmb{\\Thorn}}","\\PopFac":"\\PopGro","\\RPFac":"\\APFac_{\\Rfree}","\\DeprFac":"\\daleth","\\LivFac":"\\Alive","\\aVec":"\\vec{\\mathrm{a}}","\\bVec":"\\vec{\\mathrm{\\bNrm}}","\\cVec":"\\vec{\\mathrm{\\cNrm}}","\\mVec":"\\vec{\\mathrm{m}}","\\yVec":"\\vec{\\mathrm{\\yNrm}}","\\Inc":"Y","\\inc":"y","\\PInc":"P","\\AFunc":"\\mathrm{A}","\\aFunc":"\\mathrm{a}","\\BFunc":"\\mathrm{B}","\\bFunc":"\\mathrm{b}","\\CFunc":"\\mathrm{C}","\\cFunc":"\\mathrm{c}","\\MPCFunc":"\\pmb{\\kappa}","\\DFunc":"\\mathrm{D}","\\dFunc":"\\mathrm{d}","\\bEndFunc":"\\mathfrak{b}","\\CEndFunc":"\\mathfrak{C}","\\cEndFunc":"\\mathfrak{c}","\\dEndFunc":"\\mathfrak{d}","\\lEndFunc":"\\mathfrak{l}","\\mEndFunc":"\\mathfrak{m}","\\nEndFunc":"\\mathfrak{n}","\\VEndFunc":"\\mathfrak{V}","\\vEndFunc":"\\mathfrak{v}","\\zEndFunc":"\\mathfrak{z}","\\ProdFunc":"\\mathrm{F}","\\prodFunc":"\\mathrm{f}","\\EFunc":"\\mathrm{E}","\\eFunc":"\\mathrm{e}","\\FFunc":"\\mathrm{F}","\\fFunc":"\\mathrm{f}","\\GFunc":"\\mathrm{G}","\\gFunc":"\\mathrm{g}","\\vBegFunc":"\\pmb{\\upsilon}","\\HFunc":"\\mathrm{H}","\\hFunc":"\\mathrm{h}","\\IFunc":"\\mathrm{I}","\\iFunc":"\\mathrm{i}","\\chiFunc":"\\pmb{\\chi}","\\phiFunc":"\\digamma","\\JFunc":"\\mathrm{J}","\\jFunc":"\\mathrm{j}","\\KFunc":"\\mathrm{K}","\\kFunc":"\\mathrm{k}","\\LFunc":"\\mathrm{L}","\\utilFunc":"\\mathrm{u}","\\MFunc":"\\mathrm{M}","\\mFunc":"\\mathrm{m}","\\NFunc":"\\mathrm{N}","\\nFunc":"\\mathrm{n}","\\OFunc":"\\mathrm{O}","\\PFunc":"\\mathrm{P}","\\pFunc":"\\mathrm{p}","\\QFunc":"\\mathrm{Q}","\\RFunc":"\\mathrm{R}","\\rFunc":"\\mathrm{r}","\\SFunc":"\\mathrm{S}","\\sFunc":"\\mathrm{s}","\\MPSFunc":"\\pmb{lambda}","\\TFunc":"\\mathrm{T}","\\UFunc":"\\mathrm{U}","\\uFunc":"\\mathrm{u}","\\VFunc":"\\mathrm{V}","\\vFunc":"\\mathrm{v}","\\cPDVFunc":"\\mathbb{C}","\\pPDVFunc":"\\mathbb{P}","\\uPDVFunc":"\\mathbb{U}","\\cLevFunc":"\\pmb{\\cFunc}","\\VLevFunc":"\\pmb{\\mathrm{V}}","\\vLevFunc":"\\pmb{\\mathrm{v}}","\\RevFunc":"\\pmb{\\Pi}","\\revFunc":"\\pmb{\\pi}","\\WFunc":"\\mathrm{W}","\\wFunc":"\\mathrm{w}","\\XFunc":"\\mathrm{X}","\\xFunc":"\\mathrm{x}","\\YFunc":"\\mathrm{Y}","\\yFunc":"\\mathrm{y}","\\ZFunc":"\\mathrm{Z}","\\zFunc":"\\mathrm{z}","\\MPC":"\\kappa","\\PIHMPC":"\\varkappa","\\MinMPC":"\\uline{\\kappa}","\\MinMinMPC":"\\underline{\\kappa}","\\MaxMinMPC":"\\hat{\\underline{\\kappa}}","\\MaxMPC":"\\bar{\\kappa}","\\MaxMaxMPC":"\\bar{\\bar{\\kappa}}","\\itc":"\\zeta","\\kPriceAfterITC":"\\mathscr{P}","\\PostITC":"\\cancel{\\zeta}","\\pDead":"\\mathfrak{D}","\\TaxPaid":"T","\\WMid":"\\BLev","\\wMid":"\\bLev","\\Wmid":"\\BRat","\\wmid":"\\bRat","\\Dvdnd":"\\mathbf{D}","\\dvdnd":"d","\\edvdnd":"\\grave{\\dvdnd}","\\hEnd":"\\mathfrak{h}","\\GovSpend":"X","\\govSpend":"x","\\xpend":"\\xi","\\expend":"\\xi","\\TEnd":"T","\\VEnd":"\\mathfrak{V}","\\vEnd":"\\mathfrak{v}","\\WEnd":"\\ALev","\\wEnd":"\\aLev","\\Wend":"\\ARat","\\wend":"\\aRat","\\permGroFacInd":"\\pmb{\\phi}","\\permShkInd":"\\psi","\\tranShkInd":"\\theta","\\permLvlInd":"\\mathrm{p}","\\RCpnd":"\\mathbf{R}","\\Mod":"\\tilde","\\Rprod":"\\mathscr{R}","\\rprod":"\\mathscr{r}","\\RProd":"\\mathsf{R}","\\rProd":"\\mathsf{r}","\\tranShkIndStd":"\\sigma_{\\tranShkInd}","\\tranShkAggStd":"\\sigma_{\\tranShkAgg}","\\ShkMeanOneLogStd":"\\sigma_{\\ShkMeanOneLog}","\\ShkLogZeroLogStd":"\\sigma_{\\cancel{\\ShkMeanOneLog}}","\\PermShkStd":"\\sigma_{\\PermShk}","\\TranShkStd":"\\sigma_{\\TranShk}","\\prud":"\\eta","\\tFwd":"n","\\aE":"\\aRat^{e}","\\BE":"\\BRat^{e}","\\bE":"\\bRat^{e}","\\CE":"\\CRat^{e}","\\cE":"\\cRat^{e}","\\Price":"\\mathsf{P}","\\kPrice":"\\mathsf{P}","\\Severance":"\\kappa","\\MPCE":"\\MPC^{e}","\\Rfree":"\\mathsf{R}","\\rfree":"\\mathsf{r}","\\TaxFree":"\\cancel{\\Tax}","\\Age":"Z","\\age":"z","\\Wage":"\\mathsf{W}","\\wage":"\\mathsf{w}","\\bTargE":"\\check{b}^{e}","\\CTargE":"\\CTarg^{\\null}","\\cTargE":"\\check{c}^{e}","\\kTargE":"\\Target{k}^{e}","\\STargE":"\\Target{\\SRat}^{\\null}","\\sTargE":"\\Target{\\sRat}^{\\null}","\\yTargE":"\\check{y}^{e}","\\ME":"\\MRat^{e}","\\mE":"\\mRat^{e}","\\TermTime":"T","\\ShkMeanOne":"\\Theta","\\PopE":"\\mathcal{E}","\\popE":"e","\\labShare":"\\nu","\\leiShare":"\\zeta","\\kapShare":"\\alpha","\\riskyshare":"\\varsigma","\\Retire":"\\mathbb{R}","\\WPre":"K","\\wPre":"k","\\Leisure":"Z","\\leisure":"z","\\SE":"\\SRat^{e}","\\sE":"\\sRat^{e}","\\BRatE":"{B}^{e}","\\bRatE":"{b}^{e}","\\CRatE":"\\CRat^{e}","\\cRatE":"\\cRat^{e}","\\DiscRate":"\\vartheta","\\pDeadRate":"\\grave{\\cancel{\\mathsf{d}}}","\\erate":"\\cancel{\\mho}","\\pDieRate":"\\grave{\\mathsf{d}}","\\timeRate":"\\vartheta","\\saveRate":"\\grave{s}","\\MRatE":"\\MRat^{e}","\\mRatE":"\\mRat^{e}","\\SRatE":"\\SRat^{e}","\\sRatE":"\\sRat^{e}","\\srate":"\\varsigma","\\urate":"\\mho","\\TaxRate":"t","\\empState":"\\xi","\\discRte":"\\tau","\\DiscRte":"\\vartheta","\\GroRte":"\\omega","\\BalGroRte":"\\tilde","\\permGroRte":"\\gamma","\\PermGroRte":"\\varphi","\\PopnGroRte":"\\xi","\\APRte":"\\text{\\thorn}","\\GPRte":"\\text{\\thorn}_{\\PermGroRte}","\\popRte":"\\popGro","\\RPRte":"\\text{\\thorn}_{\\rfree}","\\deprRte":"\\delta","\\Value":"\\mathrm{V}","\\VE":"{V}^{e}","\\vE":"{v}^{e}","\\Save":"S","\\save":"s","\\RSave":"\\underline{\\Rfree}","\\rsave":"\\underline{\\rfree}","\\Abve":"\\bar","\\BLevE":"\\BLev^{e}","\\bLevE":"\\bLev^{e}","\\CLevE":"\\CLev^{e}","\\cLevE":"\\cLev^{e}","\\mLevE":"\\mLev^{e}","\\SLevE":"\\SLev^{e}","\\sLevE":"\\sLev^{e}","\\Alive":"\\mathcal{L}","\\cFuncAbove":"\\bar{\\mathrm{c}}","\\aRatBF":"\\pmb{a}","\\bRatBF":"\\pmb{\\mathrm{b}}","\\cRatBF":"\\pmb{c}","\\mRatBF":"\\pmb{\\mathrm{m}}","\\ALevBF":"\\mathbf{A}","\\aLevBF":"\\mathbf{a}","\\BLevBF":"\\mathbf{B}","\\bLevBF":"\\mathbf{b}","\\CLevBF":"\\mathbf{C}","\\cLevBF":"\\mathbf{c}","\\HLevBF":"\\mathbf{H}","\\hLevBF":"\\mathbf{h}","\\KLevBF":"\\mathbf{K}","\\kLevBF":"\\mathbf{k}","\\LLevBF":"\\mathbf{L}","\\lLevBF":"\\pmb{\\ell}","\\MLevBF":"\\mathbf{M}","\\mLevBF":"\\mathbf{m}","\\OLevBF":"\\mathbf{O}","\\oLevBF":"\\mathbf{o}","\\PLevBF":"\\mathbf{P}","\\pLevBF":"\\mathbf{p}","\\SLevBF":"\\mathbf{S}","\\sLevBF":"\\mathbf{s}","\\vLevBF":"\\mathbf{v}","\\YLevBF":"\\mathbf{Y}","\\yLevBF":"\\mathbf{y}","\\ZLevBF":"\\mathbf{Z}","\\zLevBF":"\\pmb{z}","\\CDF":"\\mathcal{F}","\\SDF":"\\MLev","\\RfreeEff":"\\bar{\\Rfree}","\\CGroPF":"\\Lambda","\\cGroPF":"\\lambda","\\WGroPF":"\\mathrm{G}","\\MPCPPF":"\\Pi","\\vBeg":"\\upsilon","\\WBeg":"\\KLev","\\wBeg":"\\kLev","\\aAgg":"\\mathsf{A}","\\cAgg":"\\pmb{C}","\\permGroFacAgg":"\\Phi","\\RfreeAgg":"\\Agg{\\Rfree}","\\PermShkAgg":"\\Psi","\\permShkAgg":"\\Psi","\\TranShkAgg":"\\Theta","\\tranShkAgg":"\\Theta","\\permLvlAgg":"\\mathrm{P}","\\PermLvlAgg":"\\PLvl","\\zAgg":"\\pmb{Z}","\\ShkMeanOneLog":"\\theta","\\mBalLog":"\\BalGroRte{m}","\\EpremLog":"\\varphi","\\ShkLogZeroLog":"\\cancel{\\ShkMeanOneLog}","\\pLog":"p","\\ImpG":"\\Im}_{\\PGro","\\impg":"\\imath}_{\\pGro","\\ATarg":"\\check{A}","\\aTarg":"\\check{a}","\\BTarg":"\\check{B}","\\bTarg":"\\check{b}","\\CTarg":"\\Target{C}","\\cTarg":"\\check{c}","\\BTargTarg":"\\Target{\\Target{\\BRat}}","\\bTargTarg":"\\Target{\\Target{\\bRat}}","\\cTargTarg":"\\Target{\\Target{\\cRat}}","\\STargTarg":"\\Target{\\Target{\\SRat}}","\\sTargTarg":"\\Target{\\Target{\\sRat}}","\\kTarg":"\\Target{k}","\\mTarg":"\\check{m}","\\STarg":"\\Target{\\SRat}","\\sTarg":"\\Target{\\sRat}","\\vTarg":"\\Target{\\vRat}","\\yTarg":"\\check{y}","\\CGroOverG":"\\Upsilon","\\avg":"\\bar","\\h":"h","\\Wealth":"O","\\wealth":"o","\\Hi":"\\hat","\\Chi":"\\mathrm{X}","\\NI":"Z","\\TaxUI":"\\tau","\\adj":"\\mathrm{j}","\\PermGroFacAdj":"\\underline{\\PermGroFac}","\\PGroAdj":"\\underline{\\PGro}","\\pGroAdj":"\\underline{\\pGro}","\\PatPGroAdj":"\\text{\\pmb{\\Thorn}}_{\\underline{\\PGro}}","\\patpGroAdj":"\\text{\\thorn}_{\\underline{\\pGro}}","\\PermGroFacuAdj":"\\underline{\\underline{\\PermGroFac}}","\\PGrouAdj":"\\underline{\\underline{\\PGro}}","\\pGrouAdj":"\\underline{\\underline{\\pGro}}","\\DiscAltuAdj":"\\underline{\\underline{\\beth}}","\\TEndBak":"\\mathsf{p}","\\tBak":"\\pmb{n}","\\TEatBak":"\\mathtt{q}","\\ek":"\\lambda","\\Shk":"\\Phi","\\shk":"\\phi","\\PermShk":"\\mathbf{\\Psi}","\\permShk":"\\psi","\\uInvEuPermShk":"\\underline{\\underline{\\PermShk}}","\\TranShk":"\\pmb{\\xi}","\\PShk":"\\Psi","\\pShk":"\\psi","\\pshk":"\\psi","\\TShk":"\\Xi","\\tShk":"\\xi","\\tshk":"\\xi","\\Work":"\\mathbb{W}","\\vk":"\\lambda","\\util":"u","\\TranShkAll":"\\pmb{\\xi}","\\tShkAll":"\\xi","\\WAll":"O","\\wAll":"o","\\Lvl":"\\mathbf","\\ALvl":"\\mathbf{A}","\\aLvl":"\\mathbf{a}","\\BLvl":"\\mathbf{B}","\\bLvl":"\\mathbf{b}","\\CLvl":"\\mathbf{C}","\\cLvl":"\\mathbf{c}","\\DLvl":"\\mathbf{D}","\\dLvl":"\\mathbf{d}","\\ELvl":"\\mathbf{E}","\\eLvl":"\\mathbf{e}","\\FLvl":"\\mathbf{F}","\\fLvl":"\\mathbf{f}","\\GLvl":"\\mathbf{G}","\\HLvl":"\\mathbf{H}","\\hLvl":"\\mathbf{h}","\\ILvl":"\\mathbf{I}","\\iLvl":"\\mathbf{i}","\\JLvl":"\\mathbf{J}","\\jLvl":"\\mathbf{j}","\\KLvl":"\\mathbf{K}","\\kLvl":"\\mathbf{k}","\\LLvl":"\\mathbf{L}","\\ABalLvl":"\\BalGroFac{\\ALvl}","\\MBalLvl":"\\BalGroFac{\\MNrm}","\\mBalLvl":"\\BalGroFac{m}","\\MLvl":"\\mathbf{M}","\\mLvl":"\\mathbf{m}","\\PermLvl":"\\pLvl","\\NLvl":"\\mathbf{N}","\\PopnLvl":"\\pmb{\\mathrm{N}}","\\OLvl":"\\mathbf{O}","\\PLvl":"\\mathbf{P}","\\pLvl":"\\mathbf{p}","\\QLvl":"\\mathbf{Q}","\\RLvl":"\\mathbf{R}","\\rLvl":"\\mathbf{r}","\\SLvl":"\\mathbf{S}","\\sLvl":"\\mathbf{s}","\\TLvl":"\\mathbf{T}","\\ULvl":"\\mathbf{U}","\\VLvl":"\\mathbf{V}","\\vLvl":"\\mathbf{v}","\\WLvl":"\\mathbf{W}","\\XLvl":"\\mathbf{X}","\\YLvl":"\\mathbf{Y}","\\yLvl":"\\mathbf{y}","\\ZLvl":"\\mathbf{Z}","\\zLvl":"\\mathbf{z}","\\Ham":"\\mathcal{H}","\\EPrem":"\\Phi","\\eprem":"\\varphi","\\tHorOfm":"\\pmb{n}","\\debtLim":"\\mathsf{d}","\\tTerm":"T","\\vFirm":"\\mathrm{e}","\\ANrm":"A","\\aNrm":"a","\\BNrm":"B","\\bNrm":"b","\\CNrm":"C","\\cNrm":"c","\\GPFacNrm":"\\APFac_{\\PermGroFacAdj}","\\DNrm":"D","\\dNrm":"d","\\ENrm":"E","\\eNrm":"e","\\FNrm":"F","\\fNrm":"f","\\bTrgNrm":"\\TargetNrm{\\bNrm}","\\mTrgNrm":"\\TargetNrm{m}","\\HNrm":"H","\\hNrm":"h","\\INrm":"I","\\iNrm":"i","\\JNrm":"J","\\jNrm":"j","\\KNrm":"K","\\kNrm":"k","\\MNrm":"M","\\mNrm":"m","\\PNrm":"P","\\pNrm":"p","\\RNrm":"\\mathcal{R}","\\rNrm":"s","\\SNrm":"S","\\sNrm":"s","\\TargetNrm":"\\hat","\\VNrm":"V","\\vNrm":"v","\\xNrm":"x","\\YNrm":"Y","\\yNrm":"y","\\ZNrm":"Z","\\zNrm":"z","\\Rnorm":"\\mathcal{R}","\\rnorm":"\\mathit{r}","\\vNorm":"\\mathrm{w}","\\WHum":"\\HLev","\\wHum":"\\hLev","\\Whum":"\\HRat","\\whum":"\\hRat","\\Num":"N","\\VNum":"V","\\vNum":"v","\\Mean":"\\mathbb{M}","\\tThen":"\\tau","\\valfn":"\\mathrm{v}","\\aMin":"\\underline{\\aRat}","\\bMin":"\\underline{\\bRat}","\\MPCmin":"\\uline{\\kappa}","\\hEndMin":"\\underline{\\mathfrak{h}}","\\aboveMin":"\\blacktriangle","\\hMin":"\\underline{\\h}","\\HMin":"\\underline{H}","\\pShkMin":"\\underline{\\psi}","\\whumMin":"\\underline{\\hRat}","\\MPCminmin":"\\underline{\\kappa}","\\TranShkEmpMin":"\\underline{\\TranShkEmp}","\\tShkEmpMin":"\\underline{\\theta}","\\MPSmin":"\\pZero^{1/\\CRRA} \\RPFac","\\MPCmaxmin":"\\hat{\\underline{\\kappa}}","\\Decision":"\\mathbb{D}","\\SeveranceRatio":"\\varsigma","\\Lo":"\\check","\\ShkLogZero":"\\cancel{\\ShkMeanOne}","\\pZero":"\\wp","\\pNotZero":"(1-\\pZero)","\\LGro":"\\Lambda","\\lGro":"\\lambda","\\PGro":"\\Gamma","\\pGro":"\\gamma","\\GDPGro":"\\gimel","\\EmpGro":"\\Xi","\\empGro":"\\xi","\\PopGro":"\\Xi","\\popGro":"\\xi","\\PatPGro":"\\text{\\pmb{\\Thorn}}_{\\PGro}","\\patpGro":"\\text{\\thorn}_{\\pGro}","\\XperGro":"\\mathsf{X}","\\xperGro":"\\mathsf{x}","\\DivGro":"\\mathrm{G}","\\divGro":"\\mathsf{g}","\\WGro":"\\mathrm{G}","\\wGro":"\\mathsf{g}","\\RnormWGro":"\\mathcal{R}_{\\WGro}","\\rnormwGro":"\\mathit{r}_{\\wGro}","\\PatWGro":"\\text{\\pmb{\\Thorn}}_{\\WGro}","\\patwGro":"\\text{\\thorn}_{\\wGro}","\\PtyGro":"\\Phi","\\ptyGro":"\\phi","\\RBoro":"\\bar{\\Rfree}","\\rboro":"\\bar{\\rfree}","\\Pareto":"\\zeta","\\Kap":"K","\\kap":"k","\\EEndMap":"\\mathsf{E}","\\TMap":"\\mathscr{T}","\\cP":"\\cons^{\\prime}","\\MPCP":"\\pi","\\taxDep":"\\partial","\\FP":"\\mathrm{F}^{\\prime}","\\fP":"\\mathrm{f}^{\\prime}","\\TranShkEmp":"\\pmb{\\theta}","\\TShkEmp":"\\Theta","\\tShkEmp":"\\theta","\\IncUnemp":"\\mu","\\Pop":"L","\\cPP":"\\cons^{\\prime\\prime}","\\FPP":"\\mathrm{F}^{\\prime\\prime}","\\fPP":"\\mathrm{f}^{\\prime\\prime}","\\cPPP":"\\cons^{\\prime\\prime\\prime}","\\uPPP":"\\mathrm{u}^{\\prime\\prime\\prime}","\\uPP":"\\mathrm{u}^{\\prime\\prime}","\\TaxCorp":"\\Large \\tau","\\taxCorp":"\\tau","\\uP":"\\mathrm{u}^{\\prime}","\\q":"\\koppa","\\adjPar":"\\omega","\\tranShkIndVar":"\\sigma^{2}_{\\tranShkInd}","\\tranShkAggVar":"\\sigma^{2}_{\\tranShkAgg}","\\ShkMeanOneLogVar":"\\sigma^{2}_{\\ShkMeanOneLog}","\\ShkLogZeroLogVar":"\\sigma_{\\cancel{\\ShkMeanOneLog}}^{2}","\\PermShkVar":"\\sigma^{2}_{\\PermShk}","\\TranShkVar":"\\sigma^{2}_{\\TranShk}","\\sdr":"\\mRat","\\Estdr":"\\sigma_{\\risky}","\\xFer":"\\chi","\\XFer":"X","\\nIter":"n","\\power":"\\eta","\\labor":"\\ell","\\Labor":"\\mathrm{L}","\\PLabor":"P","\\Plabor":"P","\\tHor":"\\mathsf{n}","\\error":"\\epsilon","\\Depr":"\\daleth","\\depr":"\\delta","\\ImpR":"\\Im}_{\\Rfree","\\impr":"\\imath}_{\\rfree","\\EVarr":"\\sigma_{\\Risky}^{2}","\\Evarr":"\\sigma_{\\risky}^{2}","\\Err":"Z","\\err":"z","\\CGroOverR":"\\Phi","\\corr":"\\varrho","\\curr":"1","\\Curr":"t","\\tCurr":"t","\\PatR":"\\text{\\pmb{\\Thorn}}_{\\Rfree}","\\patr":"\\text{\\thorn}_{\\rfree}","\\PDies":"\\mathsf{D}","\\pDies":"\\mathsf{d}","\\PLives":"\\cancel{\\PDies}","\\pLives":"\\cancel{\\pDies}","\\Stocks":"S","\\stocks":"s","\\TaxNetTrans":"Z","\\taxNetTrans":"z","\\unins":"\\zeta","\\Cons":"C","\\cons":"c","\\MPS":"\\lambda","\\MinMPS":"\\pZero^{1/\\CRRA} \\PatR","\\MaxMPS":"\\PatR","\\CGroPS":"\\chi","\\Hours":"\\mathfrak{H}","\\hours":"\\mathfrak{h}","\\ASS":"A","\\aSS":"a","\\cEss":"{c}^{e}","\\mEss":"\\check{m}^{e}","\\vEss":"\\check{v}^{e}","\\MSS":"\\breve{M}","\\mSS":"\\breve{m}","\\RGross":"\\breve{\\mathsf{R}}","\\rGross":"\\breve{\\mathsf{r}}","\\tSS":"t","\\effUnits":"X","\\Surplus":"Z","\\surplus":"z","\\TEat":"\\TEnd","\\patpGrohat":"\\hat{\\text{\\thorn}}_{\\pGro}","\\aMat":"[\\mathrm{a}]","\\bMat":"[\\mathrm{\\bNrm}]","\\cMat":"[\\mathrm{\\cNrm}]","\\tShkMat":"[\\mathrm{\\tShkEmp}]","\\mMat":"[\\mathrm{m}]","\\xMat":"[\\mathrm{\\xNrm}]","\\yMat":"[\\mathrm{\\yNrm}]","\\Pat":"\\text{\\pmb{\\Thorn}}","\\pat":"\\text{\\thorn}","\\ARat":"A","\\aRat":"a","\\NFARat":"\\NRat","\\BRat":"B","\\bRat":"b","\\CRat":"C","\\cRat":"c","\\ccRat":"\\mathsf{c}","\\dRat":"d","\\WEndRat":"\\ARat","\\wEndRat":"\\aRat","\\HRat":"H","\\hRat":"h","\\IRat":"I","\\iRat":"i","\\KRat":"K","\\kRat":"k","\\LRat":"L","\\lRat":"l","\\WAllRat":"O","\\wAllRat":"o","\\MRat":"M","\\mRat":"m","\\NRat":"N","\\nRat":"n","\\ORat":"O","\\oRat":"o","\\pRat":"p","\\GDPRat":"P","\\gdpRat":"p","\\SRat":"S","\\sRat":"s","\\VRat":"V","\\vRat":"v","\\WRat":"O","\\wRat":"o","\\XRat":"X","\\xRat":"x","\\YRat":"Y","\\yRat":"y","\\ZRat":"Z","\\zRat":"z","\\Debt":"D","\\debt":"d","\\Target":"\\check","\\WNet":"X","\\wNet":"x","\\straight":"\\Pi","\\weight":"\\omega","\\Habit":"H","\\habit":"h","\\WMkt":"\\MLev","\\wMkt":"\\mLev","\\wmkt":"\\mLev","\\Alt":"\\grave","\\DiscFacAlt":"\\beth","\\DiscAlt":"\\beth","\\ValAlt":"\\mathcal{V}","\\vOptAlt":"\\grave{\\tilde{\\mathfrak{v}}}","\\RiskyAlt":"\\pmb{\\mathfrak{R}}","\\riskyAlt":"\\pmb{\\mathfrak{r}}","\\uPmt":"\\mu","\\SeverancePayment":"\\mathcal{S}","\\kapRent":"\\varkappa","\\Discount":"\\beta","\\tinyAmount":"\\epsilon","\\WTot":"\\mathbf{O}","\\wTot":"\\mathbf{o}","\\Wtot":"O","\\wtot":"o","\\vOpt":"\\tilde{\\mathfrak{v}}","\\Rport":"\\mathbb{R}","\\rport":"\\mathbb{r}","\\FDist":"\\mathcal{F}","\\fDist":"\\mathcal{f}","\\Next":"t+1","\\tNext":"t+1","\\BU":"{B}^{u}","\\bU":"{b}^{u}","\\CU":"\\CRat^{u}","\\cU":"\\cRat^{u}","\\MPCU":"\\MPC^{u}","\\MU":"{M}^{u}","\\mU":"{m}^{u}","\\PopU":"\\mathcal{U}","\\SU":"\\SRat^{u}","\\sU":"\\sRat^{u}","\\PatU":"\\text{\\pmb{\\Thorn}}_{\\urate}","\\patu":"\\text{\\thorn}_{\\urate}","\\bRatU":"{b}^{u}","\\CRatU":"\\CRat^{u}","\\cRatU":"\\cRat^{u}","\\SRatU":"\\SRat^{u}","\\sRatU":"\\sRat^{u}","\\VU":"{V}^{u}","\\vU":"{v}^{u}","\\BLevU":"\\BLev^{u}","\\bLevU":"\\bLev^{u}","\\CLevU":"\\CLev^{u}","\\cLevU":"\\cLev^{u}","\\SLevU":"\\SLev^{u}","\\sLevU":"\\sLev^{u}","\\pSav":"\\phi","\\PDV":"\\mathbb{P}","\\CPDV":"\\text{PDV($C$)}","\\PPDV":"\\text{PDV($P$)}","\\ALev":"A","\\aLev":"a","\\NFALev":"\\NLev","\\BLev":"B","\\bLev":"b","\\CLev":"C","\\cLev":"c","\\DLev":"D","\\ELev":"E","\\FLev":"F","\\fLev":"f","\\GLev":"G","\\HLev":"\\pmb{H}","\\hLev":"\\pmb{h}","\\ILev":"I","\\iLev":"i","\\JLev":"J","\\KLev":"K","\\kLev":"k","\\lLev":"\\ell","\\LLev":"L","\\WAllLev":"\\mathbf{O}","\\wAllLev":"\\mathbf{o}","\\MLev":"M","\\mLev":"m","\\NLev":"N","\\nLev":"n","\\oLev":"\\pmb{o}","\\OLev":"O","\\pLev":"\\pmb{p}","\\PLev":"P","\\GDPLev":"\\pmb{P}","\\gdpLev":"\\pmb{p}","\\PopLev":"\\pmb{N}","\\QLev":"Q","\\RLev":"R","\\SLev":"S","\\sLev":"s","\\TLev":"T","\\ULev":"U","\\uLev":"u","\\VLev":"V","\\vLev":"v","\\wLev":"\\pmb{w}","\\WLev":"W","\\XLev":"X","\\xLev":"x","\\TaxLev":"T","\\YLev":"Y","\\yLev":"y","\\PtyLev":"A","\\ptyLev":"a","\\ZLev":"Z","\\zLev":"z","\\Rev":"\\Pi","\\rev":"\\pi","\\tPrev":"t-1","\\Div":"D","\\DiscFacLiv":"\\underline{\\DiscFacRaw}","\\Inv":"I","\\inv":"i","\\TaxCombInv":"\\mathcal{T}^{-1}","\\EPermShkInv":"\\Ex[\\PermShk^{-1}]","\\InvEPermShkInv":"\\underline{\\PermShk}","\\EpShkInv":"\\Ex[\\pShk^{-1}]","\\InvEpShkInv":"\\underline{\\psi}","\\uInvEpShkuInv":"\\underline{\\underline{\\psi}}","\\VInv":"\\Lambda","\\vInv":"\\scriptstyle \\Lambda \\displaystyle","\\cov":"\\textup{cov}","\\DiscFacRaw":"\\beta","\\GPFacRaw":"\\APFac_{\\PermGroFac}","\\Belw":"\\ushort","\\GovNW":"N","\\govNW":"n","\\cFuncBelow":"\\uline{\\mathrm{c}}","\\tNow":"t","\\cFuncMax":"\\bar{\\bar{\\mathrm{c}}}","\\MPCmax":"\\bar{\\kappa}","\\MPSmax":"\\RPFac","\\MPCmaxmax":"\\bar{\\bar{\\kappa}}","\\Tax":"\\tau","\\tax":"\\tau","\\Ex":"\\mathbb{E}","\\prudEx":"\\omega","\\Steady":"\\bar","\\Risky":"\\mathbf{R}","\\risky":"\\mathbf{r}","\\Seniority":"\\mathsf{X}","\\seniority":"\\mathsf{x}"},"abbreviations":{"GP":"Gaussian Process","GPR":"Gaussian Process Regression","EGM":"Endogenous Grid Method","NEGM":"Nested Endogenous Grid Method","G2EGM":"Generalized Endogenous Grid Method","DCEGM":"Discrete Choice Endogenous Grid Method"},"exports":[{"format":"pdf+tex","filename":"SequentialEGMn.pdf","url":"/SequentialEGM/build/SequentialEGMn-303d2ec15ac5cf44e24a9d3e79ca56a6.pdf"}],"title":"EGMⁿ: The Sequential Endogenous Grid Method","short_title":"EGMⁿ","authors":[{"nameParsed":{"literal":"Alan Lujan","given":"Alan","family":"Lujan"},"name":"Alan Lujan","corresponding":false,"email":"alanlujan91@gmail.com","affiliations":["Johns Hopkins University","Econ-ARK"],"github":"alanlujan91","url":"https://quantmacro.org","id":"contributors-myst-generated-uid-0"}],"venue":{"title":"REMARK","url":"https://github.com/econ-ark/REMARK"},"github":"https://github.com/alanlujan91/SequentialEGM","keywords":["endogenous grid method","stochastic dynamic programming","machine learning","gaussian process regression"],"affiliations":[{"id":"Johns Hopkins University","name":"Johns Hopkins University"},{"id":"Econ-ARK","name":"Econ-ARK"}],"index":"readme","pages":[{"title":"Content","level":1},{"slug":"titlepage","title":"Abstract","short_title":"Abstract","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":2},{"slug":"intro","title":"Introduction","short_title":"Intro","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"method","title":"The Sequential Endogenous Grid Method","short_title":"Method","description":"","date":"","thumbnail":"/SequentialEGM/build/LaborSeparableWarped-847b42e5941534c2a6922b8c251cf323.svg","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"multdim","title":"The EGM^n in Higher Dimensions","short_title":"MultDim","description":"","date":"","thumbnail":"/SequentialEGM/build/SparsePensionExogeno-3f8b48104847f72cf4545203bee62f93.svg","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"multinterp","title":"Multivariate Interpolation on Unstructured Grids","short_title":"MultInterp","description":"","date":"","thumbnail":"/SequentialEGM/build/GPR_True_Function-68465728eb7585c0f4912be36576b846.svg","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"conditions","title":"Conditions for using the Sequential Endogenous Grid Method","short_title":"Conditions","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"conclusion","title":"Conclusion","short_title":"Conclusion","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"appendix","title":"Solving the illustrative G2EGM model with EGM^n","short_title":"Appendix","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"title":"Code","level":1},{"slug":"example-conspensionmodel-baseline","title":"example-conspensionmodel-baseline","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":2},{"slug":"example-conslaborportfoliomodel","title":"example-conslaborportfoliomodel","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"example-conslaborseparablemodel","title":"example-conslaborseparablemodel","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"example-conspensionmodel","title":"example-conspensionmodel","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"example-consretirementmodel","title":"example-consretirementmodel","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"example-gaussianprocessregression","title":"example-gaussianprocessregression","description":"","date":"","thumbnail":"","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3},{"slug":"example-warpedinterpolation","title":"Warped Interpolation","description":"","date":"","thumbnail":"/SequentialEGM/build/e43da42ee213ec6a82472d62c235e321.png","thumbnailOptimized":"","banner":"","bannerOptimized":"","tags":[],"level":3}]}]},"CONTENT_CDN_PORT":"3100","MODE":"static","BASE_URL":"/SequentialEGM"},"routes/$":{"kind":"Article","sha256":"f5cb017d317f0be81de88629419f785f711ee53f9c8b4c253ec4d0d11620bf4a","slug":"readme","location":"/README.md","dependencies":[],"frontmatter":{"title":"EGMⁿ: The Sequential Endogenous Grid Method","authors":[{"id":"Alan Lujan","nameParsed":{"literal":"Alan Lujan","given":"Alan","family":"Lujan"},"name":"Alan Lujan"}],"date":"2023/02/15","open_access":true,"license":{"content":{"id":"CC-BY-4.0","name":"Creative Commons Attribution 4.0 International","free":true,"CC":true,"url":"https://creativecommons.org/licenses/by/4.0/"},"code":{"id":"MIT","name":"MIT License","osi":true,"free":true,"url":"https://opensource.org/licenses/MIT"}},"github":"https://github.com/alanlujan91/SequentialEGM","subject":"Economics","venue":{"title":"REMARK","url":"https://github.com/econ-ark/REMARK"},"numbering":{"figure":true,"equation":true,"table":true,"code":true,"heading_1":true,"heading_2":true,"heading_3":true,"heading_4":true,"heading_5":true,"heading_6":true},"keywords":["endogenous grid method","stochastic dynamic programming","machine learning","gaussian process regression"],"affiliations":[{"id":"Johns Hopkins University","name":"Johns Hopkins University"},{"id":"Econ-ARK","name":"Econ-ARK"}],"math":{"\\CARA":"\\alpha","\\CRRA":"\\rho","\\PtyLab":"\\mathrm{Z}","\\ptyLab":"z","\\TaxComb":"\\mathcal{T}","\\Prob":"\\mathbb{P}","\\DiePrb":"\\mathsf{D}","\\diePrb":"\\mathsf{d}","\\LivPrb":"\\cancel{\\DiePrb}","\\livPrb":"\\cancel{\\diePrb}","\\DiscFac":"\\beta","\\DieFac":"\\pDead","\\GroFac":"\\Omega","\\BalGroFac":"\\check","\\permGroFac":"\\Gamma","\\PermGroFac":"\\pmb{\\Phi}","\\PopnGroFac":"\\Xi","\\APFac":"\\text{\\pmb{\\Thorn}}","\\PopFac":"\\PopGro","\\RPFac":"\\APFac_{\\Rfree}","\\DeprFac":"\\daleth","\\LivFac":"\\Alive","\\aVec":"\\vec{\\mathrm{a}}","\\bVec":"\\vec{\\mathrm{\\bNrm}}","\\cVec":"\\vec{\\mathrm{\\cNrm}}","\\mVec":"\\vec{\\mathrm{m}}","\\yVec":"\\vec{\\mathrm{\\yNrm}}","\\Inc":"Y","\\inc":"y","\\PInc":"P","\\AFunc":"\\mathrm{A}","\\aFunc":"\\mathrm{a}","\\BFunc":"\\mathrm{B}","\\bFunc":"\\mathrm{b}","\\CFunc":"\\mathrm{C}","\\cFunc":"\\mathrm{c}","\\MPCFunc":"\\pmb{\\kappa}","\\DFunc":"\\mathrm{D}","\\dFunc":"\\mathrm{d}","\\bEndFunc":"\\mathfrak{b}","\\CEndFunc":"\\mathfrak{C}","\\cEndFunc":"\\mathfrak{c}","\\dEndFunc":"\\mathfrak{d}","\\lEndFunc":"\\mathfrak{l}","\\mEndFunc":"\\mathfrak{m}","\\nEndFunc":"\\mathfrak{n}","\\VEndFunc":"\\mathfrak{V}","\\vEndFunc":"\\mathfrak{v}","\\zEndFunc":"\\mathfrak{z}","\\ProdFunc":"\\mathrm{F}","\\prodFunc":"\\mathrm{f}","\\EFunc":"\\mathrm{E}","\\eFunc":"\\mathrm{e}","\\FFunc":"\\mathrm{F}","\\fFunc":"\\mathrm{f}","\\GFunc":"\\mathrm{G}","\\gFunc":"\\mathrm{g}","\\vBegFunc":"\\pmb{\\upsilon}","\\HFunc":"\\mathrm{H}","\\hFunc":"\\mathrm{h}","\\IFunc":"\\mathrm{I}","\\iFunc":"\\mathrm{i}","\\chiFunc":"\\pmb{\\chi}","\\phiFunc":"\\digamma","\\JFunc":"\\mathrm{J}","\\jFunc":"\\mathrm{j}","\\KFunc":"\\mathrm{K}","\\kFunc":"\\mathrm{k}","\\LFunc":"\\mathrm{L}","\\utilFunc":"\\mathrm{u}","\\MFunc":"\\mathrm{M}","\\mFunc":"\\mathrm{m}","\\NFunc":"\\mathrm{N}","\\nFunc":"\\mathrm{n}","\\OFunc":"\\mathrm{O}","\\PFunc":"\\mathrm{P}","\\pFunc":"\\mathrm{p}","\\QFunc":"\\mathrm{Q}","\\RFunc":"\\mathrm{R}","\\rFunc":"\\mathrm{r}","\\SFunc":"\\mathrm{S}","\\sFunc":"\\mathrm{s}","\\MPSFunc":"\\pmb{lambda}","\\TFunc":"\\mathrm{T}","\\UFunc":"\\mathrm{U}","\\uFunc":"\\mathrm{u}","\\VFunc":"\\mathrm{V}","\\vFunc":"\\mathrm{v}","\\cPDVFunc":"\\mathbb{C}","\\pPDVFunc":"\\mathbb{P}","\\uPDVFunc":"\\mathbb{U}","\\cLevFunc":"\\pmb{\\cFunc}","\\VLevFunc":"\\pmb{\\mathrm{V}}","\\vLevFunc":"\\pmb{\\mathrm{v}}","\\RevFunc":"\\pmb{\\Pi}","\\revFunc":"\\pmb{\\pi}","\\WFunc":"\\mathrm{W}","\\wFunc":"\\mathrm{w}","\\XFunc":"\\mathrm{X}","\\xFunc":"\\mathrm{x}","\\YFunc":"\\mathrm{Y}","\\yFunc":"\\mathrm{y}","\\ZFunc":"\\mathrm{Z}","\\zFunc":"\\mathrm{z}","\\MPC":"\\kappa","\\PIHMPC":"\\varkappa","\\MinMPC":"\\uline{\\kappa}","\\MinMinMPC":"\\underline{\\kappa}","\\MaxMinMPC":"\\hat{\\underline{\\kappa}}","\\MaxMPC":"\\bar{\\kappa}","\\MaxMaxMPC":"\\bar{\\bar{\\kappa}}","\\itc":"\\zeta","\\kPriceAfterITC":"\\mathscr{P}","\\PostITC":"\\cancel{\\zeta}","\\pDead":"\\mathfrak{D}","\\TaxPaid":"T","\\WMid":"\\BLev","\\wMid":"\\bLev","\\Wmid":"\\BRat","\\wmid":"\\bRat","\\Dvdnd":"\\mathbf{D}","\\dvdnd":"d","\\edvdnd":"\\grave{\\dvdnd}","\\hEnd":"\\mathfrak{h}","\\GovSpend":"X","\\govSpend":"x","\\xpend":"\\xi","\\expend":"\\xi","\\TEnd":"T","\\VEnd":"\\mathfrak{V}","\\vEnd":"\\mathfrak{v}","\\WEnd":"\\ALev","\\wEnd":"\\aLev","\\Wend":"\\ARat","\\wend":"\\aRat","\\permGroFacInd":"\\pmb{\\phi}","\\permShkInd":"\\psi","\\tranShkInd":"\\theta","\\permLvlInd":"\\mathrm{p}","\\RCpnd":"\\mathbf{R}","\\Mod":"\\tilde","\\Rprod":"\\mathscr{R}","\\rprod":"\\mathscr{r}","\\RProd":"\\mathsf{R}","\\rProd":"\\mathsf{r}","\\tranShkIndStd":"\\sigma_{\\tranShkInd}","\\tranShkAggStd":"\\sigma_{\\tranShkAgg}","\\ShkMeanOneLogStd":"\\sigma_{\\ShkMeanOneLog}","\\ShkLogZeroLogStd":"\\sigma_{\\cancel{\\ShkMeanOneLog}}","\\PermShkStd":"\\sigma_{\\PermShk}","\\TranShkStd":"\\sigma_{\\TranShk}","\\prud":"\\eta","\\tFwd":"n","\\aE":"\\aRat^{e}","\\BE":"\\BRat^{e}","\\bE":"\\bRat^{e}","\\CE":"\\CRat^{e}","\\cE":"\\cRat^{e}","\\Price":"\\mathsf{P}","\\kPrice":"\\mathsf{P}","\\Severance":"\\kappa","\\MPCE":"\\MPC^{e}","\\Rfree":"\\mathsf{R}","\\rfree":"\\mathsf{r}","\\TaxFree":"\\cancel{\\Tax}","\\Age":"Z","\\age":"z","\\Wage":"\\mathsf{W}","\\wage":"\\mathsf{w}","\\bTargE":"\\check{b}^{e}","\\CTargE":"\\CTarg^{\\null}","\\cTargE":"\\check{c}^{e}","\\kTargE":"\\Target{k}^{e}","\\STargE":"\\Target{\\SRat}^{\\null}","\\sTargE":"\\Target{\\sRat}^{\\null}","\\yTargE":"\\check{y}^{e}","\\ME":"\\MRat^{e}","\\mE":"\\mRat^{e}","\\TermTime":"T","\\ShkMeanOne":"\\Theta","\\PopE":"\\mathcal{E}","\\popE":"e","\\labShare":"\\nu","\\leiShare":"\\zeta","\\kapShare":"\\alpha","\\riskyshare":"\\varsigma","\\Retire":"\\mathbb{R}","\\WPre":"K","\\wPre":"k","\\Leisure":"Z","\\leisure":"z","\\SE":"\\SRat^{e}","\\sE":"\\sRat^{e}","\\BRatE":"{B}^{e}","\\bRatE":"{b}^{e}","\\CRatE":"\\CRat^{e}","\\cRatE":"\\cRat^{e}","\\DiscRate":"\\vartheta","\\pDeadRate":"\\grave{\\cancel{\\mathsf{d}}}","\\erate":"\\cancel{\\mho}","\\pDieRate":"\\grave{\\mathsf{d}}","\\timeRate":"\\vartheta","\\saveRate":"\\grave{s}","\\MRatE":"\\MRat^{e}","\\mRatE":"\\mRat^{e}","\\SRatE":"\\SRat^{e}","\\sRatE":"\\sRat^{e}","\\srate":"\\varsigma","\\urate":"\\mho","\\TaxRate":"t","\\empState":"\\xi","\\discRte":"\\tau","\\DiscRte":"\\vartheta","\\GroRte":"\\omega","\\BalGroRte":"\\tilde","\\permGroRte":"\\gamma","\\PermGroRte":"\\varphi","\\PopnGroRte":"\\xi","\\APRte":"\\text{\\thorn}","\\GPRte":"\\text{\\thorn}_{\\PermGroRte}","\\popRte":"\\popGro","\\RPRte":"\\text{\\thorn}_{\\rfree}","\\deprRte":"\\delta","\\Value":"\\mathrm{V}","\\VE":"{V}^{e}","\\vE":"{v}^{e}","\\Save":"S","\\save":"s","\\RSave":"\\underline{\\Rfree}","\\rsave":"\\underline{\\rfree}","\\Abve":"\\bar","\\BLevE":"\\BLev^{e}","\\bLevE":"\\bLev^{e}","\\CLevE":"\\CLev^{e}","\\cLevE":"\\cLev^{e}","\\mLevE":"\\mLev^{e}","\\SLevE":"\\SLev^{e}","\\sLevE":"\\sLev^{e}","\\Alive":"\\mathcal{L}","\\cFuncAbove":"\\bar{\\mathrm{c}}","\\aRatBF":"\\pmb{a}","\\bRatBF":"\\pmb{\\mathrm{b}}","\\cRatBF":"\\pmb{c}","\\mRatBF":"\\pmb{\\mathrm{m}}","\\ALevBF":"\\mathbf{A}","\\aLevBF":"\\mathbf{a}","\\BLevBF":"\\mathbf{B}","\\bLevBF":"\\mathbf{b}","\\CLevBF":"\\mathbf{C}","\\cLevBF":"\\mathbf{c}","\\HLevBF":"\\mathbf{H}","\\hLevBF":"\\mathbf{h}","\\KLevBF":"\\mathbf{K}","\\kLevBF":"\\mathbf{k}","\\LLevBF":"\\mathbf{L}","\\lLevBF":"\\pmb{\\ell}","\\MLevBF":"\\mathbf{M}","\\mLevBF":"\\mathbf{m}","\\OLevBF":"\\mathbf{O}","\\oLevBF":"\\mathbf{o}","\\PLevBF":"\\mathbf{P}","\\pLevBF":"\\mathbf{p}","\\SLevBF":"\\mathbf{S}","\\sLevBF":"\\mathbf{s}","\\vLevBF":"\\mathbf{v}","\\YLevBF":"\\mathbf{Y}","\\yLevBF":"\\mathbf{y}","\\ZLevBF":"\\mathbf{Z}","\\zLevBF":"\\pmb{z}","\\CDF":"\\mathcal{F}","\\SDF":"\\MLev","\\RfreeEff":"\\bar{\\Rfree}","\\CGroPF":"\\Lambda","\\cGroPF":"\\lambda","\\WGroPF":"\\mathrm{G}","\\MPCPPF":"\\Pi","\\vBeg":"\\upsilon","\\WBeg":"\\KLev","\\wBeg":"\\kLev","\\aAgg":"\\mathsf{A}","\\cAgg":"\\pmb{C}","\\permGroFacAgg":"\\Phi","\\RfreeAgg":"\\Agg{\\Rfree}","\\PermShkAgg":"\\Psi","\\permShkAgg":"\\Psi","\\TranShkAgg":"\\Theta","\\tranShkAgg":"\\Theta","\\permLvlAgg":"\\mathrm{P}","\\PermLvlAgg":"\\PLvl","\\zAgg":"\\pmb{Z}","\\ShkMeanOneLog":"\\theta","\\mBalLog":"\\BalGroRte{m}","\\EpremLog":"\\varphi","\\ShkLogZeroLog":"\\cancel{\\ShkMeanOneLog}","\\pLog":"p","\\ImpG":"\\Im}_{\\PGro","\\impg":"\\imath}_{\\pGro","\\ATarg":"\\check{A}","\\aTarg":"\\check{a}","\\BTarg":"\\check{B}","\\bTarg":"\\check{b}","\\CTarg":"\\Target{C}","\\cTarg":"\\check{c}","\\BTargTarg":"\\Target{\\Target{\\BRat}}","\\bTargTarg":"\\Target{\\Target{\\bRat}}","\\cTargTarg":"\\Target{\\Target{\\cRat}}","\\STargTarg":"\\Target{\\Target{\\SRat}}","\\sTargTarg":"\\Target{\\Target{\\sRat}}","\\kTarg":"\\Target{k}","\\mTarg":"\\check{m}","\\STarg":"\\Target{\\SRat}","\\sTarg":"\\Target{\\sRat}","\\vTarg":"\\Target{\\vRat}","\\yTarg":"\\check{y}","\\CGroOverG":"\\Upsilon","\\avg":"\\bar","\\h":"h","\\Wealth":"O","\\wealth":"o","\\Hi":"\\hat","\\Chi":"\\mathrm{X}","\\NI":"Z","\\TaxUI":"\\tau","\\adj":"\\mathrm{j}","\\PermGroFacAdj":"\\underline{\\PermGroFac}","\\PGroAdj":"\\underline{\\PGro}","\\pGroAdj":"\\underline{\\pGro}","\\PatPGroAdj":"\\text{\\pmb{\\Thorn}}_{\\underline{\\PGro}}","\\patpGroAdj":"\\text{\\thorn}_{\\underline{\\pGro}}","\\PermGroFacuAdj":"\\underline{\\underline{\\PermGroFac}}","\\PGrouAdj":"\\underline{\\underline{\\PGro}}","\\pGrouAdj":"\\underline{\\underline{\\pGro}}","\\DiscAltuAdj":"\\underline{\\underline{\\beth}}","\\TEndBak":"\\mathsf{p}","\\tBak":"\\pmb{n}","\\TEatBak":"\\mathtt{q}","\\ek":"\\lambda","\\Shk":"\\Phi","\\shk":"\\phi","\\PermShk":"\\mathbf{\\Psi}","\\permShk":"\\psi","\\uInvEuPermShk":"\\underline{\\underline{\\PermShk}}","\\TranShk":"\\pmb{\\xi}","\\PShk":"\\Psi","\\pShk":"\\psi","\\pshk":"\\psi","\\TShk":"\\Xi","\\tShk":"\\xi","\\tshk":"\\xi","\\Work":"\\mathbb{W}","\\vk":"\\lambda","\\util":"u","\\TranShkAll":"\\pmb{\\xi}","\\tShkAll":"\\xi","\\WAll":"O","\\wAll":"o","\\Lvl":"\\mathbf","\\ALvl":"\\mathbf{A}","\\aLvl":"\\mathbf{a}","\\BLvl":"\\mathbf{B}","\\bLvl":"\\mathbf{b}","\\CLvl":"\\mathbf{C}","\\cLvl":"\\mathbf{c}","\\DLvl":"\\mathbf{D}","\\dLvl":"\\mathbf{d}","\\ELvl":"\\mathbf{E}","\\eLvl":"\\mathbf{e}","\\FLvl":"\\mathbf{F}","\\fLvl":"\\mathbf{f}","\\GLvl":"\\mathbf{G}","\\HLvl":"\\mathbf{H}","\\hLvl":"\\mathbf{h}","\\ILvl":"\\mathbf{I}","\\iLvl":"\\mathbf{i}","\\JLvl":"\\mathbf{J}","\\jLvl":"\\mathbf{j}","\\KLvl":"\\mathbf{K}","\\kLvl":"\\mathbf{k}","\\LLvl":"\\mathbf{L}","\\ABalLvl":"\\BalGroFac{\\ALvl}","\\MBalLvl":"\\BalGroFac{\\MNrm}","\\mBalLvl":"\\BalGroFac{m}","\\MLvl":"\\mathbf{M}","\\mLvl":"\\mathbf{m}","\\PermLvl":"\\pLvl","\\NLvl":"\\mathbf{N}","\\PopnLvl":"\\pmb{\\mathrm{N}}","\\OLvl":"\\mathbf{O}","\\PLvl":"\\mathbf{P}","\\pLvl":"\\mathbf{p}","\\QLvl":"\\mathbf{Q}","\\RLvl":"\\mathbf{R}","\\rLvl":"\\mathbf{r}","\\SLvl":"\\mathbf{S}","\\sLvl":"\\mathbf{s}","\\TLvl":"\\mathbf{T}","\\ULvl":"\\mathbf{U}","\\VLvl":"\\mathbf{V}","\\vLvl":"\\mathbf{v}","\\WLvl":"\\mathbf{W}","\\XLvl":"\\mathbf{X}","\\YLvl":"\\mathbf{Y}","\\yLvl":"\\mathbf{y}","\\ZLvl":"\\mathbf{Z}","\\zLvl":"\\mathbf{z}","\\Ham":"\\mathcal{H}","\\EPrem":"\\Phi","\\eprem":"\\varphi","\\tHorOfm":"\\pmb{n}","\\debtLim":"\\mathsf{d}","\\tTerm":"T","\\vFirm":"\\mathrm{e}","\\ANrm":"A","\\aNrm":"a","\\BNrm":"B","\\bNrm":"b","\\CNrm":"C","\\cNrm":"c","\\GPFacNrm":"\\APFac_{\\PermGroFacAdj}","\\DNrm":"D","\\dNrm":"d","\\ENrm":"E","\\eNrm":"e","\\FNrm":"F","\\fNrm":"f","\\bTrgNrm":"\\TargetNrm{\\bNrm}","\\mTrgNrm":"\\TargetNrm{m}","\\HNrm":"H","\\hNrm":"h","\\INrm":"I","\\iNrm":"i","\\JNrm":"J","\\jNrm":"j","\\KNrm":"K","\\kNrm":"k","\\MNrm":"M","\\mNrm":"m","\\PNrm":"P","\\pNrm":"p","\\RNrm":"\\mathcal{R}","\\rNrm":"s","\\SNrm":"S","\\sNrm":"s","\\TargetNrm":"\\hat","\\VNrm":"V","\\vNrm":"v","\\xNrm":"x","\\YNrm":"Y","\\yNrm":"y","\\ZNrm":"Z","\\zNrm":"z","\\Rnorm":"\\mathcal{R}","\\rnorm":"\\mathit{r}","\\vNorm":"\\mathrm{w}","\\WHum":"\\HLev","\\wHum":"\\hLev","\\Whum":"\\HRat","\\whum":"\\hRat","\\Num":"N","\\VNum":"V","\\vNum":"v","\\Mean":"\\mathbb{M}","\\tThen":"\\tau","\\valfn":"\\mathrm{v}","\\aMin":"\\underline{\\aRat}","\\bMin":"\\underline{\\bRat}","\\MPCmin":"\\uline{\\kappa}","\\hEndMin":"\\underline{\\mathfrak{h}}","\\aboveMin":"\\blacktriangle","\\hMin":"\\underline{\\h}","\\HMin":"\\underline{H}","\\pShkMin":"\\underline{\\psi}","\\whumMin":"\\underline{\\hRat}","\\MPCminmin":"\\underline{\\kappa}","\\TranShkEmpMin":"\\underline{\\TranShkEmp}","\\tShkEmpMin":"\\underline{\\theta}","\\MPSmin":"\\pZero^{1/\\CRRA} \\RPFac","\\MPCmaxmin":"\\hat{\\underline{\\kappa}}","\\Decision":"\\mathbb{D}","\\SeveranceRatio":"\\varsigma","\\Lo":"\\check","\\ShkLogZero":"\\cancel{\\ShkMeanOne}","\\pZero":"\\wp","\\pNotZero":"(1-\\pZero)","\\LGro":"\\Lambda","\\lGro":"\\lambda","\\PGro":"\\Gamma","\\pGro":"\\gamma","\\GDPGro":"\\gimel","\\EmpGro":"\\Xi","\\empGro":"\\xi","\\PopGro":"\\Xi","\\popGro":"\\xi","\\PatPGro":"\\text{\\pmb{\\Thorn}}_{\\PGro}","\\patpGro":"\\text{\\thorn}_{\\pGro}","\\XperGro":"\\mathsf{X}","\\xperGro":"\\mathsf{x}","\\DivGro":"\\mathrm{G}","\\divGro":"\\mathsf{g}","\\WGro":"\\mathrm{G}","\\wGro":"\\mathsf{g}","\\RnormWGro":"\\mathcal{R}_{\\WGro}","\\rnormwGro":"\\mathit{r}_{\\wGro}","\\PatWGro":"\\text{\\pmb{\\Thorn}}_{\\WGro}","\\patwGro":"\\text{\\thorn}_{\\wGro}","\\PtyGro":"\\Phi","\\ptyGro":"\\phi","\\RBoro":"\\bar{\\Rfree}","\\rboro":"\\bar{\\rfree}","\\Pareto":"\\zeta","\\Kap":"K","\\kap":"k","\\EEndMap":"\\mathsf{E}","\\TMap":"\\mathscr{T}","\\cP":"\\cons^{\\prime}","\\MPCP":"\\pi","\\taxDep":"\\partial","\\FP":"\\mathrm{F}^{\\prime}","\\fP":"\\mathrm{f}^{\\prime}","\\TranShkEmp":"\\pmb{\\theta}","\\TShkEmp":"\\Theta","\\tShkEmp":"\\theta","\\IncUnemp":"\\mu","\\Pop":"L","\\cPP":"\\cons^{\\prime\\prime}","\\FPP":"\\mathrm{F}^{\\prime\\prime}","\\fPP":"\\mathrm{f}^{\\prime\\prime}","\\cPPP":"\\cons^{\\prime\\prime\\prime}","\\uPPP":"\\mathrm{u}^{\\prime\\prime\\prime}","\\uPP":"\\mathrm{u}^{\\prime\\prime}","\\TaxCorp":"\\Large \\tau","\\taxCorp":"\\tau","\\uP":"\\mathrm{u}^{\\prime}","\\q":"\\koppa","\\adjPar":"\\omega","\\tranShkIndVar":"\\sigma^{2}_{\\tranShkInd}","\\tranShkAggVar":"\\sigma^{2}_{\\tranShkAgg}","\\ShkMeanOneLogVar":"\\sigma^{2}_{\\ShkMeanOneLog}","\\ShkLogZeroLogVar":"\\sigma_{\\cancel{\\ShkMeanOneLog}}^{2}","\\PermShkVar":"\\sigma^{2}_{\\PermShk}","\\TranShkVar":"\\sigma^{2}_{\\TranShk}","\\sdr":"\\mRat","\\Estdr":"\\sigma_{\\risky}","\\xFer":"\\chi","\\XFer":"X","\\nIter":"n","\\power":"\\eta","\\labor":"\\ell","\\Labor":"\\mathrm{L}","\\PLabor":"P","\\Plabor":"P","\\tHor":"\\mathsf{n}","\\error":"\\epsilon","\\Depr":"\\daleth","\\depr":"\\delta","\\ImpR":"\\Im}_{\\Rfree","\\impr":"\\imath}_{\\rfree","\\EVarr":"\\sigma_{\\Risky}^{2}","\\Evarr":"\\sigma_{\\risky}^{2}","\\Err":"Z","\\err":"z","\\CGroOverR":"\\Phi","\\corr":"\\varrho","\\curr":"1","\\Curr":"t","\\tCurr":"t","\\PatR":"\\text{\\pmb{\\Thorn}}_{\\Rfree}","\\patr":"\\text{\\thorn}_{\\rfree}","\\PDies":"\\mathsf{D}","\\pDies":"\\mathsf{d}","\\PLives":"\\cancel{\\PDies}","\\pLives":"\\cancel{\\pDies}","\\Stocks":"S","\\stocks":"s","\\TaxNetTrans":"Z","\\taxNetTrans":"z","\\unins":"\\zeta","\\Cons":"C","\\cons":"c","\\MPS":"\\lambda","\\MinMPS":"\\pZero^{1/\\CRRA} \\PatR","\\MaxMPS":"\\PatR","\\CGroPS":"\\chi","\\Hours":"\\mathfrak{H}","\\hours":"\\mathfrak{h}","\\ASS":"A","\\aSS":"a","\\cEss":"{c}^{e}","\\mEss":"\\check{m}^{e}","\\vEss":"\\check{v}^{e}","\\MSS":"\\breve{M}","\\mSS":"\\breve{m}","\\RGross":"\\breve{\\mathsf{R}}","\\rGross":"\\breve{\\mathsf{r}}","\\tSS":"t","\\effUnits":"X","\\Surplus":"Z","\\surplus":"z","\\TEat":"\\TEnd","\\patpGrohat":"\\hat{\\text{\\thorn}}_{\\pGro}","\\aMat":"[\\mathrm{a}]","\\bMat":"[\\mathrm{\\bNrm}]","\\cMat":"[\\mathrm{\\cNrm}]","\\tShkMat":"[\\mathrm{\\tShkEmp}]","\\mMat":"[\\mathrm{m}]","\\xMat":"[\\mathrm{\\xNrm}]","\\yMat":"[\\mathrm{\\yNrm}]","\\Pat":"\\text{\\pmb{\\Thorn}}","\\pat":"\\text{\\thorn}","\\ARat":"A","\\aRat":"a","\\NFARat":"\\NRat","\\BRat":"B","\\bRat":"b","\\CRat":"C","\\cRat":"c","\\ccRat":"\\mathsf{c}","\\dRat":"d","\\WEndRat":"\\ARat","\\wEndRat":"\\aRat","\\HRat":"H","\\hRat":"h","\\IRat":"I","\\iRat":"i","\\KRat":"K","\\kRat":"k","\\LRat":"L","\\lRat":"l","\\WAllRat":"O","\\wAllRat":"o","\\MRat":"M","\\mRat":"m","\\NRat":"N","\\nRat":"n","\\ORat":"O","\\oRat":"o","\\pRat":"p","\\GDPRat":"P","\\gdpRat":"p","\\SRat":"S","\\sRat":"s","\\VRat":"V","\\vRat":"v","\\WRat":"O","\\wRat":"o","\\XRat":"X","\\xRat":"x","\\YRat":"Y","\\yRat":"y","\\ZRat":"Z","\\zRat":"z","\\Debt":"D","\\debt":"d","\\Target":"\\check","\\WNet":"X","\\wNet":"x","\\straight":"\\Pi","\\weight":"\\omega","\\Habit":"H","\\habit":"h","\\WMkt":"\\MLev","\\wMkt":"\\mLev","\\wmkt":"\\mLev","\\Alt":"\\grave","\\DiscFacAlt":"\\beth","\\DiscAlt":"\\beth","\\ValAlt":"\\mathcal{V}","\\vOptAlt":"\\grave{\\tilde{\\mathfrak{v}}}","\\RiskyAlt":"\\pmb{\\mathfrak{R}}","\\riskyAlt":"\\pmb{\\mathfrak{r}}","\\uPmt":"\\mu","\\SeverancePayment":"\\mathcal{S}","\\kapRent":"\\varkappa","\\Discount":"\\beta","\\tinyAmount":"\\epsilon","\\WTot":"\\mathbf{O}","\\wTot":"\\mathbf{o}","\\Wtot":"O","\\wtot":"o","\\vOpt":"\\tilde{\\mathfrak{v}}","\\Rport":"\\mathbb{R}","\\rport":"\\mathbb{r}","\\FDist":"\\mathcal{F}","\\fDist":"\\mathcal{f}","\\Next":"t+1","\\tNext":"t+1","\\BU":"{B}^{u}","\\bU":"{b}^{u}","\\CU":"\\CRat^{u}","\\cU":"\\cRat^{u}","\\MPCU":"\\MPC^{u}","\\MU":"{M}^{u}","\\mU":"{m}^{u}","\\PopU":"\\mathcal{U}","\\SU":"\\SRat^{u}","\\sU":"\\sRat^{u}","\\PatU":"\\text{\\pmb{\\Thorn}}_{\\urate}","\\patu":"\\text{\\thorn}_{\\urate}","\\bRatU":"{b}^{u}","\\CRatU":"\\CRat^{u}","\\cRatU":"\\cRat^{u}","\\SRatU":"\\SRat^{u}","\\sRatU":"\\sRat^{u}","\\VU":"{V}^{u}","\\vU":"{v}^{u}","\\BLevU":"\\BLev^{u}","\\bLevU":"\\bLev^{u}","\\CLevU":"\\CLev^{u}","\\cLevU":"\\cLev^{u}","\\SLevU":"\\SLev^{u}","\\sLevU":"\\sLev^{u}","\\pSav":"\\phi","\\PDV":"\\mathbb{P}","\\CPDV":"\\text{PDV($C$)}","\\PPDV":"\\text{PDV($P$)}","\\ALev":"A","\\aLev":"a","\\NFALev":"\\NLev","\\BLev":"B","\\bLev":"b","\\CLev":"C","\\cLev":"c","\\DLev":"D","\\ELev":"E","\\FLev":"F","\\fLev":"f","\\GLev":"G","\\HLev":"\\pmb{H}","\\hLev":"\\pmb{h}","\\ILev":"I","\\iLev":"i","\\JLev":"J","\\KLev":"K","\\kLev":"k","\\lLev":"\\ell","\\LLev":"L","\\WAllLev":"\\mathbf{O}","\\wAllLev":"\\mathbf{o}","\\MLev":"M","\\mLev":"m","\\NLev":"N","\\nLev":"n","\\oLev":"\\pmb{o}","\\OLev":"O","\\pLev":"\\pmb{p}","\\PLev":"P","\\GDPLev":"\\pmb{P}","\\gdpLev":"\\pmb{p}","\\PopLev":"\\pmb{N}","\\QLev":"Q","\\RLev":"R","\\SLev":"S","\\sLev":"s","\\TLev":"T","\\ULev":"U","\\uLev":"u","\\VLev":"V","\\vLev":"v","\\wLev":"\\pmb{w}","\\WLev":"W","\\XLev":"X","\\xLev":"x","\\TaxLev":"T","\\YLev":"Y","\\yLev":"y","\\PtyLev":"A","\\ptyLev":"a","\\ZLev":"Z","\\zLev":"z","\\Rev":"\\Pi","\\rev":"\\pi","\\tPrev":"t-1","\\Div":"D","\\DiscFacLiv":"\\underline{\\DiscFacRaw}","\\Inv":"I","\\inv":"i","\\TaxCombInv":"\\mathcal{T}^{-1}","\\EPermShkInv":"\\Ex[\\PermShk^{-1}]","\\InvEPermShkInv":"\\underline{\\PermShk}","\\EpShkInv":"\\Ex[\\pShk^{-1}]","\\InvEpShkInv":"\\underline{\\psi}","\\uInvEpShkuInv":"\\underline{\\underline{\\psi}}","\\VInv":"\\Lambda","\\vInv":"\\scriptstyle \\Lambda \\displaystyle","\\cov":"\\textup{cov}","\\DiscFacRaw":"\\beta","\\GPFacRaw":"\\APFac_{\\PermGroFac}","\\Belw":"\\ushort","\\GovNW":"N","\\govNW":"n","\\cFuncBelow":"\\uline{\\mathrm{c}}","\\tNow":"t","\\cFuncMax":"\\bar{\\bar{\\mathrm{c}}}","\\MPCmax":"\\bar{\\kappa}","\\MPSmax":"\\RPFac","\\MPCmaxmax":"\\bar{\\bar{\\kappa}}","\\Tax":"\\tau","\\tax":"\\tau","\\Ex":"\\mathbb{E}","\\prudEx":"\\omega","\\Steady":"\\bar","\\Risky":"\\mathbf{R}","\\risky":"\\mathbf{r}","\\Seniority":"\\mathsf{X}","\\seniority":"\\mathsf{x}"},"abbreviations":{"GP":"Gaussian Process","GPR":"Gaussian Process Regression","EGM":"Endogenous Grid Method","NEGM":"Nested Endogenous Grid Method","G2EGM":"Generalized Endogenous Grid Method","DCEGM":"Discrete Choice Endogenous Grid Method"},"exports":[{"format":"md","filename":"README.md","url":"/SequentialEGM/build/README-6133c13c288a94e1f823643527ec8f49.md"}]},"mdast":{"type":"root","children":[{"type":"block","children":[{"type":"heading","depth":2,"position":{"start":{"line":9,"column":1},"end":{"line":9,"column":1}},"children":[{"type":"text","value":"Abstract","position":{"start":{"line":9,"column":1},"end":{"line":9,"column":1}},"key":"bZjuXpsnDZ"}],"identifier":"abstract","label":"Abstract","html_id":"abstract","implicit":true,"enumerator":"1","key":"IPhDCAFCZl"},{"type":"paragraph","position":{"start":{"line":11,"column":1},"end":{"line":11,"column":1}},"children":[{"type":"text","value":"Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require a large number of points and are time intensive. This paper provides a novel method for solving such models using an extension of the endogenous grid method (","key":"QzyG5OTfrr"},{"type":"abbreviation","title":"Endogenous Grid Method","children":[{"type":"text","value":"EGM","key":"vHolP0aPGs"}],"key":"SdzKeG7w3A"},{"type":"text","value":") that uses Gaussian Process Regression (","key":"vES7c0i2Ub"},{"type":"abbreviation","title":"Gaussian Process","children":[{"type":"text","value":"GP","key":"j555bDvhE8"}],"key":"xl0Xrg95AO"},{"type":"text","value":"R) to interpolate functions on unstructured grids. First, separating models into smaller, sequential problems allows the problems to be more tractable and easily analyzed. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be curvilinear at best and unstructured at worst, ","key":"s0tseek9tu"},{"type":"abbreviation","title":"Gaussian Process","children":[{"type":"text","value":"GP","key":"OAaFl0uH5X"}],"key":"TOD5hxl5yh"},{"type":"text","value":"R provides an efficient and accurate method for interpolating the value, marginal value, and policy functions. Applied sequentially to each decision within the overarching problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard grid search methods currently used. This paper also illustrates how this method can be applied to a number of increasingly complex models. Software is provided in the form of a Python module under the ","key":"jt2mjqX4Cu"},{"type":"inlineCode","value":"HARK","position":{"start":{"line":11,"column":1},"end":{"line":11,"column":1}},"key":"k2eRsX7BOl"},{"type":"text","value":" package.","position":{"start":{"line":11,"column":1},"end":{"line":11,"column":1}},"key":"ZN428GJd4s"}],"key":"fBGqCMsVoU"}],"key":"DllUcOWnL1"}],"key":"plmIsryvM3"},"references":{"cite":{"order":[],"data":{}}},"footer":{"navigation":{"next":{"title":"Abstract","short_title":"Abstract","url":"/titlepage","group":"Content"}}},"domain":"http://localhost:3000"}},"actionData":null,"errors":null},"future":{"unstable_dev":false,"unstable_postcss":false,"unstable_tailwind":false,"v2_errorBoundary":false,"v2_headers":true,"v2_meta":false,"v2_normalizeFormMethod":true,"v2_routeConvention":true}};</script><script type="module" async="">import "/SequentialEGM/build/manifest-36F4CA51.js";
-import * as route0 from "/SequentialEGM/build/root-JVCWRHY5.js";
-import * as route1 from "/SequentialEGM/build/routes/$-SAQ33C6I.js";
-window.__remixRouteModules = {"root":route0,"routes/$":route1};
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="index_files/libs/clipboard/clipboard.min.js"></script>
+    <script src="index_files/libs/quarto-html/tabby.min.js"></script>
+    <script src="index_files/libs/quarto-html/popper.min.js"></script>
+    <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+    <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet" />
+    <link
+      href="index_files/libs/quarto-html/light-border.css"
+      rel="stylesheet"
+    />
+    <link
+      href="index_files/libs/quarto-html/quarto-html.min.css"
+      rel="stylesheet"
+      data-mode="light"
+    />
+    <link
+      href="index_files/libs/quarto-html/quarto-syntax-highlighting.css"
+      rel="stylesheet"
+      id="quarto-text-highlighting-styles"
+    />
+    <script src="index_files/libs/quarto-contrib/videojs/video.min.js"></script>
+    <link
+      href="index_files/libs/quarto-contrib/videojs/video-js.css"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <meta name="generator" content="quarto-1.3.450" />
 
-import("/SequentialEGM/build/entry.client-JHWH3KUY.js");</script></body></html>
+    <meta name="author" content="Alan E. Lujan Solis" />
+    <meta name="dcterms.date" content="2023-11-16" />
+    <title>EGMn</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css" />
+    <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css" />
+    <style>
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      div.columns {
+        display: flex;
+        gap: min(4vw, 1.5em);
+      }
+      div.column {
+        flex: auto;
+        overflow-x: auto;
+      }
+      div.hanging-indent {
+        margin-left: 1.5em;
+        text-indent: -1.5em;
+      }
+      ul.task-list {
+        list-style: none;
+      }
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
+        vertical-align: middle;
+      }
+      /* CSS for citations */
+      div.csl-bib-body {
+      }
+      div.csl-entry {
+        clear: both;
+      }
+      .hanging-indent div.csl-entry {
+        margin-left: 2em;
+        text-indent: -2em;
+      }
+      div.csl-left-margin {
+        min-width: 2em;
+        float: left;
+      }
+      div.csl-right-inline {
+        margin-left: 2em;
+        padding-left: 1em;
+      }
+      div.csl-indent {
+        margin-left: 2em;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="index_files/libs/revealjs/dist/theme/quarto.css"
+    />
+    <link
+      href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css"
+      rel="stylesheet"
+    />
+    <link
+      href="index_files/libs/revealjs/plugin/reveal-menu/menu.css"
+      rel="stylesheet"
+    />
+    <link
+      href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css"
+      rel="stylesheet"
+    />
+    <link
+      href="index_files/libs/revealjs/plugin/quarto-support/footer.css"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      .callout {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border-radius: 0.25rem;
+      }
+
+      .callout.callout-style-simple {
+        padding: 0em 0.5em;
+        border-left: solid #acacac 0.3rem;
+        border-right: solid 1px silver;
+        border-top: solid 1px silver;
+        border-bottom: solid 1px silver;
+        display: flex;
+      }
+
+      .callout.callout-style-default {
+        border-left: solid #acacac 0.3rem;
+        border-right: solid 1px silver;
+        border-top: solid 1px silver;
+        border-bottom: solid 1px silver;
+      }
+
+      .callout .callout-body-container {
+        flex-grow: 1;
+      }
+
+      .callout.callout-style-simple .callout-body {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .callout.callout-style-default .callout-body {
+        font-size: 0.9rem;
+        font-weight: 400;
+      }
+
+      .callout.callout-titled.callout-style-simple .callout-body {
+        margin-top: 0.2em;
+      }
+
+      .callout:not(.callout-titled) .callout-body {
+        display: flex;
+      }
+
+      .callout:not(.no-icon).callout-titled.callout-style-simple
+        .callout-content {
+        padding-left: 1.6em;
+      }
+
+      .callout.callout-titled .callout-header {
+        padding-top: 0.2em;
+        margin-bottom: -0.2em;
+      }
+
+      .callout.callout-titled .callout-title p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .callout.callout-titled.callout-style-simple .callout-content p {
+        margin-top: 0;
+      }
+
+      .callout.callout-titled.callout-style-default .callout-content p {
+        margin-top: 0.7em;
+      }
+
+      .callout.callout-style-simple div.callout-title {
+        border-bottom: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        opacity: 75%;
+      }
+
+      .callout.callout-style-default div.callout-title {
+        border-bottom: none;
+        font-weight: 600;
+        opacity: 85%;
+        font-size: 0.9rem;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
+
+      .callout.callout-style-default div.callout-content {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
+
+      .callout.callout-style-simple .callout-icon::before {
+        height: 1rem;
+        width: 1rem;
+        display: inline-block;
+        content: "";
+        background-repeat: no-repeat;
+        background-size: 1rem 1rem;
+      }
+
+      .callout.callout-style-default .callout-icon::before {
+        height: 0.9rem;
+        width: 0.9rem;
+        display: inline-block;
+        content: "";
+        background-repeat: no-repeat;
+        background-size: 0.9rem 0.9rem;
+      }
+
+      .callout-title {
+        display: flex;
+      }
+
+      .callout-icon::before {
+        margin-top: 1rem;
+        padding-right: 0.5rem;
+      }
+
+      .callout.no-icon::before {
+        display: none !important;
+      }
+
+      .callout.callout-titled .callout-body > .callout-content > :last-child {
+        margin-bottom: 0.5rem;
+      }
+
+      .callout.callout-titled .callout-icon::before {
+        margin-top: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      .callout:not(.callout-titled) .callout-icon::before {
+        margin-top: 1rem;
+        padding-right: 0.5rem;
+      }
+
+      /* Callout Types */
+
+      div.callout-note {
+        border-left-color: #4582ec !important;
+      }
+
+      div.callout-note .callout-icon::before {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC");
+      }
+
+      div.callout-note.callout-style-default .callout-title {
+        background-color: #dae6fb;
+      }
+
+      div.callout-important {
+        border-left-color: #d9534f !important;
+      }
+
+      div.callout-important .callout-icon::before {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==");
+      }
+
+      div.callout-important.callout-style-default .callout-title {
+        background-color: #f7dddc;
+      }
+
+      div.callout-warning {
+        border-left-color: #f0ad4e !important;
+      }
+
+      div.callout-warning .callout-icon::before {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==");
+      }
+
+      div.callout-warning.callout-style-default .callout-title {
+        background-color: #fcefdc;
+      }
+
+      div.callout-tip {
+        border-left-color: #02b875 !important;
+      }
+
+      div.callout-tip .callout-icon::before {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==");
+      }
+
+      div.callout-tip.callout-style-default .callout-title {
+        background-color: #ccf1e3;
+      }
+
+      div.callout-caution {
+        border-left-color: #fd7e14 !important;
+      }
+
+      div.callout-caution .callout-icon::before {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=");
+      }
+
+      div.callout-caution.callout-style-default .callout-title {
+        background-color: #ffe5d0;
+      }
+    </style>
+    <style type="text/css">
+      .reveal div.sourceCode {
+        margin: 0;
+        overflow: auto;
+      }
+      .reveal div.hanging-indent {
+        margin-left: 1em;
+        text-indent: -1em;
+      }
+      .reveal .slide:not(.center) {
+        height: 100%;
+      }
+      .reveal .slide.scrollable {
+        overflow-y: auto;
+      }
+      .reveal .footnotes {
+        height: 100%;
+        overflow-y: auto;
+      }
+      .reveal .slide .absolute {
+        position: absolute;
+        display: block;
+      }
+      .reveal .footnotes ol {
+        counter-reset: ol;
+        list-style-type: none;
+        margin-left: 0;
+      }
+      .reveal .footnotes ol li:before {
+        counter-increment: ol;
+        content: counter(ol) ". ";
+      }
+      .reveal .footnotes ol li > p:first-child {
+        display: inline-block;
+      }
+      .reveal .slide ul,
+      .reveal .slide ol {
+        margin-bottom: 0.5em;
+      }
+      .reveal .slide ul li,
+      .reveal .slide ol li {
+        margin-top: 0.4em;
+        margin-bottom: 0.2em;
+      }
+      .reveal .slide ul[role="tablist"] li {
+        margin-bottom: 0;
+      }
+      .reveal .slide ul li > *:first-child,
+      .reveal .slide ol li > *:first-child {
+        margin-block-start: 0;
+      }
+      .reveal .slide ul li > *:last-child,
+      .reveal .slide ol li > *:last-child {
+        margin-block-end: 0;
+      }
+      .reveal .slide .columns:nth-child(3) {
+        margin-block-start: 0.8em;
+      }
+      .reveal blockquote {
+        box-shadow: none;
+      }
+      .reveal .tippy-content > * {
+        margin-top: 0.2em;
+        margin-bottom: 0.7em;
+      }
+      .reveal .tippy-content > *:last-child {
+        margin-bottom: 0.2em;
+      }
+      .reveal .slide > img.stretch.quarto-figure-center,
+      .reveal .slide > img.r-stretch.quarto-figure-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .reveal .slide > img.stretch.quarto-figure-left,
+      .reveal .slide > img.r-stretch.quarto-figure-left {
+        display: block;
+        margin-left: 0;
+        margin-right: auto;
+      }
+      .reveal .slide > img.stretch.quarto-figure-right,
+      .reveal .slide > img.r-stretch.quarto-figure-right {
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body class="quarto-light">
+    <div class="reveal">
+      <div class="slides">
+        <section id="title-slide" class="quarto-title-block center">
+          <h1 class="title">EGM<sup>n</sup></h1>
+          <p class="subtitle">The Sequential Endogenous Grid Method</p>
+
+          <div class="quarto-title-authors">
+            <div class="quarto-title-author">
+              <div class="quarto-title-author-name">Alan E. Lujan Solis</div>
+              <p class="quarto-title-affiliation">Johns Hopkins University</p>
+            </div>
+          </div>
+
+          <p class="date">November 16, 2023</p>
+        </section>
+        <section id="motivation" class="slide level2">
+          <h2>Motivation</h2>
+          <ul>
+            <li>
+              Structural Economics for modeling
+              <strong>decision-making under uncertainty</strong>
+              <ul>
+                <li>
+                  household: consumption, savings, labor, portfolio, retirement
+                </li>
+                <li>firms: production, investment, hiring, entry/exit</li>
+                <li>
+                  governments: fiscal and monetary policy, taxation,
+                  redistribution
+                </li>
+                <li>
+                  interdisciplinary: climate change, public health, education,
+                  etc.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="fragment">
+            <ul>
+              <li>
+                Structural modeling is <strong>hard</strong>
+                <ul>
+                  <li>modern economics requires solving complex problems</li>
+                  <li>
+                    with many state variables, many decisions, and
+                    non-convexities
+                  </li>
+                  <li>computationally challenging and time-consuming</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section id="outline" class="slide level2">
+          <h2>Outline</h2>
+          <ul>
+            <li>
+              Dynamic Programming
+              <ul>
+                <li>The Endogenous Grid Method</li>
+                <li>The <strong>Sequential</strong> Endogenous Grid Method</li>
+              </ul>
+            </li>
+            <li>
+              Functional Approximation
+              <ul>
+                <li>
+                  Conventional techniques are <strong>insufficient</strong> for
+                  complex problems
+                </li>
+                <li>Neural Nets as <strong>function approximators</strong></li>
+                <li><strong>Gaussian Process</strong> Regression</li>
+              </ul>
+            </li>
+            <li>
+              Conclusion
+              <ul>
+                <li>Sequential problems are easier to solve</li>
+                <li>
+                  GPR is a powerful tool for <strong>interpolation</strong> on
+                  unstructured grids
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <section
+            id="dynamic-programming"
+            class="title-slide slide level1 center"
+          >
+            <h1>Dynamic Programming</h1>
+          </section>
+          <section
+            id="a-simple-consumption-savings-problem"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              A simple consumption-savings problem
+            </h2>
+            <p>
+              Agent maximizes present discounted value (PDV) of lifetime utility
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \max_{c_t} \sum_{t=0}^{\infty} \beta^t
+                \mathrm{u}(c_t) \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>Recursive Bellman equation</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \begin{split} v_t(m_t) &amp; = \max_{c_t}
+                  \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(m_{t+1})
+                  \right] \\ \text{s.t.} &amp; \quad 0 &lt; c_t \leq m_t \\ a_t
+                  &amp; = m_t - c_t \\ m_{t+1} &amp; = \mathsf{R}a_t +
+                  \theta_{t+1} \end{split} \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section
+            id="a-simple-consumption-savings-problem-1"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              A simple consumption-savings problem
+            </h2>
+            <p>Recursive Bellman equation</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{split} v_t(m_t) &amp; = \max_{c_t}
+                \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(m_{t+1})
+                \right] \\ \text{s.t.} &amp; \quad 0 &lt; c_t \leq m_t \\ a_t
+                &amp; = m_t - c_t \\ m_{t+1} &amp; = \mathsf{R}a_t +
+                \theta_{t+1} \end{split} \end{equation}\]</span
+              >
+            </p>
+            <p>How do we solve this problem?</p>
+            <ul>
+              <li>
+                <strong>Value Function Iteration</strong> (VFI)
+                <ul>
+                  <li>Discretize state space (interpolation)</li>
+                  <li>Grid search optimization (brute force, iterative)</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section
+            id="the-endogenous-grid-method-by-carroll2006-ag"
+            class="slide level2 smaller"
+          >
+            <h2>
+              The Endogenous Grid Method <br />
+              by
+              <span class="citation" data-cites="Carroll2006-ag"
+                >Carroll (<a href="#/references" role="doc-biblioref" onclick=""
+                  >2006</a
+                >)</span
+              >
+            </h2>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} v_t(m_t) = \max_{c_t} \mathrm{u}(c_t) +
+                \beta\mathbb{E}_t \left[ v_{t+1}(\mathsf{R}(m_t - c_t) +
+                \theta_{t+1}) \right] \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} u'(c_t) = \beta\mathsf{R}\mathbb{E}_t
+                  \left[ v_{t+1}'(\mathsf{R}(m_t - c_t) + \theta_{t+1}) \right]
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathfrak{c}_t([\mathrm{a}]) =
+                  \mathrm{u}'^{-1} \left( \beta\mathsf{R}\mathbb{E}_t \left[
+                  v_{t+1}'(\mathsf{R}[\mathrm{a}]+ \theta_{t+1}) \right] \right)
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathfrak{m}_t([\mathrm{a}]) =
+                  \mathfrak{c}_t([\mathrm{a}]) + [\mathrm{a}]
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>
+                Contribution:
+                <span class="math inline"
+                  >\((\mathfrak{m}_t, \mathfrak{c}_t) \quad \Rightarrow \quad
+                  \hat{c}_t(\mathfrak{m}_t) = \mathfrak{c}_t\)</span
+                >
+              </p>
+              <ul>
+                <li>Simple: <strong>Inverted Euler</strong> equation</li>
+                <li>
+                  Fast: No <strong>root-finding</strong> or
+                  <strong>grid search</strong> optimization required
+                </li>
+                <li>
+                  Efficient: Finds <strong>exact solution</strong> at each
+                  gridpoint
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section id="limitations-of-egm" class="slide level2">
+            <h2>Limitations of EGM</h2>
+            <ul>
+              <li>
+                <strong>One-dimensional</strong> problems/sub-problems (nested)
+                <ul>
+                  <li>
+                    (GEGM)
+                    <span class="citation" data-cites="Barillas2007"
+                      >Barillas and Fernández-Villaverde (<a
+                        href="#/references"
+                        role="doc-biblioref"
+                        onclick=""
+                        >2007</a
+                      >)</span
+                    >
+                  </li>
+                  <li>
+                    (NEGM)
+                    <span class="citation" data-cites="Druedahl2021"
+                      >Druedahl (<a
+                        href="#/references"
+                        role="doc-biblioref"
+                        onclick=""
+                        >2021</a
+                      >)</span
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Can result in <strong>non-rectangular grids</strong>
+                <ul>
+                  <li>
+                    (Curvilinear)
+                    <span class="citation" data-cites="White2015"
+                      >White (<a
+                        href="#/references"
+                        role="doc-biblioref"
+                        onclick=""
+                        >2015</a
+                      >)</span
+                    >
+                  </li>
+                  <li>
+                    (Triangular)
+                    <span class="citation" data-cites="Ludwig2018"
+                      >Ludwig and Schön (<a
+                        href="#/references"
+                        role="doc-biblioref"
+                        onclick=""
+                        >2018</a
+                      >)</span
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Non-convexities</strong> (discrete choices) can be
+                problematic
+                <ul>
+                  <li>
+                    (DCEGM)
+                    <span class="citation" data-cites="Iskhakov2017-af"
+                      >Iskhakov et al. (<a
+                        href="#/references"
+                        role="doc-biblioref"
+                        onclick=""
+                        >2017</a
+                      >)</span
+                    >
+                  </li>
+                  <li>
+                    (G2EGM)
+                    <span class="citation" data-cites="Druedahl2017-ac"
+                      >Druedahl and Jørgensen (<a
+                        href="#/references"
+                        role="doc-biblioref"
+                        onclick=""
+                        >2017</a
+                      >)</span
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section
+            id="egmn-the-sequential-endogenous-grid-method"
+            class="slide level2 smaller"
+          >
+            <h2>
+              EGM<sup>n</sup>: The Sequential <br />
+              Endogenous Grid Method
+            </h2>
+            <ul>
+              <li>
+                <strong>Insight</strong>: Problems in which agent makes several
+                <strong>simultaneous choices</strong> can be decomposed into
+                <strong>sequence of problems</strong>
+              </li>
+              <li>
+                <strong>Challenge</strong>: Rectilinear exogenous grid results
+                in <strong>unstructured</strong> endogenous grid
+              </li>
+              <li>
+                <strong>Solution</strong>: Use machine learning to
+                <strong>interpolate</strong> on unstructured grids
+              </li>
+            </ul>
+            <div class="fragment">
+              <p>Contribution:</p>
+              <ul>
+                <li>
+                  <strong>Simple, Fast, Efficient</strong>: Inherits properties
+                  of EGM
+                </li>
+                <li>
+                  <strong>Multi-dimensional</strong>: Can be used for problems
+                  with multiple state variables and decisions
+                </li>
+                <li>
+                  <strong>Cutting-edge</strong>: Functional approximation and
+                  uncertainty quantification approach using Gaussian Process
+                  Regression
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section
+            id="a-consumption---leisure-problem"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              A consumption - leisure problem
+            </h2>
+            <p>Agent maximizes PDV of lifetime utility</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathrm{V}_0(B_0, \theta_0) = \max_{C_{t},
+                Z_{t}} \mathbb{E}_{t} \left[ \sum_{t = 0}^{T} \beta^{t}
+                \mathrm{u}(C_{t}, Z_{t}) \right] \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>Recursive Bellman equation in normalized form:</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \begin{split} \mathrm{v}_{t}(b_{t},
+                  \theta_{t}) &amp; = \max_{\{c_{t}, z_{t}\}} \mathrm{u}(c_{t},
+                  z_{t}) + \beta\mathbb{E}_{t} \left[ \Gamma_{t+1}^{1-\rho}
+                  \mathrm{v}_{t+1} (b_{t+1}, \theta_{t+1}) \right] \\ \ell_{t}
+                  &amp; = 1 - z_{t} \\ m_{t} &amp; = b_{t} + \theta_{t}
+                  \mathsf{w}\ell_{t} \\ a_{t} &amp; = m_{t} - c_{t} \\ b_{t+1}
+                  &amp; = a_{t} \mathsf{R}/ \Gamma_{t+1} \end{split}
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section
+            id="a-consumption---leisure-problem-1"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              A consumption - leisure problem
+            </h2>
+            <p>Recursive Bellman equation in normalized form:</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{split} \mathrm{v}_{t}(b_{t},
+                \theta_{t}) &amp; = \max_{\{c_{t}, z_{t}\}} \mathrm{u}(c_{t},
+                z_{t}) + \beta\mathbb{E}_{t} \left[ \Gamma_{t+1}^{1-\rho}
+                \mathrm{v}_{t+1} (b_{t+1}, \theta_{t+1}) \right] \\ \ell_{t}
+                &amp; = 1 - z_{t} \\ m_{t} &amp; = b_{t} + \theta_{t}
+                \mathsf{w}\ell_{t} \\ a_{t} &amp; = m_{t} - c_{t} \\ b_{t+1}
+                &amp; = a_{t} \mathsf{R}/ \Gamma_{t+1} \end{split}
+                \end{equation}\]</span
+              >
+            </p>
+            <p>where</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathrm{u}(C, Z) = u(C) + h(Z) =
+                \frac{C^{1-\rho}}{1-\rho} + \nu^{1-\rho}
+                \frac{Z^{1-\zeta}}{1-\zeta} \end{equation}\]</span
+              >
+            </p>
+          </section>
+          <section
+            id="breaking-up-the-problem-into-sequences"
+            class="slide level2 smaller"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              Breaking up the problem into sequences
+            </h2>
+            <p>
+              Starting from the beginning of the period, we can define the
+              labor-leisure problem as
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{split} \mathrm{v}_{t}(b_{t},
+                \theta_{t}) &amp; = \max_{ z_{t}} h(z_{t}) +
+                \tilde{\mathfrak{v}}_{t} (m_{t}) \\ &amp; \text{s.t.} \\ 0 &amp;
+                \leq z_{t} \leq 1 \\ \ell_{t} &amp; = 1 - z_{t} \\ m_{t} &amp; =
+                b_{t} + \theta_{t} \mathsf{w}\ell_{t}. \end{split}
+                \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>The pure consumption-saving problem is then</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \begin{split}
+                  \tilde{\mathfrak{v}}_{t}(m_{t}) &amp; = \max_{c_{t}} u(c_{t})
+                  + \beta\mathfrak{v}_{t}(a_{t}) \\ &amp; \text{s.t.} \\ 0 &amp;
+                  \leq c_{t} \leq m_{t} \\ a_{t} &amp; = m_{t} - c_{t}.
+                  \end{split} \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section
+            id="breaking-up-the-problem-into-sequences-1"
+            class="slide level2 smaller"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              Breaking up the problem into sequences
+            </h2>
+            <div class="columns">
+              <div class="column" style="width: 50%">
+                <p>
+                  Starting from the beginning of the period, we can define the
+                  labor-leisure problem as
+                </p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \begin{split} \mathrm{v}_{t}(b_{t},
+                    \theta_{t}) &amp; = \max_{ z_{t}} h(z_{t}) +
+                    \tilde{\mathfrak{v}}_{t} (m_{t}) \\ &amp; \text{s.t.} \\ 0
+                    &amp; \leq z_{t} \leq 1 \\ \ell_{t} &amp; = 1 - z_{t} \\
+                    m_{t} &amp; = b_{t} + \theta_{t} \mathsf{w}\ell_{t}.
+                    \end{split} \end{equation}\]</span
+                  >
+                </p>
+              </div>
+              <div class="column" style="width: 50%">
+                <p>The pure consumption-saving problem is then</p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \begin{split}
+                    \tilde{\mathfrak{v}}_{t}(m_{t}) &amp; = \max_{c_{t}}
+                    u(c_{t}) + \beta\mathfrak{v}_{t}(a_{t}) \\ &amp; \text{s.t.}
+                    \\ 0 &amp; \leq c_{t} \leq m_{t} \\ a_{t} &amp; = m_{t} -
+                    c_{t}. \end{split} \end{equation}\]</span
+                  >
+                </p>
+              </div>
+            </div>
+            <p>Finally, the post-decision value function is</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{split} \mathfrak{v}_{t}(a_{t}) &amp;
+                = \mathbb{E}_{t} \left[ \Gamma_{t+1}^{1-\rho}
+                \mathrm{v}_{t+1}(b_{t+1}, \theta_{t+1}) \right] \\ &amp;
+                \text{s.t.} \\ b_{t+1} &amp; = a_{t} \mathsf{R}/ \Gamma_{t+1}.
+                \end{split} \end{equation}\]</span
+              >
+            </p>
+            <!-- ## Solving Consumption-Saving via EGM
+
+We can condense the consumption-saving problem into a single equation:
+
+\begin{equation}
+\vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
+  \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
+\end{equation}
+
+Interior solution must satisfy the Euler equation:
+
+\begin{equation}
+\utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
+  \vEnd_{t}'(\aRat_{t})
+\end{equation}
+
+EGM consists of inverting the Euler equation to find the consumption function:
+
+\begin{equation}
+\cEndFunc_{t}(\aMat) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aMat)
+  \right)
+\end{equation}
+
+## Solving Consumption-Saving via EGM
+
+Then using budget contraint we obtain endogenous grid:
+
+\begin{equation}
+  \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
+\end{equation}
+
+. . .
+
+Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution. -->
+          </section>
+          <section id="solving-labor-leisure-egm-again" class="slide level2">
+            <h2>Solving Labor-Leisure (EGM, Again)</h2>
+            <p>
+              We can condense the labor-leisure problem into a single equation:
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathrm{v}_{t}(b_{t}, \theta_{t}) = \max_{
+                z_{t}} h(z_{t}) + \tilde{\mathfrak{v}}_{t}(b_{t} + \theta_{t}
+                \mathsf{w}(1-z_{t})) \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>Interior solution must satisfy the first-order condition:</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} h'(z_{t}) =
+                  \tilde{\mathfrak{v}}_{t}'(m_{t}) \theta_{t} \mathsf{w}
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>
+                EGM consists of inverting the first-order condition to find
+                leisure function:
+              </p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathfrak{z}_{t}([\mathrm{m}],
+                  [\mathrm{\theta}]) = h'^{-1}\left(
+                  \tilde{\mathfrak{v}}_{t}'([\mathrm{m}])
+                  \mathsf{w}[\mathrm{\theta}]\right) \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section id="solving-labor-leisure-egm-again-1" class="slide level2">
+            <h2>Solving Labor-Leisure (EGM, Again)</h2>
+            <p>Using market resources condition we obtain endogenous grid:</p>
+            <p>
+              <span class="math display"
+                >\[\mathfrak{b}_{t}([\mathrm{m}], [\mathrm{\theta}]) =
+                [\mathrm{m}]-
+                [\mathrm{\theta}]\mathsf{w}(1-\mathfrak{z}_{t}([\mathrm{m}],
+                [\mathrm{\theta}]))\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>
+                So now we have the triple
+                <span class="math inline"
+                  >\((\mathfrak{z}_t, \mathfrak{b}_t, \theta)\)</span
+                >, where <span class="math inline">\(\mathfrak{z}_t\)</span> is
+                the unconstrained approx. of optimal leisure for each
+                <span class="math inline">\((\mathfrak{b}_t, \theta)\)</span>
+                corresponding to each
+                <span class="math inline"
+                  >\(([\mathrm{m}], [\mathrm{\theta}])\)</span
+                >. Generally, we can construct an interpolator as follows:
+              </p>
+              <p>
+                <span class="math display"
+                  >\[z_t(\mathfrak{b}_t, \theta) = \mathfrak{z}_t\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>Actual leisure function is bounded between 0 and 1:</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \hat{z}_{t}(b, \theta) = \max \left[ \min
+                  \left[ z_{t}(b, \theta), 1 \right], 0 \right]
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section id="pretty-simple-right" class="slide level2">
+            <h2>Pretty Simple, Right?</h2>
+            <p>What is the <strong>problem</strong>?</p>
+            <div class="fragment">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      Exogenous Rectangular Grid <br />
+                      <img
+                        src="figures/LaborSeparableRectangularGrid.svg"
+                        alt="Exogenous Rectangular Grid"
+                      />
+                    </td>
+                    <td>
+                      Endogenous Curvilinear Grid <br />
+                      <img
+                        src="figures/LaborSeparableWarpedGrid.svg"
+                        alt="Endogenous Curvilinear Grid"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="fragment">
+              <ul>
+                <li>
+                  <strong>One solution:</strong> Curvilinear Interpolation by
+                  <span class="citation" data-cites="White2015"
+                    >White (<a
+                      href="#/references"
+                      role="doc-biblioref"
+                      onclick=""
+                      >2015</a
+                    >)</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section id="warped-grid-interpolation" class="slide level2">
+            <h2>Warped Grid Interpolation</h2>
+            <ul>
+              <li>
+                Our solution:
+                <strong>Warped Grid Interpolation</strong> (simpler, faster,
+                more details on paper)
+              </li>
+            </ul>
+
+            <img data-src="figures/WarpedInterpolation.svg" class="r-stretch" />
+          </section>
+          <section id="a-more-complex-problem" class="slide level2 smaller">
+            <h2>A more complex problem</h2>
+            <p>
+              Consumption - Pension Deposit Problem as in
+              <span class="citation" data-cites="Druedahl2017-ac"
+                >Druedahl and Jørgensen (<a
+                  href="#/references"
+                  role="doc-biblioref"
+                  onclick=""
+                  >2017</a
+                >)</span
+              >
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{split} \mathrm{v}_{t}(m_{t}, n_{t})
+                &amp; = \max_{c_{t}, d_{t}} u(c_{t}) + \beta\mathbb{E}_{t}
+                \left[ \mathrm{v}_{t+1}(m_{t+1}, n_{t+1}) \right] \\ &amp;
+                \text{s.t.} \quad c_{t} &gt; 0, \quad d_{t} \ge 0 \\ a_{t} &amp;
+                = m_{t} - c_{t} - d_{t} \\ b_{t} &amp; = n_{t} + d_{t} +
+                g(d_{t}) \\ m_{t+1} &amp; = a_{t} \mathsf{R}+ \theta_{t+1} \\
+                n_{t+1} &amp; = b_{t} \mathbf{R}_{t+1} \end{split}
+                \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>where</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathrm{u}(c) = \frac{c^{1-\rho}}{1-\rho}
+                  \qquad \text{and} \qquad \mathrm{g}(d) = \chi\log(1+d).
+                  \end{equation}\]</span
+                >
+              </p>
+              <p>is a tax-advantaged premium on pension contributions.</p>
+            </div>
+          </section>
+          <section id="g2egm-from-druedahl2017-ac" class="slide level2">
+            <h2>
+              G2EGM from <br />
+              <span class="citation" data-cites="Druedahl2017-ac"
+                >Druedahl and Jørgensen (<a
+                  href="#/references"
+                  role="doc-biblioref"
+                  onclick=""
+                  >2017</a
+                >)</span
+              >
+            </h2>
+            <ul>
+              <li>
+                If we try to use EGM:
+                <ul>
+                  <li>2 first order conditions</li>
+                  <li>multiple constraints difficult to handle</li>
+                  <li>
+                    segments: combinations of first order conditions and
+                    constraints
+                  </li>
+                  <li>
+                    <span class="math inline">\(2^{d}\)</span> segments where
+                    <span class="math inline">\(d\)</span> is number of control
+                    variables
+                  </li>
+                  <li>requires local triangulation interpolation</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section
+            id="breaking-up-the-problem-makes-it-easier"
+            class="slide level2 smaller"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              Breaking up the problem makes it easier
+            </h2>
+            <p>
+              Consider the problem of a consumer who chooses how much to put
+              into a pension account:
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{split} \mathrm{v}_{t}(m_{t}, n_{t})
+                &amp; = \max_{d_{t}} \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) \\
+                &amp; \text{s.t.} \quad 0 \le d_{t} \le m_t \\ l_{t} &amp; =
+                m_{t} - d_{t} \\ b_{t} &amp; = n_{t} + d_{t} + g(d_{t})
+                \end{split} \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>
+                After, the consumer chooses how much to consume out of liquid
+                savings:
+              </p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \begin{split}
+                  \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) &amp; = \max_{c_{t}}
+                  u(c_{t}) + \beta\mathrm{w}_{t}(a_{t}, b_{t}) \\ &amp;
+                  \text{s.t.} \quad 0 &lt; c_{t} \le m_t \\ a_{t} &amp; = l_{t}
+                  - c_{t} \end{split} \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section
+            id="breaking-up-the-problem-makes-it-easier-1"
+            class="slide level2 smaller"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              Breaking up the problem makes it easier
+            </h2>
+            <div class="columns">
+              <div class="column" style="width: 50%">
+                <p>
+                  Consider the problem of a consumer who chooses how much to put
+                  into a pension account:
+                </p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \begin{split} \mathrm{v}_{t}(m_{t},
+                    n_{t}) &amp; = \max_{d_{t}} \tilde{\mathfrak{v}}_{t}(l_{t},
+                    b_{t}) \\ &amp; \text{s.t.} \quad 0 \le d_{t} \le m_t \\
+                    l_{t} &amp; = m_{t} - d_{t} \\ b_{t} &amp; = n_{t} + d_{t} +
+                    g(d_{t}) \end{split} \end{equation}\]</span
+                  >
+                </p>
+              </div>
+              <div class="column" style="width: 50%">
+                <p>
+                  After, the consumer chooses how much to consume out of liquid
+                  savings:
+                </p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \begin{split}
+                    \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) &amp; = \max_{c_{t}}
+                    u(c_{t}) + \beta\mathrm{w}_{t}(a_{t}, b_{t}) \\ &amp;
+                    \text{s.t.} \quad 0 &lt; c_{t} \le m_t \\ a_{t} &amp; =
+                    l_{t} - c_{t} \end{split} \end{equation}\]</span
+                  >
+                </p>
+              </div>
+            </div>
+            <p>And the post-decision value function is defined as:</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{split} \mathrm{w}_t(a_t, b_t) &amp; =
+                \mathbb{E}_{t} \left[ \mathrm{v}_{t+1}(m_{t+1}, n_{t+1}) \right]
+                \\ &amp; \text{s.t.} \\ m_{t+1} &amp; = a_{t} \mathsf{R}+
+                \theta_{t+1} \\ n_{t+1} &amp; = b_{t} \mathbf{R}_{t+1}
+                \end{split} \end{equation}\]</span
+              >
+            </p>
+          </section>
+          <section
+            id="breaking-up-the-problem-makes-it-easier-2"
+            class="slide level2 smaller"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              Breaking up the problem makes it easier
+            </h2>
+            <div class="columns">
+              <div class="column" style="width: 50%">
+                <p>
+                  Consider the problem of a consumer who chooses how much to put
+                  into a pension account:
+                </p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \begin{split} \mathrm{v}_{t}(m_{t},
+                    n_{t}) &amp; = \max_{d_{t}} \tilde{\mathfrak{v}}_{t}(l_{t},
+                    b_{t}) \\ &amp; \text{s.t.} \quad 0 \le d_{t} \le m_t \\
+                    l_{t} &amp; = m_{t} - d_{t} \\ b_{t} &amp; = n_{t} + d_{t} +
+                    g(d_{t}) \end{split} \end{equation}\]</span
+                  >
+                </p>
+              </div>
+              <div class="column" style="width: 50%">
+                <p>
+                  After, the consumer chooses how much to consume out of liquid
+                  savings:
+                </p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \begin{split}
+                    \tilde{\mathfrak{v}}_{t}(l_{t}, b_{t}) &amp; = \max_{c_{t}}
+                    u(c_{t}) + \beta\mathrm{w}_{t}(a_{t}, b_{t}) \\ &amp;
+                    \text{s.t.} \quad 0 &lt; c_{t} \le m_t \\ a_{t} &amp; =
+                    l_{t} - c_{t} \end{split} \end{equation}\]</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column" style="width: 50%">
+                <p>And the post-decision value function is defined as:</p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \begin{split} \mathrm{w}_t(a_t, b_t)
+                    &amp; = \mathbb{E}_{t} \left[ \mathrm{v}_{t+1}(m_{t+1},
+                    n_{t+1}) \right] \\ &amp; \text{s.t.} \\ m_{t+1} &amp; =
+                    a_{t} \mathsf{R}+ \theta_{t+1} \\ n_{t+1} &amp; = b_{t}
+                    \mathbf{R}_{t+1} \end{split} \end{equation}\]</span
+                  >
+                </p>
+              </div>
+              <div class="column" style="width: 50%">
+                <p>Steps:</p>
+                <ol type="1">
+                  <li>
+                    Compute
+                    <span class="math inline">\(\mathrm{w}_t(a_t, b_t)\)</span>
+                  </li>
+                  <li>Solve consumption problem (EGM)</li>
+                  <li>Solve pension problem (EGM, again)</li>
+                  <li>Done!</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+          <section
+            id="solving-the-pension-problem"
+            class="slide level2 smaller"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">Solving the pension problem</h2>
+            <p>The pension problem, more compactly</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathrm{v}_{t}(m_{t}, n_{t}) = \max_{d_{t}}
+                \tilde{\mathfrak{v}}_{t}(m_{t} - d_{t}, n_{t} + d_{t} +
+                \mathrm{g}(d_{t})) \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>Interior solution must satisfy the first-order condition:</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathrm{g}'(d_{t}) =
+                  \frac{\tilde{\mathfrak{v}}_{t}^{l}(l_{t},
+                  b_{t})}{\tilde{\mathfrak{v}}_{t}^{b}(l_{t}, b_{t})} - 1
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>
+                Inverting, we can obtain the optimal choice of
+                <span class="math inline">\(d_{t}\)</span>:
+              </p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathfrak{d}_{t}(l_{t}, b_{t}) =
+                  \mathrm{g}'^{-1}\left(
+                  \frac{\tilde{\mathfrak{v}}_{t}^{l}(l_{t},
+                  b_{t})}{\tilde{\mathfrak{v}}_{t}^{b}(l_{t}, b_{t})} - 1
+                  \right) \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section
+            id="solving-the-pension-problem-1"
+            class="slide level2 smaller"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">Solving the pension problem</h2>
+            <p>
+              Inverting, we can obtain the optimal choice of
+              <span class="math inline">\(d_{t}\)</span>:
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathfrak{d}_{t}(l_{t}, b_{t}) =
+                \mathrm{g}'^{-1}\left( \frac{\tilde{\mathfrak{v}}_{t}^{l}(l_{t},
+                b_{t})}{\tilde{\mathfrak{v}}_{t}^{b}(l_{t}, b_{t})} - 1 \right)
+                \end{equation}\]</span
+              >
+            </p>
+            <p>Using resource constraints we obtain endogenous grids:</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathfrak{n}_{t}(l_{t}, b_{t}) = b_{t} -
+                \mathfrak{d}_{t}(l_{t}, b_{t}) -
+                \mathrm{g}(\mathfrak{d}_{t}(l_{t}, b_{t})) \\
+                \mathfrak{m}_{t}(l_{t}, b_{t}) = l_{t} + \mathfrak{d}_{t}(l_{t},
+                b_{t}) \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>
+                Now we have the triple
+                <span class="math inline"
+                  >\(\{\mathfrak{m}_t, \mathfrak{n}_t, \mathfrak{d}_t\}\)</span
+                >
+                where <span class="math inline">\(\mathfrak{d}_t\)</span> is the
+                unconstrained approx. of optimal deposit for each
+                <span class="math inline"
+                  >\((\mathfrak{m}_t, \mathfrak{n}_t)\)</span
+                >
+                corresponding to each
+                <span class="math inline">\((l_t, b_t)\)</span>. Generally, we
+                can construct an interpolator as follows:
+              </p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \hat{d_t}(\mathfrak{m}_t, \mathfrak{n}_t)
+                  = \begin{cases} 0 &amp; \text{if } \mathfrak{d}_t &lt; 0 \\
+                  \mathfrak{d}_t &amp; \text{if } 0 \le \mathfrak{d}_t \le
+                  \mathfrak{m}_t \\ \mathfrak{m}_t &amp; \text{if }
+                  \mathfrak{d}_t &gt; \mathfrak{m}_t \end{cases}
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section id="unstructured-grids" class="slide level2 smaller">
+            <h2>Unstructured Grids</h2>
+            <p>
+              Problem: <strong>Rectilinear</strong> exogenous grid results in
+              <strong>unstructured</strong> endogenous grid
+            </p>
+            <div class="columns">
+              <div class="column" style="width: 50%">
+                <p>Exogenous Rectangular Grid <br /></p>
+                <div class="quarto-figure quarto-figure-center">
+                  <figure>
+                    <p>
+                      <img data-src="figures/SparsePensionExogenousGrid.svg" />
+                    </p>
+                    <figcaption>Sparse Pension Exogenous Grid</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="column" style="width: 50%">
+                <p>Endogenous Unstructured Grid <br /></p>
+                <div class="quarto-figure quarto-figure-center">
+                  <figure>
+                    <p><img data-src="figures/PensionEndogenousGrid.svg" /></p>
+                    <figcaption>
+                      Unstructured Pension Endogenous Grid
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <p>How do we <strong>interpolate</strong> on this grid?</p>
+          </section>
+        </section>
+        <section>
+          <section
+            id="functional-approximation"
+            class="title-slide slide level1 center"
+          >
+            <h1>Functional Approximation</h1>
+          </section>
+          <section
+            id="linear-interpolation-on-a-uniform-grid"
+            class="slide level2"
+          >
+            <h2>Linear Interpolation on a Uniform Grid</h2>
+            <video
+              id="video_shortcode_videojs_video1"
+              class="video-js vjs-default-skin vjs-fluid"
+              controls=""
+              preload="auto"
+              data-setup="{}"
+              title=""
+            >
+              <source src="videos/LinearInterpolationUniform.mp4" />
+            </video>
+          </section>
+          <section
+            id="linear-interpolation-on-a-non-linear-grid"
+            class="slide level2"
+          >
+            <h2>Linear Interpolation on a Non-linear Grid</h2>
+            <video
+              id="video_shortcode_videojs_video2"
+              class="video-js vjs-default-skin vjs-fluid"
+              controls=""
+              preload="auto"
+              data-setup="{}"
+              title=""
+            >
+              <source src="videos/LinearInterpolationGeometric.mp4" />
+            </video>
+          </section>
+          <section id="bilinear-interpolation" class="slide level2">
+            <h2>Bilinear Interpolation</h2>
+            <video
+              id="video_shortcode_videojs_video3"
+              class="video-js vjs-default-skin vjs-fluid"
+              controls=""
+              preload="auto"
+              data-setup="{}"
+              title=""
+            >
+              <source src="videos/BilinearInterpolation.mp4" />
+            </video>
+          </section>
+          <section
+            id="curvilinear-warped-grid-interpolation"
+            class="slide level2 smaller"
+          >
+            <h2>Curvilinear (Warped) Grid Interpolation</h2>
+            <video
+              id="video_shortcode_videojs_video4"
+              class="video-js vjs-default-skin vjs-fluid"
+              controls=""
+              preload="auto"
+              data-setup="{}"
+              title=""
+            >
+              <source src="videos/CurvilinearInterpolation.mp4" />
+            </video>
+            <p>
+              See:
+              <span class="citation" data-cites="White2015"
+                >White (<a href="#/references" role="doc-biblioref" onclick=""
+                  >2015</a
+                >)</span
+              >
+            </p>
+          </section>
+          <section
+            id="what-about-unstructured-grids"
+            class="slide level2 smaller"
+          >
+            <h2>What about Unstructured Grids?</h2>
+            <video
+              id="video_shortcode_videojs_video5"
+              class="video-js vjs-default-skin vjs-fluid"
+              controls=""
+              preload="auto"
+              data-setup="{}"
+              title=""
+            >
+              <source src="videos/UnstructuredGrid.mp4" />
+            </video>
+            <p>
+              See:
+              <span class="citation" data-cites="Ludwig2018"
+                >Ludwig and Schön (<a
+                  href="#/references"
+                  role="doc-biblioref"
+                  onclick=""
+                  >2018</a
+                >)</span
+              >
+            </p>
+          </section>
+          <section
+            id="artificial-neural-networks"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">Artificial Neural Networks</h2>
+            <div class="quarto-figure quarto-figure-center">
+              <figure>
+                <p>
+                  <img
+                    data-src="figures/multilayerperceptron_network.png"
+                    style="height: 5.5in"
+                  />
+                </p>
+                <figcaption>
+                  Figure 1: ANN (Source: scikit-learn.org)
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+          <section
+            id="artificial-neural-networks-1"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">Artificial Neural Networks</h2>
+            <div class="columns">
+              <div class="column" style="width: 40%">
+                <div class="quarto-figure quarto-figure-center">
+                  <figure>
+                    <p>
+                      <img
+                        data-src="figures/multilayerperceptron_network.png"
+                      />
+                    </p>
+                    <figcaption>
+                      Figure 1: ANN (Source: scikit-learn.org)
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="column" style="width: 60%">
+                <ul>
+                  <li>
+                    Based on biological neural pathways (neurons in a brain)
+                  </li>
+                  <li>
+                    Learns function
+                    <span class="math inline"
+                      >\(f(X): R^n \rightarrow R^m\)</span
+                    >
+                  </li>
+                  <li>
+                    Consists of
+                    <ul>
+                      <li>
+                        input (features) <span class="math inline">\(X\)</span>
+                      </li>
+                      <li>
+                        hidden layers
+                        <span class="math inline">\(g(\cdots)\)</span>
+                      </li>
+                      <li>
+                        output (target)
+                        <span class="math inline">\(y = f(X)\)</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>Hidden layers can have many nodes</li>
+                  <li>
+                    Neural nets can have many hidden layers (deep learning)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section
+            id="a-single-neuron-and-a-bit-of-math"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              A single neuron, and a bit of math
+            </h2>
+
+            <img
+              data-src="figures/perceptron.png"
+              style="width: 50%"
+              class="r-stretch quarto-figure-center"
+            />
+            <p class="caption">Figure 2: Perceptron</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 +
+                \mathbf{x}' \mathbf{w}) \end{equation}\]</span
+              >
+            </p>
+          </section>
+          <section
+            id="a-single-neuron-and-a-bit-of-math-1"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">
+              A single neuron, and a bit of math
+            </h2>
+            <div class="columns">
+              <div class="column" style="width: 30%">
+                <div class="quarto-figure quarto-figure-center">
+                  <figure>
+                    <p><img data-src="figures/perceptron.png" /></p>
+                    <figcaption>Figure 2: Perceptron</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="column" style="width: 70%">
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} y = g(w_0 + \sum_{i=1}^n w_i x_i) =
+                    g(w_0 + \mathbf{x}' \mathbf{w}) \end{equation}\]</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="fragment">
+              <div class="columns">
+                <div class="column" style="width: 60%">
+                  <ul>
+                    <li>
+                      <span class="math inline">\(y\)</span> is the output or
+                      target
+                    </li>
+                    <li>
+                      <span class="math inline">\(x_i\)</span> are the inputs or
+                      features
+                    </li>
+                    <li>
+                      <span class="math inline">\(w_0\)</span> is the bias
+                    </li>
+                    <li>
+                      <span class="math inline">\(w_i\)</span> are the weights
+                    </li>
+                  </ul>
+                </div>
+                <div class="column" style="width: 40%">
+                  <ul>
+                    <li>
+                      <span class="math inline">\(g(\cdot)\)</span> is the
+                      activation function (non-linear)
+                      <span class="math display"
+                        >\[\begin{equation} g(z) = \frac{1}{1 + e^{-z}}
+                        \end{equation}\]</span
+                      >
+                    </li>
+                    <li>usually a sigmoid, but there are many others</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            id="training-a-neural-network"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">Training a Neural Network</h2>
+            <p>Mean Squared Error (MSE)</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n
+                \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
+                \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>Objective</p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathbf{w}^* = \arg \min_{\mathbf{w}}
+                  J(\mathbf{w}) \end{equation}\]</span
+                >
+              </p>
+            </div>
+          </section>
+          <section
+            id="training-a-neural-network-1"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">Training a Neural Network</h2>
+            <div class="columns">
+              <div class="column" style="width: 60%">
+                <p>Mean Squared Error (MSE)</p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} J(\mathbf{w}) = \frac{1}{2n}
+                    \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)};
+                    \mathbf{w})\right]^2 \end{equation}\]</span
+                  >
+                </p>
+              </div>
+              <div class="column" style="width: 40%">
+                <p>Objective</p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \mathbf{w}^* = \arg \min_{\mathbf{w}}
+                    J(\mathbf{w}) \end{equation}\]</span
+                  >
+                </p>
+              </div>
+            </div>
+            <p>Gradient Descent</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta
+                \nabla J(\mathbf{w}^{(t)}) \end{equation}\]</span
+              >
+            </p>
+          </section>
+          <section
+            id="training-a-neural-network-2"
+            class="slide level2"
+            data-auto-animate="true"
+          >
+            <h2 data-id="quarto-animate-title">Training a Neural Network</h2>
+            <div class="columns">
+              <div class="column" style="width: 60%">
+                <p>Mean Squared Error (MSE)</p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} J(\mathbf{w}) = \frac{1}{2n}
+                    \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)};
+                    \mathbf{w})\right]^2 \end{equation}\]</span
+                  >
+                </p>
+              </div>
+              <div class="column" style="width: 40%">
+                <p>Objective</p>
+                <p>
+                  <span class="math display"
+                    >\[\begin{equation} \mathbf{w}^* = \arg \min_{\mathbf{w}}
+                    J(\mathbf{w}) \end{equation}\]</span
+                  >
+                </p>
+              </div>
+            </div>
+            <p>Stochastic Gradient Descent</p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \widetilde{\nabla} J(\mathbf{w}^{(t)}) =
+                \frac{1}{B} \sum_{i=1}^B \nabla J_i(\mathbf{w}^{(t)})
+                \end{equation}\]</span
+              >
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta
+                \widetilde{\nabla} J(\mathbf{w}^{(t)}) \end{equation}\]</span
+              >
+            </p>
+            <!-- ## The Deep Learning Revolution
+
+- Most of these ideas are not new
+  - Perceptron (1957)
+  - Deep Learning (1965)
+  - Stochastic Gradient Descent (1967)
+
+. . .
+
+- What changed?
+  - **Big data** (more data)
+  - More computing power (**GPUs**, TPUs, etc.)
+  - **Algorithmic** innovations (ReLU, Adam, regularization, etc.)
+  - Better and **open source** software (scikit-learn, TensorFlow, PyTorch, jax, etc.) -->
+          </section>
+          <section
+            id="gaussian-process-regression"
+            class="slide level2 smaller"
+          >
+            <h2>Gaussian Process Regression</h2>
+            <p>
+              A Gaussian Process is a
+              <strong>probability distribution over functions</strong>
+            </p>
+            <p>
+              <span class="math display"
+                >\[\begin{equation} \begin{gathered} f(x) \sim
+                \mathcal{GP}(m(x), k(x, x')) \\ \text{where} \quad m(x) =
+                \mathbb{E}[f(x)] \\ \text{and} \quad k(x, x') = \mathbb{E}[(f(x)
+                - m(x))(f(x') - m(x'))] \end{gathered} \end{equation}\]</span
+              >
+            </p>
+            <div class="fragment">
+              <p>
+                A Gaussian Process <strong>Regression</strong> is used to find
+                the function that <strong>best fits</strong> a set of data
+                points
+              </p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} \mathbb{P}(\mathbf{f} | \mathbf{X}) =
+                  \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
+                  \end{equation}\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>
+                I use standard covariance function, exploring alternatives is an
+                active area of research
+              </p>
+              <p>
+                <span class="math display"
+                  >\[\begin{equation} k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f
+                  \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)'
+                  (\mathbf{x}_i - \mathbf{x}_j)\right). \end{equation}\]</span
+                >
+              </p>
+            </div>
+            <div class="fragment">
+              <p>
+                <strong>Universal Approximation Theorem:</strong> A single
+                hidden-layer ANN can <strong>approximate</strong> any continuous
+                function <strong>arbitrarily closely</strong> as the number of
+                neurons in the hidden layer <strong>increases</strong>. Notably,
+                a Gaussian Process (GP) can be viewed as the
+                <strong>limit</strong> of a single hidden-layer ANN with an
+                <strong>infinite</strong> number of neurons (<strong
+                  >infinite width</strong
+                >).
+              </p>
+            </div>
+          </section>
+          <section id="an-example" class="slide level2">
+            <h2>An example</h2>
+            <p>
+              Consider the true function
+              <span class="math inline">\(f(x) = x \cos(1.5x)\)</span> sampled
+              at random points
+            </p>
+
+            <img
+              data-src="figures/GPR_True_Function.svg"
+              class="r-stretch quarto-figure-center"
+            />
+            <p class="caption">True Function</p>
+          </section>
+          <section id="an-example-1" class="slide level2">
+            <h2>An example</h2>
+            <p>A random sample of the GP posterior distribution of functions</p>
+
+            <img
+              data-src="figures/GPR_Posterior_Sample.svg"
+              class="r-stretch quarto-figure-center"
+            />
+            <p class="caption">Posterior Sample</p>
+          </section>
+          <section id="an-example-2" class="slide level2 smaller">
+            <h2>An example</h2>
+            <p>
+              Gaussian Process Regression finds the function that best fits the
+              data
+            </p>
+
+            <img
+              data-src="figures/GaussianProcessRegression.svg"
+              class="r-stretch"
+            />
+            <div class="fragment">
+              <ul>
+                <li>
+                  <strong>Gaussian Process Regression</strong> gives us
+                  <ul>
+                    <li>
+                      <strong>Mean</strong> function of the posterior
+                      distribution
+                    </li>
+                    <li>
+                      <strong>Uncertainty quantification</strong> of the mean
+                      function
+                    </li>
+                    <li>
+                      Can be useful to predict ex-post where we might need
+                      <strong>more points</strong>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section id="back-to-the-model" class="slide level2">
+            <h2>Back to the model</h2>
+            <p>Second Stage Pension Endogenous Grid</p>
+            <div class="columns">
+              <div class="column" style="width: 50%">
+                <p><img data-src="figures/PensionEndogenousGrid.svg" /></p>
+              </div>
+              <div class="column" style="width: 50%">
+                <p>
+                  <img data-src="figures/2ndStagePensionEndogenousGrid.svg" />
+                </p>
+              </div>
+            </div>
+          </section>
+          <section id="some-results" class="slide level2">
+            <h2>Some Results</h2>
+            <div class="columns">
+              <div class="column" style="width: 50%">
+                <p>Consumption Function <br /></p>
+                <div class="quarto-figure quarto-figure-center">
+                  <figure>
+                    <p>
+                      <img data-src="figures/PensionConsumptionFunction.svg" />
+                    </p>
+                    <figcaption>Pension Consumption Function</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="column" style="width: 50%">
+                <p>Deposit Function <br /></p>
+                <div class="quarto-figure quarto-figure-center">
+                  <figure>
+                    <p><img data-src="figures/PensionDepositFunction.svg" /></p>
+                    <figcaption>Penstion Deposit Function</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section id="conclusion" class="title-slide slide level1 center">
+            <h1>Conclusion</h1>
+          </section>
+          <section
+            id="conditions-for-using-sequential-egm"
+            class="slide level2 smaller"
+          >
+            <h2>Conditions for using Sequential EGM</h2>
+            <ul>
+              <li>
+                Model must be
+                <ul>
+                  <li>concave</li>
+                  <li>differentiable</li>
+                  <li>continuous</li>
+                  <li>separable</li>
+                </ul>
+              </li>
+            </ul>
+            <div class="fragment">
+              <p>
+                Need an <strong>additional</strong> function to exploit
+                <strong>invertibility</strong>
+              </p>
+            </div>
+            <div class="fragment">
+              <p>Examples in this paper:</p>
+              <ul>
+                <li>
+                  Separable utility function
+                  <ul>
+                    <li>
+                      <span class="math inline"
+                        >\(\mathrm{u}(c, z) = \mathrm{u}(c) + h(z)\)</span
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Continuous and differentiable transition
+                  <ul>
+                    <li>
+                      <span class="math inline"
+                        >\(b_{t} = n_{t} + d_{t} + g(d_{t})\)</span
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section id="resources" class="slide level2">
+            <h2>Resources</h2>
+            <ul>
+              <li>
+                An Introduction to Statistical Learning
+                <a href="https://www.statlearning.com/" target="_blank"
+                  ><code>statlearning.com</code></a
+                >
+              </li>
+              <li>
+                Neural Networks and Deep Learning
+                <a
+                  href="http://neuralnetworksanddeeplearning.com/"
+                  target="_blank"
+                  ><code>neuralnetworksanddeeplearning.com</code></a
+                >
+              </li>
+              <li>
+                Deep Learning
+                <a href="https://www.deeplearningbook.org" target="_blank"
+                  ><code>deeplearningbook.org</code></a
+                >
+              </li>
+              <li>
+                Probabilistic machine learning
+                <a href="https://probml.github.io/pml-book" target="_blank"
+                  ><code>probml.github.io/pml-book</code></a
+                >
+              </li>
+              <li>
+                A Neural Network Playground
+                <a href="https://playground.tensorflow.org" target="_blank"
+                  ><code>playground.tensorflow.org</code></a
+                >
+              </li>
+              <li>
+                The Gaussian Process Web Site
+                <a href="http://www.gaussianprocess.org" target="_blank"
+                  ><code>gaussianprocess.org</code></a
+                >
+              </li>
+              <li>
+                A Visual Exploration of Gaussian Processes
+                <a
+                  href="https://distill.pub/2019/visual-exploration-gaussian-processes"
+                  target="_blank"
+                  ><code>distill.pub/2019</code></a
+                >
+              </li>
+              <li>
+                Interactive Gaussian Process Visualization
+                <a href="http://www.infinitecuriosity.org/vizgp" target="_blank"
+                  ><code>http://www.infinitecuriosity.org/vizgp</code></a
+                >
+              </li>
+            </ul>
+          </section>
+          <section id="thank-you" class="slide level2 center">
+            <h2>Thank you!</h2>
+            <center>
+              <a href="https://econ-ark.org/"
+                ><img data-src="figures/econ-ark-logo.png"
+              /></a>
+            </center>
+            <center>
+              <img data-src="figures/PoweredByEconARK.svg" />
+            </center>
+            <p>
+              <a href="https://github.com/econ-ark/HARK" target="_blank"
+                ><code>engine: github.com/econ-ark/HARK</code></a
+              >
+            </p>
+            <p>
+              <a
+                href="https://github.com/alanlujan91/SequentialEGM"
+                target="_blank"
+                ><code>code: github.com/alanlujan91/SequentialEGM</code></a
+              >
+            </p>
+            <p>
+              <a
+                href="https://alanlujan91.github.io/SequentialEGM/egmn"
+                target="_blank"
+                ><code
+                  >website: alanlujan91.github.io/SequentialEGM/egmn</code
+                ></a
+              >
+            </p>
+          </section>
+          <section id="references" class="slide level2 smaller scrollable">
+            <h2>References</h2>
+            <div
+              id="refs"
+              class="references csl-bib-body hanging-indent"
+              role="list"
+            >
+              <div id="ref-Barillas2007" class="csl-entry" role="listitem">
+                Barillas, Francisco, and Jesús Fernández-Villaverde. 2007.
+                <span>“A Generalization of the Endogenous Grid Method.”</span>
+                <em>Journal of Economic Dynamics &amp; Control</em> 31 (8):
+                2698–2712.
+                <a href="https://doi.org/10.1016/j.jedc.2006.08.005"
+                  >https://doi.org/10.1016/j.jedc.2006.08.005</a
+                >.
+              </div>
+              <div id="ref-Carroll2006-ag" class="csl-entry" role="listitem">
+                Carroll, Christopher D. 2006.
+                <span
+                  >“The Method of Endogenous Gridpoints for Solving Dynamic
+                  Stochastic Optimization Problems.”</span
+                >
+                <em>Economics Letters</em> 91 (3): 312–20.
+                <a href="https://doi.org/10.1016/j.econlet.2005.09.013"
+                  >https://doi.org/10.1016/j.econlet.2005.09.013</a
+                >.
+              </div>
+              <div id="ref-Druedahl2021" class="csl-entry" role="listitem">
+                Druedahl, Jeppe. 2021.
+                <span
+                  >“A Guide on Solving Non-Convex
+                  <span class="nocase">consumption-saving</span> Models.”</span
+                >
+                <em>Computational Economics</em> 58 (3): 747–75.
+                <a href="https://doi.org/10.1007/s10614-020-10045-x"
+                  >https://doi.org/10.1007/s10614-020-10045-x</a
+                >.
+              </div>
+              <div id="ref-Druedahl2017-ac" class="csl-entry" role="listitem">
+                Druedahl, Jeppe, and Thomas Høgholm Jørgensen. 2017.
+                <span
+                  >“A General Endogenous Grid Method for Multi-Dimensional
+                  Models with Non-Convexities and Constraints.”</span
+                >
+                <em>Journal of Economic Dynamics &amp; Control</em> 74
+                (January): 87–107.
+                <a href="https://doi.org/10.1016/j.jedc.2016.11.005"
+                  >https://doi.org/10.1016/j.jedc.2016.11.005</a
+                >.
+              </div>
+              <div id="ref-Iskhakov2017-af" class="csl-entry" role="listitem">
+                Iskhakov, Fedor, Thomas H Jørgensen, John Rust, and Bertel
+                Schjerning. 2017.
+                <span
+                  >“The Endogenous Grid Method for Discrete-Continuous Dynamic
+                  Choice Models with (or Without) Taste Shocks:
+                  <span>DC-EGM</span> Method for Dynamic Choice Models.”</span
+                >
+                <em>Quantitative Economics</em> 8 (2): 317–65.
+                <a href="https://doi.org/10.3982/qe643"
+                  >https://doi.org/10.3982/qe643</a
+                >.
+              </div>
+              <div id="ref-Ludwig2018" class="csl-entry" role="listitem">
+                Ludwig, Alexander, and Matthias Schön. 2018.
+                <span
+                  >“Endogenous Grids in Higher Dimensions:
+                  <span>Delaunay</span> Interpolation and Hybrid Methods.”</span
+                >
+                <em>Computational Economics</em> 51 (3): 463–92.
+                <a href="https://doi.org/10.1007/s10614-016-9611-2"
+                  >https://doi.org/10.1007/s10614-016-9611-2</a
+                >.
+              </div>
+              <div id="ref-White2015" class="csl-entry" role="listitem">
+                White, Matthew N. 2015.
+                <span
+                  >“The Method of Endogenous Gridpoints in Theory and
+                  Practice.”</span
+                >
+                <em>Journal of Economic Dynamics &amp; Control</em> 60
+                (November): 26–41.
+                <a href="https://doi.org/10.1016/j.jedc.2015.08.001"
+                  >https://doi.org/10.1016/j.jedc.2015.08.001</a
+                >.
+              </div>
+            </div>
+
+            <img src="figures/econ-ark-logo.png" class="slide-logo r-stretch" />
+            <div class="footer footer-default">
+              <p>Powered by <strong>Econ-ARK</strong></p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      window.backupDefine = window.define;
+      window.define = undefined;
+    </script>
+    <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+    <!-- reveal.js plugins -->
+    <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+    <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+    <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+    <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+    <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+
+    <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+    <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+    <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+    <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+    <script>
+      window.define = window.backupDefine;
+      window.backupDefine = undefined;
+    </script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        controlsAuto: true,
+        previewLinksAuto: false,
+        smaller: false,
+        pdfSeparateFragments: false,
+        autoAnimateEasing: "ease",
+        autoAnimateDuration: 1,
+        autoAnimateUnmatched: true,
+        menu: {
+          side: "left",
+          useTextContentForMissingTitles: true,
+          markers: false,
+          loadIcons: false,
+          custom: [
+            {
+              title: "Tools",
+              icon: '<i class="fas fa-gear"></i>',
+              content:
+                '<ul class="slide-menu-items">\n<li class="slide-tool-item active" data-item="0"><a href="#" onclick="RevealMenuToolHandlers.fullscreen(event)"><kbd>f</kbd> Fullscreen</a></li>\n<li class="slide-tool-item" data-item="1"><a href="#" onclick="RevealMenuToolHandlers.speakerMode(event)"><kbd>s</kbd> Speaker View</a></li>\n<li class="slide-tool-item" data-item="2"><a href="#" onclick="RevealMenuToolHandlers.overview(event)"><kbd>o</kbd> Slide Overview</a></li>\n<li class="slide-tool-item" data-item="3"><a href="#" onclick="RevealMenuToolHandlers.togglePdfExport(event)"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class="slide-tool-item" data-item="4"><a href="#" onclick="RevealMenuToolHandlers.keyboardHelp(event)"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>',
+            },
+          ],
+          openButton: true,
+        },
+        smaller: false,
+
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: "edges",
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: "faded",
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: "all",
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: "linear",
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: true,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: "block",
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: "none",
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: "default",
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: "none",
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax:
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js",
+          config: "TeX-AMS_HTML-full",
+          tex2jax: {
+            inlineMath: [["\\(", "\\)"]],
+            displayMath: [["\\[", "\\]"]],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: "TeX",
+            skipTags: [
+              "script",
+              "noscript",
+              "style",
+              "textarea",
+              "pre",
+              "code",
+            ],
+            ignoreClass: "tex2jax_ignore",
+            processClass: "tex2jax_process",
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          QuartoLineHighlight,
+          PdfExport,
+          RevealMenu,
+          QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom,
+        ],
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const toggleBodyColorMode = (bsSheetEl) => {
+          const mode = bsSheetEl.getAttribute("data-mode");
+          const bodyEl = window.document.querySelector("body");
+          if (mode === "dark") {
+            bodyEl.classList.add("quarto-dark");
+            bodyEl.classList.remove("quarto-light");
+          } else {
+            bodyEl.classList.add("quarto-light");
+            bodyEl.classList.remove("quarto-dark");
+          }
+        };
+        const toggleBodyColorPrimary = () => {
+          const bsSheetEl = window.document.querySelector(
+            "link#quarto-bootstrap",
+          );
+          if (bsSheetEl) {
+            toggleBodyColorMode(bsSheetEl);
+          }
+        };
+        toggleBodyColorPrimary();
+        const tabsets = window.document.querySelectorAll(".panel-tabset-tabby");
+        tabsets.forEach(function (tabset) {
+          const tabby = new Tabby("#" + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith("code-annotation-")) {
+              return true;
+            }
+          }
+          return false;
+        };
+        const clipboard = new window.ClipboardJS(".code-copy-button", {
+          text: function (trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+          },
+        });
+        clipboard.on("success", function (e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add("code-copy-button-checked");
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, {
+              trigger: "manual",
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8],
+            });
+            tooltip.show();
+          }
+          setTimeout(function () {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove("code-copy-button-checked");
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        });
+        function tippyHover(el, contentFn) {
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function (el) {
+              return el.closest("section.slide") || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: "light-border",
+            placement: "bottom-start",
+          };
+          config["offset"] = [0, 0];
+          config["maxWidth"] = 700;
+          window.tippy(el, config);
+        }
+        const noterefs = window.document.querySelectorAll(
+          'a[role="doc-noteref"]',
+        );
+        for (var i = 0; i < noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function () {
+            // use id or data attribute instead here
+            let href =
+              ref.getAttribute("data-footnote-href") ||
+              ref.getAttribute("href");
+            try {
+              href = new URL(href).hash;
+            } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            return note.innerHTML;
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(" "),
+              };
+            } else {
+              return findCites(el.parentElement);
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll(
+          'a[role="doc-biblioref"]',
+        );
+        for (var i = 0; i < bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function () {
+              var popup = window.document.createElement("div");
+              citeInfo.cites.forEach(function (cite) {
+                var citeDiv = window.document.createElement("div");
+                citeDiv.classList.add("hanging-indent");
+                citeDiv.classList.add("csl-entry");
+                var biblioDiv = window.document.getElementById("ref-" + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
