@@ -623,40 +623,6 @@ u'(c_t) = \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\mathsf{R}(m_t - c_t) + \t
     b_{t+1} &amp; = a_{t} \mathsf{R}/ \Gamma_{t+1}.
   \end{split}
 \end{equation}\]</span></p>
-<!-- ## Solving Consumption-Saving via EGM
-
-We can condense the consumption-saving problem into a single equation:
-
-\begin{equation}
-\vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
-  \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
-\end{equation}
-
-Interior solution must satisfy the Euler equation:
-
-\begin{equation}
-\utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
-  \vEnd_{t}'(\aRat_{t})
-\end{equation}
-
-EGM consists of inverting the Euler equation to find the consumption function:
-
-\begin{equation}
-\cEndFunc_{t}(\aMat) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aMat)
-  \right)
-\end{equation}
-
-## Solving Consumption-Saving via EGM
-
-Then using budget contraint we obtain endogenous grid:
-
-\begin{equation}
-  \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
-\end{equation}
-
-. . .
-
-Using points $[\mEndFunc_t]$ and $[\cEndFunc_t]$ we can build a linear interpolator $\cRat_t(\mRat)$. The constraint is handled by exogenous grid $\aMat \ge \underline{\aRat}$ and we can add an anchor point $\cRat_t(\mRat = 0) = 0$ for the linear interpolator to complete our solution. -->
 </section>
 <section id="solving-labor-leisure-egm-again" class="slide level2">
 <h2>Solving Labor-Leisure (EGM, Again)</h2>
@@ -1101,22 +1067,8 @@ J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathb
 <p><span class="math display">\[\begin{equation}
 \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
 \end{equation}\]</span></p>
-<!-- ## The Deep Learning Revolution
-
-- Most of these ideas are not new
-  - Perceptron (1957)
-  - Deep Learning (1965)
-  - Stochastic Gradient Descent (1967)
-
-. . .
-
-- What changed?
-  - **Big data** (more data)
-  - More computing power (**GPUs**, TPUs, etc.)
-  - **Algorithmic** innovations (ReLU, Adam, regularization, etc.)
-  - Better and **open source** software (scikit-learn, TensorFlow, PyTorch, jax, etc.) -->
 </section>
-<section id="gaussian-process-regression" class="slide level2 smaller">
+<section id="gaussian-process-regression" class="slide level2">
 <h2>Gaussian Process Regression</h2>
 <p>A Gaussian Process is a <strong>probability distribution over functions</strong></p>
 <p><span class="math display">\[\begin{equation}
@@ -1138,8 +1090,34 @@ J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathb
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
 \end{equation}\]</span></p>
 </div>
-<div class="fragment">
-<p><strong>Universal Approximation Theorem:</strong> A single hidden-layer ANN can <strong>approximate</strong> any continuous function <strong>arbitrarily closely</strong> as the number of neurons in the hidden layer <strong>increases</strong>. Notably, a Gaussian Process (GP) can be viewed as the <strong>limit</strong> of a single hidden-layer ANN with an <strong>infinite</strong> number of neurons (<strong>infinite width</strong>).</p>
+</section>
+<section id="universal-approximation" class="slide level2">
+<h2>Universal Approximation</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Gaussian Processes</strong> are mathematically equivalent to <strong>neural networks</strong> with an <strong>infinite width</strong>, allowing them to model a vast range of functions and provide robust uncertainty estimates.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Theorem</strong></p>
+</div>
+<div class="callout-content">
+<p>A single hidden-layer ANN can <strong>approximate</strong> any continuous function <strong>arbitrarily closely</strong> as the number of neurons in the hidden layer <strong>increases</strong>. Notably, a Gaussian Process (GP) can be viewed as the <strong>limit</strong> of a single hidden-layer ANN with an <strong>infinite</strong> number of neurons (<strong>infinite width</strong>).</p>
+</div>
+</div>
 </div>
 </section>
 <section id="an-example" class="slide level2">
@@ -1162,7 +1140,7 @@ k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}
 <ul>
 <li><strong>Mean</strong> function of the posterior distribution</li>
 <li><strong>Uncertainty quantification</strong> of the mean function</li>
-<li>Can be useful to predict ex-post where we might need <strong>more points</strong></li>
+<li>Can be useful to predict where we might need <strong>more points</strong> and update the grid</li>
 </ul></li>
 </ul>
 </div>
