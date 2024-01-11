@@ -571,8 +571,8 @@ class: center
 
 # Thank you!
 
-<center><img src="public/econ-ark-logo.png" align="center"></center>
-<center><img src="public/PoweredByEconARK.svg" align="center"></center>
+<center><img src="content/public/econ-ark-logo.png" align="center"></center>
+<center><img src="content/public/PoweredByEconARK.svg" align="center"></center>
 
 [`engine: github.com/econ-ark/HARK`](https://github.com/econ-ark/HARK)
 

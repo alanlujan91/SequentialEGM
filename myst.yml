@@ -1,7 +1,7 @@
 version: 1
 site:
   template: book-theme
-  logo: public/econ-ark-logo.png
+  logo: content/public/econ-ark-logo.png
   logo_text: Econ-ARK
   title: Alan Lujan - EGMⁿ
   subtitle: The Sequential Endogenous Grid Method
@@ -36,7 +36,7 @@ site:
       url: https://alanlujan91.github.io/SequentialEGM/slides
   actions:
     - title: Download paper
-      url: public/SequentialEGMn.pdf
+      url: content/public/SequentialEGMn.pdf
       static: true
   domains:
     - alanlujan91.curve.space
@@ -83,7 +83,7 @@ project:
   exports:
     - format: pdf+tex
       template: arxiv_nips
-      output: public/SequentialEGMn.pdf
+      output: content/public/SequentialEGMn.pdf
       id: null
       name: null
       renderer: null
