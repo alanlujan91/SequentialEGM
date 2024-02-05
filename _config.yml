@@ -5,11 +5,10 @@
 
 #######################################################################################
 # Book settings
-
 title: "EGMⁿ: The Sequential Endogenous Grid Method" # The title of the book. Will be placed in the left navbar.
 author: Alan Lujan # The author of the book
-copyright: "2022" # Copyright year to be placed in the footer
-logo: "content/public/econ-ark-logo.png" # A path to the book logo
+copyright: "2024" # Copyright year to be placed in the footer
+logo: "" # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # Auto-exclude files not in the toc
@@ -17,9 +16,8 @@ only_build_toc_files: false
 
 #######################################################################################
 # Execution settings
-
 execute:
-  execute_notebooks: off # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  execute_notebooks: auto # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
   cache: "" # A path to the jupyter cache that will be used to store execution artifacts. Defaults to `_build/.jupyter_cache/`
   exclude_patterns: [] # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
   timeout: 30 # The maximum time (in seconds) each notebook cell is allowed to run.
@@ -31,7 +29,6 @@ execute:
 
 #######################################################################################
 # Parse and render settings
-
 parse:
   myst_enable_extensions: # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
     - amsmath
@@ -50,7 +47,6 @@ parse:
 
 #######################################################################################
 # HTML-specific settings
-
 html:
   favicon: "" # A path to a favicon image
   use_edit_page_button: false # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
@@ -70,14 +66,12 @@ html:
 
 #######################################################################################
 # LaTeX-specific settings
-
 latex:
   latex_engine: pdflatex # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
   use_jupyterbook_latex: true # use sphinx-jupyterbook-latex for pdf builds as default
 
 #######################################################################################
 # Launch button settings
-
 launch_buttons:
   notebook_interface: classic # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url: "" # The URL of the BinderHub (e.g., https://mybinder.org)
@@ -92,7 +86,6 @@ repository:
 
 #######################################################################################
 # Advanced and power-user settings
-
 sphinx:
   extra_extensions: # A list of extra extensions to load by Sphinx (added to those already used by JB).
   local_extensions: # A list of local extensions to load by sphinx specified by "name: path" items

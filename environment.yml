@@ -19,6 +19,8 @@ dependencies:
   - notebook
   - pre-commit
   - ruff
+  - nodejs
+  - mystmd
   - pip
   - pip:
       - git+https://github.com/alanlujan91/HARK@map_coordinates
