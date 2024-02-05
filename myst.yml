@@ -1,12 +1,12 @@
 version: 1
 site:
   template: book-theme
-  logo: content/public/econ-ark-logo.png
-  logo_text: Econ-ARK
+  options:
+    logo: content/public/econ-ark-logo.png
+    logo_text: Econ-ARK
   title: Alan Lujan - EGMⁿ
   subtitle: The Sequential Endogenous Grid Method
   short_title: EGMⁿ
-  description: null
   authors:
     - name: Alan Lujan
       corresponding: true
@@ -84,11 +84,15 @@ project:
     - format: pdf+tex
       template: arxiv_nips
       output: content/public/SequentialEGMn.pdf
-      id: null
-      name: null
-      renderer: null
-      article: content/paper/egmn.md
-      sub_articles: null
+      articles:
+        - content/paper/0_titlepage.md
+        - content/paper/1_intro.md
+        - content/paper/2_method.md
+        - content/paper/3_multdim.md
+        - content/paper/4_multinterp.md
+        - content/paper/5_conditions.md
+        - content/paper/6_conclusion.md
+        - content/paper/7_appendix.md
   abbreviations:
     GP: Gaussian Process
     GPR: Gaussian Process Regression
