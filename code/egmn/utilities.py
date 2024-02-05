@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import matplotlib.pyplot as plt
 import numpy as np
 from HARK.interpolation import LinearInterp, LinearInterpOnInterp1D

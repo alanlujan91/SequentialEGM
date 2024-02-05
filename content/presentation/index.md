@@ -900,7 +900,7 @@ k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}
 
 ::: {.callout-note}
 
-**Gaussian Processes** 
+**Gaussian Processes**
 
 - mathematically equivalent to **neural networks** with an **infinite width**
 - do not require **as much data** as neural networks
