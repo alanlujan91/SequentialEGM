@@ -2,30 +2,51 @@
 <?xml-stylesheet type="text/xsl" href="http://localhost:3000/sitemap_style.xsl" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:3000/egmn</loc>
+    <loc>http://localhost:3000</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/egmn/intro</loc>
+    <loc>http://localhost:3000/titlepage</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/egmn/method</loc>
+    <loc>http://localhost:3000/intro</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/egmn/multdim</loc>
+    <loc>http://localhost:3000/method</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/egmn/multinterp</loc>
+    <loc>http://localhost:3000/multdim</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/egmn/conditions</loc>
+    <loc>http://localhost:3000/multinterp</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/egmn/conclusion</loc>
+    <loc>http://localhost:3000/conditions</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/egmn/appendix</loc>
+    <loc>http://localhost:3000/conclusion</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/paper</loc>
+    <loc>http://localhost:3000/appendix</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/example-conspensionmodel-baseline</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/example-conslaborportfoliomodel</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/example-conslaborseparablemodel</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/example-conspensionmodel</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/example-consretirementmodel</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/example-gaussianprocessregression</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/example-warpedinterpolation</loc>
   </url>
 </urlset>
