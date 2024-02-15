@@ -85,13 +85,7 @@ project:
       template: arxiv_nips
       output: content/public/SequentialEGMn.pdf
       articles:
-        - content/paper/1_intro.md
-        - content/paper/2_method.md
-        - content/paper/3_multdim.md
-        - content/paper/4_multinterp.md
-        - content/paper/5_conditions.md
-        - content/paper/6_conclusion.md
-        - content/paper/7_appendix.md
+        - content/paper/egmn.md
   abbreviations:
     GP: Gaussian Process
     GPR: Gaussian Process Regression

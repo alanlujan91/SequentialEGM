@@ -22,7 +22,8 @@ numbering:
 ---
 
 (appendix)=
-# Solving the illustrative G2EGM model with EGM$^n$
+
+# Appendix: Solving the illustrative G2EGM model with EGM$^n$
 
 ## The problem for a retired household
 
