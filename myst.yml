@@ -85,7 +85,6 @@ project:
       template: arxiv_nips
       output: content/public/SequentialEGMn.pdf
       articles:
-        - content/paper/0_titlepage.md
         - content/paper/1_intro.md
         - content/paper/2_method.md
         - content/paper/3_multdim.md
