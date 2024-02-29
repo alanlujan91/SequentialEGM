@@ -108,11 +108,17 @@ class PensionConsumerType(RiskyAssetConsumerType):
             return u.der(c_func(mNrm, nNrm))
 
         consumption_stage = ConsumptionStage(
-            c_func=c_func, v_func=v_func, dvdl_func=vp_func, dvdb_func=vp_func
+            c_func=c_func,
+            v_func=v_func,
+            dvdl_func=vp_func,
+            dvdb_func=vp_func,
         )
 
         deposit_stage = DepositStage(
-            d_func=d_func, v_func=v_func, dvdm_func=vp_func, dvdn_func=vp_func
+            d_func=d_func,
+            v_func=v_func,
+            dvdm_func=vp_func,
+            dvdn_func=vp_func,
         )
 
         self.solution_terminal = PensionSolution(
@@ -123,32 +129,32 @@ class PensionConsumerType(RiskyAssetConsumerType):
     def update_grids(self):
         # worker grids
         self.mGrid = construct_assets_grid(
-            GridParameters(self.epsilon, self.mMax, self.mCount, self.mNestFac)
+            GridParameters(self.epsilon, self.mMax, self.mCount, self.mNestFac),
         )
 
         self.nGrid = construct_assets_grid(
-            GridParameters(0.0, self.nMax, self.nCount, self.nNestFac)
+            GridParameters(0.0, self.nMax, self.nCount, self.nNestFac),
         )
 
         self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
 
         # pure consumption grids
         self.aGrid = construct_assets_grid(
-            GridParameters(0.0, self.aMax, self.aCount, self.aNestFac)
+            GridParameters(0.0, self.aMax, self.aCount, self.aNestFac),
         )
 
         self.bGrid = construct_assets_grid(
-            GridParameters(0.0, self.bMax, self.bCount, self.bNestFac)
+            GridParameters(0.0, self.bMax, self.bCount, self.bNestFac),
         )
 
         self.aMat, self.bMat = np.meshgrid(self.aGrid, self.bGrid, indexing="ij")
 
         # pension deposit grids
         self.lGrid = construct_assets_grid(
-            GridParameters(self.epsilon, self.lMax, self.lCount, self.lNestFac)
+            GridParameters(self.epsilon, self.lMax, self.lCount, self.lNestFac),
         )
         self.blGrid = construct_assets_grid(
-            GridParameters(0.0, self.blMax, self.blCount, self.blNestFac)
+            GridParameters(0.0, self.blMax, self.blCount, self.blNestFac),
         )
         self.lMat, self.blMat = np.meshgrid(self.lGrid, self.blGrid, indexing="ij")
 
@@ -231,8 +237,7 @@ class PensionSolver(MetricObject):
         self.g = UtilityFunction(g, gp, gp_inv)
 
     def solve_post_decision(self, deposit_stage_next):
-        """
-        Should use aMat and bMat.
+        """Should use aMat and bMat.
 
         Parameters
         ----------
@@ -243,6 +248,7 @@ class PensionSolver(MetricObject):
         -------
         _type_
             _description_
+
         """
         # unpack next period's solution
         dvdm_func_next = deposit_stage_next.dvdm_func
@@ -292,7 +298,8 @@ class PensionSolver(MetricObject):
 
         dvda_end_of_prd_nvrs = self.u.derinv(dvda_end_of_prd)
         dvda_end_of_prd_nvrs_func = LinearFast(
-            dvda_end_of_prd_nvrs, [self.aGrid, self.bGrid]
+            dvda_end_of_prd_nvrs,
+            [self.aGrid, self.bGrid],
         )
         dvda_end_of_prd_func = MargValueFuncCRRA(dvda_end_of_prd_nvrs_func, self.CRRA)
 
@@ -307,12 +314,15 @@ class PensionSolver(MetricObject):
             )
 
         dvdb_end_of_prd = self.DiscFac * self.ShockDstn.expected(
-            dvdb_func, self.aMat, self.bMat
+            dvdb_func,
+            self.aMat,
+            self.bMat,
         )
 
         dvdb_end_of_prd_nvrs = self.u.derinv(dvdb_end_of_prd)
         dvdb_end_of_prd_nvrs_func = LinearFast(
-            dvdb_end_of_prd_nvrs, [self.aGrid, self.bGrid]
+            dvdb_end_of_prd_nvrs,
+            [self.aGrid, self.bGrid],
         )
         dvdb_end_of_prd_func = MargValueFuncCRRA(dvdb_end_of_prd_nvrs_func, self.CRRA)
 
@@ -325,7 +335,9 @@ class PensionSolver(MetricObject):
             return psi ** (1 - self.CRRA) * v_func_next(mNrm_next, nNrm_next)
 
         v_end_of_prd = self.DiscFac * self.ShockDstn.expected(
-            v_func, self.aMat, self.bMat
+            v_func,
+            self.aMat,
+            self.bMat,
         )
 
         # value transformed through inverse utility
@@ -345,8 +357,7 @@ class PensionSolver(MetricObject):
         return post_decision_stage
 
     def solve_consumption_decision(self, post_decision_stage):
-        """
-        Should use lMat and blMat
+        """Should use lMat and blMat
 
         Parameters
         ----------
@@ -357,6 +368,7 @@ class PensionSolver(MetricObject):
         -------
         _type_
             _description_
+
         """
         dvda_end_of_prd_nvrs = post_decision_stage.dvda_nvrs
         dvdb_end_of_prd_nvrs = post_decision_stage.dvdb_nvrs
@@ -380,17 +392,21 @@ class PensionSolver(MetricObject):
         # again, at l = 0, c = 0 and a = 0, so repeat dvdb[0]
         # dvdb_end_of_prd_nvrs_temp = np.insert(dvdb_end_of_prd_nvrs, 0, 0.0, axis=0)
         dvdb_end_of_prd_nvrs_temp = np.insert(
-            dvdb_end_of_prd_nvrs, 0, dvdb_end_of_prd_nvrs[0], axis=0
+            dvdb_end_of_prd_nvrs,
+            0,
+            dvdb_end_of_prd_nvrs[0],
+            axis=0,
         )
 
         dvdb_innr_nvrs_func_by_bBal = []
         for bi in range(self.bGrid.size):
             dvdb_innr_nvrs_func_by_bBal.append(
-                LinearFast(dvdb_end_of_prd_nvrs_temp[:, bi], [lMat_temp[:, bi]])
+                LinearFast(dvdb_end_of_prd_nvrs_temp[:, bi], [lMat_temp[:, bi]]),
             )
 
         dvdb_innr_func = MargValueFuncCRRA(
-            LinearInterpOnInterp1D(dvdb_innr_nvrs_func_by_bBal, self.bGrid), self.CRRA
+            LinearInterpOnInterp1D(dvdb_innr_nvrs_func_by_bBal, self.bGrid),
+            self.CRRA,
         )
 
         # make value function
@@ -402,7 +418,7 @@ class PensionSolver(MetricObject):
         v_innr_nvrs_func_by_bBal = []
         for bi in range(self.bGrid.size):
             v_innr_nvrs_func_by_bBal.append(
-                LinearFast(v_now_nvrs_temp[:, bi], [lMat_temp[:, bi]])
+                LinearFast(v_now_nvrs_temp[:, bi], [lMat_temp[:, bi]]),
             )
 
         v_innr_nvrs_func = LinearInterpOnInterp1D(v_innr_nvrs_func_by_bBal, self.bGrid)

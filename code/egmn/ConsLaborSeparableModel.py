@@ -30,8 +30,7 @@ from utilities import interp_on_interp
 
 @dataclass
 class PostDecisionStage(MetricObject):
-    """
-    This clas contains the value and marginal value functions of the
+    """This clas contains the value and marginal value functions of the
     post decision state a : assets or savings or liquid wealth.
     """
 
@@ -43,8 +42,7 @@ class PostDecisionStage(MetricObject):
 
 @dataclass
 class ConsumptionSavingStage(MetricObject):
-    """
-    This class contains the policy function c : consumption given decision-state
+    """This class contains the policy function c : consumption given decision-state
     m : cash on hand. Also provides value and marginal value of m given optimal c.
     """
 
@@ -57,8 +55,7 @@ class ConsumptionSavingStage(MetricObject):
 
 @dataclass
 class LaborLeisureStage(MetricObject):
-    """
-    This class contains the policy function of the labor decision and the value and
+    """This class contains the policy function of the labor decision and the value and
     marginal value functions of the state b : bank balances and theta : wages.
     """
 
@@ -127,7 +124,9 @@ class LaborSeparableConsumerType(LaborIntMargConsumerType):
         vp_func_cs = MargValueFuncCRRA(c_func_cs, self.CRRA)
 
         cs_stage = ConsumptionSavingStage(
-            c_func=c_func_cs, v_func=v_func_cs, vp_func=vp_func_cs
+            c_func=c_func_cs,
+            v_func=v_func_cs,
+            vp_func=vp_func_cs,
         )
 
         # labor/leisure stage
@@ -194,7 +193,9 @@ class LaborSeparableConsumerType(LaborIntMargConsumerType):
         labor_func_unc = interp_on_interp(labor_mat, [bnrm_mat, tshk_mat])
 
         self.leisure_func_terminal = lambda b, t: np.clip(
-            leisure_func_unc(b, t), 0.0, 1.0
+            leisure_func_unc(b, t),
+            0.0,
+            1.0,
         )
         self.labor_func_terminal = lambda b, t: np.clip(labor_func_unc(b, t), 0.0, 1.0)
 
@@ -227,7 +228,8 @@ class LaborSeparableConsumerType(LaborIntMargConsumerType):
         )
 
         self.solution_terminal = LaborSeparableSolution(
-            labor_leisure=ll_stage, consumption_saving=cs_stage
+            labor_leisure=ll_stage,
+            consumption_saving=cs_stage,
         )
 
         self.solution_terminal.terminal_grids = terminal_grids
@@ -259,10 +261,7 @@ class LaborSeparableSolver:
         self.def_utility_funcs()
 
     def def_utility_funcs(self):
-        """
-        Define temporary functions for utility and its derivative and inverse
-        """
-
+        """Define temporary functions for utility and its derivative and inverse"""
         self.u_func = UtilityFuncCRRA(self.CRRA)
 
         if self.Disutility:
@@ -290,7 +289,8 @@ class LaborSeparableSolver:
             p_shk = self.PermGroFac * shock[0]
             bnrm = anrm * self.Rfree / p_shk
             return p_shk**-self.CRRA * self.vp_func_next(
-                bnrm, shock[1].repeat(bnrm.size)
+                bnrm,
+                shock[1].repeat(bnrm.size),
             )
 
         EndOfPrdvP_vals = calc_expectation(self.IncShkDstn, dvda_func, self.aGrid)
@@ -304,7 +304,8 @@ class LaborSeparableSolver:
         EndOfPrdvP_func = MargValueFuncCRRA(EndOfPrdvP_nvrs_func, self.CRRA)
 
         self.post_decision_stage = PostDecisionStage(
-            vp_func=EndOfPrdvP_func, vp=EndOfPrdvP_nvrs
+            vp_func=EndOfPrdvP_func,
+            vp=EndOfPrdvP_nvrs,
         )
 
     def make_consumption_solution(self):
@@ -319,7 +320,8 @@ class LaborSeparableSolver:
         vPfuncEndOfPrd = MargValueFuncCRRA(cFuncEndOfPrd, self.CRRA)
 
         self.consumption_saving_stage = ConsumptionSavingStage(
-            c_func=cFuncEndOfPrd, vp_func=vPfuncEndOfPrd
+            c_func=cFuncEndOfPrd,
+            vp_func=vPfuncEndOfPrd,
         )
 
     def make_labor_leisure_solution(self):
@@ -333,7 +335,7 @@ class LaborSeparableSolver:
 
         # this is the egm step, given exog m and tshk, find leisure
         lsrmat = self.n_func.derinv(
-            self.consumption_saving_stage.vp_func(mnrmat) * self.WageRte * tshkmat
+            self.consumption_saving_stage.vp_func(mnrmat) * self.WageRte * tshkmat,
         )
         # Make sure lsrgrid is not greater than 1.0
         if self.zero_bound:
@@ -400,8 +402,7 @@ init_labor_separable["LeisureCRRA"] = 2.0
 
 @dataclass
 class PortfolioPostDecisionStage(MetricObject):
-    """
-    This class contains the value and marginal value functions of the problem given
+    """This class contains the value and marginal value functions of the problem given
     post-decision states a : savings and s : risky share of portfolio.
     """
 
@@ -415,8 +416,7 @@ class PortfolioPostDecisionStage(MetricObject):
 
 @dataclass
 class PortfolioStage(MetricObject):
-    """
-    This class contains the policy function share : risky share of portfolio given
+    """This class contains the policy function share : risky share of portfolio given
     decision-state a : savings, and additionally provides the value and marginal
     value functions given decision-state a.
     """
@@ -431,9 +431,7 @@ class PortfolioStage(MetricObject):
 
 @dataclass
 class LaborPortfolioSolution(MetricObject):
-    """
-    The ConsLaborPortfolioSolution contains all of the solution stages of this model.
-    """
+    """The ConsLaborPortfolioSolution contains all of the solution stages of this model."""
 
     post_decision_stage: PostDecisionStage = PostDecisionStage()
     portfolio_stage: PortfolioStage = PortfolioStage()
@@ -476,7 +474,9 @@ class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType
 
         util = UtilityFuncCRRA(self.CRRA)
         consumption_stage = ConsumptionSavingStage(
-            c_func=lambda m: m, v_func=util, vp_func=util.der
+            c_func=lambda m: m,
+            v_func=util,
+            vp_func=util.der,
         )
 
         # in terminal period agents do not work, and so b = m
@@ -521,10 +521,7 @@ class LaborPortfolioSolver(MetricObject):
         self.def_utility_funcs()
 
     def def_utility_funcs(self):
-        """
-        Define temporary functions for utility and its derivative and inverse
-        """
-
+        """Define temporary functions for utility and its derivative and inverse"""
         self.u = UtilityFuncCRRA(self.CRRA)
 
         if self.Disutility:
@@ -533,10 +530,7 @@ class LaborPortfolioSolver(MetricObject):
             self.n = UtilityFuncLeisure(self.LeisureCRRA, self.LeisureFactor)
 
     def prepare_to_solve(self):
-        """
-        Create grids that will be used in solution stages.
-        """
-
+        """Create grids that will be used in solution stages."""
         # these set of grids will be used in post decision stage
         # portfolio stage and consumption stage.
 
@@ -550,7 +544,9 @@ class LaborPortfolioSolver(MetricObject):
             self.aNrmGrid = np.append(0.0, self.aXtraGrid)  # safe to add zero
 
         self.aNrmMat, self.shareMat = np.meshgrid(
-            self.aNrmGrid, self.ShareGrid, indexing="ij"
+            self.aNrmGrid,
+            self.ShareGrid,
+            indexing="ij",
         )
 
         # these set of grids will be used in labor stage
@@ -558,12 +554,16 @@ class LaborPortfolioSolver(MetricObject):
         self.mNrmGrid = self.aXtraGrid  # no zeros
 
         self.mNrmMat, self.TranShkMat_m = np.meshgrid(
-            self.mNrmGrid, self.TranShkGrid, indexing="ij"
+            self.mNrmGrid,
+            self.TranShkGrid,
+            indexing="ij",
         )
 
         self.bNrmGrid = np.append(0.0, self.aXtraGrid)
         self.bNrmMat, self.TranShkMat_b = np.meshgrid(
-            self.bNrmGrid, self.TranShkGrid, indexing="ij"
+            self.bNrmGrid,
+            self.TranShkGrid,
+            indexing="ij",
         )
 
         # name ShockDstn indeces
@@ -592,7 +592,10 @@ class LaborPortfolioSolver(MetricObject):
             self.DiscFac
             * self.LivPrb
             * calc_expectation(
-                self.ShockDstn, marginal_values, self.aNrmMat, self.shareMat
+                self.ShockDstn,
+                marginal_values,
+                self.aNrmMat,
+                self.shareMat,
             )
         )
 
@@ -629,10 +632,7 @@ class LaborPortfolioSolver(MetricObject):
         return post_decision_stage_solution
 
     def optimize_share(self, foc):
-        """
-        Optimization of Share on continuous interval [0,1]
-        """
-
+        """Optimization of Share on continuous interval [0,1]"""
         # For each value of aNrm, find the value of Share such that FOC-Share == 0.
         crossing = np.logical_and(foc[..., 1:] <= 0.0, foc[..., :-1] >= 0.0)
         share_idx = np.argmax(crossing, axis=1)
@@ -682,7 +682,10 @@ class LaborPortfolioSolver(MetricObject):
         dvda_func = MargValueFuncCRRA(dvda_nvrs_func, self.CRRA)
 
         portfolio_stage_solution = PortfolioStage(
-            share_func=share_func, vp_func=dvda_func, vp_vals=dvda, vp_nvrs=dvda_nvrs
+            share_func=share_func,
+            vp_func=dvda_func,
+            vp_vals=dvda,
+            vp_nvrs=dvda_nvrs,
         )
 
         return portfolio_stage_solution
@@ -698,7 +701,8 @@ class LaborPortfolioSolver(MetricObject):
         vp_func = MargValueFuncCRRA(c_func, self.CRRA)
 
         consumption_stage_solution = ConsumptionSavingStage(
-            c_func=c_func, vp_func=vp_func
+            c_func=c_func,
+            vp_func=vp_func,
         )
 
         return consumption_stage_solution
@@ -724,17 +728,19 @@ class LaborPortfolioSolver(MetricObject):
         leisure_unconstrained_func_by_tShk = []
         for i in range(self.TranShkGrid.size):
             leisure_unconstrained_func_by_tShk.append(
-                LinearFast(leisureEndogMat[:, i], [bNrmEndogMat[:, i]])
+                LinearFast(leisureEndogMat[:, i], [bNrmEndogMat[:, i]]),
             )
 
         leisure_unconstrained_func = LinearInterpOnInterp1D(
-            leisure_unconstrained_func_by_tShk, self.TranShkGrid
+            leisure_unconstrained_func_by_tShk,
+            self.TranShkGrid,
         )
 
         # Now use exogenous self.bNrmMat and self.TranShkMat_b
 
         leisure_unconstrained = leisure_unconstrained_func(
-            self.bNrmMat, self.TranShkMat_b
+            self.bNrmMat,
+            self.TranShkMat_b,
         )
 
         leisureExogMat = np.clip(leisure_unconstrained, 0.0, 1.0)  # constrained
@@ -750,7 +756,8 @@ class LaborPortfolioSolver(MetricObject):
         dvdb_func = MargValueFuncCRRA(dvdb_nvrs_func, self.CRRA)
 
         labor_stage_solution = LaborLeisureStage(
-            labor_func=labor_func, vp_func=dvdb_func
+            labor_func=labor_func,
+            vp_func=dvdb_func,
         )
         labor_stage_solution.leisure_func = leisure_func
         labor_stage_solution.grids = grids

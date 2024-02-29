@@ -135,7 +135,9 @@ class RetirementConsumerType(RiskyAssetConsumerType):
         v_func = ValueFuncCRRA(c_func, self.CRRA)
 
         self.retiring_solution = RetiringSolution(
-            c_func=c_func, vp_func=vp_func, v_func=v_func
+            c_func=c_func,
+            vp_func=vp_func,
+            v_func=v_func,
         )
 
         def d_func(m, n):
@@ -166,7 +168,10 @@ class RetirementConsumerType(RiskyAssetConsumerType):
         # retirement
 
         self.aRetGrid = make_grid_exp_mult(
-            0.0, self.aRetMax, self.aRetCount, self.aRetNestFac
+            0.0,
+            self.aRetMax,
+            self.aRetCount,
+            self.aRetNestFac,
         )
 
         # post decision grids and exogenous grids for
@@ -177,14 +182,20 @@ class RetirementConsumerType(RiskyAssetConsumerType):
 
         # exogenous grids for pension deposit stage
         self.lGrid = make_grid_exp_mult(
-            self.epsilon, self.lMax, self.lCount, self.lNestFac
+            self.epsilon,
+            self.lMax,
+            self.lCount,
+            self.lNestFac,
         )
         self.blGrid = make_grid_exp_mult(0.0, self.blMax, self.blCount, self.blNestFac)
         self.lMat, self.blMat = np.meshgrid(self.lGrid, self.blGrid, indexing="ij")
 
         # common worker grids
         self.mGrid = make_grid_exp_mult(
-            self.epsilon, self.mMax, self.mCount, self.mNestFac
+            self.epsilon,
+            self.mMax,
+            self.mCount,
+            self.mNestFac,
         )
         self.nGrid = make_grid_exp_mult(0.0, self.nMax, self.nCount, self.nNestFac)
         self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
@@ -316,7 +327,10 @@ class RetirementSolver:
             return dvda, dvdb, v_end
 
         conditional_values = self.DiscFac * calc_expectation(
-            self.TranShkDstn, conditional_funcs, self.aMat, self.bMat
+            self.TranShkDstn,
+            conditional_funcs,
+            self.aMat,
+            self.bMat,
         )
 
         # TODO: what happens at a, b = 0.0?
@@ -339,7 +353,9 @@ class RetirementSolver:
         v_end_func = ValueFuncCRRA(v_end_nvrs_func, self.CRRA)
 
         post_decision_stage = PostDecisionStage(
-            v_func=v_end_func, dvda_func=dvda_func, dvdb_func=dvdb_func
+            v_func=v_end_func,
+            dvda_func=dvda_func,
+            dvdb_func=dvdb_func,
         )
 
         # sometimes the best items to pass to next stage aren't functions
@@ -542,7 +558,8 @@ class RetirementSolver:
         dvdnWorking = dvdnWorking_func(mMat_temp, nMat_temp)
 
         vWorker, prbs = calc_log_sum_choice_probs(
-            [vWorking, vRetiring], self.TasteShkStd
+            [vWorking, vRetiring],
+            self.TasteShkStd,
         )
 
         vWorkerNvrs = self.u.inv(vWorker)
@@ -592,11 +609,13 @@ class RetirementSolver:
         )
 
         probabilities = DiscreteChoiceProbabilities(
-            prob_working=prbWorkingFunc, prob_retiring=prbRetiringFunc
+            prob_working=prbWorkingFunc,
+            prob_retiring=prbRetiringFunc,
         )
 
         worker_solution = WorkerSolution(
-            deposit_stage=deposit_solution, probabilities=probabilities
+            deposit_stage=deposit_solution,
+            probabilities=probabilities,
         )
 
         return worker_solution
@@ -609,7 +628,8 @@ class RetirementSolver:
         self.retiring_solution = self.solve_retiring_problem(self.retired_solution)
         self.working_solution = self.solve_working_problem(worker_solution_next)
         self.worker_solution = self.solve_worker_problem(
-            self.working_solution, self.retiring_solution
+            self.working_solution,
+            self.retiring_solution,
         )
 
         solution = RetirementSolution(

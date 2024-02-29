@@ -99,7 +99,9 @@ class PensionConsumerType(RiskyAssetConsumerType):
         cmat = self.mMat + self.nMat  # consume everything
         cmat_temp = np.insert(cmat, 0, 0.0, axis=0)
         c_func_terminal = BilinearInterp(
-            cmat_temp, np.append(0.0, self.mGrid), self.nGrid
+            cmat_temp,
+            np.append(0.0, self.mGrid),
+            self.nGrid,
         )
         vp_func_terminal = MargValueFuncCRRA(c_func_terminal, self.CRRA)
         v_func_terminal = ValueFuncCRRA(c_func_terminal, self.CRRA)
@@ -129,15 +131,24 @@ class PensionConsumerType(RiskyAssetConsumerType):
         # retirement
 
         self.mRetGrid = make_grid_exp_mult(
-            0.0, self.mRetMax, self.mRetCount, self.mRetNestFac
+            0.0,
+            self.mRetMax,
+            self.mRetCount,
+            self.mRetNestFac,
         )
         self.aRetGrid = make_grid_exp_mult(
-            0.0, self.aRetMax, self.aRetCount, self.aRetNestFac
+            0.0,
+            self.aRetMax,
+            self.aRetCount,
+            self.aRetNestFac,
         )
 
         # worker grids
         self.mGrid = make_grid_exp_mult(
-            self.epsilon, self.mMax, self.mCount, self.mNestFac
+            self.epsilon,
+            self.mMax,
+            self.mCount,
+            self.mNestFac,
         )
         self.nGrid = make_grid_exp_mult(0.0, self.nMax, self.nCount, self.nNestFac)
         self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
@@ -149,7 +160,10 @@ class PensionConsumerType(RiskyAssetConsumerType):
 
         # pension deposit grids
         self.lGrid = make_grid_exp_mult(
-            self.epsilon, self.lMax, self.lCount, self.lNestFac
+            self.epsilon,
+            self.lMax,
+            self.lCount,
+            self.lNestFac,
         )
         self.b2Grid = make_grid_exp_mult(0.0, self.b2Max, self.b2Count, self.b2NestFac)
         self.lMat, self.b2Mat = np.meshgrid(self.lGrid, self.b2Grid, indexing="ij")
@@ -255,7 +269,8 @@ class PensionSolver(MetricObject):
         # Construct the beginning-of-period value function
         v_grid_nvrs = self.u.inv(v_grid)  # value transformed through inverse utility
         v_grid_nvrs_func = LinearInterp(
-            np.append(0.0, mGrid), np.append(0.0, v_grid_nvrs)
+            np.append(0.0, mGrid),
+            np.append(0.0, v_grid_nvrs),
         )
         v_func = ValueFuncCRRA(v_grid_nvrs_func, self.CRRA)
 
@@ -298,7 +313,9 @@ class PensionSolver(MetricObject):
         v_func = ValueFuncCRRA(v_nvrs_func, self.CRRA)
 
         worker_retiring_solution = RetiringSolution(
-            c_func=c_func, vp_func=vp_func, v_func=v_func
+            c_func=c_func,
+            vp_func=vp_func,
+            v_func=v_func,
         )
 
         worker_retiring_solution.cRetiring = cRetiring
@@ -332,7 +349,9 @@ class PensionSolver(MetricObject):
 
         dvda_end_of_prd_nvrs = self.u.derinv(dvda_end_of_prd)
         dvda_end_of_prd_nvrs_func = BilinearInterp(
-            dvda_end_of_prd_nvrs, self.aGrid, self.bGrid
+            dvda_end_of_prd_nvrs,
+            self.aGrid,
+            self.bGrid,
         )
         dvda_end_of_prd_func = MargValueFuncCRRA(dvda_end_of_prd_nvrs_func, self.CRRA)
 
@@ -355,7 +374,9 @@ class PensionSolver(MetricObject):
 
         dvdb_end_of_prd_nvrs = self.u.derinv(dvdb_end_of_prd)
         dvdb_end_of_prd_nvrs_func = BilinearInterp(
-            dvdb_end_of_prd_nvrs, self.aGrid, self.bGrid
+            dvdb_end_of_prd_nvrs,
+            self.aGrid,
+            self.bGrid,
         )
         dvdb_end_of_prd_func = MargValueFuncCRRA(dvdb_end_of_prd_nvrs_func, self.CRRA)
 
@@ -377,7 +398,9 @@ class PensionSolver(MetricObject):
         # value transformed through inverse utility
         v_end_of_prd_nvrs = self.u.inv(v_end_of_prd)
         v_end_of_prd_nvrs_func = BilinearInterp(
-            v_end_of_prd_nvrs, self.aGrid, self.bGrid
+            v_end_of_prd_nvrs,
+            self.aGrid,
+            self.bGrid,
         )
         v_end_of_prd_func = ValueFuncCRRA(v_end_of_prd_nvrs_func, self.CRRA)
 
@@ -411,7 +434,7 @@ class PensionSolver(MetricObject):
                 LinearInterp(
                     lmat_temp[:, bi],
                     cmat_temp[:, bi],
-                )
+                ),
             )
 
         c_innr_func = LinearInterpOnInterp1D(c_innr_func_by_bbal, self.bGrid)
@@ -420,7 +443,10 @@ class PensionSolver(MetricObject):
         # again, at l = 0, c = 0 and a = 0, so repeat dvdb[0]
         # dvdb_end_of_prd_nvrs_temp = np.insert(dvdb_end_of_prd_nvrs, 0, 0.0, axis=0)
         dvdb_end_of_prd_nvrs_temp = np.insert(
-            dvdb_end_of_prd_nvrs, 0, dvdb_end_of_prd_nvrs[0], axis=0
+            dvdb_end_of_prd_nvrs,
+            0,
+            dvdb_end_of_prd_nvrs[0],
+            axis=0,
         )
 
         dvdb_innr_nvrs_func_by_bbal = []
@@ -429,11 +455,12 @@ class PensionSolver(MetricObject):
                 LinearInterp(
                     lmat_temp[:, bi],
                     dvdb_end_of_prd_nvrs_temp[:, bi],
-                )
+                ),
             )
 
         dvdb_innr_func = MargValueFuncCRRA(
-            LinearInterpOnInterp1D(dvdb_innr_nvrs_func_by_bbal, self.bGrid), self.CRRA
+            LinearInterpOnInterp1D(dvdb_innr_nvrs_func_by_bbal, self.bGrid),
+            self.CRRA,
         )
 
         # make value function
@@ -445,7 +472,7 @@ class PensionSolver(MetricObject):
         v_innr_nvrs_func_by_bbal = []
         for bi in range(self.bGrid.size):
             v_innr_nvrs_func_by_bbal.append(
-                LinearInterp(lmat_temp[:, bi], v_now_nvrs_temp[:, bi])
+                LinearInterp(lmat_temp[:, bi], v_now_nvrs_temp[:, bi]),
             )
 
         v_innr_nvrs_func = LinearInterpOnInterp1D(v_innr_nvrs_func_by_bbal, self.bGrid)
@@ -523,7 +550,9 @@ class PensionSolver(MetricObject):
         dvdn_outr_nvrs = self.u.derinv(dvdb_innr)
         dvdn_outr_nvrs_temp = np.insert(dvdn_outr_nvrs, 0, dvdn_outr_nvrs[0], axis=0)
         dvdn_outr_nvrs_func = BilinearInterp(
-            dvdn_outr_nvrs_temp, mGrid_temp, self.nGrid
+            dvdn_outr_nvrs_temp,
+            mGrid_temp,
+            self.nGrid,
         )
         dvdn_outr_func = MargValueFuncCRRA(dvdn_outr_nvrs_func, self.CRRA)
 
