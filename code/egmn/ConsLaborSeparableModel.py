@@ -25,7 +25,8 @@ from HARK.interpolation import (
 from HARK.metric import MetricObject
 from HARK.rewards import UtilityFuncCRRA, UtilityFuncStoneGeary
 from HARK.utilities import NullFunc
-from utilities import interp_on_interp
+
+from egmn.utilities import interp_on_interp
 
 
 @dataclass

@@ -7,7 +7,7 @@ dependencies:
   - scipy
   - matplotlib
   - numpy
-  - numba
+  - numba<0.59
   - scikit-learn
   - pandas
   - sympy
@@ -21,6 +21,7 @@ dependencies:
   - ruff
   - nodejs
   - mystmd
+  - estimagic
   - pip
   - pip:
       - git+https://github.com/alanlujan91/HARK@map_coordinates
