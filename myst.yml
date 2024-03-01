@@ -1,6 +1,6 @@
 version: 1
 site:
-  template: book-theme
+  template: article-theme
   options:
     logo: content/public/econ-ark-logo.png
     logo_text: Econ-ARK
@@ -34,16 +34,18 @@ site:
       url: https://quantmacro.org
     - title: Slides
       url: https://alanlujan91.github.io/SequentialEGM/slides
-  actions:
-    - title: Download paper
-      url: content/public/SequentialEGMn.pdf
-      static: true
+  # actions:
+  #   - title: Download paper
+  #     url: content/public/SequentialEGMn.pdf
+  #     static: true
   domains:
     - alanlujan91.curve.space
   favicon: public/econ-ark-logo-small.png
 project:
-  title: "EGMⁿ: The Sequential Endogenous Grid Method"
+  title: 'EGMⁿ: The Sequential Endogenous Grid Method'
   short_title: EGMⁿ
+  banner: banner.png
+  thumbnail: thumbnail.png
   authors:
     - name: Alan Lujan
       corresponding: false
@@ -93,11 +95,12 @@ project:
     NEGM: Nested Endogenous Grid Method
     G2EGM: Generalized Endogenous Grid Method
     DCEGM: Discrete Choice Endogenous Grid Method
+    WGI: Warped Grid Interpolation
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'
     '\PtyLab': '\mathrm{Z}'
-    '\ptyLab': "z"
+    '\ptyLab': 'z'
     '\TaxComb': '\mathcal{T}'
     '\Prob': '\mathbb{P}'
     '\DiePrb': '\mathsf{D}'
@@ -121,9 +124,9 @@ project:
     '\cVec': '\vec{\mathrm{\cNrm}}'
     '\mVec': '\vec{\mathrm{m}}'
     '\yVec': '\vec{\mathrm{\yNrm}}'
-    '\Inc': "Y"
-    '\inc': "y"
-    '\PInc': "P"
+    '\Inc': 'Y'
+    '\inc': 'y'
+    '\PInc': 'P'
     '\AFunc': '\mathrm{A}'
     '\aFunc': '\mathrm{a}'
     '\BFunc': '\mathrm{B}'
@@ -209,20 +212,20 @@ project:
     '\kPriceAfterITC': '\mathscr{P}'
     '\PostITC': '\cancel{\zeta}'
     '\pDead': '\mathfrak{D}'
-    '\TaxPaid': "T"
+    '\TaxPaid': 'T'
     '\WMid': '\BLev'
     '\wMid': '\bLev'
     '\Wmid': '\BRat'
     '\wmid': '\bRat'
     '\Dvdnd': '\mathbf{D}'
-    '\dvdnd': "d"
+    '\dvdnd': 'd'
     '\edvdnd': '\grave{\dvdnd}'
     '\hEnd': '\mathfrak{h}'
-    '\GovSpend': "X"
-    '\govSpend': "x"
+    '\GovSpend': 'X'
+    '\govSpend': 'x'
     '\xpend': '\xi'
     '\expend': '\xi'
-    '\TEnd': "T"
+    '\TEnd': 'T'
     '\VEnd': '\mathfrak{V}'
     '\vEnd': '\mathfrak{v}'
     '\WEnd': '\ALev'
@@ -246,7 +249,7 @@ project:
     '\PermShkStd': '\sigma_{\PermShk}'
     '\TranShkStd': '\sigma_{\TranShk}'
     '\prud': '\eta'
-    '\tFwd': "n"
+    '\tFwd': 'n'
     '\aE': '\aRat^{e}'
     '\BE': '\BRat^{e}'
     '\bE': '\bRat^{e}'
@@ -259,8 +262,8 @@ project:
     '\Rfree': '\mathsf{R}'
     '\rfree': '\mathsf{r}'
     '\TaxFree': '\cancel{\Tax}'
-    '\Age': "Z"
-    '\age': "z"
+    '\Age': 'Z'
+    '\age': 'z'
     '\Wage': '\mathsf{W}'
     '\wage': '\mathsf{w}'
     '\bTargE': '\check{b}^{e}'
@@ -272,23 +275,23 @@ project:
     '\yTargE': '\check{y}^{e}'
     '\ME': '\MRat^{e}'
     '\mE': '\mRat^{e}'
-    '\TermTime': "T"
+    '\TermTime': 'T'
     '\ShkMeanOne': '\Theta'
     '\PopE': '\mathcal{E}'
-    '\popE': "e"
+    '\popE': 'e'
     '\labShare': '\nu'
     '\leiShare': '\zeta'
     '\kapShare': '\alpha'
     '\riskyshare': '\varsigma'
     '\Retire': '\mathbb{R}'
-    '\WPre': "K"
-    '\wPre': "k"
-    '\Leisure': "Z"
-    '\leisure': "z"
+    '\WPre': 'K'
+    '\wPre': 'k'
+    '\Leisure': 'Z'
+    '\leisure': 'z'
     '\SE': '\SRat^{e}'
     '\sE': '\sRat^{e}'
-    '\BRatE': "{B}^{e}"
-    '\bRatE': "{b}^{e}"
+    '\BRatE': '{B}^{e}'
+    '\bRatE': '{b}^{e}'
     '\CRatE': '\CRat^{e}'
     '\cRatE': '\cRat^{e}'
     '\DiscRate': '\vartheta'
@@ -303,7 +306,7 @@ project:
     '\sRatE': '\sRat^{e}'
     '\srate': '\varsigma'
     '\urate': '\mho'
-    '\TaxRate': "t"
+    '\TaxRate': 't'
     '\empState': '\xi'
     '\discRte': '\tau'
     '\DiscRte': '\vartheta'
@@ -318,10 +321,10 @@ project:
     '\RPRte': '\text{\thorn}_{\rfree}'
     '\deprRte': '\delta'
     '\Value': '\mathrm{V}'
-    '\VE': "{V}^{e}"
-    '\vE': "{v}^{e}"
-    '\Save': "S"
-    '\save': "s"
+    '\VE': '{V}^{e}'
+    '\vE': '{v}^{e}'
+    '\Save': 'S'
+    '\save': 's'
     '\RSave': '\underline{\Rfree}'
     '\rsave': '\underline{\rfree}'
     '\Abve': '\bar'
@@ -388,7 +391,7 @@ project:
     '\mBalLog': '\BalGroRte{m}'
     '\EpremLog': '\varphi'
     '\ShkLogZeroLog': '\cancel{\ShkMeanOneLog}'
-    '\pLog': "p"
+    '\pLog': 'p'
     '\ImpG': '\Im}_{\PGro'
     '\impg': '\imath}_{\pGro'
     '\ATarg': '\check{A}'
@@ -410,12 +413,12 @@ project:
     '\yTarg': '\check{y}'
     '\CGroOverG': '\Upsilon'
     '\avg': '\bar'
-    '\h': "h"
-    '\Wealth': "O"
-    '\wealth': "o"
+    '\h': 'h'
+    '\Wealth': 'O'
+    '\wealth': 'o'
     '\Hi': '\hat'
     '\Chi': '\mathrm{X}'
-    '\NI': "Z"
+    '\NI': 'Z'
     '\TaxUI': '\tau'
     '\adj': '\mathrm{j}'
     '\PermGroFacAdj': '\underline{\PermGroFac}'
@@ -445,11 +448,11 @@ project:
     '\tshk': '\xi'
     '\Work': '\mathbb{W}'
     '\vk': '\lambda'
-    '\util': "u"
+    '\util': 'u'
     '\TranShkAll': '\pmb{\xi}'
     '\tShkAll': '\xi'
-    '\WAll': "O"
-    '\wAll': "o"
+    '\WAll': 'O'
+    '\wAll': 'o'
     '\Lvl': '\mathbf'
     '\ALvl': '\mathbf{A}'
     '\aLvl': '\mathbf{a}'
@@ -504,47 +507,47 @@ project:
     '\eprem': '\varphi'
     '\tHorOfm': '\pmb{n}'
     '\debtLim': '\mathsf{d}'
-    '\tTerm': "T"
+    '\tTerm': 'T'
     '\vFirm': '\mathrm{e}'
-    '\ANrm': "A"
-    '\aNrm': "a"
-    '\BNrm': "B"
-    '\bNrm': "b"
-    '\CNrm': "C"
-    '\cNrm': "c"
+    '\ANrm': 'A'
+    '\aNrm': 'a'
+    '\BNrm': 'B'
+    '\bNrm': 'b'
+    '\CNrm': 'C'
+    '\cNrm': 'c'
     '\GPFacNrm': '\APFac_{\PermGroFacAdj}'
-    '\DNrm': "D"
-    '\dNrm': "d"
-    '\ENrm': "E"
-    '\eNrm': "e"
-    '\FNrm': "F"
-    '\fNrm': "f"
+    '\DNrm': 'D'
+    '\dNrm': 'd'
+    '\ENrm': 'E'
+    '\eNrm': 'e'
+    '\FNrm': 'F'
+    '\fNrm': 'f'
     '\bTrgNrm': '\TargetNrm{\bNrm}'
     '\mTrgNrm': '\TargetNrm{m}'
-    '\HNrm': "H"
-    '\hNrm': "h"
-    '\INrm': "I"
-    '\iNrm': "i"
-    '\JNrm': "J"
-    '\jNrm': "j"
-    '\KNrm': "K"
-    '\kNrm': "k"
-    '\MNrm': "M"
-    '\mNrm': "m"
-    '\PNrm': "P"
-    '\pNrm': "p"
+    '\HNrm': 'H'
+    '\hNrm': 'h'
+    '\INrm': 'I'
+    '\iNrm': 'i'
+    '\JNrm': 'J'
+    '\jNrm': 'j'
+    '\KNrm': 'K'
+    '\kNrm': 'k'
+    '\MNrm': 'M'
+    '\mNrm': 'm'
+    '\PNrm': 'P'
+    '\pNrm': 'p'
     '\RNrm': '\mathcal{R}'
-    '\rNrm': "s"
-    '\SNrm': "S"
-    '\sNrm': "s"
+    '\rNrm': 's'
+    '\SNrm': 'S'
+    '\sNrm': 's'
     '\TargetNrm': '\hat'
-    '\VNrm': "V"
-    '\vNrm': "v"
-    '\xNrm': "x"
-    '\YNrm': "Y"
-    '\yNrm': "y"
-    '\ZNrm': "Z"
-    '\zNrm': "z"
+    '\VNrm': 'V'
+    '\vNrm': 'v'
+    '\xNrm': 'x'
+    '\YNrm': 'Y'
+    '\yNrm': 'y'
+    '\ZNrm': 'Z'
+    '\zNrm': 'z'
     '\Rnorm': '\mathcal{R}'
     '\rnorm': '\mathit{r}'
     '\vNorm': '\mathrm{w}'
@@ -552,9 +555,9 @@ project:
     '\wHum': '\hLev'
     '\Whum': '\HRat'
     '\whum': '\hRat'
-    '\Num': "N"
-    '\VNum': "V"
-    '\vNum': "v"
+    '\Num': 'N'
+    '\VNum': 'V'
+    '\vNum': 'v'
     '\Mean': '\mathbb{M}'
     '\tThen': '\tau'
     '\valfn': '\mathrm{v}'
@@ -604,8 +607,8 @@ project:
     '\RBoro': '\bar{\Rfree}'
     '\rboro': '\bar{\rfree}'
     '\Pareto': '\zeta'
-    '\Kap': "K"
-    '\kap': "k"
+    '\Kap': 'K'
+    '\kap': 'k'
     '\EEndMap': '\mathsf{E}'
     '\TMap': '\mathscr{T}'
     '\cP': '\cons^{\prime}'
@@ -617,7 +620,7 @@ project:
     '\TShkEmp': '\Theta'
     '\tShkEmp': '\theta'
     '\IncUnemp': '\mu'
-    '\Pop': "L"
+    '\Pop': 'L'
     '\cPP': '\cons^{\prime\prime}'
     '\FPP': '\mathrm{F}^{\prime\prime}'
     '\fPP': '\mathrm{f}^{\prime\prime}'
@@ -638,13 +641,13 @@ project:
     '\sdr': '\mRat'
     '\Estdr': '\sigma_{\risky}'
     '\xFer': '\chi'
-    '\XFer': "X"
-    '\nIter': "n"
+    '\XFer': 'X'
+    '\nIter': 'n'
     '\power': '\eta'
     '\labor': '\ell'
     '\Labor': '\mathrm{L}'
-    '\PLabor': "P"
-    '\Plabor': "P"
+    '\PLabor': 'P'
+    '\Plabor': 'P'
     '\tHor': '\mathsf{n}'
     '\error': '\epsilon'
     '\Depr': '\daleth'
@@ -653,45 +656,45 @@ project:
     '\impr': '\imath}_{\rfree'
     '\EVarr': '\sigma_{\Risky}^{2}'
     '\Evarr': '\sigma_{\risky}^{2}'
-    '\Err': "Z"
-    '\err': "z"
+    '\Err': 'Z'
+    '\err': 'z'
     '\CGroOverR': '\Phi'
     '\corr': '\varrho'
-    '\curr': "1"
-    '\Curr': "t"
-    '\tCurr': "t"
+    '\curr': '1'
+    '\Curr': 't'
+    '\tCurr': 't'
     '\PatR': '\text{\pmb{\Thorn}}_{\Rfree}'
     '\patr': '\text{\thorn}_{\rfree}'
     '\PDies': '\mathsf{D}'
     '\pDies': '\mathsf{d}'
     '\PLives': '\cancel{\PDies}'
     '\pLives': '\cancel{\pDies}'
-    '\Stocks': "S"
-    '\stocks': "s"
-    '\TaxNetTrans': "Z"
-    '\taxNetTrans': "z"
+    '\Stocks': 'S'
+    '\stocks': 's'
+    '\TaxNetTrans': 'Z'
+    '\taxNetTrans': 'z'
     '\unins': '\zeta'
-    '\Cons': "C"
-    '\cons': "c"
+    '\Cons': 'C'
+    '\cons': 'c'
     '\MPS': '\lambda'
     '\MinMPS': '\pZero^{1/\CRRA} \PatR'
     '\MaxMPS': '\PatR'
     '\CGroPS': '\chi'
     '\Hours': '\mathfrak{H}'
     '\hours': '\mathfrak{h}'
-    '\ASS': "A"
-    '\aSS': "a"
-    '\cEss': "{c}^{e}"
+    '\ASS': 'A'
+    '\aSS': 'a'
+    '\cEss': '{c}^{e}'
     '\mEss': '\check{m}^{e}'
     '\vEss': '\check{v}^{e}'
     '\MSS': '\breve{M}'
     '\mSS': '\breve{m}'
     '\RGross': '\breve{\mathsf{R}}'
     '\rGross': '\breve{\mathsf{r}}'
-    '\tSS': "t"
-    '\effUnits': "X"
-    '\Surplus': "Z"
-    '\surplus': "z"
+    '\tSS': 't'
+    '\effUnits': 'X'
+    '\Surplus': 'Z'
+    '\surplus': 'z'
     '\TEat': '\TEnd'
     '\patpGrohat': '\hat{\text{\thorn}}_{\pGro}'
     '\aMat': '[\mathrm{a}]'
@@ -703,57 +706,57 @@ project:
     '\yMat': '[\mathrm{\yNrm}]'
     '\Pat': '\text{\pmb{\Thorn}}'
     '\pat': '\text{\thorn}'
-    '\ARat': "A"
-    '\aRat': "a"
+    '\ARat': 'A'
+    '\aRat': 'a'
     '\NFARat': '\NRat'
-    '\BRat': "B"
-    '\bRat': "b"
-    '\CRat': "C"
-    '\cRat': "c"
+    '\BRat': 'B'
+    '\bRat': 'b'
+    '\CRat': 'C'
+    '\cRat': 'c'
     '\ccRat': '\mathsf{c}'
-    '\dRat': "d"
+    '\dRat': 'd'
     '\WEndRat': '\ARat'
     '\wEndRat': '\aRat'
-    '\HRat': "H"
-    '\hRat': "h"
-    '\IRat': "I"
-    '\iRat': "i"
-    '\KRat': "K"
-    '\kRat': "k"
-    '\LRat': "L"
-    '\lRat': "l"
-    '\WAllRat': "O"
-    '\wAllRat': "o"
-    '\MRat': "M"
-    '\mRat': "m"
-    '\NRat': "N"
-    '\nRat': "n"
-    '\ORat': "O"
-    '\oRat': "o"
-    '\pRat': "p"
-    '\GDPRat': "P"
-    '\gdpRat': "p"
-    '\SRat': "S"
-    '\sRat': "s"
-    '\VRat': "V"
-    '\vRat': "v"
-    '\WRat': "O"
-    '\wRat': "o"
-    '\XRat': "X"
-    '\xRat': "x"
-    '\YRat': "Y"
-    '\yRat': "y"
-    '\ZRat': "Z"
-    '\zRat': "z"
-    '\Debt': "D"
-    '\debt': "d"
+    '\HRat': 'H'
+    '\hRat': 'h'
+    '\IRat': 'I'
+    '\iRat': 'i'
+    '\KRat': 'K'
+    '\kRat': 'k'
+    '\LRat': 'L'
+    '\lRat': 'l'
+    '\WAllRat': 'O'
+    '\wAllRat': 'o'
+    '\MRat': 'M'
+    '\mRat': 'm'
+    '\NRat': 'N'
+    '\nRat': 'n'
+    '\ORat': 'O'
+    '\oRat': 'o'
+    '\pRat': 'p'
+    '\GDPRat': 'P'
+    '\gdpRat': 'p'
+    '\SRat': 'S'
+    '\sRat': 's'
+    '\VRat': 'V'
+    '\vRat': 'v'
+    '\WRat': 'O'
+    '\wRat': 'o'
+    '\XRat': 'X'
+    '\xRat': 'x'
+    '\YRat': 'Y'
+    '\yRat': 'y'
+    '\ZRat': 'Z'
+    '\zRat': 'z'
+    '\Debt': 'D'
+    '\debt': 'd'
     '\Target': '\check'
-    '\WNet': "X"
-    '\wNet': "x"
+    '\WNet': 'X'
+    '\wNet': 'x'
     '\straight': '\Pi'
     '\weight': '\omega'
-    '\Habit': "H"
-    '\habit': "h"
+    '\Habit': 'H'
+    '\habit': 'h'
     '\WMkt': '\MLev'
     '\wMkt': '\mLev'
     '\wmkt': '\mLev'
@@ -771,34 +774,34 @@ project:
     '\tinyAmount': '\epsilon'
     '\WTot': '\mathbf{O}'
     '\wTot': '\mathbf{o}'
-    '\Wtot': "O"
-    '\wtot': "o"
+    '\Wtot': 'O'
+    '\wtot': 'o'
     '\vOpt': '\tilde{\mathfrak{v}}'
     '\Rport': '\mathbb{R}'
     '\rport': '\mathbb{r}'
     '\FDist': '\mathcal{F}'
     '\fDist': '\mathcal{f}'
-    '\Next': "t+1"
-    '\tNext': "t+1"
-    '\BU': "{B}^{u}"
-    '\bU': "{b}^{u}"
+    '\Next': 't+1'
+    '\tNext': 't+1'
+    '\BU': '{B}^{u}'
+    '\bU': '{b}^{u}'
     '\CU': '\CRat^{u}'
     '\cU': '\cRat^{u}'
     '\MPCU': '\MPC^{u}'
-    '\MU': "{M}^{u}"
-    '\mU': "{m}^{u}"
+    '\MU': '{M}^{u}'
+    '\mU': '{m}^{u}'
     '\PopU': '\mathcal{U}'
     '\SU': '\SRat^{u}'
     '\sU': '\sRat^{u}'
     '\PatU': '\text{\pmb{\Thorn}}_{\urate}'
     '\patu': '\text{\thorn}_{\urate}'
-    '\bRatU': "{b}^{u}"
+    '\bRatU': '{b}^{u}'
     '\CRatU': '\CRat^{u}'
     '\cRatU': '\cRat^{u}'
     '\SRatU': '\SRat^{u}'
     '\sRatU': '\sRat^{u}'
-    '\VU': "{V}^{u}"
-    '\vU': "{v}^{u}"
+    '\VU': '{V}^{u}'
+    '\vU': '{v}^{u}'
     '\BLevU': '\BLev^{u}'
     '\bLevU': '\bLev^{u}'
     '\CLevU': '\CLev^{u}'
@@ -809,67 +812,67 @@ project:
     '\PDV': '\mathbb{P}'
     '\CPDV': '\text{PDV($C$)}'
     '\PPDV': '\text{PDV($P$)}'
-    '\ALev': "A"
-    '\aLev': "a"
+    '\ALev': 'A'
+    '\aLev': 'a'
     '\NFALev': '\NLev'
-    '\BLev': "B"
-    '\bLev': "b"
-    '\CLev': "C"
-    '\cLev': "c"
-    '\DLev': "D"
-    '\ELev': "E"
-    '\FLev': "F"
-    '\fLev': "f"
-    '\GLev': "G"
+    '\BLev': 'B'
+    '\bLev': 'b'
+    '\CLev': 'C'
+    '\cLev': 'c'
+    '\DLev': 'D'
+    '\ELev': 'E'
+    '\FLev': 'F'
+    '\fLev': 'f'
+    '\GLev': 'G'
     '\HLev': '\pmb{H}'
     '\hLev': '\pmb{h}'
-    '\ILev': "I"
-    '\iLev': "i"
-    '\JLev': "J"
-    '\KLev': "K"
-    '\kLev': "k"
+    '\ILev': 'I'
+    '\iLev': 'i'
+    '\JLev': 'J'
+    '\KLev': 'K'
+    '\kLev': 'k'
     '\lLev': '\ell'
-    '\LLev': "L"
+    '\LLev': 'L'
     '\WAllLev': '\mathbf{O}'
     '\wAllLev': '\mathbf{o}'
-    '\MLev': "M"
-    '\mLev': "m"
-    '\NLev': "N"
-    '\nLev': "n"
+    '\MLev': 'M'
+    '\mLev': 'm'
+    '\NLev': 'N'
+    '\nLev': 'n'
     '\oLev': '\pmb{o}'
-    '\OLev': "O"
+    '\OLev': 'O'
     '\pLev': '\pmb{p}'
-    '\PLev': "P"
+    '\PLev': 'P'
     '\GDPLev': '\pmb{P}'
     '\gdpLev': '\pmb{p}'
     '\PopLev': '\pmb{N}'
-    '\QLev': "Q"
-    '\RLev': "R"
-    '\SLev': "S"
-    '\sLev': "s"
-    '\TLev': "T"
-    '\ULev': "U"
-    '\uLev': "u"
-    '\VLev': "V"
-    '\vLev': "v"
+    '\QLev': 'Q'
+    '\RLev': 'R'
+    '\SLev': 'S'
+    '\sLev': 's'
+    '\TLev': 'T'
+    '\ULev': 'U'
+    '\uLev': 'u'
+    '\VLev': 'V'
+    '\vLev': 'v'
     '\wLev': '\pmb{w}'
-    '\WLev': "W"
-    '\XLev': "X"
-    '\xLev': "x"
-    '\TaxLev': "T"
-    '\YLev': "Y"
-    '\yLev': "y"
-    '\PtyLev': "A"
-    '\ptyLev': "a"
-    '\ZLev': "Z"
-    '\zLev': "z"
+    '\WLev': 'W'
+    '\XLev': 'X'
+    '\xLev': 'x'
+    '\TaxLev': 'T'
+    '\YLev': 'Y'
+    '\yLev': 'y'
+    '\PtyLev': 'A'
+    '\ptyLev': 'a'
+    '\ZLev': 'Z'
+    '\zLev': 'z'
     '\Rev': '\Pi'
     '\rev': '\pi'
-    '\tPrev': "t-1"
-    '\Div': "D"
+    '\tPrev': 't-1'
+    '\Div': 'D'
     '\DiscFacLiv': '\underline{\DiscFacRaw}'
-    '\Inv': "I"
-    '\inv': "i"
+    '\Inv': 'I'
+    '\inv': 'i'
     '\TaxCombInv': '\mathcal{T}^{-1}'
     '\EPermShkInv': '\Ex[\PermShk^{-1}]'
     '\InvEPermShkInv': '\underline{\PermShk}'
@@ -882,10 +885,10 @@ project:
     '\DiscFacRaw': '\beta'
     '\GPFacRaw': '\APFac_{\PermGroFac}'
     '\Belw': '\ushort'
-    '\GovNW': "N"
-    '\govNW': "n"
+    '\GovNW': 'N'
+    '\govNW': 'n'
     '\cFuncBelow': '\uline{\mathrm{c}}'
-    '\tNow': "t"
+    '\tNow': 't'
     '\cFuncMax': '\bar{\bar{\mathrm{c}}}'
     '\MPCmax': '\bar{\kappa}'
     '\MPSmax': '\RPFac'
