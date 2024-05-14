@@ -1,9 +1,16 @@
-@INCOLLECTION{Maliar2014,
-  title     = "Numerical methods for large-scale dynamic economic models",
-  booktitle = "Handbook of Computational Economics Vol. 3",
-  author    = "Maliar, Lilia and Maliar, Serguei",
-  editor    = "Schmedders, Karl and Judd, Kenneth L",
-  abstract  = "We survey numerical methods that are tractable in dynamic
+@INBOOK{Maliar2014,
+  title     = {{Numerical methods for large-scale dynamic economic models}},
+  author    = {Maliar, Lilia and Maliar, Serguei},
+  editor    = {Schmedders, Karl and Judd, Kenneth L},
+  booktitle = {{Handbook of Computational Economics Vol. 3}},
+  publisher = {Elsevier},
+  volume    = {3},
+  pages     = {325--477},
+  date      = {2014-01-01},
+  doi       = {10.1016/b978-0-444-52980-0.00007-4},
+  issn      = {1574-0021,1875-5658},
+  isbn      = {9780444529800},
+  abstract  = {We survey numerical methods that are tractable in dynamic
                economic models with a finite, large number of continuous state
                variables. (Examples of such models are new Keynesian models,
                life-cycle models, heterogeneous-agents models, asset-pricing
@@ -12,1052 +19,993 @@
                to reduce the cost of global solution methods. These are
                efficient nonproduct techniques for interpolating and
                approximating functions (Smolyak, stochastic simulation, and
-               $\epsilon$-distinguishable set grids), accurate low-cost
-               monomial integration formulas, derivative-free solvers, and
-               numerically stable regression methods. Second, we discuss
-               endogenous grid and envelope condition methods that reduce the
-               cost and increase accuracy of value function iteration. Third,
-               we show precomputation techniques that construct solution
-               manifolds for some models' variables outside the main iterative
-               cycle. Fourth, we review techniques that increase the accuracy
-               of perturbation methods: a change of variables and a hybrid of
-               local and global solutions. Finally, we show examples of
-               parallel computation using multiple CPUs and GPUs including
-               applications on a supercomputer. We illustrate the performance
-               of the surveyed methods using a multiagent model. Many codes are
-               publicly available.",
-  publisher = "Elsevier",
-  volume    =  3,
-  pages     = "325--477",
-  series    = "Handbook of computational economics",
-  month     =  jan,
-  year      =  2014,
-  issn      = "1574-0021, 1875-5658",
-  isbn      = "9780444529800",
-  doi       = "10.1016/b978-0-444-52980-0.00007-4"
+               ε-distinguishable set grids), accurate low-cost monomial
+               integration formulas, derivative-free solvers, and numerically
+               stable regression methods. Second, we discuss endogenous grid and
+               envelope condition methods that reduce the cost and increase
+               accuracy of value function iteration. Third, we show
+               precomputation techniques that construct solution manifolds for
+               some models’ variables outside the main iterative cycle. Fourth,
+               we review techniques that increase the accuracy of perturbation
+               methods: a change of variables and a hybrid of local and global
+               solutions. Finally, we show examples of parallel computation
+               using multiple CPUs and GPUs including applications on a
+               supercomputer. We illustrate the performance of the surveyed
+               methods using a multiagent model. Many codes are publicly
+               available.},
+  series    = {Handbook of computational economics}
 }
 
 @ARTICLE{Iskhakov2017f,
-  title       = "The endogenous grid method for discrete-continuous dynamic
-                 choice models with (or without) taste shocks: {DC-EGM} method
-                 for dynamic choice models",
-  author      = "Iskhakov, Fedor and J{\o}rgensen, Thomas H and Rust, John and
-                 Schjerning, Bertel",
-  affiliation = "Research School of Economics; Australian National University;
-                 ARC Centre of Excellence in Population Ageing Research;
-                 University of New South Wales; Department of Economics;
-                 University of Copenhagen; Department of Economics; Georgetown
-                 University",
-  abstract    = "We present a fast and accurate computational method for
-                 solving and estimating a class of dynamic programming models
-                 with discrete and continuous choice variables. The solution
-                 method we develop for structural estimation extends the
-                 endogenous grid-point method (EGM) to discrete-continuous (DC)
-                 problems. Discrete choices can lead to kinks in the value
-                 functions and discontinuities in the optimal policy rules,
-                 greatly complicating the solution of the model. We show how
-                 these problems are ameliorated in the presence of additive
-                 choice-specific independent and identically distributed
-                 extreme value taste shocks that are typically interpreted as
-                 ?unobserved state variables? in structural econometric
-                 applications, or serve as ?random noise? to smooth out kinks
-                 in the value functions in numerical applications. We present
-                 Monte Carlo experiments that demonstrate the reliability and
-                 efficiency of the DC-EGM algorithm and the associated maximum
-                 likelihood estimator for structural estimation of a life-cycle
-                 model of consumption with discrete retirement decisions.",
-  journal     = "Quantitative economics",
-  publisher   = "The Econometric Society",
-  volume      =  8,
-  number      =  2,
-  pages       = "317--365",
-  month       =  jul,
-  year        =  2017,
-  copyright   = "http://creativecommons.org/licenses/by-nc/4.0/",
-  language    = "en",
-  issn        = "1759-7323, 1759-7331",
-  doi         = "10.3982/qe643"
+  title        = {{The endogenous grid method for discrete-continuous dynamic
+                  choice models with (or without) taste shocks: DC-EGM method
+                  for dynamic choice models}},
+  author       = {Iskhakov, Fedor and Jørgensen, Thomas H and Rust, John and
+                  Schjerning, Bertel},
+  journaltitle = {Quantitative economics},
+  publisher    = {The Econometric Society},
+  volume       = {8},
+  issue        = {2},
+  pages        = {317--365},
+  date         = {2017-07},
+  doi          = {10.3982/qe643},
+  issn         = {1759-7323,1759-7331},
+  abstract     = {We present a fast and accurate computational method for
+                  solving and estimating a class of dynamic programming models
+                  with discrete and continuous choice variables. The solution
+                  method we develop for structural estimation extends the
+                  endogenous grid-point method (EGM) to discrete-continuous (DC)
+                  problems. Discrete choices can lead to kinks in the value
+                  functions and discontinuities in the optimal policy rules,
+                  greatly complicating the solution of the model. We show how
+                  these problems are ameliorated in the presence of additive
+                  choice-specific independent and identically distributed
+                  extreme value taste shocks that are typically interpreted as
+                  ?unobserved state variables? in structural econometric
+                  applications, or serve as ?random noise? to smooth out kinks
+                  in the value functions in numerical applications. We present
+                  Monte Carlo experiments that demonstrate the reliability and
+                  efficiency of the DC-EGM algorithm and the associated maximum
+                  likelihood estimator for structural estimation of a life-cycle
+                  model of consumption with discrete retirement decisions.},
+  note         = {https://doi.org/10.3982/QE643},
+  language     = {en}
 }
 
 @ARTICLE{Dobrescu2022,
-  title     = "Fast upper-envelope scan for discrete-continuous dynamic
-               programming",
-  author    = "Dobrescu, Loretti Isabella and Shanker, Akshay",
-  abstract  = "We introduce a fast upper-envelope scan (FUES) method to compute
-               solutions for dynamic programming problems with continuous and
-               discrete choices. The FUES method builds on the standard
-               endogenous grid method (EGM). Standard EGM applied to problems
-               with continuous and discrete choices does not by itself generate
-               the optimal solution since the first order conditions used to
-               generate the endogenous grid are necessary but not sufficient.
-               FUES sequentially checks EGM candidate solution points and
-               eliminates points not on the upper-envelope of the value
-               correspondence by only allowing discontinuities in the policy
-               function at non-concave sections of the value correspondence.
-               FUES is computationally efficient, involves minimal coding time
-               or analysis on the researcher side and does not require
-               monotonicity assumptions on the problem. We also show that if
-               the EGM grid size is sufficiently large, FUES is guaranteed to
-               recover the optimal solution without error. FUES can be applied
-               to many standard economic models, involving housing frictions,
-               firm investment frictions, portfolio allocation or labor market
-               participation decisions.",
-  journal   = "SSRN Electronic Journal",
-  publisher = "Elsevier BV",
-  month     =  aug,
-  year      =  2022,
-  language  = "en",
-  issn      = "1556-5068",
-  doi       = "10.2139/ssrn.4181302"
+  title        = {{Fast upper-envelope scan for discrete-continuous dynamic
+                  programming}},
+  author       = {Dobrescu, Loretti Isabella and Shanker, Akshay},
+  journaltitle = {SSRN Electronic Journal},
+  publisher    = {Elsevier BV},
+  date         = {2022-08-04},
+  doi          = {10.2139/ssrn.4181302},
+  issn         = {1556-5068},
+  abstract     = {We introduce a fast upper-envelope scan (FUES) method to
+                  compute solutions for dynamic programming problems with
+                  continuous and discrete choices. The FUES method builds on the
+                  standard endogenous grid method (EGM). Standard EGM applied to
+                  problems with continuous and discrete choices does not by
+                  itself generate the optimal solution since the first order
+                  conditions used to generate the endogenous grid are necessary
+                  but not sufficient. FUES sequentially checks EGM candidate
+                  solution points and eliminates points not on the
+                  upper-envelope of the value correspondence by only allowing
+                  discontinuities in the policy function at non-concave sections
+                  of the value correspondence. FUES is computationally
+                  efficient, involves minimal coding time or analysis on the
+                  researcher side and does not require monotonicity assumptions
+                  on the problem. We also show that if the EGM grid size is
+                  sufficiently large, FUES is guaranteed to recover the optimal
+                  solution without error. FUES can be applied to many standard
+                  economic models, involving housing frictions, firm investment
+                  frictions, portfolio allocation or labor market participation
+                  decisions.},
+  urldate      = {2023-11-27},
+  language     = {en}
 }
 
-@ARTICLE{Lujan2023,
-  title    = "{EGM$^n$}: The Sequential Endogenous Grid Method",
-  author   = "Lujan, Alan",
-  abstract = "Heterogeneous agent models with multiple decisions are often
-              solved using inefficient grid search methods that require many
-              evaluations and are slow. This paper provides a novel method for
-              solving such models using an extension of the Endogenous Grid
-              Method (EGM) that uses Gaussian Process Regression (GPR) to
-              interpolate functions on unstructured grids. First, I propose an
-              intuitive and strategic procedure for decomposing a problem into
-              subproblems which allows the use of efficient solution methods.
-              Second, using an exogenous grid of post-decision states and
-              solving for an endogenous grid of pre-decision states that obey a
-              first-order condition greatly speeds up the solution process.
-              Third, since the resulting endogenous grid can often be
-              non-rectangular at best and unstructured at worst, GPR provides
-              an efficient and accurate method for interpolating the value,
-              marginal value, and decision functions. Applied sequentially to
-              each decision within the problem, the method is able to solve
-              heterogeneous agent models with multiple decisions in a fraction
-              of the time and with less computational resources than are
-              required by standard methods currently used. Software to
-              reproduce these methods is available under the
-              \textbackslashhref\{https://econ-ark.org/\}\{\textbackslashtexttt\{Econ-ARK/HARK\}\}
-              project for the \textbackslashtexttt\{python\} programming
-              language.",
-  year     =  2023
+@ARTICLE{Talari2024,
+  title        = {{Sequential clearing of network-aware local energy and
+                  flexibility markets in community-based grids}},
+  author       = {Talari, S and Birk, Sascha and Ketter, W and Schneiders,
+                  Thorsten},
+  journaltitle = {IEEE transactions on smart grid},
+  volume       = {15},
+  pages        = {405--417},
+  date         = {2024-01-01},
+  doi          = {10.1109/TSG.2023.3276024},
+  issn         = {1949-3053,1949-3061},
+  abstract     = {In this paper, network-aware clearing algorithms for local
+                  energy markets (LEMs) and local flexibility markets (LFM) are
+                  proposed to be sequentially run and coordinate assets and
+                  flexible resources of energy communities (ECs) in distribution
+                  networks. In the proposed LEM clearing algorithm, EC managers
+                  run a two-stage stochastic programming while considering
+                  random events by scenario generation and network constraints
+                  using linearized DistFlow. As one of outcomes, maximum
+                  available up- and down-regulations provided by ECs are
+                  estimated in LEM and communicated to LFM. In the distributed
+                  LFM clearing algorithm, an iterative auction is designed using
+                  a dual-decomposition technique (Augmented Lagrangian) which is
+                  solved by consensus alternating direction method of
+                  multipliers. The LFM algorithm efficiently dispatches the
+                  flexibility provided by ECs in operating time while
+                  considering flexibility local marginal price as pricing
+                  method. Network constraints are included in the algorithm with
+                  an AC distribution optimal power flow for dynamic network
+                  topology in which branches and buses are decomposed to solve
+                  the problem in distributed fashion. The designed LFM algorithm
+                  can respond to exogenous and endogenous signals for
+                  flexibility requests. The simulation results in a test case
+                  display effectiveness of two proposed LEM and LFM algorithms
+                  for an efficient provision of flexibility.}
 }
 
 @ARTICLE{Maliar2022b,
-  title     = "Deep learning classification: Modeling discrete labor choice",
-  author    = "Maliar, Lilia and Maliar, Serguei",
-  abstract  = "We introduce a deep learning classification (DLC) method for
-               analyzing equilibrium in discrete-continuos choice dynamic
-               models. As an illustration, we solve Krusell and Smith's (1998)
-               heterogeneous-agent model with incomplete markets, borrowing
-               constraint and indivisible labor choice. The novel feature of
-               our analysis is that we construct state-contingent discontinuous
-               decision functions that tell us when the agent switches from one
-               employment state to another. We use deep learning not only to
-               characterize the discrete indivisible labor choice but also to
-               perform model reduction and to deal with multicollinearity. Our
-               TensorFlow-based implementation of DLC is tractable in models
-               with thousands of state variables.",
-  journal   = "Journal of Economic Dynamics \& Control",
-  publisher = "Elsevier BV",
-  volume    =  135,
-  number    =  104295,
-  pages     = "104295",
-  month     =  feb,
-  year      =  2022,
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/j.jedc.2021.104295"
+  title        = {{Deep learning classification: Modeling discrete labor choice}},
+  author       = {Maliar, Lilia and Maliar, Serguei},
+  journaltitle = {Journal of Economic Dynamics \& Control},
+  publisher    = {Elsevier BV},
+  volume       = {135},
+  issue        = {104295},
+  pages        = {104295},
+  date         = {2022-02-01},
+  doi          = {10.1016/j.jedc.2021.104295},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {We introduce a deep learning classification (DLC) method for
+                  analyzing equilibrium in discrete-continuos choice dynamic
+                  models. As an illustration, we solve Krusell and Smith’s
+                  (1998) heterogeneous-agent model with incomplete markets,
+                  borrowing constraint and indivisible labor choice. The novel
+                  feature of our analysis is that we construct state-contingent
+                  discontinuous decision functions that tell us when the agent
+                  switches from one employment state to another. We use deep
+                  learning not only to characterize the discrete indivisible
+                  labor choice but also to perform model reduction and to deal
+                  with multicollinearity. Our TensorFlow-based implementation of
+                  DLC is tractable in models with thousands of state variables.},
+  language     = {en}
 }
 
 @ARTICLE{White2015,
-  title     = "The method of endogenous gridpoints in theory and practice",
-  author    = "White, Matthew N",
-  abstract  = "The method of endogenous gridpoints (ENDG) significantly speeds
-               up the solution to dynamic stochastic optimization problems with
-               continuous state and control variables by avoiding repeated
-               computations of expected outcomes while searching for optimal
-               policy functions. I provide an interpolation technique for
-               non-rectilinear grids that allow ENDG to be used in
-               n-dimensional problems in an intuitive and computationally
-               efficient way: the acceleration of ENDG with non-linear grid
-               interpolation is nearly constant in the density of the grid.
-               Further, ENDG has only been shown by example and has never been
-               formally characterized. Using a theoretical framework for
-               dynamic stochastic optimization problems, I formalize the method
-               of endogenous gridpoints and present conditions for the class of
-               models for which it can be used.",
-  journal   = "Journal of Economic Dynamics \& Control",
-  publisher = "Elsevier BV",
-  volume    =  60,
-  pages     = "26--41",
-  month     =  nov,
-  year      =  2015,
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/j.jedc.2015.08.001"
+  title        = {{The method of endogenous gridpoints in theory and practice}},
+  author       = {White, Matthew N},
+  journaltitle = {Journal of Economic Dynamics \& Control},
+  publisher    = {Elsevier BV},
+  volume       = {60},
+  pages        = {26--41},
+  date         = {2015-11-01},
+  doi          = {10.1016/j.jedc.2015.08.001},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {The method of endogenous gridpoints (ENDG) significantly
+                  speeds up the solution to dynamic stochastic optimization
+                  problems with continuous state and control variables by
+                  avoiding repeated computations of expected outcomes while
+                  searching for optimal policy functions. I provide an
+                  interpolation technique for non-rectilinear grids that allow
+                  ENDG to be used in n-dimensional problems in an intuitive and
+                  computationally efficient way: the acceleration of ENDG with
+                  non-linear grid interpolation is nearly constant in the
+                  density of the grid. Further, ENDG has only been shown by
+                  example and has never been formally characterized. Using a
+                  theoretical framework for dynamic stochastic optimization
+                  problems, I formalize the method of endogenous gridpoints and
+                  present conditions for the class of models for which it can be
+                  used.},
+  language     = {en}
 }
 
 @ARTICLE{Arellano2016b,
-  title     = "Envelope condition method with an application to default risk
-               models",
-  author    = "Arellano, Cristina and Maliar, Lilia and Maliar, Serguei and
-               Tsyrennikov, Viktor",
-  abstract  = "We develop an envelope condition method (ECM) for dynamic
-               programming problems -- a tractable alternative to expensive
-               conventional value function iteration (VFI). ECM has two novel
-               features: first, to reduce the cost of iteration on Bellman
-               equation, ECM constructs policy functions using envelope
-               conditions which are simpler to analyze numerically than
-               first-order conditions. Second, to increase the accuracy of
-               solutions, ECM solves for derivatives of value function jointly
-               with value function itself. We complement ECM with other
-               computational techniques that are suitable for high-dimensional
-               problems, such as simulation-based grids, monomial integration
-               rules and derivative-free solvers. The resulting value-iterative
-               ECM method can accurately solve models with at least up to 20
-               state variables and can successfully compete in accuracy and
-               speed with state-of-the-art Euler equation methods. We also use
-               ECM to solve a challenging default risk model with a kink in
-               value and policy functions.",
-  journal   = "Journal of Economic Dynamics \& Control",
-  publisher = "Elsevier BV",
-  volume    =  69,
-  pages     = "436--459",
-  month     =  aug,
-  year      =  2016,
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/j.jedc.2016.05.016"
+  title        = {{Envelope condition method with an application to default risk
+                  models}},
+  author       = {Arellano, Cristina and Maliar, Lilia and Maliar, Serguei and
+                  Tsyrennikov, Viktor},
+  journaltitle = {Journal of Economic Dynamics \& Control},
+  publisher    = {Elsevier BV},
+  volume       = {69},
+  pages        = {436--459},
+  date         = {2016-08-01},
+  doi          = {10.1016/j.jedc.2016.05.016},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {We develop an envelope condition method (ECM) for dynamic
+                  programming problems – a tractable alternative to expensive
+                  conventional value function iteration (VFI). ECM has two novel
+                  features: first, to reduce the cost of iteration on Bellman
+                  equation, ECM constructs policy functions using envelope
+                  conditions which are simpler to analyze numerically than
+                  first-order conditions. Second, to increase the accuracy of
+                  solutions, ECM solves for derivatives of value function
+                  jointly with value function itself. We complement ECM with
+                  other computational techniques that are suitable for
+                  high-dimensional problems, such as simulation-based grids,
+                  monomial integration rules and derivative-free solvers. The
+                  resulting value-iterative ECM method can accurately solve
+                  models with at least up to 20 state variables and can
+                  successfully compete in accuracy and speed with
+                  state-of-the-art Euler equation methods. We also use ECM to
+                  solve a challenging default risk model with a kink in value
+                  and policy functions.},
+  language     = {en}
 }
 
 @ARTICLE{Iskhakov2020,
-  title     = "Machine learning and structural econometrics: contrasts and
-               synergies",
-  author    = "Iskhakov, Fedor and Rust, John and Schjerning, Bertel",
-  abstract  = "SummaryWe contrast machine learning (ML) and structural
-               econometrics (SE), focusing on areas where ML can advance the
-               goals of SE. Our views have been informed and inspired by the
-               contributions to this special issue and by papers presented at
-               the second conference on dynamic structural econometrics at the
-               University of Copenhagen in 2018, `Methodology and Applications
-               of Structural Dynamic Models and Machine Learning'. ML offers a
-               promising class of techniques that can significantly extend the
-               set of questions we can analyse in SE. The scope, relevance and
-               impact of empirical work in SE can be improved by following the
-               lead of ML in questioning and relaxing the assumption of
-               unbounded rationality. For the foreseeable future, however, ML
-               is unlikely to replace the essential role of human creativity
-               and knowledge in model building and inference, particularly with
-               respect to the key goal of SE, counterfactual prediction.",
-  journal   = "The econometrics journal",
-  publisher = "Oxford University Press (OUP)",
-  volume    =  23,
-  number    =  3,
-  pages     = "S81--S124",
-  month     =  sep,
-  year      =  2020,
-  copyright = "https://academic.oup.com/journals/pages/open\_access/funder\_policies/chorus/standard\_publication\_model",
-  language  = "en",
-  issn      = "1368-4221, 1368-423X",
-  doi       = "10.1093/ectj/utaa019"
+  title        = {{Machine learning and structural econometrics: contrasts and
+                  synergies}},
+  author       = {Iskhakov, Fedor and Rust, John and Schjerning, Bertel},
+  journaltitle = {The econometrics journal},
+  publisher    = {Oxford University Press (OUP)},
+  volume       = {23},
+  issue        = {3},
+  pages        = {S81--S124},
+  date         = {2020-09-01},
+  doi          = {10.1093/ectj/utaa019},
+  issn         = {1368-4221,1368-423X},
+  abstract     = {SummaryWe contrast machine learning (ML) and structural
+                  econometrics (SE), focusing on areas where ML can advance the
+                  goals of SE. Our views have been informed and inspired by the
+                  contributions to this special issue and by papers presented at
+                  the second conference on dynamic structural econometrics at
+                  the University of Copenhagen in 2018, ‘Methodology and
+                  Applications of Structural Dynamic Models and Machine
+                  Learning'. ML offers a promising class of techniques that can
+                  significantly extend the set of questions we can analyse in
+                  SE. The scope, relevance and impact of empirical work in SE
+                  can be improved by following the lead of ML in questioning and
+                  relaxing the assumption of unbounded rationality. For the
+                  foreseeable future, however, ML is unlikely to replace the
+                  essential role of human creativity and knowledge in model
+                  building and inference, particularly with respect to the key
+                  goal of SE, counterfactual prediction.},
+  urldate      = {2023-02-28},
+  language     = {en}
 }
 
 @ARTICLE{Fella2014,
-  title     = "A generalized endogenous grid method for non-smooth and
-               non-concave problems",
-  author    = "Fella, Giulio",
-  abstract  = "This paper extends Carroll's (2006) endogenous grid method and
-               its combination with value function iteration by Barillas and
-               Fern{\'a}ndez-Villaverde (2007) to a class of dynamic
-               programming problems, such as problems with both discrete and
-               continuous choices, in which the value function is non-smooth
-               and non-concave.The method is illustrated using a consumer
-               problem in which the consumer chooses both durable and
-               non-durable consumption subject to a borrowing constraint. The
-               durable choice is discrete and subject to non-convex adjustment
-               costs.The algorithm yields substantial gains in accuracy and
-               computational time relative to value function iteration, the
-               standard solution choice for problems in which the value
-               function is non-smooth or non-concave.",
-  journal   = "Review of economic dynamics",
-  publisher = "Elsevier BV",
-  volume    =  17,
-  number    =  2,
-  pages     = "329--344",
-  month     =  apr,
-  year      =  2014,
-  language  = "en",
-  issn      = "1094-2025, 1096-6099",
-  doi       = "10.1016/j.red.2013.07.001"
+  title        = {{A generalized endogenous grid method for non-smooth and
+                  non-concave problems}},
+  author       = {Fella, Giulio},
+  journaltitle = {Review of economic dynamics},
+  publisher    = {Elsevier BV},
+  volume       = {17},
+  issue        = {2},
+  pages        = {329--344},
+  date         = {2014-04-01},
+  doi          = {10.1016/j.red.2013.07.001},
+  issn         = {1094-2025,1096-6099},
+  abstract     = {This paper extends Carroll's (2006) endogenous grid method and
+                  its combination with value function iteration by Barillas and
+                  Fernández-Villaverde (2007) to a class of dynamic programming
+                  problems, such as problems with both discrete and continuous
+                  choices, in which the value function is non-smooth and
+                  non-concave.The method is illustrated using a consumer problem
+                  in which the consumer chooses both durable and non-durable
+                  consumption subject to a borrowing constraint. The durable
+                  choice is discrete and subject to non-convex adjustment
+                  costs.The algorithm yields substantial gains in accuracy and
+                  computational time relative to value function iteration, the
+                  standard solution choice for problems in which the value
+                  function is non-smooth or non-concave.},
+  language     = {en}
 }
 
 @INPROCEEDINGS{Carroll2018,
-  title      = "The {econ-ARK} and {{HARK}}: Open source tools for
-                computational economics",
-  booktitle  = "Proceedings of the Python in Science Conference",
-  author     = "Carroll, Christopher and Kaufman, Alexander and Kazil,
-                Jacqueline and Palmer, Nathan and White, Matthew",
-  editor     = "Akici, Fatih and Lippa, David and Niederhut, Dillon and Pacer,
-                M",
-  abstract   = "The Economics Algorithmic Repository and toolKit (Econ-ARK)
-                aims to become a focal resource for computational economics.
-                Its first 'framework,' the Heterogeneous Agent Resources and
-                Toolkit (HARK), provides a modern, robust, transparent set of
-                tools to solve a class of macroeconomic models whose usefulness
-                has become increasingly apparent both for economic policy and
-                for research purposes, but whose adoption has been limited
-                because the existing literature derives from idiosyncratic,
+  title      = {{The {econ-ARK} and {HARK}: Open source tools for computational
+                economics}},
+  author     = {Carroll, Christopher and Kaufman, Alexander and Kazil,
+                Jacqueline and Palmer, Nathan and White, Matthew},
+  editor     = {Akici, Fatih and Lippa, David and Niederhut, Dillon and Pacer, M},
+  booktitle  = {{Proceedings of the Python in Science Conference}},
+  publisher  = {SciPy},
+  location   = {Austin, Texas},
+  eventtitle = {Python in Science Conference},
+  venue      = {Austin, Texas},
+  pages      = {25--30},
+  date       = {2018},
+  doi        = {10.25080/majora-4af1f417-004},
+  issn       = {2575-9752},
+  abstract   = {The Economics Algorithmic Repository and toolKit (Econ-ARK) aims
+                to become a focal resource for computational economics. Its
+                first 'framework,' the Heterogeneous Agent Resources and Toolkit
+                (HARK), provides a modern, robust, transparent set of tools to
+                solve a class of macroeconomic models whose usefulness has
+                become increasingly apparent both for economic policy and for
+                research purposes, but whose adoption has been limited because
+                the existing literature derives from idiosyncratic,
                 hand-crafted, and often impenetrable legacy code. We expect
                 future Econ-ARK frameworks (e.g., for analysis of the
                 transmission of beliefs through agents' social networks) will
                 draw heavily on key elements of the existing HARK framework,
-                including the API, the structure, and documentation standards.",
-  publisher  = "SciPy",
-  pages      = "25--30",
-  year       =  2018,
-  address    = "Austin, Texas",
-  conference = "Python in Science Conference",
-  location   = "Austin, Texas",
-  issn       = "2575-9752",
-  doi        = "10.25080/majora-4af1f417-004"
+                including the API, the structure, and documentation standards.},
+  note       = {<b>From Duplicate 2 (<i>The Econ-ARK and HARK: Open Source Tools
+                for Computational Economics</i> - Carroll, Christopher; Kaufman,
+                Alexander; Kazil, Jacqueline; Palmer, Nathan; White,
+                Matthew)<br/></b><br/>doi:<br/>\href\{https://doi.org/10.5281/zenodo.1001067\}\{10.5281/zenodo.1001067\}}
 }
 
 @ARTICLE{Pedregosa2011,
-  title     = "{{Scikit-Learn}}: {{Machine}} Learning in {{Python}}",
-  author    = "Pedregosa, F and Varoquaux, G and Gramfort, A and Michel, V and
-               Thirion, B and Grisel, O and Blondel, M and Prettenhofer, P and
-               Weiss, R and Dubourg, V and Vanderplas, J and Passos, A and
-               Cournapeau, D and Brucher, M and Perrot, M and Duchesnay, E",
-  journal   = "Journal of machine learning research: JMLR",
-  publisher = "JMLR. org",
-  volume    =  12,
-  pages     = "2825--2830",
-  year      =  2011,
-  issn      = "1532-4435, 1533-7928"
+  title        = {{{Scikit-Learn}: {{Machine}} Learning in {{Python}}}},
+  author       = {Pedregosa, F and Varoquaux, G and Gramfort, A and Michel, V
+                  and Thirion, B and Grisel, O and Blondel, M and Prettenhofer,
+                  P and Weiss, R and Dubourg, V and Vanderplas, J and Passos, A
+                  and Cournapeau, D and Brucher, M and Perrot, M and Duchesnay,
+                  E},
+  journaltitle = {Journal of machine learning research: JMLR},
+  publisher    = {JMLR. org},
+  volume       = {12},
+  pages        = {2825--2830},
+  date         = {2011},
+  issn         = {1532-4435,1533-7928}
 }
 
-@ARTICLE{Druedahl2021,
-  title     = "A guide on solving non-convex {consumption-saving} models",
-  author    = "Druedahl, Jeppe",
-  abstract  = "Consumption-saving models with adjustment costs or discrete
-               choices are typically hard to solve numerically due to the
-               presence of non-convexities. This paper provides a number of
-               tools to speed up the solution of such models. Firstly, I use
-               that many consumption models have a nesting structure implying
-               that the continuation value can be efficiently pre-computed and
-               the consumption choice solved separately before the remaining
-               choices. Secondly, I use that an endogenous grid method extended
-               with an upper envelope step can be used to solve efficiently for
-               the consumption choice. Thirdly, I use that the required
-               pre-computations can be optimized by a novel loop reordering
-               when interpolating the next-period value function. As an
-               illustrative example, I solve a model with non-durable
-               consumption and durable consumption subject to adjustment costs.
-               Combining the provided tools, the model is solved almost 50
-               times faster than with standard value function iteration for a
-               given level of accuracy. Software is provided in both Python and
-               C++.",
-  journal   = "Computational economics",
-  publisher = "Springer Science and Business Media LLC",
-  volume    =  58,
-  number    =  3,
-  pages     = "747--775",
-  month     =  oct,
-  year      =  2021,
-  language  = "en",
-  issn      = "0927-7099, 1572-9974",
-  doi       = "10.1007/s10614-020-10045-x"
+@ARTICLE{Druedahl2021b,
+  title        = {{A guide on solving non-convex {consumption-saving} models}},
+  author       = {Druedahl, Jeppe},
+  journaltitle = {Computational economics},
+  publisher    = {Springer Science and Business Media LLC},
+  volume       = {58},
+  issue        = {3},
+  pages        = {747--775},
+  date         = {2021-10-01},
+  doi          = {10.1007/s10614-020-10045-x},
+  issn         = {0927-7099,1572-9974},
+  abstract     = {Consumption-saving models with adjustment costs or discrete
+                  choices are typically hard to solve numerically due to the
+                  presence of non-convexities. This paper provides a number of
+                  tools to speed up the solution of such models. Firstly, I use
+                  that many consumption models have a nesting structure implying
+                  that the continuation value can be efficiently pre-computed
+                  and the consumption choice solved separately before the
+                  remaining choices. Secondly, I use that an endogenous grid
+                  method extended with an upper envelope step can be used to
+                  solve efficiently for the consumption choice. Thirdly, I use
+                  that the required pre-computations can be optimized by a novel
+                  loop reordering when interpolating the next-period value
+                  function. As an illustrative example, I solve a model with
+                  non-durable consumption and durable consumption subject to
+                  adjustment costs. Combining the provided tools, the model is
+                  solved almost 50 times faster than with standard value
+                  function iteration for a given level of accuracy. Software is
+                  provided in both Python and C++.},
+  language     = {en}
 }
 
-@MISC{Okuta2017,
-  title        = "{CuPy}: A {NumPy-Compatible} Library for {NVIDIA} {GPU}
-                  Calculations",
-  booktitle    = "Proceedings of workshop on machine learning systems
-                  ({{{LearningSys}}}) in the thirty-first annual conference on
-                  neural information processing systems ({{{NIPS})}}",
-  author       = "Okuta, Ryosuke and Unno, Yuya and Nishino, Daisuke and Hido,
-                  Shohei and Loomis, Crissman",
-  abstract     = "CuPy 1 is an open-source library with NumPy syntax that
-                  increases speed by doing matrix operations on NVIDIA GPUs. It
-                  is accelerated with the CUDA platform from NVIDIA and also
-                  uses CUDA-related libraries, including cuBLAS, cuDNN, cuRAND,
-                  cuSOLVER, cuSPARSE, and NCCL, to make full use of the GPU
-                  architecture. CuPy's interface is highly compatible with
-                  NumPy; in most cases it can be used as a drop-in replacement.
-                  CuPy supports various methods, data types, indexing,
-                  broadcasting, and more.",
-  year         =  2017,
-  howpublished = "\url{http://learningsys.org/nips17/assets/papers/paper_16.pdf}",
-  note         = "Accessed: 2023-6-22"
+@ONLINE{Okuta2017,
+  title     = {{CuPy: A NumPy-Compatible Library for NVIDIA GPU Calculations}},
+  author    = {Okuta, Ryosuke and Unno, Yuya and Nishino, Daisuke and Hido,
+               Shohei and Loomis, Crissman},
+  booktitle = {{Proceedings of workshop on machine learning systems
+               ({{LearningSys}}) in the thirty-first annual conference on neural
+               information processing systems ({{NIPS})}}},
+  date      = {2017},
+  abstract  = {CuPy 1 is an open-source library with NumPy syntax that increases
+               speed by doing matrix operations on NVIDIA GPUs. It is
+               accelerated with the CUDA platform from NVIDIA and also uses
+               CUDA-related libraries, including cuBLAS, cuDNN, cuRAND,
+               cuSOLVER, cuSPARSE, and NCCL, to make full use of the GPU
+               architecture. CuPy's interface is highly compatible with NumPy;
+               in most cases it can be used as a drop-in replacement. CuPy
+               supports various methods, data types, indexing, broadcasting, and
+               more.},
+  urldate   = {2023-06-22}
 }
 
 @ARTICLE{Scheidegger2019,
-  title     = "Machine learning for high-dimensional dynamic stochastic
-               economies",
-  author    = "Scheidegger, Simon and Bilionis, Ilias",
-  abstract  = "We present a novel computational framework that can compute
-               global solutions to high-dimensional dynamic stochastic economic
-               models on irregular state space geometries. This framework can
-               also resolve value and policy functions' local features and
-               perform uncertainty quantification, in a single model
-               evaluation. We achieve this by combining Gaussian process
-               machine learning with active subspaces; we then embed this into
-               a parallelized discrete-time dynamic programming algorithm. To
-               demonstrate the broad applicability of our method, we compute
-               solutions to stochastic optimal growth models of up to 500
-               continuous dimensions. We also show that our framework can
-               address parameter uncertainty and can provide predictive
-               confidence intervals for policies that correspond to the
-               epistemic uncertainty induced by limited data. Finally, we
-               propose an algorithm that, based on combining this framework
-               with Bayesian Gaussian mixture models, is capable of learning
-               irregularly shaped ergodic sets as well as performing dynamic
-               programming on them.",
-  journal   = "Journal of computational science",
-  publisher = "Elsevier BV",
-  volume    =  33,
-  pages     = "68--82",
-  month     =  apr,
-  year      =  2019,
-  language  = "en",
-  issn      = "1877-7503, 1877-7511",
-  doi       = "10.1016/j.jocs.2019.03.004"
+  title        = {{Machine learning for high-dimensional dynamic stochastic
+                  economies}},
+  author       = {Scheidegger, Simon and Bilionis, Ilias},
+  journaltitle = {Journal of computational science},
+  publisher    = {Elsevier BV},
+  volume       = {33},
+  pages        = {68--82},
+  date         = {2019-04-01},
+  doi          = {10.1016/j.jocs.2019.03.004},
+  issn         = {1877-7503,1877-7511},
+  abstract     = {We present a novel computational framework that can compute
+                  global solutions to high-dimensional dynamic stochastic
+                  economic models on irregular state space geometries. This
+                  framework can also resolve value and policy functions’ local
+                  features and perform uncertainty quantification, in a single
+                  model evaluation. We achieve this by combining Gaussian
+                  process machine learning with active subspaces; we then embed
+                  this into a parallelized discrete-time dynamic programming
+                  algorithm. To demonstrate the broad applicability of our
+                  method, we compute solutions to stochastic optimal growth
+                  models of up to 500 continuous dimensions. We also show that
+                  our framework can address parameter uncertainty and can
+                  provide predictive confidence intervals for policies that
+                  correspond to the epistemic uncertainty induced by limited
+                  data. Finally, we propose an algorithm that, based on
+                  combining this framework with Bayesian Gaussian mixture
+                  models, is capable of learning irregularly shaped ergodic sets
+                  as well as performing dynamic programming on them.},
+  language     = {en}
 }
 
 @ARTICLE{Jorgensen2013,
-  title     = "Structural estimation of continuous choice models: Evaluating
-               the {EGM} and {MPEC}",
-  author    = "J{\o}rgensen, Thomas H",
-  abstract  = "In this paper, I evaluate the performance of two recently
-               proposed approaches to solving and estimating structural models:
-               The Endogenous Grid Method (EGM) and Mathematical Programming
-               with Equilibrium Constraints (MPEC). Monte Carlo simulations
-               confirm that both the EGM and MPEC have advantages relative to
-               standard methods. The EGM proved particularly robust, fast and
-               straightforward to implement. Approaches trying to avoid solving
-               the model numerically, therefore, seem to be dominated by these
-               approaches.",
-  journal   = "Economics letters",
-  publisher = "Elsevier BV",
-  volume    =  119,
-  number    =  3,
-  pages     = "287--290",
-  month     =  jun,
-  year      =  2013,
-  language  = "en",
-  issn      = "0165-1765, 1873-7374",
-  doi       = "10.1016/j.econlet.2013.02.027"
+  title        = {{Structural estimation of continuous choice models: Evaluating
+                  the {EGM} and {MPEC}}},
+  author       = {Jørgensen, Thomas H},
+  journaltitle = {Economics letters},
+  publisher    = {Elsevier BV},
+  volume       = {119},
+  issue        = {3},
+  pages        = {287--290},
+  date         = {2013-06-01},
+  doi          = {10.1016/j.econlet.2013.02.027},
+  issn         = {0165-1765,1873-7374},
+  abstract     = {In this paper, I evaluate the performance of two recently
+                  proposed approaches to solving and estimating structural
+                  models: The Endogenous Grid Method (EGM) and Mathematical
+                  Programming with Equilibrium Constraints (MPEC). Monte Carlo
+                  simulations confirm that both the EGM and MPEC have advantages
+                  relative to standard methods. The EGM proved particularly
+                  robust, fast and straightforward to implement. Approaches
+                  trying to avoid solving the model numerically, therefore, seem
+                  to be dominated by these approaches.},
+  language     = {en}
 }
 
 @ARTICLE{Ludwig2018,
-  title     = "Endogenous grids in higher dimensions: {Delaunay} interpolation
-               and hybrid methods",
-  author    = "Ludwig, Alexander and Sch{\"o}n, Matthias",
-  abstract  = "This paper investigates extensions of the method of endogenous
-               gridpoints (ENDGM) introduced by Carroll (Econ Lett
-               91(3):312--320, 2006) to higher dimensions with more than one
-               continuous endogenous state variable. We compare three different
-               categories of algorithms: (i) the conventional method with
-               exogenous grids (EXOGM), (ii) the pure method of endogenous
-               gridpoints (ENDGM) and (iii) a hybrid method (HYBGM). ENDGM
-               comes along with Delaunay interpolation on irregular grids.
-               Comparison of methods is done by evaluating speed and accuracy
-               by using a specific model with two endogenous state variables.
-               We find that HYBGM and ENDGM both dominate EXOGM. In an infinite
-               horizon model, ENDGM also always dominates HYBGM. In a finite
-               horizon model, the choice between HYBGM and ENDGM depends on the
-               number of gridpoints in each dimension. With less than 150
-               gridpoints in each dimension ENDGM is faster than HYBGM, and
-               vice versa. For a standard choice of 25--50 gridpoints in each
-               dimension, ENDGM is 1.4--1.7 times faster than HYBGM in the
-               finite horizon version and 2.4--2.5 times faster in the infinite
-               horizon version of the model.",
-  journal   = "Computational economics",
-  publisher = "Springer Science and Business Media LLC",
-  volume    =  51,
-  number    =  3,
-  pages     = "463--492",
-  month     =  mar,
-  year      =  2018,
-  language  = "en",
-  issn      = "0927-7099, 1572-9974",
-  doi       = "10.1007/s10614-016-9611-2"
+  title        = {{Endogenous grids in higher dimensions: {Delaunay}
+                  interpolation and hybrid methods}},
+  author       = {Ludwig, Alexander and Schön, Matthias},
+  journaltitle = {Computational economics},
+  publisher    = {Springer Science and Business Media LLC},
+  volume       = {51},
+  issue        = {3},
+  pages        = {463--492},
+  date         = {2018-03-01},
+  doi          = {10.1007/s10614-016-9611-2},
+  issn         = {0927-7099,1572-9974},
+  abstract     = {This paper investigates extensions of the method of endogenous
+                  gridpoints (ENDGM) introduced by Carroll (Econ Lett
+                  91(3):312--320, 2006) to higher dimensions with more than one
+                  continuous endogenous state variable. We compare three
+                  different categories of algorithms: (i) the conventional
+                  method with exogenous grids (EXOGM), (ii) the pure method of
+                  endogenous gridpoints (ENDGM) and (iii) a hybrid method
+                  (HYBGM). ENDGM comes along with Delaunay interpolation on
+                  irregular grids. Comparison of methods is done by evaluating
+                  speed and accuracy by using a specific model with two
+                  endogenous state variables. We find that HYBGM and ENDGM both
+                  dominate EXOGM. In an infinite horizon model, ENDGM also
+                  always dominates HYBGM. In a finite horizon model, the choice
+                  between HYBGM and ENDGM depends on the number of gridpoints in
+                  each dimension. With less than 150 gridpoints in each
+                  dimension ENDGM is faster than HYBGM, and vice versa. For a
+                  standard choice of 25--50 gridpoints in each dimension, ENDGM
+                  is 1.4--1.7 times faster than HYBGM in the finite horizon
+                  version and 2.4--2.5 times faster in the infinite horizon
+                  version of the model.},
+  language     = {en}
 }
 
 @ARTICLE{Clausen2020,
-  title     = "Reverse Calculus and nested optimization",
-  author    = "Clausen, Andrew and Strub, Carlo",
-  abstract  = "Nested optimization problems arise when an agent must take into
-               account the effect of their decisions on their own future
-               behaviour, or the behaviour of others. In these problems,
-               calculating marginal costs and benefits involves differentiating
-               the solutions to nested problems. But are these solutions
-               differentiable functions? We develop a tool called Reverse
-               Calculus, and establish first-order conditions for (i) a
-               Stackelberg leader considering the follower's best response
-               function, (ii) a sovereign borrower considering its own future
-               default policy, and (iii) non-convex dynamic programming
-               problems.",
-  journal   = "Journal of Economic Theory",
-  publisher = "Elsevier BV",
-  volume    =  187,
-  number    =  105019,
-  pages     = "105019",
-  month     =  may,
-  year      =  2020,
-  language  = "en",
-  issn      = "0022-0531, 1095-7235",
-  doi       = "10.1016/j.jet.2020.105019"
+  title        = {{Reverse Calculus and nested optimization}},
+  author       = {Clausen, Andrew and Strub, Carlo},
+  journaltitle = {Journal of Economic Theory},
+  publisher    = {Elsevier BV},
+  volume       = {187},
+  issue        = {105019},
+  pages        = {105019},
+  date         = {2020-05},
+  doi          = {10.1016/j.jet.2020.105019},
+  issn         = {0022-0531,1095-7235},
+  abstract     = {Nested optimization problems arise when an agent must take
+                  into account the effect of their decisions on their own future
+                  behaviour, or the behaviour of others. In these problems,
+                  calculating marginal costs and benefits involves
+                  differentiating the solutions to nested problems. But are
+                  these solutions differentiable functions? We develop a tool
+                  called Reverse Calculus, and establish first-order conditions
+                  for (i) a Stackelberg leader considering the follower's best
+                  response function, (ii) a sovereign borrower considering its
+                  own future default policy, and (iii) non-convex dynamic
+                  programming problems.},
+  language     = {en}
 }
 
 @INPROCEEDINGS{Lam2015,
-  title           = "Numba: a {LLVM-based} Python {JIT} compiler",
-  booktitle       = "Proceedings of the Second Workshop on the {LLVM} Compiler
-                     Infrastructure in {HPC}",
-  author          = "Lam, Siu Kwan and Pitrou, Antoine and Seibert, Stanley",
-  abstract        = "Dynamic, interpreted languages, like Python, are
-                     attractive for domain-experts and scientists experimenting
-                     with new ideas. However, the performance of the
-                     interpreter is often a barrier when scaling to larger data
-                     sets. This paper presents a just-in-time compiler for
-                     Python that focuses in scientific and array-oriented
-                     computing. Starting with the simple syntax of Python,
-                     Numba compiles a subset of the language into efficient
-                     machine code that is comparable in performance to a
-                     traditional compiled language. In addition, we share our
-                     experience in building a JIT compiler using LLVM[1].",
-  publisher       = "ACM",
-  number          = "Article 7",
-  pages           = "1--6",
-  series          = "LLVM '15",
-  month           =  nov,
-  year            =  2015,
-  address         = "New York, NY, USA",
-  copyright       = "http://www.acm.org/publications/policies/copyright\_policy\#Background",
-  conference      = "SC15: The International Conference for High Performance
-                     Computing, Networking, Storage and Analysis",
-  location        = "Austin Texas",
-  isbn            = "9781450340052",
-  doi             = "10.1145/2833157.2833162"
+  title      = {{Numba: a {LLVM-based} Python {JIT} compiler}},
+  author     = {Lam, Siu Kwan and Pitrou, Antoine and Seibert, Stanley},
+  booktitle  = {{Proceedings of the Second Workshop on the {LLVM} Compiler
+                Infrastructure in {HPC}}},
+  publisher  = {ACM},
+  location   = {New York, NY, USA},
+  eventtitle = {SC15: The International Conference for High Performance
+                Computing, Networking, Storage and Analysis},
+  venue      = {Austin Texas},
+  number     = {Article 7},
+  pages      = {1--6},
+  date       = {2015-11-15},
+  doi        = {10.1145/2833157.2833162},
+  isbn       = {9781450340052},
+  abstract   = {Dynamic, interpreted languages, like Python, are attractive for
+                domain-experts and scientists experimenting with new ideas.
+                However, the performance of the interpreter is often a barrier
+                when scaling to larger data sets. This paper presents a
+                just-in-time compiler for Python that focuses in scientific and
+                array-oriented computing. Starting with the simple syntax of
+                Python, Numba compiles a subset of the language into efficient
+                machine code that is comparable in performance to a traditional
+                compiled language. In addition, we share our experience in
+                building a JIT compiler using LLVM[1].},
+  series     = {LLVM '15},
+  urldate    = {2023-05-31}
 }
 
 @ARTICLE{Maliar2021,
-  title     = "Deep learning for solving dynamic economic models",
-  author    = "Maliar, Lilia and Maliar, Serguei and Winant, Pablo",
-  abstract  = "We introduce a unified deep learning method that solves dynamic
-               economic models by casting them into nonlinear regression
-               equations. We derive such equations for three fundamental
-               objects of economic dynamics -- lifetime reward functions,
-               Bellman equations and Euler equations. We estimate the decision
-               functions on simulated data using a stochastic gradient descent
-               method. We introduce an all-in-one integration operator that
-               facilitates approximation of high-dimensional integrals. We use
-               neural networks to perform model reduction and to handle
-               multicollinearity. Our deep learning method is tractable in
-               large-scale problems, e.g., Krusell and Smith (1998). We provide
-               a TensorFlow code that accommodates a variety of applications.",
-  journal   = "Journal of monetary economics",
-  publisher = "Elsevier BV",
-  volume    =  122,
-  pages     = "76--101",
-  month     =  sep,
-  year      =  2021,
-  language  = "en",
-  issn      = "0304-3932, 1873-1295",
-  doi       = "10.1016/j.jmoneco.2021.07.004"
+  title        = {{Deep learning for solving dynamic economic models}},
+  author       = {Maliar, Lilia and Maliar, Serguei and Winant, Pablo},
+  journaltitle = {Journal of monetary economics},
+  publisher    = {Elsevier BV},
+  volume       = {122},
+  pages        = {76--101},
+  date         = {2021-09-01},
+  doi          = {10.1016/j.jmoneco.2021.07.004},
+  issn         = {0304-3932,1873-1295},
+  abstract     = {We introduce a unified deep learning method that solves
+                  dynamic economic models by casting them into nonlinear
+                  regression equations. We derive such equations for three
+                  fundamental objects of economic dynamics -- lifetime reward
+                  functions, Bellman equations and Euler equations. We estimate
+                  the decision functions on simulated data using a stochastic
+                  gradient descent method. We introduce an all-in-one
+                  integration operator that facilitates approximation of
+                  high-dimensional integrals. We use neural networks to perform
+                  model reduction and to handle multicollinearity. Our deep
+                  learning method is tractable in large-scale problems, e.g.,
+                  Krusell and Smith (1998). We provide a TensorFlow code that
+                  accommodates a variety of applications.},
+  language     = {en}
 }
 
 @ARTICLE{Paszke2019,
-  title         = "{PyTorch}: An imperative style, high-performance deep
-                   learning library",
-  author        = "Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer,
-                   Adam and Bradbury, James and Chanan, Gregory and Killeen,
-                   Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga,
-                   Luca and Desmaison, Alban and K{\"o}pf, Andreas and Yang,
-                   Edward and DeVito, Zach and Raison, Martin and Tejani,
-                   Alykhan and Chilamkurthy, Sasank and Steiner, Benoit and
-                   Fang, Lu and Bai, Junjie and Chintala, Soumith",
-  abstract      = "Deep learning frameworks have often focused on either
-                   usability or speed, but not both. PyTorch is a machine
-                   learning library that shows that these two goals are in fact
-                   compatible: it provides an imperative and Pythonic
-                   programming style that supports code as a model, makes
-                   debugging easy and is consistent with other popular
-                   scientific computing libraries, while remaining efficient
-                   and supporting hardware accelerators such as GPUs. In this
-                   paper, we detail the principles that drove the
-                   implementation of PyTorch and how they are reflected in its
-                   architecture. We emphasize that every aspect of PyTorch is a
-                   regular Python program under the full control of its user.
-                   We also explain how the careful and pragmatic implementation
-                   of the key components of its runtime enables them to work
-                   together to achieve compelling performance. We demonstrate
-                   the efficiency of individual subsystems, as well as the
-                   overall speed of PyTorch on several common benchmarks.",
-  pages         = "8026--8037",
-  month         =  dec,
-  year          =  2019,
-  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-  archivePrefix = "arXiv",
-  eprint        = "1912.01703",
-  primaryClass  = "cs.LG",
-  arxivid       = "1912.01703"
+  title        = {{PyTorch: An imperative style, high-performance deep learning
+                  library}},
+  author       = {Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer,
+                  Adam and Bradbury, James and Chanan, Gregory and Killeen,
+                  Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga,
+                  Luca and Desmaison, Alban and Köpf, Andreas and Yang, Edward
+                  and DeVito, Zach and Raison, Martin and Tejani, Alykhan and
+                  Chilamkurthy, Sasank and Steiner, Benoit and Fang, Lu and Bai,
+                  Junjie and Chintala, Soumith},
+  journaltitle = {arXiv [cs.LG]},
+  pages        = {8026--8037},
+  date         = {2019-12-03},
+  eprint       = {1912.01703},
+  eprintclass  = {cs.LG},
+  abstract     = {Deep learning frameworks have often focused on either
+                  usability or speed, but not both. PyTorch is a machine
+                  learning library that shows that these two goals are in fact
+                  compatible: it provides an imperative and Pythonic programming
+                  style that supports code as a model, makes debugging easy and
+                  is consistent with other popular scientific computing
+                  libraries, while remaining efficient and supporting hardware
+                  accelerators such as GPUs. In this paper, we detail the
+                  principles that drove the implementation of PyTorch and how
+                  they are reflected in its architecture. We emphasize that
+                  every aspect of PyTorch is a regular Python program under the
+                  full control of its user. We also explain how the careful and
+                  pragmatic implementation of the key components of its runtime
+                  enables them to work together to achieve compelling
+                  performance. We demonstrate the efficiency of individual
+                  subsystems, as well as the overall speed of PyTorch on several
+                  common benchmarks.},
+  urldate      = {2023-03-01}
 }
 
 @ARTICLE{Harris2020,
-  title       = "Array programming with {NumPy}",
-  author      = "Harris, Charles R and Millman, K Jarrod and van der Walt,
-                 St{\'e}fan J and Gommers, Ralf and Virtanen, Pauli and
-                 Cournapeau, David and Wieser, Eric and Taylor, Julian and
-                 Berg, Sebastian and Smith, Nathaniel J and Kern, Robert and
-                 Picus, Matti and Hoyer, Stephan and van Kerkwijk, Marten H and
-                 Brett, Matthew and Haldane, Allan and Del R{\'\i}o, Jaime
-                 Fern{\'a}ndez and Wiebe, Mark and Peterson, Pearu and
-                 G{\'e}rard-Marchant, Pierre and Sheppard, Kevin and Reddy,
-                 Tyler and Weckesser, Warren and Abbasi, Hameer and Gohlke,
-                 Christoph and Oliphant, Travis E",
-  affiliation = "Independent researcher, Logan, UT, USA. Brain Imaging Center,
-                 University of California, Berkeley, Berkeley, CA, USA.
-                 millman@berkeley.edu. Division of Biostatistics, University of
-                 California, Berkeley, Berkeley, CA, USA. millman@berkeley.edu.
-                 Berkeley Institute for Data Science, University of California,
-                 Berkeley, Berkeley, CA, USA. millman@berkeley.edu. Brain
-                 Imaging Center, University of California, Berkeley, Berkeley,
-                 CA, USA. stefanv@berkeley.edu. Berkeley Institute for Data
-                 Science, University of California, Berkeley, Berkeley, CA,
-                 USA. stefanv@berkeley.edu. Applied Mathematics, Stellenbosch
-                 University, Stellenbosch, South Africa. stefanv@berkeley.edu.
-                 Quansight, Austin, TX, USA. ralf.gommers@gmail.com. Department
-                 of Physics, University of Jyv{\"a}skyl{\"a},
-                 Jyv{\"a}skyl{\"a}, Finland. Nanoscience Center, University of
-                 Jyv{\"a}skyl{\"a}, Jyv{\"a}skyl{\"a}, Finland. Mercari JP,
-                 Tokyo, Japan. Department of Engineering, University of
-                 Cambridge, Cambridge, UK. Independent researcher, Karlsruhe,
-                 Germany. Berkeley Institute for Data Science, University of
-                 California, Berkeley, Berkeley, CA, USA. Independent
-                 researcher, Berkeley, CA, USA. Enthought, Austin, TX, USA.
-                 Google Research, Mountain View, CA, USA. Department of
-                 Astronomy and Astrophysics, University of Toronto, Toronto,
-                 Ontario, Canada. Brain Imaging Center, University of
-                 California, Berkeley, Berkeley, CA, USA. School of Psychology,
-                 University of Birmingham, Edgbaston, Birmingham, UK.
-                 Department of Physics, Temple University, Philadelphia, PA,
-                 USA. Google, Zurich, Switzerland. Department of Physics and
-                 Astronomy, The University of British Columbia, Vancouver,
-                 British Columbia, Canada. Amazon, Seattle, WA, USA. Quansight,
-                 Austin, TX, USA. Independent researcher, Saue, Estonia.
-                 Department of Mechanics and Applied Mathematics, Institute of
-                 Cybernetics at Tallinn Technical University, Tallinn, Estonia.
-                 Department of Biological and Agricultural Engineering,
-                 University of Georgia, Athens, GA, USA. France-IX Services,
-                 Paris, France. Department of Economics, University of Oxford,
-                 Oxford, UK. CCS-7, Los Alamos National Laboratory, Los Alamos,
-                 NM, USA. Laboratory for Fluorescence Dynamics, Biomedical
-                 Engineering Department, University of California, Irvine,
-                 Irvine, CA, USA.",
-  abstract    = "Array programming provides a powerful, compact and expressive
-                 syntax for accessing, manipulating and operating on data in
-                 vectors, matrices and higher-dimensional arrays. NumPy is the
-                 primary array programming library for the Python language. It
-                 has an essential role in research analysis pipelines in fields
-                 as diverse as physics, chemistry, astronomy, geoscience,
-                 biology, psychology, materials science, engineering, finance
-                 and economics. For example, in astronomy, NumPy was an
-                 important part of the software stack used in the discovery of
-                 gravitational waves1 and in the first imaging of a black
-                 hole2. Here we review how a few fundamental array concepts
-                 lead to a simple and powerful programming paradigm for
-                 organizing, exploring and analysing scientific data. NumPy is
-                 the foundation upon which the scientific Python ecosystem is
-                 constructed. It is so pervasive that several projects,
-                 targeting audiences with specialized needs, have developed
-                 their own NumPy-like interfaces and array objects. Owing to
-                 its central position in the ecosystem, NumPy increasingly acts
-                 as an interoperability layer between such array computation
-                 libraries and, together with its application programming
-                 interface (API), provides a flexible framework to support the
-                 next decade of scientific and industrial analysis.",
-  journal     = "Nature",
-  publisher   = "Springer Science and Business Media LLC",
-  volume      =  585,
-  number      =  7825,
-  pages       = "357--362",
-  month       =  sep,
-  year        =  2020,
-  copyright   = "https://creativecommons.org/licenses/by/4.0",
-  language    = "en",
-  issn        = "0028-0836, 1476-4687",
-  pmid        = "32939066",
-  doi         = "10.1038/s41586-020-2649-2",
-  pmc         = "PMC7759461"
+  title        = {{Array programming with {NumPy}}},
+  author       = {Harris, Charles R and Millman, K Jarrod and van der Walt,
+                  Stéfan J and Gommers, Ralf and Virtanen, Pauli and Cournapeau,
+                  David and Wieser, Eric and Taylor, Julian and Berg, Sebastian
+                  and Smith, Nathaniel J and Kern, Robert and Picus, Matti and
+                  Hoyer, Stephan and van Kerkwijk, Marten H and Brett, Matthew
+                  and Haldane, Allan and Del Río, Jaime Fernández and Wiebe,
+                  Mark and Peterson, Pearu and Gérard-Marchant, Pierre and
+                  Sheppard, Kevin and Reddy, Tyler and Weckesser, Warren and
+                  Abbasi, Hameer and Gohlke, Christoph and Oliphant, Travis E},
+  journaltitle = {Nature},
+  publisher    = {Springer Science and Business Media LLC},
+  volume       = {585},
+  issue        = {7825},
+  pages        = {357--362},
+  date         = {2020-09-16},
+  doi          = {10.1038/s41586-020-2649-2},
+  pmc          = {PMC7759461},
+  pmid         = {32939066},
+  issn         = {0028-0836,1476-4687},
+  abstract     = {Array programming provides a powerful, compact and expressive
+                  syntax for accessing, manipulating and operating on data in
+                  vectors, matrices and higher-dimensional arrays. NumPy is the
+                  primary array programming library for the Python language. It
+                  has an essential role in research analysis pipelines in fields
+                  as diverse as physics, chemistry, astronomy, geoscience,
+                  biology, psychology, materials science, engineering, finance
+                  and economics. For example, in astronomy, NumPy was an
+                  important part of the software stack used in the discovery of
+                  gravitational waves1 and in the first imaging of a black
+                  hole2. Here we review how a few fundamental array concepts
+                  lead to a simple and powerful programming paradigm for
+                  organizing, exploring and analysing scientific data. NumPy is
+                  the foundation upon which the scientific Python ecosystem is
+                  constructed. It is so pervasive that several projects,
+                  targeting audiences with specialized needs, have developed
+                  their own NumPy-like interfaces and array objects. Owing to
+                  its central position in the ecosystem, NumPy increasingly acts
+                  as an interoperability layer between such array computation
+                  libraries and, together with its application programming
+                  interface (API), provides a flexible framework to support the
+                  next decade of scientific and industrial analysis.},
+  urldate      = {2023-05-31},
+  language     = {en}
 }
 
 @ARTICLE{Mertens2011,
-  title     = "Understanding the aggregate effects of anticipated and
-               unanticipated tax policy shocks",
-  author    = "Mertens, Karel and Ravn, Morten O",
-  abstract  = "This paper evaluates the extent to which a DSGE model can
-               account for the impact of tax policy shocks. We estimate the
-               response of macroeconomic aggregates to anticipated and
-               unanticipated tax shocks in the US and find that unanticipated
-               tax cuts have persistent expansionary effects on output,
-               consumption, investment and hours worked. Anticipated tax cuts
-               give rise to contractions in output, investment and hours worked
-               prior to their implementation, while stimulating the economy
-               when implemented. We show that a DSGE model can account quite
-               successfully for these findings. The main features of the model
-               are adjustment costs, consumption durables, variable capacity
-               utilization and habit formation.",
-  journal   = "Review of economic dynamics",
-  publisher = "Elsevier BV",
-  volume    =  14,
-  number    =  1,
-  pages     = "27--54",
-  month     =  jan,
-  year      =  2011,
-  language  = "en",
-  issn      = "1094-2025, 1096-6099",
-  doi       = "10.1016/j.red.2010.07.004"
+  title        = {{Understanding the aggregate effects of anticipated and
+                  unanticipated tax policy shocks}},
+  author       = {Mertens, Karel and Ravn, Morten O},
+  journaltitle = {Review of economic dynamics},
+  publisher    = {Elsevier BV},
+  volume       = {14},
+  issue        = {1},
+  pages        = {27--54},
+  date         = {2011-01-01},
+  doi          = {10.1016/j.red.2010.07.004},
+  issn         = {1094-2025,1096-6099},
+  abstract     = {This paper evaluates the extent to which a DSGE model can
+                  account for the impact of tax policy shocks. We estimate the
+                  response of macroeconomic aggregates to anticipated and
+                  unanticipated tax shocks in the US and find that unanticipated
+                  tax cuts have persistent expansionary effects on output,
+                  consumption, investment and hours worked. Anticipated tax cuts
+                  give rise to contractions in output, investment and hours
+                  worked prior to their implementation, while stimulating the
+                  economy when implemented. We show that a DSGE model can
+                  account quite successfully for these findings. The main
+                  features of the model are adjustment costs, consumption
+                  durables, variable capacity utilization and habit formation.},
+  language     = {en}
 }
 
 @ARTICLE{Maliar2013e,
-  title     = "Envelope condition method versus endogenous grid method for
-               solving dynamic programming problems",
-  author    = "Maliar, Lilia and Maliar, Serguei",
-  abstract  = "We introduce an envelope condition method (ECM) for solving
-               dynamic programming problems. The ECM method is simple to
-               implement, dominates conventional value function iteration and
-               is comparable in accuracy and cost to Carroll's (2005)
-               endogenous grid method. Codes are available.",
-  journal   = "Economics letters",
-  publisher = "Elsevier BV",
-  volume    =  120,
-  number    =  2,
-  pages     = "262--266",
-  month     =  aug,
-  year      =  2013,
-  language  = "en",
-  issn      = "0165-1765, 1873-7374",
-  doi       = "10.1016/j.econlet.2013.04.031"
+  title        = {{Envelope condition method versus endogenous grid method for
+                  solving dynamic programming problems}},
+  author       = {Maliar, Lilia and Maliar, Serguei},
+  journaltitle = {Economics letters},
+  publisher    = {Elsevier BV},
+  volume       = {120},
+  issue        = {2},
+  pages        = {262--266},
+  date         = {2013-08-01},
+  doi          = {10.1016/j.econlet.2013.04.031},
+  issn         = {0165-1765,1873-7374},
+  abstract     = {We introduce an envelope condition method (ECM) for solving
+                  dynamic programming problems. The ECM method is simple to
+                  implement, dominates conventional value function iteration and
+                  is comparable in accuracy and cost to Carroll’s (2005)
+                  endogenous grid method. Codes are available.},
+  language     = {en}
 }
 
 @ARTICLE{Hintermaier2010,
-  title     = "The method of endogenous gridpoints with occasionally binding
-               constraints among endogenous variables",
-  author    = "Hintermaier, Thomas and Koeniger, Winfried",
-  abstract  = "We show how the method of endogenous gridpoints can be extended
-               to solve models with occasionally binding constraints among
-               endogenous variables very efficiently. We present the method for
-               a consumer problem with occasionally binding collateral
-               constraints and non-separable utility in durable and non-durable
-               consumption. This problem allows for a joint analysis of durable
-               and non-durable consumption in models with uninsurable income
-               risk which is important to understand patterns of consumption,
-               saving and collateralized debt. We illustrate the algorithm and
-               its efficiency by calibrating the model to US data.",
-  journal   = "Journal of Economic Dynamics \& Control",
-  publisher = "Elsevier BV",
-  volume    =  34,
-  number    =  10,
-  pages     = "2074--2088",
-  month     =  oct,
-  year      =  2010,
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/j.jedc.2010.05.002"
+  title        = {{The method of endogenous gridpoints with occasionally binding
+                  constraints among endogenous variables}},
+  author       = {Hintermaier, Thomas and Koeniger, Winfried},
+  journaltitle = {Journal of Economic Dynamics \& Control},
+  publisher    = {Elsevier BV},
+  volume       = {34},
+  issue        = {10},
+  pages        = {2074--2088},
+  date         = {2010-10-01},
+  doi          = {10.1016/j.jedc.2010.05.002},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {We show how the method of endogenous gridpoints can be
+                  extended to solve models with occasionally binding constraints
+                  among endogenous variables very efficiently. We present the
+                  method for a consumer problem with occasionally binding
+                  collateral constraints and non-separable utility in durable
+                  and non-durable consumption. This problem allows for a joint
+                  analysis of durable and non-durable consumption in models with
+                  uninsurable income risk which is important to understand
+                  patterns of consumption, saving and collateralized debt. We
+                  illustrate the algorithm and its efficiency by calibrating the
+                  model to US data.},
+  language     = {en}
 }
 
 @ARTICLE{Iskhakov2015b,
-  title     = "Multidimensional endogenous gridpoint method: Solving triangular
-               dynamic stochastic optimization problems without root-finding
-               operations",
-  author    = "Iskhakov, Fedor",
-  abstract  = "This paper defines the class of triangular dynamic stochastic
-               optimization problems with multiple continuous choices which can
-               be solved by the multidimensional generalization of the method
-               of endogenous gridpoints without costly root-finding operations.
-               The typical member of this class is a model of multiple asset
-               dynamics, with potential applications in wealth, health and
-               human capital accumulation, portfolio problems, multisector
-               growth models, etc.",
-  journal   = "Economics letters",
-  publisher = "Elsevier BV",
-  volume    =  135,
-  pages     = "72--76",
-  month     =  oct,
-  year      =  2015,
-  language  = "en",
-  issn      = "0165-1765, 1873-7374",
-  doi       = "10.1016/j.econlet.2015.07.033"
+  title        = {{Multidimensional endogenous gridpoint method: Solving
+                  triangular dynamic stochastic optimization problems without
+                  root-finding operations}},
+  shorttitle   = {{Multidimensional Endogenous Gridpoint Method}},
+  author       = {Iskhakov, Fedor},
+  journaltitle = {Economics letters},
+  publisher    = {Elsevier BV},
+  volume       = {135},
+  pages        = {72--76},
+  date         = {2015-10-01},
+  doi          = {10.1016/j.econlet.2015.07.033},
+  issn         = {0165-1765,1873-7374},
+  abstract     = {This paper defines the class of triangular dynamic stochastic
+                  optimization problems with multiple continuous choices which
+                  can be solved by the multidimensional generalization of the
+                  method of endogenous gridpoints without costly root-finding
+                  operations. The typical member of this class is a model of
+                  multiple asset dynamics, with potential applications in
+                  wealth, health and human capital accumulation, portfolio
+                  problems, multisector growth models, etc.},
+  language     = {en}
 }
 
 @ARTICLE{Barillas2007,
-  title     = "A generalization of the endogenous grid method",
-  author    = "Barillas, Francisco and Fern{\'a}ndez-Villaverde, Jes{\'u}s",
-  abstract  = "This paper extends Carroll's [2005. The method of endogenous
-               gridpoints for solving dynamic stochastic optimization problems.
-               National Bureau of Economic Research Technical Working Paper
-               309]. endogenous grid method to perform value function iteration
-               in models with more than one control variable. We propose to mix
-               the endogenous grid method with standard value function
-               iteration to achieve higher efficiency. We illustrate the method
-               using the stochastic neoclassical growth model with and without
-               labor--leisure choice. We report important gains in efficiency
-               that make value function iteration an attractive computational
-               method in terms of both computing time and accuracy.",
-  journal   = "Journal of Economic Dynamics \& Control",
-  publisher = "Elsevier BV",
-  volume    =  31,
-  number    =  8,
-  pages     = "2698--2712",
-  month     =  aug,
-  year      =  2007,
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/j.jedc.2006.08.005"
-}
-
-@ARTICLE{Bodie1992,
-  title     = "Labor supply flexibility and portfolio choice in a life cycle
-               model",
-  author    = "Bodie, Zvi and Merton, Robert C and Samuelson, William F",
-  abstract  = "This paper examines the effect of the labor-leisure choice on
-               portfolio and consumption decisions over an individual's life
-               cycle. The model incorporates the fact that individuals may have
-               considerable flexibility in varying their work effort (including
-               their choice of when to retire). Given this flexibility, the
-               individual simultaneously determines optimal levels of current
-               consumption, labor effort, and an optimal financial investment
-               strategy at each point in his life cycle. We show that labor and
-               investment choices are intimately related. The ability to vary
-               labor supply ex post induces the individual to assume greater
-               risks in his investment portfolio ex ante.",
-  journal   = "Journal of Economic Dynamics \& Control",
-  publisher = "Elsevier BV",
-  volume    =  16,
-  number    = "3-4",
-  pages     = "427--449",
-  month     =  jul,
-  year      =  1992,
-  copyright = "http://creativecommons.org/licenses/by-nc-nd/4.0/",
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/0165-1889(92)90044-f"
+  title        = {{A generalization of the endogenous grid method}},
+  author       = {Barillas, Francisco and Fernández-Villaverde, Jesús},
+  journaltitle = {Journal of Economic Dynamics \& Control},
+  publisher    = {Elsevier BV},
+  volume       = {31},
+  issue        = {8},
+  pages        = {2698--2712},
+  date         = {2007-08-01},
+  doi          = {10.1016/j.jedc.2006.08.005},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {This paper extends Carroll's [2005. The method of endogenous
+                  gridpoints for solving dynamic stochastic optimization
+                  problems. National Bureau of Economic Research Technical
+                  Working Paper 309]. endogenous grid method to perform value
+                  function iteration in models with more than one control
+                  variable. We propose to mix the endogenous grid method with
+                  standard value function iteration to achieve higher
+                  efficiency. We illustrate the method using the stochastic
+                  neoclassical growth model with and without labor–leisure
+                  choice. We report important gains in efficiency that make
+                  value function iteration an attractive computational method in
+                  terms of both computing time and accuracy.},
+  language     = {en}
 }
 
 @ARTICLE{Maliar2011b,
-  title     = "Solving the multi-country real business cycle model using
-               ergodic set methods",
-  author    = "Maliar, Serguei and Maliar, Lilia and Judd, Kenneth",
-  abstract  = "We use the stochastic simulation algorithm, described in Judd et
-               al. (2009), and the cluster-grid algorithm, developed in Judd et
-               al. (2010a), to solve a collection of multi-country real
-               business cycle models. The following ingredients help us reduce
-               the cost in high-dimensional problems: an endogenous grid
-               enclosing the ergodic set, linear approximation methods,
-               fixed-point iteration and efficient integration methods, such as
-               non-product monomial rules and Monte Carlo integration combined
-               with regression. We show that high accuracy in intratemporal
-               choice is crucial for the overall accuracy of solutions and
-               offer two approaches, precomputation and
-               iteration-on-allocation, that can solve for intratemporal choice
-               both accurately and quickly. We also implement a hybrid solution
-               algorithm that combines the perturbation and accurate
-               intratemporal-choice methods.",
-  journal   = "Journal of economic dynamics \& control",
-  publisher = "Elsevier BV",
-  volume    =  35,
-  number    =  2,
-  pages     = "207--228",
-  month     =  feb,
-  year      =  2011,
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/j.jedc.2010.09.014"
+  title        = {{Solving the multi-country real business cycle model using
+                  ergodic set methods}},
+  author       = {Maliar, Serguei and Maliar, Lilia and Judd, Kenneth},
+  journaltitle = {Journal of economic dynamics \& control},
+  publisher    = {Elsevier BV},
+  volume       = {35},
+  issue        = {2},
+  pages        = {207--228},
+  date         = {2011-02-01},
+  doi          = {10.1016/j.jedc.2010.09.014},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {We use the stochastic simulation algorithm, described in Judd
+                  et al. (2009), and the cluster-grid algorithm, developed in
+                  Judd et al. (2010a), to solve a collection of multi-country
+                  real business cycle models. The following ingredients help us
+                  reduce the cost in high-dimensional problems: an endogenous
+                  grid enclosing the ergodic set, linear approximation methods,
+                  fixed-point iteration and efficient integration methods, such
+                  as non-product monomial rules and Monte Carlo integration
+                  combined with regression. We show that high accuracy in
+                  intratemporal choice is crucial for the overall accuracy of
+                  solutions and offer two approaches, precomputation and
+                  iteration-on-allocation, that can solve for intratemporal
+                  choice both accurately and quickly. We also implement a hybrid
+                  solution algorithm that combines the perturbation and accurate
+                  intratemporal-choice methods.},
+  language     = {en}
 }
 
 @ARTICLE{Oliphant2007,
-  title     = "Python for {Scientific Computing}",
-  author    = "Oliphant, Travis E",
-  abstract  = "Python is an excellent ``steering'' language for scientific
-               codes written in other languages. However, with additional basic
-               tools, Python transforms into a high-level language suited for
-               scientific and engineering code that's often fast enough to be
-               immediately useful but also flexible enough to be sped up with
-               additional extensions.",
-  journal   = "Computing in science \& engineering",
-  publisher = "IEEE",
-  volume    =  9,
-  number    =  3,
-  pages     = "10--20",
-  year      =  2007,
-  copyright = "https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html",
-  issn      = "1521-9615, 1558-366X",
-  doi       = "10.1109/MCSE.2007.58"
+  title        = {{Python for {Scientific Computing}}},
+  author       = {Oliphant, Travis E},
+  journaltitle = {Computing in science \& engineering},
+  publisher    = {IEEE},
+  volume       = {9},
+  issue        = {3},
+  pages        = {10--20},
+  date         = {2007},
+  doi          = {10.1109/MCSE.2007.58},
+  issn         = {1521-9615,1558-366X},
+  abstract     = {Python is an excellent "steering" language for scientific
+                  codes written in other languages. However, with additional
+                  basic tools, Python transforms into a high-level language
+                  suited for scientific and engineering code that's often fast
+                  enough to be immediately useful but also flexible enough to be
+                  sped up with additional extensions.}
 }
 
 @ARTICLE{Carroll2006g,
-  title     = "The method of endogenous gridpoints for solving dynamic
-               stochastic optimization problems",
-  author    = "Carroll, Christopher D",
-  abstract  = "This paper introduces a solution method for numerical dynamic
-               stochastic optimization problems that avoids rootfinding
-               operations. The idea is applicable to many microeconomic and
-               macroeconomic problems, including life cycle, buffer-stock, and
-               stochastic growth problems. Software is provided.",
-  journal   = "Economics letters",
-  publisher = "Elsevier BV",
-  volume    =  91,
-  number    =  3,
-  pages     = "312--320",
-  month     =  jun,
-  year      =  2006,
-  language  = "en",
-  issn      = "0165-1765, 1873-7374",
-  doi       = "10.1016/j.econlet.2005.09.013"
+  title        = {{The method of endogenous gridpoints for solving dynamic
+                  stochastic optimization problems}},
+  author       = {Carroll, Christopher D},
+  journaltitle = {Economics letters},
+  publisher    = {Elsevier BV},
+  volume       = {91},
+  issue        = {3},
+  pages        = {312--320},
+  date         = {2006-06-01},
+  doi          = {10.1016/j.econlet.2005.09.013},
+  issn         = {0165-1765,1873-7374},
+  abstract     = {This paper introduces a solution method for numerical dynamic
+                  stochastic optimization problems that avoids rootfinding
+                  operations. The idea is applicable to many microeconomic and
+                  macroeconomic problems, including life cycle, buffer-stock,
+                  and stochastic growth problems. Software is provided.},
+  note         = {<b>From Duplicate 1 (<i>The method of endogenous gridpoints
+                  for solving dynamic stochastic optimization problems</i> -
+                  Carroll, Christopher
+                  D.)<br/></b><br/>\url\{https://www.econ2.jhu.edu/people/ccarroll/EndogenousGridpoints.pdf\}},
+  language     = {en}
 }
 
 @ARTICLE{Azinovic2022,
-  title       = "Deep equilibrium nets",
-  author      = "Azinovic, Marlon and Gaegauf, Luca and Scheidegger, Simon",
-  affiliation = "Department of Economics University of Zurich Switzerland;
-                 Department of Banking and Finance University of Zurich
-                 Switzerland; Department of Economics University of Lausanne
-                 Switzerland",
-  abstract    = "Abstract We introduce deep equilibrium nets (DEQNs)?a deep
-                 learning-based method to compute approximate functional
-                 rational expectations equilibria of economic models featuring
-                 a significant amount of heterogeneity, uncertainty, and
-                 occasionally binding constraints. DEQNs are neural networks
-                 trained in an unsupervised fashion to satisfy all equilibrium
-                 conditions along simulated paths of the economy. Since DEQNs
-                 approximate the equilibrium functions directly, simulating the
-                 economy is computationally cheap, and training data can be
-                 generated at virtually zero cost. We demonstrate that DEQNs
-                 can accurately solve economically relevant models by applying
-                 them to two challenging life-cycle models and a Bewley-style
-                 model with aggregate risk.",
-  journal     = "International economic review",
-  publisher   = "Wiley",
-  volume      =  63,
-  number      =  4,
-  pages       = "1471--1525",
-  month       =  nov,
-  year        =  2022,
-  copyright   = "http://creativecommons.org/licenses/by-nc/4.0/",
-  language    = "en",
-  issn        = "0020-6598, 1468-2354",
-  doi         = "10.1111/iere.12575"
+  title        = {{Deep equilibrium nets}},
+  author       = {Azinovic, Marlon and Gaegauf, Luca and Scheidegger, Simon},
+  journaltitle = {International economic review},
+  publisher    = {Wiley},
+  volume       = {63},
+  issue        = {4},
+  pages        = {1471--1525},
+  date         = {2022-11},
+  doi          = {10.1111/iere.12575},
+  issn         = {0020-6598,1468-2354},
+  abstract     = {Abstract We introduce deep equilibrium nets (DEQNs)?a deep
+                  learning-based method to compute approximate functional
+                  rational expectations equilibria of economic models featuring
+                  a significant amount of heterogeneity, uncertainty, and
+                  occasionally binding constraints. DEQNs are neural networks
+                  trained in an unsupervised fashion to satisfy all equilibrium
+                  conditions along simulated paths of the economy. Since DEQNs
+                  approximate the equilibrium functions directly, simulating the
+                  economy is computationally cheap, and training data can be
+                  generated at virtually zero cost. We demonstrate that DEQNs
+                  can accurately solve economically relevant models by applying
+                  them to two challenging life-cycle models and a Bewley-style
+                  model with aggregate risk.},
+  language     = {en}
 }
 
 @ARTICLE{Carroll2009e,
-  title     = "Precautionary saving and the marginal propensity to consume out
-               of permanent income",
-  author    = "Carroll, Christopher D",
-  abstract  = "The budget constraint requires that, eventually, consumption
-               must adjust fully to any permanent shock to income. Intuition
-               suggests that, knowing this, optimizing agents will fully adjust
-               their spending immediately upon experiencing a permanent shock.
-               However, this paper shows that if consumers are impatient and
-               are subject to transitory as well as permanent shocks, the
-               optimal marginal propensity to consume out of permanent shocks
-               (the MPCP) is strictly less than one, because buffer-stock
-               savers have a target wealth-to-permanent-income ratio; a
-               positive shock to permanent income moves the ratio below its
-               target, temporarily boosting saving.",
-  journal   = "Journal of monetary economics",
-  publisher = "Elsevier BV",
-  volume    =  56,
-  number    =  6,
-  pages     = "780--790",
-  month     =  sep,
-  year      =  2009,
-  language  = "en",
-  issn      = "0304-3932, 1873-1295",
-  doi       = "10.1016/j.jmoneco.2009.06.016"
+  title        = {{Precautionary saving and the marginal propensity to consume
+                  out of permanent income}},
+  author       = {Carroll, Christopher D},
+  journaltitle = {Journal of monetary economics},
+  publisher    = {Elsevier BV},
+  volume       = {56},
+  issue        = {6},
+  pages        = {780--790},
+  date         = {2009-09-01},
+  doi          = {10.1016/j.jmoneco.2009.06.016},
+  issn         = {0304-3932,1873-1295},
+  abstract     = {The budget constraint requires that, eventually, consumption
+                  must adjust fully to any permanent shock to income. Intuition
+                  suggests that, knowing this, optimizing agents will fully
+                  adjust their spending immediately upon experiencing a
+                  permanent shock. However, this paper shows that if consumers
+                  are impatient and are subject to transitory as well as
+                  permanent shocks, the optimal marginal propensity to consume
+                  out of permanent shocks (the MPCP) is strictly less than one,
+                  because buffer-stock savers have a target
+                  wealth-to-permanent-income ratio; a positive shock to
+                  permanent income moves the ratio below its target, temporarily
+                  boosting saving.},
+  note         = {<b>From Duplicate 2 (<i>Precautionary saving and the marginal
+                  propensity to consume out of permanent income</i> - Carroll,
+                  Christopher
+                  D.)<br/></b><br/>\url\{https://www.econ2.jhu.edu/people/ccarroll/MPCPermBigNBER.pdf\}<br/><br/><b>From
+                  Duplicate 3 (<i>Precautionary saving and the marginal
+                  propensity to consume out of permanent income</i> - Carroll,
+                  Christopher
+                  D.)<br/></b><br/>\url\{https://www.econ2.jhu.edu/people/ccarroll/papers/MPCPerm\}},
+  language     = {en}
 }
 
 @ARTICLE{Mendoza2020,
-  title     = "{{FiPIt}}: A simple, fast global method for solving models with
-               two endogenous states \& occasionally binding constraints",
-  author    = "Mendoza, Enrique G and Villalvazo, Sergio",
-  abstract  = "We propose a simple and fast fixed-point iteration algorithm
-               (FiPIt) to obtain the global, non-linear solution of macro
-               models with two endogenous state variables and occasionally
-               binding constraints. This method uses fixed-point iteration on
-               Euler equations to avoid solving two simultaneous non-linear
-               equations (as with the time iteration method) or creating
-               modified state variables requiring irregular interpolation (as
-               with the endogenous grids method). In the small-open-economy RBC
-               and Sudden Stops models provided as examples, FiPIt is much
-               faster than time iteration and various hybrid methods.",
-  journal   = "Review of economic dynamics",
-  publisher = "Elsevier BV",
-  volume    =  37,
-  pages     = "81--102",
-  month     =  jul,
-  year      =  2020,
-  language  = "en",
-  issn      = "1094-2025, 1096-6099",
-  doi       = "10.1016/j.red.2020.01.001"
+  title        = {{{FiPIt}: A simple, fast global method for solving models with
+                  two endogenous states \& occasionally binding constraints}},
+  author       = {Mendoza, Enrique G and Villalvazo, Sergio},
+  journaltitle = {Review of economic dynamics},
+  publisher    = {Elsevier BV},
+  volume       = {37},
+  pages        = {81--102},
+  date         = {2020-07-01},
+  doi          = {10.1016/j.red.2020.01.001},
+  issn         = {1094-2025,1096-6099},
+  abstract     = {We propose a simple and fast fixed-point iteration algorithm
+                  (FiPIt) to obtain the global, non-linear solution of macro
+                  models with two endogenous state variables and occasionally
+                  binding constraints. This method uses fixed-point iteration on
+                  Euler equations to avoid solving two simultaneous non-linear
+                  equations (as with the time iteration method) or creating
+                  modified state variables requiring irregular interpolation (as
+                  with the endogenous grids method). In the small-open-economy
+                  RBC and Sudden Stops models provided as examples, FiPIt is
+                  much faster than time iteration and various hybrid methods.},
+  language     = {en}
 }
 
 @ARTICLE{Druedahl2017c,
-  title     = "A general endogenous grid method for multi-dimensional models
-               with non-convexities and constraints",
-  author    = "Druedahl, Jeppe and J{\o}rgensen, Thomas H{\o}gholm",
-  abstract  = "The endogenous grid method (EGM) significantly speeds up the
-               solution of stochastic dynamic programming problems by
-               simplifying or completely eliminating root-finding. We propose a
-               general and parsimonious EGM extended to handle (1) multiple
-               continuous states and choices, (2) multiple occasionally binding
-               constraints, and (3) non-convexities such as discrete choices.
-               Our method enjoys the speed gains of the original
-               one-dimensional EGM, while avoiding expensive interpolation on
-               multi-dimensional irregular endogenous grids. We explicitly
-               define a broad class of models for which our solution method is
-               applicable, and illustrate its speed and accuracy using a
-               consumption--saving model with both liquid assets and illiquid
-               pension assets and a discrete retirement choice.",
-  journal   = "Journal of economic dynamics \& control",
-  publisher = "Elsevier BV",
-  volume    =  74,
-  pages     = "87--107",
-  month     =  jan,
-  year      =  2017,
-  language  = "en",
-  issn      = "0165-1889, 1879-1743",
-  doi       = "10.1016/j.jedc.2016.11.005"
+  title        = {{A general endogenous grid method for multi-dimensional models
+                  with non-convexities and constraints}},
+  author       = {Druedahl, Jeppe and Jørgensen, Thomas Høgholm},
+  journaltitle = {Journal of economic dynamics \& control},
+  publisher    = {Elsevier BV},
+  volume       = {74},
+  pages        = {87--107},
+  date         = {2017-01-01},
+  doi          = {10.1016/j.jedc.2016.11.005},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {The endogenous grid method (EGM) significantly speeds up the
+                  solution of stochastic dynamic programming problems by
+                  simplifying or completely eliminating root-finding. We propose
+                  a general and parsimonious EGM extended to handle (1) multiple
+                  continuous states and choices, (2) multiple occasionally
+                  binding constraints, and (3) non-convexities such as discrete
+                  choices. Our method enjoys the speed gains of the original
+                  one-dimensional EGM, while avoiding expensive interpolation on
+                  multi-dimensional irregular endogenous grids. We explicitly
+                  define a broad class of models for which our solution method
+                  is applicable, and illustrate its speed and accuracy using a
+                  consumption–saving model with both liquid assets and illiquid
+                  pension assets and a discrete retirement choice.},
+  language     = {en}
 }
 
 @ARTICLE{Gardner2018,
-  title         = "{GPyTorch}: Blackbox Matrix-matrix Gaussian process
-                   inference with {GPU} acceleration",
-  author        = "Gardner, Jacob R and Pleiss, Geoff and Bindel, David and
-                   Weinberger, Kilian Q and Wilson, Andrew Gordon",
-  abstract      = "Despite advances in scalable models, the inference tools
-                   used for Gaussian processes (GPs) have yet to fully
-                   capitalize on developments in computing hardware. We present
-                   an efficient and general approach to GP inference based on
-                   Blackbox Matrix-Matrix multiplication (BBMM). BBMM inference
-                   uses a modified batched version of the conjugate gradients
-                   algorithm to derive all terms for training and inference in
-                   a single call. BBMM reduces the asymptotic complexity of
-                   exact GP inference from $O(n^3)$ to $O(n^2)$. Adapting this
-                   algorithm to scalable approximations and complex GP models
-                   simply requires a routine for efficient matrix-matrix
-                   multiplication with the kernel and its derivative. In
-                   addition, BBMM uses a specialized preconditioner to
-                   substantially speed up convergence. In experiments we show
-                   that BBMM effectively uses GPU hardware to dramatically
-                   accelerate both exact GP inference and scalable
-                   approximations. Additionally, we provide GPyTorch, a
-                   software platform for scalable GP inference via BBMM, built
-                   on PyTorch.",
-  month         =  sep,
-  year          =  2018,
-  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-  archivePrefix = "arXiv",
-  eprint        = "1809.11165",
-  primaryClass  = "cs.LG",
-  arxivid       = "1809.11165",
-  doi           = "10.48550/arXiv.1809.11165"
+  title        = {{GPyTorch: Blackbox Matrix-matrix Gaussian process inference
+                  with GPU acceleration}},
+  author       = {Gardner, Jacob R and Pleiss, Geoff and Bindel, David and
+                  Weinberger, Kilian Q and Wilson, Andrew Gordon},
+  journaltitle = {arXiv [cs.LG]},
+  date         = {2018-09-28},
+  eprint       = {1809.11165},
+  eprintclass  = {cs.LG},
+  doi          = {10.48550/arXiv.1809.11165},
+  abstract     = {Despite advances in scalable models, the inference tools used
+                  for Gaussian processes (GPs) have yet to fully capitalize on
+                  developments in computing hardware. We present an efficient
+                  and general approach to GP inference based on Blackbox
+                  Matrix-Matrix multiplication (BBMM). BBMM inference uses a
+                  modified batched version of the conjugate gradients algorithm
+                  to derive all terms for training and inference in a single
+                  call. BBMM reduces the asymptotic complexity of exact GP
+                  inference from $O(n^3)$ to $O(n^2)$. Adapting this algorithm
+                  to scalable approximations and complex GP models simply
+                  requires a routine for efficient matrix-matrix multiplication
+                  with the kernel and its derivative. In addition, BBMM uses a
+                  specialized preconditioner to substantially speed up
+                  convergence. In experiments we show that BBMM effectively uses
+                  GPU hardware to dramatically accelerate both exact GP
+                  inference and scalable approximations. Additionally, we
+                  provide GPyTorch, a software platform for scalable GP
+                  inference via BBMM, built on PyTorch.},
+  urldate      = {2023-02-28}
+}
+
+@ARTICLE{Bodie1992,
+  title        = {{{Labor supply flexibility and portfolio choice in a life
+                  cycle model}}},
+  author       = {Bodie, Zvi and Merton, Robert C and Samuelson, William F},
+  journaltitle = {Journal of Economic Dynamics \& Control},
+  publisher    = {Elsevier BV},
+  volume       = {16},
+  issue        = {3-4},
+  pages        = {427--449},
+  date         = {1992-07-01},
+  doi          = {10.1016/0165-1889(92)90044-f},
+  issn         = {0165-1889,1879-1743},
+  abstract     = {This paper examines the effect of the labor-leisure choice on
+                  portfolio and consumption decisions over an individual's life
+                  cycle. The model incorporates the fact that individuals may
+                  have considerable flexibility in varying their work effort
+                  (including their choice of when to retire). Given this
+                  flexibility, the individual simultaneously determines optimal
+                  levels of current consumption, labor effort, and an optimal
+                  financial investment strategy at each point in his life cycle.
+                  We show that labor and investment choices are intimately
+                  related. The ability to vary labor supply ex post induces the
+                  individual to assume greater risks in his investment portfolio
+                  ex ante.},
+  language     = {en}
 }
