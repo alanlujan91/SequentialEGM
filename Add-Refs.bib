@@ -31,27 +31,6 @@
   language     = {en}
 }
 
-@ARTICLE{Fella2011-bc,
-  title        = {{A generalized endogenous grid method for {non-concave}
-                  problems}},
-  author       = {Fella, Giulio},
-  journaltitle = {SSRN Electronic Journal},
-  date         = {2011-04-21},
-  doi          = {10.2139/ssrn.1818643},
-  abstract     = {This paper extends Carroll's (2006) endogenous grid method and
-                  its combination with value function iteration by Barillas and
-                  Fernandez-Villaverde (2007) to non-concave problems. The
-                  method is illustrated using a consumer problem in which
-                  consumers choose both durable and non-durable consumption. The
-                  durable choice is discrete and subject to non-convex
-                  adjustment costs. The algorithm yields substantial gains in
-                  accuracy and computational time relative to value function
-                  iteration, the standard solution choice for non-concave
-                  problems.},
-  urldate      = {2023-02-10},
-  language     = {en}
-}
-
 @ONLINE{White2014-yg,
   title     = {{Endogenous gridpoints in multiple dimensions: {Interpolation} on
                {non-linear} grids}},
@@ -63,6 +42,38 @@
                companion), the only additional condition for non-linear grid
                interpolation to be \ldots},
   urldate   = {2023-03-01}
+}
+
+@ARTICLE{Druedahl2021-at,
+  title        = {{A guide on solving non-convex {consumption-saving} models}},
+  author       = {Druedahl, Jeppe},
+  journaltitle = {Computational economics},
+  publisher    = {Springer Science and Business Media LLC},
+  volume       = {58},
+  issue        = {3},
+  pages        = {747--775},
+  date         = {2021-10-01},
+  doi          = {10.1007/s10614-020-10045-x},
+  issn         = {0927-7099,1572-9974},
+  abstract     = {Consumption-saving models with adjustment costs or discrete
+                  choices are typically hard to solve numerically due to the
+                  presence of non-convexities. This paper provides a number of
+                  tools to speed up the solution of such models. Firstly, I use
+                  that many consumption models have a nesting structure implying
+                  that the continuation value can be efficiently pre-computed
+                  and the consumption choice solved separately before the
+                  remaining choices. Secondly, I use that an endogenous grid
+                  method extended with an upper envelope step can be used to
+                  solve efficiently for the consumption choice. Thirdly, I use
+                  that the required pre-computations can be optimized by a novel
+                  loop reordering when interpolating the next-period value
+                  function. As an illustrative example, I solve a model with
+                  non-durable consumption and durable consumption subject to
+                  adjustment costs. Combining the provided tools, the model is
+                  solved almost 50 times faster than with standard value
+                  function iteration for a given level of accuracy. Software is
+                  provided in both Python and C++.},
+  language     = {en}
 }
 
 @ARTICLE{Jang2021-zn,
@@ -734,38 +745,6 @@
   date         = {2012}
 }
 
-@ARTICLE{Druedahl2021-at,
-  title        = {{A guide on solving non-convex {consumption-saving} models}},
-  author       = {Druedahl, Jeppe},
-  journaltitle = {Computational economics},
-  publisher    = {Springer Science and Business Media LLC},
-  volume       = {58},
-  issue        = {3},
-  pages        = {747--775},
-  date         = {2021-10-01},
-  doi          = {10.1007/s10614-020-10045-x},
-  issn         = {0927-7099,1572-9974},
-  abstract     = {Consumption-saving models with adjustment costs or discrete
-                  choices are typically hard to solve numerically due to the
-                  presence of non-convexities. This paper provides a number of
-                  tools to speed up the solution of such models. Firstly, I use
-                  that many consumption models have a nesting structure implying
-                  that the continuation value can be efficiently pre-computed
-                  and the consumption choice solved separately before the
-                  remaining choices. Secondly, I use that an endogenous grid
-                  method extended with an upper envelope step can be used to
-                  solve efficiently for the consumption choice. Thirdly, I use
-                  that the required pre-computations can be optimized by a novel
-                  loop reordering when interpolating the next-period value
-                  function. As an illustrative example, I solve a model with
-                  non-durable consumption and durable consumption subject to
-                  adjustment costs. Combining the provided tools, the model is
-                  solved almost 50 times faster than with standard value
-                  function iteration for a given level of accuracy. Software is
-                  provided in both Python and C++.},
-  language     = {en}
-}
-
 @ARTICLE{Rust2012-cn,
   title        = {{A generalized endogenous grid method for discrete-continuous
                   choice}},
@@ -800,6 +779,27 @@
                   cost to the user. The software package is accessible in public
                   domain.},
   urldate      = {2023-03-16}
+}
+
+@ARTICLE{Fella2011-bc,
+  title        = {{A generalized endogenous grid method for {non-concave}
+                  problems}},
+  author       = {Fella, Giulio},
+  journaltitle = {SSRN Electronic Journal},
+  date         = {2011-04-21},
+  doi          = {10.2139/ssrn.1818643},
+  abstract     = {This paper extends Carroll's (2006) endogenous grid method and
+                  its combination with value function iteration by Barillas and
+                  Fernandez-Villaverde (2007) to non-concave problems. The
+                  method is illustrated using a consumer problem in which
+                  consumers choose both durable and non-durable consumption. The
+                  durable choice is discrete and subject to non-convex
+                  adjustment costs. The algorithm yields substantial gains in
+                  accuracy and computational time relative to value function
+                  iteration, the standard solution choice for non-concave
+                  problems.},
+  urldate      = {2023-02-10},
+  language     = {en}
 }
 
 @ARTICLE{Iskhakov201717e,
@@ -1061,31 +1061,6 @@
   language   = {en}
 }
 
-@UNPUBLISHED{Iskhakov2015-em,
-  title      = {{Estimating {{Discrete-Continuous}} Choice Models: {{The}}
-                Endogenous Grid Method with Taste Shocks}},
-  shorttitle = {{Estimating Discrete-Continuous Choice Models}},
-  author     = {Iskhakov, Fedor and Jørgensen, Thomas and Rust, John and
-                Schjerning, Bertel},
-  date       = {2015-11-26},
-  abstract   = {We present a fast and accurate computational method for solving
-                and estimating a class of dynamic programming models with
-                discrete and continuous choice variables. The solution method we
-                develop for structural estimation extends the endogenous
-                gridpoint method (EGM) to discrete-continuous (DC) problems.
-                Discrete choices can lead to kinks in the value functions and
-                discontinuities in the optimal policy rules, greatly
-                complicating the solution of the model. We show how these
-                problems are ameliorated in the presence of additive
-                choice-specific IID extreme value taste shocks. We present Monte
-                Carlo experiments that demonstrate the reliability and
-                efficiency of the DC-EGM and the associated Maximum Likelihood
-                estimator for structural estimation of a life cycle model of
-                consumption with discrete retirement decisions.},
-  urldate    = {2023-02-10},
-  language   = {en}
-}
-
 @ARTICLE{Ludwig2018-bb,
   title        = {{Endogenous Grids in Higher Dimensions: {{Delaunay}}
                   Interpolation and Hybrid Methods}},
@@ -1230,7 +1205,7 @@
   volume    = {3},
   pages     = {325--477},
   date      = {2014-01-01},
-  doi       = {10.1016/b978-0-444-52980-0.00007-4},
+  doi       = {10.1016/B978-0-444-52980-0.00007-4},
   issn      = {1574-0021,1875-5658},
   isbn      = {9780444529800},
   abstract  = {We survey numerical methods that are tractable in dynamic
@@ -1257,6 +1232,30 @@
                methods using a multiagent model. Many codes are publicly
                available.},
   series    = {Handbook of computational economics}
+}
+
+@ARTICLE{Mendoza2020-mu,
+  title        = {{{FiPIt}: A simple, fast global method for solving models with
+                  two endogenous states \& occasionally binding constraints}},
+  author       = {Mendoza, Enrique G and Villalvazo, Sergio},
+  journaltitle = {Review of economic dynamics},
+  publisher    = {Academic Press},
+  volume       = {37},
+  pages        = {81--102},
+  date         = {2020-07-01},
+  doi          = {10.1016/j.red.2020.01.001},
+  issn         = {1094-2025,1096-6099},
+  abstract     = {We propose a simple and fast fixed-point iteration algorithm
+                  (FiPIt) to obtain the global, non-linear solution of macro
+                  models with two endogenous state variables and occasionally
+                  binding constraints. This method uses fixed-point iteration on
+                  Euler equations to avoid solving two simultaneous non-linear
+                  equations (as with the time iteration method) or creating
+                  modified state variables requiring irregular interpolation (as
+                  with the endogenous grids method). In the small-open-economy
+                  RBC and Sudden Stops models provided as examples, FiPIt is
+                  much faster than time iteration and various hybrid methods.},
+  language     = {en}
 }
 
 @ARTICLE{Mendoza2020-mu,
