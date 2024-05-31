@@ -1,25 +1,3 @@
----
-# title: The Sequential Endogenous Grid Method # a string (max 500 chars) page & project
-# description: # a string (max 500 chars) page & project
-short_title: Method # a string (max 40 chars) page & project
-# name:  # a string (max 500 chars) page & project
-# tags:  # a list of strings page only
-# thumbnail: # a link to a local or remote image page only
-# subtitle: # a string (max 500 chars) page only
-# date: # a valid date formatted string page can override project
-# authors:  # a list of author objects page can override project
-# doi:  # a valid DOI, either URL or id page can override project
-# arxiv: # a valid arXiv reference, either URL or id page can override project
-# open_access: # boolean (true/false) page can override project
-# license: # a license object or a string page can override project
-# github: # a valid GitHub URL or owner/reponame page can override project
-# binder: # any valid URL page can override project
-# subject: # a string (max 40 chars) page can override project
-# venue: # a venue object page can override project
-# biblio: # a biblio object with various fields page can override project
-numbering:
-    enumerator: "2.%s"
----
 
 (method)=
 

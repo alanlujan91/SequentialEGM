@@ -1,27 +1,5 @@
----
-# title: The Sequential Endogenous Grid Method # a string (max 500 chars) page & project
-# description: # a string (max 500 chars) page & project
-short_title: Conditions # a string (max 40 chars) page & project
-# name:  # a string (max 500 chars) page & project
-# tags:  # a list of strings page only
-# thumbnail: # a link to a local or remote image page only
-# subtitle: # a string (max 500 chars) page only
-# date: # a valid date formatted string page can override project
-# authors:  # a list of author objects page can override project
-# doi:  # a valid DOI, either URL or id page can override project
-# arxiv: # a valid arXiv reference, either URL or id page can override project
-# open_access: # boolean (true/false) page can override project
-# license: # a license object or a string page can override project
-# github: # a valid GitHub URL or owner/reponame page can override project
-# binder: # any valid URL page can override project
-# subject: # a string (max 40 chars) page can override project
-# venue: # a venue object page can override project
-# biblio: # a biblio object with various fields page can override project
-numbering:
-    enumerator: "5.%s"
----
-
 (conditions)=
+
 # Conditions for using the Sequential Endogenous Grid Method
 
 ## Splitting the problem into subproblems
@@ -49,22 +27,22 @@ Now that we have split the problem into conceptual subproblems, it is important 
 The consumption subproblem would be two-dimensional instead of one-dimensional, adding more complexity,
 
 \begin{equation}
-    \begin{split}
-        \vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
-        & \text{s.t.}\\
-        \bRat' & = \bRat - \cRat \ge - \tShkEmp
-    \end{split}
+\begin{split}
+\vFunc(\bRat, \tShkEmp) & = \max\_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
+& \text{s.t.}\\
+\bRat' & = \bRat - \cRat \ge - \tShkEmp
+\end{split}
 \end{equation}
 
 while the labor-leisure subproblem would have an additional constraint
 
 \begin{equation}
-    \begin{split}
-        \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
-        & \text{s.t.} \\
-        0 & \le \leisure \le 1 \\
-        \aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
-    \end{split}
+\begin{split}
+\vOpt(\bRat', \tShkEmp) & = \max\_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
+& \text{s.t.} \\
+0 & \le \leisure \le 1 \\
+\aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
+\end{split}
 \end{equation}
 
 Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce computational the burden.
@@ -88,24 +66,24 @@ Once we have strategically split the problem into subproblems, we can use the En
 A generic subproblem with a differentiable and invertible utility function can be characterized as follows:
 
 \begin{equation}
-    \begin{split}
-        \VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
-        & \text{s.t.} \\
-        \aRat & = \TFunc(\xRat,\yRat)
-    \end{split}
+\begin{split}
+\VFunc(\xRat) & = \max\_{\yRat \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
+& \text{s.t.} \\
+\aRat & = \TFunc(\xRat,\yRat)
+\end{split}
 \end{equation}
 
 For an interior solution, the first-order condition is thus
 
 \begin{equation}
-    \UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
+\UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
 \end{equation}
 
 If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
 
 \begin{equation}
-    \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}
-    \left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
+\yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}
+\left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
 \end{equation}
 
 By using an exogenous grid of the post-decision state $\aRat$, we can solve for the optimal decision rule $\yRat$ at each point on the grid. This is the Endogenous Grid Method step.
@@ -115,21 +93,21 @@ By using an exogenous grid of the post-decision state $\aRat$, we can solve for 
 If the generic subproblem has no separable utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
 
 \begin{equation}
-    \begin{split}
-        \VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \WFunc(\aRat) \\
-        & \text{s.t.} \\
-        \aRat & = \TFunc(\xRat,\yRat)
-    \end{split}
+\begin{split}
+\VFunc(\xRat) & = \max\_{\yRat \in \PGro(\xRat)} \WFunc(\aRat) \\
+& \text{s.t.} \\
+\aRat & = \TFunc(\xRat,\yRat)
+\end{split}
 \end{equation}
 
 Here, the first-order condition is
 
 \begin{equation}
-    \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
+\WFunc'(\aRat)\TFunc'\_{\yRat}(\xRat,\yRat) = 0
 \end{equation}
 
 and the Endogenous Grid Method step is
 
 \begin{equation}
-    \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
+\yRat = \left(\TFunc'\_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
 \end{equation}
