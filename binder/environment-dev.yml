@@ -1,0 +1,34 @@
+name: egmn-dev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - black
+  - estimagic=0.4.6
+  - ipympl
+  - jupyter=1.0.0
+  - jupyterlab=4.2.*
+  - jupyterlab-deck=0.2.0
+  - jupyter-book=1.0.0
+  - jupytext=1.16.2
+  - matplotlib=3.8.4
+  - networkx=3.3
+  - notebook=7.2.0
+  - numba=0.59.1
+  - numpy=1.26.4
+  - pandas=2.1.*
+  - pip
+  - pre-commit=3.7.*
+  - scikit-learn=1.5.0
+  - scipy=1.13.1
+  - seaborn=0.13.2
+  - sympy=1.12.2
+  - statsmodels=0.14.2
+  - xarray=2024.5.0
+  - ruff
+  - pip:
+      - git+https://github.com/alanlujan91/HARK@map_coordinates
+      - ConSav=0.11
+      - EconModel=0.15
+      - black[jupyter]

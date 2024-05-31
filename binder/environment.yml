@@ -1,0 +1,25 @@
+name: egmn
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - estimagic=0.4.6
+  - ipython=8.24.0
+  - matplotlib=3.8.4
+  - nbformat=5.10
+  - networkx=3.3
+  - numba=0.59.1
+  - numpy=1.26.4
+  - pip
+  - pandas=2.1.*
+  - scikit-learn=1.5.0
+  - scipy=1.13.1
+  - seaborn=0.13.2
+  - sympy=1.12.2
+  - statsmodels=0.14.2
+  - xarray=2024.5.0
+  - pip:
+      - git+https://github.com/alanlujan91/HARK@map_coordinates
+      - ConSav=0.11
+      - EconModel=0.15
