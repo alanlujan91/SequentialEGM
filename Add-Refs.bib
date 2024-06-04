@@ -502,23 +502,24 @@
   urldate      = {2023-02-28}
 }
 
-@ARTICLE{Oliphant2007,
-  title        = {{Python for {Scientific Computing}}},
-  author       = {Oliphant, Travis E},
-  journaltitle = {Computing in science \& engineering},
-  publisher    = {Institute of Electrical and Electronics Engineers (IEEE)},
-  volume       = {9},
-  issue        = {3},
-  pages        = {10--20},
-  date         = {2007},
-  doi          = {10.1109/MCSE.2007.58},
-  issn         = {1521-9615,1558-366X},
-  abstract     = {Python is an excellent "steering" language for scientific
-                  codes written in other languages. However, with additional
-                  basic tools, Python transforms into a high-level language
-                  suited for scientific and engineering code that's often fast
-                  enough to be immediately useful but also flexible enough to be
-                  sped up with additional extensions.}
+@ONLINE{Okuta2017,
+  title     = {{CuPy: A NumPy-Compatible Library for NVIDIA GPU Calculations}},
+  author    = {Okuta, Ryosuke and Unno, Yuya and Nishino, Daisuke and Hido,
+               Shohei and Loomis, Crissman},
+  booktitle = {{Proceedings of workshop on machine learning systems
+               ({{LearningSys}}) in the thirty-first annual conference on neural
+               information processing systems ({{NIPS})}}},
+  date      = {2017},
+  abstract  = {CuPy 1 is an open-source library with NumPy syntax that increases
+               speed by doing matrix operations on NVIDIA GPUs. It is
+               accelerated with the CUDA platform from NVIDIA and also uses
+               CUDA-related libraries, including cuBLAS, cuDNN, cuRAND,
+               cuSOLVER, cuSPARSE, and NCCL, to make full use of the GPU
+               architecture. CuPy's interface is highly compatible with NumPy;
+               in most cases it can be used as a drop-in replacement. CuPy
+               supports various methods, data types, indexing, broadcasting, and
+               more.},
+  urldate   = {2023-06-22}
 }
 
 @INPROCEEDINGS{Lam2015,
@@ -548,88 +549,6 @@
                 building a JIT compiler using LLVM[1].},
   series     = {LLVM '15},
   urldate    = {2023-05-31}
-}
-
-@ONLINE{Okuta2017,
-  title     = {{CuPy: A NumPy-Compatible Library for NVIDIA GPU Calculations}},
-  author    = {Okuta, Ryosuke and Unno, Yuya and Nishino, Daisuke and Hido,
-               Shohei and Loomis, Crissman},
-  booktitle = {{Proceedings of workshop on machine learning systems
-               ({{LearningSys}}) in the thirty-first annual conference on neural
-               information processing systems ({{NIPS})}}},
-  date      = {2017},
-  abstract  = {CuPy 1 is an open-source library with NumPy syntax that increases
-               speed by doing matrix operations on NVIDIA GPUs. It is
-               accelerated with the CUDA platform from NVIDIA and also uses
-               CUDA-related libraries, including cuBLAS, cuDNN, cuRAND,
-               cuSOLVER, cuSPARSE, and NCCL, to make full use of the GPU
-               architecture. CuPy's interface is highly compatible with NumPy;
-               in most cases it can be used as a drop-in replacement. CuPy
-               supports various methods, data types, indexing, broadcasting, and
-               more.},
-  urldate   = {2023-06-22}
-}
-
-@ARTICLE{Paszke2019,
-  title        = {{PyTorch: An imperative style, high-performance deep learning
-                  library}},
-  author       = {Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer,
-                  Adam and Bradbury, James and Chanan, Gregory and Killeen,
-                  Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga,
-                  Luca and Desmaison, Alban and Köpf, Andreas and Yang, Edward
-                  and DeVito, Zach and Raison, Martin and Tejani, Alykhan and
-                  Chilamkurthy, Sasank and Steiner, Benoit and Fang, Lu and Bai,
-                  Junjie and Chintala, Soumith},
-  journaltitle = {arXiv [cs. LG]},
-  pages        = {8026--8037},
-  date         = {2019-12-03},
-  eprint       = {1912.01703},
-  eprintclass  = {cs.LG},
-  abstract     = {Deep learning frameworks have often focused on either
-                  usability or speed, but not both. PyTorch is a machine
-                  learning library that shows that these two goals are in fact
-                  compatible: it provides an imperative and Pythonic programming
-                  style that supports code as a model, makes debugging easy and
-                  is consistent with other popular scientific computing
-                  libraries, while remaining efficient and supporting hardware
-                  accelerators such as GPUs. In this paper, we detail the
-                  principles that drove the implementation of PyTorch and how
-                  they are reflected in its architecture. We emphasize that
-                  every aspect of PyTorch is a regular Python program under the
-                  full control of its user. We also explain how the careful and
-                  pragmatic implementation of the key components of its runtime
-                  enables them to work together to achieve compelling
-                  performance. We demonstrate the efficiency of individual
-                  subsystems, as well as the overall speed of PyTorch on several
-                  common benchmarks.},
-  urldate      = {2023-03-01}
-}
-
-@ARTICLE{Pedregosa2011,
-  title        = {{{Scikit-learn}: {Machine} Learning in {Python}}},
-  author       = {Pedregosa, Fabian and Varoquaux, G and Gramfort, Alexandre and
-                  Michel, V and Thirion, B and Grisel, O and Blondel, Mathieu
-                  and Louppe, Gilles and Prettenhofer, P and Weiss, Ron and
-                  Weiss, Ron J and Vanderplas, J and Passos, Alexandre and
-                  Cournapeau, D and Brucher, M and Perrot, M and Duchesnay, E},
-  journaltitle = {Journal of machine learning research: JMLR},
-  publisher    = {JMLR. org},
-  volume       = {abs/1201.0490},
-  pages        = {2825--2830},
-  date         = {2011-02-01},
-  doi          = {10.5555/1953048.2078195},
-  issn         = {1532-4435,1533-7928},
-  abstract     = {Scikit-learn is a Python module integrating a wide range of
-                  state-of-the-art machine learning algorithms for medium-scale
-                  supervised and unsupervised problems. This package focuses on
-                  bringing machine learning to non-specialists using a
-                  general-purpose high-level language. Emphasis is put on ease
-                  of use, performance, documentation, and API consistency. It
-                  has minimal dependencies and is distributed under the
-                  simplified BSD license, encouraging its use in both academic
-                  and commercial settings. Source code, binaries, and
-                  documentation can be downloaded from
-                  http://scikit-learn.sourceforge.net.}
 }
 
 @ARTICLE{Ishakov2012,
