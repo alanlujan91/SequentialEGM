@@ -1,6 +1,6 @@
 version: 1
 site:
-  template: book-theme
+  template: article-theme
   options:
     logo: content/public/econ-ark-logo.png
     logo_text: Econ-ARK
@@ -44,6 +44,8 @@ site:
 project:
   title: "EGMⁿ: The Sequential Endogenous Grid Method"
   short_title: EGMⁿ
+  banner: content/public/banner.png
+  thumbnail: content/public/thumbnail.png
   authors:
     - name: Alan Lujan
       corresponding: false
@@ -93,6 +95,7 @@ project:
     NEGM: Nested Endogenous Grid Method
     G2EGM: Generalized Endogenous Grid Method
     DCEGM: Discrete Choice Endogenous Grid Method
+    WGI: Warped Grid Interpolation
   math:
     '\CARA': '\alpha'
     '\CRRA': '\rho'

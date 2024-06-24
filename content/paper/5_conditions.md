@@ -1,25 +1,4 @@
----
-# title: The Sequential Endogenous Grid Method # a string (max 500 chars) page & project
-# description: # a string (max 500 chars) page & project
-short_title: Conditions # a string (max 40 chars) page & project
-# name:  # a string (max 500 chars) page & project
-# tags:  # a list of strings page only
-# thumbnail: # a link to a local or remote image page only
-# subtitle: # a string (max 500 chars) page only
-# date: # a valid date formatted string page can override project
-# authors:  # a list of author objects page can override project
-# doi:  # a valid DOI, either URL or id page can override project
-# arxiv: # a valid arXiv reference, either URL or id page can override project
-# open_access: # boolean (true/false) page can override project
-# license: # a license object or a string page can override project
-# github: # a valid GitHub URL or owner/reponame page can override project
-# binder: # any valid URL page can override project
-# subject: # a string (max 40 chars) page can override project
-# venue: # a venue object page can override project
-# biblio: # a biblio object with various fields page can override project
-numbering:
-    enumerator: "5.%s"
----
+
 
 (conditions)=
 # Conditions for using the Sequential Endogenous Grid Method
@@ -68,6 +47,54 @@ while the labor-leisure subproblem would have an additional constraint
 \end{equation}
 
 Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce computational the burden.
+
+Consider the utility function of the form
+
+\begin{equation}
+    \UFunc( \yRat) = \uFunc_{-i}( \yRat^{-i}) + \uFunc_i(\yRat^i)
+\end{equation}
+
+where $\yRat^{i}$ is the $i$-th control variable and $\yRat^{-i}$ is the vector of all control variables except the $i$-th one.
+
+which is separable in the state and control variables that correspond to the index $i$.
+
+\begin{equation}
+    \begin{split}
+    \VFunc_{t}(\xRat_t, \sRat_t) &= \max_{\yRat_t \in \Gamma_t(\xRat_t, \sRat_t)} \UFunc(\yRat_t)  + \DiscFac \Ex_{t} \left[ \VFunc_{t+1}(\xRat_{t+1}, \sRat_{t+1}) | \tilde{\xRat}_t,  \sRat_t \right] \\
+    & \text{s.t.} \\
+    \tilde{\xRat}_t &= \TFunc_t(\xRat_t, \yRat_t) \\
+    \xRat_{t+1} &= \GFunc_{t+1}(\tilde{\xRat}_t, \sRat_t) \\
+    \end{split}
+\end{equation}
+
+For simplicity, define
+
+\begin{equation}
+    \WFunc_t(\tilde{\xRat}_t, \sRat_t) = \DiscFac \Ex_{t} \left[ \VFunc_{t+1}(\GFunc_{t+1}(\tilde{\xRat}_t, \sRat_t), \sRat_{t+1}) | \tilde{\xRat}_t, \sRat_t \right]
+\end{equation}
+
+then
+
+\begin{equation}
+    \begin{split}
+    \VFunc_{t}(\xRat_t, \sRat_t) &= \max_{\yRat_t \in \Gamma_t(\xRat_t, \sRat_t)} \UFunc( \yRat_t)  +  \WFunc_t(\tilde{\xRat}_t, \sRat_t) \\
+    & \text{s.t.} \\
+    \tilde{\xRat}_t &= \TFunc_t(\xRat_t, \yRat_t)
+    \end{split}
+\end{equation}
+
+the first order condition
+
+\begin{equation}
+    \frac{\partial \UFunc( \yRat_t)}{\partial \yRat_t^i}  +  \sum_{j=1}^{n} \frac{\partial \WFunc_t(\tilde{\xRat}_t, \sRat_t)}{\partial \tilde{\xRat}_{t}^j} \frac{\partial \TFunc_{t}^j(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0
+\end{equation}
+
+we require $\frac{\partial \TFunc_{t}^j(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0$ for $j \neq i$ to be able to solve for $\yRat_t^i$.
+
+\begin{equation}
+    \frac{\partial \UFunc( \yRat_t)}{\partial \yRat_t^i}  +   \frac{\partial \WFunc_t(\tilde{\xRat}_t, \sRat_t)}{\partial \tilde{\xRat}_{t}^i} \frac{\partial \TFunc_{t}^i(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0
+\end{equation}
+
 
 ### Differentiable and invertible transition
 
