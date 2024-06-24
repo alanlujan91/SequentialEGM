@@ -1,24 +1,22 @@
 ---
 title: "EGM<sup>n</sup>: The Sequential Endogenous Grid Method"
 subtitle: "IAAE 2024 -- Thessaloniki, Greece"
-author:
-  - name: "Alan Lujan"
-    email: alujan@jhu.edu
-    orcid: 0000-0002-5289-7054
-institute: "Johns Hopkins University <br> Econ-ARK"
-date: "June 26, 2024"
-date-format: long
-bibliography: https://paperpile.com/eb/jAmePXcJLW/paperpile.bib
 format:
   clean-revealjs:
-    self-contained: true
-    fontsize: "25pt"
-    logo: ../content/figures//econ-ark-logo.png
+    logo: figures/econ-ark-logo.png
     footer: "Powered by **Econ-ARK**"
     auto-play-media: true
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+author:
+  - name: "Alan Lujan"
+    email: alujan@jhu.edu
+    orcid: 0000-0002-5289-7054
+    affiliations: "Johns Hopkins University <br> Econ-ARK"
+date: "June 26, 2024"
+date-format: long
+bibliography: https://paperpile.com/eb/jAmePXcJLW/paperpile.bib
 ---
 
 ## Motivation
@@ -408,10 +406,10 @@ What is the **problem**?
 
 <table><tr><td>
   Exogenous Rectangular Grid <br>
-  <img src="../content/figures//LaborSeparableRectangularGrid.svg" alt="Exogenous Rectangular Grid">
+  <img src="figures/LaborSeparableRectangularGrid.svg" alt="Exogenous Rectangular Grid">
   </td><td>
   Endogenous Curvilinear Grid <br>
-  <img src="../content/figures//LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
+  <img src="figures/LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
 </td></tr></table>
 
 . . .
@@ -422,7 +420,7 @@ What is the **problem**?
 
 - Our solution: **Warped Grid Interpolation** (simpler, faster, more details on paper)
 
-![](../content/figures//WarpedInterpolation.svg)
+![](figures/WarpedInterpolation.svg)
 
 ## A more complex problem {.smaller}
 
@@ -669,7 +667,7 @@ Problem: **Rectilinear** exogenous grid results in **unstructured** endogenous g
 
 Exogenous Rectangular Grid <br>
 
-![Sparse Pension Exogenous Grid](../content/figures//SparsePensionExogenousGrid.svg)
+![Sparse Pension Exogenous Grid](figures/SparsePensionExogenousGrid.svg)
 
 :::
 
@@ -677,7 +675,7 @@ Exogenous Rectangular Grid <br>
 
 Endogenous Unstructured Grid <br>
 
-![Unstructured Pension Endogenous Grid](../content/figures//PensionEndogenousGrid.svg)
+![Unstructured Pension Endogenous Grid](figures/PensionEndogenousGrid.svg)
 
 :::
 
@@ -689,38 +687,38 @@ How do we **interpolate** on this grid?
 
 ## Linear Interpolation on a Uniform Grid
 
-{{< video ../content/videos/LinearInterpolationUniform.mp4 >}}
+{{< video videos/LinearInterpolationUniform.mp4 >}}
 
 ## Linear Interpolation on a Non-linear Grid
 
-{{< video ../content/videos/LinearInterpolationGeometric.mp4 >}}
+{{< video videos/LinearInterpolationGeometric.mp4 >}}
 
 ## Bilinear Interpolation
 
-{{< video ../content/videos/BilinearInterpolation.mp4 >}}
+{{< video videos/BilinearInterpolation.mp4 >}}
 
 ## Curvilinear (Warped) Grid Interpolation {.smaller}
 
-{{< video ../content/videos/CurvilinearInterpolation.mp4 >}}
+{{< video videos/CurvilinearInterpolation.mp4 >}}
 
 See: @White2015
 
 ## What about Unstructured Grids? {.smaller}
 
-{{< video ../content/videos/UnstructuredGrid.mp4 >}}
+{{< video videos/UnstructuredGrid.mp4 >}}
 
 See: @Ludwig2018
 
 ## Artificial Neural Networks {auto-animate=true}
 
-![Figure 1: ANN (Source: scikit-learn.org)](../content/figures//multilayerperceptron_network.png){height=5.5in}
+![Figure 1: ANN (Source: scikit-learn.org)](figures/multilayerperceptron_network.png){height=5.5in}
 
 ## Artificial Neural Networks {auto-animate=true}
 
 :::: {.columns}
 
 ::: {.column width="40%"}
-![Figure 1: ANN (Source: scikit-learn.org)](../content/figures//multilayerperceptron_network.png)
+![Figure 1: ANN (Source: scikit-learn.org)](figures/multilayerperceptron_network.png)
 :::
 
 ::: {.column width="60%"}
@@ -739,7 +737,7 @@ See: @Ludwig2018
 
 ## A single neuron, and a bit of math {auto-animate=true}
 
-![Figure 2: Perceptron](../content/figures//perceptron.png){width=50%}
+![Figure 2: Perceptron](figures/perceptron.png){width=50%}
 
 \begin{equation}
 y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
@@ -751,7 +749,7 @@ y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
 
 ::: {.column width="30%"}
 
-![Figure 2: Perceptron](../content/figures//perceptron.png)
+![Figure 2: Perceptron](figures/perceptron.png)
 
 :::
 
@@ -927,19 +925,19 @@ A single hidden-layer ANN can **approximate** any continuous function **arbitrar
 
 Consider the true function $f(x) = x \cos(1.5x)$ sampled at random points
 
-![True Function](../content/figures//GPR_True_Function.svg)
+![True Function](figures/GPR_True_Function.svg)
 
 ## An example
 
 A random sample of the GP posterior distribution of functions
 
-![Posterior Sample](../content/figures//GPR_Posterior_Sample.svg)
+![Posterior Sample](figures/GPR_Posterior_Sample.svg)
 
 ## An example {.smaller}
 
 Gaussian Process Regression finds the function that best fits the data
 
-![](../content/figures//GaussianProcessRegression.svg)
+![](figures/GaussianProcessRegression.svg)
 
 . . .
 
@@ -956,13 +954,13 @@ Second Stage Pension Endogenous Grid
 
 ::: {.column width="50%"}
 
-![](../content/figures//PensionEndogenousGrid.svg)
+![](figures/PensionEndogenousGrid.svg)
 
 :::
 
 ::: {.column width="50%"}
 
-![](../content/figures//2ndStagePensionEndogenousGrid.svg)
+![](figures/2ndStagePensionEndogenousGrid.svg)
 
 :::
 
@@ -976,7 +974,7 @@ Second Stage Pension Endogenous Grid
 
 Consumption Function <br>
 
-![Pension Consumption Function](../content/figures//PensionConsumptionFunction.svg)
+![Pension Consumption Function](figures/PensionConsumptionFunction.svg)
 
 :::
 
@@ -984,7 +982,7 @@ Consumption Function <br>
 
 Deposit Function <br>
 
-![Penstion Deposit Function](../content/figures//PensionDepositFunction.svg)
+![Penstion Deposit Function](figures/PensionDepositFunction.svg)
 
 :::
 
@@ -1027,8 +1025,8 @@ Examples in this paper:
 
 ## Thank you! {.center}
 
-<center>[![](../content/figures//econ-ark-logo.png)](https://econ-ark.org/)</center>
-<center>![](../content/figures//PoweredByEconARK.svg)</center>
+<center>[![](figures/econ-ark-logo.png)](https://econ-ark.org/)</center>
+<center>![](figures/PoweredByEconARK.svg)</center>
 
 [`engine: github.com/econ-ark/HARK`](https://github.com/econ-ark/HARK){target="_blank"}
 
