@@ -1,7 +1,7 @@
 ---
 title: "EGM<sup>n</sup>: The Sequential Endogenous Grid Method"
 subtitle: "IAAE 2024 -- Thessaloniki, Greece"
-author: 
+author:
   - name: "Alan Lujan"
     email: alujan@jhu.edu
     orcid: 0000-0002-5289-7054
