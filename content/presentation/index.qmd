@@ -19,20 +19,22 @@ date-format: long
 bibliography: https://paperpile.com/eb/jAmePXcJLW/paperpile.bib
 ---
 
-## Motivation
+## Bellman's Priciple of Optimality
 
-- Structural Economics for modeling **decision-making under uncertainty**
-  - household: consumption, savings, labor, portfolio, retirement
-  - firms: production, investment, hiring, entry/exit
-  - governments: fiscal and monetary policy, taxation, redistribution
-  - interdisciplinary: climate change, public health, education, etc.
+> An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.
 
-. . .
+. . . 
 
-- Structural modeling is **hard**
-  - modern economics requires solving complex problems
-  - with many state variables, many decisions, and non-convexities
-  - computationally challenging and time-consuming
+### Motivation
+
+- Structural modeling of decision making under uncertainty
+- Modern Economics requires solving complex problems that are computationally challenging and time consuming 
+
+### Main Contributions
+
+- Extending the Endogenous Grid Method (*EGM*) to models with multiple states and controls
+
+- Using Gaussian Process Regression (*ML*) to handle unstructured grids
 
 \newcommand{\DiscFac}{\beta}
 \newcommand{\utilFunc}{\mathrm{u}}
@@ -106,21 +108,6 @@ bibliography: https://paperpile.com/eb/jAmePXcJLW/paperpile.bib
 \newcommand{\Decision}{\mathbb{D}}
 \newcommand{\Prob}{\mathbb{P}}
 
-## Outline
-
-- Dynamic Programming
-  - The Endogenous Grid Method
-  - The **Sequential** Endogenous Grid Method
-- Functional Approximation
-  - Conventional techniques are **insufficient** for complex problems
-  - Neural Nets as **function approximators**
-  - **Gaussian Process** Regression
-- Conclusion
-  - Sequential problems are easier to solve
-  - GPR is a powerful tool for **interpolation** on unstructured grids
-
-# Dynamic Programming
-
 ## A simple consumption-savings problem {auto-animate=true}
 
 Agent maximizes present discounted value (PDV) of lifetime utility
@@ -161,7 +148,7 @@ How do we solve this problem?
   - Discretize state space (interpolation)
   - Grid search optimization (brute force, iterative)
 
-## The Endogenous Grid Method <br> by @Carroll2006-ag {.smaller}
+## The Endogenous Grid Method by @Carroll2006-vk 
 
 \begin{equation}
 v_t(\mRat_t) = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right]
@@ -196,16 +183,13 @@ Contribution: $(\mEndFunc_t, \cEndFunc_t) \quad \Rightarrow \quad \hat{\cRat}_t(
 ## Limitations of EGM
 
 - **One-dimensional** problems/sub-problems (nested)
-  - (GEGM) @Barillas2007
-  - (NEGM) @Druedahl2021
+  - (GEGM) @Barillas2007-tq
+  - (NEGM) @Druedahl2021-at
 - Can result in **non-rectangular grids**
-  - (Curvilinear) @White2015
-  - (Triangular) @Ludwig2018
-- **Non-convexities** (discrete choices) can be problematic
-  - (DCEGM) @Iskhakov2017-af
-  - (G2EGM) @Druedahl2017-ac
+  - (Curvilinear) @White2015-uk
+  - (Triangular) @Ludwig2018-bb
 
-## EGM<sup>n</sup>: The Sequential <br> Endogenous Grid Method {.smaller}
+## EGM<sup>n</sup>: The Sequential Endogenous Grid Method 
 
 - **Insight**: Problems in which agent makes several **simultaneous choices** can be decomposed into **sequence of problems**
 - **Challenge**: Rectilinear exogenous grid results in **unstructured** endogenous grid
@@ -414,17 +398,11 @@ What is the **problem**?
 
 . . .
 
-- **One solution:** Curvilinear Interpolation by @White2015
+- **One solution:** Curvilinear Interpolation by @White2015-uk
 
-## Warped Grid Interpolation
+## A more complex problem 
 
-- Our solution: **Warped Grid Interpolation** (simpler, faster, more details on paper)
-
-![](figures/WarpedInterpolation.svg)
-
-## A more complex problem {.smaller}
-
-Consumption - Pension Deposit Problem as in @Druedahl2017-ac
+Consumption - Pension Deposit Problem as in @Druedahl2017-wk
 
 \begin{equation}
 \begin{split}
@@ -447,7 +425,7 @@ where
 
 is a tax-advantaged premium on pension contributions.
 
-## G2EGM from <br> @Druedahl2017-ac
+## G2EGM from <br> @Druedahl2017-wk
 
 - If we try to use EGM:
   - 2 first order conditions
@@ -697,17 +675,17 @@ How do we **interpolate** on this grid?
 
 {{< video videos/BilinearInterpolation.mp4 >}}
 
-## Curvilinear (Warped) Grid Interpolation {.smaller}
+## Curvilinear (Warped) Grid Interpolation 
 
 {{< video videos/CurvilinearInterpolation.mp4 >}}
 
-See: @White2015
+See: @White2015-uk
 
-## What about Unstructured Grids? {.smaller}
+## What about Unstructured Grids? 
 
 {{< video videos/UnstructuredGrid.mp4 >}}
 
-See: @Ludwig2018
+See: @Ludwig2018-bb
 
 ## Artificial Neural Networks {auto-animate=true}
 
@@ -735,144 +713,7 @@ See: @Ludwig2018
 
 ::::
 
-## A single neuron, and a bit of math {auto-animate=true}
-
-![Figure 2: Perceptron](figures/perceptron.png){width=50%}
-
-\begin{equation}
-y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
-\end{equation}
-
-## A single neuron, and a bit of math {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="30%"}
-
-![Figure 2: Perceptron](figures/perceptron.png)
-
-:::
-
-::: {.column width="70%"}
-
-\begin{equation}
-y = g(w_0 + \sum_{i=1}^n w_i x_i) = g(w_0 + \mathbf{x}' \mathbf{w})
-\end{equation}
-
-:::
-
-::::
-
-. . .
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-- $y$ is the output or target
-- $x_i$ are the inputs or features
-- $w_0$ is the bias
-- $w_i$ are the weights
-
-:::
-
-::: {.column width="40%"}
-
-- $g(\cdot)$ is the activation function (non-linear)
-\begin{equation}
-g(z) = \frac{1}{1 + e^{-z}}
-\end{equation}
-- usually a sigmoid, but there are many others
-
-:::
-
-::::
-
-## Training a Neural Network {auto-animate=true}
-
-Mean Squared Error (MSE)
-
-\begin{equation}
-J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
-\end{equation}
-
-. . .
-
-Objective
-
-\begin{equation}
-\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
-\end{equation}
-
-## Training a Neural Network {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-Mean Squared Error (MSE)
-
-\begin{equation}
-J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
-\end{equation}
-
-:::
-
-::: {.column width="40%"}
-
-Objective
-
-\begin{equation}
-\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
-\end{equation}
-
-:::
-
-::::
-
-Gradient Descent
-
-\begin{equation}
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla J(\mathbf{w}^{(t)})
-\end{equation}
-
-## Training a Neural Network {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-Mean Squared Error (MSE)
-
-\begin{equation}
-J(\mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left[y_i - f(\mathbf{x}^{(i)}; \mathbf{w})\right]^2
-\end{equation}
-
-:::
-
-::: {.column width="40%"}
-
-Objective
-
-\begin{equation}
-\mathbf{w}^* = \arg \min_{\mathbf{w}} J(\mathbf{w})
-\end{equation}
-
-:::
-
-::::
-
-Stochastic Gradient Descent
-
-\begin{equation}
-\widetilde{\nabla} J(\mathbf{w}^{(t)}) = \frac{1}{B} \sum_{i=1}^B \nabla J_i(\mathbf{w}^{(t)})
-\end{equation}
-
-\begin{equation}
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \widetilde{\nabla} J(\mathbf{w}^{(t)})
-\end{equation}
-
-## Gaussian Process Regression
+## Gaussian Process Regression {.smaller}
 
 A Gaussian Process is a **probability distribution over functions**
 
@@ -894,7 +735,7 @@ A Gaussian Process **Regression** is used to find the function that **best fits*
 
 . . .
 
-I use standard covariance function, exploring alternatives is an active area of research
+I use standard covariance function
 
 \begin{equation}
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
@@ -988,9 +829,46 @@ Deposit Function <br>
 
 ::::
 
-# Conclusion
+## 3 decisions: 2-asset HANK with labor {.center}
 
-## Conditions for using Sequential EGM {.smaller}
+\begin{align} 
+V_t(e, b_{-}, a_{-}) &= \max_{c, n, b, a} \left\{\frac{c^{1-\sigma}}{1-\sigma} - \varphi \frac{n^{1+\nu}}{1+\nu} + \beta \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right] \right\}
+\\
+c + a + b&= w_t e n + (1 + r_t^a)a_{-} + (1 + r_t^b)b_{-} - \Psi(a, a_{-}) 
+\\
+a &\geq \underline{a}, \quad b \geq \underline{b}
+\end{align}
+
+## 3 decisions: 2-asset HANK with labor 
+
+\begin{align}
+v_t^0(e,b_{-}, a_{-}) &= \max_{n} \left\{ -\varphi \frac{n^{1+\nu}}{1+\nu} + v_t^1(e,m, a_{-}) \right\} \\
+m &= w_t e n + (1 + r_t^a)a_{-} + (1 + r_t^b)b_{-}
+\end{align}
+
+. . .
+
+\begin{align}
+v_t^1(e,m,a_{-}) &= \max_{a} v_t^2(e,\ell,a)  \\
+\ell + a &= m - \Psi(a, a_{-}) 
+\end{align}
+
+. . .
+
+\begin{align}
+v_t^2(e,\ell,a) &= \max_{c,b} \left\{\frac{c^{1-\sigma}}{1-\sigma} + v_t^3(e,b,a) \right\}\\
+c + b &= \ell
+\end{align}
+
+. . . 
+
+\begin{align}
+v_t^3(e,b,a) = \beta \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right]
+\end{align}
+
+## Conclusion
+
+### Conditions for using Sequential EGM
 
 - Model must be
   - concave
@@ -998,11 +876,7 @@ Deposit Function <br>
   - continuous
   - separable
 
-. . .
-
 Need an **additional** function to exploit **invertibility**
-
-. . .
 
 Examples in this paper:
 
@@ -1011,17 +885,11 @@ Examples in this paper:
 - Continuous and differentiable transition
   - $\bRat_{t}  = \nRat_{t} + \dRat_{t} + g(\dRat_{t})$
 
-## Resources
+## Future work
 
-- An Introduction to Statistical Learning [`statlearning.com`](https://www.statlearning.com/){target="_blank"}
-- Neural Networks and Deep Learning [`neuralnetworksanddeeplearning.com`](http://neuralnetworksanddeeplearning.com/){target="_blank"}
-- Deep Learning [`deeplearningbook.org`](https://www.deeplearningbook.org){target="_blank"}
-- Probabilistic machine learning  [`probml.github.io/pml-book`](https://probml.github.io/pml-book){target="_blank"}
-- A Neural Network Playground [`playground.tensorflow.org`](https://playground.tensorflow.org){target="_blank"}
-- The Gaussian Process Web Site [`gaussianprocess.org`](http://www.gaussianprocess.org){target="_blank"}
-- A Visual Exploration of Gaussian Processes [`distill.pub/2019`](https://distill.pub/2019/visual-exploration-gaussian-processes){target="_blank"}
-- Interactive Gaussian Process Visualization
- [`http://www.infinitecuriosity.org/vizgp`](http://www.infinitecuriosity.org/vizgp){target="_blank"}
+- Work out abstract class of models that can use EGM$^n$
+- Use GPUs to compare time/accuracy trade off
+- Test out model with more choices
 
 ## Thank you! {.center}
 
@@ -1032,9 +900,9 @@ Examples in this paper:
 
 [`code: github.com/alanlujan91/SequentialEGM`](https://github.com/alanlujan91/SequentialEGM){target="_blank"}
 
-[`website: alanlujan91.github.io/SequentialEGM/egmn`](https://alanlujan91.github.io/SequentialEGM/egmn){target="_blank"}
+[`website: alanlujan91.github.io/SequentialEGM`](https://alanlujan91.github.io/SequentialEGM){target="_blank"}
 
-## References {.smaller}
+## References 
 
 ::: {#refs}
 :::

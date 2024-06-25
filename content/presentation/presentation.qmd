@@ -39,7 +39,6 @@ structure as the
 of Reveal.js features are available for this Quarto implementation,
 even if we don't cover everything here.
 
-
 ## Before you proceed...
 
 ### Requirements for the coding examples in this demo
@@ -70,7 +69,6 @@ TinyTex provides by far the easiest and lightest integration with Quarto. More
 details [here](https://quarto.org/docs/output-formats/pdf-engine.html).
 
 :::
-
 
 # Components {background-color="#40666e"}
 
@@ -247,7 +245,6 @@ The `clean` theme rolls its own minimalist aesthetic for tables. This should int
 
 ::::
 
-
 ## Regression tables
 
 ### Regression example
@@ -300,7 +297,6 @@ modelsummary(
   tinytable::group_tt(j = list("Dep. variable: Overall Rating" = 2:3)) |>
   tinytable::style_tt(i = 1:2, j = 2:3, background = "pink")
 ```
-
 
 ## Regression tables
 
@@ -416,7 +412,6 @@ are compatible with the clean theme. This includes:
 
 ### A minimalist and elegant presentation theme
 
-
 The Quarto reveal.js [clean theme](grantmcdermott/quarto-revealjs-clean) aims to
 be a minimalist and elegant presention theme. Here are some options to get you
 started.
@@ -438,8 +433,6 @@ quarto use template grantmcdermott/quarto-revealjs-clean
 ```{.bash}
 quarto use template grantmcdermott/quarto-revealjs-clean-demo
 ```
-
-
 
 ## References
 
