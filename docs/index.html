@@ -392,7 +392,6 @@ Alan Lujan <a href="https://orcid.org/0000-0002-5289-7054" class="quarto-title-a
 <p><span class="math display">\[\begin{equation}
 \max_{c_t} \sum_{t=0}^{\infty} \beta^t \mathrm{u}(c_t)
 \end{equation}\]</span></p>
-<div class="fragment">
 <p>Recursive Bellman equation</p>
 <p><span class="math display">\[\begin{equation}
 \begin{split}
@@ -402,7 +401,6 @@ a_t &amp; = m_t - c_t \\
 m_{t+1} &amp; = \mathsf{R}a_t + \theta_{t+1}
 \end{split}
 \end{equation}\]</span></p>
-</div>
 </section>
 <section id="a-simple-consumption-savings-problem-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">A simple consumption-savings problem</h2>
@@ -429,21 +427,15 @@ m_{t+1} &amp; = \mathsf{R}a_t + \theta_{t+1}
 <p><span class="math display">\[\begin{equation}
 v_t(m_t) = \max_{c_t} \mathrm{u}(c_t) + \beta\mathbb{E}_t \left[ v_{t+1}(\mathsf{R}(m_t - c_t) + \theta_{t+1}) \right]
 \end{equation}\]</span></p>
-<div class="fragment">
 <p><span class="math display">\[\begin{equation}
 u'(c_t) = \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\mathsf{R}(m_t - c_t) + \theta_{t+1}) \right]
 \end{equation}\]</span></p>
-</div>
-<div class="fragment">
 <p><span class="math display">\[\begin{equation}
 \mathfrak{c}_t([\mathrm{a}]) = \mathrm{u}'^{-1} \left( \beta\mathsf{R}\mathbb{E}_t \left[ v_{t+1}'(\mathsf{R}[\mathrm{a}]+ \theta_{t+1}) \right] \right)
 \end{equation}\]</span></p>
-</div>
-<div class="fragment">
 <p><span class="math display">\[\begin{equation}
 \mathfrak{m}_t([\mathrm{a}]) = \mathfrak{c}_t([\mathrm{a}]) + [\mathrm{a}]
 \end{equation}\]</span></p>
-</div>
 <div class="fragment">
 <p>Contribution: <span class="math inline">\((\mathfrak{m}_t, \mathfrak{c}_t) \quad \Rightarrow \quad \hat{c}_t(\mathfrak{m}_t) = \mathfrak{c}_t\)</span></p>
 <ul>
@@ -635,7 +627,6 @@ h'(z_{t}) = \tilde{\mathfrak{v}}_{t}'(m_{t})  \theta_{t} \mathsf{w}
 <section id="pretty-simple-right" class="slide level2">
 <h2>Pretty Simple, Right?</h2>
 <p>What is the <strong>problem</strong>?</p>
-<div class="fragment">
 <table>
 <tbody><tr>
 <td>
@@ -646,14 +637,11 @@ Endogenous Curvilinear Grid <br> <img src="figures/LaborSeparableWarpedGrid.svg"
 </td>
 </tr>
 </tbody></table>
-</div>
-<div class="fragment">
 <ul>
 <li><strong>One solution:</strong> Curvilinear Interpolation by <span class="citation" data-cites="White2015-uk">White (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></li>
 </ul>
-</div>
 </section>
-<section id="a-more-complex-problem" class="slide level2">
+<section id="a-more-complex-problem" class="slide level2 smaller">
 <h2>A more complex problem</h2>
 <p>Consumption - Pension Deposit Problem as in <span class="citation" data-cites="Druedahl2017-wk">Druedahl and Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></p>
 <p><span class="math display">\[\begin{equation}
@@ -873,26 +861,18 @@ Endogenous Curvilinear Grid <br> <img src="figures/LaborSeparableWarpedGrid.svg"
 <h1>Functional Approximation</h1>
 
 </section>
-<section id="linear-interpolation-on-a-uniform-grid" class="slide level2">
-<h2>Linear Interpolation on a Uniform Grid</h2>
-<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearInterpolationUniform.mp4"></video>
-</section>
-<section id="linear-interpolation-on-a-non-linear-grid" class="slide level2">
-<h2>Linear Interpolation on a Non-linear Grid</h2>
-<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/LinearInterpolationGeometric.mp4"></video>
-</section>
 <section id="bilinear-interpolation" class="slide level2">
 <h2>Bilinear Interpolation</h2>
-<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/BilinearInterpolation.mp4"></video>
+<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/BilinearInterpolation.mp4"></video>
 </section>
 <section id="curvilinear-warped-grid-interpolation" class="slide level2">
 <h2>Curvilinear (Warped) Grid Interpolation</h2>
-<video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/CurvilinearInterpolation.mp4"></video>
+<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/CurvilinearInterpolation.mp4"></video>
 <p>See: <span class="citation" data-cites="White2015-uk">White (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p>
 </section>
 <section id="what-about-unstructured-grids" class="slide level2">
 <h2>What about Unstructured Grids?</h2>
-<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/UnstructuredGrid.mp4"></video>
+<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/UnstructuredGrid.mp4"></video>
 <p>See: <span class="citation" data-cites="Ludwig2018-bb">Ludwig and Schön (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></p>
 </section>
 <section id="artificial-neural-networks" class="slide level2" data-auto-animate="true">
@@ -940,18 +920,14 @@ Endogenous Curvilinear Grid <br> <img src="figures/LaborSeparableWarpedGrid.svg"
     \text{and} \quad k(x, x') = \mathbb{E}[(f(x) - m(x))(f(x') - m(x'))]
   \end{gathered}
 \end{equation}\]</span></p>
-<div class="fragment">
 <p>A Gaussian Process <strong>Regression</strong> is used to find the function that <strong>best fits</strong> a set of data points</p>
 <p><span class="math display">\[\begin{equation}
 \mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
 \end{equation}\]</span></p>
-</div>
-<div class="fragment">
 <p>I use standard covariance function</p>
 <p><span class="math display">\[\begin{equation}
 k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i - \mathbf{x}_j)\right).
 \end{equation}\]</span></p>
-</div>
 </section>
 <section id="approximation" class="slide level2">
 <h2>Approximation</h2>
@@ -1070,19 +1046,18 @@ v_t^1(e,m,a_{-}) &amp;= \max_{a} v_t^2(e,\ell,a)  \\
 </div>
 <div class="fragment">
 <p><span class="math display">\[\begin{align}
-v_t^2(e,\ell,a) &amp;= \max_{c,b} \left\{\frac{c^{1-\sigma}}{1-\sigma} + v_t^3(e,b,a) \right\}\\
+v_t^2(e,\ell,a) &amp;= \max_{c,b} \left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta v_t^3(e,b,a) \right\}\\
 c + b &amp;= \ell
 \end{align}\]</span></p>
 </div>
 <div class="fragment">
 <p><span class="math display">\[\begin{align}
-v_t^3(e,b,a) = \beta \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right]
+v_t^3(e,b,a) =  \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right]
 \end{align}\]</span></p>
 </div>
 </section>
-<section id="conclusion" class="slide level2">
-<h2>Conclusion</h2>
-<h3 id="conditions-for-using-sequential-egm">Conditions for using Sequential EGM</h3>
+<section id="conditions-for-using-sequential-egm" class="slide level2">
+<h2>Conditions for using Sequential EGM</h2>
 <ul>
 <li>Model must be
 <ul>
@@ -1554,8 +1529,6 @@ White, Matthew N. 2015. <span>“<span class="nocase">The method of endogenous g
     <script>videojs(video_shortcode_videojs_video1);</script>
     <script>videojs(video_shortcode_videojs_video2);</script>
     <script>videojs(video_shortcode_videojs_video3);</script>
-    <script>videojs(video_shortcode_videojs_video4);</script>
-    <script>videojs(video_shortcode_videojs_video5);</script>
     
 
 </body></html>

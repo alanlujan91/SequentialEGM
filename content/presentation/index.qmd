@@ -116,8 +116,6 @@ Agent maximizes present discounted value (PDV) of lifetime utility
 \max_{c_t} \sum_{t=0}^{\infty} \DiscFac^t \utilFunc(\cRat_t)
 \end{equation}
 
-. . .
-
 Recursive Bellman equation
 
 \begin{equation}
@@ -154,19 +152,16 @@ How do we solve this problem?
 v_t(\mRat_t) = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right]
 \end{equation}
 
-. . .
 
 \begin{equation}
 u'(\cRat_t) = \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right]
 \end{equation}
 
-. . .
 
 \begin{equation}
 \cEndFunc_t(\aMat) = \utilFunc'^{-1} \left( \DiscFac \Rfree \Ex_t \left[ v_{t+1}'(\Rfree \aMat + \tShkEmp_{t+1}) \right] \right)
 \end{equation}
 
-. . .
 
 \begin{equation}
 \mEndFunc_t(\aMat) = \cEndFunc_t(\aMat) + \aMat
@@ -386,7 +381,6 @@ Actual leisure function is bounded between 0 and 1:
 
 What is the **problem**?
 
-. . .
 
 <table><tr><td>
   Exogenous Rectangular Grid <br>
@@ -396,11 +390,10 @@ What is the **problem**?
   <img src="figures/LaborSeparableWarpedGrid.svg" alt="Endogenous Curvilinear Grid">
 </td></tr></table>
 
-. . .
 
 - **One solution:** Curvilinear Interpolation by @White2015-uk
 
-## A more complex problem 
+## A more complex problem {.smaller}
 
 Consumption - Pension Deposit Problem as in @Druedahl2017-wk
 
@@ -663,14 +656,6 @@ How do we **interpolate** on this grid?
 
 # Functional Approximation
 
-## Linear Interpolation on a Uniform Grid
-
-{{< video videos/LinearInterpolationUniform.mp4 >}}
-
-## Linear Interpolation on a Non-linear Grid
-
-{{< video videos/LinearInterpolationGeometric.mp4 >}}
-
 ## Bilinear Interpolation
 
 {{< video videos/BilinearInterpolation.mp4 >}}
@@ -725,7 +710,6 @@ A Gaussian Process is a **probability distribution over functions**
   \end{gathered}
 \end{equation}
 
-. . .
 
 A Gaussian Process **Regression** is used to find the function that **best fits** a set of data points
 
@@ -733,7 +717,6 @@ A Gaussian Process **Regression** is used to find the function that **best fits*
 \mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
 \end{equation}
 
-. . .
 
 I use standard covariance function
 
@@ -856,19 +839,17 @@ v_t^1(e,m,a_{-}) &= \max_{a} v_t^2(e,\ell,a)  \\
 . . .
 
 \begin{align}
-v_t^2(e,\ell,a) &= \max_{c,b} \left\{\frac{c^{1-\sigma}}{1-\sigma} + v_t^3(e,b,a) \right\}\\
+v_t^2(e,\ell,a) &= \max_{c,b} \left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta v_t^3(e,b,a) \right\}\\
 c + b &= \ell
 \end{align}
 
 . . . 
 
 \begin{align}
-v_t^3(e,b,a) = \beta \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right]
+v_t^3(e,b,a) =  \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right]
 \end{align}
 
-## Conclusion
-
-### Conditions for using Sequential EGM
+## Conditions for using Sequential EGM
 
 - Model must be
   - concave
