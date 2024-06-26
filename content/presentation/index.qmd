@@ -849,7 +849,7 @@ c + b &= \ell
 v_t^3(e,b,a) =  \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right]
 \end{align}
 
-## Conditions for using Sequential EGM
+## Conditions for using Sequential EGM {.smaller}
 
 - Model must be
   - concave
