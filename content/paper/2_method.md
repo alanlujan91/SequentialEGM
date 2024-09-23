@@ -313,7 +313,7 @@ Although EGM$^n$ seems to be a simple approach, there is one important caveat th
 
 However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (WGI), which is similar to {cite:t}`White2015`'s approach but computationally more efficient and robust. The details of this interpolation method will be further explained in [Section %s](#multinterp), but for now, we show the resulting warped endogenous grid for the labor-leisure problem.
 
-```{figure} ../figures/LaborSeparableWarpedGrid.*
+```{figure} ../../docs/figures/LaborSeparableWarpedGrid.*
 :name: fig:LaborSeparableWarpedGrid
 :align: center
 
@@ -326,7 +326,7 @@ Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for w
 
 [^f3]: For this illustration, we generate $z$'s arbitrarily using the function $$f(x,y) = (xy)^{1/4}.$$
 
-```{figure} ../figures/WarpedInterpolation.*
+```{figure} ../../docs/figures/WarpedInterpolation.*
 :name: fig:warped_interp
 :align: center
 
@@ -337,7 +337,7 @@ In [Figure %s](#fig:warped_interp), we can see the true function in three-dimens
 
 In [Figure %s](#fig:homotopy) we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
 
-```{figure} ../figures/Homotopy.*
+```{figure} ../../docs/figures/Homotopy.*
 :name: fig:homotopy
 :align: center
 
@@ -348,7 +348,7 @@ The objective is to be able to interpolate the value of the function at any poin
 
 [^f4]: For more examples of the Warped Grid Interpolation method in action, see the github project [`alanlujan91/multinterp`](https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb).
 
-```{figure} ../figures/Mapping.*
+```{figure} ../../docs/figures/Mapping.*
 :name: fig:mapping
 :align: center
 

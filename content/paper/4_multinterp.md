@@ -73,7 +73,7 @@ Using GPR to interpolate a function $f$, we can both predict the value of the fu
 
 In [Figure %s](#fig:true_function), we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
 
-```{figure} ../figures/GPR_True_Function.*
+```{figure} ../../docs/figures/GPR_True_Function.*
 :name: fig:true_function
 :align: center
 
@@ -82,7 +82,7 @@ The true function that we are trying to approximate and a sample of data points.
 
 As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In [Figure %s](#fig:gpr_sample), we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
 
-```{figure} ../figures/GPR_Posterior_Sample.*
+```{figure} ../../docs/figures/GPR_Posterior_Sample.*
 :name: fig:gpr_sample
 :align: center
 
@@ -93,7 +93,7 @@ In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametriza
 
 [^f6]: For details see notebook.
 
-```{figure} ../figures/GaussianProcessRegression.*
+```{figure} ../../docs/figures/GaussianProcessRegression.*
 :name: fig:gpr
 :align: center
 
