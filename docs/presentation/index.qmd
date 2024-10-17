@@ -23,12 +23,12 @@ bibliography: https://paperpile.com/eb/jAmePXcJLW/paperpile.bib
 
 > An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.
 
-. . . 
+. . .
 
 ### Motivation
 
 - Structural modeling of decision making under uncertainty
-- Modern Economics requires solving complex problems that are computationally challenging and time consuming 
+- Modern Economics requires solving complex problems that are computationally challenging and time consuming
 
 ### Main Contributions
 
@@ -146,7 +146,7 @@ How do we solve this problem?
   - Discretize state space (interpolation)
   - Grid search optimization (brute force, iterative)
 
-## The Endogenous Grid Method by @Carroll2006-vk 
+## The Endogenous Grid Method by @Carroll2006-vk
 
 \begin{equation}
 v_t(\mRat_t) = \max_{\cRat_t} \utilFunc(\cRat_t) + \DiscFac \Ex_t \left[ v_{t+1}(\Rfree (\mRat_t - \cRat_t) + \tShkEmp_{t+1}) \right]
@@ -184,7 +184,7 @@ Contribution: $(\mEndFunc_t, \cEndFunc_t) \quad \Rightarrow \quad \hat{\cRat}_t(
   - (Curvilinear) @White2015-uk
   - (Triangular) @Ludwig2018-bb
 
-## EGM<sup>n</sup>: The Sequential Endogenous Grid Method 
+## EGM<sup>n</sup>: The Sequential Endogenous Grid Method
 
 - **Insight**: Problems in which agent makes several **simultaneous choices** can be decomposed into **sequence of problems**
 - **Challenge**: Rectilinear exogenous grid results in **unstructured** endogenous grid
@@ -660,13 +660,13 @@ How do we **interpolate** on this grid?
 
 {{< video videos/BilinearInterpolation.mp4 >}}
 
-## Curvilinear (Warped) Grid Interpolation 
+## Curvilinear (Warped) Grid Interpolation
 
 {{< video videos/CurvilinearInterpolation.mp4 >}}
 
 See: @White2015-uk
 
-## What about Unstructured Grids? 
+## What about Unstructured Grids?
 
 {{< video videos/UnstructuredGrid.mp4 >}}
 
@@ -814,15 +814,15 @@ Deposit Function <br>
 
 ## 3 decisions: 2-asset HANK with labor {.center}
 
-\begin{align} 
+\begin{align}
 V_t(e, b_{-}, a_{-}) &= \max_{c, n, b, a} \left\{\frac{c^{1-\sigma}}{1-\sigma} - \varphi \frac{n^{1+\nu}}{1+\nu} + \beta \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right] \right\}
 \\
-c + a + b&= w_t e n + (1 + r_t^a)a_{-} + (1 + r_t^b)b_{-} - \Psi(a, a_{-}) 
+c + a + b&= w_t e n + (1 + r_t^a)a_{-} + (1 + r_t^b)b_{-} - \Psi(a, a_{-})
 \\
 a &\geq \underline{a}, \quad b \geq \underline{b}
 \end{align}
 
-## 3 decisions: 2-asset HANK with labor 
+## 3 decisions: 2-asset HANK with labor
 
 \begin{align}
 v_t^0(e,b_{-}, a_{-}) &= \max_{n} \left\{ -\varphi \frac{n^{1+\nu}}{1+\nu} + v_t^1(e,m, a_{-}) \right\} \\
@@ -833,7 +833,7 @@ m &= w_t e n + (1 + r_t^a)a_{-} + (1 + r_t^b)b_{-}
 
 \begin{align}
 v_t^1(e,m,a_{-}) &= \max_{a} v_t^2(e,\ell,a)  \\
-\ell + a &= m - \Psi(a, a_{-}) 
+\ell + a &= m - \Psi(a, a_{-})
 \end{align}
 
 . . .
@@ -843,7 +843,7 @@ v_t^2(e,\ell,a) &= \max_{c,b} \left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta v_t^3
 c + b &= \ell
 \end{align}
 
-. . . 
+. . .
 
 \begin{align}
 v_t^3(e,b,a) =  \mathbb{E}_t\left[V_{t+1}(e', b, a)|e \right]
@@ -883,7 +883,7 @@ Examples in this paper:
 
 [`website: alanlujan91.github.io/SequentialEGM`](https://alanlujan91.github.io/SequentialEGM){target="_blank"}
 
-## References 
+## References
 
 ::: {#refs}
 :::

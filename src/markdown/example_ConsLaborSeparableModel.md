@@ -14,6 +14,8 @@ jupyter:
 ---
 
 ```python
+from __future__ import annotations
+
 import sys
 
 import matplotlib.pyplot as plt
@@ -22,10 +24,9 @@ sys.path.append("../")
 ```
 
 ```python
-from HARK.utilities import plot_funcs
-
 from egmn.ConsLaborSeparableModel import LaborSeparableConsumerType
 from egmn.utilities import plot_3d_func
+from HARK.utilities import plot_funcs
 
 figures_path = "../../content/figures/"
 ```

@@ -13,7 +13,7 @@ $right-arrow: "\2192"; // Unicode character for right arrow
 /*
 Note: This theme uses the Roboto font family, which it imports from Google
   Fonts to ensure consistent weighting in addition to availability. While
-  you can use a local installation of Roboto, this is generally not 
+  you can use a local installation of Roboto, this is generally not
   recommended since the weighting will likely be wrong (probably too
   light). OTOH, importing from Google Fonts can cause some issues in
   certain secure environments due the external CDN (see:
@@ -24,7 +24,7 @@ Note: This theme uses the Roboto font family, which it imports from Google
   preserving consistent font weights, you may also wish to remove "Roboto"
   from the choice set if the family is installed locally.
 */
-@import url('https://fonts.googleapis.com/css?family=Roboto:200,200i,300,300i,350,350i,400,400i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:200,200i,300,300i,350,350i,400,400i&display=swap");
 
 $font-family-sans-serif: "Roboto", sans-serif !default;
 $presentation-heading-font: "Roboto", sans-serif !default;
@@ -40,7 +40,6 @@ $presentation-font-size-root: 32px;
 $body-color: $jet !default;
 $link-color: $accent !default;
 $selection-bg: #26351c !default;
-
 
 /*-- scss:rules --*/
 
@@ -96,9 +95,7 @@ $selection-bg: #26351c !default;
       width: 100%;
     }
   }
-
 }
-
 
 .reveal h2 {
   // font-weight: 350;
@@ -193,7 +190,6 @@ $selection-bg: #26351c !default;
   pointer-events: auto;
 }
 
-
 // Same for chalkboard buttons (with an offset)
 
 .reveal .slide-chalkboard-buttons {
@@ -254,7 +250,7 @@ $selection-bg: #26351c !default;
 .reveal table th,
 .reveal table td {
   border: none; /* Remove internal row lines */
-  padding: .23em; /* Adjust padding as needed */
+  padding: 0.23em; /* Adjust padding as needed */
   text-align: left; /* Adjust text alignment as needed */
   font-weight: lighter; /* Lighter font weight for main table text */
 }
@@ -263,7 +259,7 @@ $selection-bg: #26351c !default;
 .reveal table thead th,
 .reveal .slides table tr:last-child td,
 .reveal .slides table {
-  border-bottom: 2px solid #D3D3D3; /* Dark grey color for the bottom border */
+  border-bottom: 2px solid #d3d3d3; /* Dark grey color for the bottom border */
 }
 
 /* Make column headers bold */
@@ -283,7 +279,9 @@ $selection-bg: #26351c !default;
 
 .etable {
   width: 100%;
-  height: calc(100% - 3em); /* Adjust 3em based on the height of your header, if necessary */
+  height: calc(
+    100% - 3em
+  ); /* Adjust 3em based on the height of your header, if necessary */
   display: flex;
   align-items: center;
   justify-content: center;

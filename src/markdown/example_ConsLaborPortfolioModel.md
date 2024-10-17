@@ -14,6 +14,8 @@ jupyter:
 ---
 
 ```python
+from __future__ import annotations
+
 import sys
 
 sys.path.append("../")
@@ -22,9 +24,8 @@ sys.path.append("../")
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
-from HARK.utilities import plot_funcs
-
 from egmn.ConsLaborSeparableModel import LaborPortfolioConsumerType
+from HARK.utilities import plot_funcs
 ```
 
 ```python pycharm={"name": "#%%\n"}

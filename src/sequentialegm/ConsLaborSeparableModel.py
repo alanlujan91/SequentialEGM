@@ -4,6 +4,7 @@ from copy import copy
 from dataclasses import dataclass
 
 import numpy as np
+from egmn.utilities import interp_on_interp
 from HARK.ConsumptionSaving.ConsLaborModel import (
     ConsumerLaborSolution,
     LaborIntMargConsumerType,
@@ -25,8 +26,6 @@ from HARK.interpolation import (
 from HARK.metric import MetricObject
 from HARK.rewards import UtilityFuncCRRA, UtilityFuncStoneGeary
 from HARK.utilities import NullFunc
-
-from egmn.utilities import interp_on_interp
 
 
 @dataclass

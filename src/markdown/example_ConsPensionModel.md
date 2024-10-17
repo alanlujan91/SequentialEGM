@@ -14,6 +14,8 @@ jupyter:
 ---
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
+from __future__ import annotations
+
 import sys
 
 sys.path.append("../")

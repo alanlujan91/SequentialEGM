@@ -14,6 +14,8 @@ jupyter:
 ---
 
 ```python
+from __future__ import annotations
+
 import sys
 
 sys.path.append("../")
@@ -21,10 +23,9 @@ sys.path.append("../")
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 import matplotlib.pyplot as plt
-from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
-
 from egmn.ConsPensionModel import PensionConsumerType, init_pension_contrib
 from egmn.utilities import plot_3d_func, plot_scatter_hist
+from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
 
 figures_path = "../../content/figures/"
 ```
