@@ -17,14 +17,13 @@ jupyter:
 
 import matplotlib.pyplot as plt
 
-
 ```python
 from __future__ import annotations
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-figures_path = "../../content/figures/"
+figures_path = "../../docs/figures/"
 ```
 
 Assume we have a set of points indexed by $(i,j)$ in 2D space for which we have corresponding functional values in a 3rd dimension, such that $f(x_{i,j},y_{i,j}) = z_{i,j}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and we are unable to compute them at other values of $x$ and $y$ -- which is why we want to interpolate. For the callibration below, we will generate these $z$'s arbitrarily using the function
@@ -34,7 +33,6 @@ $$f(x,y) = (xy)^{1/4}$$
 because the figures look good for our illustrations.
 
 These $(x_{i,j},y_{i,j})$ points however are not evenly spaced, and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
-
 
 ```python
 points = np.array(
@@ -48,7 +46,6 @@ ax.grid()
 ```
 
 In the graph below, we can see the true function in 3D space, along with the points for which we actually know the value of the function.
-
 
 ```python
 fig = plt.figure()
@@ -83,7 +80,6 @@ fig.savefig(figures_path + "WarpedInterpolation.pdf")
 
 The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
 
-
 ```python
 fig, ax = plt.subplots()
 ax.scatter(points[0], points[1], c="b")
@@ -93,7 +89,6 @@ ax.grid()
 ```
 
 As we can see, this curvilinear grid can be easily transformed into a rectilinear grid by using the coordinate values $(i,j)$ of the underlying matrix that contains the values. For interpolation, this rectilinear grid allows us to use the standard fast interpolation methods available in SciPy.
-
 
 ```python
 coord_points = np.mgrid[0:3, 0:3]
@@ -124,7 +119,6 @@ fig.savefig(figures_path + "Homotopy.pdf")
 
 Below we graph values of the function at their index coordinate points in the matrix.
 
-
 ```python
 fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
 ax.plot_surface(coord_points[0], coord_points[1], values, alpha=0.5)
@@ -134,7 +128,6 @@ ax.scatter(coord_points[0], coord_points[1], values, c="r")
 ```
 
 The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured below. If we could find the correspoinding point in the coordinate grid, interpolation would be straightforward.
-
 
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
@@ -151,19 +144,16 @@ A straightforward and generalizable approach would be to identify the quadrilate
 
 Quad interpolation consists of finding the affine transformation that maps the quadrilateral to the unit square, and then applying the transformation to the point of interest. Having located the corresponding point in the unit square, we can use standard bilinear interpolation to find the corresponding z-value.
 
-![Quad Interpolation](https://www.particleincell.com/wp-content/uploads/2012/06/mapping-small.png)
-![Quad Interpolation](https://www.particleincell.com/wp-content/uploads/2012/06/interpolation-300x279.png)
+![Quad Interpolation](https://www.particleincell.com/wp-docs/uploads/2012/06/mapping-small.png)
+![Quad Interpolation](https://www.particleincell.com/wp-docs/uploads/2012/06/interpolation-300x279.png)
 
 This approach is generalizable to any number of dimensions, and it is desirable for our purposes. However, we have not found a general tool in the Scientific Python environment that would allow us to do this.
 
 This appears possible in other proprietary software but we have not found an open source tool that would allow us to do this.
 
-
-
-### Method 2:
+### Method 2
 
 We can find where the x-coordinate of the point of interest intersects with the index-coordinates of the matrix.
-
 
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
@@ -178,7 +168,6 @@ ax.grid()
 
 This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data.
 
-
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
 ax.scatter(points[0], coord_points[1], c="b")
@@ -189,7 +178,6 @@ ax.grid()
 ```
 
 Now, for each circle in the figure, we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate.
-
 
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
@@ -227,7 +215,6 @@ fig.savefig(figures_path + "Mapping.pdf")
 
 We can do the same by connecting the points on the red line, and interpolating $(y, z)$ values for the point's x-coordinate.
 
-
 ```python
 fig, ax = plt.subplots()
 ax.scatter(points[0], coord_points[1].T, c="b")
@@ -253,7 +240,6 @@ However, the two processes might provide different results. The differences in r
 
 Additionally, we could start this method in the y-direction, and the results could be different yet.
 
-
 ```python
 fig, ax = plt.subplots()
 ax.scatter(points[0], points[1], c="b")
@@ -271,7 +257,6 @@ ax.grid()
 
 A third approach would be to use an interpolation method once (any of the above, or others), for the cross-product of all x and y coordinates, to create a rectilinear grid of $(x,y,z)$ values. Having done this, we can ignore the original curvilinear grid and use the rectilinear grid for interpolation. This method has the advantage of allowing us to interpolate in the original space and not in the warped space.
 
-
 ```python
 all_coords = np.mgrid[1:10, 1:10]
 fig, ax = plt.subplots()
@@ -283,7 +268,6 @@ ax.grid()
 ```
 
 As illustration, we can use `HARK.interpolation`'s `UnstructuredInterp` which wraps `scipy`'s unstructured interpolators (`griddata`). This method is not very fast, which is why we are looking for a faster alternative.
-
 
 ```python
 from HARK.interpolation import UnstructuredInterp
@@ -305,12 +289,9 @@ An additional tool that we found useful is `scikit-image`'s `PiecewiseAffineTran
 
 In our applications, we already have a structure to the grid that should be useful for interpolation. Namely, the index coordinate $(i,j)$ of the matrix that contains the values describes a grid that is piecewise affine and/or curvilinear. We would like to use this structure to speed up the interpolation process.
 
-
-
 ### Questions
 
 1. Which method is the most accurate?
 2. Which method is the fastest?
 3. Are there other methods that could be used?
 4. Do these methods generalize to higher dimensions?
-

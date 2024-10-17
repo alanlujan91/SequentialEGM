@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export PYTHONPATH=./code PYTHONWARNINGS="ignore"
-cd code/examples
+cd src/examples
 ipython --classic --matplotlib=agg example_ConsLaborPortfolioModel.ipynb
 ipython --classic --matplotlib=agg example_ConsLaborSeparableModel.ipynb
 ipython --classic --matplotlib=agg example_ConsPensionModel_baseline.ipynb

@@ -7,7 +7,7 @@ from matplotlib import rcParams
 
 rcParams.update({"figure.autolayout": True})
 
-figures_path = "../../content/figures/"
+figures_path = "../../docs/figures/"
 
 
 def plot_hark_bilinear(function, meta_data={}):

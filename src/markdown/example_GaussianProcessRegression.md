@@ -22,7 +22,7 @@ import numpy as np
 
 ```python
 rng = np.random.RandomState(5)
-figures_path = "../../content/figures/"
+figures_path = "../../docs/figures/"
 ```
 
 ```python

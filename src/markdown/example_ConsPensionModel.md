@@ -25,7 +25,7 @@ sys.path.append("../")
 from egmn.ConsPensionModel import PensionConsumerType
 from egmn.utilities import plot_3d_func, plot_scatter_hist
 
-figures_path = "../../content/figures/"
+figures_path = "../../docs/figures/"
 ```
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
@@ -40,7 +40,6 @@ T = 0
 
 ## Post Decision Stage
 
-
 ```python
 plot_3d_func(agent.solution[T].post_decision_stage.v_func.vFuncNvrs, [0, 5], [0, 5])
 ```
@@ -54,7 +53,6 @@ plot_3d_func(agent.solution[T].post_decision_stage.dvdb_func.cFunc, [0, 5], [0, 
 ```
 
 ## Consumption Stage
-
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 plot_3d_func(agent.solution[T].consumption_stage.c_func, [0, 5], [0, 5])
@@ -73,7 +71,6 @@ plot_3d_func(agent.solution[T].consumption_stage.dvdb_func.cFunc, [0, 5], [0, 5]
 ```
 
 ## Deposit Stage
-
 
 ```python
 plot_3d_func(agent.solution[T].deposit_stage.d_func, [0, 5], [0, 5])
@@ -100,10 +97,7 @@ plot_3d_func(agent.solution[T].deposit_stage.dvdn_func.cFunc, [0, 5], [0, 5])
 plot_3d_func(agent.solution[T].deposit_stage.gaussian_interp, [0, 5], [0, 5])
 ```
 
-
 ## Grids
-
-
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 
