@@ -138,7 +138,7 @@ dmypy.json
 cython_debug/
 
 # setuptools_scm
-code/*/_version.py
+src/*/_version.py
 
 
 # ruff
@@ -157,6 +157,5 @@ Thumbs.db
 *~
 *.swp
 
-*_build
-*_pdf_logs
-*_pdf_tex
+# MyST build outputs
+_build

@@ -1,5 +1,3 @@
-
-
 +++ {"part": "abstract"}
 
 Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow. This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids. First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions. Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used. Software to reproduce these methods is available under the [`Econ-ARK/HARK`](https://econ-ark.org/) project for the `python` programming language.
@@ -8,12 +6,17 @@ Heterogeneous agent models with multiple decisions are often solved using ineffi
 
 +++ {"part": "acknowledgements"}
 
-I would like to thank Chris Carroll, Matthew White, and Simon Scheidegger for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit {cite:p}`Carroll2018`. Additional libraries used in the production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) {cite:p}`Virtanen2020`, [`numpy`](https://www.numpy.org/) {cite:p}`Harris2020`, [`numba`](https://numba.pydata.org/) {cite:p}`Lam2015`, [`cupy`](https://cupy.dev/) {cite:p}`Okuta2017`, [`scikit-learn`](https://scikit-learn.org/) {cite:p}`Pedregosa2011`, [`pytorch`](https://pytorch.org/) {cite:p}`Paszke2019`, and [`gpytorch`](https://gpytorch.ai/) {cite:p}`Gardner2018`
+I would like to thank Chris Carroll, Matthew White, and Fedor Iskhakov for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the [`Econ-ARK/HARK`](https://econ-ark.org/) toolkit {cite:p}`Carroll2018`. Additional libraries used in the production of this paper include but are not limited to: [`scipy`](https://www.scipy.org/) {cite:p}`Virtanen2020`, [`numpy`](https://www.numpy.org/) {cite:p}`Harris2020`, [`numba`](https://numba.pydata.org/) {cite:p}`Lam2015`, [`cupy`](https://cupy.dev/) {cite:p}`Okuta2017`, [`scikit-learn`](https://scikit-learn.org/) {cite:p}`Pedregosa2011`, [`pytorch`](https://pytorch.org/) {cite:p}`Paszke2019`, and [`gpytorch`](https://gpytorch.ai/) {cite:p}`Gardner2018`
 
 +++
 
 (introduction)=
+
 # Introduction
+
+> An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.
+>
+> -- [](doi:10.1090/S0002-9904-1954-09848-8)
 
 ## Background
 
@@ -30,8 +33,6 @@ I would like to thank Chris Carroll, Matthew White, and Simon Scheidegger for th
 % because so many papers looked at this issue before!).
 
 Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, require strong underlying assumptions, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is using a grid search method to solve the model. The Endogenous Grid Method (EGM) developed by {cite:t}`Carroll2006` allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to compute became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation. However, the Endogenous Grid Method is limited to a few specific classes of problems. Recently, the classes of problems to which EGM can be applied have been expanded[^f1], but with every new method comes a new set of limitations. This paper introduces a new approach to EGM in a multivariate setting. The method is called Sequential EGM (or EGM$^n$) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
-
-[^f1]: {cite:t}`Barillas2007, Maliar2013, Fella2014, White2015, Iskhakov2017`, among others.
 
 ## Literature Review
 
@@ -89,3 +90,5 @@ Additionally, the Sequential Endogenous Grid Method often sheds light on the pro
 % hypotheses. Then [Section %s](#method) presents the econometric model, ..."
 
 [Section %s](#method) presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then [Section %s](#multdim) introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In [Section %s](#multinterp) I present the unstructured interpolation methods using machine learning in more detail. [Section %s](#conditions) discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, [Section %s](#conclusion) concludes with some limitations and future work.
+
+[^f1]: {cite:t}`Barillas2007, Maliar2013, Fella2014, White2015, Iskhakov2017`, among others.

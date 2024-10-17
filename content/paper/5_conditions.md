@@ -1,6 +1,5 @@
-
-
 (conditions)=
+
 # Conditions for using the Sequential Endogenous Grid Method
 
 ## Splitting the problem into subproblems
@@ -26,17 +25,21 @@ As mentioned in that section, however, there are only two separable utility func
 Now that we have split the problem into conceptual subproblems, it is important to sequence them in such a way that they don't become more complex than the original problem. The key here is to avoid adding unnecessary state variables. For example, in the consumption-leisure-portfolio problem, if we were to choose consumption first, we would have to track the wage rate into the following leisure subproblem. This would mean that our consumption problem would be two-dimensional as well as our labor decision problem. As presented, the choice of order in [Section %s](#method) ensures that the consumption problem is one-dimensional, as we can shed the information about the wage rate offer after the agent has made their labor-leisure decision. If we did this the other way, the problem would be more complex and require additional computational resources.
 
 The consumption subproblem would be two-dimensional instead of one-dimensional, adding more complexity,
-
+\$$
+$$
 \begin{equation}
-    \begin{split}
-        \vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
-        & \text{s.t.}\\
-        \bRat' & = \bRat - \cRat \ge - \tShkEmp
-    \end{split}
+\begin{split}
+\vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
+& \text{s.t.}\\
+\bRat' & = \bRat - \cRat \ge - \tShkEmp
+\end{split}
 \end{equation}
+$$
+$\$
 
 while the labor-leisure subproblem would have an additional constraint
 
+$$
 \begin{equation}
     \begin{split}
         \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
@@ -45,19 +48,23 @@ while the labor-leisure subproblem would have an additional constraint
         \aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
     \end{split}
 \end{equation}
+$$
 
 Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce computational the burden.
 
 Consider the utility function of the form
 
+$$
 \begin{equation}
     \UFunc( \yRat) = \uFunc_{-i}( \yRat^{-i}) + \uFunc_i(\yRat^i)
 \end{equation}
+$$
 
 where $\yRat^{i}$ is the $i$-th control variable and $\yRat^{-i}$ is the vector of all control variables except the $i$-th one.
 
 which is separable in the state and control variables that correspond to the index $i$.
 
+$$
 \begin{equation}
     \begin{split}
     \VFunc_{t}(\xRat_t, \sRat_t) &= \max_{\yRat_t \in \Gamma_t(\xRat_t, \sRat_t)} \UFunc(\yRat_t)  + \DiscFac \Ex_{t} \left[ \VFunc_{t+1}(\xRat_{t+1}, \sRat_{t+1}) | \tilde{\xRat}_t,  \sRat_t \right] \\
@@ -66,15 +73,19 @@ which is separable in the state and control variables that correspond to the ind
     \xRat_{t+1} &= \GFunc_{t+1}(\tilde{\xRat}_t, \sRat_t) \\
     \end{split}
 \end{equation}
+$$
 
 For simplicity, define
 
+$$
 \begin{equation}
     \WFunc_t(\tilde{\xRat}_t, \sRat_t) = \DiscFac \Ex_{t} \left[ \VFunc_{t+1}(\GFunc_{t+1}(\tilde{\xRat}_t, \sRat_t), \sRat_{t+1}) | \tilde{\xRat}_t, \sRat_t \right]
 \end{equation}
+$$
 
 then
 
+$$
 \begin{equation}
     \begin{split}
     \VFunc_{t}(\xRat_t, \sRat_t) &= \max_{\yRat_t \in \Gamma_t(\xRat_t, \sRat_t)} \UFunc( \yRat_t)  +  \WFunc_t(\tilde{\xRat}_t, \sRat_t) \\
@@ -82,19 +93,23 @@ then
     \tilde{\xRat}_t &= \TFunc_t(\xRat_t, \yRat_t)
     \end{split}
 \end{equation}
+$$
 
 the first order condition
 
+$$
 \begin{equation}
     \frac{\partial \UFunc( \yRat_t)}{\partial \yRat_t^i}  +  \sum_{j=1}^{n} \frac{\partial \WFunc_t(\tilde{\xRat}_t, \sRat_t)}{\partial \tilde{\xRat}_{t}^j} \frac{\partial \TFunc_{t}^j(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0
 \end{equation}
+$$
 
 we require $\frac{\partial \TFunc_{t}^j(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0$ for $j \neq i$ to be able to solve for $\yRat_t^i$.
 
+$$
 \begin{equation}
     \frac{\partial \UFunc( \yRat_t)}{\partial \yRat_t^i}  +   \frac{\partial \WFunc_t(\tilde{\xRat}_t, \sRat_t)}{\partial \tilde{\xRat}_{t}^i} \frac{\partial \TFunc_{t}^i(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0
 \end{equation}
-
+$$
 
 ### Differentiable and invertible transition
 
@@ -114,6 +129,7 @@ Once we have strategically split the problem into subproblems, we can use the En
 
 A generic subproblem with a differentiable and invertible utility function can be characterized as follows:
 
+$$
 \begin{equation}
     \begin{split}
         \VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \UFunc(\xRat, \yRat) + \DiscFac \WFunc(\aRat) \\
@@ -121,19 +137,24 @@ A generic subproblem with a differentiable and invertible utility function can b
         \aRat & = \TFunc(\xRat,\yRat)
     \end{split}
 \end{equation}
+$$
 
 For an interior solution, the first-order condition is thus
 
+$$
 \begin{equation}
     \UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
 \end{equation}
+$$
 
 If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
 
+$$
 \begin{equation}
     \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}
     \left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
 \end{equation}
+$$
 
 By using an exogenous grid of the post-decision state $\aRat$, we can solve for the optimal decision rule $\yRat$ at each point on the grid. This is the Endogenous Grid Method step.
 
@@ -141,6 +162,7 @@ By using an exogenous grid of the post-decision state $\aRat$, we can solve for 
 
 If the generic subproblem has no separable utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
 
+$$
 \begin{equation}
     \begin{split}
         \VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \WFunc(\aRat) \\
@@ -148,15 +170,20 @@ If the generic subproblem has no separable utility, but instead has a differenti
         \aRat & = \TFunc(\xRat,\yRat)
     \end{split}
 \end{equation}
+$$
 
 Here, the first-order condition is
 
+$$
 \begin{equation}
     \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
 \end{equation}
+$$
 
 and the Endogenous Grid Method step is
 
+$$
 \begin{equation}
     \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
 \end{equation}
+$$

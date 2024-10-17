@@ -1,16 +1,13 @@
 # SequentialEGM
 
 ```{toctree}
----
-maxdepth: 2
-hidden:
----
+:maxdepth: 2
+:hidden:
+
 ```
 
 ```{include} ../README.md
----
-start-after: <!-- SPHINX-START -->
----
+:start-after: <!-- SPHINX-START -->
 ```
 
 ## Indices and tables
