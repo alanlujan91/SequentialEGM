@@ -6,18 +6,8 @@
 
 I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at time $t$ with total resources $\mRat$. The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of $\underline{\tShkEmp}$.
 
-$$
-\begin{equation}
-    \begin{split}
-        \wFunc_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) +
-        \DiscFac \wFunc_{t+1}(\mRat_{t}) \\
-        & \text{s.t.} \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
-        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} +
-        \underline{\tShkEmp}
-    \end{split}
-\end{equation}
-$$
+:::{include} ../equations/hank3.tex
+:::
 
 Notice that there is no uncertainty and the household receives a retirement income $\underline{\tShkEmp}$ every period until death.
 

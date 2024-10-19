@@ -4,19 +4,12 @@
 
 The Sequential Endogenous Grid Method (EGM$^n$) is a novel extension of the EGM to solve dynamic programming problems with multiple choice variables. The key insight is to break down the problem into a sequence of subproblems, each of which can be solved using a simple EGM step. To demonstrate the power of thinking sequentially, I first present a simple model with one choice variable that is traditionally solved using one EGM step.
 
-## The Standard Incomplete Markets model as a sequential problem
+## The Standard Incomplete Markets (SIM) Model as a sequential problem
 
 Consider the standard one-asset incomplete markets model by [](doi:10.1086/250034), also known as the Bewley-Huggett-Aiyagari-Imrohoroglu-Zeldes-Deaton-Carroll model. The consumer's problem is to maximize the present discounted value of utility from consumption and savings, subject to uncertainty in labor productivity and an aggregate process of interest rates and wages. The Bellman equation is
 
-$$
-\begin{align}
-V_t(e, k) = \max_{c, k'} &\left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta \mathbb{E}_t\left[V_{t+1}(e', k')|e \right] \right\}
-\\
-c + k' &= (1 + r_t)k + w_t e
-\\
-k' &\geq 0
-\end{align}
-$$
+:::{include} ../equations/sim.tex
+:::
 
 We can think of this problem as a sequence of two blocks: one where the household makes a consumption-saving decision, and another where the household takes an expectation of the future conditional on their savings choice. Define the continuation value of any savings choice as
 
@@ -28,13 +21,8 @@ $$
 
 Importantly, this block does not require any optimization, as it is just an expectation step. The household can then use the value of any savings decision to optimize their consumption choice. The problem is then reduced to the following:
 
-$$
-\begin{align}
-V_t(e, k) = \max_{c, k'} &\left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta W_t(e, k') \right\}
-\\ c + k' &= (1 + r_t)k + w_t e
-\\ k' &\geq 0
-\end{align}
-$$
+:::{include} ../equations/sim_0.tex
+:::
 
 Notice that this block has no uncertainty. This is a key advantage of thinking sequentially. By placing the expectation in a subsequent block, this block is now a simple optimization problem.
 
@@ -58,7 +46,7 @@ These two equations now jointly define a parameterized curve[^fedor] for the con
 
 [^fedor]: This comes from Fedor Iskhakov.
 
-:::{raw} latex
+<!-- :::{raw} latex
 \begin{algorithm}
 \caption{The Endogenous Grid Method (EGM)}\label{alg:egm}
 \begin{algorithmic}
@@ -78,7 +66,7 @@ These two equations now jointly define a parameterized curve[^fedor] for the con
 \EndWhile
 \end{algorithmic}
 \end{algorithm}
-:::
+::: -->
 
 ## The Heterogeneous Agent New Keynesian (HANK) Model
 
@@ -86,15 +74,8 @@ The baseline problem which I will use to demonstrate the Sequential Endogenous G
 
 In particular, this example makes use of an additively separable utility of consumption and disutility of labor as follows:
 
-$$
-\begin{align}
-V_t(e, a) = \max_{c, n, a'} &\left\{\frac{c^{1-\sigma}}{1-\sigma} - \varphi \frac{n^{1+\nu}}{1+\nu} + \beta \mathbb{E}_t\left[V_{t+1}(e', a')|e\right] \right\}
-\\
-c + a' &= (1 + r_t)a + w_t(e) n + T_t(e)
-\\
-a' &\geq 0
-\end{align}
-$$
+:::{include} ../equations/hank.tex
+:::
 
 The use of additively separable utility is important, as it will allow for the use of multiple EGM steps in the solution process, as we'll see later.
 
@@ -104,174 +85,28 @@ in which $\labor_{t}$ is the time supplied to labor net of leisure, $\mRat_{t}$ 
 
 ## Restating the problem sequentially
 
+Before we continue, it will be useful to introduce a new notation for timing. In dynamic programming, we often think of the period-$t$ problem. However, when thinking sequentially, it will be useful to think about breaking the period into sub-periods, which we'll call moments. When using EGM$^n$, we will index these moments as $(t, \tau)$ for the period-$t$ and moment-$\tau$ subproblem. We will also use lowercase letters to denote the moment-specific value functions, $v_{(t,\tau)}(\cdot)$, and the decision rules, $\pi_{(t,\tau)}(\cdot)$.
+
 We can make a few choices to create a sequential problem which will allow us to use multiple EGM steps in succession. First, the agent decides their labor-leisure trade-off and receives a wage. Their wage plus their previous bank balance then becomes their market resources. Second, given market resources, the agent makes a pure consumption-saving decision. Finally, given an amount of savings, the consumer then decides their risky portfolio share.
 
 Starting from the beginning of the period, we can define the labor-leisure problem as
 
-$$
-\begin{align}
-v_{(t,0)}(e, a) &= \max_{n} \left\{ - \varphi \frac{n^{1+\nu}}{1+\nu} + v_{(t,1)}(e,m) \right\}
-\
-m &= (1 + r_t)a + w_t(e) n + T_t(e)
-\end{align}
-$$
+:::{include} ../equations/hank_1.tex
+:::
 
 The pure consumption-saving problem is then
 
-$$
-\begin{align}
-v_{(t,1)}(e, m) &= \max_{c, a'} \left\{\frac{c^{1-\sigma}}{1-\sigma}  + \beta v_{(t,2)}(e,a') \right\}
-\
- a' &= m - c \geq 0
-\end{align}
-$$
+:::{include} ../equations/hank_2.tex
+:::
 
-Finally, the risky portfolio problem is
+Finally, the expectation block is
 
-$$
-\begin{align}
-v_{(t,2)}(e, a') =  \mathbb{E}_t\left[V_{t+1}(e', a')|e\right]
-\end{align}
-$$
+:::{include} ../equations/hank_3.tex
+:::
+
+Notice that we started with moment $(t,1)$. We want to think of moment $(t,0)$ as the moment where uncertainty is resolved. Therefore, the agent first learns $r_t$ and $w_t(e)$ in moment $(t,0)$ and then uses this information to solve the consumption-savings problem in moment $(t,1)$.
 
 This sequential approach is explicitly modeled after the nested approaches explored in {cite:t}`Clausen2020` and {cite:t}`Druedahl2021`. However, I will offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
-
-## The portfolio decision subproblem
-
-As useful as it is to be able to use the EGM step more than once, there are clear problems where the EGM step is not applicable. This basic labor-portfolio choice problem demonstrates where we can use an additional EGM step, and where we can not. First, we go over a subproblem where we can not use the EGM step.
-
-In reorganizing the labor-portfolio problem into subproblems, we assigned the utility of leisure to the leisure-labor subproblem and the utility of consumption to the consumption-savings subproblem. There are no more separable convex utility functions to assign to this problem, and even if we re-organized the problem in a way that moved one of the utility functions into this subproblem, they would not be useful in solving this subproblem via EGM as there is no direct relation between the risky share of portfolio and consumption or leisure. Therefore, the only way to solve this subproblem is through standard convex optimization and root-finding techniques.
-
-Restating the problem in compact form gives
-
-$$
-
-\begin{equation}
-\vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \Ex_{t} \left\[ \PGro_{t+1}^{1-\CRRA}
-\vFunc_{t+1}\left(\aRat_{t}(\Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}), \tShkEmp_{t+1}\right)
-\right\].
-\end{equation}
-\$\$
-
-The first-order condition with respect to the risky portfolio share is then
-
-$$
-\begin{equation}
-    \Ex_{t}
-    \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) (\Risky_{t+1} - \Rfree)  \right] =
-    0.
-\end{equation}
-$$
-
-Finding the optimal risky share requires numerical optimization and root-solving of the first-order condition. To close out the problem, we can calculate the envelope condition as
-
-$$
-\begin{equation}
-    \vEnd_{t}'(\aRat_{t}) = \Ex_{t}
-    \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right].
-\end{equation}
-$$
-
-### A note on avoiding taking expectations more than once
-
-We could instead define the portfolio choice subproblem as:
-
-$$
-\begin{equation}
-    \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
-\end{equation}
-$$
-
-where
-
-$$
-\begin{equation}
-    \begin{split}
-        \vOptAlt_{t}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right)   \right] \
-        \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t} \
-        \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
-    \end{split}
-\end{equation}
-$$
-
-In this case, the process is similar. The only difference is that we don't have to take expectations more than once. Given the next period's solution, we can calculate the marginal value functions as:
-
-$$
-\begin{equation}
-    \begin{split}
-        \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right] \
-        \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \
-    \end{split}
-\end{equation}
-$$
-
-If we are clever, we can calculate both of these in one step. Now, the optimal risky share can be found by the first-order condition and we can use it to evaluate the envelope condition.
-
-$$
-\begin{equation}
-    \text{F.O.C.:} \qquad \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*})  = 0 \qquad
-    \text{E.C.:} \qquad \vEnd_{t}^{\aRat}(\aRat_{t}) = \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})
-\end{equation}
-$$
-
-## The consumption-saving subproblem
-
-The consumption-saving EGM follows {cite:t}`Carroll2006` but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
-
-$$
-\begin{equation}
-    \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
-    \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
-\end{equation}
-$$
-
-To solve, we derive the first-order condition with respect to $\cRat_{t}$ which gives the familiar Euler equation:
-
-$$
-\begin{equation}
-    \utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
-    \vEnd_{t}'(\aRat_{t})
-\end{equation}
-$$
-
-Inverting the above equation is the (first) EGM step.
-
-$$
-\begin{equation}
-    \cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
-    \right)
-\end{equation}
-$$
-
-Given the utility function above, the marginal utility of consumption and its inverse are
-
-$$
-\begin{equation}
-    \utilFunc'(\cRat) = \cRat^{-\CRRA} \qquad \utilFunc'^{-1}(\xRat) =
-    \xRat^{-1/\CRRA}.
-\end{equation}
-$$
-
-{cite:t}`Carroll2006` demonstrates that by using an exogenous grid of $\aMat$ points we can find the unique $\cEndFunc_{t}(\aMat)$ that optimizes the consumption-saving problem, since the first-order condition is necessary and sufficient. Further, using the market resources constraint, we can recover the exact amount of market resources that is consistent with this consumption-saving decision as
-
-$$
-\begin{equation}
-    \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
-\end{equation}
-$$
-
-This $\mEndFunc_{t}(\aMat)$ is the \`\`endogenous'' grid that is consistent with the exogenous decision grid $\aMat$. Now that we have a $(\mEndFunc_{t}(\aMat), \cEndFunc_{t}(\aMat))$ pair for each $\aRat \in \aMat$, we can construct an interpolating consumption function for market resources points that are off-the-grid.
-
-The envelope condition will be useful in the next section, but for completeness is defined here.
-
-$$
-\begin{equation}
-    \vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
-\end{equation}
-$$
 
 ## The labor-leisure subproblem
 
@@ -330,30 +165,64 @@ $$
 \end{equation}
 $$
 
-## Alternative Parametrization
+:::{include} ../equations/solving_hank_1.tex
+:::
 
-An alternative formulation for the utility of leisure is to state it in terms of the disutility of labor as in (references)
+## The consumption-saving subproblem
 
-$$
-\begin{equation}
-    \h(\labor) = - \leiShare \frac{\labor^{1+\labShare}}{1+\labShare}
-\end{equation}
-$$
-
-In this case, we can restate the problem as
+The consumption-saving EGM follows {cite:t}`Carroll2006` but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
 
 $$
 \begin{equation}
-    \h(\leisure) = - \leiShare
-    \frac{(1-\leisure)^{1+\labShare}}{1+\labShare}
+    \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
+    \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
 \end{equation}
 $$
 
-The marginal utility of leisure and its inverse are
+To solve, we derive the first-order condition with respect to $\cRat_{t}$ which gives the familiar Euler equation:
 
 $$
 \begin{equation}
-    \h'(\leisure) = \leiShare(1-\leisure)^{\labShare} \qquad
-    \h'^{-1}(\xRat) = 1 - (\xRat/\leiShare)^{1/\labShare}
+    \utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
+    \vEnd_{t}'(\aRat_{t})
 \end{equation}
 $$
+
+Inverting the above equation is the (first) EGM step.
+
+$$
+\begin{equation}
+    \cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
+    \right)
+\end{equation}
+$$
+
+Given the utility function above, the marginal utility of consumption and its inverse are
+
+$$
+\begin{equation}
+    \utilFunc'(\cRat) = \cRat^{-\CRRA} \qquad \utilFunc'^{-1}(\xRat) =
+    \xRat^{-1/\CRRA}.
+\end{equation}
+$$
+
+{cite:t}`Carroll2006` demonstrates that by using an exogenous grid of $\aMat$ points we can find the unique $\cEndFunc_{t}(\aMat)$ that optimizes the consumption-saving problem, since the first-order condition is necessary and sufficient. Further, using the market resources constraint, we can recover the exact amount of market resources that is consistent with this consumption-saving decision as
+
+$$
+\begin{equation}
+    \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
+\end{equation}
+$$
+
+This $\mEndFunc_{t}(\aMat)$ is the \`\`endogenous'' grid that is consistent with the exogenous decision grid $\aMat$. Now that we have a $(\mEndFunc_{t}(\aMat), \cEndFunc_{t}(\aMat))$ pair for each $\aRat \in \aMat$, we can construct an interpolating consumption function for market resources points that are off-the-grid.
+
+The envelope condition will be useful in the next section, but for completeness is defined here.
+
+$$
+\begin{equation}
+    \vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
+\end{equation}
+$$
+
+:::{include} ../equations/solving_hank_2.tex
+:::

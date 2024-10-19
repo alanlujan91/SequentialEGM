@@ -8,27 +8,13 @@ The problem in [Section %s](#method) demonstrates the simplicity of solving prob
 
 For a demonstration, we now turn to the problem of a worker saving up for retirement. This worker must consume, save, and deposit resources into a tax-advantaged account that can not be liquidated until retirement. In the recursive problem, the worker begins a new period with a liquid account of market resources $\mRat_{t}$ and an illiquid account of retirement savings $\nRat_{t}$. The worker maximizes their utility by choosing consumption $\cRat_{t}$ and pension deposit $\dRat_{t}$. The pension deposit is set aside on a retirement account that is exposed to a risky return, while their post-consumption liquid assets accrue risk-free interest every period. The worker additionally receives an income that faces a permanent ($\PGro_{t+1}$) and a transitory ($\tShkEmp_{t+1}$) shock every period. At the age of 65, the worker is retired and their assets are liquidated, at which point the state reduces to one liquid account of market resources. The worker's recursive problem is:
 
-$$
-\begin{equation}
-    \begin{split}
-        \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\cRat_{t}, \dRat_{t}} \util(\cRat_{t}) + \DiscFac \Ex_{t}
-        \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
-        & \text{s.t.} \quad \cRat_{t} \ge 0, \quad \dRat_{t} \ge 0 \\
-        \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t}) \\
-        \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / / \PGro_{t+1}
-    \end{split}
-\end{equation}
-$$
+:::{include} ../equations/hank2.tex
+:::
 
 where
 
-$$
-\begin{equation}
-    \gFunc(\dRat) = \xFer \log(1+\dRat).
-\end{equation}
-$$
+:::{include} ../equations/psi.tex
+:::
 
 This problem can subsequently be broken down into 3 stages: a pension deposit stage, a consumption stage, and an income shock stage.
 
@@ -36,42 +22,18 @@ This problem can subsequently be broken down into 3 stages: a pension deposit st
 
 In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$ by choosing a pension deposit $\dRat_{t}$, which must be positive. The retirement balance $\bRat$ is the cash value of their retirement account plus their pension deposit and an additional amount $g(\dRat_{t})$ that provides an incentive to save for retirement. As we'll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem.
 
-$$
-\begin{equation}
-    \begin{split}
-        \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\dRat_{t}} \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
-        & \text{s.t.} \quad \dRat_{t} \ge 0 \\
-        \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t})
-    \end{split}
-\end{equation}
-$$
+:::{include} ../equations/hank2_1.tex
+:::
 
 After making their pension decision, the worker begins their consumption stage with liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$. From their liquid wealth, the worker must choose a level of consumption to maximize utility and continuation value $\wFunc_{t}$. After consumption, the worker is left with post-decision states that represent liquid assets $\aRat_{t}$ and retirement balance $\bRat_{t}$, which passes through this problem unaffected because it can't be liquidated until retirement.
 
-$$
-\begin{equation}
-    \begin{split}
-        \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac \wFunc_{t}(\aRat_{t}, \bRat_{t})  \\
-        & \text{s.t.} \quad \cRat_{t} \ge 0 \\
-        \aRat_{t} & = \lRat_{t} - \cRat_{t}
-    \end{split}
-\end{equation}
-$$
+:::{include} ../equations/hank2_2.tex
+:::
 
 Finally, the post-decision value function $\wFunc_{t}$ represents the value of both liquid and illiquid account balances before the realization of uncertainty regarding the risky return and income shocks. Since we are dealing with a normalized problem, this stage handles the normalization of state variables and value functions into the next period.
 
-$$
-\begin{equation}
-    \begin{split}
-        \wFunc_{t}(\aRat_{t}, \bRat_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \mRat_{t+1}) \right] \\
-        & \text{s.t.} \quad \aRat_{t} \ge 0, \quad \bRat_{t} \ge 0 \\
-        \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / \PGro_{t+1}
-    \end{split}
-\end{equation}
-$$
+:::{include} ../equations/hank2_3.tex
+:::
 
 The advantage of conceptualizing this subproblem as a separate stage is that we can construct a function $\wFunc_{t}$ and use it in the prior optimization problems without having to worry about stochastic optimization and taking expectations repeatedly.
 

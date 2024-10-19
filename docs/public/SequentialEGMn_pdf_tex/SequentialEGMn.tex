@@ -1,0 +1,1206 @@
+% Created with jtex v.1.0.18
+\documentclass{article}
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{datetime}       % show dates in the title block
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{doi}
+\usepackage{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%  imports  %%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%  theorem  %%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{observation}{Observation}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%  acronyms  %%%%%%%%%%%%%%%%%%%
+\newacronym{egm}{EGM}{Endogenous Grid Method}
+\newacronym{negm}{NEGM}{Nested Endogenous Grid Method}
+\newacronym{wgi}{WGI}{Warped Grid Interpolation}
+\newacronym{gpr}{GPR}{Gaussian Process Regression}
+\newacronym{gp}{GP}{Gaussian Process}
+\newacronym{g2egm}{G2EGM}{Generalized Endogenous Grid Method}
+\newacronym{dcegm}{DCEGM}{Discrete Choice Endogenous Grid Method}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\hypersetup{colorlinks = true,
+linkcolor = purple,
+urlcolor  = blue,
+citecolor = cyan,
+anchorcolor = black}
+
+\title{}
+
+\newdate{articleDate}{19}{10}{2024}
+\date{\displaydate{articleDate}}
+
+\makeatletter
+\let\@fnsymbol\@arabic
+\makeatother
+
+\author{\href{https://orcid.org/0000-0002-5289-7054}{\includegraphics[scale=0.06]{orcid.pdf}}\hspace{1mm}Alan Lujan\footnotemark[1]\\
+Johns Hopkins University AAP\\Econ-ARK\\}
+
+% Uncomment to override  the `A preprint' in the header
+\renewcommand{\headeright}{Economics}
+\renewcommand{\undertitle}{}
+\renewcommand{\shorttitle}{}
+
+%% Add PDF metadata to help others organize their library
+%% Once the PDF is generated, you can check the metadata with
+%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={\@title},
+pdfsubject={},
+pdfauthor={\@author},
+pdfkeywords={endogenous grid method,dynamic programming,machine learning},
+addtopdfcreator={Written in Curvenote}
+}
+
+\begin{document}
+\maketitle
+\footnotetext[1]{Correspondence to: alujan@jhu.edu}
+
+\begin{abstract}
+Heterogeneous agent models with multiple decisions are often solved using inefficient grid search methods that require many evaluations and are slow. This paper provides a novel method for solving such models using an extension of the Endogenous Grid Method (EGM) that uses Gaussian Process Regression (GPR) to interpolate functions on unstructured grids. First, I propose an intuitive and strategic procedure for decomposing a problem into subproblems which allows the use of efficient solution methods. Second, using an exogenous grid of post-decision states and solving for an endogenous grid of pre-decision states that obey a first-order condition greatly speeds up the solution process. Third, since the resulting endogenous grid can often be non-rectangular at best and unstructured at worst, GPR provides an efficient and accurate method for interpolating the value, marginal value, and decision functions. Applied sequentially to each decision within the problem, the method is able to solve heterogeneous agent models with multiple decisions in a fraction of the time and with less computational resources than are required by standard methods currently used. Software to reproduce these methods is available under the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} project for the \texttt{python} programming language.
+\end{abstract}
+
+\keywords{endogenous grid method, dynamic programming, machine learning}
+
+\section{Introduction}\label{introduction}
+
+
+\begin{quote}
+
+An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.
+
+ -- [](doi:10.1090/S0002-9904-1954-09848-8)
+
+\end{quote}
+\subsection{Background}
+
+% Introduce the topic by providing a brief overview of the issue and why it is important to study it.
+
+% Identify the research question: Clearly state the research question or problem being addressed in the current study.
+%  Provide context: Explain why the topic is important to study and what gap in the existing knowledge the current study aims to fill.
+%  Summarize the existing literature: Briefly describe what is currently known about the topic, including any relevant studies or theories that have been previously published.
+%  Highlight the limitations of previous research: Identify any limitations or gaps in the existing literature and explain how the current study will address these limitations.
+%  Provide a rationale for the study: Explain why the current study is needed and why it is a significant contribution to the existing knowledge on the topic.
+
+% Use only the first paragraph to state the question and describe its importance. Don't weave
+%  around, be overly broad, or use prior literature to motivate it (the question is not important
+%  because so many papers looked at this issue before!).
+
+Macroeconomic modeling aims to describe a complex world of agents interacting with each other and making decisions in a dynamic setting. The models are often very complex, require strong underlying assumptions, and use a lot of computational power to solve. One of the most common methods to solve these complex problems is using a grid search method to solve the model. The Endogenous Grid Method (\acrshort{egm}) developed by \citet{Carroll2006} allows dynamic optimization problems to be solved in a more computationally efficient and faster manner than the previous method of convex optimization using grid search. Many problems that before took hours to compute became much easier to solve and allowed macroeconomists and computational economists to focus on estimation and simulation. However, the Endogenous Grid Method is limited to a few specific classes of problems. Recently, the classes of problems to which \acrshort{egm} can be applied have been expanded\footnote{\citet{Barillas2007, Maliar2013, Fella2014, White2015, Iskhakov2017}, among others.}, but with every new method comes a new set of limitations. This paper introduces a new approach to \acrshort{egm} in a multivariate setting. The method is called Sequential \acrshort{egm} (or \acrshort{egm}\textsuperscript{n}) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems.
+
+\subsection{Literature Review}
+
+% Summarize the existing literature on the topic and highlight any gaps or limitations in the current research.
+
+% Then use the second paragraph for a summary of the most relevant literature
+%  (not a full Section!). Hint: use present tense, to be consistent. "Smith (1986) presents a similar model, ..."
+
+\citet{Carroll2006} first introduced the Endogenous Grid Method as a way to speed up the solution of dynamic stochastic consumption-savings problems. The method consists of starting with an exogenous grid of post-decision states and using the inverse of the first-order condition to find the optimal consumption policy that rationalizes such post-decision states. Given the optimal policy and post-decision states, it is straightforward to calculate the initial pre-decision state that leads to the optimal policy. Although this method is certainly innovative, it only applied to a model with one control variable and one state variable. \citet{Barillas2007} further extend this method by including more than one control variable in the form of a labor-leisure choice, as well as a second state variable for stochastic persistence.
+
+\citet{Hintermaier2010} introduce a model with collateral constraints and non-separable utility and solve using an \acrshort{egm} method that allows for occasionally binding constraints among endogenous variables. \citet{Jorgensen2013} evaluates the performance of the Endogenous Grid Method against other methods for solving dynamic stochastic optimization problems and finds it to be fast and efficient. \citet{Maliar2013} develop the Envelope Condition Method based on a similar idea as the Endogenous Grid Method, avoiding the need for costly numerical optimization and grid search. However, their model is limited to infinite horizon problems as it is a forward solution method.
+
+Further development into a multivariate Endogenous Grid Method expanded the ability of researchers to solve models efficiently. \citet{White2015} formally characterized the conditions for the Endogenous Grid Method and developed an interpolation method for structured non-rectilinear, or curvilinear, grids. \citet{Iskhakov2015} additionally establishes conditions for solving multivariate models with \acrshort{egm}, requiring the invertibility of a triangular system of first-order conditions. \citet{Ludwig2018} also develops a novel interpolating method using Delaunay triangulation of the resulting unstructured endogenous grid. However, the authors show that the gains from avoiding the grid search method are often offset by the costly construction of the triangulation.
+
+For the papers discussed above, continuity and smoothness of the value and first-order conditions are strict requirements. \citet{Fella2014} first introduced a method to solve non-convex problems using the Endogenous Grid Method. The idea is based on evaluating necessary but not sufficient candidates for the first-order condition in overlapping regions of the state space. \citet{Arellano2016} use the Envelope Condition Method to solve a sovereign default risk model with similar efficiency gains to \acrshort{egm}. \citet{Iskhakov2017} further advances the methodology by using extreme errors to solve discrete choice problems with Endogenous Grid Method. These methods however were only applied to a single control variable and a single state variable. \citet{Druedahl2017} introduces the $G2EGM$ to handle non-convex problems with more than 1 control variable and more than 1 state variable. This method is also capable of handling occasionally binding constraints which previous multivariate \acrshort{egm} methods were not.
+
+\citet{Clausen2020} formalize the applicability of the Endogenous Grid Method and its extensions to discrete choice models and discuss the nesting of problems to efficiently find accurate solutions. \citet{Druedahl2021} similarly suggest the nesting of problems to efficiently use the Endogenous Grid Method within problems with multiple control variables. However, while these nested methods reduce the complexity of solving these models, they often still require grid search methods as is the case with \citet{Druedahl2021}.
+
+% Finally, this paper contributes to the literature of solving dynamic optimization problems using machine learning tools. {cite:t}`Scheidegger2019` introduce the use of Gaussian Process Regression to compute global solutions for high-dimensional dynamic stochastic problems. {cite:t}`Maliar2021` use non-linear regression and neural networks to estimate systems of equations that characterize dynamic economic models.
+
+\subsection{Research Question}
+
+% Clearly state the research question or problem being addressed in the current study.
+
+% Next, while still on page one, the third paragraph must begin: "The purpose of this paper is ...",
+%  and summarize what you actually do. (Paragraphs 2 and 3 could be reversed.)
+
+The purpose of this paper is to describe a new method for solving dynamic optimization problems efficiently and accurately while avoiding convex optimization and grid search methods with the use of the Endogenous Grid Method and first-order conditions. The method is called Sequential \acrshort{egm} (or \acrshort{egm}\textsuperscript{n}) and introduces a novel way of breaking down complex problems into a sequence of simpler, smaller, and more tractable problems, along with an exploration of new multidimensional interpolation methods that can be used to solve these problems. This paper also illustrates an example of how Sequential \acrshort{egm} can be used to solve a dynamic optimization problem in a multivariate setting.
+
+\subsection{Methodology}
+
+% Briefly describe the research methodology used in the study, including any data sources, econometric techniques, or other methods used.
+
+The sequential Endogenous Grid Method consists of 3 major parts: First, the problem to be solved should be broken up into a sequence of smaller problems that themselves don't add any additional state variables or introduce asynchronous dynamics with respect to the uncertainty. If the problem is broken up in such a way that uncertainty can happen in more than one period, then the solution to this sequence of problems might be different from the aggregate problem due to giving the agent additional information about the future by realizing some uncertainty. Second, I evaluate each of the smaller problems to see if they can be solved using the Endogenous Grid Method. This evaluation is of greater scope than the traditional Endogenous Grid Method, as it allows for the resulting exogenous grid to be non-regular. If the subproblem can not be solved with \acrshort{egm}, then convex optimization is used. Third, if the exogenous grid generated by the \acrshort{egm} is non-regular, then I use a multidimensional interpolation method that takes advantage of machine learning tools to generate an interpolating function. Solving each subproblem in this way, the sequential Endogenous Grid Method is capable of solving complex problems that are not solvable with the traditional Endogenous Grid Method and are difficult and time-consuming to solve with convex optimization and grid search methods.
+
+\subsection{Contributions}
+
+% Discuss how the current study contributes to the existing literature and what new insights it provides.
+
+% That sets you up for the fourth paragraph, which lists "The contributions of
+%  this work" – relative to that prior literature. Clarify what you do that's different
+
+The Sequential Endogenous Grid Method is capable of solving multivariate dynamic optimization problems in an efficient and fast manner by avoiding grid search. This should allow researchers and practitioners to solve more complex problems that were previously not easily accessible to them, but more accurately capture the dynamics of the macroeconomy. By using advancements in machine learning techniques such as Gaussian Process Regression, the Sequential Endogenous Grid Method is capable of solving problems that were not previously able to be solved using the traditional Endogenous Grid Method. In particular, the Sequential Endogenous Grid Method is different from \acrshort{negm} in that it allows for using more than one Endogenous Grid Method step to solve a problem, avoiding costly grid search methods to the extent that the problem allows.
+
+Additionally, the Sequential Endogenous Grid Method often sheds light on the problem by breaking it down into a sequence of simpler problems that were not previously apparent. This is because intermediary steps in the solution process generate value and marginal value functions of different pre- and post-decision states that can be used to understand the problem better.
+
+% The fifth paragraph then summarizes your results. Tell the answer, so they know what to expect,
+%  and how to think about each step along the way, what's driving your results.
+
+\subsection{Outline}
+
+% Provide a brief overview of the results and conclusions that will be presented in the article.
+%  In the sixth and final paragraph, as an aid to the reader, plot the course for the rest of the paper.
+%  "The first Section below presents a theoretical model that can be used to generate specific
+%  hypotheses. Then [Section %s](#method) presents the econometric model, ..."
+
+Section~\ref{method} presents a basic model that illustrates the sequential Endogenous Grid Method in one dimension. Then Section~\ref{multdim} introduces a more complex method with two state variables to demonstrate the use of machine learning tools to generate an interpolating function. In Section~\ref{multinterp} I present the unstructured interpolation methods using machine learning in more detail. Section~\ref{conditions} discusses the theoretical requirements to use the Sequential Endogenous Grid Method. Finally, Section~\ref{conclusion} concludes with some limitations and future work.
+
+\section{The Sequential Endogenous Grid Method}\label{method}
+
+The Sequential Endogenous Grid Method (\acrshort{egm}\textsuperscript{n}) is a novel extension of the \acrshort{egm} to solve dynamic programming problems with multiple choice variables. The key insight is to break down the problem into a sequence of subproblems, each of which can be solved using a simple \acrshort{egm} step. To demonstrate the power of thinking sequentially, I first present a simple model with one choice variable that is traditionally solved using one \acrshort{egm} step.
+
+\subsection{The Standard Incomplete Markets (SIM) Model as a sequential problem}
+
+Consider the standard one-asset incomplete markets model by \cite{Krusell1998Income}, also known as the Bewley-Huggett-Aiyagari-Imrohoroglu-Zeldes-Deaton-Carroll model. The consumer's problem is to maximize the present discounted value of utility from consumption and savings, subject to uncertainty in labor productivity and an aggregate process of interest rates and wages. The Bellman equation is
+
+\begin{align}
+    V_t(e, k) = \max_{c, k'} & \left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta \mathbb{E}_t\left[V_{t+1}(e', k')|e \right] \right\}
+    \\
+    c + k'                   & = (1 + r_t)k + w_t e
+    \\
+    k'                       & \geq 0
+\end{align}
+
+We can think of this problem as a sequence of two blocks: one where the household makes a consumption-saving decision, and another where the household takes an expectation of the future conditional on their savings choice. Define the continuation value of any savings choice as
+
+\begin{align}
+W_t(e, k') = \mathbb{E}_t\left[V_{t+1}(e', k')|e \right].
+\end{align}
+
+Importantly, this block does not require any optimization, as it is just an expectation step. The household can then use the value of any savings decision to optimize their consumption choice. The problem is then reduced to the following:
+
+\begin{align}
+    V_t(e, k) = \max_{c, k'} & \left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta W_t(e, k') \right\}
+    \\ c + k' &= (1 + r_t)k + w_t e
+    \\ k' &\geq 0
+\end{align}
+
+Notice that this block has no uncertainty. This is a key advantage of thinking sequentially. By placing the expectation in a subsequent block, this block is now a simple optimization problem.
+
+We have now dissected this problem into two blocks, an optimization block and an expectation block, each of which is easier to handle than the whole. We now present the \acrshort{egm}. The first-order condition with respect to consumption is
+
+\begin{align}
+c(e, k') = (\beta W_t^k(e, k'))^{-1/\sigma}
+\end{align}
+
+\cite{SolvingMicroDSOPs} refer to this as the ``consumed function'', because it provides the amount a household must have ``consumed'' to optimally achieve a certain level of savings $k'$ given their current productivity state $e$. From this function, we can derive the endogenous grid of capital $k$ that the agent must have started with to consume $c(e, k')$ and save $k'$ using the resource constraint.
+
+\begin{align}
+k(e, k') = \frac{c(e, k') + k' - w_t e }{1+r_t}
+\end{align}
+
+These two equations now jointly define a parameterized curve\footnote{This comes from Fedor Iskhakov.} for the consumption function $c(e, k)$, which can be interpolated to find the optimal consumption for any level of savings and productivity. This is the \acrshort{egm} step.
+
+%  :::{raw} latex
+% \begin{algorithm}
+% \caption{The Endogenous Grid Method (EGM)}\label{alg:egm}
+% \begin{algorithmic}
+% \Require $V_{t+1}(e, k)$
+% \Ensure $y = x^n$
+% \State $y \gets 1$
+% \State $X \gets x$
+% \State $N \gets n$
+% \While{$N \neq 0$}
+% \If{$N$ is even}
+% \State $X \gets X \times X$
+% \State $N \gets \frac{N}{2}$  \\ Comment{This is a comment}
+% \ElsIf{$N$ is odd}
+% \State $y \gets y \times X$
+% \State $N \gets N - 1$
+% \EndIf
+% \EndWhile
+% \end{algorithmic}
+% \end{algorithm}
+% :::
+
+\subsection{The Heterogeneous Agent New Keynesian (HANK) Model}
+
+The baseline problem which I will use to demonstrate the Sequential Endogenous Grid Method (\acrshort{egm}\textsuperscript{n}) is the one-asset HANK model with endogenous labor from \cite{Auclert_2021}.
+
+In particular, this example makes use of an additively separable utility of consumption and disutility of labor as follows:
+
+The use of additively separable utility is important, as it will allow for the use of multiple \acrshort{egm} steps in the solution process, as we'll see later.
+
+This model represents a consumer who begins the period with a level of bank balances $\bRat_{t}$ and a given wage offer $\tShkEmp_{t}$. Simultaneously, they are able to choose consumption, labor intensity, and a risky portfolio share with the objective of maximizing their utility of consumption and leisure, as well as their future wealth.
+
+in which $\labor_{t}$ is the time supplied to labor net of leisure, $\mRat_{t}$ is the market resources totaling bank balances and labor income, $\aRat_{t}$ is the amount of saving assets held by the consumer, and $\riskyshare_{t}$ is the risky share of assets, which induce a $\Rport_{t+1}$ return on portfolio that results in next period's bank balances $\bRat_{t+1}$ normalized by next period's permanent income $\PGro_{t+1}$.
+
+\subsection{Restating the problem sequentially}
+
+Before we continue, it will be useful to introduce a new notation for timing. In dynamic programming, we often think of the period-$t$ problem. However, when thinking sequentially, it will be useful to think about breaking the period into sub-periods, which we'll call moments. When using \acrshort{egm}\textsuperscript{n}, we will index these moments as $(t, \tau)$ for the period-$t$ and moment-$\tau$ subproblem. We will also use lowercase letters to denote the moment-specific value functions, $v_{(t,\tau)}(\cdot)$, and the decision rules, $\pi_{(t,\tau)}(\cdot)$.
+
+We can make a few choices to create a sequential problem which will allow us to use multiple \acrshort{egm} steps in succession. First, the agent decides their labor-leisure trade-off and receives a wage. Their wage plus their previous bank balance then becomes their market resources. Second, given market resources, the agent makes a pure consumption-saving decision. Finally, given an amount of savings, the consumer then decides their risky portfolio share.
+
+Starting from the beginning of the period, we can define the labor-leisure problem as
+
+The pure consumption-saving problem is then
+
+Finally, the expectation block is
+
+Notice that we started with moment $(t,1)$. We want to think of moment $(t,0)$ as the moment where uncertainty is resolved. Therefore, the agent first learns $r_t$ and $w_t(e)$ in moment $(t,0)$ and then uses this information to solve the consumption-savings problem in moment $(t,1)$.
+
+This sequential approach is explicitly modeled after the nested approaches explored in \citet{Clausen2020} and \citet{Druedahl2021}. However, I will offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
+
+\subsection{The labor-leisure subproblem}
+
+The labor-leisure subproblem can be restated more compactly as:
+
+\begin{equation}
+\vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
+    \h(\leisure_{t}) + \vOpt_{t}(\bRat_{t} +
+    \tShkEmp_{t}(1-\leisure_{t}))
+\end{equation}
+
+The first-order condition with respect to leisure implies the labor-leisure Euler equation
+
+\begin{equation}
+\h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
+\end{equation}
+
+The marginal utility of leisure and its inverse are
+
+\begin{equation}
+\h'(\leisure) = \labShare\leisure^{-\leiShare} \qquad
+    \h'^{-1}(\xRat) = (\xRat/\labShare)^{-1/\leiShare}
+\end{equation}
+
+Using an exogenous grid of $\mMat$ and $\tShkMat$, we can find leisure as
+
+\begin{equation}
+\zEndFunc_{t}(\mMat, \tShkMat) = \h'^{-1}\left(
+    \vOpt_{t}'(\mMat) \tShkMat \right)
+\end{equation}
+
+In this case, it's important to note that there are conditions for leisure itself. An agent with a small level of market resources $\mRat_{t}$ might want to work more than their available time endowment, especially at higher levels of income $\tShkEmp_{t}$, if the utility of leisure is not enough to compensate for their low wealth. In these situations, the optimal unconstrained leisure might be negative, so we must impose a constraint on the optimal leisure function. This is similar to the treatment of an artificial borrowing constraint in the pure consumption subproblem. From now on, let's call this constrained optimal function $\hat{\zEndFunc}_{t}(\mMat, \tShkMat)$, where
+
+\begin{equation}
+\hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc_{t}(\mMat, \tShkMat), 1 \right], 0 \right]
+\end{equation}
+
+Then, we derive labor as $\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = 1 - \hat{\zEndFunc}_{t}(\mRat_{t}, \tShkEmp_{t})$. Finally, for each $\tShkEmp_{t}$ and $\mRat_{t}$ as an exogenous grid, we can find the endogenous grid of bank balances as $\bEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = \mRat_{t} - \tShkEmp_{t}\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t})$.
+
+The envelope condition then provides a heterogeneous Frisch elasticity of labor as simply
+
+\begin{equation}
+\vFunc_{t}^{b}(\bRat_{t}, \tShkEmp_{t}) = \vOpt_{t}'(\mRat_{t}) =
+    \h'(\leisure_{t})/\tShkEmp_{t}.
+\end{equation}
+
+\begin{equation}
+v_{(t,0)}(e, a_{-}) = \max_{n} \left\{ - \varphi \frac{n^{1+\nu}}{1+\nu} + v_{(t,1)}(e,(1 + r_t)a_{-} + w_t(e) n ) \right\}
+\end{equation}
+
+\begin{equation}
+\varphi n^{\nu} = v_{(t,1)}^m(e,m) w_t(e) \tag{euler}
+\end{equation}
+
+\begin{equation}
+n(e_\times,m_\times) = \left(\frac{ w_t(e_\times)}{\varphi}v_{(t,1)}^m(e_\times,m_\times)\right)^{\frac{1}{\nu}} \tag{egm}
+\end{equation}
+
+\begin{equation}
+a_{-}(e_\times, m_\times) = \frac{m_\times - w_t(e_\times) n(e_\times,m_\times) }{1+r_t} \tag{budget}
+\end{equation}
+
+\begin{equation}
+a_{-}(e_\times,m_\times) \Rightarrow m(e_\times, a_{-\cap}) \qquad n(e_\times,m_\times) \Rightarrow n(e_\times, a_{-\cap}) \tag{swap dims}
+\end{equation}
+
+\begin{equation}
+n(e_\times, a_{-\cap}) \Rightarrow n(e_\times, a_{-\times}) \qquad m(e_\times, a_{-\cap}) \Rightarrow m(e_\times, a_{-\times}) \tag{regrid}
+\end{equation}
+
+\begin{equation}
+v_{(t,0)}^{a_{-}}(e,a_{-}) = (1 + r_t) \left(\frac{\varphi n^{\nu}}{w_t(e)}\right) \tag{ec}
+\end{equation}
+
+\subsection{The consumption-saving subproblem}
+
+The consumption-saving \acrshort{egm} follows \citet{Carroll2006} but I will cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
+
+\begin{equation}
+\vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
+    \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t})
+\end{equation}
+
+To solve, we derive the first-order condition with respect to $\cRat_{t}$ which gives the familiar Euler equation:
+
+\begin{equation}
+\utilFunc'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
+    \vEnd_{t}'(\aRat_{t})
+\end{equation}
+
+Inverting the above equation is the (first) \acrshort{egm} step.
+
+\begin{equation}
+\cEndFunc_{t}(\aRat_{t}) = \utilFunc'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
+    \right)
+\end{equation}
+
+Given the utility function above, the marginal utility of consumption and its inverse are
+
+\begin{equation}
+\utilFunc'(\cRat) = \cRat^{-\CRRA} \qquad \utilFunc'^{-1}(\xRat) =
+    \xRat^{-1/\CRRA}.
+\end{equation}
+
+\citet{Carroll2006} demonstrates that by using an exogenous grid of $\aMat$ points we can find the unique $\cEndFunc_{t}(\aMat)$ that optimizes the consumption-saving problem, since the first-order condition is necessary and sufficient. Further, using the market resources constraint, we can recover the exact amount of market resources that is consistent with this consumption-saving decision as
+
+\begin{equation}
+\mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
+\end{equation}
+
+This $\mEndFunc_{t}(\aMat)$ is the ``endogenous'' grid that is consistent with the exogenous decision grid $\aMat$. Now that we have a $(\mEndFunc_{t}(\aMat), \cEndFunc_{t}(\aMat))$ pair for each $\aRat \in \aMat$, we can construct an interpolating consumption function for market resources points that are off-the-grid.
+
+The envelope condition will be useful in the next section, but for completeness is defined here.
+
+\begin{equation}
+\vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \utilFunc'(\cRat_{t})
+\end{equation}
+
+\begin{equation}
+v_{(t,1)}(e, m) = \max_{c} \left\{\frac{c^{1-\sigma}}{1-\sigma}  + \beta v_{(t,2)}(e,m - c) \right\}
+\end{equation}
+
+\begin{equation}
+c^{-\sigma} = \beta v_{(t,2)}^a(e,a) \tag{euler}
+\end{equation}
+
+\begin{equation}
+c(e_\times,a_\times) = \left(\beta v_{(t,2)}^a(e_\times,a_\times)\right)^{-\frac{1}{\sigma}} \tag{egm}
+\end{equation}
+
+\begin{equation}
+m(e_\times,a_\times) = c(e_\times,a_\times) + a_\times \tag{budget}
+\end{equation}
+
+\begin{equation}
+m(e_\times,a_\times), c(e_\times, a_\times) \Rightarrow a(e_\times, m_\cap), c(e_\times,m_\cap) \tag{swap dims}
+\end{equation}
+
+\begin{equation}
+c(e_\times,m_\cap) \Rightarrow c(e_\times, m_\times) \qquad a(e_\times, m_\cap) \Rightarrow a(e_\times, m_\times) \tag{regrid}
+\end{equation}
+
+\begin{equation}
+v_{(t,1)}^m(e,m) = c^{-\sigma} \tag{ec}
+\end{equation}
+
+e$\times$ogenous e$\cap$dogenous
+
+\section{The \acrshort{egm}\textsuperscript{n} in Higher Dimensions}\label{multdim}
+
+The problem in Section~\ref{method} demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only one state variable and one post-decision state variable per stage. Can \acrshort{egm}\textsuperscript{n} be used to solve higher dimensional problems? In short, yes, but it requires additional thought on interpolation.
+
+\subsection{The two-asset HANK model}
+
+For a demonstration, we now turn to the problem of a worker saving up for retirement. This worker must consume, save, and deposit resources into a tax-advantaged account that can not be liquidated until retirement. In the recursive problem, the worker begins a new period with a liquid account of market resources $\mRat_{t}$ and an illiquid account of retirement savings $\nRat_{t}$. The worker maximizes their utility by choosing consumption $\cRat_{t}$ and pension deposit $\dRat_{t}$. The pension deposit is set aside on a retirement account that is exposed to a risky return, while their post-consumption liquid assets accrue risk-free interest every period. The worker additionally receives an income that faces a permanent ($\PGro_{t+1}$) and a transitory ($\tShkEmp_{t+1}$) shock every period. At the age of 65, the worker is retired and their assets are liquidated, at which point the state reduces to one liquid account of market resources. The worker's recursive problem is:
+
+\begin{align} \tag{1}
+    V_t(e, b, a) = \max_{c, b', a'} & \left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta \mathbb{E}_t V_{t+1}(e', b', a') \right\}
+    \\
+    c + a' + b'                     & = z_t(e) + (1 + r_t^a)a + (1 + r_t^b) - \Psi(a', a)
+    \\
+    a'                              & \geq \underline{a}, \quad b' \geq \underline{b},
+\end{align}
+
+where
+
+\begin{equation}
+\Psi(a', a) = \left(\frac{\chi_1}{2}\right)  \frac{(a' - (1+r_t^a)a)^2}{(1+r_t^a)a + \chi_0}
+\end{equation}
+
+This problem can subsequently be broken down into 3 stages: a pension deposit stage, a consumption stage, and an income shock stage.
+
+\subsection{Breaking down the problem}
+
+In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$ by choosing a pension deposit $\dRat_{t}$, which must be positive. The retirement balance $\bRat$ is the cash value of their retirement account plus their pension deposit and an additional amount $g(\dRat_{t})$ that provides an incentive to save for retirement. As we'll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem.
+
+\begin{align} \tag{1}
+    v_{(t,0)}(e, b, a) & = \max_{a'} v_{(t,1)}(e, \ell, a')
+    \\
+    m                  & = z_t(e) + (1 + r_t^a)a + (1 + r_t^b)b
+    \\
+    \ell               & = m - a' - \Psi(a', a)
+    \\
+    a'                 & \geq \underline{a}
+\end{align}
+
+After making their pension decision, the worker begins their consumption stage with liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$. From their liquid wealth, the worker must choose a level of consumption to maximize utility and continuation value $\wFunc_{t}$. After consumption, the worker is left with post-decision states that represent liquid assets $\aRat_{t}$ and retirement balance $\bRat_{t}$, which passes through this problem unaffected because it can't be liquidated until retirement.
+
+\begin{align} \tag{1}
+    v_{(t,1)}(e, \ell, a') & = \max_{c} \left\{\frac{c^{1-\sigma}}{1-\sigma} + \beta v_{(t,2)}(e,b',a') \right\}
+    \\
+    b'                     & = \ell - c
+    \\
+    b'                     & \geq \underline{b}
+\end{align}
+
+Finally, the post-decision value function $\wFunc_{t}$ represents the value of both liquid and illiquid account balances before the realization of uncertainty regarding the risky return and income shocks. Since we are dealing with a normalized problem, this stage handles the normalization of state variables and value functions into the next period.
+
+\begin{equation}
+v_{(t,2)}(e, b', a') = \mathbb{E}_t V_{t+1}(e', b', a')
+\end{equation}
+
+The advantage of conceptualizing this subproblem as a separate stage is that we can construct a function $\wFunc_{t}$ and use it in the prior optimization problems without having to worry about stochastic optimization and taking expectations repeatedly.
+
+\subsection{The consumption-saving problem}
+
+As seen in the consumption stage above, the retirement balance $\bRat_{t}$ passes through the problem unaffected because it can't be liquidated until retirement. In this sense, it is already a post-decision state variable. To solve this problem, we can use a fixed grid of $\bRat_{t}$ and for each obtain endogenous consumption and ex-ante market resources using the simple Endogenous Grid Method for the consumption problem.
+
+\subsection{The pension deposit problem}
+
+In the deposit stage, both the state variables and post-decision variables are different since both are affected by the pension deposit decision.
+
+First, we can rewrite the pension deposit problem more compactly:
+
+\begin{equation}
+\vFunc_{t}(\mRat_{t}, \nRat_{t}) = \max_{\dRat_{t}}
+    \vOpt_{t}(\mRat_{t} - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
+\end{equation}
+
+The first-order condition is
+
+\begin{equation}
+\vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
+    \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0.
+\end{equation}
+
+Rearranging this equation gives
+
+\begin{equation}
+\gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
+\end{equation}
+
+where
+
+\begin{equation}
+\gFunc'(\dRat) =
+    \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
+\end{equation}
+
+Given that $\gFunc'(\dRat)$ exists and is invertible, we can find
+
+\begin{equation}
+\dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
+    \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
+        \bRat_{t})} - 1 \right)
+\end{equation}
+
+Using this, we can back out $\nRat_{t}$ as
+
+\begin{equation}
+\nEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \bRat_{t} -
+    \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) - \gFunc(\dEndFunc_{t}(\lRat_{t},
+        \bRat_{t}))
+\end{equation}
+
+and $\mRat_{t}$ as
+
+\begin{equation}
+\mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
+    \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
+\end{equation}
+
+In sum, given an exogenous grid $(\lRat_{t}, \bRat_{t})$ we obtain the triple $\left(\mEndFunc_{t}(\lRat_{t}, \bRat_{t}), \nEndFunc_{t}(\lRat_{t}, \bRat_{t}), \dEndFunc_{t}(\lRat_{t}, \bRat_{t})\right)$, which we can use to create an interpolator for the decision rule $\dRat_{t}$.
+
+To close the solution method, the envelope conditions are
+
+\begin{equation}
+\begin{split}
+        \vFunc_{t}^{\mRat}(\mRat_{t}, \nRat_{t}) & =
+        \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) \\
+        \vFunc_{t}^{\nRat}(\mRat_{t}, \nRat_{t}) & =
+        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})
+    \end{split}
+\end{equation}
+
+\subsection{Unstructured Grid Interpolation}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/SparsePensionExogeno-77d13769f67fb49f8ad1360b2c6e063f.pdf}
+\caption[]{A regular, rectilinear exogenous grid of pension balances after deposit $\bRat_{t}$ and liquid assets after consumption $\lRat_{t}$.}
+\label{fig:exog}
+\end{figure}
+
+As in Section~\ref{method}, the resulting endogenous grid is not rectilinear, and in this more complex problem it is not even a regular grid. We can see in  Figure~\ref{fig:exog} that starting from a regular and rectilinear exogenous grid of liquid assets post-consumption $\lRat_{t}$ and pension balances post-deposit $\bRat_{t}$, we obtain Figure~\ref{fig:endog} which shows an irregular and unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances pre-deposit $\nRat_{t}$.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/PensionEndogenousGri-5ac955d146c119517859f410e8c37ef6.pdf}
+\caption[]{An irregular, unstructured endogenous grid of market resources $\mRat_{t}$ and pension balances before deposit $\nRat_{t}$.}
+\label{fig:endog}
+\end{figure}
+
+To interpolate a function defined on an unstructured grid, we use Gaussian Process Regression as in \citet{Scheidegger2019}.
+
+\section{Multivariate Interpolation on Unstructured Grids}\label{multinterp}
+
+\subsection{Curvilinear Grids}
+
+Although \acrshort{egm}\textsuperscript{n} seems to be a simple approach, there is one important caveat that we have not discussed, which is the details of the interpolation. In the pure consumption-savings problem, a one-dimensional exogenous grid of post-decision liquid assets $\aMat$ results in a one-dimensional endogenous grid of total market resources $\mMat$. However, as we know from standard \acrshort{egm}, the spacing in the $\mMat$ grid is different from the spacing in the $\aMat$ grid as the inverted Euler equation is non-linear. This is no problem in a one-dimensional problem as we can simply use non-uniform linear interpolation.
+
+However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, I introduce a novel approach to interpolation that I call Warped Grid Interpolation (\acrshort{wgi}), which is similar to \citet{White2015}'s approach but computationally more efficient and robust. The details of this interpolation method will be further explained in Section~\ref{multinterp}, but for now, we show the resulting warped endogenous grid for the labor-leisure problem.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/LaborSeparableWarped-ee17957b44f7db26890ec34a3176527d.pdf}
+\caption[]{Warped Curvlinear Grid that results from multivariate \acrshort{egm}. This grid can be interpolated by \acrshort{wgi}.}
+\label{fig:LaborSeparableWarpedGrid}
+\end{figure}
+
+\subsection{Warped Grid Interpolation (\acrshort{wgi})}
+
+Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for which we have corresponding functional values in a third dimension, such that $f(x_{ij},y_{ij}) = z_{ij}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and $f(x_{ij},y_{ij})$ is unknown, so we are unable to compute them at other values of $x$ and $y$ --- which is why we want to interpolate\footnote{For this illustration, we generate $z$'s arbitrarily using the function \$$f(x,y) = (xy)^{1/4}.$\$}. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/WarpedInterpolation-cc8847ada1a6681fb5683f7c00185ea4.pdf}
+\caption[]{True function and curvilinear grid of points for which we know the value of the function.}
+\label{fig:warped_interp}
+\end{figure}
+
+In Figure~\ref{fig:warped_interp}, we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
+
+In Figure~\ref{fig:homotopy} we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/Homotopy-c486ccae2d8c26d26e99f9bd6dcd8a70.pdf}
+\caption[]{Homotopy between the curvilinear grid and the index coordinates of the matrix.}
+\label{fig:homotopy}
+\end{figure}
+
+The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured Figure~\ref{fig:mapping}. If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in Figure~\ref{fig:mapping}, we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate\footnote{For more examples of the Warped Grid Interpolation method in action, see the github project \href{https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb}{\texttt{alanlujan91/multinterp}}.}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/Mapping-5060b76836fbab4ad024c4601f429092.pdf}
+\caption[]{The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.}
+\label{fig:mapping}
+\end{figure}
+
+\begin{verbatim}
+\$$
+$$
+\begin{equation}
+\utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1 -\CRRA} \frac{\cRat_{t}^{1 -\CRRA}}{1 -\CRRA} + (\labShare\PLev_{t})
+^{1 -\CRRA} \frac{\leisure_{t}^{1 -\leiShare}}{1 -\leiShare}
+\end{equation}
+$$
+$\$
+\end{verbatim}
+
+This section presents alternative interpolation methods for non-rectilinear grids. First, I present the relatively simple case of fast warped interpolation on a curvilinear grid, which improves upon the interpolation in \citet{White2015}. Then, I present a machine learning approach to interpolation on unstructured grids based on Gaussian Process Regression as presented in \citet{Scheidegger2019}.
+
+\subsection{Unstructured Grids}
+
+Unstructured interpolation arises in many dynamic programming applications when using the Endogenous Grid Method because the first-order conditions might be highly non-linear and non-monotonic, or because boundary constraints induce kinks in the policy and value functions. In these cases, the grid points generated by the \acrshort{egm} step are not evenly spaced, leading to the need for curvilinear interpolation. We saw in the previous subsection an approach to curvilinear interpolation based on \citet{White2015} that is incapable of interpolation on structured grids. A similar approach was presented in \citet{Ludwig2018} which used Delaunay interpolation. However, this approach is not well suited for our purposes because triangulation can be computationally intensive and slow, often offsetting the efficiency gains from the Endogenous Grid Method.
+
+As an alternative to these methods, I introduce the use of Gaussian Process Regression (\acrshort{gpr}) along with the Endogenous Grid Method. \acrshort{gpr} is computationally efficient, and tools exist to easily parallelize and take advantage of hardware such as Graphics Processing Units (\acrshort{gp}U)\footnote{\citet{Gardner2018}}.
+
+% note: spell out GPU maybe or explain it in some way?
+
+\subsubsection{Gaussian Process Regression}
+
+A Gaussian Process is an infinite dimensional random process for which every subset of random variables is jointly Gaussian or has a multivariate normal distribution.
+
+\begin{equation}
+\begin{gathered}
+        \mathbf{X} \sim \mathcal{N}(\mathbf{\mu}, \mathbf{\Sigma}) \quad \text{s.t.} \quad x_i \sim \mathcal{N}(\mu_i, \sigma_
+        {ii}) \\
+        \text{and} \quad \sigma_{ij} = \Ex[(x_i - \mu_i)(x_j - \mu_j)] \quad \forall i,j \in \{1, \ldots, n\}.
+    \end{gathered}
+\end{equation}
+
+where
+
+\begin{equation}
+\mathbf{X} = \begin{bmatrix}
+        x_1    \\
+        x_2    \\
+        \vdots \\
+        x_n
+    \end{bmatrix}
+    \quad
+    \mathbf{\mu} = \begin{bmatrix}
+        \mu_1  \\
+        \mu_2  \\
+        \vdots \\
+        \mu_n
+    \end{bmatrix}
+    \quad
+    \mathbf{\Sigma} = \begin{bmatrix}
+        \sigma_{11} & \sigma_{12} & \cdots & \sigma_{1n} \\
+        \sigma_{21} & \sigma_{22} & \cdots & \sigma_{2n} \\
+        \vdots      & \vdots      & \ddots & \vdots      \\
+        \sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn}
+    \end{bmatrix}.
+\end{equation}
+
+Being infinitely dimensional, a Gaussian Process can be used to represent a probability distribution over the space of functions in $n$ dimensions. Thus, a Gaussian Process Regression is used to find the best fit function to a set of data points.
+
+\begin{equation}
+\mathbb{P}(\mathbf{f} | \mathbf{X}) = \mathcal{N}(\mathbf{f} | \mathbf{m}, \mathbf{K})
+\end{equation}
+
+where $\mathbf{f}$ is the vector of function values at the points $\mathbf{X}$, $\mathbf{m}$ is the mean of the function, and $\mathbf{K}$ is a kernel function that describes the covariance between the function values at different points.
+
+A standard kernel function is the squared exponential kernel, or the radial basis function kernel, which is defined as
+
+\begin{equation}
+k(\mathbf{x}_i, \mathbf{x}_j) = \sigma^2_f \exp\left(-\frac{1}{2l^2} (\mathbf{x}_i - \mathbf{x}_j)' (\mathbf{x}_i -
+    \mathbf{x}_j)\right).
+\end{equation}
+
+Using \acrshort{gpr} to interpolate a function $f$, we can both predict the value of the function at a point $\mathbf{x}_*$ and the uncertainty in the prediction, which provides useful information as to the accuracy of the approximation.
+
+\subsubsection{An example of the \acrshort{gpr}}
+
+In Figure~\ref{fig:true_function}, we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/GPR_True_Function-6a9222b358f68613a1c7eb63bc7f24c7.pdf}
+\caption[]{The true function that we are trying to approximate and a sample of data points.}
+\label{fig:true_function}
+\end{figure}
+
+As we discussed, a Gaussian Process is an infinite dimensional random process which can be used to represent a probability of distributions over the space of functions. In Figure~\ref{fig:gpr_sample}, we see a random sample of functions from the \acrshort{gpr} posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the \acrshort{gp} generates functions that fit the data well, and the goal of \acrshort{gpr} is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/GPR_Posterior_Sample-9b6facaca677fa20ce5b7ec3f577525a.pdf}
+\caption[]{A random sample of functions from the \acrshort{gpr} posterior that fit the data. The goal of \acrshort{gpr} is to find the function that best fits the data.}
+\label{fig:gpr_sample}
+\end{figure}
+
+In Figure~\ref{fig:gpr}, we see the result of \acrshort{gpr} with a particular parametrization\footnote{For details see notebook.} of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. \acrshort{gpr} provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, \acrshort{gpr} provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{files/GaussianProcessRegre-04804d5d0e20c02302d1bfd03c2945ad.pdf}
+\caption[]{\acrshort{gpr} finds the function that best fits the data given some hyperparameters. \acrshort{gpr} then optimizes over the parameter space to find the function that minimizes the negative log-likelihood of the data.}
+\label{fig:gpr}
+\end{figure}
+
+\section{Conditions for using the Sequential Endogenous Grid Method}\label{conditions}
+
+\subsection{Splitting the problem into subproblems}
+
+The first step in using the Sequential Endogenous Grid Method is to split the problem into subproblems. This process of splitting up the problem has to be strategic to not insert additional complexity into the original problem. If one is not careful when doing this, the subproblems can become more complex and intractable than the original problem.
+
+To split up the problem, we first count the number of control variables or decisions faced by the agent. Ideally, if the agent has $n$ control variables, then the problem should be split into $n$ subproblems, each handling a different control variable. For counting the number of control variables, it is important to not double count variables which are equivalent and have market clearing conditions. For example, the decision of how much to consume and how much to save may seem like two different choices, but because of the market clearing condition $\cRat + \aRat = \mRat$ they are resolved simultaneously and count as only one decision variable. Similarly, the choice between labor and leisure are simultaneous and count as only one decision.
+
+Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in Section~\ref{method} of the paper, or differentiable and invertible functions in the transition, as in Section~\ref{multdim} of the paper.
+
+% note: Capitalize Section for all instances # DONE
+
+\subsubsection{Separable utility functions}
+
+In Section~\ref{method}, we have additively separable utility of consumption and leisure, which allows for each of these control variables to be handled by separate subproblems. So, it makes sense to split the utility between subproblems and attach one to the consumption subproblem and one to the leisure subproblem.
+
+As mentioned in that section, however, there are only two separable utility functions in the problem which have been assigned to two subproblems already. This leaves one control variable without a separable utility function. In that case, there is not another Endogenous Grid Method step to exploit, and this subproblem has to be handled by standard convex optimization techniques such as maximization of the value function (VFI) or finding the root of the Euler equation (PFI).
+
+Now that we have split the problem into conceptual subproblems, it is important to sequence them in such a way that they don't become more complex than the original problem. The key here is to avoid adding unnecessary state variables. For example, in the consumption-leisure-portfolio problem, if we were to choose consumption first, we would have to track the wage rate into the following leisure subproblem. This would mean that our consumption problem would be two-dimensional as well as our labor decision problem. As presented, the choice of order in Section~\ref{method} ensures that the consumption problem is one-dimensional, as we can shed the information about the wage rate offer after the agent has made their labor-leisure decision. If we did this the other way, the problem would be more complex and require additional computational resources.
+
+The consumption subproblem would be two-dimensional instead of one-dimensional, adding more complexity,
+
+while the labor-leisure subproblem would have an additional constraint
+
+Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce computational the burden.
+
+Consider the utility function of the form
+
+where $\yRat^{i}$ is the $i$-th control variable and $\yRat^{ -i}$ is the vector of all control variables except the $i$-th one.
+
+which is separable in the state and control variables that correspond to the index $i$.
+
+For simplicity, define
+
+then
+
+the first order condition
+
+we require $\frac{\partial \TFunc_{t}^j(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0$ for $j \neq i$ to be able to solve for $\yRat_t^i$.
+
+\subsubsection{Differentiable and invertible transition}
+
+In Section~\ref{multdim}, we see that a problem with a differentiable and invertible transition can also be used to embed an additional Endogenous Grid Method step. Because the transition applies independently to a state variable that is not related to the other control variable, consumption, it can be handled separately from the consumption subproblem.
+
+% note to check the tense of the entire text
+
+In this particular problem, however, it turns out to make no difference how we order the two subproblems. This is because the control variables, consumption and pension deposit, each affect a separate resource account, namely market resources and pension balance. Because of this, the two subproblems are independent of each other and can be solved in any order.
+
+A good rule of thumb is that when splitting up a problem into subproblems, we should try to reduce the information set that is passed onto the next subproblem. In Section~\ref{method}, choosing leisure-labor and realizing total market resources before consumption allows us to shed the wage rate offer state variable before the consumption problem, and we know that for the portfolio choice we only need to know liquid assets after expenditures (consumption). Thus, the order makes intuitive sense; agent first chooses leisure-labor, realizing total market resources, then chooses consumption and savings, and finally chooses their risky portfolio choice. In Section~\ref{multdim}, there are two expenditures that are independent of each other, consumption and deposit, and making one decision or the other first does not reduce the information set for the agent, thus the order of these subproblems does not matter.
+
+\subsection{The Endogenous Grid Method for Subproblems}
+
+Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As we discussed in Sections Section~\ref{method} and Section~\ref{multdim}, the \acrshort{egm} step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
+
+\subsubsection{Utility function}
+
+A generic subproblem with a differentiable and invertible utility function can be characterized as follows:
+
+For an interior solution, the first-order condition is thus
+
+If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
+
+By using an exogenous grid of the post-decision state $\aRat$, we can solve for the optimal decision rule $\yRat$ at each point on the grid. This is the Endogenous Grid Method step.
+
+\subsubsection{Transition}
+
+If the generic subproblem has no separable utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
+
+Here, the first-order condition is
+
+and the Endogenous Grid Method step is
+
+\subsection{Extending the Triangular Dynamic Optimization Theorem}
+
+In this section, we extend the Triangular Dynamic Optimization Theorem from \cite{Iskhakov2015} to allow for a more general class of multidimensional dynamic optimization problems.
+
+Consider a dynamic stochastic optimization problem with $m$ endogenous and continuous state variables $x_t = (x^1_t, x^2_t, \ldots, x^m_t)'$ and $n$ exogenous (and potentially discrete) state variables\footnote{The exogenous state vector can be composed of both discrete and continuous state variables, which will not affect the following analysis. Alternatively, we can think of this exogenous state vector as being aggregate shocks to the agent's environment.} $\varepsilon_t = (\varepsilon^1_t, \varepsilon^2_t, \ldots, \varepsilon^n_t)'$ which follow a Markov process $\varepsilon_{t+1} \lvert \varepsilon_t \sim F$. The agent solves this problem by choosing $m$ continuous action variables $a_t = (a^1_t, a^2_t, \ldots, a^m_t)'$ simultaneously. Let $y_t = (y^1_t, y^2_t, \ldots, y^m_t)'$ be the vector of post-decision state variables, such that:
+
+\begin{equation}
+y_t = g(x_t, a_t, \varepsilon_t).
+\end{equation}
+
+This implies that our post-decision state vector is a \textit{sufficient statistic} of the current period's state and action, conditional on the exogenous state vector, which means that it contains all the information necessary to determine the next period's state. This can be seen in the following expression
+
+\begin{equation}
+x_{t+1} = f(y_t, \xi_{t+1})
+\end{equation}
+
+where $\xi_{t+1}$ is a vector of exogenous, independent, and idiosyncratic shocks to the agent's problem. We will call $g(\cdot)$ the \textit{transition function} and $f(\cdot)$ the \textit{next-period state function}.
+
+The objective of the agent is to maximize the present discounted utility of its actions $u(a, \varepsilon)$ as follows:
+
+\begin{equation}
+v_0(x_0, \varepsilon_0) = \max_{a_t} \sum_{t=0}^T \beta^t u(a_t, \varepsilon_t).
+\end{equation}
+
+Finally, we can define the recursive dynamic programming problem as:
+
+\begin{align}
+v_t(x_t, \varepsilon_t) & = \max_{a_t \in \Gamma_t(x_t, \varepsilon_t)} \left\{ u(a_t, \varepsilon_t) + \beta \mathbb{E}_t \left[ v_{t+1}(x_{t+1}, \varepsilon_{t+1}) \lvert  x_t, a_t, \varepsilon_t \right] \right\} \\
+    y_t & = g(x_t,  a_t, \varepsilon_t) \\
+    x_{t+1} & = f(y_t, \xi_{t+1})
+\end{align}
+
+where $\Gamma_t(\cdot)$ is the set of feasible actions at time $t$.
+
+\subsubsection{The Continuation Value Function}
+
+The first set of assumptions we make will allow us to reduce the problem to a non-stochastic one.
+
+This assumption allows us to factor the expectation out of the recursive problem since $\mathbb{E}_t[\cdot \lvert x_t, a_t, \varepsilon_t] = \mathbb{E}_t[\cdot \lvert y_t, \varepsilon_t]$. Then, we can define the following function
+
+\begin{align}
+w(y_t, \varepsilon_t) & = \mathbb{E}_t \left[ v_{t+1}(x_{t+1}, \varepsilon_{t+1}) \lvert y_t, \varepsilon_t \right] \\
+x_{t+1} & = f(y_t, \xi_{t+1})
+\end{align}
+
+and substitute it into the original problem to obtain the following problem
+
+\begin{align}
+v_t(x_t, \varepsilon_t) & = \max_{a_t \in \Gamma_t(x_t, \varepsilon_t)} \left\{ u(a_t, \varepsilon_t) + \beta w(y_t, \varepsilon_t) \right\} \\
+    y_t & = g(x_t, a_t, \varepsilon_t)
+\end{align}
+
+This is now a non-stochastic problem, which simplifies our analysis considerably. We will refer to $w(\cdot)$ as the \textit{continuation value function}, which is the value function evaluated before the realization of any uncertainty. Our problem is now reduced to maximizing the trade-off between the utility of the action $a_t$ and the discounted continuation value given the consequences of said action.
+
+This assumption allows the existence of a continous derivative of $w(\cdot)$ with respect to $y_t$, which is necessary for the existence of the first-order condition.
+
+\begin{equation}
+\nabla w(y_t, \varepsilon_t) = \mathbb{E}_t \left[ \nabla v_{t+1}(f(y_t, \xi_{t+1}), \varepsilon_{t+1}) \lvert y_t, \varepsilon_t \right]
+\end{equation}
+
+\subsubsection{Standard Assumptions for \acrshort{egm}}
+
+As in the standard \acrshort{egm}, we require the utility function to be strictly concave and differentiable. This guarantees that the first-order condition is both necessary and sufficient for a maximum. In the examples presented in this paper, we used additively separable utility functions, which satisfy these conditions.
+
+This condition allows us to work backwards from the post-decision state $y_t$ and the action $a_t$ to obtain the pre-decision state $x_t$ that optimally corresponds to them.
+
+As \cite{Iskhakov2015} shows, more assumptions are needed for the multidimensional case.
+
+\subsubsection{Triangular Assumptions}
+
+\subsubsection{Triangular Dynamic Optimization}
+
+\begin{theorem}[Triangular Dynamic Optimization]Under assumptions 1-5, the dynamic optimization problem is triangular and admits a solution method which avoids all root-finding operations.
+
+\end{theorem}\begin{proof}\begin{equation}
+u'_j(a_t) = \beta \frac{\partial w(y_t, \varepsilon_t)}{\partial y^j_t} \frac{\partial g^j(x_t, a_t, \varepsilon_t)}{\partial a^j_t}
+\end{equation}
+
+\end{proof}\subsubsection{Sequential Dyamic Optimization}
+
+\begin{theorem}[Sequential Dynamic Optimization]Under assumptions 1-5, the dynamic optimization problem is triangular and can be solved sequentially.
+
+\end{theorem}\section{Conclusion}\label{conclusion}
+
+% Summarize the method: Begin your conclusion by summarizing the new computational method you developed or proposed. Provide a brief overview of the key features of the method and how it differs from existing methods.
+
+This paper introduces a novel method for solving dynamic stochastic optimization problems called the Sequential Endogenous Grid Method (\acrshort{egm}\textsuperscript{n}). Given a problem with multiple decisions (or control variables), the Sequential Endogenous Grid Method proposes separating the problem into a sequence of smaller subproblems that can be solved sequentially by using more than one \acrshort{egm} step. Then, depending on the resulting endogenous grid from each subproblem, this paper proposes different methods for interpolating functions on non-rectilinear grids, called the Warped Grid Interpolation (\acrshort{wgi}) and the Gaussian Process Regression (\acrshort{gpr}) method.
+
+\acrshort{egm}\textsuperscript{n} is similar to the Nested Endogenous Grid Method (\acrshort{negm})\footnote{\citet{Druedahl2021}.} and the Generalized Endogenous Grid Method (\acrshort{g2egm})\footnote{\citet{Druedahl2017}.} in that it can solve problems with multiple decisions, but it differs from these methods in that by choosing the subproblems strategically, we can take advantage of multiple sequential \acrshort{egm} steps to solve complex multidimensional models in a fast and efficient manner. Additionally, the use of machine learning tools such as the \acrshort{gpr} overcomes bottlenecks seen in unstructured interpolation using Delauany triangulation and other similar methods.
+
+% Evaluate the method: Evaluate the strengths and limitations of the new computational method you developed or proposed. Discuss how the method compares to existing methods in terms of accuracy, efficiency, and ease of use.
+
+% Demonstrate the method: If possible, provide an example of how the new computational method can be used to solve a problem or answer a research question. This will help the reader understand the practical implications of the method.
+
+% Highlight potential applications: Discuss potential applications of the new computational method. This will help demonstrate the broader impact of the method beyond the specific problem or research question addressed in your paper.
+
+% Discuss future directions: Provide suggestions for future research based on the new computational method you developed or proposed. This can include improvements to the method, potential extensions to other areas of research, or new applications of the method.
+
+% Conclude with final thoughts: End your conclusion with some final thoughts that tie together the main points of your paper. This will help leave a lasting impression on the reader.
+
+\section{Appendix: Solving the illustrative \acrshort{g2egm} model with \acrshort{egm}\textsuperscript{n}}\label{appendix}
+
+\subsection{The problem for a retired household}
+
+I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at time $t$ with total resources $\mRat$. The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of $\underline{\tShkEmp}$.
+
+\begin{align} \tag{1}
+    V_t(e, b, a) = \max_{c, n, b', a'} & \left\{\frac{c^{1-\sigma}}{1-\sigma} - \varphi \frac{n^{1+\nu}}{1+\nu} + \beta \mathbb{E}_t V_{t+1}(e', b', a') \right\}
+    \\
+    c + a' + b'                        & = z_t(e) + (1 + r_t^a)a + (1 + r_t^b) - \Psi(a', a)
+    \\
+    a'                                 & \geq \underline{a}, \quad b' \geq \underline{b},
+\end{align}
+
+Notice that there is no uncertainty and the household receives a retirement income $\underline{\tShkEmp}$ every period until death.
+
+\subsection{The problem for a worker household}
+
+The value function of a worker household is
+
+\begin{equation}
+\VFunc_{t}(\mRat_{t}, \nRat_{t}) = \Ex_\error \max \left\{
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) + \sigma_{\error}
+    \error_{\Work} ,
+    \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) + \sigma_{\error}
+    \error_{\Retire} \right\}
+\end{equation}
+
+where the choice specific problem for a working household that decides to continue working is
+
+\begin{equation}
+\begin{split}
+        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
+            \dRat_{t}} \util(\cRat_{t}) - \kapShare + \DiscFac
+        \Ex_{t} \left[
+            \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1})
+            \right] \\
+        & \text{s.t.} \\
+        \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
+        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+    \end{split}
+\end{equation}
+
+and the choice specific problem for a working household that decides to retire is
+
+\begin{equation}
+\vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) =
+    \wFunc_{t}(\mRat_{t}+\nRat_{t})
+\end{equation}
+
+\subsection{Applying the Sequential \acrshort{egm}}
+
+The first step is to define a post-decision value function. Once the household decides their level of consumption and pension deposits, they are left with liquid assets they are saving for the future and illiquid assets in their pension account which they can't access again until retirement. The post-decision value function can be defined as
+
+\begin{equation}
+\begin{split}
+        \vEnd_{t}(\aRat_{t}, \bRat_{t}) & = \DiscFac
+        \Ex_{t} \left[ \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
+        & \text{s.t.} \\
+        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+    \end{split}
+\end{equation}
+
+Then redefine the working agent's problem as
+
+\begin{equation}
+\begin{split}
+        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\cRat_{t},
+            \dRat_{t}} \util(\cRat_{t})  - \kapShare + \vEnd_{t}(\aRat_{t},
+        \bRat_{t}) \\
+        \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
+    \end{split}
+\end{equation}
+
+Clearly, the structure of the problem remains the same, and this is the problem that \acrshort{g2egm} solves. We've only moved some of the stochastic mechanics out of the problem. Now, we can apply the sequential \acrshort{egm}\textsuperscript{n} method. Let the agent first decide $\dRat_{t}$, the deposit amount into their retirement; we will call this the deposit problem, or outer loop. Thereafter, the agent will have net liquid assets of $\lRat_{t}$ and pension assets of $\bRat_{t}$.
+
+\begin{equation}
+\begin{split}
+        \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) & = \max_{\dRat_{t}}
+        \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
+        & \text{s.t.} \\
+        \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t})
+    \end{split}
+\end{equation}
+
+Now, the agent can move on to picking their consumption and savings; we can call this the pure consumption problem or inner loop.
+
+\begin{equation}
+\begin{split}
+        \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}}
+        \util(\cRat_{t}) - \kapShare + \vEnd_{t}(\aRat_{t}, \bRat_{t}) \\
+        & \text{s.t.} \\
+        \aRat_{t} & = \lRat_{t} - \cRat_{t} \\
+    \end{split}
+\end{equation}
+
+Because we've already made the pension decision, the amount of pension assets does not change in this loop and it just passes through to the post-decision value function.
+
+\subsection{Solving the problem}
+
+\subsubsection{Solving the Inner Consumption Saving Problem}
+
+Let's start with the pure consumption-saving problem, which we can summarize by substitution as
+
+\begin{equation}
+\vOpt_{t}(\lRat_{t}, \bRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) - \kapShare +
+    \vEnd_{t}(\lRat_{t} - \cRat_{t}, \bRat_{t})
+\end{equation}
+
+The first-order condition is
+
+\begin{equation}
+\util'(\cRat_{t}) = \vEnd_{t}^{\aRat}(\lRat_{t}-\cRat_{t}, \bRat_{t}) =
+    \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})
+\end{equation}
+
+We can invert this Euler equation as in standard \acrshort{egm} to obtain the consumption function.
+
+\begin{equation}
+\cEndFunc_{t}(\aRat_{t}, \bRat_{t}) =
+    \util'^{-1}\left(\vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})\right)
+\end{equation}
+
+Again as before, $\lEndFunc_{t}(\aRat_{t}, \bRat_{t}) =
+\cEndFunc_{t}(\aRat_{t}, \bRat_{t}) + \aRat_{t}$. To sum up, using an exogenous grid of $(\aRat_{t}, \bRat_{t})$ we obtain the trio $(\cEndFunc_{t}(\aRat_{t},
+\bRat_{t}), \lEndFunc_{t}(\aRat_{t},
+\bRat_{t}), \bRat_{t})$ which provides an interpolating function for our optimal consumption decision rule over the
+$(\lRat, \bRat)$ grid. Without loss of generality, assume $\lEndFunc_{t} =
+\lEndFunc_{t}(\aRat_{t}, \bRat_{t})$ and define the interpolating function as
+
+\begin{equation}
+\cTarg_{t}(\lEndFunc_{t}, \bRat_{t}) \equiv \cEndFunc_{t}(\aRat_{t},
+    \bRat_{t})
+\end{equation}
+
+For completeness, we derive the envelope conditions as well, and as we will see, these will be useful when solving the next section.
+
+\begin{equation}
+\begin{split}
+        \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) & =
+        \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}) = \util'(\cRat_{t}) \\
+        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t}) & =
+        \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t})
+    \end{split}
+\end{equation}
+
+\subsubsection{Solving the Outer Pension Deposit Problem}
+
+Now, we can move on to solving the deposit problem, which we can also summarize as
+
+\begin{equation}
+\vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) = \max_{\dRat_{t}}
+    \vOpt_{t}(\mRat_{t}
+    - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
+\end{equation}
+
+The first-order condition is
+
+\begin{equation}
+\vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
+    \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0
+\end{equation}
+
+Rearranging this equation gives
+
+\begin{equation}
+\gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
+\end{equation}
+
+Assuming that $\gFunc'(\dRat)$ exists and is invertible, we can find
+
+\begin{equation}
+\dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
+    \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
+        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
+        \bRat_{t})} - 1 \right)
+\end{equation}
+
+Using this, we can back out $\nRat_{t}$ as
+
+\begin{equation}
+\nEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \bRat_{t} -
+    \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) - \gFunc(\dEndFunc_{t}(\lRat_{t},
+        \bRat_{t}))
+\end{equation}
+
+and $\mRat_{t}$ as
+
+\begin{equation}
+\mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
+    \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
+\end{equation}
+
+In sum, given an exogenous grid $(\lRat_{t}, \bRat_{t})$ we obtain the triple
+$\left(\mEndFunc_{t}(\lRat_{t}, \bRat_{t}), \nEndFunc_{t}(\lRat_{t},
+\bRat_{t}), \dEndFunc_{t}(\lRat_{t}, \bRat_{t})\right)$, which we can use to create an interpolator for the decision rule $\dRat_{t}$.
+
+To close the solution method, the envelope conditions are
+
+\begin{equation}
+\begin{split}
+        \vFunc_{t}^{\mRat}(\mRat_{t}, \nRat_{t}, \Work) & =
+        \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) \\
+        \vFunc_{t}^{\nRat}(\mRat_{t}, \nRat_{t}, \Work) & =
+        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})
+    \end{split}
+\end{equation}
+
+\subsection{Is g invertible?}
+
+We've already seen that $\util'(\cdot)$ is invertible, but is $\gFunc$?
+
+\begin{equation}
+\gFunc(\dRat) = \xFer \log(1+\dRat) \qquad \gFunc'(\dRat) =
+    \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
+\end{equation}
+
+\subsection{The Post-Decision Value and Marginal Value Functions}
+
+\begin{equation}
+\begin{split}
+        \vEnd_{t}(\aRat, \bRat) & = \DiscFac \Ex_{t} \left[
+            \VFunc(\mRat_{t+1}, \nRat_{t+1}) \right] \\
+        & \text{s.t.} \\
+        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+    \end{split}
+\end{equation}
+
+and
+
+\begin{equation}
+\begin{split}
+        \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}) & = \DiscFac
+        \Rfree_{\aRat} \Ex_{t} \left[ \VFunc^{\mRat}_{t+1}(\mRat_{t+1},
+            \nRat_{t+1})
+            \right] \\
+        & \text{s.t.} \\
+        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+    \end{split}
+\end{equation}
+
+and
+
+\begin{equation}
+\begin{split}
+        \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t}) & = \DiscFac
+        \Rfree_{\bRat} \Ex_{t} \left[ \VFunc^{\nRat}_{t+1}(\mRat_{t+1},
+            \nRat_{t+1})
+            \right] \\
+        & \text{s.t.} \\
+        \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} + \tShkEmp_{t+1} \\
+        \nRat_{t+1} & = \Rfree_{\bRat} \bRat_{t}
+    \end{split}
+\end{equation}
+
+\subsection{Taste Shocks}
+
+From discrete choice theory and from \acrshort{dcegm} paper, we know that
+
+\begin{equation}
+\Ex_{t} \left[
+        \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}, \error_{t+1}) \right] =
+    \sigma \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
+        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
+            \Decision)}{\sigma_\error} \right)  \right]
+\end{equation}
+
+and
+
+\begin{equation}
+\Prob_{t}(\Decision ~ \lvert ~ \mRat_{t+1}, \nRat_{t+1}) = \frac{\exp
+        \left(
+        \vFunc_{t + 1}(\mRat_{t+1}, \nRat_{t+1}, \Decision) /
+        \sigma_\error
+        \right)
+    }{ \sum\limits_{\Decision \in \{\Work, \Retire\}} \exp \left(
+        \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
+            \Decision)}{\sigma_\error} \right)}
+\end{equation}
+
+the first-order conditions are therefore
+
+\begin{equation}
+\vOptAlt_{t}^{\mRat}(\mRat_{t+1}, \nRat_{t+1}) = \sum_{\Decision \in
+        \{\Work, \Retire\}} \Prob_{t}(\Decision ~
+    \lvert ~
+    \mRat_{t+1}, \nRat_{t+1}) \vFunc_{t+1}^{\mRat}(\mRat_{t+1},
+    \nRat_{t+1},
+    \Decision)
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%  acronyms & glossary  %%%%%%%%%%%%%
+\printglossaries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{Acknowledgments}
+I would like to thank Chris Carroll, Matthew White, and Fedor Iskhakov for their helpful comments and suggestions. The remaining errors are my own. All figures and other numerical results were produced using the \href{https://econ-ark.org/}{\texttt{Econ-ARK/HARK}} toolkit \citep{Carroll2018}. Additional libraries used in the production of this paper include but are not limited to: \href{https://www.scipy.org/}{\texttt{scipy}} \citep{Virtanen2020}, \href{https://www.numpy.org/}{\texttt{numpy}} \citep{Harris2020}, \href{https://numba.pydata.org/}{\texttt{numba}} \citep{Lam2015}, \href{https://cupy.dev/}{\texttt{cupy}} \citep{Okuta2017}, \href{https://scikit-learn.org/}{\texttt{scikit-learn}} \citep{Pedregosa2011}, \href{https://pytorch.org/}{\texttt{pytorch}} \citep{Paszke2019}, and \href{https://gpytorch.ai/}{\texttt{gpytorch}} \citep{Gardner2018}
+
+
+\bibliographystyle{unsrtnat}
+\bibliography{main.bib}
+
+\end{document}
