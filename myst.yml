@@ -1,9 +1,10 @@
-version: 1
+version: 2
 site:
   template: article-theme
   options:
     logo: content/public/econ-ark-logo.png
     logo_text: Econ-ARK
+    favicon: public/econ-ark-logo-small.png
   title: Alan Lujan - EGMⁿ
   subtitle: The Sequential Endogenous Grid Method
   short_title: EGMⁿ
@@ -40,7 +41,6 @@ site:
       static: true
   domains:
     - alanlujan91.curve.space
-  favicon: public/econ-ark-logo-small.png
 project:
   title: "EGMⁿ: The Sequential Endogenous Grid Method"
   short_title: EGMⁿ
@@ -494,7 +494,6 @@ project:
     '\sLvl': '\mathbf{s}'
     '\TLvl': '\mathbf{T}'
     '\ULvl': '\mathbf{U}'
-    '\VLvl': '\mathbf{V}'
     '\vLvl': '\mathbf{v}'
     '\WLvl': '\mathbf{W}'
     '\XLvl': '\mathbf{X}'
