@@ -1,3 +1,7 @@
+---
+title: "EGM$^n$: The Sequential Endogenous Grid Method"
+---
+
 :::{include} 1_intro.md
 :::
 
