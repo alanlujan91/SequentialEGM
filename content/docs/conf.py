@@ -15,6 +15,8 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx_autodoc_typehints",
     "sphinx_copybutton",
+    "myst_nb",
+    "sphinx.ext.viewcode",
 ]
 
 source_suffix = [".rst", ".md"]
@@ -31,6 +33,14 @@ html_theme = "furo"
 
 myst_enable_extensions = [
     "colon_fence",
+    "deflist",
+    "dollarmath",
+    "amsmath",
+    "html_admonition",
+    "html_image",
+    "linkify",
+    "substitution",
+    "tasklist",
 ]
 
 intersphinx_mapping = {
