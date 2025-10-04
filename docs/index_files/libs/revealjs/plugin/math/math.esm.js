@@ -156,7 +156,7 @@ H.f = q
           return X(t, e, n);
         } catch (t) {}
       if ("get" in n || "set" in n) throw TypeError("Accessors not supported");
-      return "value" in n && (t[e] = n.value), t;
+      return ("value" in n && (t[e] = n.value), t);
     };
 var Y = H,
   B = s,
@@ -165,7 +165,7 @@ var Y = H,
         return Y.f(t, e, B(1, n));
       }
     : function (t, e, n) {
-        return (t[e] = n), t;
+        return ((t[e] = n), t);
       },
   Z = { exports: {} },
   tt = n,
@@ -232,29 +232,29 @@ if (Et || _t.state) {
     It = At.get,
     Rt = At.has,
     Ct = At.set;
-  (ht = function (t, e) {
+  ((ht = function (t, e) {
     if (Rt.call(At, t)) throw new TypeError("Object already initialized");
-    return (e.facade = t), Ct.call(At, t, e), e;
+    return ((e.facade = t), Ct.call(At, t, e), e);
   }),
     (vt = function (t) {
       return It.call(At, t) || {};
     }),
     (dt = function (t) {
       return Rt.call(At, t);
-    });
+    }));
 } else {
   var Nt = kt("state");
-  (Lt[Nt] = !0),
+  ((Lt[Nt] = !0),
     (ht = function (t, e) {
       if (Pt(t, Nt)) throw new TypeError("Object already initialized");
-      return (e.facade = t), Tt(t, Nt, e), e;
+      return ((e.facade = t), Tt(t, Nt, e), e);
     }),
     (vt = function (t) {
       return Pt(t, Nt) ? t[Nt] : {};
     }),
     (dt = function (t) {
       return Pt(t, Nt);
-    });
+    }));
 }
 var Ft = {
     set: ht,
@@ -285,14 +285,14 @@ var Ft = {
     i = !!r && !!r.unsafe,
     a = !!r && !!r.enumerable,
     c = !!r && !!r.noTargetGet;
-  "function" == typeof n &&
+  ("function" == typeof n &&
     ("string" != typeof e || $t(n, "name") || Dt(n, "name", e),
     (o = Wt(n)).source || (o.source = qt.join("string" == typeof e ? e : ""))),
     t !== Jt
       ? (i ? !c && t[e] && (a = !0) : delete t[e], a ? (t[e] = n) : Dt(t, e, n))
       : a
         ? (t[e] = n)
-        : Gt(e, n);
+        : Gt(e, n));
 })(Function.prototype, "toString", function () {
   return ("function" == typeof this && zt(this).source) || Ht(this);
 });
@@ -429,7 +429,7 @@ var we = Yt,
           if (typeof i == typeof o) continue;
           Ge(i, o);
         }
-        (t.sham || (o && o.sham)) && Je(i, "sham", !0), De(n, r, i, t);
+        ((t.sham || (o && o.sham)) && Je(i, "sham", !0), De(n, r, i, t));
       }
   },
   We = de,
@@ -495,7 +495,7 @@ var we = Yt,
               s > l;
 
             )
-              (c = f[l++]), (Ke && !a.call(u, c)) || (n[c] = u[c]);
+              ((c = f[l++]), (Ke && !a.call(u, c)) || (n[c] = u[c]));
           return n;
         }
       : tn;
@@ -503,11 +503,11 @@ function rn(t, e) {
   var n = Object.keys(t);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(t);
-    e &&
+    (e &&
       (r = r.filter(function (e) {
         return Object.getOwnPropertyDescriptor(t, e).enumerable;
       })),
-      n.push.apply(n, r);
+      n.push.apply(n, r));
   }
   return n;
 }
@@ -575,15 +575,15 @@ function fn(t, e) {
         o = {},
         i = Object.keys(t);
       for (r = 0; r < i.length; r++)
-        (n = i[r]), e.indexOf(n) >= 0 || (o[n] = t[n]);
+        ((n = i[r]), e.indexOf(n) >= 0 || (o[n] = t[n]));
       return o;
     })(t, e);
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(t);
     for (r = 0; r < i.length; r++)
-      (n = i[r]),
+      ((n = i[r]),
         e.indexOf(n) >= 0 ||
-          (Object.prototype.propertyIsEnumerable.call(t, n) && (o[n] = t[n]));
+          (Object.prototype.propertyIsEnumerable.call(t, n) && (o[n] = t[n])));
   }
   return o;
 }
@@ -642,10 +642,10 @@ function ln(t, e) {
     },
     n: function () {
       var t = n.next();
-      return (a = t.done), t;
+      return ((a = t.done), t);
     },
     e: function (t) {
-      (c = !0), (i = t);
+      ((c = !0), (i = t));
     },
     f: function () {
       try {
@@ -776,7 +776,7 @@ ze(
               )
             : e.resolve(l).then(
                 function (t) {
-                  (f.value = t), a(f);
+                  ((f.value = t), a(f));
                 },
                 function (t) {
                   return n("throw", t, a, c);
@@ -804,16 +804,16 @@ ze(
             ((n.method = "return"), (n.arg = e), S(t, n), "throw" === n.method)
           )
             return d;
-          (n.method = "throw"),
+          ((n.method = "throw"),
             (n.arg = new TypeError(
               "The iterator does not provide a 'throw' method",
-            ));
+            )));
         }
         return d;
       }
       var o = s(r, t.iterator, n.arg);
       if ("throw" === o.type)
-        return (n.method = "throw"), (n.arg = o.arg), (n.delegate = null), d;
+        return ((n.method = "throw"), (n.arg = o.arg), (n.delegate = null), d);
       var i = o.arg;
       return i
         ? i.done
@@ -830,18 +830,18 @@ ze(
     }
     function T(t) {
       var e = { tryLoc: t[0] };
-      1 in t && (e.catchLoc = t[1]),
+      (1 in t && (e.catchLoc = t[1]),
         2 in t && ((e.finallyLoc = t[2]), (e.afterLoc = t[3])),
-        this.tryEntries.push(e);
+        this.tryEntries.push(e));
     }
     function P(t) {
       var e = t.completion || {};
-      (e.type = "normal"), delete e.arg, (t.completion = e);
+      ((e.type = "normal"), delete e.arg, (t.completion = e));
     }
     function _(t) {
-      (this.tryEntries = [{ tryLoc: "root" }]),
+      ((this.tryEntries = [{ tryLoc: "root" }]),
         t.forEach(T, this),
-        this.reset(!0);
+        this.reset(!0));
     }
     function k(t) {
       if (t) {
@@ -852,8 +852,8 @@ ze(
           var o = -1,
             a = function n() {
               for (; ++o < t.length; )
-                if (r.call(t, o)) return (n.value = t[o]), (n.done = !1), n;
-              return (n.value = e), (n.done = !0), n;
+                if (r.call(t, o)) return ((n.value = t[o]), (n.done = !1), n);
+              return ((n.value = e), (n.done = !0), n);
             };
           return (a.next = a);
         }
@@ -915,9 +915,9 @@ ze(
           function n() {
             for (; e.length; ) {
               var r = e.pop();
-              if (r in t) return (n.value = r), (n.done = !1), n;
+              if (r in t) return ((n.value = r), (n.done = !1), n);
             }
-            return (n.done = !0), n;
+            return ((n.done = !0), n);
           }
         );
       }),
@@ -1023,7 +1023,7 @@ ze(
           for (var e = this.tryEntries.length - 1; e >= 0; --e) {
             var n = this.tryEntries[e];
             if (n.finallyLoc === t)
-              return this.complete(n.completion, n.afterLoc), P(n), d;
+              return (this.complete(n.completion, n.afterLoc), P(n), d);
           }
         },
         catch: function (t) {
@@ -1156,14 +1156,14 @@ var Un = n.Promise,
             e = !1,
             n = {};
           try {
-            (t = Object.getOwnPropertyDescriptor(
+            ((t = Object.getOwnPropertyDescriptor(
               Object.prototype,
               "__proto__",
             ).set).call(n, []),
-              (e = n instanceof Array);
+              (e = n instanceof Array));
           } catch (t) {}
           return function (n, r) {
-            return Xn(n), Yn(r), e ? t.call(n, r) : (n.__proto__ = r), n;
+            return (Xn(n), Yn(r), e ? t.call(n, r) : (n.__proto__ = r), n);
           };
         })()
       : void 0),
@@ -1226,7 +1226,7 @@ var Un = n.Promise,
     if (void 0 !== e) return dr(e.call(t)).value;
   },
   xr = function (t, e) {
-    (this.stopped = t), (this.result = e);
+    ((this.stopped = t), (this.result = e));
   },
   Or = In("iterator"),
   Er = !1;
@@ -1240,12 +1240,12 @@ try {
         Er = !0;
       },
     };
-  (Tr[Or] = function () {
+  ((Tr[Or] = function () {
     return this;
   }),
     Array.from(Tr, function () {
       throw 2;
-    });
+    }));
 } catch (t) {}
 var Pr,
   _r,
@@ -1274,7 +1274,7 @@ var Pr,
   Br = function (t) {
     if (Yr.hasOwnProperty(t)) {
       var e = Yr[t];
-      delete Yr[t], e();
+      (delete Yr[t], e());
     }
   },
   Vr = function (t) {
@@ -1326,7 +1326,7 @@ var Pr,
                 ? function (t) {
                     Dr.appendChild($r("script")).onreadystatechange =
                       function () {
-                        Dr.removeChild(this), Br(t);
+                        (Dr.removeChild(this), Br(t));
                       };
                   }
                 : function (t) {
@@ -1358,14 +1358,14 @@ Oo ||
   ((eo = function () {
     var t, e;
     for (go && (t = wo.domain) && t.exit(); no; ) {
-      (e = no.fn), (no = no.next);
+      ((e = no.fn), (no = no.next));
       try {
         e();
       } catch (t) {
         throw (no ? oo() : (ro = void 0), t);
       }
     }
-    (ro = void 0), t && t.enter();
+    ((ro = void 0), t && t.enter());
   }),
   vo || go || yo || !mo || !bo
     ? jo && jo.resolve
@@ -1391,19 +1391,19 @@ var Eo =
     Oo ||
     function (t) {
       var e = { fn: t, next: void 0 };
-      ro && (ro.next = e), no || ((no = e), oo()), (ro = e);
+      (ro && (ro.next = e), no || ((no = e), oo()), (ro = e));
     },
   So = {},
   To = ir,
   Po = function (t) {
     var e, n;
-    (this.promise = new t(function (t, r) {
+    ((this.promise = new t(function (t, r) {
       if (void 0 !== e || void 0 !== n)
         throw TypeError("Bad Promise constructor");
-      (e = t), (n = r);
+      ((e = t), (n = r));
     })),
       (this.resolve = To(e)),
-      (this.reject = To(n));
+      (this.reject = To(n)));
   };
 So.f = function (t) {
   return new Po(t);
@@ -1467,7 +1467,7 @@ var _o,
       h = !(!n || !n.INTERRUPTED),
       v = br(e, s, 1 + l + h),
       d = function (t) {
-        return r && jr(r), new xr(!0, t);
+        return (r && jr(r), new xr(!0, t));
       },
       y = function (t) {
         return l
@@ -1502,14 +1502,14 @@ var _o,
     var n = !1;
     try {
       var r = {};
-      (r[Or] = function () {
+      ((r[Or] = function () {
         return {
           next: function () {
             return { done: (n = !0) };
           },
         };
       }),
-        t(r);
+        t(r));
     } catch (t) {}
     return n;
   },
@@ -1523,7 +1523,7 @@ var _o,
   ei = function (t, e) {
     if ((Ao(t), Io(e) && e.constructor === t)) return e;
     var n = Ro.f(t);
-    return (0, n.resolve)(e), n.promise;
+    return ((0, n.resolve)(e), n.promise);
   },
   ni = function (t, e) {
     var n = Co.console;
@@ -1612,16 +1612,16 @@ var _o,
                     : l(a))
               : p(r);
           } catch (t) {
-            h && !u && h.exit(), p(t);
+            (h && !u && h.exit(), p(t));
           }
         }
-        (t.reactions = []), (t.notified = !1), e && !t.rejection && Mi(t);
+        ((t.reactions = []), (t.notified = !1), e && !t.rejection && Mi(t));
       });
     }
   },
   Li = function (t, e, n) {
     var r, o;
-    Oi
+    (Oi
       ? (((r = bi.createEvent("Event")).promise = e),
         (r.reason = n),
         r.initEvent(t, !1, !0),
@@ -1629,7 +1629,7 @@ var _o,
       : (r = { promise: e, reason: n }),
       !Ei && (o = Jo["on" + t])
         ? o(r)
-        : "unhandledrejection" === t && ni("Unhandled promise rejection", n);
+        : "unhandledrejection" === t && ni("Unhandled promise rejection", n));
   },
   Mi = function (t) {
     Zo.call(Jo, function () {
@@ -1669,7 +1669,7 @@ var _o,
   },
   Ni = function (t, e, n) {
     if (!t.done) {
-      (t.done = !0), n && (t = n);
+      ((t.done = !0), n && (t = n));
       try {
         if (t.facade === e) throw mi("Promise can't be resolved itself");
         var r = _i(e);
@@ -1691,7 +1691,7 @@ var _o,
 if (
   Ti &&
   ((gi = (yi = function (t) {
-    Qo(this, yi, li), Ko(t), _o.call(this);
+    (Qo(this, yi, li), Ko(t), _o.call(this));
     var e = pi(this);
     try {
       t(Ri(Ni, e), Ri(Ci, e));
@@ -1731,7 +1731,7 @@ if (
   (ko = function () {
     var t = new _o(),
       e = pi(t);
-    (this.promise = t), (this.resolve = Ri(Ni, e)), (this.reject = Ri(Ci, e));
+    ((this.promise = t), (this.resolve = Ri(Ni, e)), (this.reject = Ri(Ci, e)));
   }),
   (ri.f = ji =
     function (t) {
@@ -1739,7 +1739,7 @@ if (
     }),
   "function" == typeof $o && di !== Object.prototype)
 ) {
-  (Mo = di.then),
+  ((Mo = di.then),
     Si ||
       (Go(
         di,
@@ -1752,13 +1752,13 @@ if (
         },
         { unsafe: !0 },
       ),
-      Go(di, "catch", gi.catch, { unsafe: !0 }));
+      Go(di, "catch", gi.catch, { unsafe: !0 })));
   try {
     delete di.constructor;
   } catch (t) {}
   zo && zo(di, gi);
 }
-Fo({ global: !0, wrap: !0, forced: Ti }, { Promise: yi }),
+(Fo({ global: !0, wrap: !0, forced: Ti }, { Promise: yi }),
   Wo(yi, li, !1),
   qo(li),
   (Lo = Do(li)),
@@ -1767,7 +1767,7 @@ Fo({ global: !0, wrap: !0, forced: Ti }, { Promise: yi }),
     {
       reject: function (t) {
         var e = ji(this);
-        return e.reject.call(void 0, t), e.promise;
+        return (e.reject.call(void 0, t), e.promise);
       },
     },
   ),
@@ -1792,18 +1792,18 @@ Fo({ global: !0, wrap: !0, forced: Ti }, { Promise: yi }),
               i = [],
               a = 0,
               c = 1;
-            Yo(t, function (t) {
+            (Yo(t, function (t) {
               var u = a++,
                 f = !1;
-              i.push(void 0),
+              (i.push(void 0),
                 c++,
                 n.call(e, t).then(function (t) {
                   f || ((f = !0), (i[u] = t), --c || r(i));
-                }, o);
+                }, o));
             }),
-              --c || r(i);
+              --c || r(i));
           });
-        return i.error && o(i.value), n.promise;
+        return (i.error && o(i.value), n.promise);
       },
       race: function (t) {
         var e = this,
@@ -1815,10 +1815,10 @@ Fo({ global: !0, wrap: !0, forced: Ti }, { Promise: yi }),
               o.call(e, t).then(n.resolve, r);
             });
           });
-        return o.error && r(o.value), n.promise;
+        return (o.error && r(o.value), n.promise);
       },
     },
-  );
+  ));
 var Fi,
   Ji = H,
   Di = W,
@@ -1849,9 +1849,9 @@ var Fi,
     var t, e;
     Bi = Fi
       ? (function (t) {
-          t.write(Yi("")), t.close();
+          (t.write(Yi("")), t.close());
           var e = t.parentWindow.Object;
-          return (t = null), e;
+          return ((t = null), e);
         })(Fi)
       : (((e = Ki("iframe")).style.display = "none"),
         Ui.appendChild(e),
@@ -1886,7 +1886,7 @@ var na = se.includes,
   ra = function (t) {
     ea[ta][t] = !0;
   };
-ze(
+(ze(
   { target: "Array", proto: !0 },
   {
     includes: function (t) {
@@ -1894,7 +1894,7 @@ ze(
     },
   },
 ),
-  ra("includes");
+  ra("includes"));
 var oa = w,
   ia = p,
   aa = In("match"),
@@ -1918,7 +1918,7 @@ ze(
         "/./"[t](e);
       } catch (n) {
         try {
-          return (e[ua] = !1), "/./"[t](e);
+          return ((e[ua] = !1), "/./"[t](e));
         } catch (t) {}
       }
       return !1;
@@ -1955,29 +1955,29 @@ var la = function () {
             (o.mathjax || "https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js") +
             "?config=" +
             (o.config || "TeX-AMS_HTML-full");
-        (o.tex2jax = on(on({}, e.tex2jax), r.tex2jax)),
+        ((o.tex2jax = on(on({}, e.tex2jax), r.tex2jax)),
           (o.mathjax = o.config = null),
           (function (t, e) {
             var n = this,
               r = document.querySelector("head"),
               o = document.createElement("script");
-            (o.type = "text/javascript"), (o.src = t);
+            ((o.type = "text/javascript"), (o.src = t));
             var i = function () {
               "function" == typeof e && (e.call(), (e = null));
             };
-            (o.onload = i),
+            ((o.onload = i),
               (o.onreadystatechange = function () {
                 "loaded" === n.readyState && i();
               }),
-              r.appendChild(o);
+              r.appendChild(o));
           })(i, function () {
-            MathJax.Hub.Config(o),
+            (MathJax.Hub.Config(o),
               MathJax.Hub.Queue(["Typeset", MathJax.Hub, t.getRevealElement()]),
               MathJax.Hub.Queue(t.layout),
               t.on("slidechanged", function (t) {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub, t.currentSlide]);
-              });
-          });
+              }));
+          }));
       },
     };
   },
@@ -1998,11 +1998,11 @@ var la = function () {
         n = function (t) {
           return new Promise(function (e, n) {
             var r = document.createElement("script");
-            (r.type = "text/javascript"),
+            ((r.type = "text/javascript"),
               (r.onload = e),
               (r.onerror = n),
               (r.src = t),
-              document.head.append(r);
+              document.head.append(r));
           });
         };
       function r() {
@@ -2014,13 +2014,13 @@ var la = function () {
                 for (;;)
                   switch ((t.prev = t.next)) {
                     case 0:
-                      (r = ln(e)), (t.prev = 1), r.s();
+                      ((r = ln(e)), (t.prev = 1), r.s());
                     case 3:
                       if ((o = r.n()).done) {
                         t.next = 9;
                         break;
                       }
-                      return (i = o.value), (t.next = 7), n(i);
+                      return ((i = o.value), (t.next = 7), n(i));
                     case 7:
                       t.next = 3;
                       break;
@@ -2028,9 +2028,9 @@ var la = function () {
                       t.next = 14;
                       break;
                     case 11:
-                      (t.prev = 11), (t.t0 = t.catch(1)), r.e(t.t0);
+                      ((t.prev = 11), (t.t0 = t.catch(1)), r.e(t.t0));
                     case 14:
-                      return (t.prev = 14), r.f(), t.finish(14);
+                      return ((t.prev = 14), r.f(), t.finish(14));
                     case 17:
                     case "end":
                       return t.stop();
@@ -2049,7 +2049,7 @@ var la = function () {
           var o = this,
             i = (t = n).getConfig().katex || {},
             a = on(on({}, e), i);
-          a.local, a.version, a.extensions;
+          (a.local, a.version, a.extensions);
           var c = fn(a, ["local", "version", "extensions"]),
             u = a.local || "https://cdn.jsdelivr.net/npm/katex",
             f = a.local ? "" : "@" + a.version,
@@ -2057,14 +2057,14 @@ var la = function () {
             l = u + f + "/dist/contrib/mhchem.min.js",
             p = u + f + "/dist/contrib/auto-render.min.js",
             h = [u + f + "/dist/katex.min.js"];
-          a.extensions && a.extensions.includes("mhchem") && h.push(l),
-            h.push(p);
+          (a.extensions && a.extensions.includes("mhchem") && h.push(l),
+            h.push(p));
           var v,
             d,
             y = function () {
-              renderMathInElement(n.getSlidesElement(), c), t.layout();
+              (renderMathInElement(n.getSlidesElement(), c), t.layout());
             };
-          (v = s),
+          ((v = s),
             ((d = document.createElement("link")).rel = "stylesheet"),
             (d.href = v),
             document.head.appendChild(d),
@@ -2072,7 +2072,7 @@ var la = function () {
               return r.apply(this, arguments);
             })(h).then(function () {
               t.isReady() ? y() : t.on("ready", y.bind(o));
-            });
+            }));
         },
       };
     },
@@ -2090,10 +2090,10 @@ var la = function () {
         },
         startup: {
           ready: function () {
-            MathJax.startup.defaultReady(),
+            (MathJax.startup.defaultReady(),
               MathJax.startup.promise.then(function () {
                 Reveal.layout();
-              });
+              }));
           },
         },
       };
@@ -2102,29 +2102,29 @@ var la = function () {
         init: function (e) {
           var n = e.getConfig().mathjax3 || {},
             r = on(on({}, t), n);
-          (r.tex = on(on({}, t.tex), n.tex)),
+          ((r.tex = on(on({}, t.tex), n.tex)),
             (r.options = on(on({}, t.options), n.options)),
-            (r.startup = on(on({}, t.startup), n.startup));
+            (r.startup = on(on({}, t.startup), n.startup)));
           var o =
             r.mathjax ||
             "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-          (r.mathjax = null),
+          ((r.mathjax = null),
             (window.MathJax = r),
             (function (t, e) {
               var n = document.createElement("script");
-              (n.type = "text/javascript"),
+              ((n.type = "text/javascript"),
                 (n.id = "MathJax-script"),
                 (n.src = t),
                 (n.async = !0),
                 (n.onload = function () {
                   "function" == typeof e && (e.call(), (e = null));
                 }),
-                document.head.appendChild(n);
+                document.head.appendChild(n));
             })(o, function () {
               Reveal.addEventListener("slidechanged", function (t) {
                 MathJax.typeset();
               });
-            });
+            }));
         },
       };
     },

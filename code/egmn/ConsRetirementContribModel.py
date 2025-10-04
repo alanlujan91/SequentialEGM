@@ -29,6 +29,8 @@ from HARK.utilities import NullFunc, make_grid_exp_mult
 from scipy.interpolate import CloughTocher2DInterpolator
 from scipy.optimize import Bounds, LinearConstraint, minimize
 
+from egmn.ConsRetirementModel import RetiringSolution
+
 
 @dataclass
 class PostDecisionStage(MetricObject):

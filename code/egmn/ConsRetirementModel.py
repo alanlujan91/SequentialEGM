@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import numpy as np
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
@@ -65,9 +65,9 @@ class RetiringSolution(MetricObject):
 
 @dataclass
 class WorkingSolution(MetricObject):
-    post_decision_stage: PostDecisionStage = PostDecisionStage()
-    consumption_stage: ConsumptionStage = ConsumptionStage()
-    deposit_stage: DepositStage = DepositStage()
+    post_decision_stage: PostDecisionStage = field(default_factory=PostDecisionStage)
+    consumption_stage: ConsumptionStage = field(default_factory=ConsumptionStage)
+    deposit_stage: DepositStage = field(default_factory=DepositStage)
 
 
 @dataclass
@@ -78,16 +78,18 @@ class DiscreteChoiceProbabilities(MetricObject):
 
 @dataclass
 class WorkerSolution(MetricObject):
-    deposit_stage: DepositStage = DepositStage()
-    probabilities: DiscreteChoiceProbabilities = DiscreteChoiceProbabilities()
+    deposit_stage: DepositStage = field(default_factory=DepositStage)
+    probabilities: DiscreteChoiceProbabilities = field(
+        default_factory=DiscreteChoiceProbabilities
+    )
 
 
 @dataclass
 class RetirementSolution(MetricObject):
-    worker_solution: WorkerSolution = WorkerSolution()
-    retired_solution: RetiredSolution = RetiredSolution()
-    working_solution: WorkingSolution = WorkingSolution()
-    retiring_solution: RetiringSolution = RetiringSolution()
+    worker_solution: WorkerSolution = field(default_factory=WorkerSolution)
+    retired_solution: RetiredSolution = field(default_factory=RetiredSolution)
+    working_solution: WorkingSolution = field(default_factory=WorkingSolution)
+    retiring_solution: RetiringSolution = field(default_factory=RetiringSolution)
 
 
 class RetirementConsumerType(RiskyAssetConsumerType):

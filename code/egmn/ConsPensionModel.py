@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections import namedtuple
 from copy import deepcopy
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import estimagic as em
 import numpy as np
@@ -52,9 +52,9 @@ class DepositStage(MetricObject):
 
 @dataclass
 class PensionSolution(MetricObject):
-    post_decision_stage: PostDecisionStage = PostDecisionStage()
-    deposit_stage: DepositStage = DepositStage()
-    consumption_stage: ConsumptionStage = ConsumptionStage()
+    post_decision_stage: PostDecisionStage = field(default_factory=PostDecisionStage)
+    deposit_stage: DepositStage = field(default_factory=DepositStage)
+    consumption_stage: ConsumptionStage = field(default_factory=ConsumptionStage)
 
 
 GridParameters = namedtuple(

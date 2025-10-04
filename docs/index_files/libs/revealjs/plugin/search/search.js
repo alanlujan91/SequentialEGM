@@ -84,14 +84,14 @@
               t = !1,
               n = {};
             try {
-              (e = Object.getOwnPropertyDescriptor(
+              ((e = Object.getOwnPropertyDescriptor(
                 Object.prototype,
                 "__proto__",
               ).set).call(n, []),
-                (t = n instanceof Array);
+                (t = n instanceof Array));
             } catch (e) {}
             return function (n, r) {
-              return v(n), x(r), t ? e.call(n, r) : (n.__proto__ = r), n;
+              return (v(n), x(r), t ? e.call(n, r) : (n.__proto__ = r), n);
             };
           })()
         : void 0),
@@ -141,7 +141,7 @@
           } catch (e) {}
         if ("get" in n || "set" in n)
           throw TypeError("Accessors not supported");
-        return "value" in n && (e[t] = n.value), e;
+        return ("value" in n && (e[t] = n.value), e);
       };
   var $ = {},
     L = function (e) {
@@ -252,7 +252,7 @@
           return xe.f(e, t, be(1, n));
         }
       : function (e, t, n) {
-          return (e[t] = n), e;
+          return ((e[t] = n), e);
         },
     Ee = o,
     Se = me,
@@ -353,14 +353,14 @@
   function ut(e, t) {
     return RegExp(e, t);
   }
-  (ct.UNSUPPORTED_Y = at(function () {
+  ((ct.UNSUPPORTED_Y = at(function () {
     var e = ut("a", "y");
-    return (e.lastIndex = 2), null != e.exec("abcd");
+    return ((e.lastIndex = 2), null != e.exec("abcd"));
   })),
     (ct.BROKEN_CARET = at(function () {
       var e = ut("^r", "gy");
-      return (e.lastIndex = 2), null != e.exec("str");
-    }));
+      return ((e.lastIndex = 2), null != e.exec("str"));
+    })));
   var lt = { exports: {} },
     ft = Te,
     st = Function.toString;
@@ -394,29 +394,29 @@
       Nt = Ct.get,
       At = Ct.has,
       kt = Ct.set;
-    (pt = function (e, t) {
+    ((pt = function (e, t) {
       if (At.call(Ct, e)) throw new TypeError(Pt);
-      return (t.facade = e), kt.call(Ct, e, t), t;
+      return ((t.facade = e), kt.call(Ct, e, t), t);
     }),
       (dt = function (e) {
         return Nt.call(Ct, e) || {};
       }),
       (gt = function (e) {
         return At.call(Ct, e);
-      });
+      }));
   } else {
     var $t = _t("state");
-    (jt[$t] = !0),
+    ((jt[$t] = !0),
       (pt = function (e, t) {
         if (Rt(e, $t)) throw new TypeError(Pt);
-        return (t.facade = e), Ot(e, $t, t), t;
+        return ((t.facade = e), Ot(e, $t, t), t);
       }),
       (dt = function (e) {
         return Rt(e, $t) ? e[$t] : {};
       }),
       (gt = function (e) {
         return Rt(e, $t);
-      });
+      }));
   }
   var Lt = {
       set: pt,
@@ -447,7 +447,7 @@
       i = !!r && !!r.unsafe,
       c = !!r && !!r.enumerable,
       a = !!r && !!r.noTargetGet;
-    "function" == typeof n &&
+    ("function" == typeof n &&
       ("string" != typeof t || Dt(n, "name") || Ut(n, "name", t),
       (o = Bt(n)).source ||
         (o.source = Wt.join("string" == typeof t ? t : ""))),
@@ -456,7 +456,7 @@
           c ? (e[t] = n) : Ut(e, t, n))
         : c
           ? (e[t] = n)
-          : Ft(t, n);
+          : Ft(t, n));
   })(Function.prototype, "toString", function () {
     return ("function" == typeof this && Kt(this).source) || zt(this);
   });
@@ -518,7 +518,8 @@
         hn ||
         cn(function () {
           return (
-            (dn[ln] = !1), fn(pn) != pn || fn(dn) == dn || "/a/i" != fn(pn, "i")
+            (dn[ln] = !1),
+            fn(pn) != pn || fn(dn) == dn || "/a/i" != fn(pn, "i")
           );
         }),
     )
@@ -530,10 +531,12 @@
             o = tn(e),
             i = void 0 === t;
           if (!r && o && e.constructor === yn && i) return e;
-          gn
+          (gn
             ? o && !i && (e = e.source)
             : e instanceof yn && (i && (t = nn.call(e)), (e = e.source)),
-            hn && (n = !!t && t.indexOf("y") > -1) && (t = t.replace(/y/g, ""));
+            hn &&
+              (n = !!t && t.indexOf("y") > -1) &&
+              (t = t.replace(/y/g, "")));
           var c = Qt(gn ? new fn(e, t) : fn(e, t), r ? this : sn, yn);
           hn && n && (an(c).sticky = !0);
           return c;
@@ -556,7 +559,7 @@
 
     )
       vn(xn[bn++]);
-    (sn.constructor = yn), (yn.prototype = sn), on(Ht, "RegExp", yn);
+    ((sn.constructor = yn), (yn.prototype = sn), on(Ht, "RegExp", yn));
   }
   un("RegExp");
   var mn = {},
@@ -625,7 +628,9 @@
       var e = /a/,
         t = /b*/g;
       return (
-        Qn.call(e, "a"), Qn.call(t, "a"), 0 !== e.lastIndex || 0 !== t.lastIndex
+        Qn.call(e, "a"),
+        Qn.call(t, "a"),
+        0 !== e.lastIndex || 0 !== t.lastIndex
       );
     })(),
     nr = Hn.UNSUPPORTED_Y || Hn.BROKEN_CARET,
@@ -691,7 +696,7 @@
           if (typeof i == typeof o) continue;
           Yn(i, o);
         }
-        (e.sham || (o && o.sham)) && Wn(i, "sham", !0), Gn(n, r, i, e);
+        ((e.sham || (o && o.sham)) && Wn(i, "sham", !0), Gn(n, r, i, e));
       }
   })({ target: "RegExp", proto: !0, forced: /./.exec !== or }, { exec: or });
   var ir = lt.exports,
@@ -738,7 +743,7 @@
       return (
         (e.exec = function () {
           var e = [];
-          return (e.groups = { a: "7" }), e;
+          return ((e.groups = { a: "7" }), e);
         }),
         "7" !== "".replace(e, "$<a>")
       );
@@ -814,7 +819,7 @@
                 (n.flags = ""),
                 (n[o] = /./[o])),
               (n.exec = function () {
-                return (t = !0), null;
+                return ((t = !0), null);
               }),
               n[o](""),
               !t
@@ -845,7 +850,7 @@
           ),
           l = u[0],
           f = u[1];
-        gr(String.prototype, e, l),
+        (gr(String.prototype, e, l),
           gr(
             mr,
             o,
@@ -856,7 +861,7 @@
               : function (e) {
                   return f.call(e, this);
                 },
-          );
+          ));
       }
       r && xr(mr[o], "sham", !0);
     },
@@ -1027,7 +1032,7 @@
   return function () {
     var e, t, n, r, o, i, c;
     function a() {
-      (t = document.createElement("div")).classList.add("searchbox"),
+      ((t = document.createElement("div")).classList.add("searchbox"),
         (t.style.position = "absolute"),
         (t.style.top = "10px"),
         (t.style.right = "10px"),
@@ -1050,7 +1055,7 @@
           function (t) {
             switch (t.keyCode) {
               case 13:
-                t.preventDefault(),
+                (t.preventDefault(),
                   (function () {
                     if (i) {
                       var t = n.value;
@@ -1064,7 +1069,7 @@
                       (r.length && r.length <= o && (o = 0),
                       r.length > o && (e.slide(r[o].h, r[o].v), o++));
                   })(),
-                  (i = !1);
+                  (i = !1));
                 break;
               default:
                 i = !0;
@@ -1072,13 +1077,13 @@
           },
           !1,
         ),
-        l();
+        l());
     }
     function u() {
-      t || a(), (t.style.display = "inline"), n.focus(), n.select();
+      (t || a(), (t.style.display = "inline"), n.focus(), n.select());
     }
     function l() {
-      t || a(), (t.style.display = "none"), c && c.remove();
+      (t || a(), (t.style.display = "none"), c && c.remove());
     }
     function f(t, n) {
       var r = document.getElementById(t) || document.body,
@@ -1089,9 +1094,9 @@
         u = 0,
         l = "",
         f = [];
-      (this.setRegex = function (e) {
-        (e = e.replace(/^[^\w]+|[^\w]+$/g, "").replace(/[^\w'-]+/g, "|")),
-          (l = new RegExp("(" + e + ")", "i"));
+      ((this.setRegex = function (e) {
+        ((e = e.replace(/^[^\w]+|[^\w]+$/g, "").replace(/[^\w'-]+/g, "|")),
+          (l = new RegExp("(" + e + ")", "i")));
       }),
         (this.getRegex = function () {
           return l
@@ -1114,17 +1119,17 @@
                   h = !1;
                 for (n = 0; n < g; n++)
                   f[n].h === d.h && f[n].v === d.v && (h = !0);
-                h || f.push(d),
+                (h || f.push(d),
                   a[s[0].toLowerCase()] ||
-                    (a[s[0].toLowerCase()] = c[u++ % c.length]);
+                    (a[s[0].toLowerCase()] = c[u++ % c.length]));
                 var y = document.createElement(o);
-                y.appendChild(document.createTextNode(s[0])),
+                (y.appendChild(document.createTextNode(s[0])),
                   (y.style.backgroundColor = a[s[0].toLowerCase()]),
                   (y.style.fontStyle = "inherit"),
-                  (y.style.color = "#000");
+                  (y.style.color = "#000"));
                 var v = t.splitText(s.index);
-                (v.nodeValue = v.nodeValue.substring(s[0].length)),
-                  t.parentNode.insertBefore(y, v);
+                ((v.nodeValue = v.nodeValue.substring(s[0].length)),
+                  t.parentNode.insertBefore(y, v));
               }
           }
         }),
@@ -1138,13 +1143,13 @@
         }),
         (this.apply = function (e) {
           if (null != e && e)
-            return this.remove(), this.setRegex(e), this.hiliteWords(r), f;
-        });
+            return (this.remove(), this.setRegex(e), this.hiliteWords(r), f);
+        }));
     }
     return {
       id: "search",
       init: function (n) {
-        (e = n).registerKeyboardShortcut("CTRL + Shift + F", "Search"),
+        ((e = n).registerKeyboardShortcut("CTRL + Shift + F", "Search"),
           document.addEventListener(
             "keydown",
             function (e) {
@@ -1155,7 +1160,7 @@
                 "inline" !== t.style.display ? u() : l());
             },
             !1,
-          );
+          ));
       },
       open: u,
     };

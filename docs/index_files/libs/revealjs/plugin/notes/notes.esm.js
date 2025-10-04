@@ -156,7 +156,7 @@ U.f = H
           return K(t, e, n);
         } catch (t) {}
       if ("get" in n || "set" in n) throw TypeError("Accessors not supported");
-      return "value" in n && (t[e] = n.value), t;
+      return ("value" in n && (t[e] = n.value), t);
     };
 var Q = U,
   G = c,
@@ -165,7 +165,7 @@ var Q = U,
         return Q.f(t, e, G(1, n));
       }
     : function (t, e, n) {
-        return (t[e] = n), t;
+        return ((t[e] = n), t);
       },
   X = { exports: {} },
   tt = n,
@@ -232,29 +232,29 @@ if (bt || St.state) {
     Rt = zt.get,
     It = zt.has,
     Lt = zt.set;
-  (ft = function (t, e) {
+  ((ft = function (t, e) {
     if (It.call(zt, t)) throw new TypeError("Object already initialized");
-    return (e.facade = t), Lt.call(zt, t, e), e;
+    return ((e.facade = t), Lt.call(zt, t, e), e);
   }),
     (ht = function (t) {
       return Rt.call(zt, t) || {};
     }),
     (gt = function (t) {
       return It.call(zt, t);
-    });
+    }));
 } else {
   var Ot = Bt("state");
-  (Tt[Ot] = !0),
+  ((Tt[Ot] = !0),
     (ft = function (t, e) {
       if (Ft(t, Ot)) throw new TypeError("Object already initialized");
-      return (e.facade = t), Ct(t, Ot, e), e;
+      return ((e.facade = t), Ct(t, Ot, e), e);
     }),
     (ht = function (t) {
       return Ft(t, Ot) ? t[Ot] : {};
     }),
     (gt = function (t) {
       return Ft(t, Ot);
-    });
+    }));
 }
 var $t = {
     set: ft,
@@ -285,14 +285,14 @@ var $t = {
     u = !!r && !!r.unsafe,
     a = !!r && !!r.enumerable,
     o = !!r && !!r.noTargetGet;
-  "function" == typeof n &&
+  ("function" == typeof n &&
     ("string" != typeof e || jt(n, "name") || Mt(n, "name", e),
     (i = Zt(n)).source || (i.source = Ht.join("string" == typeof e ? e : ""))),
     t !== Pt
       ? (u ? !o && t[e] && (a = !0) : delete t[e], a ? (t[e] = n) : Mt(t, e, n))
       : a
         ? (t[e] = n)
-        : Nt(e, n);
+        : Nt(e, n));
 })(Function.prototype, "toString", function () {
   return ("function" == typeof this && qt(this).source) || Ut(this);
 });
@@ -430,7 +430,7 @@ var Ee = Qt,
           if (typeof u == typeof i) continue;
           Ue(u, i);
         }
-        (t.sham || (i && i.sham)) && Me(u, "sham", !0), je(n, r, u, t);
+        ((t.sham || (i && i.sham)) && Me(u, "sham", !0), je(n, r, u, t));
       }
   },
   He = Z,
@@ -452,14 +452,14 @@ var Ee = Qt,
 function Ke(t, e) {
   return RegExp(t, e);
 }
-(Je.UNSUPPORTED_Y = Ve(function () {
+((Je.UNSUPPORTED_Y = Ve(function () {
   var t = Ke("a", "y");
-  return (t.lastIndex = 2), null != t.exec("abcd");
+  return ((t.lastIndex = 2), null != t.exec("abcd"));
 })),
   (Je.BROKEN_CARET = Ve(function () {
     var t = Ke("^r", "gy");
-    return (t.lastIndex = 2), null != t.exec("str");
-  }));
+    return ((t.lastIndex = 2), null != t.exec("str"));
+  })));
 var Qe = We,
   Ge = Je,
   Ye = pt.exports,
@@ -470,7 +470,9 @@ var Qe = We,
     var t = /a/,
       e = /b*/g;
     return (
-      Xe.call(t, "a"), Xe.call(e, "a"), 0 !== t.lastIndex || 0 !== e.lastIndex
+      Xe.call(t, "a"),
+      Xe.call(e, "a"),
+      0 !== t.lastIndex || 0 !== e.lastIndex
     );
   })(),
   rn = Ge.UNSUPPORTED_Y || Ge.BROKEN_CARET,
@@ -567,7 +569,7 @@ var fn = sn && +sn,
     return (
       (t.exec = function () {
         var t = [];
-        return (t.groups = { a: "7" }), t;
+        return ((t.groups = { a: "7" }), t);
       }),
       "7" !== "".replace(t, "$<a>")
     );
@@ -609,7 +611,7 @@ var fn = sn && +sn,
               (n.flags = ""),
               (n[i] = /./[i])),
             (n.exec = function () {
-              return (e = !0), null;
+              return ((e = !0), null);
             }),
             n[i](""),
             !e
@@ -640,7 +642,7 @@ var fn = sn && +sn,
         ),
         l = s[0],
         c = s[1];
-      Sn(String.prototype, t, l),
+      (Sn(String.prototype, t, l),
         Sn(
           In,
           i,
@@ -651,7 +653,7 @@ var fn = sn && +sn,
             : function (t) {
                 return c.call(t, this);
               },
-        );
+        ));
     }
     r && zn(In[i], "sham", !0);
   },
@@ -695,7 +697,10 @@ jn("search", 1, function (t, e, n) {
         a = i.lastIndex;
       Jn(a, 0) || (i.lastIndex = 0);
       var o = Vn(i, u);
-      return Jn(i.lastIndex, a) || (i.lastIndex = a), null === o ? -1 : o.index;
+      return (
+        Jn(i.lastIndex, a) || (i.lastIndex = a),
+        null === o ? -1 : o.index
+      );
     },
   ];
 });
@@ -741,14 +746,14 @@ function ur(t, e) {
 function ar(t, e) {
   for (var n = 0; n < e.length; n++) {
     var r = e[n];
-    (r.enumerable = r.enumerable || !1),
+    ((r.enumerable = r.enumerable || !1),
       (r.configurable = !0),
       "value" in r && (r.writable = !0),
-      Object.defineProperty(t, r.key, r);
+      Object.defineProperty(t, r.key, r));
   }
 }
 function or(t, e, n) {
-  return e && ar(t.prototype, e), n && ar(t, n), t;
+  return (e && ar(t.prototype, e), n && ar(t, n), t);
 }
 function sr(t, e) {
   return (
@@ -773,7 +778,7 @@ function sr(t, e) {
           a = !0
         );
       } catch (t) {
-        (o = !0), (i = t);
+        ((o = !0), (i = t));
       } finally {
         try {
           a || null == n.return || n.return();
@@ -847,10 +852,10 @@ function pr(t, e) {
     },
     n: function () {
       var t = n.next();
-      return (a = t.done), t;
+      return ((a = t.done), t);
     },
     e: function (t) {
-      (o = !0), (u = t);
+      ((o = !0), (u = t));
     },
     f: function () {
       try {
@@ -878,7 +883,9 @@ jn("match", 1, function (t, e, n) {
       i.lastIndex = 0;
       for (var o, s = [], l = 0; null !== (o = ir(i, u)); ) {
         var c = String(o[0]);
-        (s[l] = c), "" === c && (i.lastIndex = rr(u, er(i.lastIndex), a)), l++;
+        ((s[l] = c),
+          "" === c && (i.lastIndex = rr(u, er(i.lastIndex), a)),
+          l++);
       }
       return 0 === l ? null : s;
     },
@@ -1005,14 +1012,14 @@ var Fr = k,
             e = !1,
             n = {};
           try {
-            (t = Object.getOwnPropertyDescriptor(
+            ((t = Object.getOwnPropertyDescriptor(
               Object.prototype,
               "__proto__",
             ).set).call(n, []),
-              (e = n instanceof Array);
+              (e = n instanceof Array));
           } catch (t) {}
           return function (n, r) {
-            return Sr(n), Br(r), e ? t.call(n, r) : (n.__proto__ = r), n;
+            return (Sr(n), Br(r), e ? t.call(n, r) : (n.__proto__ = r), n);
           };
         })()
       : void 0),
@@ -1080,7 +1087,8 @@ if (
       ai ||
       Gr(function () {
         return (
-          (ii[ti] = !1), ei(ri) != ri || ei(ii) == ii || "/a/i" != ei(ri, "i")
+          (ii[ti] = !1),
+          ei(ri) != ri || ei(ii) == ii || "/a/i" != ei(ri, "i")
         );
       }),
   )
@@ -1092,10 +1100,10 @@ if (
           i = Jr(t),
           u = void 0 === e;
         if (!r && i && t.constructor === oi && u) return t;
-        ui
+        (ui
           ? i && !u && (t = t.source)
           : t instanceof oi && (u && (e = Vr.call(t)), (t = t.source)),
-          ai && (n = !!e && e.indexOf("y") > -1) && (e = e.replace(/y/g, ""));
+          ai && (n = !!e && e.indexOf("y") > -1) && (e = e.replace(/y/g, "")));
         var a = Zr(ui ? new ei(t, e) : ei(t, e), r ? this : ni, oi);
         ai && n && (Yr(a).sticky = !0);
         return a;
@@ -1118,7 +1126,7 @@ if (
 
   )
     si(li[ci++]);
-  (ni.constructor = oi), (oi.prototype = ni), Qr(Ur, "RegExp", oi);
+  ((ni.constructor = oi), (oi.prototype = ni), Qr(Ur, "RegExp", oi));
 }
 Xr("RegExp");
 var pi = X.exports,
@@ -1269,7 +1277,7 @@ Ai(
               h = f = D;
             }
           }
-          return g.push(o.slice(f)), g;
+          return (g.push(o.slice(f)), g);
         },
       ]
     );
@@ -1284,7 +1292,9 @@ var Li = D,
     return function (e) {
       var n = String(Li(e));
       return (
-        1 & t && (n = n.replace($i, "")), 2 & t && (n = n.replace(Pi, "")), n
+        1 & t && (n = n.replace($i, "")),
+        2 & t && (n = n.replace(Pi, "")),
+        n
       );
     };
   },
@@ -1385,13 +1395,13 @@ uu(
       for (i = cu(s, r), u = 0; u < r; u++) (a = c + u) in s && pu(i, u, s[a]);
       if (((i.length = r), n < r)) {
         for (u = c; u < l - r; u++)
-          (o = u + n), (a = u + r) in s ? (s[o] = s[a]) : delete s[o];
+          ((o = u + n), (a = u + r) in s ? (s[o] = s[a]) : delete s[o]);
         for (u = l; u > l - r + n; u--) delete s[u - 1];
       } else if (n > r)
         for (u = l - r; u > c; u--)
-          (o = u + n - 1), (a = u + r - 1) in s ? (s[o] = s[a]) : delete s[o];
+          ((o = u + n - 1), (a = u + r - 1) in s ? (s[o] = s[a]) : delete s[o]);
       for (u = 0; u < n; u++) s[u + c] = arguments[u + 2];
-      return (s.length = l - r + n), i;
+      return ((s.length = l - r + n), i);
     },
   },
 );
@@ -1557,7 +1567,7 @@ zu(
         o++, i++
       )
         o in u && Pu(r, i, u[o]);
-      return (r.length = i), r;
+      return ((r.length = i), r);
     },
   },
 );
@@ -1767,9 +1777,9 @@ var Fa,
     var t, e;
     Ua = Fa
       ? (function (t) {
-          t.write(Na("")), t.close();
+          (t.write(Na("")), t.close());
           var e = t.parentWindow.Object;
-          return (t = null), e;
+          return ((t = null), e);
         })(Fa)
       : (((e = Pa("iframe")).style.display = "none"),
         $a.appendChild(e),
@@ -1804,7 +1814,7 @@ var Ja = pe.includes,
   Va = function (t) {
     Wa[Ha][t] = !0;
   };
-Ze(
+(Ze(
   { target: "Array", proto: !0 },
   {
     includes: function (t) {
@@ -1812,7 +1822,7 @@ Ze(
     },
   },
 ),
-  Va("includes");
+  Va("includes"));
 var Ka = Or,
   Qa = Fn("match"),
   Ga = function (t) {
@@ -1830,7 +1840,7 @@ Ze(
         "/./"[t](e);
       } catch (n) {
         try {
-          return (e[Qa] = !1), "/./"[t](e);
+          return ((e[Qa] = !1), "/./"[t](e));
         } catch (t) {}
       }
       return !1;
@@ -1860,7 +1870,7 @@ var Xa = Ze,
     so >= 51 ||
     !to(function () {
       var t = [];
-      return (t[lo] = !1), t.concat()[0] !== t;
+      return ((t[lo] = !1), t.concat()[0] !== t);
     }),
   po = oo("concat"),
   fo = function (t) {
@@ -1890,7 +1900,7 @@ Xa(
             throw TypeError("Maximum allowed index exceeded");
           uo(o, s++, u);
         }
-      return (o.length = s), o;
+      return ((o.length = s), o);
     },
   },
 );
@@ -1983,11 +1993,13 @@ function Bo(t) {
 }
 var To = /(^|[^\[])\^/g;
 function _o(t, e) {
-  (t = t.source || t), (e = e || "");
+  ((t = t.source || t), (e = e || ""));
   var n = {
     replace: function (e, r) {
       return (
-        (r = (r = r.source || r).replace(To, "$1")), (t = t.replace(e, r)), n
+        (r = (r = r.source || r).replace(To, "$1")),
+        (t = t.replace(e, r)),
+        n
       );
     },
     getRegex: function () {
@@ -2087,7 +2099,7 @@ function qo(t) {
 }
 function Zo(t, e) {
   if (e < 1) return "";
-  for (var n = ""; e > 1; ) 1 & e && (n += t), (e >>= 1), (t += t);
+  for (var n = ""; e > 1; ) (1 & e && (n += t), (e >>= 1), (t += t));
   return n + t;
 }
 function Ho(t, e, n, r) {
@@ -2104,13 +2116,13 @@ function Ho(t, e, n, r) {
       text: a,
       tokens: r.inlineTokens(a, []),
     };
-    return (r.state.inLink = !1), o;
+    return ((r.state.inLink = !1), o);
   }
   return { type: "image", raw: n, href: i, title: u, text: Fo(a) };
 }
 var Wo = (function () {
     function t(e) {
-      ur(this, t), (this.options = e || ko);
+      (ur(this, t), (this.options = e || ko));
     }
     return (
       or(t, [
@@ -2186,7 +2198,7 @@ var Wo = (function () {
                 text: n,
                 tokens: [],
               };
-              return this.lexer.inline(i.text, i.tokens), i;
+              return (this.lexer.inline(i.text, i.tokens), i);
             }
           },
         },
@@ -2239,8 +2251,8 @@ var Wo = (function () {
                   loose: !1,
                   items: [],
                 };
-              (h = g ? "\\d{1,9}\\".concat(h.slice(-1)) : "\\".concat(h)),
-                this.options.pedantic && (h = g ? h : "[*+-]");
+              ((h = g ? "\\d{1,9}\\".concat(h.slice(-1)) : "\\".concat(h)),
+                this.options.pedantic && (h = g ? h : "[*+-]"));
               for (
                 var m = new RegExp(
                   "^( {0,3}".concat(h, ")((?: [^\\n]*)?(?:\\n|$))"),
@@ -2288,11 +2300,11 @@ var Wo = (function () {
                       if (o) break;
                       d += "\n" + l;
                     }
-                    o || l.trim() || (o = !0),
+                    (o || l.trim() || (o = !0),
                       (n += p + "\n"),
-                      (t = t.substring(p.length + 1));
+                      (t = t.substring(p.length + 1)));
                   }
-                D.loose ||
+                (D.loose ||
                   (s ? (D.loose = !0) : /\n *\n *$/.test(n) && (s = !0)),
                   this.options.gfm &&
                     (r = /^\[[ xX]\] /.exec(d)) &&
@@ -2306,18 +2318,18 @@ var Wo = (function () {
                     loose: !1,
                     text: d,
                   }),
-                  (D.raw += n);
+                  (D.raw += n));
               }
-              (D.items[D.items.length - 1].raw = n.trimRight()),
+              ((D.items[D.items.length - 1].raw = n.trimRight()),
                 (D.items[D.items.length - 1].text = d.trimRight()),
-                (D.raw = D.raw.trimRight());
+                (D.raw = D.raw.trimRight()));
               var y = D.items.length;
               for (a = 0; a < y; a++) {
-                (this.lexer.state.top = !1),
+                ((this.lexer.state.top = !1),
                   (D.items[a].tokens = this.lexer.blockTokens(
                     D.items[a].text,
                     [],
-                  ));
+                  )));
                 var k = D.items[a].tokens.filter(function (t) {
                     return "space" === t.type;
                   }),
@@ -2424,15 +2436,15 @@ var Wo = (function () {
                     return { text: t };
                   });
                 for (o = n.header.length, i = 0; i < o; i++)
-                  (n.header[i].tokens = []),
+                  ((n.header[i].tokens = []),
                     this.lexer.inlineTokens(
                       n.header[i].text,
                       n.header[i].tokens,
-                    );
+                    ));
                 for (o = n.rows.length, i = 0; i < o; i++)
                   for (a = n.rows[i], u = 0; u < a.length; u++)
-                    (a[u].tokens = []),
-                      this.lexer.inlineTokens(a[u].text, a[u].tokens);
+                    ((a[u].tokens = []),
+                      this.lexer.inlineTokens(a[u].text, a[u].tokens));
                 return n;
               }
             }
@@ -2450,7 +2462,7 @@ var Wo = (function () {
                 text: e[1],
                 tokens: [],
               };
-              return this.lexer.inline(n.text, n.tokens), n;
+              return (this.lexer.inline(n.text, n.tokens), n);
             }
           },
         },
@@ -2468,7 +2480,7 @@ var Wo = (function () {
                     : e[1],
                 tokens: [],
               };
-              return this.lexer.inline(n.text, n.tokens), n;
+              return (this.lexer.inline(n.text, n.tokens), n);
             }
           },
         },
@@ -2478,7 +2490,7 @@ var Wo = (function () {
             var e = this.rules.block.text.exec(t);
             if (e) {
               var n = { type: "text", raw: e[0], text: e[0], tokens: [] };
-              return this.lexer.inline(n.text, n.tokens), n;
+              return (this.lexer.inline(n.text, n.tokens), n);
             }
           },
         },
@@ -2541,9 +2553,9 @@ var Wo = (function () {
                 })(e[2], "()");
                 if (i > -1) {
                   var u = (0 === e[0].indexOf("!") ? 5 : 4) + e[1].length + i;
-                  (e[2] = e[2].substring(0, i)),
+                  ((e[2] = e[2].substring(0, i)),
                     (e[0] = e[0].substring(0, u).trim()),
-                    (e[3] = "");
+                    (e[3] = ""));
                 }
               }
               var a = e[2],
@@ -2720,10 +2732,10 @@ var Wo = (function () {
               else {
                 var u;
                 do {
-                  (u = n[0]),
-                    (n[0] = this.rules.inline._backpedal.exec(n[0])[0]);
+                  ((u = n[0]),
+                    (n[0] = this.rules.inline._backpedal.exec(n[0])[0]));
                 } while (u !== n[0]);
-                (r = Fo(n[0])), (i = "www." === n[1] ? "http://" + r : r);
+                ((r = Fo(n[0])), (i = "www." === n[1] ? "http://" + r : r));
               }
               return {
                 type: "link",
@@ -2776,7 +2788,7 @@ var Wo = (function () {
     _label: /(?!\s*\])(?:\\.|[^\[\]\\])+/,
     _title: /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/,
   };
-(Jo.def = _o(Jo.def)
+((Jo.def = _o(Jo.def)
   .replace("label", Jo._label)
   .replace("title", Jo._title)
   .getRegex()),
@@ -2874,7 +2886,7 @@ var Wo = (function () {
       .replace("|list", "")
       .replace("|html", "")
       .getRegex(),
-  }));
+  })));
 var Vo = {
   escape: /^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,
   autolink: /^<(scheme:[^\s\x00-\x1f<>]*|email)>/,
@@ -2913,12 +2925,12 @@ function Qo(t) {
     r = "",
     i = t.length;
   for (e = 0; e < i; e++)
-    (n = t.charCodeAt(e)),
+    ((n = t.charCodeAt(e)),
       Math.random() > 0.5 && (n = "x" + n.toString(16)),
-      (r += "&#" + n + ";");
+      (r += "&#" + n + ";"));
   return r;
 }
-(Vo._punctuation = "!\"#$%&'()+\\-.,/:;<=>?@\\[\\]`^{|}~"),
+((Vo._punctuation = "!\"#$%&'()+\\-.,/:;<=>?@\\[\\]`^{|}~"),
   (Vo.punctuation = _o(Vo.punctuation)
     .replace(/punctuation/g, Vo._punctuation)
     .getRegex()),
@@ -3005,10 +3017,10 @@ function Qo(t) {
       .replace("\\b_", "\\b_| {2,}\\n")
       .replace(/\{2,\}/g, "*")
       .getRegex(),
-  }));
+  })));
 var Go = (function () {
     function t(e) {
-      ur(this, t),
+      (ur(this, t),
         (this.tokens = []),
         (this.tokens.links = Object.create(null)),
         (this.options = e || ko),
@@ -3017,14 +3029,14 @@ var Go = (function () {
         (this.tokenizer.options = this.options),
         (this.tokenizer.lexer = this),
         (this.inlineQueue = []),
-        (this.state = { inLink: !1, inRawBlock: !1, top: !0 });
+        (this.state = { inLink: !1, inRawBlock: !1, top: !0 }));
       var n = { block: Jo.normal, inline: Vo.normal };
-      this.options.pedantic
+      (this.options.pedantic
         ? ((n.block = Jo.pedantic), (n.inline = Vo.pedantic))
         : this.options.gfm &&
           ((n.block = Jo.gfm),
           this.options.breaks ? (n.inline = Vo.breaks) : (n.inline = Vo.gfm)),
-        (this.tokenizer.rules = n);
+        (this.tokenizer.rules = n));
     }
     return (
       or(
@@ -3070,33 +3082,33 @@ var Go = (function () {
                   )
                 )
                   if ((e = this.tokenizer.space(t)))
-                    (t = t.substring(e.raw.length)),
+                    ((t = t.substring(e.raw.length)),
                       1 === e.raw.length && a.length > 0
                         ? (a[a.length - 1].raw += "\n")
-                        : a.push(e);
+                        : a.push(e));
                   else if ((e = this.tokenizer.code(t)))
-                    (t = t.substring(e.raw.length)),
+                    ((t = t.substring(e.raw.length)),
                       !(n = a[a.length - 1]) ||
                       ("paragraph" !== n.type && "text" !== n.type)
                         ? a.push(e)
                         : ((n.raw += "\n" + e.raw),
                           (n.text += "\n" + e.text),
                           (this.inlineQueue[this.inlineQueue.length - 1].src =
-                            n.text));
+                            n.text)));
                   else if ((e = this.tokenizer.fences(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if ((e = this.tokenizer.heading(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if ((e = this.tokenizer.hr(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if ((e = this.tokenizer.blockquote(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if ((e = this.tokenizer.list(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if ((e = this.tokenizer.html(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if ((e = this.tokenizer.def(t)))
-                    (t = t.substring(e.raw.length)),
+                    ((t = t.substring(e.raw.length)),
                       !(n = a[a.length - 1]) ||
                       ("paragraph" !== n.type && "text" !== n.type)
                         ? this.tokens.links[e.tag] ||
@@ -3107,11 +3119,11 @@ var Go = (function () {
                         : ((n.raw += "\n" + e.raw),
                           (n.text += "\n" + e.raw),
                           (this.inlineQueue[this.inlineQueue.length - 1].src =
-                            n.text));
+                            n.text)));
                   else if ((e = this.tokenizer.table(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if ((e = this.tokenizer.lheading(t)))
-                    (t = t.substring(e.raw.length)), a.push(e);
+                    ((t = t.substring(e.raw.length)), a.push(e));
                   else if (
                     ((r = t),
                     this.options.extensions &&
@@ -3120,16 +3132,16 @@ var Go = (function () {
                         var e = 1 / 0,
                           n = t.slice(1),
                           i = void 0;
-                        u.options.extensions.startBlock.forEach(function (t) {
+                        (u.options.extensions.startBlock.forEach(function (t) {
                           "number" == typeof (i = t.call({ lexer: this }, n)) &&
                             i >= 0 &&
                             (e = Math.min(e, i));
                         }),
-                          e < 1 / 0 && e >= 0 && (r = t.substring(0, e + 1));
+                          e < 1 / 0 && e >= 0 && (r = t.substring(0, e + 1)));
                       })(),
                     this.state.top && (e = this.tokenizer.paragraph(r)))
                   )
-                    (n = a[a.length - 1]),
+                    ((n = a[a.length - 1]),
                       i && "paragraph" === n.type
                         ? ((n.raw += "\n" + e.raw),
                           (n.text += "\n" + e.text),
@@ -3138,16 +3150,16 @@ var Go = (function () {
                             n.text))
                         : a.push(e),
                       (i = r.length !== t.length),
-                      (t = t.substring(e.raw.length));
+                      (t = t.substring(e.raw.length)));
                   else if ((e = this.tokenizer.text(t)))
-                    (t = t.substring(e.raw.length)),
+                    ((t = t.substring(e.raw.length)),
                       (n = a[a.length - 1]) && "text" === n.type
                         ? ((n.raw += "\n" + e.raw),
                           (n.text += "\n" + e.text),
                           this.inlineQueue.pop(),
                           (this.inlineQueue[this.inlineQueue.length - 1].src =
                             n.text))
-                        : a.push(e);
+                        : a.push(e));
                   else if (t) {
                     var o = "Infinite loop on byte: " + t.charCodeAt(0);
                     if (this.options.silent) {
@@ -3156,7 +3168,7 @@ var Go = (function () {
                     }
                     throw new Error(o);
                   }
-              return (this.state.top = !0), a;
+              return ((this.state.top = !0), a);
             },
           },
           {
@@ -3235,33 +3247,33 @@ var Go = (function () {
                   ))
                 )
                   if ((e = this.tokenizer.escape(t)))
-                    (t = t.substring(e.raw.length)), s.push(e);
+                    ((t = t.substring(e.raw.length)), s.push(e));
                   else if ((e = this.tokenizer.tag(t)))
-                    (t = t.substring(e.raw.length)),
+                    ((t = t.substring(e.raw.length)),
                       (n = s[s.length - 1]) &&
                       "text" === e.type &&
                       "text" === n.type
                         ? ((n.raw += e.raw), (n.text += e.text))
-                        : s.push(e);
+                        : s.push(e));
                   else if ((e = this.tokenizer.link(t)))
-                    (t = t.substring(e.raw.length)), s.push(e);
+                    ((t = t.substring(e.raw.length)), s.push(e));
                   else if ((e = this.tokenizer.reflink(t, this.tokens.links)))
-                    (t = t.substring(e.raw.length)),
+                    ((t = t.substring(e.raw.length)),
                       (n = s[s.length - 1]) &&
                       "text" === e.type &&
                       "text" === n.type
                         ? ((n.raw += e.raw), (n.text += e.text))
-                        : s.push(e);
+                        : s.push(e));
                   else if ((e = this.tokenizer.emStrong(t, l, a)))
-                    (t = t.substring(e.raw.length)), s.push(e);
+                    ((t = t.substring(e.raw.length)), s.push(e));
                   else if ((e = this.tokenizer.codespan(t)))
-                    (t = t.substring(e.raw.length)), s.push(e);
+                    ((t = t.substring(e.raw.length)), s.push(e));
                   else if ((e = this.tokenizer.br(t)))
-                    (t = t.substring(e.raw.length)), s.push(e);
+                    ((t = t.substring(e.raw.length)), s.push(e));
                   else if ((e = this.tokenizer.del(t)))
-                    (t = t.substring(e.raw.length)), s.push(e);
+                    ((t = t.substring(e.raw.length)), s.push(e));
                   else if ((e = this.tokenizer.autolink(t, Qo)))
-                    (t = t.substring(e.raw.length)), s.push(e);
+                    ((t = t.substring(e.raw.length)), s.push(e));
                   else if (
                     this.state.inLink ||
                     !(e = this.tokenizer.url(t, Qo))
@@ -3274,7 +3286,7 @@ var Go = (function () {
                           var e = 1 / 0,
                             n = t.slice(1),
                             i = void 0;
-                          o.options.extensions.startInline.forEach(
+                          (o.options.extensions.startInline.forEach(
                             function (t) {
                               "number" ==
                                 typeof (i = t.call({ lexer: this }, n)) &&
@@ -3282,16 +3294,16 @@ var Go = (function () {
                                 (e = Math.min(e, i));
                             },
                           ),
-                            e < 1 / 0 && e >= 0 && (r = t.substring(0, e + 1));
+                            e < 1 / 0 && e >= 0 && (r = t.substring(0, e + 1)));
                         })(),
                       (e = this.tokenizer.inlineText(r, Ko)))
                     )
-                      (t = t.substring(e.raw.length)),
+                      ((t = t.substring(e.raw.length)),
                         "_" !== e.raw.slice(-1) && (a = e.raw.slice(-1)),
                         (u = !0),
                         (n = s[s.length - 1]) && "text" === n.type
                           ? ((n.raw += e.raw), (n.text += e.text))
-                          : s.push(e);
+                          : s.push(e));
                     else if (t) {
                       var p = "Infinite loop on byte: " + t.charCodeAt(0);
                       if (this.options.silent) {
@@ -3300,7 +3312,7 @@ var Go = (function () {
                       }
                       throw new Error(p);
                     }
-                  } else (t = t.substring(e.raw.length)), s.push(e);
+                  } else ((t = t.substring(e.raw.length)), s.push(e));
               return s;
             },
           },
@@ -3331,7 +3343,7 @@ var Go = (function () {
   })(),
   Yo = (function () {
     function t(e) {
-      ur(this, t), (this.options = e || ko);
+      (ur(this, t), (this.options = e || ko));
     }
     return (
       or(t, [
@@ -3499,7 +3511,7 @@ var Go = (function () {
             )
               return n;
             var r = '<a href="' + Fo(t) + '"';
-            return e && (r += ' title="' + e + '"'), (r += ">" + n + "</a>");
+            return (e && (r += ' title="' + e + '"'), (r += ">" + n + "</a>"));
           },
         },
         {
@@ -3592,7 +3604,7 @@ var Go = (function () {
   })(),
   ts = (function () {
     function t() {
-      ur(this, t), (this.seen = {});
+      (ur(this, t), (this.seen = {}));
     }
     return (
       or(t, [
@@ -3621,7 +3633,7 @@ var Go = (function () {
                 n = t + "-" + ++r;
               } while (this.seen.hasOwnProperty(n));
             }
-            return e || ((this.seen[t] = r), (this.seen[n] = 0)), n;
+            return (e || ((this.seen[t] = r), (this.seen[n] = 0)), n);
           },
         },
         {
@@ -3641,13 +3653,13 @@ var Go = (function () {
   })(),
   es = (function () {
     function t(e) {
-      ur(this, t),
+      (ur(this, t),
         (this.options = e || ko),
         (this.options.renderer = this.options.renderer || new Yo()),
         (this.renderer = this.options.renderer),
         (this.renderer.options = this.options),
         (this.textRenderer = new Xo()),
-        (this.slugger = new ts());
+        (this.slugger = new ts()));
     }
     return (
       or(
@@ -3755,8 +3767,8 @@ var Go = (function () {
                       E += this.renderer.table(s, l);
                       continue;
                     case "blockquote":
-                      (l = this.parse(c.tokens)),
-                        (E += this.renderer.blockquote(l));
+                      ((l = this.parse(c.tokens)),
+                        (E += this.renderer.blockquote(l)));
                       continue;
                     case "list":
                       for (
@@ -3769,7 +3781,7 @@ var Go = (function () {
                         n < i;
                         n++
                       )
-                        (D = (g = c.items[n]).checked),
+                        ((D = (g = c.items[n]).checked),
                           (m = g.task),
                           (h = ""),
                           g.task &&
@@ -3787,7 +3799,7 @@ var Go = (function () {
                                 : g.tokens.unshift({ type: "text", text: v })
                               : (h += v)),
                           (h += this.parse(g.tokens, f)),
-                          (l += this.renderer.listitem(h, m, D));
+                          (l += this.renderer.listitem(h, m, D)));
                       E += this.renderer.list(l, p, d);
                       continue;
                     case "html":
@@ -3941,11 +3953,12 @@ function ns(t, e, n) {
       var u;
       if (!t)
         try {
-          e.walkTokens && ns.walkTokens(r, e.walkTokens), (u = es.parse(r, e));
+          (e.walkTokens && ns.walkTokens(r, e.walkTokens),
+            (u = es.parse(r, e)));
         } catch (e) {
           t = e;
         }
-      return (e.highlight = i), t ? n(t) : n(null, u);
+      return ((e.highlight = i), t ? n(t) : n(null, u));
     };
     if (!i || i.length < 3) return u();
     if ((delete e.highlight, !r.length)) return u();
@@ -3957,8 +3970,8 @@ function ns(t, e, n) {
           setTimeout(function () {
             i(t.text, t.lang, function (e, n) {
               if (e) return u(e);
-              null != n && n !== t.text && ((t.text = n), (t.escaped = !0)),
-                0 === --a && u();
+              (null != n && n !== t.text && ((t.text = n), (t.escaped = !0)),
+                0 === --a && u());
             });
           }, 0));
       }),
@@ -3967,7 +3980,7 @@ function ns(t, e, n) {
   }
   try {
     var o = Go.lex(t, e);
-    return e.walkTokens && ns.walkTokens(o, e.walkTokens), es.parse(o, e);
+    return (e.walkTokens && ns.walkTokens(o, e.walkTokens), es.parse(o, e));
   } catch (t) {
     if (
       ((t.message +=
@@ -3980,10 +3993,10 @@ function ns(t, e, n) {
     throw t;
   }
 }
-(ns.options = ns.setOptions =
+((ns.options = ns.setOptions =
   function (t) {
     var e;
-    return jo(ns.defaults, t), (e = ns.defaults), (ko = e), ns;
+    return (jo(ns.defaults, t), (e = ns.defaults), (ko = e), ns);
   }),
   (ns.getDefaults = yo),
   (ns.defaults = ko),
@@ -4010,14 +4023,14 @@ function ns(t, e, n) {
                     )
                       r[i] = arguments[i];
                     var u = t.renderer.apply(this, r);
-                    return !1 === u && (u = e.apply(this, r)), u;
+                    return (!1 === u && (u = e.apply(this, r)), u);
                   }
                 : t.renderer;
             }
             if (t.tokenizer) {
               if (!t.level || ("block" !== t.level && "inline" !== t.level))
                 throw new Error("extension level must be 'block' or 'inline'");
-              u[t.level]
+              (u[t.level]
                 ? u[t.level].unshift(t.tokenizer)
                 : (u[t.level] = [t.tokenizer]),
                 t.start &&
@@ -4028,7 +4041,7 @@ function ns(t, e, n) {
                     : "inline" === t.level &&
                       (u.startInline
                         ? u.startInline.push(t.start)
-                        : (u.startInline = [t.start])));
+                        : (u.startInline = [t.start]))));
             }
             t.childTokens && (u.childTokens[t.name] = t.childTokens);
           })),
@@ -4045,7 +4058,7 @@ function ns(t, e, n) {
                   )
                     u[a] = arguments[a];
                   var o = t.renderer[n].apply(e, u);
-                  return !1 === o && (o = r.apply(e, u)), o;
+                  return (!1 === o && (o = r.apply(e, u)), o);
                 };
               };
             for (var r in t.renderer) n(r);
@@ -4064,7 +4077,7 @@ function ns(t, e, n) {
                   )
                     u[a] = arguments[a];
                   var o = t.tokenizer[n].apply(e, u);
-                  return !1 === o && (o = r.apply(e, u)), o;
+                  return (!1 === o && (o = r.apply(e, u)), o);
                 };
               };
             for (var r in t.tokenizer) n(r);
@@ -4074,10 +4087,10 @@ function ns(t, e, n) {
       ) {
         var e = ns.defaults.walkTokens;
         i.walkTokens = function (n) {
-          t.walkTokens.call(this, n), e && e.call(this, n);
+          (t.walkTokens.call(this, n), e && e.call(this, n));
         };
       }
-      r && (i.extensions = u), ns.setOptions(i);
+      (r && (i.extensions = u), ns.setOptions(i));
     });
   }),
   (ns.walkTokens = function (t, e) {
@@ -4160,7 +4173,8 @@ function ns(t, e, n) {
     try {
       var n = Go.lexInline(t, e);
       return (
-        e.walkTokens && ns.walkTokens(n, e.walkTokens), es.parseInline(n, e)
+        e.walkTokens && ns.walkTokens(n, e.walkTokens),
+        es.parseInline(n, e)
       );
     } catch (t) {
       if (
@@ -4182,7 +4196,7 @@ function ns(t, e, n) {
   (ns.lexer = Go.lex),
   (ns.Tokenizer = Wo),
   (ns.Slugger = ts),
-  (ns.parse = ns);
+  (ns.parse = ns));
 export default function () {
   var t,
     e,
@@ -4204,7 +4218,7 @@ export default function () {
         return void alert(
           "Speaker view popup failed to open. Please make sure popups are allowed and reopen the speaker view.",
         );
-      (r = e.getConfig().url),
+      ((r = e.getConfig().url),
         (i =
           "string" == typeof r
             ? r
@@ -4224,7 +4238,7 @@ export default function () {
             "*",
           );
         }, 500)),
-        window.addEventListener("message", u);
+        window.addEventListener("message", u));
     }
     var r, i;
   }
@@ -4253,10 +4267,10 @@ export default function () {
           (a.whitespace = "pre-wrap"),
           (i = null));
     }
-    i &&
+    (i &&
       ((a.notes = i.innerHTML),
       (a.markdown = "string" == typeof i.getAttribute("data-markdown"))),
-      n.postMessage(JSON.stringify(a), "*");
+      n.postMessage(JSON.stringify(a), "*"));
   }
   function u(r) {
     var i,
@@ -4284,19 +4298,19 @@ export default function () {
         ));
   }
   function a() {
-    e.on("slidechanged", i),
+    (e.on("slidechanged", i),
       e.on("fragmentshown", i),
       e.on("fragmenthidden", i),
       e.on("overviewhidden", i),
       e.on("overviewshown", i),
       e.on("paused", i),
       e.on("resumed", i),
-      i();
+      i());
   }
   return {
     id: "notes",
     init: function (t) {
-      (e = t),
+      ((e = t),
         /receiver/i.test(window.location.search) ||
           (null !== window.location.search.match(/(\?|\&)notes/gi)
             ? r()
@@ -4321,7 +4335,7 @@ export default function () {
             function () {
               r();
             },
-          ));
+          )));
     },
     open: r,
   };

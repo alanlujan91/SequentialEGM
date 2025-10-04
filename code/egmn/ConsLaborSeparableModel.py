@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from copy import copy
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import numpy as np
 from HARK.ConsumptionSaving.ConsLaborModel import (
@@ -38,7 +38,7 @@ class PostDecisionStage(MetricObject):
     distance_criteria = ["vp_func"]
     v_func: ValueFuncCRRA = NullFunc()
     vp_func: MargValueFuncCRRA = NullFunc()
-    vp: np.ndarray = np.array([])
+    vp: np.ndarray = field(default_factory=lambda: np.array([]))
 
 
 @dataclass
@@ -72,9 +72,11 @@ class LaborLeisureStage(MetricObject):
 @dataclass
 class LaborSeparableSolution(MetricObject):
     distance_metric = ["consumption_saving", "labor_leisure", "post_decision"]
-    labor_leisure: LaborLeisureStage = LaborLeisureStage()
-    consumption_saving: ConsumptionSavingStage = ConsumptionSavingStage()
-    post_decision: PostDecisionStage = PostDecisionStage()
+    labor_leisure: LaborLeisureStage = field(default_factory=LaborLeisureStage)
+    consumption_saving: ConsumptionSavingStage = field(
+        default_factory=ConsumptionSavingStage
+    )
+    post_decision: PostDecisionStage = field(default_factory=PostDecisionStage)
 
 
 class UtilityFuncLeisure(UtilityFuncStoneGeary):
@@ -411,8 +413,12 @@ class PortfolioPostDecisionStage(MetricObject):
     dvda_func: MargValueFuncCRRA = NullFunc()  # marginal value function wrt assets
     # marginal value function wrt risky share
     dvds_func: MargValueFuncCRRA = NullFunc()
-    dvda: np.ndarray = np.array([])  # marginal value wrt a on grid
-    dvds: np.ndarray = np.array([])  # marginal value wrt s on grid
+    dvda: np.ndarray = field(
+        default_factory=lambda: np.array([])
+    )  # marginal value wrt a on grid
+    dvds: np.ndarray = field(
+        default_factory=lambda: np.array([])
+    )  # marginal value wrt s on grid
 
 
 @dataclass
@@ -425,8 +431,8 @@ class PortfolioStage(MetricObject):
     share_func: LinearFast = NullFunc()  # policy this stage is risky share
     v_func: ValueFuncCRRA = NullFunc()
     vp_func: MargValueFuncCRRA = NullFunc()
-    vp_vals: np.ndarray = np.array([])
-    vp_nvrs: np.ndarray = np.array([])
+    vp_vals: np.ndarray = field(default_factory=lambda: np.array([]))
+    vp_nvrs: np.ndarray = field(default_factory=lambda: np.array([]))
     aNrmMin: float = 0.0
 
 
@@ -434,10 +440,12 @@ class PortfolioStage(MetricObject):
 class LaborPortfolioSolution(MetricObject):
     """The ConsLaborPortfolioSolution contains all of the solution stages of this model."""
 
-    post_decision_stage: PostDecisionStage = PostDecisionStage()
-    portfolio_stage: PortfolioStage = PortfolioStage()
-    consumption_stage: ConsumptionSavingStage = ConsumptionSavingStage()
-    labor_stage: LaborLeisureStage = LaborLeisureStage()
+    post_decision_stage: PostDecisionStage = field(default_factory=PostDecisionStage)
+    portfolio_stage: PortfolioStage = field(default_factory=PortfolioStage)
+    consumption_stage: ConsumptionSavingStage = field(
+        default_factory=ConsumptionSavingStage
+    )
+    labor_stage: LaborLeisureStage = field(default_factory=LaborLeisureStage)
     isterminal: bool = False
 
 

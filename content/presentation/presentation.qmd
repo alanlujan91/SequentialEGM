@@ -1,7 +1,7 @@
 ---
 title: Quarto reveal.js clean
 subtitle: A minimalist and elegant presentation theme
-format: 
+format:
   clean-revealjs:
     self-contained: true
 html-math-method:
@@ -26,7 +26,7 @@ bibliography: refs.bib
 
 Before we dive a bit deeper, here is a simple example of the
 [clean theme](https://github.com/grantmcdermott/quarto-revealjs-clean)
-in action. 
+in action.
 
 - No pictures or anything fancy. Just text for the moment.
 
@@ -63,7 +63,7 @@ install.packages(c("modelsummary", "fixest", "pdftools", "tinytex", "threejs"))
 ```{.bash}
 quarto install tinytex
 ```
-While reveal.js presentations are HTML format, we will show an example of how to 
+While reveal.js presentations are HTML format, we will show an example of how to
 embed LaTeX tables as images. This requires a working Tex distribution, of which
 TinyTex provides by far the easiest and lightest integration with Quarto. More
 details [here](https://quarto.org/docs/output-formats/pdf-engine.html).
@@ -121,7 +121,7 @@ and be sourced from BibLaTex, BibTeX, or CLS files. For example:
 
 Quarto provides
 [dedicated environments](https://quarto.org/docs/authoring/cross-references.html#theorems-and-proofs)
-for theorems, lemmas, and so forth. 
+for theorems, lemmas, and so forth.
 
 But in presentation format, it's arguably more effective just to use a
 [Callout Block](https://quarto.org/docs/authoring/callouts.html).
@@ -190,7 +190,7 @@ See [here](https://quarto.org/docs/authoring/figures.html#subfigures).
 ```{r}
 #| echo: true
 #| label: fig-pairs
-#| fig-cap: "Pairwise scatterplot" 
+#| fig-cap: "Pairwise scatterplot"
 #| fig-asp: 1
 #| output-location: column
 

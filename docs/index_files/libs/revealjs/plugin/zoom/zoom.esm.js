@@ -38,8 +38,8 @@ var e = {
         else {
           var i = o.x + "px " + o.y + "px",
             d = "translate(" + -t.x + "px," + -t.y + "px) scale(" + n + ")";
-          (document.body.style.transformOrigin = i),
-            (document.body.style.transform = d);
+          ((document.body.style.transformOrigin = i),
+            (document.body.style.transform = d));
         }
       else
         1 === n
@@ -55,17 +55,17 @@ var e = {
             (document.body.style.width = 100 * n + "%"),
             (document.body.style.height = 100 * n + "%"),
             (document.body.style.zoom = n));
-      (e = n),
+      ((e = n),
         document.documentElement.classList &&
           (1 !== e
             ? document.documentElement.classList.add("zoomed")
-            : document.documentElement.classList.remove("zoomed"));
+            : document.documentElement.classList.remove("zoomed")));
     }
     function c() {
       var t = 0.12 * window.innerWidth,
         i = 0.12 * window.innerHeight,
         d = r();
-      o < i
+      (o < i
         ? window.scroll(d.x, d.y - (14 / e) * (1 - o / i))
         : o > window.innerHeight - i &&
           window.scroll(
@@ -78,7 +78,7 @@ var e = {
             window.scroll(
               d.x + (1 - (window.innerWidth - n) / t) * (14 / e),
               d.y,
-            );
+            ));
     }
     function r() {
       return {
@@ -100,12 +100,12 @@ var e = {
           else {
             if (((n.x = n.x || 0), (n.y = n.y || 0), n.element)) {
               var o = n.element.getBoundingClientRect();
-              (n.x = o.left - 20),
+              ((n.x = o.left - 20),
                 (n.y = o.top - 20),
                 (n.width = o.width + 40),
-                (n.height = o.height + 40);
+                (n.height = o.height + 40));
             }
-            void 0 !== n.width &&
+            (void 0 !== n.width &&
               void 0 !== n.height &&
               (n.scale = Math.max(
                 Math.min(
@@ -121,11 +121,11 @@ var e = {
                 !1 !== n.pan &&
                   (i = setTimeout(function () {
                     d = setInterval(c, 1e3 / 60);
-                  }, 800)));
+                  }, 800))));
           }
         },
         out: function () {
-          clearTimeout(i), clearInterval(d), s({ x: 0, y: 0 }, 1), (e = 1);
+          (clearTimeout(i), clearInterval(d), s({ x: 0, y: 0 }, 1), (e = 1));
         },
         magnify: function (e) {
           this.to(e);

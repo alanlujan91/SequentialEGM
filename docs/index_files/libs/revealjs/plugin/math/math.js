@@ -168,7 +168,7 @@
           } catch (t) {}
         if ("get" in n || "set" in n)
           throw TypeError("Accessors not supported");
-        return "value" in n && (t[e] = n.value), t;
+        return ("value" in n && (t[e] = n.value), t);
       };
   var Y = H,
     B = s,
@@ -177,7 +177,7 @@
           return Y.f(t, e, B(1, n));
         }
       : function (t, e, n) {
-          return (t[e] = n), t;
+          return ((t[e] = n), t);
         },
     Z = { exports: {} },
     tt = n,
@@ -246,29 +246,29 @@
       Ct = Rt.get,
       Nt = Rt.has,
       Ft = Rt.set;
-    (dt = function (t, e) {
+    ((dt = function (t, e) {
       if (Nt.call(Rt, t)) throw new TypeError(At);
-      return (e.facade = t), Ft.call(Rt, t, e), e;
+      return ((e.facade = t), Ft.call(Rt, t, e), e);
     }),
       (vt = function (t) {
         return Ct.call(Rt, t) || {};
       }),
       (yt = function (t) {
         return Nt.call(Rt, t);
-      });
+      }));
   } else {
     var Jt = Lt("state");
-    (_t[Jt] = !0),
+    ((_t[Jt] = !0),
       (dt = function (t, e) {
         if (Mt(t, Jt)) throw new TypeError(At);
-        return (e.facade = t), Pt(t, Jt, e), e;
+        return ((e.facade = t), Pt(t, Jt, e), e);
       }),
       (vt = function (t) {
         return Mt(t, Jt) ? t[Jt] : {};
       }),
       (yt = function (t) {
         return Mt(t, Jt);
-      });
+      }));
   }
   var Dt = {
       set: dt,
@@ -299,7 +299,7 @@
       i = !!r && !!r.unsafe,
       a = !!r && !!r.enumerable,
       c = !!r && !!r.noTargetGet;
-    "function" == typeof n &&
+    ("function" == typeof n &&
       ("string" != typeof e || Ht(n, "name") || Gt(n, "name", e),
       (o = Ut(n)).source ||
         (o.source = Kt.join("string" == typeof e ? e : ""))),
@@ -308,7 +308,7 @@
           a ? (t[e] = n) : Gt(t, e, n))
         : a
           ? (t[e] = n)
-          : zt(e, n);
+          : zt(e, n));
   })(Function.prototype, "toString", function () {
     return ("function" == typeof this && qt(this).source) || Wt(this);
   });
@@ -446,7 +446,7 @@
             if (typeof i == typeof o) continue;
             ze(i, o);
           }
-          (t.sham || (o && o.sham)) && $e(i, "sham", !0), Ge(n, r, i, t);
+          ((t.sham || (o && o.sham)) && $e(i, "sham", !0), Ge(n, r, i, t));
         }
     },
     Ue = ge,
@@ -512,7 +512,7 @@
                 s > l;
 
               )
-                (c = f[l++]), (Xe && !a.call(u, c)) || (n[c] = u[c]);
+                ((c = f[l++]), (Xe && !a.call(u, c)) || (n[c] = u[c]));
             return n;
           }
         : nn;
@@ -520,11 +520,11 @@
     var n = Object.keys(t);
     if (Object.getOwnPropertySymbols) {
       var r = Object.getOwnPropertySymbols(t);
-      e &&
+      (e &&
         (r = r.filter(function (e) {
           return Object.getOwnPropertyDescriptor(t, e).enumerable;
         })),
-        n.push.apply(n, r);
+        n.push.apply(n, r));
     }
     return n;
   }
@@ -596,15 +596,16 @@
           o = {},
           i = Object.keys(t);
         for (r = 0; r < i.length; r++)
-          (n = i[r]), e.indexOf(n) >= 0 || (o[n] = t[n]);
+          ((n = i[r]), e.indexOf(n) >= 0 || (o[n] = t[n]));
         return o;
       })(t, e);
     if (Object.getOwnPropertySymbols) {
       var i = Object.getOwnPropertySymbols(t);
       for (r = 0; r < i.length; r++)
-        (n = i[r]),
+        ((n = i[r]),
           e.indexOf(n) >= 0 ||
-            (Object.prototype.propertyIsEnumerable.call(t, n) && (o[n] = t[n]));
+            (Object.prototype.propertyIsEnumerable.call(t, n) &&
+              (o[n] = t[n])));
     }
     return o;
   }
@@ -663,10 +664,10 @@
       },
       n: function () {
         var t = n.next();
-        return (a = t.done), t;
+        return ((a = t.done), t);
       },
       e: function (t) {
-        (c = !0), (i = t);
+        ((c = !0), (i = t));
       },
       f: function () {
         try {
@@ -797,7 +798,7 @@
                 )
               : e.resolve(l).then(
                   function (t) {
-                    (f.value = t), a(f);
+                    ((f.value = t), a(f));
                   },
                   function (t) {
                     return n("throw", t, a, c);
@@ -828,16 +829,21 @@
               "throw" === n.method)
             )
               return v;
-            (n.method = "throw"),
+            ((n.method = "throw"),
               (n.arg = new TypeError(
                 "The iterator does not provide a 'throw' method",
-              ));
+              )));
           }
           return v;
         }
         var o = s(r, t.iterator, n.arg);
         if ("throw" === o.type)
-          return (n.method = "throw"), (n.arg = o.arg), (n.delegate = null), v;
+          return (
+            (n.method = "throw"),
+            (n.arg = o.arg),
+            (n.delegate = null),
+            v
+          );
         var i = o.arg;
         return i
           ? i.done
@@ -854,18 +860,18 @@
       }
       function T(t) {
         var e = { tryLoc: t[0] };
-        1 in t && (e.catchLoc = t[1]),
+        (1 in t && (e.catchLoc = t[1]),
           2 in t && ((e.finallyLoc = t[2]), (e.afterLoc = t[3])),
-          this.tryEntries.push(e);
+          this.tryEntries.push(e));
       }
       function P(t) {
         var e = t.completion || {};
-        (e.type = "normal"), delete e.arg, (t.completion = e);
+        ((e.type = "normal"), delete e.arg, (t.completion = e));
       }
       function M(t) {
-        (this.tryEntries = [{ tryLoc: "root" }]),
+        ((this.tryEntries = [{ tryLoc: "root" }]),
           t.forEach(T, this),
-          this.reset(!0);
+          this.reset(!0));
       }
       function k(t) {
         if (t) {
@@ -876,8 +882,8 @@
             var o = -1,
               a = function n() {
                 for (; ++o < t.length; )
-                  if (r.call(t, o)) return (n.value = t[o]), (n.done = !1), n;
-                return (n.value = e), (n.done = !0), n;
+                  if (r.call(t, o)) return ((n.value = t[o]), (n.done = !1), n);
+                return ((n.value = e), (n.done = !0), n);
               };
             return (a.next = a);
           }
@@ -940,9 +946,9 @@
             function n() {
               for (; e.length; ) {
                 var r = e.pop();
-                if (r in t) return (n.value = r), (n.done = !1), n;
+                if (r in t) return ((n.value = r), (n.done = !1), n);
               }
-              return (n.done = !0), n;
+              return ((n.done = !0), n);
             }
           );
         }),
@@ -1048,7 +1054,7 @@
             for (var e = this.tryEntries.length - 1; e >= 0; --e) {
               var n = this.tryEntries[e];
               if (n.finallyLoc === t)
-                return this.complete(n.completion, n.afterLoc), P(n), v;
+                return (this.complete(n.completion, n.afterLoc), P(n), v);
             }
           },
           catch: function (t) {
@@ -1181,14 +1187,14 @@
               e = !1,
               n = {};
             try {
-              (t = Object.getOwnPropertyDescriptor(
+              ((t = Object.getOwnPropertyDescriptor(
                 Object.prototype,
                 "__proto__",
               ).set).call(n, []),
-                (e = n instanceof Array);
+                (e = n instanceof Array));
             } catch (t) {}
             return function (n, r) {
-              return Bn(n), Vn(r), e ? t.call(n, r) : (n.__proto__ = r), n;
+              return (Bn(n), Vn(r), e ? t.call(n, r) : (n.__proto__ = r), n);
             };
           })()
         : void 0),
@@ -1251,7 +1257,7 @@
       if (void 0 !== e) return gr(e.call(t)).value;
     },
     Er = function (t, e) {
-      (this.stopped = t), (this.result = e);
+      ((this.stopped = t), (this.result = e));
     },
     Sr = Cn("iterator"),
     Tr = !1;
@@ -1265,12 +1271,12 @@
           Tr = !0;
         },
       };
-    (Mr[Sr] = function () {
+    ((Mr[Sr] = function () {
       return this;
     }),
       Array.from(Mr, function () {
         throw 2;
-      });
+      }));
   } catch (t) {}
   var kr,
     Lr,
@@ -1300,7 +1306,7 @@
     to = function (t) {
       if (Vr.hasOwnProperty(t)) {
         var e = Vr[t];
-        delete Vr[t], e();
+        (delete Vr[t], e());
       }
     },
     eo = function (t) {
@@ -1352,7 +1358,7 @@
                   ? function (t) {
                       Gr.appendChild(Hr("script")).onreadystatechange =
                         function () {
-                          Gr.removeChild(this), to(t);
+                          (Gr.removeChild(this), to(t));
                         };
                     }
                   : function (t) {
@@ -1384,14 +1390,14 @@
     ((oo = function () {
       var t, e;
       for (wo && (t = Oo.domain) && t.exit(); io; ) {
-        (e = io.fn), (io = io.next);
+        ((e = io.fn), (io = io.next));
         try {
           e();
         } catch (t) {
           throw (io ? co() : (ao = void 0), t);
         }
       }
-      (ao = void 0), t && t.enter();
+      ((ao = void 0), t && t.enter());
     }),
     mo || wo || bo || !jo || !xo
       ? Eo && Eo.resolve
@@ -1417,19 +1423,19 @@
       To ||
       function (t) {
         var e = { fn: t, next: void 0 };
-        ao && (ao.next = e), io || ((io = e), co()), (ao = e);
+        (ao && (ao.next = e), io || ((io = e), co()), (ao = e));
       },
     Mo = {},
     ko = cr,
     Lo = function (t) {
       var e, n;
-      (this.promise = new t(function (t, r) {
+      ((this.promise = new t(function (t, r) {
         if (void 0 !== e || void 0 !== n)
           throw TypeError("Bad Promise constructor");
-        (e = t), (n = r);
+        ((e = t), (n = r));
       })),
         (this.resolve = ko(e)),
-        (this.reject = ko(n));
+        (this.reject = ko(n)));
     };
   Mo.f = function (t) {
     return new Lo(t);
@@ -1493,7 +1499,7 @@
         h = !(!n || !n.INTERRUPTED),
         d = jr(e, s, 1 + l + h),
         v = function (t) {
-          return r && Or(r), new Er(!0, t);
+          return (r && Or(r), new Er(!0, t));
         },
         y = function (t) {
           return l
@@ -1528,14 +1534,14 @@
       var n = !1;
       try {
         var r = {};
-        (r[Sr] = function () {
+        ((r[Sr] = function () {
           return {
             next: function () {
               return { done: (n = !0) };
             },
           };
         }),
-          t(r);
+          t(r));
       } catch (t) {}
       return n;
     },
@@ -1549,7 +1555,7 @@
     oi = function (t, e) {
       if ((Co(t), No(e) && e.constructor === t)) return e;
       var n = Fo.f(t);
-      return (0, n.resolve)(e), n.promise;
+      return ((0, n.resolve)(e), n.promise);
     },
     ii = function (t, e) {
       var n = Jo.console;
@@ -1639,16 +1645,16 @@
                       : l(a))
                 : p(r);
             } catch (t) {
-              h && !u && h.exit(), p(t);
+              (h && !u && h.exit(), p(t));
             }
           }
-          (t.reactions = []), (t.notified = !1), e && !t.rejection && Ci(t);
+          ((t.reactions = []), (t.notified = !1), e && !t.rejection && Ci(t));
         });
       }
     },
     Ri = function (t, e, n) {
       var r, o;
-      Ti
+      (Ti
         ? (((r = xi.createEvent("Event")).promise = e),
           (r.reason = n),
           r.initEvent(t, !1, !0),
@@ -1656,7 +1662,7 @@
         : (r = { promise: e, reason: n }),
         !Pi && (o = Go["on" + t])
           ? o(r)
-          : t === Mi && ii("Unhandled promise rejection", n);
+          : t === Mi && ii("Unhandled promise rejection", n));
     },
     Ci = function (t) {
       ni.call(Go, function () {
@@ -1696,7 +1702,7 @@
     },
     $i = function (t, e, n) {
       if (!t.done) {
-        (t.done = !0), n && (t = n);
+        ((t.done = !0), n && (t = n));
         try {
           if (t.facade === e) throw ji("Promise can't be resolved itself");
           var r = Ai(e);
@@ -1718,7 +1724,7 @@
   if (
     Li &&
     ((wi = (bi = function (t) {
-      Bo(this, bi, di), Yo(t), _o.call(this);
+      (Bo(this, bi, di), Yo(t), _o.call(this));
       var e = vi(this);
       try {
         t(Ji($i, e), Ji(Di, e));
@@ -1758,7 +1764,9 @@
     (Ao = function () {
       var t = new _o(),
         e = vi(t);
-      (this.promise = t), (this.resolve = Ji($i, e)), (this.reject = Ji(Di, e));
+      ((this.promise = t),
+        (this.resolve = Ji($i, e)),
+        (this.reject = Ji(Di, e)));
     }),
     (ai.f = Ei =
       function (t) {
@@ -1766,7 +1774,7 @@
       }),
     "function" == typeof zo && mi !== Object.prototype)
   ) {
-    (Ro = mi.then),
+    ((Ro = mi.then),
       ki ||
         (Wo(
           mi,
@@ -1779,13 +1787,13 @@
           },
           { unsafe: !0 },
         ),
-        Wo(mi, "catch", wi.catch, { unsafe: !0 }));
+        Wo(mi, "catch", wi.catch, { unsafe: !0 })));
     try {
       delete mi.constructor;
     } catch (t) {}
     Uo && Uo(mi, wi);
   }
-  $o({ global: !0, wrap: !0, forced: Li }, { Promise: bi }),
+  ($o({ global: !0, wrap: !0, forced: Li }, { Promise: bi }),
     Ko(bi, di, !1),
     Qo(di),
     (Io = Ho(di)),
@@ -1794,7 +1802,7 @@
       {
         reject: function (t) {
           var e = Ei(this);
-          return e.reject.call(void 0, t), e.promise;
+          return (e.reject.call(void 0, t), e.promise);
         },
       },
     ),
@@ -1819,18 +1827,18 @@
                 i = [],
                 a = 0,
                 c = 1;
-              Zo(t, function (t) {
+              (Zo(t, function (t) {
                 var u = a++,
                   f = !1;
-                i.push(void 0),
+                (i.push(void 0),
                   c++,
                   n.call(e, t).then(function (t) {
                     f || ((f = !0), (i[u] = t), --c || r(i));
-                  }, o);
+                  }, o));
               }),
-                --c || r(i);
+                --c || r(i));
             });
-          return i.error && o(i.value), n.promise;
+          return (i.error && o(i.value), n.promise);
         },
         race: function (t) {
           var e = this,
@@ -1842,10 +1850,10 @@
                 o.call(e, t).then(n.resolve, r);
               });
             });
-          return o.error && r(o.value), n.promise;
+          return (o.error && r(o.value), n.promise);
         },
       },
-    );
+    ));
   var Gi,
     Hi = H,
     zi = W,
@@ -1876,9 +1884,9 @@
       var t, e;
       ea = Gi
         ? (function (t) {
-            t.write(ta("")), t.close();
+            (t.write(ta("")), t.close());
             var e = t.parentWindow.Object;
-            return (t = null), e;
+            return ((t = null), e);
           })(Gi)
         : (((e = Bi("iframe")).style.display = "none"),
           Yi.appendChild(e),
@@ -1913,7 +1921,7 @@
     ca = function (t) {
       ia[oa][t] = !0;
     };
-  qe(
+  (qe(
     { target: "Array", proto: !0 },
     {
       includes: function (t) {
@@ -1921,7 +1929,7 @@
       },
     },
   ),
-    ca("includes");
+    ca("includes"));
   var ua = w,
     fa = p,
     sa = Cn("match"),
@@ -1946,7 +1954,7 @@
           "/./"[t](e);
         } catch (n) {
           try {
-            return (e[pa] = !1), "/./"[t](e);
+            return ((e[pa] = !1), "/./"[t](e));
           } catch (t) {}
         }
         return !1;
@@ -1984,23 +1992,23 @@
                 "https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js") +
               "?config=" +
               (o.config || "TeX-AMS_HTML-full");
-          (o.tex2jax = cn(cn({}, e.tex2jax), r.tex2jax)),
+          ((o.tex2jax = cn(cn({}, e.tex2jax), r.tex2jax)),
             (o.mathjax = o.config = null),
             (function (t, e) {
               var n = this,
                 r = document.querySelector("head"),
                 o = document.createElement("script");
-              (o.type = "text/javascript"), (o.src = t);
+              ((o.type = "text/javascript"), (o.src = t));
               var i = function () {
                 "function" == typeof e && (e.call(), (e = null));
               };
-              (o.onload = i),
+              ((o.onload = i),
                 (o.onreadystatechange = function () {
                   "loaded" === n.readyState && i();
                 }),
-                r.appendChild(o);
+                r.appendChild(o));
             })(i, function () {
-              MathJax.Hub.Config(o),
+              (MathJax.Hub.Config(o),
                 MathJax.Hub.Queue([
                   "Typeset",
                   MathJax.Hub,
@@ -2009,8 +2017,8 @@
                 MathJax.Hub.Queue(t.layout),
                 t.on("slidechanged", function (t) {
                   MathJax.Hub.Queue(["Typeset", MathJax.Hub, t.currentSlide]);
-                });
-            });
+                }));
+            }));
         },
       };
     },
@@ -2031,11 +2039,11 @@
         n = function (t) {
           return new Promise(function (e, n) {
             var r = document.createElement("script");
-            (r.type = "text/javascript"),
+            ((r.type = "text/javascript"),
               (r.onload = e),
               (r.onerror = n),
               (r.src = t),
-              document.head.append(r);
+              document.head.append(r));
           });
         };
       function r() {
@@ -2047,13 +2055,13 @@
                 for (;;)
                   switch ((t.prev = t.next)) {
                     case 0:
-                      (r = hn(e)), (t.prev = 1), r.s();
+                      ((r = hn(e)), (t.prev = 1), r.s());
                     case 3:
                       if ((o = r.n()).done) {
                         t.next = 9;
                         break;
                       }
-                      return (i = o.value), (t.next = 7), n(i);
+                      return ((i = o.value), (t.next = 7), n(i));
                     case 7:
                       t.next = 3;
                       break;
@@ -2061,9 +2069,9 @@
                       t.next = 14;
                       break;
                     case 11:
-                      (t.prev = 11), (t.t0 = t.catch(1)), r.e(t.t0);
+                      ((t.prev = 11), (t.t0 = t.catch(1)), r.e(t.t0));
                     case 14:
-                      return (t.prev = 14), r.f(), t.finish(14);
+                      return ((t.prev = 14), r.f(), t.finish(14));
                     case 17:
                     case "end":
                       return t.stop();
@@ -2082,7 +2090,7 @@
           var o = this,
             i = (t = n).getConfig().katex || {},
             a = cn(cn({}, e), i);
-          a.local, a.version, a.extensions;
+          (a.local, a.version, a.extensions);
           var c = ln(a, ["local", "version", "extensions"]),
             u = a.local || "https://cdn.jsdelivr.net/npm/katex",
             f = a.local ? "" : "@" + a.version,
@@ -2090,14 +2098,14 @@
             l = u + f + "/dist/contrib/mhchem.min.js",
             p = u + f + "/dist/contrib/auto-render.min.js",
             h = [u + f + "/dist/katex.min.js"];
-          a.extensions && a.extensions.includes("mhchem") && h.push(l),
-            h.push(p);
+          (a.extensions && a.extensions.includes("mhchem") && h.push(l),
+            h.push(p));
           var d,
             v,
             y = function () {
-              renderMathInElement(n.getSlidesElement(), c), t.layout();
+              (renderMathInElement(n.getSlidesElement(), c), t.layout());
             };
-          (d = s),
+          ((d = s),
             ((v = document.createElement("link")).rel = "stylesheet"),
             (v.href = d),
             document.head.appendChild(v),
@@ -2105,7 +2113,7 @@
               return r.apply(this, arguments);
             })(h).then(function () {
               t.isReady() ? y() : t.on("ready", y.bind(o));
-            });
+            }));
         },
       };
     },
@@ -2123,10 +2131,10 @@
         },
         startup: {
           ready: function () {
-            MathJax.startup.defaultReady(),
+            (MathJax.startup.defaultReady(),
               MathJax.startup.promise.then(function () {
                 Reveal.layout();
-              });
+              }));
           },
         },
       };
@@ -2135,29 +2143,29 @@
         init: function (e) {
           var n = e.getConfig().mathjax3 || {},
             r = cn(cn({}, t), n);
-          (r.tex = cn(cn({}, t.tex), n.tex)),
+          ((r.tex = cn(cn({}, t.tex), n.tex)),
             (r.options = cn(cn({}, t.options), n.options)),
-            (r.startup = cn(cn({}, t.startup), n.startup));
+            (r.startup = cn(cn({}, t.startup), n.startup)));
           var o =
             r.mathjax ||
             "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-          (r.mathjax = null),
+          ((r.mathjax = null),
             (window.MathJax = r),
             (function (t, e) {
               var n = document.createElement("script");
-              (n.type = "text/javascript"),
+              ((n.type = "text/javascript"),
                 (n.id = "MathJax-script"),
                 (n.src = t),
                 (n.async = !0),
                 (n.onload = function () {
                   "function" == typeof e && (e.call(), (e = null));
                 }),
-                document.head.appendChild(n);
+                document.head.appendChild(n));
             })(o, function () {
               Reveal.addEventListener("slidechanged", function (t) {
                 MathJax.typeset();
               });
-            });
+            }));
         },
       };
     },
