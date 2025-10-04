@@ -1,6 +1,6 @@
 
-
 (multdim)=
+
 # The EGM$^n$ in Higher Dimensions
 
 The problem in [Section %s](#method) demonstrates the simplicity of solving problems sequentially. However, as constructed, the problem has only one state variable and one post-decision state variable per stage. Can EGM$^n$ be used to solve higher dimensional problems? In short, yes, but it requires additional thought on interpolation.
@@ -17,7 +17,7 @@ For a demonstration, we now turn to the problem of a worker saving up for retire
         \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
         \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t}) \\
         \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1} + \tShkEmp_{t+1} \\
-        \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / / \PGro_{t+1}
+        \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / \PGro_{t+1}
     \end{split}
 \end{equation}
 
@@ -57,7 +57,7 @@ Finally, the post-decision value function $\wFunc_{t}$ represents the value of b
 \begin{equation}
     \begin{split}
         \wFunc_{t}(\aRat_{t}, \bRat_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \mRat_{t+1}) \right] \\
+        \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
         & \text{s.t.} \quad \aRat_{t} \ge 0, \quad \bRat_{t} \ge 0 \\
         \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1} + \tShkEmp_{t+1} \\
         \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / \PGro_{t+1}

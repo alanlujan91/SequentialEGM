@@ -1,5 +1,4 @@
 
-
 (method)=
 
 # The Sequential Endogenous Grid Method
@@ -183,9 +182,9 @@ In this case, the process is similar. The only difference is that we don't have 
 \begin{equation}
     \begin{split}
         \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right] \\
+        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right] \\
         \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}'\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
+        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
     \end{split}
 \end{equation}
 
@@ -259,8 +258,8 @@ The first-order condition with respect to leisure implies the labor-leisure Eule
 The marginal utility of leisure and its inverse are
 
 \begin{equation}
-    \h'(\leisure) = \labShare\leisure^{-\leiShare} \qquad
-    \h'^{-1}(\xRat) = (\xRat/\labShare)^{-1/\leiShare}
+    \h'(\leisure) = \labShare^{1-\CRRA}\leisure^{-\leiShare} \qquad
+    \h'^{-1}(\xRat) = (\xRat/\labShare^{1-\CRRA})^{-1/\leiShare}
 \end{equation}
 
 Using an exogenous grid of $\mMat$ and $\tShkMat$, we can find leisure as
@@ -273,7 +272,7 @@ Using an exogenous grid of $\mMat$ and $\tShkMat$, we can find leisure as
 In this case, it's important to note that there are conditions for leisure itself. An agent with a small level of market resources $\mRat_{t}$ might want to work more than their available time endowment, especially at higher levels of income $\tShkEmp_{t}$, if the utility of leisure is not enough to compensate for their low wealth. In these situations, the optimal unconstrained leisure might be negative, so we must impose a constraint on the optimal leisure function. This is similar to the treatment of an artificial borrowing constraint in the pure consumption subproblem. From now on, let's call this constrained optimal function $\hat{\zEndFunc}_{t}(\mMat, \tShkMat)$, where
 
 \begin{equation}
-    \hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc_{t}(\mMat, \tShkMat), 1 \right], 0 \right]
+    \hat{\zEndFunc}*{t}(\mMat, \tShkMat) = \max \left[ \min \left[ \zEndFunc*{t}(\mMat, \tShkMat), 1 \right], 0 \right]
 \end{equation}
 
 Then, we derive labor as $\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = 1 - \hat{\zEndFunc}_{t}(\mRat_{t}, \tShkEmp_{t})$. Finally, for each $\tShkEmp_{t}$ and $\mRat_{t}$ as an exogenous grid, we can find the endogenous grid of bank balances as $\bEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = \mRat_{t} - \tShkEmp_{t}\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t})$.

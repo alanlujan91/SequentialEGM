@@ -1,6 +1,6 @@
 
-
 (conditions)=
+
 # Conditions for using the Sequential Endogenous Grid Method
 
 ## Splitting the problem into subproblems
@@ -95,7 +95,6 @@ we require $\frac{\partial \TFunc_{t}^j(\xRat_t, \yRat_t)}{\partial \yRat_t^i} =
     \frac{\partial \UFunc( \yRat_t)}{\partial \yRat_t^i}  +   \frac{\partial \WFunc_t(\tilde{\xRat}_t, \sRat_t)}{\partial \tilde{\xRat}_{t}^i} \frac{\partial \TFunc_{t}^i(\xRat_t, \yRat_t)}{\partial \yRat_t^i} = 0
 \end{equation}
 
-
 ### Differentiable and invertible transition
 
 In [Section %s](#multdim), we see that a problem with a differentiable and invertible transition can also be used to embed an additional Endogenous Grid Method step. Because the transition applies independently to a state variable that is not related to the other control variable, consumption, it can be handled separately from the consumption subproblem.
@@ -125,38 +124,45 @@ A generic subproblem with a differentiable and invertible utility function can b
 For an interior solution, the first-order condition is thus
 
 \begin{equation}
-    \UFunc'_{\yRat}(\xRat, \yRat) + \DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat) = 0
+    \frac{\partial \UFunc(\xRat, \yRat)}{\partial \yRat} + \DiscFac \WFunc'(\aRat) \frac{\partial \TFunc(\xRat,\yRat)}{\partial \yRat} = 0
 \end{equation}
 
 If, as we assumed, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
 
 \begin{equation}
-    \yRat = \left(\UFunc'_{\yRat}(\xRat, \yRat)\right)^{-1}
-    \left[ -\DiscFac \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)\right]
+    \yRat = \left(\frac{\partial \UFunc(\xRat, \yRat)}{\partial \yRat}\right)^{-1}
+    \left[ -\DiscFac \WFunc'(\aRat) \frac{\partial \TFunc(\xRat,\yRat)}{\partial \yRat}\right]
 \end{equation}
 
 By using an exogenous grid of the post-decision state $\aRat$, we can solve for the optimal decision rule $\yRat$ at each point on the grid. This is the Endogenous Grid Method step.
 
 ### Transition
 
-If the generic subproblem has no separable utility, but instead has a differentiable and invertible transition, then the Endogenous Grid Method can still be used.
+If the generic subproblem has no separable utility, but instead has differentiable and invertible transitions that affect multiple post-decision states, then the Endogenous Grid Method can still be used. Consider a problem with two post-decision states:
 
 \begin{equation}
     \begin{split}
-        \VFunc(\xRat) & = \max_{\yRat \in \PGro(\xRat)} \WFunc(\aRat) \\
+        \VFunc(\xRat, \zRat) & = \max_{\yRat \in \PGro(\xRat, \zRat)} \WFunc(\aRat, \bRat) \\
         & \text{s.t.} \\
-        \aRat & = \TFunc(\xRat,\yRat)
+        \aRat & = \TFunc_1(\xRat,\yRat) \\
+        \bRat & = \TFunc_2(\zRat,\yRat)
     \end{split}
 \end{equation}
 
 Here, the first-order condition is
 
 \begin{equation}
-    \WFunc'(\aRat)\TFunc'_{\yRat}(\xRat,\yRat)  = 0
+    \WFunc^{\aRat}(\aRat, \bRat) \cdot \frac{\partial \TFunc_1(\xRat,\yRat)}{\partial \yRat} + \WFunc^{\bRat}(\aRat, \bRat) \cdot \frac{\partial \TFunc_2(\zRat,\yRat)}{\partial \yRat} = 0
+\end{equation}
+
+If $\TFunc_2$ has the special structure $\TFunc_2(\zRat, \yRat) = \zRat + \yRat + \gFunc(\yRat)$ where $\gFunc$ is differentiable and invertible, and $\frac{\partial \TFunc_1}{\partial \yRat}$ is constant, then we can rearrange the FOC to get
+
+\begin{equation}
+    \gFunc'(\yRat) = -\frac{\WFunc^{\aRat}(\aRat, \bRat)}{\WFunc^{\bRat}(\aRat, \bRat)} \cdot \frac{\partial \TFunc_1(\xRat,\yRat)}{\partial \yRat} - 1
 \end{equation}
 
 and the Endogenous Grid Method step is
 
 \begin{equation}
-    \yRat = \left(\TFunc'_{\yRat}(\xRat,\yRat)\right)^{-1} \left[ 1 / \WFunc'(\aRat)\right]
+    \yRat = \gFunc'^{-1}\left( -\frac{\WFunc^{\aRat}(\aRat, \bRat)}{\WFunc^{\bRat}(\aRat, \bRat)} \cdot \frac{\partial \TFunc_1(\xRat,\yRat)}{\partial \yRat} - 1 \right)
 \end{equation}
