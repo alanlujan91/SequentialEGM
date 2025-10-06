@@ -104,6 +104,7 @@ project:
     GP: Gaussian Process
     GPR: Gaussian Process Regression
     EGM: Endogenous Grid Method
+    GEGM: Generalized Endogenous Grid Method
     NEGM: Nested Endogenous Grid Method
     G2EGM: Generalized Endogenous Grid Method
     DCEGM: Discrete Choice Endogenous Grid Method

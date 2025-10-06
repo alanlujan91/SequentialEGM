@@ -2,24 +2,22 @@
 
 # Appendix: Solving the illustrative G2EGM model with EGM$^n$
 
-## The problem for a retired household
+## Problem Formulation
 
-I designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at time $t$ with total resources $\mRat$. The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of $\underline{\tShkEmp}$.
+We designate as $\wFunc_{t}(\mRat_{t})$ the problem of a retired household at time $t$ with total resources $\mRat$. The retired household solves a simple consumption-savings problem with no income uncertainty and a certain next period pension of $\underline{\tShkEmp}$.
 
 \begin{equation}
     \begin{split}
         \wFunc_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) +
-        \DiscFac \wFunc_{t+1}(\mRat_{t}) \\
+        \DiscFac \wFunc_{t+1}(\mRat_{t+1}) \\
         & \text{s.t.} \\
         \aRat_{t} & = \mRat_{t} - \cRat_{t} \\
         \mRat_{t+1} & = \Rfree_{\aRat} \aRat_{t} +
-        \underline{\tShkEmp}
+        \underline{\tShkEmp}.
     \end{split}
 \end{equation}
 
 Notice that there is no uncertainty and the household receives a retirement income $\underline{\tShkEmp}$ every period until death.
-
-## The problem for a worker household
 
 The value function of a worker household is
 
@@ -52,10 +50,10 @@ and the choice specific problem for a working household that decides to retire i
 
 \begin{equation}
     \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Retire) =
-    \wFunc_{t}(\mRat_{t}+\nRat_{t})
+    \wFunc_{t}(\mRat_{t}+\nRat_{t}).
 \end{equation}
 
-## Applying the Sequential EGM
+## Sequential Solution Method
 
 The first step is to define a post-decision value function. Once the household decides their level of consumption and pension deposits, they are left with liquid assets they are saving for the future and illiquid assets in their pension account which they can't access again until retirement. The post-decision value function can be defined as
 
@@ -77,7 +75,7 @@ Then redefine the working agent's problem as
             \dRat_{t}} \util(\cRat_{t})  - \kapShare + \vEnd_{t}(\aRat_{t},
         \bRat_{t}) \\
         \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}).
     \end{split}
 \end{equation}
 
@@ -89,7 +87,7 @@ Clearly, the structure of the problem remains the same, and this is the problem 
         \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
         & \text{s.t.} \\
         \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t})
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}).
     \end{split}
 \end{equation}
 
@@ -100,35 +98,31 @@ Now, the agent can move on to picking their consumption and savings; we can call
         \vOpt_{t}(\lRat_{t}, \bRat_{t}) & = \max_{\cRat_{t}}
         \util(\cRat_{t}) - \kapShare + \vEnd_{t}(\aRat_{t}, \bRat_{t}) \\
         & \text{s.t.} \\
-        \aRat_{t} & = \lRat_{t} - \cRat_{t} \\
+        \aRat_{t} & = \lRat_{t} - \cRat_{t}.
     \end{split}
 \end{equation}
 
 Because we've already made the pension decision, the amount of pension assets does not change in this loop and it just passes through to the post-decision value function.
 
-## Solving the problem
-
-### Solving the Inner Consumption Saving Problem
-
 Let's start with the pure consumption-saving problem, which we can summarize by substitution as
 
 \begin{equation}
     \vOpt_{t}(\lRat_{t}, \bRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) - \kapShare +
-    \vEnd_{t}(\lRat_{t} - \cRat_{t}, \bRat_{t})
+    \vEnd_{t}(\lRat_{t} - \cRat_{t}, \bRat_{t}).
 \end{equation}
 
 The first-order condition is
 
 \begin{equation}
     \util'(\cRat_{t}) = \vEnd_{t}^{\aRat}(\lRat_{t}-\cRat_{t}, \bRat_{t}) =
-    \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})
+    \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}).
 \end{equation}
 
 We can invert this Euler equation as in standard EGM to obtain the consumption function.
 
 \begin{equation}
     \cEndFunc_{t}(\aRat_{t}, \bRat_{t}) =
-    \util'^{-1}\left(\vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})\right)
+    \util'^{-1}\left(\vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t})\right).
 \end{equation}
 
 Again as before, $\lEndFunc_{t}(\aRat_{t}, \bRat_{t}) =
@@ -140,7 +134,7 @@ $(\lRat, \bRat)$ grid. Without loss of generality, assume $\lEndFunc_{t} =
 
 \begin{equation}
     \cTarg_{t}(\lEndFunc_{t}, \bRat_{t}) \equiv \cEndFunc_{t}(\aRat_{t},
-    \bRat_{t})
+    \bRat_{t}).
 \end{equation}
 
 For completeness, we derive the envelope conditions as well, and as we will see, these will be useful when solving the next section.
@@ -150,35 +144,33 @@ For completeness, we derive the envelope conditions as well, and as we will see,
         \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) & =
         \vEnd_{t}^{\aRat}(\aRat_{t}, \bRat_{t}) = \util'(\cRat_{t}) \\
         \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t}) & =
-        \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t})
+        \vEnd_{t}^{\bRat}(\aRat_{t}, \bRat_{t}).
     \end{split}
 \end{equation}
-
-### Solving the Outer Pension Deposit Problem
 
 Now, we can move on to solving the deposit problem, which we can also summarize as
 
 \begin{equation}
     \vFunc_{t}(\mRat_{t}, \nRat_{t}, \Work) = \max_{\dRat_{t}}
     \vOpt_{t}(\mRat_{t}
-    - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
+    - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t})).
 \end{equation}
 
 The first-order condition is
 
 \begin{equation}
     \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
-    \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0
+    \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0.
 \end{equation}
 
 Rearranging this equation gives
 
 \begin{equation}
     \gFunc'(\dRat_{t}) = \frac{\vOpt_{t}^{\lRat}(\lRat_{t},
-        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1
+        \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})} - 1.
 \end{equation}
 
-Assuming that $\gFunc'(\dRat)$ exists and is invertible, we can find
+Assuming that $\gFunc'(\dRat)$ exists and is strictly monotone,[^g-invertible] we can find
 
 \begin{equation}
     \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
@@ -186,6 +178,8 @@ Assuming that $\gFunc'(\dRat)$ exists and is invertible, we can find
         \bRat_{t})}{\vOpt_{t}^{\bRat}(\lRat_{t},
         \bRat_{t})} - 1 \right)
 \end{equation}
+
+[^g-invertible]: For $\gFunc(\dRat) = \xFer \log(1+\dRat)$, we require $\dRat > -1$ and $\xFer > 0$ to ensure $\gFunc'(\dRat) > 0$.
 
 Using this, we can back out $\nRat_{t}$ as
 
@@ -199,7 +193,7 @@ and $\mRat_{t}$ as
 
 \begin{equation}
     \mEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \lRat_{t} +
-    \dEndFunc_{t}(\lRat_{t}, \bRat_{t})
+    \dEndFunc_{t}(\lRat_{t}, \bRat_{t}).
 \end{equation}
 
 In sum, given an exogenous grid $(\lRat_{t}, \bRat_{t})$ we obtain the triple
@@ -213,20 +207,20 @@ To close the solution method, the envelope conditions are
         \vFunc_{t}^{\mRat}(\mRat_{t}, \nRat_{t}, \Work) & =
         \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) \\
         \vFunc_{t}^{\nRat}(\mRat_{t}, \nRat_{t}, \Work) & =
-        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})
+        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t}).
     \end{split}
 \end{equation}
 
-## Is g invertible?
+## Supporting Calculations
 
-We've already seen that $\util'(\cdot)$ is invertible, but is $\gFunc$?
+To verify invertibility of $\gFunc$, note that the derivative $\gFunc'(\dRat) = \frac{\xFer}{1+\dRat}$ is strictly positive for all $\dRat > -1$ and $\xFer > 0$, ensuring strict monotonicity. The inverse derivative is given by
 
 \begin{equation}
     \gFunc(\dRat) = \xFer \log(1+\dRat) \qquad \gFunc'(\dRat) =
-    \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
+    \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1.
 \end{equation}
 
-## The Post-Decision Value and Marginal Value Functions
+The post-decision value and marginal value functions are
 
 \begin{equation}
     \begin{split}
@@ -266,16 +260,14 @@ and
     \end{split}
 \end{equation}
 
-## Taste Shocks
-
-From discrete choice theory and from DCEGM paper, we know that
+From discrete choice theory and the Discrete Choice Endogenous Grid Method (DCEGM) of {cite:t}`Iskhakov2017`, we know that
 
 \begin{equation}
     \Ex_{t} \left[
         \VFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}, \error_{t+1}) \right] =
-    \sigma \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
+    \sigma_{\error} \log \left[ \sum_{\Decision \in \{\Work, \Retire\}} \exp \left(
         \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error} \right)  \right]
+            \Decision)}{\sigma_{\error}} \right)  \right]
 \end{equation}
 
 and
@@ -284,11 +276,11 @@ and
     \Prob_{t}(\Decision ~ \lvert ~ \mRat_{t+1}, \nRat_{t+1}) = \frac{\exp
         \left(
         \vFunc_{t + 1}(\mRat_{t+1}, \nRat_{t+1}, \Decision) /
-        \sigma_\error
+        \sigma_{\error}
         \right)
     }{ \sum\limits_{\Decision \in \{\Work, \Retire\}} \exp \left(
         \frac{\vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1},
-            \Decision)}{\sigma_\error} \right)}
+            \Decision)}{\sigma_{\error}} \right)}
 \end{equation}
 
 the first-order conditions are therefore

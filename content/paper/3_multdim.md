@@ -7,7 +7,7 @@ The problem in [Section %s](#method) demonstrates the simplicity of solving prob
 
 ## A more complex problem
 
-For a demonstration, we now turn to the problem of a worker saving up for retirement. This worker must consume, save, and deposit resources into a tax-advantaged account that can not be liquidated until retirement. In the recursive problem, the worker begins a new period with a liquid account of market resources $\mRat_{t}$ and an illiquid account of retirement savings $\nRat_{t}$. The worker maximizes their utility by choosing consumption $\cRat_{t}$ and pension deposit $\dRat_{t}$. The pension deposit is set aside on a retirement account that is exposed to a risky return, while their post-consumption liquid assets accrue risk-free interest every period. The worker additionally receives an income that faces a permanent ($\PGro_{t+1}$) and a transitory ($\tShkEmp_{t+1}$) shock every period. At the age of 65, the worker is retired and their assets are liquidated, at which point the state reduces to one liquid account of market resources. The worker's recursive problem is:
+For a demonstration, we now turn to the problem of a worker saving up for retirement. This worker must consume, save, and deposit resources into a tax-advantaged account that can not be liquidated until retirement. In the recursive problem, the worker begins a new period with a liquid account of market resources $\mRat_{t}$ and an illiquid account of retirement savings $\nRat_{t}$. The worker maximizes their utility by choosing consumption $\cRat_{t}$ and pension deposit $\dRat_{t}$. The pension deposit is set aside on a retirement account that is exposed to a risky return, while their post-consumption liquid assets accrue risk-free interest every period. The worker additionally receives an income that faces a permanent ($\PGro_{t+1}$) and a transitory ($\tShkEmp_{t+1}$) shock every period. At the age of 65, the worker is retired and their assets are liquidated, at which point the state reduces to one liquid account of market resources. The feasibility constraint $\mRat_{t} \geq \cRat_{t} + \dRat_{t}$ ensures non-negative liquid savings. The worker's recursive problem is:
 
 \begin{equation}
     \begin{split}
@@ -15,7 +15,7 @@ For a demonstration, we now turn to the problem of a worker saving up for retire
         \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}(\mRat_{t+1}, \nRat_{t+1}) \right] \\
         & \text{s.t.} \quad \cRat_{t} \ge 0, \quad \dRat_{t} \ge 0 \\
         \aRat_{t} & = \mRat_{t} - \cRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t}) \\
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}) \\
         \mRat_{t+1} & = \aRat_{t} \Rfree / \PGro_{t+1} + \tShkEmp_{t+1} \\
         \nRat_{t+1} & = \bRat_{t} \Risky_{t+1} / \PGro_{t+1}
     \end{split}
@@ -29,16 +29,16 @@ where
 
 This problem can subsequently be broken down into 3 stages: a pension deposit stage, a consumption stage, and an income shock stage.
 
-## Breaking down the problem
+## Sequential Decomposition
 
-In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$ by choosing a pension deposit $\dRat_{t}$, which must be positive. The retirement balance $\bRat$ is the cash value of their retirement account plus their pension deposit and an additional amount $g(\dRat_{t})$ that provides an incentive to save for retirement. As we'll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem.
+In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$ by choosing a pension deposit $\dRat_{t}$, which must be positive. The retirement balance $\bRat$ is the cash value of their retirement account plus their pension deposit and an additional amount $\gFunc(\dRat_{t})$ that provides an incentive to save for retirement. As we'll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem.
 
 \begin{equation}
     \begin{split}
         \vFunc_{t}(\mRat_{t}, \nRat_{t}) & = \max_{\dRat_{t}} \vOpt_{t}(\lRat_{t}, \bRat_{t}) \\
         & \text{s.t.} \quad \dRat_{t} \ge 0 \\
         \lRat_{t} & = \mRat_{t} - \dRat_{t} \\
-        \bRat_{t} & = \nRat_{t} + \dRat_{t} + g(\dRat_{t})
+        \bRat_{t} & = \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t})
     \end{split}
 \end{equation}
 
@@ -66,11 +66,9 @@ Finally, the post-decision value function $\wFunc_{t}$ represents the value of b
 
 The advantage of conceptualizing this subproblem as a separate stage is that we can construct a function $\wFunc_{t}$ and use it in the prior optimization problems without having to worry about stochastic optimization and taking expectations repeatedly.
 
-## The consumption-saving problem
+## Solution via Sequential EGM
 
 As seen in the consumption stage above, the retirement balance $\bRat_{t}$ passes through the problem unaffected because it can't be liquidated until retirement. In this sense, it is already a post-decision state variable. To solve this problem, we can use a fixed grid of $\bRat_{t}$ and for each obtain endogenous consumption and ex-ante market resources using the simple Endogenous Grid Method for the consumption problem.
-
-## The pension deposit problem
 
 In the deposit stage, both the state variables and post-decision variables are different since both are affected by the pension deposit decision.
 
@@ -81,12 +79,14 @@ First, we can rewrite the pension deposit problem more compactly:
     \vOpt_{t}(\mRat_{t} - \dRat_{t}, \nRat_{t} + \dRat_{t} + \gFunc(\dRat_{t}))
 \end{equation}
 
-The first-order condition is
+The first-order condition[^foc-deposit] is
 
 \begin{equation}
     \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t})(-1) +
     \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})(1+\gFunc'(\dRat_{t})) = 0.
 \end{equation}
+
+[^foc-deposit]: This FOC is necessary for interior optima. Sufficiency follows from the concavity of $\vOpt_{t}$ and the structure of $\gFunc$.
 
 Rearranging this equation gives
 
@@ -102,7 +102,7 @@ where
     \frac{\xFer}{1+\dRat} \qquad \gFunc'^{-1}(y) = \xFer/y - 1
 \end{equation}
 
-Given that $\gFunc'(\dRat)$ exists and is invertible, we can find
+Note that $\gFunc'(\dRat) > 0$ for all $\dRat > -1$, ensuring strict monotonicity and hence invertibility. We can find
 
 \begin{equation}
     \dEndFunc_{t}(\lRat_{t}, \bRat_{t}) = \gFunc'^{-1}\left(
@@ -135,7 +135,7 @@ To close the solution method, the envelope conditions are
         \vFunc_{t}^{\mRat}(\mRat_{t}, \nRat_{t}) & =
         \vOpt_{t}^{\lRat}(\lRat_{t}, \bRat_{t}) \\
         \vFunc_{t}^{\nRat}(\mRat_{t}, \nRat_{t}) & =
-        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t})
+        \vOpt_{t}^{\bRat}(\lRat_{t}, \bRat_{t}).
     \end{split}
 \end{equation}
 
