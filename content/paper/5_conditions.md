@@ -3,40 +3,19 @@
 
 # Conditions for using the Sequential Endogenous Grid Method
 
+A researcher confronting a new multidecision problem faces a practical question: does my problem admit sequential EGM, and if so, how should I decompose it? This section provides operational guidance. We identify the mathematical structures that make EGM applicable (separability in utility, invertibility in transitions), and equally importantly, we explain how to order subproblems to minimize state variable proliferation. Poor sequencing can inadvertently complicate the problem; good sequencing exploits the natural information structure.
+
 ## Splitting the problem into subproblems
 
-The first step in using the Sequential Endogenous Grid Method is to split the problem into subproblems. This process of splitting up the problem has to be strategic to not insert additional complexity into the original problem. If one is not careful when doing this, the subproblems can become more complex and intractable than the original problem.
+Applying the Sequential Endogenous Grid Method requires strategic decomposition of the original problem into subproblems without inserting additional complexity. Careless decomposition can render subproblems more complex and intractable than the original formulation.
 
-To split up the problem, we first count the number of control variables or decisions faced by the agent. Ideally, if the agent has $n$ control variables, then the problem should be split into $n$ subproblems, each handling a different control variable. For counting the number of control variables, it is important to not double count variables which are equivalent and have market clearing conditions. For example, the decision of how much to consume and how much to save may seem like two different choices, but because of the market clearing condition $\cRat + \aRat = \mRat$ they are resolved simultaneously and count as only one decision variable. Similarly, the choice between labor and leisure are simultaneous and count as only one decision.
+The decomposition process begins by counting the control variables or decisions faced by the agent. Ideally, a problem with $n$ control variables decomposes into $n$ subproblems, each handling a different control variable. Care must be taken to avoid double-counting variables that are equivalent through market clearing conditions. The decision of how much to consume and how much to save may seem like two different choices, but the market clearing condition $\cRat + \aRat = \mRat$ resolves them simultaneously, making this effectively one decision variable. Similarly, the choice between labor and leisure represents a single simultaneous decision despite involving two variables.
 
-Having counted our control variables, we look for differentiable and invertible utility functions which are separable in the dynamic programming problem, such as in [Section %s](#method) of the paper, or differentiable and invertible functions in the transition, as in [Section %s](#multdim) of the paper. In [Section %s](#method), we have additively separable utility of consumption and leisure, which allows for each of these control variables to be handled by separate subproblems. So, it makes sense to split the utility between subproblems and attach one to the consumption subproblem and one to the leisure subproblem.
+Once control variables are identified, we search for mathematical structures that enable EGM. Two structures are particularly useful: differentiable and invertible utility functions that are separable in the dynamic programming problem (as in [Section %s](#method)), or differentiable and invertible functions in the transition (as in [Section %s](#multdim)). The labor-portfolio example in [Section %s](#method) features additively separable utility of consumption and leisure, allowing each control variable to be handled by a separate subproblem. The natural split assigns consumption utility to the consumption subproblem and leisure utility to the leisure subproblem.
 
-As mentioned in that section, however, there are only two separable utility functions in the problem which have been assigned to two subproblems already. This leaves one control variable without a separable utility function. In that case, there is not another Endogenous Grid Method step to exploit, and this subproblem has to be handled by standard convex optimization techniques such as maximization of the value function (VFI) or finding the root of the Euler equation (PFI).
+When all separable utility functions have been exhausted (as occurs in the portfolio choice stage of that example), the remaining subproblem must be solved through standard convex optimization techniques such as value function iteration or Euler equation root-finding. Not every stage admits an EGM step, but the method's power comes from exploiting EGM wherever possible while falling back to conventional methods only when necessary.
 
-Now that we have split the problem into conceptual subproblems, it is important to sequence them in such a way that they don't become more complex than the original problem. The key here is to avoid adding unnecessary state variables. For example, in the consumption-leisure-portfolio problem, if we were to choose consumption first, we would have to track the wage rate into the following leisure subproblem. This would mean that our consumption problem would be two-dimensional as well as our labor decision problem. As presented, the choice of order in [Section %s](#method) ensures that the consumption problem is one-dimensional, as we can shed the information about the wage rate offer after the agent has made their labor-leisure decision. If we did this the other way, the problem would be more complex and require additional computational resources.
-
-The consumption subproblem would be two-dimensional instead of one-dimensional, adding more complexity,
-
-\begin{equation}
-    \begin{split}
-        \vFunc(\bRat, \tShkEmp) & = \max_{\cRat} \uFunc(\cRat) + \vOpt(\bRat', \tShkEmp) \\
-        & \text{s.t.}\\
-        \bRat' & = \bRat - \cRat \ge - \tShkEmp
-    \end{split}
-\end{equation}
-
-while the labor-leisure subproblem would have an additional constraint
-
-\begin{equation}
-    \begin{split}
-        \vOpt(\bRat', \tShkEmp) & = \max_{\leisure} \h(\leisure) + \vEnd(\aRat) \\
-        & \text{s.t.} \\
-        0 & \le \leisure \le 1 \\
-        \aRat & = \bRat' + \tShkEmp(1 - \leisure) \ge 0.
-    \end{split}
-\end{equation}
-
-Therefore, strategic ordering of subproblems can greatly simplify the solution process and reduce the computational burden.
+The sequencing of subproblems matters as much as their identification. Poor sequencing can inadvertently increase dimensionality by forcing later stages to track unnecessary state variables. Consider the consumption-leisure-portfolio problem: choosing consumption first would require tracking the wage rate through the subsequent leisure subproblem, rendering both the consumption and labor decisions two-dimensional. The ordering presented in [Section %s](#method) avoids this pitfall by placing the labor-leisure choice first, allowing the wage rate to be resolved before the consumption stage. This sequencing ensures the consumption problem remains one-dimensional. The general principle is to structure subproblems to shed state variables as early as possible, minimizing the information set carried forward at each stage.[^bad-ordering-example]
 
 Consider the utility function of the form
 
@@ -83,13 +62,15 @@ we require $\frac{\partial \TFunc^j(\xRat, \aRat)}{\partial \aRat^i} = 0$ for $j
     \frac{\partial \UFunc( \aRat)}{\partial \aRat^i}  +   \frac{\partial \WFunc(\yRat, \sRat)}{\partial \yRat^i} \frac{\partial \TFunc^i(\xRat, \aRat)}{\partial \aRat^i} = 0
 \end{equation}
 
-In [Section %s](#multdim), we see that a problem with a differentiable and invertible transition can also be used to embed an additional Endogenous Grid Method step. Because the transition applies independently to a state variable that is not related to the other control variable, consumption, it can be handled separately from the consumption subproblem. In this particular problem, however, it turns out to make no difference how we order the two subproblems. This is because the control variables, consumption and pension deposit, each affect a separate resource account, namely market resources and pension balance. Because of this, the two subproblems are independent of each other and can be solved in any order.
+The pension deposit problem in [Section %s](#multdim) illustrates another case where differentiable and invertible transitions enable an additional EGM step. The transition applies independently to a state variable unrelated to consumption, allowing it to be handled separately from the consumption subproblem. Interestingly, the ordering of these two subproblems proves immaterial because consumption and pension deposit each affect separate resource accounts: market resources and pension balance, respectively. Their independence means either ordering yields the same computational structure.
 
-A good rule of thumb is that when splitting up a problem into subproblems, we should try to reduce the information set that is passed onto the next subproblem. In [Section %s](#method), choosing leisure-labor and realizing total market resources before consumption allows us to shed the wage rate offer state variable before the consumption problem, and we know that for the portfolio choice we only need to know liquid assets after expenditures (consumption). Thus, the order makes intuitive sense; agent first chooses leisure-labor, realizing total market resources, then chooses consumption and savings, and finally chooses their risky portfolio choice. In [Section %s](#multdim), there are two expenditures that are independent of each other, consumption and deposit, and making one decision or the other first does not reduce the information set for the agent, thus the order of these subproblems does not matter.
+The guiding principle for subproblem sequencing is to minimize the information set passed forward at each stage. The labor-portfolio example demonstrates this principle: choosing leisure-labor first and realizing total market resources allows us to shed the wage rate state variable before the consumption problem, reducing dimensionality. The portfolio choice then requires only liquid assets after consumption expenditures, further simplifying the final stage. The natural flow (leisure-labor, then consumption-savings, then portfolio allocation) reflects the problem's inherent information structure. When subproblems are genuinely independent, as with consumption and deposit in the pension problem, sequencing becomes a matter of convenience rather than necessity.
 
 ## The Endogenous Grid Method for Subproblems
 
-Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As demonstrated in [Section %s](#method) and [Section %s](#multdim), the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn. A generic subproblem with a differentiable and invertible utility function can be characterized as follows:
+Once we have strategically split the problem into subproblems, we can use the Endogenous Grid Method in each applicable subproblem while iterating backwards from the terminal period. As demonstrated in [Section %s](#method) and [Section %s](#multdim), the EGM step can be applied when there is a separable, differentiable and invertible utility function in the subproblem or when there is a differentiable and invertible transition in the subproblem. We will discuss each of these cases in turn.
+
+Consider a generic subproblem with a differentiable and invertible utility function:
 
 \begin{equation}
     \begin{split}
@@ -99,24 +80,32 @@ Once we have strategically split the problem into subproblems, we can use the En
     \end{split}
 \end{equation}
 
-where $\WFunc(\yRat) = \DiscFac \Ex[\VFunc'(\yRat)]$ is the continuation value. For an interior solution, the first-order condition is thus
+where $\WFunc(\yRat) = \DiscFac \Ex[\VFunc'(\yRat)]$ is the continuation value. For an interior solution, the first-order condition is
 
 \begin{equation}
-    \frac{\partial \UFunc(\xRat, \aRat)}{\partial \aRat} + \WFunc'(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat} = 0
+    \frac{\partial \UFunc(\xRat, \aRat)}{\partial \aRat} + \frac{d\WFunc}{d\yRat}(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat} = 0
 \end{equation}
 
-When corner solutions occur (e.g., $\aRat$ at constraint boundaries), the unconstrained optimum from inverting the FOC must be projected onto the feasible set, as demonstrated in [Section %s](#method) for the leisure choice. If, for interior solutions, the utility function is differentiable and invertible, then the Endogenous Grid Method consists of
+When corner solutions occur (e.g., $\aRat$ at constraint boundaries), the unconstrained optimum from inverting the first-order condition must be projected onto the feasible set, as demonstrated in [Section %s](#method) for the leisure choice.
+
+```{prf:proposition} Separable Utility
+:label: prop-egm-utility
+
+For interior solutions where the marginal utility $\partial \UFunc / \partial \aRat$ is strictly monotone in $\aRat$,[^egm-invertibility] the first-order condition can be inverted to obtain
 
 \begin{equation}
     \aRat = \left(\frac{\partial \UFunc(\xRat, \aRat)}{\partial \aRat}\right)^{-1}
-    \left[ -\WFunc'(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat}\right]
+    \left[ -\frac{d\WFunc}{d\yRat}(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat}\right]
 \end{equation}
 
-By using an exogenous grid of the post-decision state $\yRat$, we can solve for the optimal decision rule $\aRat$ at each point on the grid. This is the Endogenous Grid Method step. Uniqueness of the solution is ensured when the utility function is strictly concave in $\aRat$.
+When the utility function is strictly concave in $\aRat$, the solution is unique.
+```
+
+By using an exogenous grid of the post-decision state $\yRat$, we can solve for the optimal decision rule $\aRat$ at each point on the grid. This is the Endogenous Grid Method step. The monotonicity requirement ensures that the mapping from the post-decision state to the control is well-defined, while concavity guarantees uniqueness of the optimal decision at each grid point.
 
 ## Applicability to Transition Functions
 
-If the generic subproblem has no separable utility, but instead has differentiable and invertible transitions that affect multiple post-decision states, then the Endogenous Grid Method can still be used. Consider a problem with two endogenous state variables and two post-decision states:
+When the generic subproblem has no separable utility but instead has differentiable and invertible transitions that affect multiple post-decision states, the Endogenous Grid Method can still be applied. Consider a problem with two endogenous state variables and two post-decision states:
 
 \begin{equation}
     \begin{split}
@@ -133,22 +122,34 @@ where the continuation value is
     \WFunc(\yRat_1, \yRat_2, \sRat) = \DiscFac \Ex \left[ \VFunc'(\GFunc_1(\yRat_1, \sRat), \GFunc_2(\yRat_2, \sRat), \sRat') | \yRat_1, \yRat_2, \sRat \right]
 \end{equation}
 
-Here, the first-order condition is
+The first-order condition becomes
 
 \begin{equation}
     \frac{\partial \WFunc(\yRat_1, \yRat_2, \sRat)}{\partial \yRat_1} \cdot \frac{\partial \TFunc_1(\xRat_1,\aRat)}{\partial \aRat} + \frac{\partial \WFunc(\yRat_1, \yRat_2, \sRat)}{\partial \yRat_2} \cdot \frac{\partial \TFunc_2(\xRat_2,\aRat)}{\partial \aRat} = 0
 \end{equation}
 
-If $\TFunc_2$ has the special structure $\TFunc_2(\xRat_2, \aRat) = \xRat_2 + \aRat + \gFunc(\aRat)$ where $\gFunc$ is differentiable with $\gFunc'$ strictly monotone, and $\frac{\partial \TFunc_1}{\partial \aRat}$ is constant, then we can rearrange the FOC to get
+```{prf:proposition} Invertible Transitions
+:label: prop-egm-transition
+
+Suppose both transitions are additively separable in the control:
+$$\TFunc_1(\xRat_1, \aRat) = f_1(\xRat_1) + k \cdot \aRat, \quad \TFunc_2(\xRat_2, \aRat) = f_2(\xRat_2) + \gFunc(\aRat)$$
+where $k \neq 0$ is constant, $f_1$ and $f_2$ are invertible, and $\gFunc'$ is strictly monotone. Then the first-order condition yields
 
 \begin{equation}
-    \gFunc'(\aRat) = -\left(\frac{\partial \WFunc(\yRat_1, \yRat_2, \sRat)}{\partial \yRat_1} \middle/ \frac{\partial \WFunc(\yRat_1, \yRat_2, \sRat)}{\partial \yRat_2}\right) \cdot \frac{\partial \TFunc_1(\xRat_1,\aRat)}{\partial \aRat} - 1
+    \aRat = \gFunc'^{-1}\left( -k \cdot \dfrac{\partial \WFunc(\yRat_1, \yRat_2, \sRat) / \partial \yRat_1}{\partial \WFunc(\yRat_1, \yRat_2, \sRat) / \partial \yRat_2} \right)
 \end{equation}
 
-and the Endogenous Grid Method step is
+where strict monotonicity of $\gFunc'$ ensures existence and uniqueness of the inverse.[^g-monotone]
+```
 
-\begin{equation}
-    \aRat = \gFunc'^{-1}\left( -\left[\frac{\partial \WFunc(\yRat_1, \yRat_2, \sRat)}{\partial \yRat_1} \middle/ \frac{\partial \WFunc(\yRat_1, \yRat_2, \sRat)}{\partial \yRat_2}\right] \cdot \frac{\partial \TFunc_1(\xRat_1,\aRat)}{\partial \aRat} - 1 \right)
-\end{equation}
+The additive separability in both transitions is essential: it allows the derivative with respect to $\aRat$ to not depend on the state variables $\xRat_1$ or $\xRat_2$, which we haven't yet recovered when solving the first-order condition on the exogenous grid of post-decision states. Once we obtain $\aRat$ from the inversion, we can recover the pre-decision states via $\xRat_1 = f_1^{-1}(\yRat_1 - k \cdot \aRat)$ and $\xRat_2 = f_2^{-1}(\yRat_2 - \gFunc(\aRat))$. The current formulation where one state variable enters linearly (e.g., $\TFunc_2 = \xRat_2 + \aRat + \gFunc(\aRat)$ with $f_2(\xRat_2) = \xRat_2$) is a common special case.
 
-where the strict monotonicity of $\gFunc'$ ensures existence and uniqueness of the inverse.
+This additive separability defines what @Iskhakov2015 calls "triangular" structure in transitions. However, while @Iskhakov2015 requires the entire problem to satisfy triangularity globally across all decisions, Sequential EGM requires triangularity only locally within individual subproblems. A multistage problem can mix stages that satisfy Proposition 1 (separable utility) with stages that satisfy Proposition 2 (triangular transitions), even when the overall problem structure is not globally triangular. This flexibility allows Sequential EGM to combine different types of EGM-compatible structures across stages, solving a broader class of problems than methods requiring uniform triangularity throughout.
+
+[^bad-ordering-example]: To see this concretely, the consumption subproblem would become two-dimensional: $v^{0}(\bRat, \tShkEmp) = \max_{\cRat} \uFunc(\cRat) + v^{1}(\bRat', \tShkEmp)$ subject to $\bRat' = \bRat - \cRat \ge -\tShkEmp$, requiring interpolation on a $(\bRat, \tShkEmp)$ grid instead of just $\bRat$. The labor-leisure subproblem would then have the additional constraint: $v^{1}(\bRat', \tShkEmp) = \max_{\leisure} \h(\leisure) + v^{2}(\aRat)$ subject to $0 \le \leisure \le 1$ and $\aRat = \bRat' + \tShkEmp(1 - \leisure) \ge 0$. The poor ordering forces us to carry the wage state through both stages, doubling the dimensionality of the first stage.
+
+
+
+[^egm-invertibility]: Strict monotonicity of the marginal utility ensures that the inverse function is well-defined and single-valued. This condition is satisfied by standard utility functions like CRRA utility where $\uFunc'(\cRat) = \cRat^{-\CRRA}$ is strictly decreasing in consumption.
+
+[^g-monotone]: The monotonicity of $\gFunc'$ is crucial for inverting the first-order condition. In the pension deposit example, the matching function satisfies this property, allowing us to recover the optimal deposit from the marginal value ratio.

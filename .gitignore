@@ -160,3 +160,6 @@ Thumbs.db
 *_build
 *_pdf_logs
 *_pdf_tex
+
+# Private directory
+private/

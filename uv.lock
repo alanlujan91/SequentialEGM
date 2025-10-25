@@ -1518,15 +1518,15 @@ wheels = [
 
 [[package]]
 name = "mystmd"
-version = "1.6.2"
+version = "1.6.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "nodeenv" },
     { name = "platformdirs" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4a/ff/43bccc02e07f209eda4a3033c562dd4647f7be1b758dbe912bbce2e63f69/mystmd-1.6.2.tar.gz", hash = "sha256:8ed8ce718839628f440fa431a8554694dea8fd04774b4203648216a3e3786ef4", size = 2596173, upload-time = "2025-09-28T05:46:36.531Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f9/4d/1dbcedee69103807fad02844cc25833a6e1073ffd0ecc515380f70c00308/mystmd-1.6.3.tar.gz", hash = "sha256:83cf01e89754939603e99d8cb393617ff1c6997744e60dcbaed5a18d26dd07c8", size = 2791338, upload-time = "2025-10-10T23:28:11.361Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3b/d9/dc8e0836be3961b320730d47497fd571255b5f61b0c800791462fbf6ca1b/mystmd-1.6.2-py3-none-any.whl", hash = "sha256:b8c3d1bedf2402a138924bbfe5b3b4e442484a81551ef3ef1c4fbfc49e11ba8c", size = 2627758, upload-time = "2025-09-28T05:46:34.722Z" },
+    { url = "https://files.pythonhosted.org/packages/dd/5c/90c22a1c3a7f1eaa69fedd8a4b604cae1c67754f0aced38921547a5d09a5/mystmd-1.6.3-py3-none-any.whl", hash = "sha256:404b79db0a4587910e1d23d6ce93cd864d5dfa824f89cd910e1e4e21594ca9b2", size = 2823036, upload-time = "2025-10-10T23:28:09.559Z" },
 ]
 
 [[package]]
@@ -2658,7 +2658,7 @@ requires-dist = [
     { name = "estimagic", specifier = ">=0.5.1" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "jupytext", specifier = ">=1.17.3" },
-    { name = "mystmd", specifier = ">=1.6.2" },
+    { name = "mystmd", specifier = ">=1.6.3" },
     { name = "numba", specifier = ">=0.62.1" },
     { name = "numpy", specifier = ">=2.3.3" },
     { name = "pre-commit", specifier = ">=4.3.0" },

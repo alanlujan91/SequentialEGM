@@ -3,6 +3,8 @@
 
 # The Sequential Endogenous Grid Method
 
+Consider the challenge facing a researcher who wants to solve a model where households simultaneously choose consumption, labor supply, and portfolio allocation. Standard approaches face a dilemma: either optimize jointly over all three choices (which requires evaluating a three-dimensional optimization at every state space point), or impose separability restrictions that may not reflect realistic preferences. We show how sequential decomposition offers a third way that preserves generality while maintaining computational efficiency.
+
 ## Problem Setup
 
 The baseline problem which we use to demonstrate the Sequential Endogenous Grid Method (EGM$^n$) is a discrete time version of {cite:t}`Bodie1992` where a consumer has the ability to adjust their labor as well as their consumption in response to financial risk. The objective consists of maximizing the present discounted lifetime utility of consumption and leisure.
@@ -19,13 +21,13 @@ In particular, this example makes use of a utility function that is based on Exa
     \frac{\Leisure^{1-\leiShare}}{1-\leiShare}
 \end{equation}
 
-where the term $\labShare^{1-\CRRA}$ is introduced to allow for a balanced growth path as in {cite:t}`Mertens2011`.[^alt-param] The use of additively separable utility is ad-hoc, as it will allow for the use of multiple EGM steps in the solution process, as we'll see later.
+where the term $\labShare^{1-\CRRA}$ scales the leisure utility to have the same curvature as consumption utility, following the approach in {cite:t}`Mertens2011`.[^alt-param] The use of additively separable utility is ad-hoc, as it will allow for the use of multiple EGM steps in the solution process, as we'll see later. For the remainder of the analysis, we work with normalized variables (lowercase) where consumption $\cRat = \CLev/\PLev$ and leisure $\leisure$ represent quantities relative to permanent income or in natural units.
 
-[^alt-param]: An alternative formulation for the utility of leisure is to state it in terms of the disutility of labor as $\h(\labor) = - \leiShare \frac{\labor^{1+\labShare}}{1+\labShare}$, which gives $\h'(\leisure) = \leiShare(1-\leisure)^{\labShare}$ and $\h'^{-1}(\xRat) = 1 - (\xRat/\leiShare)^{1/\labShare}$.
+[^alt-param]: An alternative formulation for the utility of leisure is to state it in terms of the disutility of labor as $\h(\labor) = - \leiShare \dfrac{\labor^{1+\labShare}}{1+\labShare}$, which gives $\h'(\leisure) = \leiShare(1-\leisure)^{\labShare}$ and $\h'^{-1}(\xRat) = 1 - (\xRat/\leiShare)^{1/\labShare}$. Note that this formulation does not support a balanced growth path because leisure utility is not homogeneous of degree $1-\CRRA$ in permanent income. A BGP-consistent specification would require $\h(\Leisure, \PLev) = (\labShare\PLev)^{1-\CRRA} \dfrac{\Leisure^{1-\leiShare}}{1-\leiShare}$, making leisure utility scale with permanent income.
 
 This model represents a consumer who begins the period with a level of bank balances $\bRat_{t}$ and a given wage offer $\tShkEmp_{t}$. Simultaneously, they are able to choose consumption, labor intensity, and a risky portfolio share with the objective of maximizing their utility of consumption and leisure, as well as their future wealth.
 
-The problem can be written in normalized recursive form[^normalized-form] as
+Expressing the problem in normalized recursive form[^normalized-form] makes the stationarity of the decision rules apparent. The household solves
 
 \begin{equation}
     \begin{split}
@@ -44,25 +46,29 @@ The problem can be written in normalized recursive form[^normalized-form] as
     \end{split}
 \end{equation}
 
-where we impose non-negativity constraints $\cRat_{t} \geq 0$, $\leisure_{t} \in [0,1]$, and $\riskyshare_{t} \in [0,1]$. Throughout, we assume standard constraint qualifications hold such that interior solutions satisfy first-order conditions.[^constraint-qual] Here, $\labor_{t}$ denotes the time supplied to labor net of leisure, $\mRat_{t}$ denotes the market resources totaling bank balances and labor income, $\aRat_{t}$ denotes the amount of saving assets held by the consumer, and $\riskyshare_{t}$ denotes the risky share of assets, which induces a portfolio return $\Rport_{t+1}$ that results in next period's bank balances $\bRat_{t+1}$ normalized by next period's permanent income $\PGro_{t+1}$.
+where non-negativity constraints $\cRat_{t} \geq 0$, $\leisure_{t} \in [0,1]$, and $\riskyshare_{t} \in [0,1]$ restrict feasible choices. Throughout, we assume standard constraint qualifications hold such that interior solutions satisfy first-order conditions.[^constraint-qual] The constraints define a sequence of state transitions: labor supply $\labor_{t}$ determines market resources $\mRat_{t}$ (bank balances plus labor income), consumption determines liquid savings $\aRat_{t}$, and the portfolio choice $\riskyshare_{t}$ induces a stochastic return $\Rport_{t+1}$ that yields next period's normalized bank balances $\bRat_{t+1}$.
 
-[^constraint-qual]: Specifically, we assume differentiability of value and utility functions, and regularity conditions ensuring first-order conditions are necessary for optimality.
+[^constraint-qual]: Specifically, we assume: (i) utility and value functions are twice continuously differentiable in the interior of the constraint set; (ii) the Inada conditions $\lim_{c\to 0} \util'(c) = \infty$ and $\lim_{c\to\infty} \util'(c) = 0$ hold, ensuring interior solutions away from zero consumption; and (iii) constraint sets are convex with non-empty interior. These conditions ensure first-order conditions are necessary for optimality at interior solutions.
 
 [^normalized-form]: As in {cite:t}`Carroll2009`, where the utility of normalized consumption and leisure is defined as
 
     \begin{equation}
-        \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \frac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})
-        ^{1-\CRRA} \frac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
+        \utilFunc(\cRat_{t}, \leisure_{t}) = \PLev_{t}^{1-\CRRA} \dfrac{\cRat_{t}^{1-\CRRA}}{1-\CRRA} + (\labShare\PLev_{t})
+        ^{1-\CRRA} \dfrac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
     \end{equation}
+
+A key insight simplifies this apparently formidable problem: although the household makes all three decisions simultaneously from an economic perspective, we can organize the solution method so that decisions are solved sequentially, with each stage using information from the next. This is not merely a computational trick; it reflects the natural dependence structure of the problem. The labor-leisure choice determines market resources; given those resources, the consumption-saving choice determines liquid assets; given liquid assets, the portfolio choice follows. By respecting this structure, each stage becomes a tractable subproblem amenable to EGM.
 
 We can make a few choices to create a sequential problem which will allow us to use multiple EGM steps in succession. First, the agent decides their labor-leisure trade-off and receives a wage. Their wage plus their previous bank balance then becomes their market resources. Second, given market resources, the agent makes a pure consumption-saving decision. Finally, given an amount of savings, the consumer then decides their risky portfolio share.
 
-Starting from the beginning of the period, we can define the labor-leisure problem as
+The sequential decomposition begins at the start of the period with the labor-leisure problem.[^stage-notation] At this stage, the household observes bank balances $\bRat_{t}$ and the wage offer $\tShkEmp_{t}$, choosing leisure to maximize the sum of current leisure utility and the continuation value from market resources $\mRat_{t}$:
+
+[^stage-notation]: We now introduce stage superscripts to distinguish value functions at different stages of the sequential decomposition. The original problem has $\vFunc_t \equiv v^0_t$, representing the value at the first decision stage (labor-leisure). Each subsequent stage $v^i_t$ represents the value function after making decisions at stages $0, 1, \ldots, i-1$.
 
 \begin{equation}
     \begin{split}
-        \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{ \leisure_{t}}
-        \h(\leisure_{t}) + \vOpt_{t} (\mRat_{t}) \\
+        v^{0}_{t}(\bRat_{t}, \tShkEmp_{t}) & = \max_{ \leisure_{t}}
+        \h(\leisure_{t}) + v^{1}_{t} (\mRat_{t}) \\
         & \text{s.t.} \\
         \leisure_{t} & \in [0, 1] \\
         \labor_{t} & = 1 - \leisure_{t} \\
@@ -70,24 +76,24 @@ Starting from the beginning of the period, we can define the labor-leisure probl
     \end{split}
 \end{equation}
 
-The pure consumption-saving problem is then
+Once market resources are realized, the pure consumption-saving problem determines how to allocate $\mRat_{t}$ between current consumption and liquid assets. The state space has been reduced to a single dimension since the wage offer no longer matters:
 
 \begin{equation}
     \begin{split}
-        \vOpt_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac\vEnd_{t}(\aRat_{t}) \\
+        v^{1}_{t}(\mRat_{t}) & = \max_{\cRat_{t}} \util(\cRat_{t}) + \DiscFac v^{2}_{t}(\aRat_{t}) \\
         & \text{s.t.} \\
         \cRat_{t} & \in [0, \mRat_{t}] \\
         \aRat_{t} & = \mRat_{t} - \cRat_{t}.
     \end{split}
 \end{equation}
 
-Finally, the risky portfolio problem is
+The final stage allocates liquid savings $\aRat_{t}$ between risk-free and risky assets. This portfolio problem involves no within-period utility, only the expected continuation value from next period's bank balances:
 
 \begin{equation}
     \begin{split}
-        \vEnd_{t}(\aRat_{t}) & = \max_{\riskyshare_{t}}
+        v^{2}_{t}(\aRat_{t}) & = \max_{\riskyshare_{t}}
         \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
-            \vFunc_{t+1}(\bRat_{t+1},
+            v^{0}_{t+1}(\bRat_{t+1},
             \tShkEmp_{t+1}) \right] \\
         & \text{s.t.} \\
         \riskyshare_{t} & \in [0, 1] \\
@@ -97,19 +103,19 @@ Finally, the risky portfolio problem is
     \end{split}
 \end{equation}
 
-This sequential approach is explicitly modeled after the nested approaches explored in {cite:t}`Clausen2020` and {cite:t}`Druedahl2021`. However, we offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This is because there is no additional information or realization of uncertainty that happens between decisions, as can be seen by the expectation operator being in the last subproblem. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
+This sequential approach is explicitly modeled after the nested approaches explored in {cite:t}`Clausen2020` and {cite:t}`Druedahl2021`. However, we offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This sequential formulation preserves the original problem because no uncertainty resolves between subproblems within a single period. From the agent's information set at time $t$, all three decisions are made simultaneously before any time-$t+1$ shocks realize. The expectation operator appears only in the final subproblem, ensuring decisions are made under identical information. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
 
 ## Sequential Solution
 
-As useful as it is to be able to use the EGM step more than once, there are clear problems where the EGM step is not applicable. This basic labor-portfolio choice problem demonstrates where we can use an additional EGM step, and where we can not. First, we go over a subproblem where we can not use the EGM step.
+While chaining multiple EGM steps offers substantial gains, not every subproblem admits an EGM solution. The labor-portfolio choice problem illustrates both the opportunities and limits of sequential EGM. We examine first a subproblem where EGM cannot be applied.
 
-In reorganizing the labor-portfolio problem into subproblems, we assigned the utility of leisure to the leisure-labor subproblem and the utility of consumption to the consumption-savings subproblem. There are no more separable convex utility functions to assign to this problem, and even if we re-organized the problem in a way that moved one of the utility functions into this subproblem, they would not be useful in solving this subproblem via EGM as there is no direct relation between the risky share of portfolio and consumption or leisure. Therefore, the only way to solve this subproblem is through standard convex optimization and root-finding techniques.
+The reorganization into subproblems assigned leisure utility to the labor-leisure stage and consumption utility to the consumption-savings stage, exhausting the separable utility functions available. The portfolio subproblem lacks a separable utility term directly related to the risky share. No reorganization of the problem can remedy this: the risky share affects utility only through its impact on future wealth, not through any contemporaneous utility component. Consequently, this subproblem requires standard convex optimization and root-finding techniques rather than an EGM inversion.
 
 Restating the problem in compact form gives
 
 \begin{equation}
-    \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
-    \vFunc_{t+1}\left(\aRat_{t}(\Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t})/\PGro_{t+1}, \tShkEmp_{t+1}\right)
+    v^{2}_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \Ex_{t} \left[ \PGro_{t+1}^{1-\CRRA}
+    v^{0}_{t+1}\left(\aRat_{t}(\Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t})/\PGro_{t+1}, \tShkEmp_{t+1}\right)
     \right].
 \end{equation}
 
@@ -117,74 +123,41 @@ The first-order condition with respect to the risky portfolio share is then
 
 \begin{equation}
     \Ex_{t}
-    \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) (\Risky_{t+1} - \Rfree)  \right] =
+    \left[ \PGro_{t+1}^{-\CRRA} \frac{\partial v^{0}_{t+1}}{\partial \bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) (\Risky_{t+1} - \Rfree)  \right] =
     0.
 \end{equation}
 
 Finding the optimal risky share requires numerical optimization and root-solving of the first-order condition. To close out the problem, we can calculate the envelope condition as
 
 \begin{equation}
-    \vEnd_{t}'(\aRat_{t}) = \Ex_{t}
-    \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right].
+    \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t}) = \Ex_{t}
+    \left[ \PGro_{t+1}^{-\CRRA} \frac{\partial v^{0}_{t+1}}{\partial \bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right].
 \end{equation}
 
-Note on avoiding taking expectations more than once: We could instead define the portfolio choice subproblem as:
-
-\begin{equation}
-    \vEnd_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \vOptAlt(\aRat_{t}, \riskyshare_{t})
-\end{equation}
-
-where
-
-\begin{equation}
-    \begin{split}
-        \vOptAlt_{t}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{1-\CRRA} \vFunc_{t+1}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right)   \right] \\
-        \Rport_{t+1} & = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t} \\
-        \bRat_{t+1} & = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}
-    \end{split}
-\end{equation}
-
-In this case, the process is similar. The only difference is that we don't have to take expectations more than once. Given the next period's solution, we can calculate the marginal value functions as:
-
-\begin{equation}
-    \begin{split}
-        \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right] \\
-        \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) & = \Ex_{t}
-        \left[ \PGro_{t+1}^{-\CRRA} \vFunc_{t+1}^{\bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \aRat_{t} (\Risky_{t+1} - \Rfree)   \right] \\
-    \end{split}
-\end{equation}
-
-If we are clever, we can calculate both of these in one step. Now, the optimal risky share can be found by the first-order condition and we can use it to evaluate the envelope condition.
-
-\begin{equation}
-    \text{F.O.C.:} \qquad \vOptAlt_{t}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*})  = 0 \qquad
-    \text{E.C.:} \qquad \vEnd_{t}^{\aRat}(\aRat_{t}) = \vOptAlt_{t}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})
-\end{equation}
+This completes the portfolio stage solution.[^alt-portfolio-formulation]
 
 The consumption-saving EGM follows {cite:t}`Carroll2006` but we cover it for exposition. We can begin the solution process by restating the consumption-savings subproblem in a more compact form, substituting the market resources constraint and ignoring the no-borrowing constraint for now. The problem is:
 
 \begin{equation}
-    \vOpt_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
-    \DiscFac \vEnd_{t}(\mRat_{t}-\cRat_{t}).
+    v^{1}_{t}(\mRat_{t}) = \max_{\cRat_{t}} \util(\cRat_{t}) +
+    \DiscFac v^{2}_{t}(\mRat_{t}-\cRat_{t}).
 \end{equation}
 
-To solve, we derive the first-order condition with respect to $\cRat_{t}$ which gives the familiar Euler equation:
+The first-order condition with respect to $\cRat_{t}$ yields the familiar Euler equation:
 
 \begin{equation}
-    \util'(\cRat_t) = \DiscFac \vEnd_{t}'(\mRat_{t} - \cRat_{t}) = \DiscFac
-    \vEnd_{t}'(\aRat_{t})
+    \util'(\cRat_t) = \DiscFac \frac{dv^{2}_{t}}{d\aRat}(\mRat_{t} - \cRat_{t}) = \DiscFac
+    \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t})
 \end{equation}
 
-Inverting the above equation is the (first) EGM step.[^inverse-monotone]
+Inverting this equation is the (first) EGM step.[^inverse-monotone]
 
 \begin{equation}
-    \cEndFunc_{t}(\aRat_{t}) = \util'^{-1}\left( \DiscFac \vEnd_{t}'(\aRat_{t})
+    \cEndFunc_{t}(\aRat_{t}) = \util'^{-1}\left( \DiscFac \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t})
     \right)
 \end{equation}
 
-[^inverse-monotone]: Inversion requires $\util'$ to be strictly monotone, which holds for CRRA utility with $\CRRA > 0$.
+[^inverse-monotone]: Invertibility of $\util'$ requires strict monotonicity, which holds when $\util'' < 0$. For CRRA utility with $\CRRA > 0$, we have $\util''(c) = -\CRRA c^{-\CRRA-1} < 0$, ensuring a one-to-one mapping between marginal utility and consumption levels.
 
 Given the utility function above, the marginal utility of consumption and its inverse are
 
@@ -193,9 +166,11 @@ Given the utility function above, the marginal utility of consumption and its in
     \xRat^{-1/\CRRA}.
 \end{equation}
 
-{cite:t}`Carroll2006` demonstrates that by using an exogenous grid of $\aMat$ points we can find the unique $\cEndFunc_{t}(\aMat)$ that optimizes the consumption-saving problem, since the first-order condition is necessary and sufficient[^foc-sufficient] given the strict concavity of CRRA utility and convexity of the constraint set. Further, using the market resources constraint, we can recover the exact amount of market resources that is consistent with this consumption-saving decision as
+{cite:t}`Carroll2006` demonstrates that by using an exogenous grid of $\aMat$ points we can find the unique $\cEndFunc_{t}(\aMat)$ that optimizes the consumption-saving problem.[^egm-notation] The strict concavity of $\util$ and $v^{2}_{t}$ (inherited from the value function) combined with the convex constraint set ensures the first-order condition is both necessary and sufficient[^foc-sufficient] for a unique optimum. Further, using the market resources constraint, we can recover the exact amount of market resources that is consistent with this consumption-saving decision as
 
-[^foc-sufficient]: Sufficiency follows from the strict concavity of the objective function: $\util$ is strictly concave and $\vEnd_{t}$ inherits strict concavity from the value function.
+[^egm-notation]: We adopt the notational convention that bracketed variables (e.g., $\aMat$, $\mMat$) denote exogenous grids of points on which we evaluate expectations and marginal values, while gothic (fraktur) letters (e.g., $\cEndFunc$, $\mEndFunc$) denote endogenous quantities constructed by inverting first-order conditions. This visual distinction emphasizes that grids are chosen inputs while gothic variables emerge from the EGM inversion step.
+
+[^foc-sufficient]: Necessity follows from standard optimality conditions under differentiability. Sufficiency follows from the strict concavity of the objective function, which guarantees that any critical point is a global maximum. The strict concavity of CRRA utility and the inheritance of concavity through the continuation value ensure uniqueness of the solution.
 
 \begin{equation}
     \mEndFunc_{t}(\aMat) = \cEndFunc_{t}(\aMat) + \aMat.
@@ -203,10 +178,10 @@ Given the utility function above, the marginal utility of consumption and its in
 
 This $\mEndFunc_{t}(\aMat)$ is the ``endogenous'' grid that is consistent with the exogenous decision grid $\aMat$. Now that we have a $(\mEndFunc_{t}(\aMat), \cEndFunc_{t}(\aMat))$ pair for each $\aRat \in \aMat$, we can construct an interpolating consumption function for market resources points that are off-the-grid.
 
-The envelope condition[^envelope-thm] will be useful in the next section, but for completeness is defined here.
+The envelope condition[^envelope-thm] will be useful in the next section, but for completeness we define it here.
 
 \begin{equation}
-    \vOpt_{t}'(\mRat_{t}) = \DiscFac \vEnd_{t}'(\aRat_{t}) = \util'(\cRat_{t})
+    \frac{dv^{1}_{t}}{d\mRat}(\mRat_{t}) = \DiscFac \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t}) = \util'(\cRat_{t})
 \end{equation}
 
 [^envelope-thm]: Follows from the envelope theorem, valid when the value function is differentiable and the constraint set satisfies standard regularity conditions.
@@ -214,15 +189,15 @@ The envelope condition[^envelope-thm] will be useful in the next section, but fo
 The labor-leisure subproblem can be restated more compactly as:
 
 \begin{equation}
-    \vFunc_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
-    \h(\leisure_{t}) + \vOpt_{t}(\bRat_{t} +
+    v^{0}_{t}(\bRat_{t}, \tShkEmp_{t}) = \max_{ \leisure_{t}}
+    \h(\leisure_{t}) + v^{1}_{t}(\bRat_{t} +
     \tShkEmp_{t}(1-\leisure_{t}))
 \end{equation}
 
-The first-order condition with respect to leisure implies the labor-leisure Euler equation
+The first-order condition with respect to leisure is
 
 \begin{equation}
-    \h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}
+    \h'(\leisure_{t}) = \frac{dv^{1}_{t}}{d\mRat}(\mRat_{t}) \tShkEmp_{t}
 \end{equation}
 
 The marginal utility of leisure and its inverse are
@@ -236,73 +211,36 @@ Using an exogenous grid of $\mMat$ and $\tShkMat$, we can find leisure as
 
 \begin{equation}
     \zEndFunc_{t}(\mMat, \tShkMat) = \h'^{-1}\left(
-    \vOpt_{t}'(\mMat) \tShkMat \right)
+    \frac{dv^{1}_{t}}{d\mRat}(\mMat) \tShkMat \right)
 \end{equation}
 
-In this case, it's important to note that there are conditions for leisure itself. An agent with a small level of market resources $\mRat_{t}$ might want to work more than their available time endowment, especially at higher levels of income $\tShkEmp_{t}$, if the utility of leisure is not enough to compensate for their low wealth. In these situations, the optimal unconstrained leisure might be negative, so we must impose a constraint on the optimal leisure function.[^corner-solution] This is similar to the treatment of an artificial borrowing constraint in the pure consumption subproblem. From now on, let's call this constrained optimal function $\hat{\zEndFunc}_{t}(\mMat, \tShkMat)$, where
+However, agents with low market resources $\mRat_{t}$ and high wage offers $\tShkEmp_{t}$ may find the unconstrained optimum violates the feasibility constraint $\leisure_t \in [0,1]$. When this occurs, we project the solution onto the constraint boundary, defining the constrained optimal function $\hat{\zEndFunc}_{t}(\mMat, \tShkMat)$ as
 
 \begin{equation}
     \hat{\zEndFunc}_{t}(\mMat, \tShkMat) = \max \left\{ \min \left\{ \zEndFunc_{t}(\mMat, \tShkMat), 1 \right\}, 0 \right\}
 \end{equation}
 
-[^corner-solution]: The projection onto $[0,1]$ ensures feasibility. At constraint boundaries, the Kuhn-Tucker conditions apply rather than the unconstrained FOC.
+This projection ensures feasibility.[^corner-solution] In regions where constraints bind, the Kuhn-Tucker conditions replace the unconstrained first-order condition. Care must be taken during interpolation to handle potential non-differentiabilities at constraint boundaries, though these typically affect only small regions of the state space.
+
+[^corner-solution]: At the lower bound $\leisure_t = 0$, the Kuhn-Tucker condition is $\h'(0) \leq {v^{1}_t}'(\mRat_t)\tShkEmp_t$, with complementary slackness ensuring the constraint binds only when the marginal utility of leisure is insufficient to justify reduced labor supply. Similarly, at $\leisure_t = 1$, the agent chooses full leisure only when $\h'(1) \geq {v^{1}_t}'(\mRat_t)\tShkEmp_t$.
 
 Then, we derive labor as $\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = 1 - \hat{\zEndFunc}_{t}(\mRat_{t}, \tShkEmp_{t})$. Finally, for each $\tShkEmp_{t}$ and $\mRat_{t}$ as an exogenous grid, we can find the endogenous grid of bank balances as $\bEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = \mRat_{t} - \tShkEmp_{t}\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t})$.
 
 The envelope condition then provides the marginal value of bank balances as
 
 \begin{equation}
-    \vFunc_{t}^{\bRat}(\bRat_{t}, \tShkEmp_{t}) = \vOpt_{t}'(\mRat_{t}) =
+    {v^{0}_{t}}^{\bRat}(\bRat_{t}, \tShkEmp_{t}) = {v^{1}_{t}}'(\mRat_{t}) =
     \h'(\leisure_{t})/\tShkEmp_{t}.
 \end{equation}
 
-This envelope condition, together with the FOC, implicitly defines the heterogeneous Frisch elasticity of labor supply, which varies across states $(\bRat_{t}, \tShkEmp_{t})$.[^frisch-elasticity]
+This envelope condition, together with the first-order condition, implicitly defines the heterogeneous Frisch elasticity of labor supply, which varies across states $(\bRat_{t}, \tShkEmp_{t})$.[^frisch-elasticity]
 
-[^frisch-elasticity]: The Frisch elasticity of labor supply is defined as $\varepsilon_{\labor,\tShkEmp} = \frac{\partial \labor}{\partial \tShkEmp}\frac{\tShkEmp}{\labor}$ holding the marginal utility of wealth constant. From the FOC $\h'(\leisure_{t}) = \vOpt_{t}'(\mRat_{t}) \tShkEmp_{t}$, implicitly differentiating with respect to $\tShkEmp_{t}$ while holding $\vOpt_{t}'(\mRat_{t})$ constant yields $\frac{\partial \labor}{\partial \tShkEmp} = \frac{1}{\h''(1-\labor_{t})}$. Since the second derivative $\h''(\cdot)$ depends on the current leisure (and thus labor) level, which itself varies with $(\bRat_{t}, \tShkEmp_{t})$, the elasticity is heterogeneous across states.
+[^frisch-elasticity]: The Frisch elasticity of labor supply is defined as $\varepsilon_{\labor,\tShkEmp} = \dfrac{\partial \labor}{\partial \tShkEmp}\dfrac{\tShkEmp}{\labor}$ holding the marginal utility of wealth constant. From the first-order condition $\h'(\leisure_{t}) = {v^{1}_{t}}'(\mRat_{t}) \tShkEmp_{t}$, we implicitly differentiate with respect to $\tShkEmp_{t}$ while holding ${v^{1}_{t}}'(\mRat_{t})$ fixed: $\h''(\leisure_t)\dfrac{\partial \leisure_t}{\partial \tShkEmp} = {v^{1}_t}'(\mRat_t)$. Since $\labor_t = 1 - \leisure_t$, we obtain $\dfrac{\partial \labor_t}{\partial \tShkEmp} = -\dfrac{{v^{1}_t}'(\mRat_t)}{\h''(1-\labor_t)}$. For the CRRA leisure utility, $\h''(\leisure) = -\leiShare \labShare^{1-\CRRA} \leisure^{-\leiShare-1} < 0$, making the derivative positive. The elasticity $\varepsilon_{\labor,\tShkEmp} = -\dfrac{{v^{1}_t}'(\mRat_t)}{\h''(1-\labor_t)}\dfrac{\tShkEmp_t}{\labor_t}$ varies with the state because both $\h''(1-\labor_t)$ and the ratio $\tShkEmp_t/\labor_t$ depend on $(\bRat_t, \tShkEmp_t)$.
 
-## Interpolation on Curvilinear Grids
+The resulting endogenous grid for the labor-leisure problem is curvilinear rather than rectilinear, requiring specialized interpolation methods. We defer the detailed discussion of interpolation on curvilinear grids to [Section %s](#multinterp).[^cgi-pedagogical]
 
-Although EGM$^n$ seems to be a simple approach, there is one important caveat that we have not discussed, which is the details of the interpolation. In the pure consumption-savings problem, a one-dimensional exogenous grid of post-decision liquid assets $\aMat$ results in a one-dimensional endogenous grid of total market resources $\mMat$. However, as we know from standard EGM, the spacing in the $\mMat$ grid is different from the spacing in the $\aMat$ grid as the inverted Euler equation is non-linear. This is no problem in a one-dimensional problem as we can simply use non-uniform linear interpolation.
+[^cgi-pedagogical]: The labor-leisure problem could be solved using simpler interpolation methods since the grid warping occurs along only one dimension (wage offers). However, we use Curvilinear Grid Interpolation here for two pedagogical reasons: (1) it demonstrates the sequential decomposition that is the essence of EGM$^n$, and (2) it illustrates CGI in a transparent setting. CGI is robust to various types of grid warping, from simple one-dimensional stretching to complex multidimensional distortions. This makes it valuable to understand in this simpler context before encountering the genuinely unstructured grids of [Section %s](#multdim).
 
-However, the same is true of higher dimensional problems, where the exogenous grid gets mapped to a warped endogenous grid. In this case, it is not possible to use standard multi-linear interpolation, as the resulting endogenous grid is not rectilinear. Instead, we introduce a novel approach to interpolation called Warped Grid Interpolation (WGI), which is similar to {cite:t}`White2015`'s approach but computationally more efficient and robust. The details of this interpolation method will be further explained in [Section %s](#multinterp), but for now, we show the resulting warped endogenous grid for the labor-leisure problem.
+[^alt-portfolio-formulation]: An alternative formulation avoids taking expectations more than once. We could define the portfolio choice subproblem as $v^{2}_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \tilde{v}^{1}_{t}(\aRat_{t}, \riskyshare_{t})$ where $\tilde{v}^{1}_{t}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{1-\CRRA} v^{0}_{t+1}(\bRat_{t+1}, \tShkEmp_{t+1})]$ with $\Rport_{t+1} = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}$ and $\bRat_{t+1} = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}$. Given the next period's solution, we calculate the marginal value functions as ${\tilde{v}^{1}_{t}}^{\aRat}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{-\CRRA} {v^{0}_{t+1}}^{\bRat}(\bRat_{t+1}, \tShkEmp_{t+1}) \Rport_{t+1}]$ and ${\tilde{v}^{1}_{t}}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{-\CRRA} {v^{0}_{t+1}}^{\bRat}(\bRat_{t+1}, \tShkEmp_{t+1}) \aRat_{t} (\Risky_{t+1} - \Rfree)]$. Both can be computed in one expectation step. The optimal risky share then satisfies ${\tilde{v}^{1}_{t}}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*}) = 0$ with envelope condition ${v^{2}_{t}}^{\aRat}(\aRat_{t}) = {\tilde{v}^{1}_{t}}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})$.
 
-```{figure} ../../docs/figures/LaborSeparableWarpedGrid.*
-:name: fig:LaborSeparableWarpedGrid
-:align: center
-
-Warped Curvlinear Grid that results from multivariate EGM. This grid can be interpolated by WGI.
-```
-
-Assume we have a set of points indexed by $(i,j)$ in two-dimensional space for which we have corresponding functional values in a third dimension, such that $f(x_{ij},y_{ij}) = z_{ij}$. In practice, we are interested in cases where the $z_{ij}$ are difficult to compute and $f(x_{ij},y_{ij})$ is unknown, so we are unable to compute them at other values of $x$ and $y$ --- which is why we want to interpolate[^wgi-motivation]. These $(x_{ij},y_{ij})$ points however are not evenly spaced and do not form a rectilinear grid which would make it easy to interpolate the function off the grid. Nevertheless, these points do have a regular structure as we will see.
-
-
-```{figure} ../../docs/figures/WarpedInterpolation.*
-:name: fig:warped_interp
-:align: center
-
-True function and curvilinear grid of points for which we know the value of the function.
-```
-
-In [Figure %s](#fig:warped_interp), we can see the true function in three-dimensional space, along with the points for which we actually know the value of the function. The underlying regular structure comes from the points' position in the matrix, the $(i,j)$ coordinates. If we join the points along every row and every column, we can see that the resulting grid is regular and piecewise affine (curvilinear).
-
-In [Figure %s](#fig:homotopy) we see the values of the function at their index coordinate points in the matrix. We can see that there exists a mapping between the curvilinear grid and the index coordinates of the matrix.
-
-```{figure} ../../docs/figures/Homotopy.*
-:name: fig:homotopy
-:align: center
-
-Homotopy between the curvilinear grid and the index coordinates of the matrix.
-```
-
-The objective is to be able to interpolate the value of the function at any point off the grid, where presumably we are only interested in points internal to the curvilinear space and not outside the boundaries. For example, we can imagine that we want an approximation to the function at the point $(x,y) = (3, 5)$ pictured [Figure %s](#fig:mapping). If we could find the corresponding point in the coordinate grid, interpolation would be straightforward. We can find where the $x$-coordinate of the point of interest intersects with the index-coordinates of the matrix. This is similar to assuming that we have 3 linear interpolators formed by connecting the points on the green lines in the x-direction, and for each interpolator we can approximate the corresponding y and z values using the grid data. Now, for each circle in [Figure %s](#fig:mapping), we have a corresponding pair $(y,z)$, and we can interpolate in the y-direction to find the corresponding z-value for the point's y-coordinate[^wgi-examples].
-
-[^wgi-motivation]: In EGM applications, computing off-grid values requires re-solving the optimization problem, which is computationally expensive. WGI provides a continuous approximation without re-optimization.
-
-[^wgi-examples]: For more examples of the Warped Grid Interpolation method in action, including convergence analysis, see the github project [`alanlujan91/multinterp`](https://github.com/alanlujan91/multinterp/blob/main/notebooks/CurvilinearInterpolation.ipynb).
-
-```{figure} ../../docs/figures/Mapping.*
-:name: fig:mapping
-:align: center
-
-The method consist of extending the loci of points in the $x$ dimension to find the corresponding crossing points in the $y$ dimension.
-```
+Having demonstrated how sequential decomposition works in a three-choice problem with one-dimensional state spaces, we now tackle the more challenging case where the state space itself is multidimensional.
