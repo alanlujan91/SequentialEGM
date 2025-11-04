@@ -83,7 +83,7 @@ Consider a generic subproblem with a differentiable and invertible utility funct
 where $\WFunc(\yRat) = \DiscFac \Ex[\VFunc'(\yRat)]$ is the continuation value. For an interior solution, the first-order condition is
 
 \begin{equation}
-    \frac{\partial \UFunc(\xRat, \aRat)}{\partial \aRat} + \frac{d\WFunc}{d\yRat}(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat} = 0
+    \frac{\partial \UFunc(\xRat, \aRat)}{\partial \aRat} + \WFunc'(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat} = 0
 \end{equation}
 
 When corner solutions occur (e.g., $\aRat$ at constraint boundaries), the unconstrained optimum from inverting the first-order condition must be projected onto the feasible set, as demonstrated in [Section %s](#method) for the leisure choice.
@@ -95,7 +95,7 @@ For interior solutions where the marginal utility $\partial \UFunc / \partial \a
 
 \begin{equation}
     \aRat = \left(\frac{\partial \UFunc(\xRat, \aRat)}{\partial \aRat}\right)^{-1}
-    \left[ -\frac{d\WFunc}{d\yRat}(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat}\right]
+    \left[ -\WFunc'(\yRat) \frac{\partial \TFunc(\xRat,\aRat)}{\partial \aRat}\right]
 \end{equation}
 
 When the utility function is strictly concave in $\aRat$, the solution is unique.
@@ -144,7 +144,7 @@ where strict monotonicity of $\gFunc'$ ensures existence and uniqueness of the i
 
 The additive separability in both transitions is essential: it allows the derivative with respect to $\aRat$ to not depend on the state variables $\xRat_1$ or $\xRat_2$, which we haven't yet recovered when solving the first-order condition on the exogenous grid of post-decision states. Once we obtain $\aRat$ from the inversion, we can recover the pre-decision states via $\xRat_1 = f_1^{-1}(\yRat_1 - k \cdot \aRat)$ and $\xRat_2 = f_2^{-1}(\yRat_2 - \gFunc(\aRat))$. The current formulation where one state variable enters linearly (e.g., $\TFunc_2 = \xRat_2 + \aRat + \gFunc(\aRat)$ with $f_2(\xRat_2) = \xRat_2$) is a common special case.
 
-This additive separability defines what @Iskhakov2015 calls "triangular" structure in transitions. @Iskhakov2015 requires the entire problem to satisfy triangularity globally across all decisions. Sequential EGM requires triangularity only locally within individual subproblems. A multistage problem can mix stages that satisfy Proposition 1 (separable utility) with stages that satisfy Proposition 2 (triangular transitions), even when the overall problem structure is not globally triangular. Sequential EGM thereby combines different EGM-compatible structures across stages, solving a broader class of problems than methods requiring uniform triangularity throughout.
+This additive separability defines what {cite:t}`Iskhakov2015` calls "triangular" structure in transitions. {cite:t}`Iskhakov2015` solves problems where the entire multidimensional structure is triangular, enabling simultaneous solution of all choices. Sequential EGM instead decomposes problems into stages, requiring only that each subproblem satisfy local EGM-compatibility conditions. A multistage problem can mix stages satisfying Proposition 1 (separable utility) with stages satisfying Proposition 2 (triangular transitions), and even include stages solved by standard optimization, expanding applicability beyond problems with uniform triangular structure.
 
 [^bad-ordering-example]: To see this concretely, the consumption subproblem would become two-dimensional: $v^{0}(\bRat, \tShkEmp) = \max_{\cRat} \uFunc(\cRat) + v^{1}(\bRat', \tShkEmp)$ subject to $\bRat' = \bRat - \cRat \ge -\tShkEmp$, requiring interpolation on a $(\bRat, \tShkEmp)$ grid instead of just $\bRat$. The labor-leisure subproblem would then have the additional constraint: $v^{1}(\bRat', \tShkEmp) = \max_{\leisure} \h(\leisure) + v^{2}(\aRat)$ subject to $0 \le \leisure \le 1$ and $\aRat = \bRat' + \tShkEmp(1 - \leisure) \ge 0$. The poor ordering forces us to carry the wage state through both stages, doubling the dimensionality of the first stage.
 

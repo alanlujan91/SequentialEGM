@@ -128,7 +128,7 @@ The first-order condition with respect to the risky portfolio share is then
 Finding the optimal risky share requires numerical optimization and root-solving of the first-order condition. To close out the problem, we can calculate the envelope condition as
 
 \begin{equation}
-    \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t}) = \Ex_{t}
+    (v^{2}_{t})'(\aRat_{t}) = \Ex_{t}
     \left[ \PGro_{t+1}^{-\CRRA} \frac{\partial v^{0}_{t+1}}{\partial \bRat}\left(\bRat_{t+1}, \tShkEmp_{t+1}\right) \Rport_{t+1} \right].
 \end{equation}
 
@@ -144,14 +144,14 @@ The consumption-saving EGM follows {cite:t}`Carroll2006` but we cover it for exp
 The first-order condition with respect to $\cRat_{t}$ yields the familiar Euler equation:
 
 \begin{equation}
-    \util'(\cRat_t) = \DiscFac \frac{dv^{2}_{t}}{d\aRat}(\mRat_{t} - \cRat_{t}) = \DiscFac
-    \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t})
+    \util'(\cRat_t) = \DiscFac (v^{2}_{t})'(\mRat_{t} - \cRat_{t}) = \DiscFac
+    (v^{2}_{t})'(\aRat_{t})
 \end{equation}
 
 Inverting this equation is the (first) EGM step.[^inverse-monotone]
 
 \begin{equation}
-    \cEndFunc_{t}(\aRat_{t}) = \util'^{-1}\left( \DiscFac \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t})
+    \cEndFunc_{t}(\aRat_{t}) = \util'^{-1}\left( \DiscFac (v^{2}_{t})'(\aRat_{t})
     \right)
 \end{equation}
 
@@ -179,7 +179,7 @@ This $\mEndFunc_{t}(\aMat)$ is the ``endogenous'' grid that is consistent with t
 The envelope condition[^envelope-thm] will be useful in the next section, but for completeness we define it here.
 
 \begin{equation}
-    \frac{dv^{1}_{t}}{d\mRat}(\mRat_{t}) = \DiscFac \frac{dv^{2}_{t}}{d\aRat}(\aRat_{t}) = \util'(\cRat_{t})
+    (v^{1}_{t})'(\mRat_{t}) = \DiscFac (v^{2}_{t})'(\aRat_{t}) = \util'(\cRat_{t})
 \end{equation}
 
 [^envelope-thm]: Follows from the envelope theorem, valid when the value function is differentiable and the constraint set satisfies standard regularity conditions.
@@ -195,7 +195,7 @@ The labor-leisure subproblem can be restated more compactly as:
 The first-order condition with respect to leisure is
 
 \begin{equation}
-    \h'(\leisure_{t}) = \frac{dv^{1}_{t}}{d\mRat}(\mRat_{t}) \tShkEmp_{t}
+    \h'(\leisure_{t}) = (v^{1}_{t})'(\mRat_{t}) \tShkEmp_{t}
 \end{equation}
 
 The marginal utility of leisure and its inverse are
@@ -209,7 +209,7 @@ Using an exogenous grid of $\mMat$ and $\tShkMat$, we can find leisure as
 
 \begin{equation}
     \zEndFunc_{t}(\mMat, \tShkMat) = \h'^{-1}\left(
-    \frac{dv^{1}_{t}}{d\mRat}(\mMat) \tShkMat \right)
+    (v^{1}_{t})'(\mMat) \tShkMat \right)
 \end{equation}
 
 However, agents with low market resources $\mRat_{t}$ and high wage offers $\tShkEmp_{t}$ may find the unconstrained optimum violates the feasibility constraint $\leisure_t \in [0,1]$. When this occurs, we project the solution onto the constraint boundary, defining the constrained optimal function $\hat{\zEndFunc}_{t}(\mMat, \tShkMat)$ as
@@ -220,25 +220,25 @@ However, agents with low market resources $\mRat_{t}$ and high wage offers $\tSh
 
 This projection ensures feasibility.[^corner-solution] In regions where constraints bind, the Kuhn-Tucker conditions replace the unconstrained first-order condition. Care must be taken during interpolation to handle potential non-differentiabilities at constraint boundaries, though these typically affect only small regions of the state space.
 
-[^corner-solution]: At the lower bound $\leisure_t = 0$, the Kuhn-Tucker condition is $\h'(0) \leq {v^{1}_t}'(\mRat_t)\tShkEmp_t$, with complementary slackness ensuring the constraint binds only when the marginal utility of leisure is insufficient to justify reduced labor supply. Similarly, at $\leisure_t = 1$, the agent chooses full leisure only when $\h'(1) \geq {v^{1}_t}'(\mRat_t)\tShkEmp_t$.
+[^corner-solution]: At the lower bound $\leisure_t = 0$, the Kuhn-Tucker condition is $\h'(0) \leq (v^{1}_t)'(\mRat_t)\tShkEmp_t$, with complementary slackness ensuring the constraint binds only when the marginal utility of leisure is insufficient to justify reduced labor supply. Similarly, at $\leisure_t = 1$, the agent chooses full leisure only when $\h'(1) \geq (v^{1}_t)'(\mRat_t)\tShkEmp_t$.
 
 Then, we derive labor as $\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = 1 - \hat{\zEndFunc}_{t}(\mRat_{t}, \tShkEmp_{t})$. Finally, for each $\tShkEmp_{t}$ and $\mRat_{t}$ as an exogenous grid, we can find the endogenous grid of bank balances as $\bEndFunc_{t}(\mRat_{t}, \tShkEmp_{t}) = \mRat_{t} - \tShkEmp_{t}\lEndFunc_{t}(\mRat_{t}, \tShkEmp_{t})$.
 
 The envelope condition then provides the marginal value of bank balances as
 
 \begin{equation}
-    {v^{0}_{t}}^{\bRat}(\bRat_{t}, \tShkEmp_{t}) = {v^{1}_{t}}'(\mRat_{t}) =
+    \frac{\partial v^{0}_{t}}{\partial \bRat}(\bRat_{t}, \tShkEmp_{t}) = (v^{1}_{t})'(\mRat_{t}) =
     \h'(\leisure_{t})/\tShkEmp_{t}.
 \end{equation}
 
 This envelope condition, together with the first-order condition, implicitly defines the heterogeneous Frisch elasticity of labor supply, which varies across states $(\bRat_{t}, \tShkEmp_{t})$.[^frisch-elasticity]
 
-[^frisch-elasticity]: The Frisch elasticity of labor supply is defined as $\varepsilon_{\labor,\tShkEmp} = \dfrac{\partial \labor}{\partial \tShkEmp}\dfrac{\tShkEmp}{\labor}$ holding the marginal utility of wealth constant. From the first-order condition $\h'(\leisure_{t}) = {v^{1}_{t}}'(\mRat_{t}) \tShkEmp_{t}$, we implicitly differentiate with respect to $\tShkEmp_{t}$ while holding ${v^{1}_{t}}'(\mRat_{t})$ fixed: $\h''(\leisure_t)\dfrac{\partial \leisure_t}{\partial \tShkEmp} = {v^{1}_t}'(\mRat_t)$. Since $\labor_t = 1 - \leisure_t$, we obtain $\dfrac{\partial \labor_t}{\partial \tShkEmp} = -\dfrac{{v^{1}_t}'(\mRat_t)}{\h''(1-\labor_t)}$. For the CRRA leisure utility, $\h''(\leisure) = -\leiShare \labShare^{1-\CRRA} \leisure^{-\leiShare-1} < 0$, making the derivative positive. The elasticity $\varepsilon_{\labor,\tShkEmp} = -\dfrac{{v^{1}_t}'(\mRat_t)}{\h''(1-\labor_t)}\dfrac{\tShkEmp_t}{\labor_t}$ varies with the state because both $\h''(1-\labor_t)$ and the ratio $\tShkEmp_t/\labor_t$ depend on $(\bRat_t, \tShkEmp_t)$.
+[^frisch-elasticity]: The Frisch elasticity of labor supply is defined as $\varepsilon_{\labor,\tShkEmp} = \dfrac{\partial \labor}{\partial \tShkEmp}\dfrac{\tShkEmp}{\labor}$ holding the marginal utility of wealth constant. From the first-order condition $\h'(\leisure_{t}) = (v^{1}_{t})'(\mRat_{t}) \tShkEmp_{t}$, we implicitly differentiate with respect to $\tShkEmp_{t}$ while holding $(v^{1}_{t})'(\mRat_{t})$ fixed: $\h''(\leisure_t)\dfrac{\partial \leisure_t}{\partial \tShkEmp} = (v^{1}_t)'(\mRat_t)$. Since $\labor_t = 1 - \leisure_t$, we obtain $\dfrac{\partial \labor_t}{\partial \tShkEmp} = -\dfrac{(v^{1}_t)'(\mRat_t)}{\h''(1-\labor_t)}$. For the CRRA leisure utility, $\h''(\leisure) = -\leiShare \labShare^{1-\CRRA} \leisure^{-\leiShare-1} < 0$, making the derivative positive. The elasticity $\varepsilon_{\labor,\tShkEmp} = -\dfrac{(v^{1}_t)'(\mRat_t)}{\h''(1-\labor_t)}\dfrac{\tShkEmp_t}{\labor_t}$ varies with the state because both $\h''(1-\labor_t)$ and the ratio $\tShkEmp_t/\labor_t$ depend on $(\bRat_t, \tShkEmp_t)$.
 
 The resulting endogenous grid for the labor-leisure problem is curvilinear rather than rectilinear, requiring specialized interpolation methods. We defer the detailed discussion of interpolation on curvilinear grids to [Section %s](#multinterp).[^cgi-pedagogical]
 
 [^cgi-pedagogical]: The labor-leisure problem could be solved using simpler interpolation methods since the grid warping occurs along only one dimension (wage offers). However, we use Curvilinear Grid Interpolation here for two pedagogical reasons: (1) it demonstrates the sequential decomposition that is the essence of EGM$^n$, and (2) it illustrates CGI in a transparent setting. CGI is robust to various types of grid warping, from simple one-dimensional stretching to complex multidimensional distortions. This makes it valuable to understand in this simpler context before encountering the genuinely unstructured grids of [Section %s](#multdim).
 
-[^alt-portfolio-formulation]: An alternative formulation avoids taking expectations more than once. We could define the portfolio choice subproblem as $v^{2}_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \tilde{v}^{1}_{t}(\aRat_{t}, \riskyshare_{t})$ where $\tilde{v}^{1}_{t}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{1-\CRRA} v^{0}_{t+1}(\bRat_{t+1}, \tShkEmp_{t+1})]$ with $\Rport_{t+1} = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}$ and $\bRat_{t+1} = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}$. Given the next period's solution, we calculate the marginal value functions as ${\tilde{v}^{1}_{t}}^{\aRat}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{-\CRRA} {v^{0}_{t+1}}^{\bRat}(\bRat_{t+1}, \tShkEmp_{t+1}) \Rport_{t+1}]$ and ${\tilde{v}^{1}_{t}}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{-\CRRA} {v^{0}_{t+1}}^{\bRat}(\bRat_{t+1}, \tShkEmp_{t+1}) \aRat_{t} (\Risky_{t+1} - \Rfree)]$. Both can be computed in one expectation step. The optimal risky share then satisfies ${\tilde{v}^{1}_{t}}^{\riskyshare}(\aRat_{t}, \riskyshare_{t}^{*}) = 0$ with envelope condition ${v^{2}_{t}}^{\aRat}(\aRat_{t}) = {\tilde{v}^{1}_{t}}^{\aRat}(\aRat_{t}, \riskyshare_{t}^{*})$.
+[^alt-portfolio-formulation]: An alternative formulation avoids taking expectations more than once. We could define the portfolio choice subproblem as $v^{2}_{t}(\aRat_{t}) = \max_{\riskyshare_{t}} \tilde{v}^{1}_{t}(\aRat_{t}, \riskyshare_{t})$ where $\tilde{v}^{1}_{t}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{1-\CRRA} v^{0}_{t+1}(\bRat_{t+1}, \tShkEmp_{t+1})]$ with $\Rport_{t+1} = \Rfree + (\Risky_{t+1} - \Rfree) \riskyshare_{t}$ and $\bRat_{t+1} = \aRat_{t} \Rport_{t+1} / \PGro_{t+1}$. Given the next period's solution, we calculate the marginal value functions as $\frac{\partial \tilde{v}^{1}_{t}}{\partial \aRat}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{-\CRRA} \frac{\partial v^{0}_{t+1}}{\partial \bRat}(\bRat_{t+1}, \tShkEmp_{t+1}) \Rport_{t+1}]$ and $\frac{\partial \tilde{v}^{1}_{t}}{\partial \riskyshare}(\aRat_{t}, \riskyshare_{t}) = \Ex_{t}[\PGro_{t+1}^{-\CRRA} \frac{\partial v^{0}_{t+1}}{\partial \bRat}(\bRat_{t+1}, \tShkEmp_{t+1}) \aRat_{t} (\Risky_{t+1} - \Rfree)]$. Both can be computed in one expectation step. The optimal risky share then satisfies $\frac{\partial \tilde{v}^{1}_{t}}{\partial \riskyshare}(\aRat_{t}, \riskyshare_{t}^{*}) = 0$ with envelope condition $(v^{2}_{t})'(\aRat_{t}) = \frac{\partial \tilde{v}^{1}_{t}}{\partial \aRat}(\aRat_{t}, \riskyshare_{t}^{*})$.
 
 Having demonstrated how sequential decomposition works in a three-choice problem with one-dimensional state spaces, we now tackle the more challenging case where the state space itself is multidimensional.
