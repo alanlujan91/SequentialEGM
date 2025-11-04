@@ -3,7 +3,7 @@
 
 # The Sequential Endogenous Grid Method
 
-Consider the challenge facing a researcher who wants to solve a model where households simultaneously choose consumption, labor supply, and portfolio allocation. Standard approaches face a dilemma: either optimize jointly over all three choices (which requires evaluating a three-dimensional optimization at every state space point), or impose separability restrictions that may not reflect realistic preferences. We show how sequential decomposition offers a third way that preserves generality while maintaining computational efficiency.
+Models where households simultaneously choose consumption, labor supply, and portfolio allocation present a computational challenge. Joint optimization over all three choices requires evaluating a three-dimensional optimization at every state space point. Imposing strong separability restrictions speeds computation but may rule out economically interesting preference specifications. Sequential decomposition exploits partial separability: when decisions are separable in stages but not necessarily globally, each stage can be solved efficiently through EGM inversion.
 
 ## Problem Setup
 
@@ -57,9 +57,9 @@ where non-negativity constraints $\cRat_{t} \geq 0$, $\leisure_{t} \in [0,1]$, a
         ^{1-\CRRA} \dfrac{\leisure_{t}^{1-\leiShare}}{1-\leiShare}
     \end{equation}
 
-A key insight simplifies this apparently formidable problem: although the household makes all three decisions simultaneously from an economic perspective, we can organize the solution method so that decisions are solved sequentially, with each stage using information from the next. This is not merely a computational trick; it reflects the natural dependence structure of the problem. The labor-leisure choice determines market resources; given those resources, the consumption-saving choice determines liquid assets; given liquid assets, the portfolio choice follows. By respecting this structure, each stage becomes a tractable subproblem amenable to EGM.
+Although the household makes all three decisions simultaneously from an economic perspective, the dependence structure permits sequential solution. The labor-leisure choice determines market resources; given those resources, the consumption-saving choice determines liquid assets; given liquid assets, the portfolio choice follows. This natural ordering reflects the problem's information flow rather than introducing artificial timing.
 
-We can make a few choices to create a sequential problem which will allow us to use multiple EGM steps in succession. First, the agent decides their labor-leisure trade-off and receives a wage. Their wage plus their previous bank balance then becomes their market resources. Second, given market resources, the agent makes a pure consumption-saving decision. Finally, given an amount of savings, the consumer then decides their risky portfolio share.
+The decomposition proceeds as follows. The labor-leisure decision and wage realization jointly determine market resources. Given market resources, the consumption-saving decision determines liquid assets. Given liquid assets, the portfolio allocation follows. Each stage uses information from subsequent stages (through continuation values) while shedding state variables that later stages do not require.
 
 The sequential decomposition begins at the start of the period with the labor-leisure problem.[^stage-notation] At this stage, the household observes bank balances $\bRat_{t}$ and the wage offer $\tShkEmp_{t}$, choosing leisure to maximize the sum of current leisure utility and the continuation value from market resources $\mRat_{t}$:
 
@@ -103,13 +103,11 @@ The final stage allocates liquid savings $\aRat_{t}$ between risk-free and risky
     \end{split}
 \end{equation}
 
-This sequential approach is explicitly modeled after the nested approaches explored in {cite:t}`Clausen2020` and {cite:t}`Druedahl2021`. However, we offer additional insights that expand on these methods. An important observation is that now, every single choice is self-contained in a subproblem, and although the structure is specifically chosen to minimize the number of state variables at every stage, the problem does not change by this structural imposition. This sequential formulation preserves the original problem because no uncertainty resolves between subproblems within a single period. From the agent's information set at time $t$, all three decisions are made simultaneously before any time-$t+1$ shocks realize. The expectation operator appears only in the final subproblem, ensuring decisions are made under identical information. From the perspective of the consumer, these decisions are essentially simultaneous, but a careful organization into sub-period problems enables us to solve the model more efficiently and can provide key economic insights. In this problem, as we will see, a key insight will be the ability to explicitly calculate the marginal value of wealth and the Frisch elasticity of labor.
+The sequential formulation follows the nested approaches of {cite:t}`Clausen2020` and {cite:t}`Druedahl2021` but chains EGM inversions without embedding optimization. Each choice is self-contained in a subproblem, with the structure chosen to minimize state variables at each stage. The sequential formulation preserves the original problem because no uncertainty resolves between subproblems within a single period. From the agent's information set at time $t$, all three decisions are made before any time-$t+1$ shocks realize. The expectation operator appears only in the final subproblem, ensuring identical information across decisions. The sequential organization reduces computational cost while exposing intermediate economic quantities. The marginal value of wealth and the Frisch elasticity of labor emerge explicitly from the stage decomposition.
 
 ## Sequential Solution
 
-While chaining multiple EGM steps offers substantial gains, not every subproblem admits an EGM solution. The labor-portfolio choice problem illustrates both the opportunities and limits of sequential EGM. We examine first a subproblem where EGM cannot be applied.
-
-The reorganization into subproblems assigned leisure utility to the labor-leisure stage and consumption utility to the consumption-savings stage, exhausting the separable utility functions available. The portfolio subproblem lacks a separable utility term directly related to the risky share. No reorganization of the problem can remedy this: the risky share affects utility only through its impact on future wealth, not through any contemporaneous utility component. Consequently, this subproblem requires standard convex optimization and root-finding techniques rather than an EGM inversion.
+Not every subproblem admits an EGM solution. The portfolio stage illustrates this limitation. The reorganization assigned leisure utility to the labor-leisure stage and consumption utility to the consumption-savings stage, exhausting the separable utility components. The portfolio subproblem lacks a separable utility term for the risky share. The risky share affects utility only through future wealth, not through contemporaneous utility. This subproblem requires standard convex optimization rather than EGM inversion.
 
 Restating the problem in compact form gives
 

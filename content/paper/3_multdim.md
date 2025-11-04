@@ -3,9 +3,7 @@
 
 # The EGM$^n$ in Higher Dimensions
 
-The labor-portfolio problem demonstrates the power of sequential decomposition, but one might wonder whether the approach scales to genuinely high-dimensional state spaces. After all, many economically important problems (retirement planning with multiple accounts, durable goods choices, human capital investment) involve multiple state variables that must be tracked simultaneously. The pension deposit problem we now examine shows that EGM$^n$ can handle such complexity, though it requires confronting a new challenge: how to interpolate on grids that lose even their topological regularity.
-
-The labor-portfolio problem in [Section %s](#method) demonstrates the power of sequential decomposition, but one might wonder whether it scales to genuinely multidimensional state spaces. Each stage in that problem involved at most one post-decision state variable, keeping dimensionality manageable. Can EGM$^n$ handle problems where multiple state variables persist across stages? The answer is yes, though doing so requires confronting a more challenging interpolation problem.
+The labor-portfolio problem in [Section %s](#method) features at most one post-decision state variable per stage, keeping dimensionality manageable. Problems where multiple state variables persist across stages present a more demanding test. Retirement planning with multiple accounts, durable goods choices, and human capital investment all require tracking several state variables simultaneously. The pension deposit problem demonstrates that EGM$^n$ extends to such settings, though the interpolation challenge intensifies: endogenous grids lose even their topological regularity, requiring more sophisticated interpolation methods.
 
 ## A more complex problem
 
@@ -142,4 +140,4 @@ To close the solution method, the envelope conditions are
 
 The resulting endogenous grid in this problem is irregular and unstructured, unlike the curvilinear grid in the labor-leisure problem of [Section %s](#method). The interpolation techniques required for this more complex case are discussed in detail in [Section %s](#multinterp).
 
-The pension deposit problem reveals a new challenge: even when we successfully apply EGM at each stage, the resulting endogenous grids may be highly irregular. This brings us to the interpolation problem.
+Successful EGM application at each stage does not guarantee regular grids. The pension deposit problem generates highly irregular endogenous grids, presenting an interpolation challenge.

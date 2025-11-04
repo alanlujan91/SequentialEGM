@@ -13,7 +13,7 @@ The interpolation challenge arises because first-order conditions induce nonline
 
 Higher-dimensional problems inherit this warping in each dimension simultaneously, potentially destroying the regular structure assumed by standard multilinear interpolation. The degree of structural preservation determines the appropriate interpolation method. Curvilinear grids retain topological regularity (points that are index-neighbors remain geometric neighbors), permitting efficient specialized methods that exploit preserved structure. Fully unstructured grids, as arise in the pension deposit problem of [Section %s](#multdim), lose even topological regularity, requiring more sophisticated approaches that make no assumptions about grid geometry.
 
-A similar approach using Delaunay triangulation was presented in {cite:t}`Ludwig2018`. However, this approach is not well suited for our purposes because triangulation can be computationally intensive and slow (often offsetting the efficiency gains from the Endogenous Grid Method). As an alternative, we introduce the use of Gaussian Process Regression (GPR) along with the Endogenous Grid Method for unstructured grids. GPR is computationally efficient, and tools exist to easily parallelize and take advantage of hardware such as Graphics Processing Units (GPU) {cite:p}`Gardner2018`.
+{cite:t}`Ludwig2018` apply Delaunay triangulation to similar problems. Triangulation construction costs can offset EGM's efficiency gains. We apply Gaussian Process Regression (GPR) for unstructured grids instead. GPR computation parallelizes efficiently, and GPU implementations exist {cite:p}`Gardner2018`.
 
 ## Interpolation on Curvilinear Grids
 
@@ -150,7 +150,7 @@ A standard kernel function is the squared exponential (or radial basis function)
 
 where $\sigma_f^2$ is the signal variance and $l$ is the length-scale parameter. This kernel is infinitely differentiable and assumes smooth functions. Using GPR to interpolate a function $f$, we can both predict the value of the function at a point $\mathbf{x}_*$ and quantify the uncertainty in the prediction via the posterior variance, which provides useful information about approximation accuracy.
 
-In [Figure %s](#fig:true_function), we see the function we are trying to approximate along with a sample of data points for which we know the value of the function. In practice, the value of the function is unknown and/or expensive to compute, so we must use a limited amount of data to approximate it.
+[Figure %s](#fig:true_function) shows the true function and observed data points. In applications, function values are expensive to compute, limiting available data.
 
 ```{figure} ../../docs/figures/GPR_True_Function.*
 :name: fig:true_function
@@ -159,7 +159,7 @@ In [Figure %s](#fig:true_function), we see the function we are trying to approxi
 The true function that we are trying to approximate and a sample of data points.
 ```
 
-A Gaussian Process is an infinite dimensional random process which can be used to represent a probability distribution over the space of functions. In [Figure %s](#fig:gpr_sample), we see a random sample of functions from the GPR posterior, which is a Gaussian Process conditioned on fitting the data. From this small sample of functions, we can see that the GP generates functions that fit the data well, and the goal of GPR is to find the one function that best fits the data given some hyperparameters by minimizing the negative log-likelihood of the data.
+[Figure %s](#fig:gpr_sample) displays a random sample from the GPR posterior, which is a Gaussian Process conditioned on the observed data. GPR identifies the function that maximizes the marginal likelihood given the kernel hyperparameters.
 
 ```{figure} ../../docs/figures/GPR_Posterior_Sample.*
 :name: fig:gpr_sample
@@ -168,7 +168,7 @@ A Gaussian Process is an infinite dimensional random process which can be used t
 A random sample of functions from the GPR posterior that fit the data. The goal of GPR is to find the function that best fits the data.
 ```
 
-In [Figure %s](#fig:gpr), we see the result of GPR with a particular parametrization[^gpr-kernel] of the kernel function. The dotted line shows the true function, while the blue dots show the known data points. GPR provides the mean function which best fits the data, represented in the figure as an orange line. The shaded region represents a 95\% confidence interval, which is the uncertainty of the predicted function. Along with finding the best fit of the function, GPR provides the uncertainty of the prediction, which is useful information as to the accuracy of the approximation.
+[Figure %s](#fig:gpr) shows GPR results with a specific kernel parametrization.[^gpr-kernel] The dotted line shows the true function, blue dots mark observed data, and the orange line represents the posterior mean. The shaded region indicates a 95\% confidence interval, quantifying approximation uncertainty.
 
 [^gpr-kernel]: The specific hyperparameters (signal variance $\sigma_f^2$ and length-scale $l$) are optimized by maximizing the marginal likelihood of the observed data. Implementation details and code for reproducing these figures are provided in the accompanying computational notebooks. The interpolation methods presented in this section are implemented using [`scipy`](https://www.scipy.org/) {cite:p}`Virtanen2020` for efficient numerical computations, [`numpy`](https://www.numpy.org/) {cite:p}`Harris2020` for array operations, [`numba`](https://numba.pydata.org/) {cite:p}`Lam2015` for just-in-time compilation to accelerate performance-critical loops, and [`scikit-learn`](https://scikit-learn.org/) {cite:p}`Pedregosa2011` for Gaussian Process Regression.
 
