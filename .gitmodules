@@ -1,3 +1,5 @@
 [submodule "writing"]
 	path = writing
 	url = https://github.com/alanlujan91/writing.git
+[submodule "code/HARK"]
+	path = code/HARK

@@ -19,4 +19,4 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-econ-ark = { git = "https://github.com/alanlujan91/HARK", rev = "map_coordinates" }
+econ-ark = { git = "https://github.com/econ-ark/HARK", branch = "master" }

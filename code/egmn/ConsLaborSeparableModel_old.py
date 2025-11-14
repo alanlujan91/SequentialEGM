@@ -14,9 +14,9 @@ from HARK.ConsumptionSaving.ConsPortfolioModel import (
     init_portfolio,
 )
 from HARK.core import make_one_period_oo_solver
-from HARK.distributions import DiscreteDistribution, calc_expectation
-from HARK.econforgeinterp import LinearFast
+from HARK.distribution import DiscreteDistribution, calc_expectation
 from HARK.interpolation import (
+    LinearFast,
     LinearInterp,
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
@@ -87,6 +87,155 @@ class UtilityFuncLeisure(UtilityFuncStoneGeary):
 class DisutilityFuncLabor(UtilityFuncStoneGeary):
     def __init__(self, CRRA, factor):
         super().__init__(-CRRA, factor=factor)
+
+
+class LaborSeparableConsumerType(LaborIntMargConsumerType):
+    time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
+    time_inv_ += [
+        "Disutility",  # boolean : if True, disutility of labor
+        "LaborFactor",  # float : multiplicative factor on labor disutility
+        "LaborCRRA",  # float : CRRA of labor disutility
+        "LeisureFactor",  # float : multiplicative factor on leisure utility
+        "LeisureCRRA",  # float : CRRA of leisure utility
+    ]
+
+    def __init__(self, **kwds):
+        params = init_labor_separable.copy()
+        params.update(kwds)
+
+        super().__init__(**params)
+
+        self.solve_one_period = make_one_period_oo_solver(LaborSeparableSolver)
+
+    def update(self):
+        super().update()
+        self.update_solution_terminal()
+
+    def update_LbrCost(self):
+        pass
+
+    def update_solution_terminal(self):
+        # agent works before consumption, so we need
+        # optimal labor and leisure in the terminal period
+
+        # consumption stage
+
+        def c_func_cs(m):
+            return m  # consume all cash in terminal period
+
+        v_func_cs = ValueFuncCRRA(c_func_cs, self.CRRA)
+        vp_func_cs = MargValueFuncCRRA(c_func_cs, self.CRRA)
+
+        cs_stage = ConsumptionSavingStage(
+            c_func=c_func_cs,
+            v_func=v_func_cs,
+            vp_func=vp_func_cs,
+        )
+
+        # labor/leisure stage
+
+        uFunc = UtilityFuncCRRA(self.CRRA)
+
+        if self.Disutility:
+            # TODO: verify problem with disutility of labor
+            nFunc = DisutilityFuncLabor(self.LaborCRRA, self.LaborFactor)
+        else:
+            nFunc = UtilityFuncLeisure(self.LeisureCRRA, self.LeisureFactor)
+
+        def policy_unconstrained(m, theta):
+            # this is an egm step to find optimal labor or
+            # leisure in the terminal period
+            return nFunc.derinv(vp_func_cs(m) * theta * wagerate)
+
+        t = -1
+        tshkgrid = self.TranShkGrid[t]
+        wagerate = self.WageRte[t]
+
+        # check if agent will experience unemployment
+        # at unemployment the solution is to not work
+        zero_bound = True if tshkgrid[0] == 0.0 else False
+
+        # use assets grid as cash on hand
+        mgrid = np.append(0.0, self.aXtraGrid)
+
+        # construct matrices of exogenous cash on hand and transitory shocks
+        mnrm_mat, tshk_mat = np.meshgrid(mgrid, tshkgrid, indexing="ij")
+
+        # note: it would be interesting to not apply an upper bound here
+        # and instead build a lower envelope to see what agents would do
+        # if they were not constrained by the labor constraint
+        # make sure leisure is not greater than 1.0
+        with np.errstate(all="ignore"):
+            x = policy_unconstrained(mnrm_mat, tshk_mat)
+
+        if self.Disutility:
+            labor_mat = x
+            leisure_mat = 1 - labor_mat
+        else:
+            leisure_mat = x
+            labor_mat = 1 - leisure_mat
+
+        if zero_bound:
+            # if agent is unemployed, their leisure is 1.0 and labor is 0.0
+            leisure_mat[:, 0] = 1.0
+            labor_mat[:, 0] = 0.0
+
+        # bank balances = cash on hand - wage * labor
+        bnrm_mat = mnrm_mat - tshk_mat * labor_mat * wagerate
+
+        terminal_grids = {
+            "mnrm": mnrm_mat,
+            "bnrm": bnrm_mat,
+            "tshk": tshk_mat,
+            "labor": labor_mat,
+            "leisure": leisure_mat,
+        }
+
+        leisure_func_unc = interp_on_interp(leisure_mat, [bnrm_mat, tshk_mat])
+
+        labor_func_unc = interp_on_interp(labor_mat, [bnrm_mat, tshk_mat])
+
+        self.leisure_func_terminal = lambda b, t: np.clip(
+            leisure_func_unc(b, t),
+            0.0,
+            1.0,
+        )
+        self.labor_func_terminal = lambda b, t: np.clip(labor_func_unc(b, t), 0.0, 1.0)
+
+        # now use same grid as mnrmat and tshkmat
+        bnrm_mat = mnrm_mat
+        labor_mat = self.labor_func_terminal(bnrm_mat, tshk_mat)
+        leisure_mat = self.leisure_func_terminal(bnrm_mat, tshk_mat)
+        mnrm_mat = bnrm_mat + tshk_mat * labor_mat * wagerate
+
+        if self.Disutility:
+            vnrm_mat = -nFunc(labor_mat) + v_func_cs(mnrm_mat)
+        else:
+            vnrm_mat = nFunc(leisure_mat) + v_func_cs(mnrm_mat)
+
+        vnrmnvrs_mat = uFunc.inverse(vnrm_mat)
+
+        self.cFunc_terminal = interp_on_interp(mnrm_mat, [bnrm_mat, tshk_mat])
+
+        vNvrs_func = interp_on_interp(vnrmnvrs_mat, [bnrm_mat, tshk_mat])
+        self.vFunc_terminal = ValueFuncCRRA(vNvrs_func, self.CRRA)
+
+        self.vPfunc_terminal = MargValueFuncCRRA(self.cFunc_terminal, self.CRRA)
+
+        ll_stage = LaborLeisureStage(
+            labor_func=self.labor_func_terminal,
+            leisure_func=self.leisure_func_terminal,
+            c_func=self.cFunc_terminal,
+            v_func=self.vFunc_terminal,
+            vp_func=self.vPfunc_terminal,
+        )
+
+        self.solution_terminal = LaborSeparableSolution(
+            labor_leisure=ll_stage,
+            consumption_saving=cs_stage,
+        )
+
+        self.solution_terminal.terminal_grids = terminal_grids
 
 
 @dataclass
@@ -246,163 +395,12 @@ class LaborSeparableSolver:
         return self.solution
 
 
-def make_labor_separable_solution_terminal(
-    CRRA,
-    aXtraGrid,
-    LbrCost,
-    WageRte,
-    TranShkGrid,
-    Disutility,
-    LaborFactor,
-    LaborCRRA,
-    LeisureFactor,
-    LeisureCRRA,
-):
-    """
-    Constructs the terminal period solution for the Labor Separable model.
-    Agent works before consumption, so we need optimal labor and leisure in terminal period.
-    """
-
-    # Consumption stage
-    def c_func_cs(m):
-        return m  # consume all cash in terminal period
-
-    v_func_cs = ValueFuncCRRA(c_func_cs, CRRA)
-    vp_func_cs = MargValueFuncCRRA(c_func_cs, CRRA)
-
-    cs_stage = ConsumptionSavingStage(
-        c_func=c_func_cs,
-        v_func=v_func_cs,
-        vp_func=vp_func_cs,
-    )
-
-    # Labor/leisure stage
-    uFunc = UtilityFuncCRRA(CRRA)
-
-    if Disutility:
-        nFunc = DisutilityFuncLabor(LaborCRRA, LaborFactor)
-    else:
-        nFunc = UtilityFuncLeisure(LeisureCRRA, LeisureFactor)
-
-    def policy_unconstrained(m, theta):
-        return nFunc.derinv(vp_func_cs(m) * theta * wagerate)
-
-    t = -1
-    tshkgrid = TranShkGrid[t]
-    wagerate = WageRte[t]
-
-    zero_bound = True if tshkgrid[0] == 0.0 else False
-
-    mgrid = np.append(0.0, aXtraGrid)
-    mnrm_mat, tshk_mat = np.meshgrid(mgrid, tshkgrid, indexing="ij")
-
-    with np.errstate(all="ignore"):
-        x = policy_unconstrained(mnrm_mat, tshk_mat)
-
-    if Disutility:
-        labor_mat = x
-        leisure_mat = 1 - labor_mat
-    else:
-        leisure_mat = x
-        labor_mat = 1 - leisure_mat
-
-    if zero_bound:
-        leisure_mat[:, 0] = 1.0
-        labor_mat[:, 0] = 0.0
-
-    bnrm_mat = mnrm_mat - tshk_mat * labor_mat * wagerate
-
-    terminal_grids = {
-        "mnrm": mnrm_mat,
-        "bnrm": bnrm_mat,
-        "tshk": tshk_mat,
-        "labor": labor_mat,
-        "leisure": leisure_mat,
-    }
-
-    from egmn.utilities import interp_on_interp
-
-    leisure_func_unc = interp_on_interp(leisure_mat, [bnrm_mat, tshk_mat])
-    labor_func_unc = interp_on_interp(labor_mat, [bnrm_mat, tshk_mat])
-
-    leisure_func_terminal = lambda b, t: np.clip(leisure_func_unc(b, t), 0.0, 1.0)
-    labor_func_terminal = lambda b, t: np.clip(labor_func_unc(b, t), 0.0, 1.0)
-
-    # Recalculate on rectangular grid
-    bnrm_mat = mnrm_mat
-    labor_mat = labor_func_terminal(bnrm_mat, tshk_mat)
-    leisure_mat = leisure_func_terminal(bnrm_mat, tshk_mat)
-    mnrm_mat = bnrm_mat + tshk_mat * labor_mat * wagerate
-
-    if Disutility:
-        vnrm_mat = -nFunc(labor_mat) + v_func_cs(mnrm_mat)
-    else:
-        vnrm_mat = nFunc(leisure_mat) + v_func_cs(mnrm_mat)
-
-    vnrmnvrs_mat = uFunc.inverse(vnrm_mat)
-
-    cFunc_terminal = interp_on_interp(mnrm_mat, [bnrm_mat, tshk_mat])
-    vNvrs_func = interp_on_interp(vnrmnvrs_mat, [bnrm_mat, tshk_mat])
-    vFunc_terminal = ValueFuncCRRA(vNvrs_func, CRRA)
-    vPfunc_terminal = MargValueFuncCRRA(cFunc_terminal, CRRA)
-
-    ll_stage = LaborLeisureStage(
-        labor_func=labor_func_terminal,
-        leisure_func=leisure_func_terminal,
-        c_func=cFunc_terminal,
-        v_func=vFunc_terminal,
-        vp_func=vPfunc_terminal,
-    )
-
-    solution_terminal = LaborSeparableSolution(
-        labor_leisure=ll_stage,
-        consumption_saving=cs_stage,
-    )
-
-    solution_terminal.terminal_grids = terminal_grids
-
-    return solution_terminal
-
-
 init_labor_separable = init_labor_intensive.copy()
 init_labor_separable["Disutility"] = False
 init_labor_separable["LaborFactor"] = 1.0
 init_labor_separable["LaborCRRA"] = 2.0
 init_labor_separable["LeisureFactor"] = 1.0
 init_labor_separable["LeisureCRRA"] = 2.0
-
-# Override the solution_terminal constructor
-if "constructors" in init_labor_separable:
-    init_labor_separable["constructors"] = {
-        k: v
-        for k, v in init_labor_separable["constructors"].items()
-        if k != "solution_terminal"
-    }
-    init_labor_separable["constructors"]["solution_terminal"] = (
-        make_labor_separable_solution_terminal
-    )
-
-
-# Define the LaborSeparableConsumerType class with proper defaults
-class LaborSeparableConsumerType(LaborIntMargConsumerType):
-    """
-    Agent type for labor-leisure choice with separable utility.
-    Agents choose consumption, savings, and labor supply each period.
-    """
-
-    time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
-    time_inv_ += [
-        "Disutility",  # boolean : if True, disutility of labor
-        "LaborFactor",  # float : multiplicative factor on labor disutility
-        "LaborCRRA",  # float : CRRA of labor disutility
-        "LeisureFactor",  # float : multiplicative factor on leisure utility
-        "LeisureCRRA",  # float : CRRA of leisure utility
-    ]
-
-    default_ = {
-        "params": init_labor_separable,
-        "solver": make_one_period_oo_solver(LaborSeparableSolver),
-    }
 
 
 @dataclass
@@ -451,7 +449,60 @@ class LaborPortfolioSolution(MetricObject):
     isterminal: bool = False
 
 
-# LaborPortfolioConsumerType will be defined at the end after init_labor_portfolio
+class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType):
+    time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
+    time_inv_ += [
+        "Disutility",
+        "LaborFactor",
+        "LaborCRRA",
+        "LeisureFactor",
+        "LeisureCRRA",
+    ]
+
+    def __init__(self, **kwds):
+        params = init_labor_portfolio.copy()
+        params.update(kwds)
+
+        PortfolioConsumerType.__init__(self, **params)
+
+        self.solve_one_period = make_one_period_oo_solver(LaborPortfolioSolver)
+
+    def update(self):
+        LaborIntMargConsumerType.update(self)
+        PortfolioConsumerType.update(self)
+
+    def update_LbrCost(self):
+        pass
+
+    def update_solution_terminal(self):
+        # in the terminal period the risky share is trivially 0 since there is
+        # no continuation; agents consume all resources and save nothing
+        portfolio_stage = PortfolioStage(share_func=lambda a: a * 0.0)
+
+        # in terminal period agents consume everything
+
+        util = UtilityFuncCRRA(self.CRRA)
+        consumption_stage = ConsumptionSavingStage(
+            c_func=lambda m: m,
+            v_func=util,
+            vp_func=util.der,
+        )
+
+        # in terminal period agents do not work, and so b = m
+        # and marginal value is the same as in consumption stage
+        labor_stage = LaborLeisureStage(
+            labor_func=lambda b, theta: b * 0.0,
+            v_func=lambda b, theta: util(b),
+            vp_func=lambda b, theta: util.der(b),
+        )
+
+        # create terminal solution object
+        self.solution_terminal = LaborPortfolioSolution(
+            portfolio_stage=portfolio_stage,
+            consumption_stage=consumption_stage,
+            labor_stage=labor_stage,
+            isterminal=True,
+        )
 
 
 @dataclass
@@ -740,59 +791,8 @@ class LaborPortfolioSolver(MetricObject):
         return self.solution
 
 
-def make_labor_portfolio_solution_terminal(CRRA):
-    """
-    Constructs the terminal period solution for the Labor Portfolio model.
-    In the terminal period, agents consume everything and don't work or save.
-    """
-    # In the terminal period the risky share is trivially 0 since there is
-    # no continuation; agents consume all resources and save nothing
-    portfolio_stage = PortfolioStage(share_func=lambda a: a * 0.0)
-
-    # In terminal period agents consume everything
-    util = UtilityFuncCRRA(CRRA)
-    consumption_stage = ConsumptionSavingStage(
-        c_func=lambda m: m,
-        v_func=util,
-        vp_func=util.der,
-    )
-
-    # In terminal period agents do not work, and so b = m
-    # and marginal value is the same as in consumption stage
-    labor_stage = LaborLeisureStage(
-        labor_func=lambda b, theta: b * 0.0,
-        v_func=lambda b, theta: util(b),
-        vp_func=lambda b, theta: util.der(b),
-    )
-
-    # Create terminal solution object
-    return LaborPortfolioSolution(
-        portfolio_stage=portfolio_stage,
-        consumption_stage=consumption_stage,
-        labor_stage=labor_stage,
-        isterminal=True,
-    )
-
-
 init_labor_portfolio = init_labor_intensive.copy()
-
-# Merge constructors from both parent classes carefully
-labor_constructors = init_labor_intensive.get("constructors", {}).copy()
-portfolio_constructors = init_portfolio.get("constructors", {}).copy()
-
-# Update with portfolio params but preserve labor constructors
 init_labor_portfolio.update(init_portfolio)
-
-# Merge the constructors - start with portfolio (base), add labor-specific ones
-if "constructors" in init_labor_portfolio:
-    init_labor_portfolio["constructors"] = portfolio_constructors.copy()
-    # Add labor-specific constructors
-    init_labor_portfolio["constructors"]["TranShkGrid"] = labor_constructors[
-        "TranShkGrid"
-    ]
-    init_labor_portfolio["constructors"]["LbrCost"] = labor_constructors["LbrCost"]
-
-# Set our custom parameters
 init_labor_portfolio["LeisureFactor"] = 0.5
 init_labor_portfolio["LeisureCRRA"] = 2.0
 init_labor_portfolio["UnempPrb"] = 0.0
@@ -800,42 +800,3 @@ init_labor_portfolio["Disutility"] = False
 init_labor_portfolio["LaborFactor"] = 0.5
 init_labor_portfolio["LaborCRRA"] = 1.0
 init_labor_portfolio["CRRA"] = 2.0
-
-# Override the solution_terminal constructor with our custom one
-if "constructors" in init_labor_portfolio:
-    init_labor_portfolio["constructors"]["solution_terminal"] = (
-        make_labor_portfolio_solution_terminal
-    )
-
-
-# Define the LaborPortfolioConsumerType class with proper defaults
-class LaborPortfolioConsumerType(PortfolioConsumerType, LaborIntMargConsumerType):
-    """
-    Agent type combining labor-leisure choice with portfolio allocation.
-    Agents choose consumption, savings, labor supply, and portfolio allocation each period.
-    """
-
-    # Merge time_vary_ from both parent classes (union of both lists)
-    time_vary_ = copy(LaborIntMargConsumerType.time_vary_)
-    for item in PortfolioConsumerType.time_vary_:
-        if item not in time_vary_:
-            time_vary_.append(item)
-
-    # Merge time_inv_ from both parent classes (union of both lists)
-    time_inv_ = copy(LaborIntMargConsumerType.time_inv_)
-    for item in PortfolioConsumerType.time_inv_:
-        if item not in time_inv_:
-            time_inv_.append(item)
-    # Add our custom time-invariant variables
-    time_inv_ += [
-        "Disutility",
-        "LaborFactor",
-        "LaborCRRA",
-        "LeisureFactor",
-        "LeisureCRRA",
-    ]
-
-    default_ = {
-        "params": init_labor_portfolio,
-        "solver": make_one_period_oo_solver(LaborPortfolioSolver),
-    }
