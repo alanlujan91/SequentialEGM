@@ -576,9 +576,9 @@ class LaborPortfolioSolver(MetricObject):
         dvda_func = MargValueFuncCRRA(dvda_nvrs_func, self.CRRA)
 
         # make post decision dvds function
-        dvds_nvrs = self.u.derinv(dvds)
-        dvds_nvrs_func = LinearFast(dvds_nvrs, [self.aNrmGrid, self.ShareGrid])
-        dvds_func = MargValueFuncCRRA(dvds_nvrs_func, self.CRRA)
+        # NOTE: dvds can be negative (optimal share has dvds=0), so we cannot use
+        # MargValueFuncCRRA which assumes positive values. Use direct interpolation.
+        dvds_func = LinearFast(dvds, [self.aNrmGrid, self.ShareGrid])
 
         post_decision_stage_solution = PortfolioPostDecisionStage(
             dvda_func=dvda_func,
@@ -670,10 +670,12 @@ class LaborPortfolioSolver(MetricObject):
 
         # First use exogenous self.mNrmMat and self.TranShkMat_m
 
-        # unconstrained labor-leisure
-        leisureEndogMat = self.n.inv(vp_func_next(self.mNrmMat) * self.TranShkMat_m)
+        # unconstrained labor-leisure: solve n'(ℓ) = u'(c) · w · θ
+        leisureEndogMat = self.n.derinv(
+            vp_func_next(self.mNrmMat) * self.WageRte * self.TranShkMat_m
+        )
         laborEndogMat = 1.0 - leisureEndogMat
-        bNrmEndogMat = self.mNrmMat - self.TranShkMat_m * laborEndogMat
+        bNrmEndogMat = self.mNrmMat - self.WageRte * self.TranShkMat_m * laborEndogMat
 
         grids = {
             "mNrm": self.mNrmMat,
