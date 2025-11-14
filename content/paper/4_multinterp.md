@@ -17,7 +17,7 @@ Higher-dimensional problems inherit this warping in each dimension simultaneousl
 
 ## Interpolation on Curvilinear Grids
 
-We begin with the case of curvilinear grids, which arise in problems like the labor-leisure example in [Section %s](#method). In this case, standard multi-linear interpolation is inapplicable because the resulting endogenous grid is non-rectilinear. Instead, we introduce Curvilinear Grid Interpolation (CGI), which exploits the preserved topological structure of curvilinear grids to achieve computational efficiency superior to triangulation-based or dense interpolation methods.
+We begin with the case of curvilinear grids, which arise in problems like the labor-leisure example in [Section %s](#method). Standard multilinear interpolation assumes rectilinear structure, failing immediately on the warped grids EGM produces. Surprisingly, the grid's geometric warping preserves something useful: topological regularity. Points that are neighbors in index space remain neighbors in physical space, even as Euclidean distances distort. We introduce Curvilinear Grid Interpolation (CGI), which exploits this preserved topological structure to achieve computational efficiency superior to triangulation-based or dense interpolation methods.
 
 ```{figure} ../../docs/figures/LaborSeparableWarpedGrid.*
 :name: fig:LaborSeparableWarpedGrid
@@ -71,7 +71,7 @@ CGI exploits the preserved matrix structure of curvilinear grids to achieve $O(I
 
 ## Interpolation on Unstructured Grids
 
-We now turn to the more challenging case of fully unstructured grids, as arise in the pension deposit problem of [Section %s](#multdim). In this case, the endogenous grid loses even its topological regularity, making curvilinear interpolation methods inapplicable. We use Gaussian Process Regression to handle this case.
+We now turn to the more challenging case of fully unstructured grids, as arise in the pension deposit problem of [Section %s](#multdim). Unfortunately, the endogenous grid in this problem loses even its topological regularity, making curvilinear interpolation methods inapplicable. When neighborhood relationships themselves break down, we need an approach that makes no assumptions about grid structure. Gaussian Process Regression provides exactly this flexibility.
 
 ```{prf:definition} Unstructured Grid
 :label: def-unstructured

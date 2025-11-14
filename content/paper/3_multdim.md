@@ -31,9 +31,7 @@ This problem can subsequently be broken down into 3 stages: a pension deposit st
 
 ## Sequential Decomposition
 
-In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$ by choosing a pension deposit $\dRat_{t}$, which must be positive. The retirement balance $\bRat$ is the cash value of their retirement account plus their pension deposit and an additional amount $\gFunc(\dRat_{t})$ that provides an incentive to save for retirement. As we'll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem. We now decompose $\vFunc_t$ into sequential stages, introducing stage superscripts where $v^0_t \equiv \vFunc_t$:[^multidim-stage-notation]
-
-[^multidim-stage-notation]: As in [Section %s](#method), stage superscripts distinguish value functions at different stages of the sequential decomposition. Here $v^0_t$ represents the deposit decision stage, $v^1_t$ the consumption decision stage, and $v^2_t$ the expectation stage after all decisions are made.
+In the deposit stage, the worker begins with market resources and a retirement savings account. The worker must maximize their value of liquid wealth $\lRat_{t}$ and retirement balance $\bRat_{t}$ by choosing a pension deposit $\dRat_{t}$, which must be positive. The retirement balance $\bRat$ is the cash value of their retirement account plus their pension deposit and an additional amount $\gFunc(\dRat_{t})$ that provides an incentive to save for retirement. As we'll see, this additional term will allow us to use the Endogenous Grid Method to solve this subproblem. We decompose $\vFunc_t$ into sequential stages, where $v^0_t$ represents the deposit decision stage, $v^1_t$ the consumption decision stage, and $v^2_t$ the expectation stage after all decisions are made:
 
 \begin{equation}
     \begin{split}

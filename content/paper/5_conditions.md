@@ -3,21 +3,21 @@
 
 # Conditions for using the Sequential Endogenous Grid Method
 
-Multidecision problems admit sequential EGM when they possess specific mathematical structures: separability in utility or invertibility in transitions. Subproblem ordering determines whether state variables proliferate or shed naturally. This section identifies the structures that enable EGM and explains how sequencing affects dimensionality.
+When does Sequential EGM apply? The labor-portfolio problem ([Section %s](#method)) and pension deposit problem ([Section %s](#multdim)) illustrated two key structures: separable utility functions and invertible transitions. This section formalizes these requirements and provides practical guidance for decomposing new problems. The examples demonstrated specific instances; we now characterize the general conditions that make sequential decomposition with EGM inversion possible.
 
 ## Splitting the problem into subproblems
 
-Strategic decomposition divides the problem into subproblems without introducing complexity. Careless decomposition can make subproblems more intractable than the original formulation.
+**Step 1: Count independent control variables.** A problem with $n$ control variables typically decomposes into $n$ subproblems. Avoid double-counting: the consumption-savings choice ($\cRat + \aRat = \mRat$) represents one decision, not two. Similarly, labor-leisure is a single choice despite involving two variables.
 
-The decomposition process begins by counting the control variables or decisions faced by the agent. Ideally, a problem with $n$ control variables decomposes into $n$ subproblems, each handling a different control variable. Care must be taken to avoid double-counting variables that are equivalent through market clearing conditions. The decision of how much to consume and how much to save may seem like two different choices, but the market clearing condition $\cRat + \aRat = \mRat$ resolves them simultaneously, making this effectively one decision variable. Similarly, the choice between labor and leisure represents a single simultaneous decision despite involving two variables.
+**Step 2: Identify enabling structures.** Two mathematical structures permit EGM inversion:
+- Separable, differentiable, and invertible utility functions (as in the leisure utility of [Section %s](#method))
+- Differentiable and invertible transition functions (as in the pension deposit function of [Section %s](#multdim))
 
-Once control variables are identified, we search for mathematical structures that enable EGM. Two structures are particularly useful: differentiable and invertible utility functions that are separable in the dynamic programming problem (as in [Section %s](#method)), or differentiable and invertible functions in the transition (as in [Section %s](#multdim)). The labor-portfolio example in [Section %s](#method) features additively separable utility of consumption and leisure, allowing each control variable to be handled by a separate subproblem. The natural split assigns consumption utility to the consumption subproblem and leisure utility to the leisure subproblem.
+Match each control variable to its enabling structure. The labor-portfolio example features additive utility separability: leisure utility enables the labor-leisure EGM step, consumption utility enables the consumption-savings EGM step. When no structure applies (as in the portfolio choice stage), use standard optimization.
 
-When all separable utility functions have been exhausted (as occurs in the portfolio choice stage of that example), the remaining subproblem must be solved through standard convex optimization techniques such as value function iteration or Euler equation root-finding. Not every stage admits an EGM step, but the method's power comes from exploiting EGM wherever possible while falling back to conventional methods only when necessary.
+**Step 3: Order subproblems to shed state variables early.** Poor sequencing propagates unnecessary state variables through later stages. In the consumption-leisure-portfolio problem, placing labor-leisure first resolves the wage rate before the consumption stage, keeping that subproblem one-dimensional. Choosing consumption first would force the labor decision to track both bank balances and wages, doubling its dimensionality.[^bad-ordering-example] When subproblems are independent (consumption and pension deposit each affect separate accounts), ordering is immaterial.
 
-Subproblem sequencing affects dimensionality. Poor ordering forces later stages to track unnecessary state variables. Choosing consumption first in the consumption-leisure-portfolio problem would require tracking the wage rate through the leisure subproblem, making both consumption and labor decisions two-dimensional. The ordering in [Section %s](#method) places labor-leisure first, resolving the wage rate before the consumption stage and keeping the consumption problem one-dimensional. Subproblems should shed state variables as early as possible, minimizing the information set carried forward.[^bad-ordering-example]
-
-Consider the utility function of the form
+We now formalize these requirements. Consider the utility function of the form
 
 \begin{equation}
     \UFunc( \aRat) = \uFunc_{-i}( \aRat^{-i}) + \uFunc_i(\aRat^i)
