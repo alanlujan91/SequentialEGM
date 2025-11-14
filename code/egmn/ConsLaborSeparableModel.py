@@ -709,17 +709,25 @@ class LaborPortfolioSolver(MetricObject):
         labor_func = LinearFast(laborExogMat, [self.bNrmGrid, self.TranShkGrid])
         leisure_func = LinearFast(leisureExogMat, [self.bNrmGrid, self.TranShkGrid])
 
-        mNrmExogMat_temp = self.bNrmMat + self.TranShkMat_b * laborExogMat
-        dvdb = next_stage.vp_func(mNrmExogMat_temp)
+        # Compute cash-on-hand: m = b + w·θ·labor(b, θ)
+        mNrmExogMat = self.bNrmMat + self.WageRte * self.TranShkMat_b * laborExogMat
+
+        # Marginal value function: dvdb = u'(c(m)) = vp(m)
+        dvdb = next_stage.vp_func(mNrmExogMat)
         dvdb_nvrs = self.u.derinv(dvdb)
         dvdb_nvrs_func = LinearFast(dvdb_nvrs, [self.bNrmGrid, self.TranShkGrid])
         dvdb_func = MargValueFuncCRRA(dvdb_nvrs_func, self.CRRA)
 
+        # Consumption function: c(b, θ) from consumption stage
+        cExogMat = next_stage.c_func(mNrmExogMat)
+        c_func = LinearFast(cExogMat, [self.bNrmGrid, self.TranShkGrid])
+
         labor_stage_solution = LaborLeisureStage(
             labor_func=labor_func,
+            leisure_func=leisure_func,
+            c_func=c_func,
             vp_func=dvdb_func,
         )
-        labor_stage_solution.leisure_func = leisure_func
         labor_stage_solution.grids = grids
 
         return labor_stage_solution
