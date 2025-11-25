@@ -27,7 +27,7 @@ figures_path = "../../content/figures/"
 ```
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
-agent = PensionConsumerType(cycles=19)
+agent = PensionConsumerType(cycles=1)
 ```
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}

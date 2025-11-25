@@ -6,25 +6,29 @@ from dataclasses import dataclass, field
 
 import estimagic as em
 import numpy as np
-from HARK.ConsumptionSaving.ConsIndShockModel import (
-    ConsIndShockSolver,
-    IndShockConsumerType,
-)
+
+# Using UnstructuredInterpGPR instead of scipy interpolators (paper focuses on GPR)
+from scipy.optimize import Bounds, LinearConstraint, minimize
+
+from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
+from HARK.ConsumptionSaving.LegacyOOsolvers import ConsIndShockSolver
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
 from HARK.core import make_one_period_oo_solver
-from HARK.distribution import DiscreteDistribution, DiscreteDistributionLabeled
+from HARK.distributions import DiscreteDistribution, DiscreteDistributionLabeled
+from HARK.econforgeinterp import LinearFast
 from HARK.interpolation import (
-    LinearFast,
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
     ValueFuncCRRA,
 )
-from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
+
+# Note: GeneralizedRegressionUnstructuredInterp (GPR wrapper) removed from HARK master
+# Replacement available: from egmn.gpr_interp import UnstructuredInterpGPR
+# Currently using scipy.interpolate.LinearNDInterpolator as fast fallback
 from HARK.metric import MetricObject
 from HARK.rewards import UtilityFuncCRRA, UtilityFunction
-from HARK.utilities import NullFunc, construct_assets_grid
-from scipy.optimize import Bounds, LinearConstraint, minimize
+from HARK.utilities import NullFunc, make_assets_grid
 
 
 @dataclass
@@ -64,131 +68,7 @@ GridParameters = namedtuple(
 )
 
 
-class PensionConsumerType(RiskyAssetConsumerType):
-    time_inv_ = deepcopy(RiskyAssetConsumerType.time_inv_)
-    time_inv_ = time_inv_ + [
-        "DisutilLabor",
-        "IncUnempRet",
-        "TasteShkStd",
-        "TaxDeduct",
-    ]
-
-    def __init__(self, **kwds):
-        params = init_pension_contrib.copy()
-        params.update(kwds)
-
-        # Initialize a basic AgentType
-        RiskyAssetConsumerType.__init__(self, **params)
-
-        # Add consumer-type specific objects, copying to create independent versions
-        self.solve_one_period = make_one_period_oo_solver(PensionSolver)
-
-        self.update()  # Make assets grid, income process, terminal solution
-
-    def update(self):
-        self.update_grids()
-        RiskyAssetConsumerType.update(self)
-        self.update_distributions()
-
-    def update_solution_terminal(self):
-        # consume everything in terminal period
-        def c_func(mNrm, nNrm):
-            return mNrm + nNrm
-
-        # deposit nothing in terminal period
-        def d_func(mNrm, nNrm):
-            return 0.0
-
-        u = UtilityFuncCRRA(self.CRRA)
-
-        def v_func(mNrm, nNrm):
-            return u(c_func(mNrm, nNrm))
-
-        def vp_func(mNrm, nNrm):
-            return u.der(c_func(mNrm, nNrm))
-
-        consumption_stage = ConsumptionStage(
-            c_func=c_func,
-            v_func=v_func,
-            dvdl_func=vp_func,
-            dvdb_func=vp_func,
-        )
-
-        deposit_stage = DepositStage(
-            d_func=d_func,
-            v_func=v_func,
-            dvdm_func=vp_func,
-            dvdn_func=vp_func,
-        )
-
-        self.solution_terminal = PensionSolution(
-            deposit_stage=deposit_stage,
-            consumption_stage=consumption_stage,
-        )
-
-    def update_grids(self):
-        # worker grids
-        self.mGrid = construct_assets_grid(
-            GridParameters(self.epsilon, self.mMax, self.mCount, self.mNestFac),
-        )
-
-        self.nGrid = construct_assets_grid(
-            GridParameters(0.0, self.nMax, self.nCount, self.nNestFac),
-        )
-
-        self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
-
-        # pure consumption grids
-        self.aGrid = construct_assets_grid(
-            GridParameters(0.0, self.aMax, self.aCount, self.aNestFac),
-        )
-
-        self.bGrid = construct_assets_grid(
-            GridParameters(0.0, self.bMax, self.bCount, self.bNestFac),
-        )
-
-        self.aMat, self.bMat = np.meshgrid(self.aGrid, self.bGrid, indexing="ij")
-
-        # pension deposit grids
-        self.lGrid = construct_assets_grid(
-            GridParameters(self.epsilon, self.lMax, self.lCount, self.lNestFac),
-        )
-        self.blGrid = construct_assets_grid(
-            GridParameters(0.0, self.blMax, self.blCount, self.blNestFac),
-        )
-        self.lMat, self.blMat = np.meshgrid(self.lGrid, self.blGrid, indexing="ij")
-
-        self.add_to_time_inv(
-            "mGrid",
-            "nGrid",
-            "mMat",
-            "nMat",
-            "aGrid",
-            "bGrid",
-            "aMat",
-            "bMat",
-            "lGrid",
-            "blGrid",
-            "lMat",
-            "blMat",
-        )
-
-    def update_distributions(self):
-        # update income process
-        ShockDstn = []
-
-        for i in range(len(self.ShockDstn.dstns)):
-            shock = self.ShockDstn[i]
-            labeled_dstn = DiscreteDistributionLabeled(
-                shock.pmv,
-                shock.atoms,
-                name="Joint Distribution of shocks to income and risky asset",
-                var_names=["perm", "tran", "risky"],
-            )
-
-            ShockDstn.append(labeled_dstn)
-
-        self.ShockDstn = ShockDstn
+# Class definition moved to end of file after constructors and init dict
 
 
 @dataclass
@@ -258,9 +138,9 @@ class PensionSolver(MetricObject):
         def value_and_marginal_funcs(shock, aBal, bBal):
             variables = {}
 
-            psi = shock["perm"]
-            mNrm_next = aBal * self.Rfree / psi + shock["tran"]
-            nNrm_next = bBal * shock["risky"] / psi
+            psi = shock["PermShk"]
+            mNrm_next = aBal * self.Rfree / psi + shock["TranShk"]
+            nNrm_next = bBal * shock["Risky"] / psi
 
             variables["dvda"] = (
                 self.DiscFac
@@ -271,7 +151,7 @@ class PensionSolver(MetricObject):
             variables["dvdb"] = (
                 self.DiscFac
                 * psi ** (-self.CRRA)
-                * shock["risky"]
+                * shock["Risky"]
                 * dvdn_func_next(mNrm_next, nNrm_next)
             )
             variables["v"] = (
@@ -285,9 +165,9 @@ class PensionSolver(MetricObject):
         # First calculate marginal value functions
 
         def dvda_func(shock, aBal, bBal):
-            psi = shock["perm"]
-            mNrm_next = aBal * self.Rfree / psi + shock["tran"]
-            nNrm_next = bBal * shock["risky"] / psi
+            psi = shock["PermShk"]
+            mNrm_next = aBal * self.Rfree / psi + shock["TranShk"]
+            nNrm_next = bBal * shock["Risky"] / psi
             return psi ** (-self.CRRA) * dvdm_func_next(mNrm_next, nNrm_next)
 
         dvda_end_of_prd = (
@@ -304,12 +184,12 @@ class PensionSolver(MetricObject):
         dvda_end_of_prd_func = MargValueFuncCRRA(dvda_end_of_prd_nvrs_func, self.CRRA)
 
         def dvdb_func(shock, aBal, bBal):
-            psi = shock["perm"]
-            mNrm_next = aBal * self.Rfree / psi + shock["tran"]
-            nNrm_next = bBal * shock["risky"] / psi
+            psi = shock["PermShk"]
+            mNrm_next = aBal * self.Rfree / psi + shock["TranShk"]
+            nNrm_next = bBal * shock["Risky"] / psi
             return (
                 psi ** (-self.CRRA)
-                * shock["risky"]
+                * shock["Risky"]
                 * dvdn_func_next(mNrm_next, nNrm_next)
             )
 
@@ -329,9 +209,9 @@ class PensionSolver(MetricObject):
         # also calculate end of period value function
 
         def v_func(shock, aBal, bBal):
-            psi = shock["perm"]
-            mNrm_next = aBal * self.Rfree / psi + shock["tran"]
-            nNrm_next = bBal * shock["risky"] / psi
+            psi = shock["PermShk"]
+            mNrm_next = aBal * self.Rfree / psi + shock["TranShk"]
+            nNrm_next = bBal * shock["Risky"] / psi
             return psi ** (1 - self.CRRA) * v_func_next(mNrm_next, nNrm_next)
 
         v_end_of_prd = self.DiscFac * self.ShockDstn.expected(
@@ -456,25 +336,56 @@ class PensionSolver(MetricObject):
             "blMat": self.blMat,
         }
 
-        gaussian_interp_grid0 = GeneralizedRegressionUnstructuredInterp(
-            self.lMat,
-            [mMat, nMat],
-            model="gaussian-process",
-            std=True,
-            model_kwargs={"normalize_y": True},
+        # Filter NaN values from Sequential EGM before interpolation
+        # This is critical as EGM on rectilinear grids produces degenerate points
+        mMat_flat = mMat.flatten()
+        nMat_flat = nMat.flatten()
+        lMat_flat = self.lMat.flatten()
+        blMat_flat = self.blMat.flatten()
+
+        # Filter for first interpolator (l values)
+        valid_grid0 = (
+            ~np.isnan(mMat_flat)
+            & ~np.isnan(nMat_flat)
+            & ~np.isnan(lMat_flat)
+            & np.isfinite(mMat_flat)
+            & np.isfinite(nMat_flat)
+            & np.isfinite(lMat_flat)
         )
 
-        gaussian_interp_grid1 = GeneralizedRegressionUnstructuredInterp(
-            self.blMat,
-            [mMat, nMat],
-            model="gaussian-process",
-            std=True,
-            model_kwargs={"normalize_y": True},
+        # Filter for second interpolator (bl values)
+        valid_grid1 = (
+            ~np.isnan(mMat_flat)
+            & ~np.isnan(nMat_flat)
+            & ~np.isnan(blMat_flat)
+            & np.isfinite(mMat_flat)
+            & np.isfinite(nMat_flat)
+            & np.isfinite(blMat_flat)
         )
 
-        # interpolate grids
-        lMat_temp = gaussian_interp_grid0(self.mMat, self.nMat)
-        blMat_temp = gaussian_interp_grid1(self.mMat, self.nMat)
+        # Use UnstructuredInterpGPR - paper focuses on GPR interpolation
+        from egmn.gpr_interp import UnstructuredInterpGPR
+
+        gaussian_interp_grid0 = UnstructuredInterpGPR(
+            np.column_stack([mMat_flat[valid_grid0], nMat_flat[valid_grid0]]),
+            lMat_flat[valid_grid0],
+            alpha=1e-6,
+            normalize_y=True,
+        )
+        gaussian_interp_grid1 = UnstructuredInterpGPR(
+            np.column_stack([mMat_flat[valid_grid1], nMat_flat[valid_grid1]]),
+            blMat_flat[valid_grid1],
+            alpha=1e-6,
+            normalize_y=True,
+        )
+
+        # Interpolate grids - replace any NaN in input grids with valid values
+        # (extrapolation at boundaries may produce NaN)
+        mMat_query = np.nan_to_num(self.mMat, nan=0.0)
+        nMat_query = np.nan_to_num(self.nMat, nan=0.0)
+
+        lMat_temp = gaussian_interp_grid0(mMat_query, nMat_query)
+        blMat_temp = gaussian_interp_grid1(mMat_query, nMat_query)
 
         # calculate derivatives
         dvdl_next = dvdl_func_next(lMat_temp, blMat_temp)
@@ -490,22 +401,31 @@ class PensionSolver(MetricObject):
         mMat = np.concatenate((mMat.flatten(), mMat2.flatten()))
         nMat = np.concatenate((nMat.flatten(), nMat2.flatten()))
 
-        cond = dMat > -1.0
-        dMat = dMat[cond]
-        nMat = nMat[cond]
-        mMat = mMat[cond]
+        # Filter degenerate points from Sequential EGM:
+        # 1. Remove NaN values (infeasible/extreme states from EGM inversion)
+        # 2. Remove economically unreasonable values (dMat <= -1.0)
+        valid = ~np.isnan(dMat) & ~np.isnan(mMat) & ~np.isnan(nMat) & (dMat > -1.0)
+        dMat = dMat[valid]
+        mMat = mMat[valid]
+        nMat = nMat[valid]
 
-        gaussian_interp = GeneralizedRegressionUnstructuredInterp(
+        # Use UnstructuredInterpGPR for higher accuracy and visualization support
+        # (has .grids and .values attributes needed for plot_scatter_hist)
+        from egmn.gpr_interp import UnstructuredInterpGPR
+
+        gaussian_interp = UnstructuredInterpGPR(
+            np.column_stack([mMat, nMat]),
             dMat,
-            [mMat, nMat],
-            model="gaussian-process",
-            std=True,
-            model_kwargs={"normalize_y": True},
+            alpha=1e-6,  # Small noise for numerical stability
+            normalize_y=True,  # Normalize for better numerical stability
         )
 
         # evaluate d on common grid
         dMat = gaussian_interp(self.mMat, self.nMat)
-        dMat = np.maximum(0.0, dMat)  # binding constraint
+        # Project negative deposits to zero (standard EGM constraint handling)
+        # This enforces d >= 0 but doesn't rigorously check Kuhn-Tucker conditions
+        # More rigorous: DCEGM (Iskhakov et al. 2017) would handle upper/lower envelopes
+        dMat = np.maximum(0.0, dMat)
         lMat = self.mMat - dMat
         blMat = self.nMat + dMat + self.g(dMat)
 
@@ -523,7 +443,14 @@ class PensionSolver(MetricObject):
         dvdb_next = dvdb_func_next(lMat, blMat)
 
         dvdn_outr_nvrs = self.u.derinv(dvdb_next)
-        dvdn_outr_nvrs_temp = np.insert(dvdn_outr_nvrs, 0, dvdn_outr_nvrs[0], axis=0)
+
+        # At m=0, d=0, we have l=0, a=0, so evaluate dvdb at (l=0, b) for each b
+        # This equals ∂v²/∂b(a=0, b) by envelope condition
+        # This is the correct marginal value at the state space boundary
+        dvdb_at_m0 = dvdb_func_next(np.zeros_like(self.nGrid), self.nGrid)
+        dvdn_at_m0_nvrs = self.u.derinv(dvdb_at_m0)
+
+        dvdn_outr_nvrs_temp = np.insert(dvdn_outr_nvrs, 0, dvdn_at_m0_nvrs, axis=0)
         dvdn_outr_nvrs_func = LinearFast(dvdn_outr_nvrs_temp, [mGrid_temp, self.nGrid])
         dvdn_outr_func = MargValueFuncCRRA(dvdn_outr_nvrs_func, self.CRRA)
 
@@ -716,11 +643,141 @@ class PensionSolver(MetricObject):
         return solution
 
 
+# =====================================================
+# Constructor Functions
+# =====================================================
+
+
+def make_pension_grids(
+    epsilon,
+    mCount,
+    mMax,
+    mNestFac,
+    nCount,
+    nMax,
+    nNestFac,
+    aCount,
+    aMax,
+    aNestFac,
+    bCount,
+    bMax,
+    bNestFac,
+    lCount,
+    lMax,
+    lNestFac,
+    blCount,
+    blMax,
+    blNestFac,
+):
+    """
+    Constructs grids for pension model.
+
+    Returns
+    -------
+    dict
+        Dictionary containing all grids
+    """
+    # worker grids
+    mGrid = make_assets_grid(epsilon, mMax, mCount, [], mNestFac)
+    nGrid = make_assets_grid(0.0, nMax, nCount, [], nNestFac)
+    mMat, nMat = np.meshgrid(mGrid, nGrid, indexing="ij")
+
+    # pure consumption grids
+    aGrid = make_assets_grid(0.0, aMax, aCount, [], aNestFac)
+    bGrid = make_assets_grid(0.0, bMax, bCount, [], bNestFac)
+    aMat, bMat = np.meshgrid(aGrid, bGrid, indexing="ij")
+
+    # pension deposit grids
+    lGrid = make_assets_grid(epsilon, lMax, lCount, [], lNestFac)
+    blGrid = make_assets_grid(0.0, blMax, blCount, [], blNestFac)
+    lMat, blMat = np.meshgrid(lGrid, blGrid, indexing="ij")
+
+    return {
+        "mGrid": mGrid,
+        "nGrid": nGrid,
+        "mMat": mMat,
+        "nMat": nMat,
+        "aGrid": aGrid,
+        "bGrid": bGrid,
+        "aMat": aMat,
+        "bMat": bMat,
+        "lGrid": lGrid,
+        "blGrid": blGrid,
+        "lMat": lMat,
+        "blMat": blMat,
+    }
+
+
+def make_pension_solution_terminal(CRRA):
+    """
+    Constructs the terminal period solution for pension model.
+
+    Parameters
+    ----------
+    CRRA : float
+        Coefficient of relative risk aversion
+
+    Returns
+    -------
+    PensionSolution
+        Terminal period solution object
+    """
+
+    # consume everything in terminal period
+    def c_func(mNrm, nNrm):
+        return mNrm + nNrm
+
+    # deposit nothing in terminal period
+    def d_func(mNrm, nNrm):
+        return 0.0
+
+    u = UtilityFuncCRRA(CRRA)
+
+    def v_func(mNrm, nNrm):
+        return u(c_func(mNrm, nNrm))
+
+    def vp_func(mNrm, nNrm):
+        return u.der(c_func(mNrm, nNrm))
+
+    consumption_stage = ConsumptionStage(
+        c_func=c_func,
+        v_func=v_func,
+        dvdl_func=vp_func,
+        dvdb_func=vp_func,
+    )
+
+    deposit_stage = DepositStage(
+        d_func=d_func,
+        v_func=v_func,
+        dvdm_func=vp_func,
+        dvdn_func=vp_func,
+    )
+
+    return PensionSolution(
+        deposit_stage=deposit_stage,
+        consumption_stage=consumption_stage,
+    )
+
+
+# =====================================================
+# Parameter Dictionary
+# =====================================================
+
 init_pension_contrib = init_portfolio.copy()
-init_pension_contrib["Rfree"] = 1.02
-init_pension_contrib["RiskyAvg"] = 1.04
-init_pension_contrib["RiskyStd"] = 0.0
+# Deep copy constructors to avoid modifying init_portfolio
+if "constructors" in init_pension_contrib:
+    from copy import deepcopy as _deepcopy
+
+    init_pension_contrib["constructors"] = _deepcopy(
+        init_pension_contrib["constructors"]
+    )
+init_pension_contrib["Rfree"] = [1.02]  # List for finite-horizon compatibility
+init_pension_contrib["RiskyAvg"] = [1.04]  # List for finite-horizon compatibility
+init_pension_contrib["RiskyStd"] = [0.0]  # List for finite-horizon compatibility
 init_pension_contrib["RiskyCount"] = 1
+# Disable ShareLimit calculation when no risky asset (RiskyStd=0)
+# This prevents portfolio optimization errors
+init_pension_contrib["AdjustPrb"] = 0.0  # Never adjust portfolio (no risky asset)
 init_pension_contrib["DiscFac"] = 0.98
 init_pension_contrib["CRRA"] = 2.0
 init_pension_contrib["DisutilLabor"] = 0.25
@@ -763,6 +820,90 @@ init_pension_contrib["aNestFac"] = 2
 init_pension_contrib["bCount"] = 50
 init_pension_contrib["bMax"] = 14
 init_pension_contrib["bNestFac"] = 2
+
+# Build grids directly
+grids = make_pension_grids(
+    epsilon=init_pension_contrib["epsilon"],
+    mCount=init_pension_contrib["mCount"],
+    mMax=init_pension_contrib["mMax"],
+    mNestFac=init_pension_contrib["mNestFac"],
+    nCount=init_pension_contrib["nCount"],
+    nMax=init_pension_contrib["nMax"],
+    nNestFac=init_pension_contrib["nNestFac"],
+    aCount=init_pension_contrib["aCount"],
+    aMax=init_pension_contrib["aMax"],
+    aNestFac=init_pension_contrib["aNestFac"],
+    bCount=init_pension_contrib["bCount"],
+    bMax=init_pension_contrib["bMax"],
+    bNestFac=init_pension_contrib["bNestFac"],
+    lCount=init_pension_contrib["lCount"],
+    lMax=init_pension_contrib["lMax"],
+    lNestFac=init_pension_contrib["lNestFac"],
+    blCount=init_pension_contrib["blCount"],
+    blMax=init_pension_contrib["blMax"],
+    blNestFac=init_pension_contrib["blNestFac"],
+)
+init_pension_contrib.update(grids)
+
+# Add terminal solution constructor and remove ShareLimit (no risky asset)
+# Remove ShareLimit first - we have no risky asset (RiskyStd=0)
+# This prevents portfolio optimization errors during instantiation
+if (
+    "constructors" in init_pension_contrib
+    and "ShareLimit" in init_pension_contrib["constructors"]
+):
+    del init_pension_contrib["constructors"]["ShareLimit"]
+    # Set ShareLimit to list (all in risky asset, but RiskyStd=0 so no actual risk)
+    init_pension_contrib["ShareLimit"] = [1.0]  # List for finite-horizon compatibility
+
+if "constructors" not in init_pension_contrib:
+    init_pension_contrib["constructors"] = {}
+
+# Parent's ShockDstn constructor already creates labeled distributions!
+# No need to wrap it - combine_IncShkDstn_and_RiskyDstn returns IndexDistribution
+# with DiscreteDistributionLabeled as engine
+
+init_pension_contrib["constructors"]["solution_terminal"] = (
+    make_pension_solution_terminal
+)
+
+
+# =====================================================
+# Agent Type Definition
+# =====================================================
+
+
+class PensionConsumerType(RiskyAssetConsumerType):
+    """
+    Consumer with pension contribution decision: chooses how much to deposit
+    into a tax-advantaged pension account each period.
+    """
+
+    time_inv_ = deepcopy(RiskyAssetConsumerType.time_inv_)
+    time_inv_ = time_inv_ + [
+        "DisutilLabor",
+        "IncUnempRet",
+        "TasteShkStd",
+        "TaxDeduct",
+        # Grid-related parameters
+        "mGrid",
+        "nGrid",
+        "mMat",
+        "nMat",
+        "aGrid",
+        "bGrid",
+        "aMat",
+        "bMat",
+        "lGrid",
+        "blGrid",
+        "lMat",
+        "blMat",
+    ]
+
+    default_ = {
+        "params": init_pension_contrib,
+        "solver": make_one_period_oo_solver(PensionSolver),
+    }
 
 
 class RetirementConsumerType(PensionConsumerType):

@@ -267,12 +267,15 @@ ax.scatter(points[0], points[1], c="b")
 ax.grid()
 ```
 
-As illustration, we can use `HARK.interpolation`'s `UnstructuredInterp` which wraps `scipy`'s unstructured interpolators (`griddata`). This method is not very fast, which is why we are looking for a faster alternative.
+As illustration, we can use `scipy`'s unstructured interpolators (`LinearNDInterpolator`). This method is not very fast, which is why we are looking for a faster alternative.
 
 ```python
-from HARK.interpolation import UnstructuredInterp
+from scipy.interpolate import LinearNDInterpolator
 
-z_interp = UnstructuredInterp(values, [points[0], points[1]])
+# Note: HARK's UnstructuredInterp was removed, using scipy directly
+z_interp = LinearNDInterpolator(
+    np.column_stack([points[0].ravel(), points[1].ravel()]), values.ravel()
+)
 z_vals = z_interp(all_coords[0], all_coords[1])
 
 fig, ax = plt.subplots(subplot_kw={"projection": "3d"})

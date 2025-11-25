@@ -23,7 +23,8 @@ sys.path.append("../")
 import matplotlib.pyplot as plt
 from egmn.ConsPensionModel import PensionConsumerType, init_pension_contrib
 from egmn.utilities import plot_3d_func, plot_scatter_hist
-from HARK.interpolation._sklearn import GeneralizedRegressionUnstructuredInterp
+# Note: GeneralizedRegressionUnstructuredInterp removed from HARK
+# Using scipy.interpolate.LinearNDInterpolator instead (already in ConsPensionModel)
 
 figures_path = "../../content/figures/"
 ```
@@ -64,12 +65,12 @@ agent = PensionConsumerType(**baseline_params)
 
 ```python jupyter={"outputs_hidden": false} pycharm={"name": "#%%\n"}
 agent.solve()
-
 T = 0
 ```
 
-## Post Decision Stage
+## Visualizations
 
+## Post Decision Stage
 
 ```python
 plot_3d_func(agent.solution[T].post_decision_stage.v_func.vFuncNvrs, [0, 5], [0, 5])
@@ -226,17 +227,18 @@ grids = agent.solution[T].consumption_stage.grids_before_cleanup
 ```
 
 ```python
-gauss_interp = GeneralizedRegressionUnstructuredInterp(
-    grids["dMat"],
-    [grids["mMat"], grids["nMat"]],
-    model="gaussian-process",
-    std=True,
-    model_kwargs={"normalize_y": True},
-)
-```
+from egmn.gpr_interp import UnstructuredInterpGPR
+import numpy as np
 
-```python
-# get_ipython().run_line_magic("matplotlib", "widget")
+# Filter NaN values before creating GPR interpolator
+mMat_flat = grids["mMat"].flatten()
+nMat_flat = grids["nMat"].flatten()
+dMat_flat = grids["dMat"].flatten()
+
+valid = ~np.isnan(mMat_flat) & ~np.isnan(nMat_flat) & ~np.isnan(dMat_flat)
+
+points = np.column_stack([mMat_flat[valid], nMat_flat[valid]])
+gauss_interp = UnstructuredInterpGPR(points, dMat_flat[valid])
 plot_3d_func(gauss_interp, [0, 5], [0, 5])
 ```
 

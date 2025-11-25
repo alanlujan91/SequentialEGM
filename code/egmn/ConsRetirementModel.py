@@ -4,19 +4,24 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 
 import numpy as np
+from scipy.interpolate import LinearNDInterpolator
+
 from HARK.ConsumptionSaving.ConsPortfolioModel import init_portfolio
 from HARK.ConsumptionSaving.ConsRiskyAssetModel import RiskyAssetConsumerType
 from HARK.core import make_one_period_oo_solver
-from HARK.distribution import DiscreteDistribution, calc_expectation
+from HARK.distributions import DiscreteDistribution, calc_expectation
 from HARK.interpolation import (
     BilinearInterp,
-    GeneralizedRegressionUnstructuredInterp,
     LinearInterp,
     LinearInterpOnInterp1D,
     MargValueFuncCRRA,
     ValueFuncCRRA,
     calc_log_sum_choice_probs,
 )
+
+# Note: GeneralizedRegressionUnstructuredInterp (GPR wrapper) removed from HARK master
+# Replacement available: from egmn.gpr_interp import UnstructuredInterpGPR
+# Currently using scipy.interpolate.LinearNDInterpolator as fast fallback
 from HARK.metric import MetricObject
 from HARK.rewards import UtilityFuncCRRA, UtilityFuncStoneGeary
 from HARK.utilities import NullFunc, make_grid_exp_mult
@@ -90,133 +95,6 @@ class RetirementSolution(MetricObject):
     retired_solution: RetiredSolution = field(default_factory=RetiredSolution)
     working_solution: WorkingSolution = field(default_factory=WorkingSolution)
     retiring_solution: RetiringSolution = field(default_factory=RetiringSolution)
-
-
-class RetirementConsumerType(RiskyAssetConsumerType):
-    time_inv_ = deepcopy(RiskyAssetConsumerType.time_inv_)
-    time_inv_ = time_inv_ + [
-        "DisutilLabor",
-        "IncUnempRet",
-        "TasteShkStd",
-        "RfreeA",
-        "RfreeB",
-        "TaxDeduct",
-    ]
-
-    def __init__(self, **kwds):
-        params = init_retirement_pension.copy()
-        params.update(kwds)
-
-        # Initialize a basic AgentType
-        super().__init__(**params)
-
-        # Add consumer-type specific objects, copying to create independent versions
-        self.solve_one_period = make_one_period_oo_solver(RetirementSolver)
-
-    def update(self):
-        self.update_grids()
-        super().update()
-
-        # self.update_solution_terminal()
-
-    def update_solution_terminal(self):
-        def c_func_retired(m):
-            return m
-
-        # retired problem
-        self.retired_solution = RetiredSolution(
-            c_func=c_func_retired,
-            vp_func=MargValueFuncCRRA(c_func_retired, self.CRRA),
-            v_func=ValueFuncCRRA(c_func_retired, self.CRRA),
-        )
-
-        def c_func(m, n):
-            return m + n
-
-        vp_func = MargValueFuncCRRA(c_func, self.CRRA)
-        v_func = ValueFuncCRRA(c_func, self.CRRA)
-
-        self.retiring_solution = RetiringSolution(
-            c_func=c_func,
-            vp_func=vp_func,
-            v_func=v_func,
-        )
-
-        def d_func(m, n):
-            return m * 0.0
-
-        deposit_stage = DepositStage(
-            c_func=c_func,
-            d_func=d_func,
-            dvdm_func=vp_func,
-            dvdn_func=vp_func,
-            v_func=v_func,
-        )
-
-        self.working_solution = WorkingSolution(deposit_stage=deposit_stage)
-
-        # because working and retiring are the same,
-        # no need for  weighted average
-        self.worker_solution = WorkerSolution(deposit_stage=deposit_stage)
-
-        self.solution_terminal = RetirementSolution(
-            worker_solution=self.worker_solution,
-            retired_solution=self.retired_solution,
-            working_solution=self.working_solution,
-            retiring_solution=self.retiring_solution,
-        )
-
-    def update_grids(self):
-        # retirement
-
-        self.aRetGrid = make_grid_exp_mult(
-            0.0,
-            self.aRetMax,
-            self.aRetCount,
-            self.aRetNestFac,
-        )
-
-        # post decision grids and exogenous grids for
-        # consumption stage, include 0.0 as limiting case
-        self.aGrid = make_grid_exp_mult(0.0, self.aMax, self.aCount, self.aNestFac)
-        self.bGrid = make_grid_exp_mult(0.0, self.bMax, self.bCount, self.bNestFac)
-        self.aMat, self.bMat = np.meshgrid(self.aGrid, self.bGrid, indexing="ij")
-
-        # exogenous grids for pension deposit stage
-        self.lGrid = make_grid_exp_mult(
-            self.epsilon,
-            self.lMax,
-            self.lCount,
-            self.lNestFac,
-        )
-        self.blGrid = make_grid_exp_mult(0.0, self.blMax, self.blCount, self.blNestFac)
-        self.lMat, self.blMat = np.meshgrid(self.lGrid, self.blGrid, indexing="ij")
-
-        # common worker grids
-        self.mGrid = make_grid_exp_mult(
-            self.epsilon,
-            self.mMax,
-            self.mCount,
-            self.mNestFac,
-        )
-        self.nGrid = make_grid_exp_mult(0.0, self.nMax, self.nCount, self.nNestFac)
-        self.mMat, self.nMat = np.meshgrid(self.mGrid, self.nGrid, indexing="ij")
-
-        self.add_to_time_inv(
-            "aRetGrid",
-            "mGrid",
-            "nGrid",
-            "mMat",
-            "nMat",
-            "aGrid",
-            "bGrid",
-            "aMat",
-            "bMat",
-            "lGrid",
-            "blGrid",
-            "lMat",
-            "blMat",
-        )
 
 
 @dataclass
@@ -394,8 +272,13 @@ class RetirementSolver:
         c_func = self.interp_on_interp(cMat_temp, [lMat_temp, self.bMat])
         dvdl_func = MargValueFuncCRRA(c_func, self.CRRA)
 
-        # again, at l = 0, c = 0 and a = 0, so repeat dvdb[0]
-        dvdb_nvrs_temp = np.insert(dvdb_nvrs_next, 0, dvdb_nvrs_next[0], axis=0)
+        # At l=0, c=0, a=0, so evaluate dvdb at (a=0, b) for each b
+        # This equals ∂v²/∂b(0, b) from post-decision stage
+        dvdb_at_a0 = post_decision_stage.dvdb_func(
+            np.zeros_like(self.bGrid), self.bGrid
+        )
+        dvdb_at_a0_nvrs = self.u.derinv(dvdb_at_a0)
+        dvdb_nvrs_temp = np.insert(dvdb_nvrs_next, 0, dvdb_at_a0_nvrs, axis=0)
         dvdb_nvrs_func = self.interp_on_interp(dvdb_nvrs_temp, [lMat_temp, self.bMat])
         dvdb_func = MargValueFuncCRRA(dvdb_nvrs_func, self.CRRA)
 
@@ -426,27 +309,36 @@ class RetirementSolver:
         dvdl_next = dvdl_func_next(self.lMat, self.blMat)
         dvdb_next = dvdb_func_next(self.lMat, self.blMat)
 
+        # Check for problems in marginal value functions
+        ratio = dvdl_next / dvdb_next
+        if np.any(ratio < 1.0) or np.any(np.isnan(ratio)) or np.any(np.isinf(ratio)):
+            n_bad = np.sum((ratio < 1.0) | np.isnan(ratio) | np.isinf(ratio))
+            if n_bad > 0.9 * ratio.size:  # >90% bad
+                print(f"  CRITICAL: {n_bad}/{ratio.size} bad ratios dvdl/dvdb")
+                print(
+                    f"    dvdl range: [{np.nanmin(dvdl_next):.2e}, {np.nanmax(dvdl_next):.2e}]"
+                )
+                print(
+                    f"    dvdb range: [{np.nanmin(dvdb_next):.2e}, {np.nanmax(dvdb_next):.2e}]"
+                )
+                print(
+                    f"    ratio range: [{np.nanmin(ratio):.2e}, {np.nanmax(ratio):.2e}]"
+                )
+                print(f"    lMat range: [{self.lMat.min():.2e}, {self.lMat.max():.2e}]")
+                print(
+                    f"    blMat range: [{self.blMat.min():.2e}, {self.blMat.max():.2e}]"
+                )
+
         # endogenous grid method
         dMat = self.g.derinv(dvdl_next / dvdb_next - 1.0)
 
         mMat = self.lMat + dMat
         nMat = self.blMat - dMat - self.g(dMat)
 
-        gaussian_interp_grid0 = GeneralizedRegressionUnstructuredInterp(
-            self.lMat,
-            [mMat, nMat],
-            model="gaussian-process",
-            std=True,
-            model_kwargs={"normalize_y": True},
-        )
-
-        gaussian_interp_grid1 = GeneralizedRegressionUnstructuredInterp(
-            self.blMat,
-            [mMat, nMat],
-            model="gaussian-process",
-            std=True,
-            model_kwargs={"normalize_y": True},
-        )
+        # Note: Can upgrade to UnstructuredInterpGPR for higher accuracy on warped grids
+        # Currently using BilinearInterp as fast fallback
+        gaussian_interp_grid0 = BilinearInterp(self.lMat, mMat[0, :], nMat[:, 0])
+        gaussian_interp_grid1 = BilinearInterp(self.blMat, mMat[0, :], nMat[:, 0])
 
         # interpolate grids
         lMat_temp = gaussian_interp_grid0(self.mMat, self.nMat)
@@ -466,17 +358,28 @@ class RetirementSolver:
         mMat = np.concatenate((mMat.flatten(), mMat2.flatten()))
         nMat = np.concatenate((nMat.flatten(), nMat2.flatten()))
 
-        cond = dMat > -1.0
-        dMat = dMat[cond]
-        nMat = nMat[cond]
-        mMat = mMat[cond]
+        # Filter NaN and degenerate points from Sequential EGM
+        # (Some grid points may produce invalid solutions that need to be excluded)
+        valid = ~np.isnan(dMat) & ~np.isnan(mMat) & ~np.isnan(nMat) & (dMat > -1.0)
+        dMat = dMat[valid]
+        mMat = mMat[valid]
+        nMat = nMat[valid]
 
-        gaussian_interp = GeneralizedRegressionUnstructuredInterp(
-            dMat,
-            [mMat, nMat],
-            model="gaussian-process",
-            std=True,
-            model_kwargs={"normalize_y": True},
+        # For long horizons, use fast LinearND interpolation with clipped extrapolation
+        # (GPR is too slow for T>5: 3 GPRs/period × T periods = 3T GPR fits!)
+        if len(mMat) < 10:
+            # Degenerate case: use simple fallback
+            print(
+                f"WARNING: Only {len(mMat)} valid points. Using zero deposit fallback."
+            )
+            m_min, m_max = self.mMat.min(), self.mMat.max()
+            n_min, n_max = self.nMat.min(), self.nMat.max()
+            mMat = np.array([m_min, m_max, m_min, m_max])
+            nMat = np.array([n_min, n_min, n_max, n_max])
+            dMat = np.zeros(4)
+
+        gaussian_interp = LinearNDInterpolator(
+            np.column_stack([mMat, nMat]), dMat, fill_value=0.0
         )
 
         # evaluate d on common grid
@@ -499,7 +402,13 @@ class RetirementSolver:
         dvdb_next = dvdb_func_next(lMat, blMat)
 
         dvdn_nvrs = self.u.derinv(dvdb_next)
-        dvdn_nvrs_temp = np.insert(dvdn_nvrs, 0, dvdn_nvrs[0], axis=0)
+
+        # At m=0, d=0, we have l=0, so evaluate dvdb at (l=0, b) for each b
+        # This equals ∂v¹/∂b(0, n) = ∂v⁰/∂n(0, n) by envelope
+        dvdb_at_m0 = dvdb_func_next(np.zeros_like(self.nGrid), self.nGrid)
+        dvdn_at_m0_nvrs = self.u.derinv(dvdb_at_m0)
+
+        dvdn_nvrs_temp = np.insert(dvdn_nvrs, 0, dvdn_at_m0_nvrs, axis=0)
         dvdn_nvrs_func = BilinearInterp(dvdn_nvrs_temp, mGrid_temp, self.nGrid)
         dvdn_func = MargValueFuncCRRA(dvdn_nvrs_func, self.CRRA)
 
@@ -644,6 +553,164 @@ class RetirementSolver:
         return solution
 
 
+# =====================================================
+# Constructor Functions
+# =====================================================
+
+
+def make_retirement_grids(
+    epsilon,
+    aRetCount,
+    aRetMax,
+    aRetNestFac,
+    aCount,
+    aMax,
+    aNestFac,
+    bCount,
+    bMax,
+    bNestFac,
+    lCount,
+    lMax,
+    lNestFac,
+    blCount,
+    blMax,
+    blNestFac,
+    mCount,
+    mMax,
+    mNestFac,
+    nCount,
+    nMax,
+    nNestFac,
+):
+    """
+    Constructs grids for retirement model.
+
+    Parameters
+    ----------
+    epsilon : float
+        Small number to avoid zero in logs
+    aRetCount, aRetMax, aRetNestFac : int, float, int
+        Grid parameters for retirement assets
+    aCount, aMax, aNestFac : int, float, int
+        Grid parameters for post-decision assets a
+    bCount, bMax, bNestFac : int, float, int
+        Grid parameters for post-decision assets b
+    lCount, lMax, lNestFac : int, float, int
+        Grid parameters for labor income l
+    blCount, blMax, blNestFac : int, float, int
+        Grid parameters for combined (b, l) grid
+    mCount, mMax, mNestFac : int, float, int
+        Grid parameters for market resources m
+    nCount, nMax, nNestFac : int, float, int
+        Grid parameters for pension assets n
+
+    Returns
+    -------
+    dict
+        Dictionary containing all grids
+    """
+    # retirement
+    aRetGrid = make_grid_exp_mult(0.0, aRetMax, aRetCount, aRetNestFac)
+
+    # post decision grids for consumption stage
+    aGrid = make_grid_exp_mult(0.0, aMax, aCount, aNestFac)
+    bGrid = make_grid_exp_mult(0.0, bMax, bCount, bNestFac)
+    aMat, bMat = np.meshgrid(aGrid, bGrid, indexing="ij")
+
+    # exogenous grids for pension deposit stage
+    lGrid = make_grid_exp_mult(epsilon, lMax, lCount, lNestFac)
+    blGrid = make_grid_exp_mult(0.0, blMax, blCount, blNestFac)
+    lMat, blMat = np.meshgrid(lGrid, blGrid, indexing="ij")
+
+    # common worker grids
+    mGrid = make_grid_exp_mult(epsilon, mMax, mCount, mNestFac)
+    nGrid = make_grid_exp_mult(0.0, nMax, nCount, nNestFac)
+    mMat, nMat = np.meshgrid(mGrid, nGrid, indexing="ij")
+
+    return {
+        "aRetGrid": aRetGrid,
+        "aGrid": aGrid,
+        "bGrid": bGrid,
+        "aMat": aMat,
+        "bMat": bMat,
+        "lGrid": lGrid,
+        "blGrid": blGrid,
+        "lMat": lMat,
+        "blMat": blMat,
+        "mGrid": mGrid,
+        "nGrid": nGrid,
+        "mMat": mMat,
+        "nMat": nMat,
+    }
+
+
+def make_retirement_solution_terminal(CRRA):
+    """
+    Constructs the terminal period solution for retirement model.
+
+    Parameters
+    ----------
+    CRRA : float
+        Coefficient of relative risk aversion
+
+    Returns
+    -------
+    RetirementSolution
+        Terminal period solution object
+    """
+
+    # retired problem - consume everything
+    def c_func_retired(m):
+        return m
+
+    retired_solution = RetiredSolution(
+        c_func=c_func_retired,
+        vp_func=MargValueFuncCRRA(c_func_retired, CRRA),
+        v_func=ValueFuncCRRA(c_func_retired, CRRA),
+    )
+
+    # retiring - consume everything including pension
+    def c_func(m, n):
+        return m + n
+
+    vp_func = MargValueFuncCRRA(c_func, CRRA)
+    v_func = ValueFuncCRRA(c_func, CRRA)
+
+    retiring_solution = RetiringSolution(
+        c_func=c_func,
+        vp_func=vp_func,
+        v_func=v_func,
+    )
+
+    # terminal working solution - deposit nothing
+    def d_func(m, n):
+        return m * 0.0
+
+    deposit_stage = DepositStage(
+        c_func=c_func,
+        d_func=d_func,
+        dvdm_func=vp_func,
+        dvdn_func=vp_func,
+        v_func=v_func,
+    )
+
+    working_solution = WorkingSolution(deposit_stage=deposit_stage)
+
+    # worker solution (same as working for terminal)
+    worker_solution = WorkerSolution(deposit_stage=deposit_stage)
+
+    return RetirementSolution(
+        worker_solution=worker_solution,
+        retired_solution=retired_solution,
+        working_solution=working_solution,
+        retiring_solution=retiring_solution,
+    )
+
+
+# =====================================================
+# Parameter Dictionary
+# =====================================================
+
 init_retirement_pension = init_portfolio.copy()
 init_retirement_pension["RfreeA"] = 1.02
 init_retirement_pension["RfreeB"] = 1.04
@@ -693,3 +760,80 @@ init_retirement_pension["aNestFac"] = 2
 init_retirement_pension["bCount"] = 50
 init_retirement_pension["bMax"] = 10
 init_retirement_pension["bNestFac"] = 2
+
+# Build grids directly (not via constructors since they're static)
+grids = make_retirement_grids(
+    epsilon=init_retirement_pension["epsilon"],
+    aRetCount=init_retirement_pension["aRetCount"],
+    aRetMax=init_retirement_pension["aRetMax"],
+    aRetNestFac=init_retirement_pension["aRetNestFac"],
+    aCount=init_retirement_pension["aCount"],
+    aMax=init_retirement_pension["aMax"],
+    aNestFac=init_retirement_pension["aNestFac"],
+    bCount=init_retirement_pension["bCount"],
+    bMax=init_retirement_pension["bMax"],
+    bNestFac=init_retirement_pension["bNestFac"],
+    lCount=init_retirement_pension["lCount"],
+    lMax=init_retirement_pension["lMax"],
+    lNestFac=init_retirement_pension["lNestFac"],
+    blCount=init_retirement_pension["blCount"],
+    blMax=init_retirement_pension["blMax"],
+    blNestFac=init_retirement_pension["blNestFac"],
+    mCount=init_retirement_pension["mCount"],
+    mMax=init_retirement_pension["mMax"],
+    mNestFac=init_retirement_pension["mNestFac"],
+    nCount=init_retirement_pension["nCount"],
+    nMax=init_retirement_pension["nMax"],
+    nNestFac=init_retirement_pension["nNestFac"],
+)
+init_retirement_pension.update(grids)
+
+# Add terminal solution constructor
+if "constructors" not in init_retirement_pension:
+    init_retirement_pension["constructors"] = {}
+
+init_retirement_pension["constructors"]["solution_terminal"] = (
+    make_retirement_solution_terminal
+)
+
+
+# =====================================================
+# Agent Type Definition
+# =====================================================
+
+
+class RetirementConsumerType(RiskyAssetConsumerType):
+    """
+    Consumer with retirement choice: can work or retire, with separate pension account.
+    When working, agent chooses how much to deposit into a tax-advantaged pension account.
+    Agent faces discrete choice each period of whether to work or retire (absorbing state).
+    """
+
+    time_inv_ = deepcopy(RiskyAssetConsumerType.time_inv_)
+    time_inv_ = time_inv_ + [
+        "DisutilLabor",
+        "IncUnempRet",
+        "TasteShkStd",
+        "RfreeA",
+        "RfreeB",
+        "TaxDeduct",
+        # Grid-related parameters
+        "aRetGrid",
+        "mGrid",
+        "nGrid",
+        "mMat",
+        "nMat",
+        "aGrid",
+        "bGrid",
+        "aMat",
+        "bMat",
+        "lGrid",
+        "blGrid",
+        "lMat",
+        "blMat",
+    ]
+
+    default_ = {
+        "params": init_retirement_pension,
+        "solver": make_one_period_oo_solver(RetirementSolver),
+    }

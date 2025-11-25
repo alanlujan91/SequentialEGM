@@ -131,16 +131,18 @@ Agent's Bellman Equation:
 **Implementation (lines 141-163):**
 ```python
 def dvda_func(shock, anrm):
-    p_shk = self.PermGroFac * shock[0]              # Γ' = Γ·ψ             ✓
-    bnrm = anrm * self.Rfree / p_shk                # b' = a·R/Γ'          ✓
+    p_shk = self.PermGroFac * shock[0]  # Γ' = Γ·ψ             ✓
+    bnrm = anrm * self.Rfree / p_shk  # b' = a·R/Γ'          ✓
     return p_shk**-self.CRRA * self.vp_func_next(
-        bnrm, shock[1].repeat(bnrm.size),
-    )                                                # Γ'^(-ρ)·v'(b',θ')    ✓
+        bnrm,
+        shock[1].repeat(bnrm.size),
+    )  # Γ'^(-ρ)·v'(b',θ')    ✓
+
 
 EndOfPrdvP_vals = calc_expectation(self.IncShkDstn, dvda_func, self.aGrid)
-                                                     # E[Γ'^(-ρ)·v'(b')]    ✓
+# E[Γ'^(-ρ)·v'(b')]    ✓
 EndOfPrdvP_nvrs = self.u_func.derinv(EndOfPrdvP_vals)
-                                                     # c=(u')^{-1}(βRE[...])✓
+# c=(u')^{-1}(βRE[...])✓
 ```
 **Verdict:** ✓ MATHEMATICALLY CORRECT - Properly inverts Euler equation on exogenous `a` grid.
 
@@ -201,16 +203,18 @@ bnrmat = mnrmat - tshkmat * self.WageRte * lbrmat
 ```python
 lsrFunc = interp_on_interp(lsrmat, [bnrmat, tshkmat])
 
+
 def leisure_func(b, t):
     return np.clip(lsrFunc(b, t), 0.0, 1.0)
 
+
 # Construct c(b, θ) on warped grid
-labor = labor_func(bmat, tshkmat)                  # From EGM inversion
-mmat = bmat + self.WageRte * tshkmat * labor        # Reconstruct m          ✓
+labor = labor_func(bmat, tshkmat)  # From EGM inversion
+mmat = bmat + self.WageRte * tshkmat * labor  # Reconstruct m          ✓
 cmat = self.consumption_saving_stage.c_func(mmat)  # c = c(m)               ✓
 
 cFunc = interp_on_interp(cmat, [bnrmat, tshkmat])  # c(b, θ) on warped grid ✓
-vPfunc_now = MargValueFuncCRRA(cFunc, self.CRRA)    # v'(b,θ) = u'(c(b,θ))   ✓
+vPfunc_now = MargValueFuncCRRA(cFunc, self.CRRA)  # v'(b,θ) = u'(c(b,θ))   ✓
 ```
 
 **Assessment**:

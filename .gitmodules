@@ -3,3 +3,6 @@
 	url = https://github.com/alanlujan91/writing.git
 [submodule "code/HARK"]
 	path = code/HARK
+[submodule "code/ConsumptionSavingNotebooks"]
+	path = code/ConsumptionSavingNotebooks
+	url = https://github.com/NumEconCopenhagen/ConsumptionSavingNotebooks.git
