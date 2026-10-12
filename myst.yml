@@ -1,0 +1,318 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+site:
+  # book-theme runs notebook cells in the page (article-theme only links out to Binder)
+  template: book-theme
+  options:
+    # Econ-ARK look from the econ-ark-myst theme; the logo carries the wordmark, so no logo_text.
+    logo: content/theme/econ-ark-myst/brand/logo.png
+    logo_dark: content/theme/econ-ark-myst/brand/logo-dark.png
+    logo_alt: Econ-ARK
+    favicon: content/theme/econ-ark-myst/brand/favicon.png
+    style: content/theme/econ-ark-myst/theme.css
+    # Document outline shows sections and subsections only (H1 + H2),
+    # keeping subsubsections out of the sidebar TOC.
+    outline_maxdepth: 2
+  nav:
+    - title: GitHub
+      url: https://github.com/alanlujan91/sequential_egm
+    - title: Econ-ARK
+      url: https://econ-ark.org
+    - title: My Website
+      url: https://alujan.dev
+  actions:
+    - title: Paper (PDF)
+      url: content/public/SequentialEGMn_wp.pdf
+      static: true
+    - title: Online Appendix (PDF)
+      url: content/public/SequentialEGMn_online_appendix.pdf
+      static: true
+
+project:
+  id: 9f9ec6d0-dcac-474a-a627-6db37cf1164e
+  title: "The Sequential Endogenous Grid Method"
+  short_title: Sequential EGM
+  description: "Sequential EGM decomposes multidecision heterogeneous-agent models into stages with analytically invertible first-order conditions, paired with ENGINE interpolation on the fold-free, index-monotone meshes the inversions produce. On the canonical two-asset household block, EGM^n replaces the nested method's embedded numerical search with a second closed-form inversion and solves roughly an order of magnitude faster in serial at matched grids and tolerance; with ENGINE in place of the curvilinear interpolation previously proposed for such grids, the full solve runs roughly three to four and a half times faster, at matched accuracy on the two-asset application."
+  date: 2026-10-10
+  tags:
+    - C61
+    - C63
+    - E21
+  keywords:
+    - endogenous grid method
+    - dynamic programming
+    - interpolation
+    - computational economics
+  authors:
+    - name: Alan Lujan
+      orcid: 0000-0002-5289-7054
+      corresponding: true
+      email: alujan@jhu.edu
+      url: https://advanced.jhu.edu/directory/alan-lujan/
+      github: alanlujan91
+      affiliations:
+        - id: jhu
+          institution: Johns Hopkins University
+          department: Krieger School of Arts and Sciences
+          city: Washington
+          state: DC
+          ror: https://ror.org/00za53h95
+          url: https://advanced.jhu.edu/academics/fields-of-study/applied-economics/
+        - id: econ-ark
+          institution: Econ-ARK
+          url: https://econ-ark.org
+  funding:
+    - statement: This work was supported by the Alfred P. Sloan Foundation through the Econ-ARK project.
+      awards:
+        - id: g-2017-9832
+          name: Econ-ARK
+          sources:
+            - name: Alfred P. Sloan Foundation
+              url: https://sloan.org
+  open_access: true
+  license:
+    content: CC-BY-NC-ND-4.0
+    code: MIT
+  copyright: "© 2026 Alan Lujan"
+  github: alanlujan91/sequential_egm
+  # In-page execution of the example notebooks on mybinder.org, from the public repository
+  thebe:
+    binder:
+      repo: alanlujan91/sequential_egm
+      ref: main
+  venue:
+    title: REMARK
+    url: https://github.com/econ-ark/REMARK
+  # Exports live in each article's frontmatter; the JEDC article (off the toc) builds on request.
+
+  # Site-only plugins: fira-math rewrites node.html alone, so no PDF changes; part-wrapper
+  # labels parts the site has no slot for. theme.css loads its faces from fonts/ beside it.
+  plugins:
+    - content/theme/econ-ark-myst/plugins/fira-math.bundle.mjs
+    - content/theme/econ-ark-myst/plugins/part-wrapper.mjs
+    # The `latex` directive of the raw LaTeX tables: verbatim in the LaTeX export, parsed
+    # without its layout commands (\setlength, \addlinespace, \raggedright) everywhere else.
+    - content/theme/econ-ark-myst/plugins/latex-layout.mjs
+  static_files:
+    - content/theme/econ-ark-myst/fonts
+  downloads:
+    - id: paper-wp-pdf
+      title: Paper (PDF)
+    - id: online-appendix-pdf
+      title: Online Appendix (PDF)
+  thumbnail: content/public/thumbnail.png
+  banner: content/theme/econ-ark-myst/brand/banner.svg
+  numbering:
+    figure: true
+    equation: true
+    table: true
+    code: true
+    heading_1: true
+    heading_2: true
+  bibliography:
+    - content/references.bib
+  # No `abbreviations:` block: MyST's LaTeX export moves an <abbr> out of a `prf:` title
+  # into the body, leaving "( Title). ABBR", so terms are expanded at first use.
+  toc:
+    - file: content/paper/egmn_paper_wp.md
+    - file: content/paper/8_online_appendix.md
+    - title: Example Notebooks
+      children:
+        - file: code/examples/example_ConsumptionLabor.md
+          title: Consumption-Labor Model
+        - file: code/examples/example_TwoAssetHousehold.md
+          title: Two-Asset Household
+        - file: code/examples/example_HealthInvestment.md
+          title: Health Investment Model
+        - file: code/examples/example_ENGINEInterpolation.md
+          title: ENGINE Interpolation
+
+  math:
+    # Risk aversion and preferences
+    '\CARA': '\alpha'
+    '\CRRA': '\rho'
+    '\DiscFac': '\beta'
+    '\util': "u"
+
+    # Probability and survival
+    '\Prob': '\mathbb{P}'
+    '\DiePrb': '\mathsf{D}'
+    '\diePrb': '\mathsf{d}'
+    '\LivPrb': '\cancel{\DiePrb}'
+    '\livPrb': '\cancel{\diePrb}'
+    '\Surv': '\mathcal{S}'
+
+    # Growth factors
+    '\GroFac': '\Omega'
+    '\permGroFac': '\Gamma'
+    '\PermGroFac': '\pmb{\Phi}'
+    '\PGro': '\Gamma'
+    '\pGro': '\gamma'
+
+    # Interest rates and returns
+    '\Rfree': '\mathsf{R}'
+    '\rfree': '\mathsf{r}'
+    '\Risky': '\mathsf{R}_{a}'
+    '\Rliq': '\mathsf{R}_{b}'
+    '\risky': '\mathbf{\mathrm{r}}'
+    '\Rport': '\mathbb{R}'
+    '\rport': '\mathbb{r}'
+
+    # Health model specific
+    '\HealthProdFac': '\gamma'
+    '\HealthProdExp': '\varepsilon'
+    '\hEndFunc': '\mathfrak{h}'
+
+    # Value functions
+    '\VFunc': '\mathrm{V}'
+    '\vFunc': '\mathrm{v}'
+    '\WFunc': '\mathrm{W}'
+    '\wFunc': '\mathrm{w}'
+    '\vOpt': '\tilde{\mathfrak{v}}'
+    '\vOptAlt': '\grave{\tilde{\mathfrak{v}}}'
+    '\VEnd': '\mathfrak{V}'
+    '\vEnd': '\mathfrak{v}'
+
+    # Policy functions
+    '\CFunc': '\mathrm{C}'
+    '\cFunc': '\mathrm{c}'
+    '\AFunc': '\mathrm{A}'
+    '\aFunc': '\mathrm{a}'
+    '\BFunc': '\mathrm{B}'
+    '\bFunc': '\mathrm{b}'
+    '\DFunc': '\mathrm{D}'
+    '\dFunc': '\mathrm{d}'
+    '\GFunc': '\mathrm{G}'
+    '\gFunc': '\mathrm{g}'
+    '\HFunc': '\mathrm{H}'
+    '\hFunc': '\mathrm{h}'
+    '\NFunc': '\mathrm{N}'
+    '\nFunc': '\mathrm{n}'
+    '\utilFunc': '\mathrm{u}'
+
+    # Endogenous grid functions
+    '\aEndFunc': '\mathfrak{a}'
+    '\bEndFunc': '\mathfrak{b}'
+    '\CEndFunc': '\mathfrak{C}'
+    '\cEndFunc': '\mathfrak{c}'
+    '\dEndFunc': '\mathfrak{d}'
+    '\lEndFunc': '\mathfrak{l}'
+    '\mEndFunc': '\mathfrak{m}'
+    '\nEndFunc': '\mathfrak{n}'
+    '\VEndFunc': '\mathfrak{V}'
+    '\vEndFunc': '\mathfrak{v}'
+    '\zEndFunc': '\mathfrak{z}'
+
+    # Level variables (bold)
+    # \mathbf{\mathrm{.}} stays upright in Typst, where a bare \mathbf turns italic.
+    '\ALvl': '\mathbf{\mathrm{A}}'
+    '\aLvl': '\mathbf{\mathrm{a}}'
+    '\BLvl': '\mathbf{\mathrm{B}}'
+    '\bLvl': '\mathbf{\mathrm{b}}'
+    '\CLvl': '\mathbf{\mathrm{C}}'
+    '\cLvl': '\mathbf{\mathrm{c}}'
+    '\DLvl': '\mathbf{\mathrm{D}}'
+    '\dLvl': '\mathbf{\mathrm{d}}'
+    '\HLvl': '\mathbf{\mathrm{H}}'
+    '\hLvl': '\mathbf{\mathrm{h}}'
+    '\MLvl': '\mathbf{\mathrm{M}}'
+    '\mLvl': '\mathbf{\mathrm{m}}'
+    '\NLvl': '\mathbf{\mathrm{N}}'
+    '\nLvl': '\mathbf{\mathrm{n}}'
+    '\PLvl': '\mathbf{\mathrm{P}}'
+    '\pLvl': '\mathbf{\mathrm{p}}'
+    '\YLvl': '\mathbf{\mathrm{Y}}'
+    '\yLvl': '\mathbf{\mathrm{y}}'
+
+    # Level variables (non-bold for some contexts)
+    '\ALev': "A"
+    '\aLev': "a"
+    '\BLev': "B"
+    '\bLev': "b"
+    '\CLev': "C"
+    '\cLev': "c"
+    '\HLev': '\pmb{H}'
+    '\hLev': '\pmb{h}'
+    '\MLev': "M"
+    '\mLev': "m"
+    '\NLev': "N"
+    '\nLev': "n"
+    '\YLev': "Y"
+    '\yLev': "y"
+
+    # Ratio/normalized variables
+    '\ARat': "A"
+    '\aRat': "a"
+    '\BRat': "B"
+    '\bRat': "b"
+    '\CRat': "C"
+    '\cRat': "c"
+    '\dRat': "d"
+    '\HRat': "H"
+    '\hRat': "h"
+    '\LRat': "L"
+    '\lRat': '\ell'
+    '\MRat': "M"
+    '\mRat': "m"
+    '\NRat': "N"
+    '\nRat': "n"
+    '\YRat': "Y"
+    '\yRat': "y"
+
+    # Shocks
+    '\PermShk': '\mathbf{\mathrm{\Psi}}'
+    '\permShk': '\psi'
+    '\TranShk': '\pmb{\xi}'
+    '\TranShkEmp': '\pmb{\theta}'
+    '\tShkEmp': '\theta'
+
+    # Labor and leisure
+    '\labShare': '\nu'
+    '\leiShare': '\zeta'
+    '\riskyshare': '\varsigma'
+    '\Leisure': "Z"
+    '\leisure': "z"
+    '\labor': 'n'
+    '\Labor': '\mathrm{N}'
+
+    # Matrices and grids
+    '\aMat': '[\mathrm{a}]'
+    '\bMat': '[\mathrm{b}]'
+    '\cMat': '[\mathrm{c}]'
+    '\dMat': '[\mathrm{d}]'
+    '\DMat': '[\mathrm{D}]'
+    '\hMat': '[\mathrm{h}]'
+    '\HMat': '[\mathrm{H}]'
+    '\lMat': '[\ell]'
+    '\nMat': '[\mathrm{n}]'
+    '\tShkMat': '[\theta]'
+    '\mMat': '[\mathrm{m}]'
+    '\xMat': '[\mathrm{x}]'
+    '\yMat': '[\mathrm{y}]'
+
+    # Expectations and other operators
+    '\Ex': '\mathbb{E}'
+    '\Target': '\check'
+    '\h': "h"
+
+    # Transfer/tax parameters
+    '\xFer': '\chi'
+    '\XFer': "X"
+
+    # Generic state/control variables (for theoretical sections)
+    '\xRat': "x"
+    '\zRat': "z"
+    '\sRat': "s"
+    '\XRat': "X"
+    '\TFunc': '\mathrm{T}'
+
+    # Additional function macros
+    '\UFunc': '\mathrm{U}'
+    '\uFunc': '\mathrm{u}'
+    '\PLev': '\mathbf{\mathrm{P}}'
+
+    # Miscellaneous
+    '\MPC': '\kappa'
+    '\MPCFunc': '\pmb{\kappa}'
+    '\depr': '\delta'
+    '\Depr': '\daleth'

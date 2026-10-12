@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: Please cite the following works when using this project.
+abstract: >-
+  Heterogeneous-agent models with multiple decisions face a computational
+  dilemma. Joint optimization over all choices is slow; strong separability
+  restrictions speed computation but rule out economically interesting
+  interactions. I introduce Sequential EGM (EGM^n), which eases this tension by
+  decomposing the problem into sequential stages so that each stage can exploit
+  the Endogenous Grid Method’s closed-form inversion, chaining speed gains
+  across decisions wherever separable utility or an invertible transition
+  permits it. The resulting curvilinear grids require interpolation that
+  respects their structure, so I develop ENGINE (ENdogenous Grid INterpolation
+  and Extrapolation), which exploits the index structure inherited from
+  exogenous grids, with no construction step and no triangulation. In the
+  canonical liquid-illiquid household block, EGM^n solves an order of magnitude
+  faster than the nested method in serial and 3.7 to 7.9 times faster at sixteen
+  threads. Replacing existing curvilinear interpolation with ENGINE cuts
+  full-solve time 2.8- to 4.5-fold at matched accuracy.
+title: The Sequential Endogenous Grid Method
+authors:
+  - family-names: Lujan
+    given-names: Alan
+    affiliation: Johns Hopkins University
+    city: Washington
+    region: DC
+    orcid: 0000-0002-5289-7054
+    email: alujan@jhu.edu
+    website: https://advanced.jhu.edu/directory/alan-lujan/
+date-released: '2026-10-10'
+contact:
+  - family-names: Lujan
+    given-names: Alan
+    affiliation: Johns Hopkins University
+    city: Washington
+    region: DC
+    orcid: 0000-0002-5289-7054
+    email: alujan@jhu.edu
+    website: https://advanced.jhu.edu/directory/alan-lujan/
+keywords:
+  - endogenous grid method
+  - dynamic programming
+  - interpolation
+  - computational economics
+license: CC-BY-NC-ND-4.0
+license-url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+repository: https://github.com/alanlujan91/sequential_egm

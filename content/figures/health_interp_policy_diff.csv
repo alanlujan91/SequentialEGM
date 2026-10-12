@@ -1,0 +1,5 @@
+method,policy,rel_mean,rel_max,n_valid
+engine,c,5.754e-05,7.161e-03,2000
+engine,n,1.783e-03,4.782e-02,2000
+delaunay,c,3.530e-04,1.461e-01,2000
+delaunay,n,4.920e-03,3.513e-01,2000

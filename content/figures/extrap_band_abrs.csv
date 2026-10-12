@@ -1,0 +1,7 @@
+resolution,nB,nA,method,band_n_scored,band_n_expected,band_log10_median,band_log10_p95,band_log10_max,interior_n_scored,interior_n_expected,interior_log10_median,interior_log10_p95,interior_log10_max
+coarse,24,20,engine,57,57,-2.2398,-1.1065,-1.0838,1254,1254,-1.7869,-1.1028,-1.0806
+coarse,24,20,curvilinear,57,57,-2.2412,-1.1062,-1.0833,1254,1254,-1.7862,-1.1023,-1.0802
+medium,48,40,engine,255,255,-1.7390,-1.7041,-1.6946,5244,5244,-2.4701,-1.7311,-1.6955
+medium,48,40,curvilinear,255,255,-1.7363,-1.7012,-1.6926,5244,5244,-2.4751,-1.7337,-1.6958
+fine,96,80,engine,987,987,-2.7485,-2.3333,-2.3206,21528,21528,-3.1389,-2.3835,-2.1067
+fine,96,80,curvilinear,987,987,-2.7511,-2.3334,-2.3223,21528,21528,-3.1435,-2.3841,-2.1089

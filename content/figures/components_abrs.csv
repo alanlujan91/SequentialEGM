@@ -1,0 +1,13 @@
+nB,nA,component,seconds,iters
+40,60,expectation,0.0077,395
+40,60,stage_inversions,0.2817,395
+40,60,mesh-to-grid_interpolation,0.0360,395
+40,60,regular-grid_inversion,0.4536,395
+80,120,expectation,0.0262,410
+80,120,stage_inversions,1.1458,410
+80,120,mesh-to-grid_interpolation,0.1479,410
+80,120,regular-grid_inversion,1.9235,410
+160,240,expectation,0.0984,424
+160,240,stage_inversions,4.6658,424
+160,240,mesh-to-grid_interpolation,0.6275,424
+160,240,regular-grid_inversion,8.0944,424

@@ -1,0 +1,3 @@
+[submodule "content/theme/econ-ark-myst"]
+	path = content/theme/econ-ark-myst
+	url = https://github.com/econ-ark/econ-ark-myst

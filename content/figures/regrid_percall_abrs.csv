@@ -1,0 +1,4 @@
+label,nB,nA,engine_percall_s,curvilinear_percall_s,ratio
+Coarse,24,20,1.986501e-05,5.431890e-04,27.3
+Medium,48,40,6.743500e-05,1.330135e-03,19.7
+Fine,96,80,2.557940e-04,4.687301e-03,18.3

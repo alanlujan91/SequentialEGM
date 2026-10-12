@@ -1,0 +1,4 @@
+resolution,nB,nA,log10_median,log10_p95,log10_max
+coarse,24,20,-1.769,-1.090,-1.074
+medium,48,40,-2.460,-1.718,-1.686
+fine,96,80,-3.141,-2.365,-2.016

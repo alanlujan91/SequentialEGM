@@ -1,0 +1,11 @@
+quantity,m,value
+mpc_first_segment,0,0.47686
+mpc_at_m,0.5,0.456941
+mpc_trough,4.416,0.0243734
+mpc_plateau,22.5,0.0609332
+future_labor,2,11.045
+future_labor,7,6.77008
+future_labor,13,1.70092
+future_labor,16,0.127776
+future_labor,20,0
+future_labor_first_zero,17.75,0

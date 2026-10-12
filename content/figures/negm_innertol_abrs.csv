@@ -1,0 +1,3 @@
+nB,nA,egmn_serial_s,negm_tol11_serial_s,negm_tol9_serial_s,factor_tol11,factor_tol9,iters_negm_tol11,iters_negm_tol9,dist_c_tol9_vs_tol11
+40,60,0.7907,9.4877,160.7854,12.0,203.3,473,8000,1.15e-07
+80,120,3.2191,41.8999,678.9171,13.0,210.9,481,8000,9.17e-08

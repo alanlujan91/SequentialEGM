@@ -1,0 +1,4 @@
+nB,nA,iterations,evals_mean_final,evals_mean_all_steps,evals_median_final,evals_max_final,interior_share_final,bisection_share_final
+40,60,473,12.974,12.791,12,39,0.99972,0.98306
+80,120,481,13.342,13.022,12,37,0.99993,0.99160
+160,240,487,13.490,13.141,12,38,0.99999,0.99582

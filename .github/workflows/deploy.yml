@@ -1,0 +1,74 @@
+# Test the code, build the website with every notebook executed, and publish it to
+# GitHub Pages from main of alanlujan91/sequential_egm. Set Settings > Pages > Source
+# to "GitHub Actions" there; any other repository runs the checks and deploys nothing.
+
+name: Site
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+env:
+  # The site is served from https://<domain>/<repository name>.
+  BASE_URL: /${{ github.event.repository.name }}
+permissions:
+  contents: read
+# One run per ref; a newer push cancels a pull request's run, never a deployment.
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: make test
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          enable-cache: true
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: uv sync --locked
+      # The theme fetches its web fonts instead of tracking them (its README, "Fonts").
+      - run: bash content/theme/econ-ark-myst/scripts/fonts.sh webfonts
+      # A fresh runner's first matplotlib import announces its font cache on stderr,
+      # which the output check below would fail inside a notebook.
+      - run: uv run python -c "import matplotlib.pyplot"
+      # Executes every notebook, then fails if a notebook page has no outputs, an
+      # error output, or stderr text (code/check_notebook_outputs.py).
+      - run: make html
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ./_build/html
+  deploy:
+    needs: [test, site]
+    if: >-
+      github.repository == 'alanlujan91/sequential_egm'
+      && github.event_name != 'pull_request'
+      && github.ref == 'refs/heads/main'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

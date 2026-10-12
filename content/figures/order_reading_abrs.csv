@@ -1,0 +1,4 @@
+resolution,nB,nA,reversal_cost,rev_log10_median,policy_dist_engine,policy_dist_curvilinear
+coarse,24,20,1.053,-1.786,4.654e-04,4.945e-05
+medium,48,40,1.047,-2.475,1.225e-03,1.281e-04
+fine,96,80,0.991,-3.143,1.437e-03,1.500e-04

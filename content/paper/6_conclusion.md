@@ -1,0 +1,16 @@
+
+(conclusion)=
+
+# Conclusion
+
+Economically simultaneous decisions need not be computationally joint. Because both of the consumption-labor problem's first-order conditions invert analytically, EGM$^n$ needs neither grid search nor root-finding at either stage. The leisure margin receives the same closed-form EGM inversion that {cite:t}`Carroll2006` applied to consumption. The two-asset block replaces the nested method's embedded numerical search with a second closed-form inversion. [Section 3](#multdim-abrs) documents the speedup at matched grids and tolerance: the serial gap is roughly a factor of thirteen, and sixteen matched threads still leave EGM$^n$ $3.7$ to $7.9$ times faster. There the two solvers agree to a median of under half a percent on both asset margins; EGM$^n$ carries the smaller regular-grid liquid Euler residual.
+
+With EGM$^n$ held fixed and only the Stage-0 regrid swapped, ENGINE cuts full-solve time by a factor of roughly three to four and a half with robust Euler errors within two percent. On the health model, EGM$^n$ with ENGINE solves $2.8$ to $4.7$ times faster than the simultaneous solver with the curvilinear method.
+
+EGM$^n$ applies only when a stage has an explicitly evaluable, single-valued first-order-condition inverse and feasibility and curvature confirm the optimum. ENGINE separately requires a fold-free, index-monotone mesh; analytic inversion alone does not guarantee one. Both conditions are instead checked directly, cell by cell, on every reported mesh.
+
+Stages that still require numerical optimization gain only the decomposition itself, which shrinks the grid search or root-find to the stage's own lower dimension, the observation on which NEGM builds {cite:p}`Druedahl2021`. Discrete choices and severe non-convexities break the monotonicity both algorithms require and belong to G2EGM {cite:p}`Druedahl2017`; in the paper's consumption-labor and two-asset applications, the leisure and asset bounds are handled on separate branches that preserve the required ordering. Repeated estimation solves can accumulate the per-solve savings when their household blocks retain this stage structure. The two-asset consumption model of {cite:t}`kaplan2014model`, the setting closest to this paper's own application, turns on exactly this kind of interacting liquid and illiquid choice; life-cycle wealth accumulation {cite:p}`cagetti2003wealth` and household balance-sheet dynamics {cite:p}`fagereng_mpc_2021` pose the same structure.
+
+Both algorithms are implemented in the Econ-ARK HARK toolkit {cite:p}`Carroll2018`, and the replication archive reproduces every figure and table in this paper.
+
+Two extensions look tractable, one widening the problem class and one economizing the grid. A hybrid would invert the separable stages and hand only the stage carrying a discrete choice to G2EGM's upper envelope, which would reach problems that mix the two structures without paying the envelope's cost at every stage. Adaptive refinement would concentrate grid points where the policy bends, a location the warp sweep of [Online Appendix A](#appendix-online) already measures. Can the index correspondence be rebuilt cheaply enough between refinements to keep ENGINE's arithmetic advantage?

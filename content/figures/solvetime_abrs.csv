@@ -1,0 +1,10 @@
+resolution,nB,nA,method,status,solve_seconds,iters,log10_median,log10_p95,log10_max
+coarse,24,20,engine,ok,0.1393,384,-1.787,-1.103,-1.081
+coarse,24,20,curvilinear,ok,0.3833,384,-1.786,-1.102,-1.080
+coarse,24,20,delaunay,fails_no_convergence,,8000,,,
+medium,48,40,engine,ok,0.2330,404,-2.470,-1.731,-1.695
+medium,48,40,curvilinear,ok,0.8220,404,-2.475,-1.734,-1.696
+medium,48,40,delaunay,fails_no_convergence,,8000,,,
+fine,96,80,engine,ok,0.5701,412,-3.139,-2.383,-2.107
+fine,96,80,curvilinear,ok,2.5399,414,-3.144,-2.384,-2.109
+fine,96,80,delaunay,fails_no_convergence,,8000,,,

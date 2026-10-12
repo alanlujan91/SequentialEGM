@@ -1,0 +1,56 @@
+# Check the environment mybinder.org builds, and build its image after each push to main.
+# mybinder.org (repo2docker) installs pyproject.toml with pip from PyPI, not uv.lock, on the
+# newest Python that requires-python allows, so a dependency's new release can break the
+# live notebooks while the locked site build stays green. The weekly run catches that.
+
+name: Binder
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: binder-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  pip-environment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true
+          persist-credentials: false
+      # repo2docker's newest supported Python inside requires-python (>=3.12).
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: python -m pip install -e .
+      # A fresh runner's first matplotlib import announces its font cache on stderr.
+      - run: python -c "import matplotlib.pyplot"
+      - run: make test RUN=
+      - run: make html RUN=
+  prebuild:
+    needs: pip-environment
+    if: >-
+      github.repository == 'alanlujan91/sequential_egm'
+      && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      # mybinder.org redirects to the federation member its rendezvous hash assigns this
+      # repository (any ref), where the site's launches also go while that member is
+      # healthy, and streams build events from there until the image is built and launched.
+      - name: Build the image on mybinder.org
+        run: |
+          curl -sSNL --max-time 3300 -H "Accept: text/event-stream" \
+            "https://mybinder.org/build/gh/${GITHUB_REPOSITORY}/main" \
+            | grep --line-buffered -m1 -E '"phase": ?"(ready|failed)"' | tee phase.txt
+          grep -q '"ready"' phase.txt
