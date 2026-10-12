@@ -37,8 +37,11 @@ jobs:
       - run: python -c "import matplotlib.pyplot"
       - run: make test RUN=
       - run: make html RUN=
+  # Warms mybinder.org, a volunteer service whose build nodes fail on their own at times
+  # ("too many open files"), so a failed prebuild never fails the run.
   prebuild:
     needs: pip-environment
+    continue-on-error: true
     if: >-
       github.repository == 'alanlujan91/sequential_egm'
       && github.event_name == 'push'
@@ -52,5 +55,10 @@ jobs:
         run: |
           curl -sSNL --max-time 3300 -H "Accept: text/event-stream" \
             "https://mybinder.org/build/gh/${GITHUB_REPOSITORY}/main" \
-            | grep --line-buffered -m1 -E '"phase": ?"(ready|failed)"' | tee phase.txt
-          grep -q '"ready"' phase.txt
+            | tee events.txt \
+            | grep --line-buffered -m1 -E '"phase": ?"(ready|failed)"' > phase.txt || true
+          cat phase.txt
+          if ! grep -q '"ready"' phase.txt; then
+            grep '^data:' events.txt | tail -n 40
+            exit 1
+          fi
